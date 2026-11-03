@@ -21,7 +21,10 @@ object PageTable:
     JobId(r.getString("current_job_id")),
     Option(r.getString("referrer_id")).map(PageId(_)),
     Option(r.getString("error")),
-    r.getString("source")
+    r.getString("source"),
+    Option(r.getString("navigation_context")).map(s =>
+      decode[NavigationContext](s).fold(throw _, identity)
+    )
   )
   private val findByIdSql = "SELECT * FROM pages WHERE id=?"
   def findById(c: Connection, id: PageId): IO[Option[PageRecord]] =
@@ -33,13 +36,14 @@ object PageTable:
   def lockById(c: Connection, id: PageId): IO[Option[PageRecord]] =
     SqlExecutor.query(c, lockSql, List(id.value))(row).map(_.headOption)
   private val insertSql =
-    "INSERT INTO pages(id,address,kind,prompt,status,current_job_id,referrer_id) VALUES(?,?,?,?,'generating',?,?) ON CONFLICT(address) DO NOTHING"
+    "INSERT INTO pages(id,address,kind,prompt,status,current_job_id,referrer_id,navigation_context) VALUES(?,?,?,?,'generating',?,?,?::jsonb) ON CONFLICT(address) DO NOTHING"
   def insertPending(
       c: Connection,
       id: PageId,
       address: VirtualAddress,
       jobId: JobId,
-      referrer: Option[PageId]
+      referrer: Option[PageId],
+      context: Option[NavigationContext] = None
   ): IO[Boolean] =
     SqlExecutor
       .update(
@@ -51,7 +55,8 @@ object PageTable:
           PageKind.toString(address.kind),
           address.prompt,
           jobId.value,
-          referrer.map(_.value).orNull
+          referrer.map(_.value).orNull,
+          context.map(_.asJson.noSpaces).orNull
         )
       )
       .map(_ == 1)

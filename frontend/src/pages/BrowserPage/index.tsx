@@ -163,8 +163,8 @@ export default function BrowserPage() {
           key={item.id}
           tab={item}
           active={item.id === activeTabId}
-          onNavigate={(input, referrer) =>
-            void navigation.navigate(input, referrer, item.id)
+          onNavigate={(input, referrer, sourceBlockId) =>
+            void navigation.navigate(input, referrer, item.id, sourceBlockId)
           }
           onRetry={() => void navigation.retry(item.id)}
           onCancel={() => navigation.cancel(item.id)}

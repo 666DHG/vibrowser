@@ -28,7 +28,7 @@ object PageValidation:
             BlockType.Product,
             BlockType.Thread,
             BlockType.Stat
-          )(block.`type`) && block.title.forall(_.trim.isEmpty)
+          )(block.`type`) && block.title.forall(_.trim.isEmpty) && block.entityId.isEmpty
         )(ValidationIssue(path, "缺少标题")),
         Option.when(block.`type` == BlockType.Button && block.target.isEmpty)(
           ValidationIssue(path, "按钮缺少链接")
@@ -59,7 +59,7 @@ object PageValidation:
     def all(blocks: List[PageBlock]): List[PageBlock] = blocks.flatMap(b => b :: all(b.items))
     val flat = all(spec.blocks)
     List(
-      Option.when(spec.schemaVersion != 1)(ValidationIssue("schemaVersion", "仅支持版本 1")),
+      Option.when(!Set(1, 2)(spec.schemaVersion))(ValidationIssue("schemaVersion", "仅支持版本 1、2")),
       Option
         .when(spec.title.trim.isEmpty || spec.title.length > 160)(ValidationIssue("title", "标题无效")),
       Option.when(spec.description.length > 500)(ValidationIssue("description", "摘要过长")),
@@ -70,4 +70,6 @@ object PageValidation:
         )
       ),
       Option.when(flat.map(_.id).distinct.size != flat.size)(ValidationIssue("blocks", "组件 ID 重复"))
-    ).flatten ++ spec.blocks.zipWithIndex.flatMap((b, i) => inspect(b, 1, s"blocks[$i]"))
+    ).flatten ++ EntityValidation.validate(spec, base, flat) ++ spec.blocks.zipWithIndex.flatMap(
+      (b, i) => inspect(b, 1, s"blocks[$i]")
+    )

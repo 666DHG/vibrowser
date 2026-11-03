@@ -19,6 +19,7 @@ const pendingSchema = z.object({
   mode: z.enum(["navigate", "cached"]),
   pageId: z.string().optional(),
   referrerPageId: z.string().optional(),
+  sourceBlockId: z.string().optional(),
   historyIndex: z.number().int().optional(),
 });
 const sessionSchema = z.object({
@@ -148,6 +149,7 @@ function savedSession(session: BrowserSession) {
               mode: tab.pending.mode,
               pageId: tab.pending.pageId,
               referrerPageId: tab.pending.referrerPageId,
+              sourceBlockId: tab.pending.sourceBlockId,
               historyIndex: tab.pending.historyIndex,
             }
           : null,

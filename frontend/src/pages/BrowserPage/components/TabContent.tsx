@@ -40,6 +40,13 @@ export function TabContent({
   useEffect(() => {
     if (viewport.current) viewport.current.scrollTop = 0;
   }, [pageId]);
+  const [arriving, setArriving] = useState(false);
+  useEffect(() => {
+    setArriving(content.status === "ready");
+    const timer = setTimeout(() => setArriving(false), 120);
+    return () => clearTimeout(timer);
+  }, [pageId]);
+  useEffect(() => setArriving(false), [active]);
   const dismiss = useCallback(() => {
     if (pending) dismissPending(tab.id, pending.requestId);
   }, [tab.id, pending?.requestId]);
@@ -103,7 +110,10 @@ export function TabContent({
         )}
         {content.status === "bookmarks" && bookmarks}
         {content.status === "ready" && content.page.spec && (
-          <div key={content.page.id} className="page-arrival min-h-full">
+          <div
+            key={content.page.id}
+            className={"min-h-full " + (arriving ? "page-arrival" : "")}
+          >
             <PageRenderer
               spec={content.page.spec}
               onNavigate={(target, sourceBlockId) =>

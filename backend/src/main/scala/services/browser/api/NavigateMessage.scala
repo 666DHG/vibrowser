@@ -11,9 +11,12 @@ import services.browser.tables.PageTable.PageTable
 import services.generation.tables.GenerationJobTable.GenerationJobTable
 import services.generation.objects.*
 import services.settings.tables.SettingsTable.SettingsTable
-import services.browser.utils.AddressRules
-final case class NavigateMessage(input: String, referrerPageId: Option[PageId])
-    extends APIMessage[NavigationResponse]:
+import services.browser.utils.{AddressRules, NavigationContexts}
+final case class NavigateMessage(
+    input: String,
+    referrerPageId: Option[PageId],
+    sourceBlockId: Option[String] = None
+) extends APIMessage[NavigationResponse]:
   override def plan(connection: Connection): IO[NavigationResponse] =
     for
       source <- referrerPageId.fold(IO.pure(Option.empty[PageRecord]))(
@@ -30,6 +33,12 @@ final case class NavigateMessage(input: String, referrerPageId: Option[PageId])
         case Some(page) => IO.pure(NavigationResponse(page.id, page.currentJobId, page.status))
         case None =>
           for
+            context <- IO.fromEither(
+              NavigationContexts
+                .capture(source, sourceBlockId, address.canonical)
+                .left
+                .map(m => AppError("invalid_source", m))
+            )
             config <- SettingsTable.get(connection)
             pageId <- IO(PageId(java.util.UUID.randomUUID().toString))
             jobId <- IO(JobId(java.util.UUID.randomUUID().toString))
@@ -38,7 +47,8 @@ final case class NavigateMessage(input: String, referrerPageId: Option[PageId])
               pageId,
               address,
               jobId,
-              source.map(_.id)
+              source.map(_.id),
+              context
             )
             _ <-
               if inserted then

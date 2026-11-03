@@ -40,6 +40,10 @@ class ContractSuite extends FunSuite:
       AddressRules.classify("https://XX.com:443/menu?q=1#x", None).map(_.canonical),
       Right("https://xx.com/menu?q=1")
     )
+    assertEquals(
+      AddressRules.classify("https://forum.example/a/../t/夜航", None).map(_.canonical),
+      Right("https://forum.example/t/%E5%A4%9C%E8%88%AA")
+    )
     assertEquals(AddressRules.classify("月球旅行", None).map(_.kind), Right(PageKind.Search))
     assertEquals(
       AddressRules.classify("/menu", Some("https://x.example/")).map(_.canonical),

@@ -1,7 +1,9 @@
+import type { PageEntity } from "../../../shared/pageEntity";
 import type { CSSProperties } from "react";
 import type { PageSpec, PageBlock, PageDesign } from "../../../shared/pageSpec";
 export type PageLayout = PageDesign["layout"];
 export interface RenderContext {
+  entities: PageEntity[];
   layout: PageLayout;
   density: PageDesign["density"];
   onNavigate: (target: string, sourceBlockId?: string) => void;

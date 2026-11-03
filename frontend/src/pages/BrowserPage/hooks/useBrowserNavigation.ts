@@ -150,6 +150,7 @@ export function useBrowserNavigation() {
         const result = await new NavigateMessage(
           input,
           pending.referrerPageId ?? null,
+          pending.sourceBlockId ?? null,
         ).send(c.signal);
         pageId = result.pageId;
         if (!c.signal.aborted)
@@ -168,12 +169,13 @@ export function useBrowserNavigation() {
     input: string,
     referrerPageId?: string,
     id = activeId(),
+    sourceBlockId?: string,
   ) => {
     if (input.trim() === "vibrowser://bookmarks") {
       openBookmarks();
       return Promise.resolve();
     }
-    return run(id, input, { referrerPageId });
+    return run(id, input, { referrerPageId, sourceBlockId });
   };
   const move = (index: number) => {
     const id = activeId();

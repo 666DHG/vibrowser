@@ -8,7 +8,12 @@ type Props = {
 export function PageRenderer({ spec, onNavigate }: Props) {
   const appearance = pageAppearance(spec);
   const { layout, density, typography } = appearance.design;
-  const context = { layout, density, onNavigate };
+  const context = {
+    layout,
+    density,
+    onNavigate,
+    entities: spec.entities ?? [],
+  };
   const asideFirst = ["documentation", "storefront", "dashboard"].includes(
     layout,
   );

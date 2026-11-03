@@ -1,3 +1,4 @@
+import { bindEntity } from "../functions/bindEntity";
 import type { PageBlock } from "../../../shared/pageSpec";
 import { ContentBlock } from "./ContentBlock";
 import {
@@ -6,7 +7,7 @@ import {
   type RenderContext,
 } from "./pageDesign";
 export function PageBlockView({
-  block,
+  block: original,
   context,
   parent,
 }: {
@@ -14,6 +15,7 @@ export function PageBlockView({
   context: RenderContext;
   parent?: string;
 }) {
+  const block = bindEntity(original, context.entities);
   const children = block.items.map((item) => (
     <PageBlockView
       key={item.id}
@@ -129,6 +131,7 @@ export function PageBlockView({
   return (
     <div
       data-block-type={block.type}
+      data-block-id={block.id}
       className={"min-w-0 " + variantClasses(block)}
     >
       {content}

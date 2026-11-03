@@ -17,6 +17,7 @@ export interface PendingNavigation {
   finishedAt?: number;
   pageId?: string;
   referrerPageId?: string;
+  sourceBlockId?: string;
   historyIndex?: number;
   job?: Job;
   failedPage?: PageRecord;

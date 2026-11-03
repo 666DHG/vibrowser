@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Vibrowser PageSpec v1",
+  "title": "Vibrowser PageSpec v1/v2",
   "type": "object",
   "required": [
     "schemaVersion",
@@ -11,7 +11,10 @@
   ],
   "properties": {
     "schemaVersion": {
-      "const": 1
+      "enum": [
+        1,
+        2
+      ]
     },
     "title": {
       "type": "string",
@@ -89,6 +92,20 @@
           }
         }
       ]
+    },
+    "entities": {
+      "type": "array",
+      "maxItems": 48,
+      "items": {
+        "$ref": "#/$defs/entity"
+      }
+    },
+    "subjectEntityId": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 2048
     }
   },
   "$defs": {
@@ -200,9 +217,127 @@
               }
             }
           ]
+        },
+        "entityId": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 2048
+        },
+        "replyRange": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "required": [
+                "from",
+                "to"
+              ],
+              "properties": {
+                "from": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "to": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "required": [
+        "id",
+        "kind",
+        "title"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "maxLength": 2048
+        },
+        "kind": {
+          "enum": [
+            "thread",
+            "article",
+            "product",
+            "page"
+          ]
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "summary": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 6000
+        },
+        "author": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 160
+        },
+        "publishedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 160
+        },
+        "replyCount": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "legacyMeta": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 240
+        },
+        "price": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "required": [
+                "amount",
+                "currency"
+              ],
+              "properties": {
+                "amount": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "currency": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 12
+                }
+              }
+            }
+          ]
         }
       }
     }
   },
-  "description": "All nested blocks count toward the 48 block limit; maximum nesting depth is 4. Legacy pages without design/meta/style remain valid. Container, link and content rules are checked by both applications."
+  "description": "All nested blocks count toward the 48 block limit; maximum nesting depth is 4. Legacy pages without design/meta/style remain valid. Container, link and content rules are checked by both applications. Version 2 binds blocks to canonical URL entities; applications check references, target matching and reply range/count consistency."
 }

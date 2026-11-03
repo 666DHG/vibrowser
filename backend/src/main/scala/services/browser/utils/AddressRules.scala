@@ -25,7 +25,7 @@ object AddressRules:
       )
   private[browser] def web(raw: String): Either[String, VirtualAddress] =
     Try {
-      val uri = new URI(raw)
+      val uri = new URI(raw).normalize()
       val scheme = Option(uri.getScheme).getOrElse("").toLowerCase(java.util.Locale.ROOT)
       val authority = Option(uri.getRawAuthority).getOrElse("")
       val host = Option(uri.getHost).getOrElse(authority.takeWhile(_ != ':'))
@@ -54,9 +54,10 @@ object AddressRules:
         if (scheme == "https" && explicitPort == 443) || (scheme == "http" && explicitPort == 80)
         then -1
         else explicitPort
-      val path = Option(uri.getRawPath).filter(_.nonEmpty).getOrElse("/")
+      val asciiUri = new URI(uri.toASCIIString)
+      val path = Option(asciiUri.getRawPath).filter(_.nonEmpty).getOrElse("/")
       val normalized = scheme + "://" + asciiHost + (if port == -1 then "" else ":" + port) + path +
-        Option(uri.getRawQuery).fold("")("?" + _)
+        Option(asciiUri.getRawQuery).fold("")("?" + _)
       VirtualAddress(normalized, PageKind.Website, normalized)
     }.toEither.left.map(_ => "网址无效：请使用公开域名的 http/https 地址")
   private[browser] def resolveLink(target: String, source: String): Either[String, String] =

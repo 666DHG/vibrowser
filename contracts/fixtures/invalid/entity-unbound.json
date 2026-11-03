@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 2,
+  "title": "月面树洞",
+  "description": "月面夜班交流社区",
+  "theme": "paper",
+  "design": {
+    "layout": "community",
+    "typography": "sans",
+    "density": "compact",
+    "accent": "green"
+  },
+  "entities": [
+    {
+      "id": "https://moon-coffee.example/t/84458",
+      "kind": "thread",
+      "title": "夜航回来的那一杯",
+      "summary": "大家夜班结束后喝什么？",
+      "author": "月面旅人",
+      "publishedAt": "2026-11-03 20:14",
+      "replyCount": 37
+    }
+  ],
+  "subjectEntityId": null,
+  "blocks": [
+    {
+      "id": "thread-84458",
+      "type": "thread",
+      "title": null,
+      "text": null,
+      "target": "/t/84458",
+      "items": [],
+      "entityId": null
+    }
+  ]
+}

@@ -8,8 +8,16 @@ final case class PageSpec(
     description: String,
     theme: Theme,
     blocks: List[PageBlock],
-    design: Option[PageDesign] = None
+    design: Option[PageDesign] = None,
+    entities: List[PageEntity] = Nil,
+    subjectEntityId: Option[String] = None
 )
 object PageSpec:
   given Encoder[PageSpec] = deriveEncoder
-  given Decoder[PageSpec] = deriveDecoder
+  given Decoder[PageSpec] = deriveDecoder[PageSpec].prepare(
+    _.withFocus(
+      _.mapObject(fields =>
+        if fields.contains("entities") then fields else fields.add("entities", io.circe.Json.arr())
+      )
+    )
+  )

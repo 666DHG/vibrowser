@@ -13,7 +13,8 @@ final case class PageRecord(
     currentJobId: JobId,
     referrerId: Option[PageId],
     error: Option[String],
-    source: String
+    source: String,
+    navigationContext: Option[NavigationContext] = None
 )
 object PageRecord:
   given Encoder[PageRecord] = deriveEncoder

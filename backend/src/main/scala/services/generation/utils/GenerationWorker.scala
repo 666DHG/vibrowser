@@ -50,10 +50,7 @@ private[generation] final class GenerationWorker(
             page <- database
               .transaction(c => PageTable.findById(c, id))
               .flatMap(IO.fromOption(_)(AppError("not_found", "页面不存在", 404)))
-            source <- page.referrerId.fold(IO.pure(Option.empty[PageRecord]))(ref =>
-              database.transaction(c => PageTable.findById(c, ref))
-            )
-            spec <- generate(config, page, PromptBuilder.request(page, source), 0)
+            spec <- generate(config, page, PromptBuilder.request(page), 0)
           yield Some(spec)
       current <- database.transaction(c => GenerationJobTable.findById(c, job.id))
       _ <- database.transaction(
@@ -82,7 +79,8 @@ private[generation] final class GenerationWorker(
             attempt + 1
           ).plan
         )
-        spec <- IO.fromEither(GeneratedPageDecoder.decode(text))
+        decoded <- IO.fromEither(GeneratedPageDecoder.decode(text))
+        spec <- IO.fromEither(InheritedContent.prepare(decoded, page))
         issues <- database.transaction(ValidateGeneratedContentMessage(spec, page.address).plan)
         _ <- IO.raiseWhen(issues.nonEmpty)(
           AppError(

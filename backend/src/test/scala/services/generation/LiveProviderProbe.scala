@@ -39,7 +39,7 @@ object LiveProviderProbe extends IOApp.Simple:
             text <- new DeepSeekCompatibleClient(client).complete(
               config,
               PromptBuilder.system,
-              PromptBuilder.request(page, None),
+              PromptBuilder.request(page),
               false
             )
             _ <- IO.blocking(

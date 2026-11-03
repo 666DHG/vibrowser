@@ -132,7 +132,11 @@ class IntegrationSuite extends CatsEffectSuite:
                     IO.raiseError(AppError("provider_timeout", "timeout", 504))
                   else if scenario == "empty" then
                     IO.raiseError(AppError("provider_content", "empty", 502))
-                  else IO.pure(if n == 0 then "{invalid json" else fixture)
+                  else
+                    IO.pure(
+                      if n == 0 then "{invalid json"
+                      else spec.copy(schemaVersion = 2).asJson.noSpaces
+                    )
                 }
             nav <- db.transaction(NavigateMessage(s"$scenario.example", None).plan)
             job <- db.transaction(ClaimGenerationJobMessage().plan).map(_.get)
@@ -235,5 +239,83 @@ class IntegrationSuite extends CatsEffectSuite:
           List(GenerationPhase.Preparing, GenerationPhase.Failed)
         )
       yield ()
+    }
+  }
+
+  test("click snapshots persist across retry and conflicting entity facts get at most one repair") {
+    List(false, true).traverse_ { keepConflict =>
+      isolated { db =>
+        val parentSpec = decode[PageSpec](
+          Files.readString(Paths.get("../contracts/fixtures/valid/entities-list.json"))
+        ).toOption.get
+        val entity = parentSpec.entities.head
+        val body = PageBlock(
+          "body",
+          BlockType.Article,
+          None,
+          Some("详情正文"),
+          None,
+          Nil,
+          entityId = Some(entity.id)
+        )
+        val detail = PageSpec(
+          2,
+          "详情",
+          "摘要",
+          Theme.Paper,
+          List(body),
+          entities = List(entity),
+          subjectEntityId = Some(entity.id)
+        )
+        for
+          root <- db.transaction(NavigateMessage("moon-coffee.example", None).plan)
+          _ <- db.transaction(ClaimGenerationJobMessage().plan)
+          _ <- db.transaction(
+            CompleteGenerationJobMessage(root.jobId, Some(parentSpec), "mock").plan
+          )
+          nav <- db.transaction(
+            NavigateMessage(entity.id, Some(root.pageId), Some("thread-84458")).plan
+          )
+          before <- db.transaction(c => PageTable.findById(c, nav.pageId)).map(_.get)
+          _ = assertEquals(before.navigationContext.get.entities.head, entity)
+          _ <- db.transaction(SchemaInitializer.initialize)
+          reread <- db.transaction(c => PageTable.findById(c, nav.pageId)).map(_.get)
+          _ = assertEquals(reread.navigationContext, before.navigationContext)
+          count <- Ref.of[IO, Int](0)
+          client = new TextGenerationClient:
+            def complete(
+                config: ProviderConnection,
+                system: String,
+                prompt: String,
+                test: Boolean
+            ): IO[String] =
+              count.getAndUpdate(_ + 1).map { n =>
+                assert(prompt.contains("thread-84458"))
+                (if n == 0 || keepConflict then
+                   detail.copy(entities = List(entity.copy(replyCount = Some(2))))
+                 else detail).asJson.noSpaces
+              }
+          job <- db.transaction(ClaimGenerationJobMessage().plan).map(_.get)
+          result <- new GenerationWorker(db, client, true).execute(job).attempt
+          attempts <- count.get
+          _ = assertEquals(attempts, 2)
+          _ = assertEquals(result.isLeft, keepConflict)
+          saved <- db.transaction(GetPageMessage(Some(nav.pageId), None).plan)
+          _ = assertEquals(saved.job.get.steps.count(_.phase == GenerationPhase.Repairing), 1)
+          _ <-
+            if keepConflict then
+              for
+                _ <- db.transaction(FailGenerationJobMessage(job.id, "事实冲突").plan)
+                _ <- db.transaction(RetryPageMessage(nav.pageId, job.id).plan)
+                retry <- db.transaction(c => PageTable.findById(c, nav.pageId)).map(_.get)
+                _ = assertEquals(retry.navigationContext, before.navigationContext)
+              yield ()
+            else IO { assertEquals(saved.page.get.spec.get.entities.head.replyCount, Some(37)) }
+          cached <- db.transaction(NavigateMessage(entity.id, None).plan)
+          _ = assertEquals(cached.pageId, nav.pageId)
+          unchanged <- db.transaction(c => PageTable.findById(c, nav.pageId)).map(_.get)
+          _ = assertEquals(unchanged.navigationContext, before.navigationContext)
+        yield ()
+      }
     }
   }

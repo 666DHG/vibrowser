@@ -1,3 +1,8 @@
+import {
+  pageEntitySchema,
+  replyRangeSchema,
+  type ReplyRange,
+} from "./pageEntity";
 import { z } from "zod";
 export const blockTypes = [
   "navbar",
@@ -56,6 +61,8 @@ export interface PageBlock {
   items: PageBlock[];
   meta?: string | null;
   style?: BlockStyle | null;
+  entityId?: string | null;
+  replyRange?: ReplyRange | null;
 }
 const blockSchema: z.ZodType<PageBlock> = z.lazy(() =>
   z.object({
@@ -67,11 +74,13 @@ const blockSchema: z.ZodType<PageBlock> = z.lazy(() =>
     items: z.array(blockSchema).max(PAGE_LIMITS.blocks),
     meta: z.string().max(240).nullish(),
     style: blockStyleSchema.nullish(),
+    entityId: z.string().max(2048).nullish(),
+    replyRange: replyRangeSchema.nullish(),
   }),
 );
 export const pageSpecSchema = z
   .object({
-    schemaVersion: z.literal(1),
+    schemaVersion: z.union([z.literal(1), z.literal(2)]),
     title: z.string().trim().min(1).max(160),
     description: z.string().max(500),
     theme: z.enum([
@@ -84,13 +93,66 @@ export const pageSpecSchema = z
       "sage",
     ]),
     design: pageDesignSchema.nullish(),
+    entities: z.array(pageEntitySchema).max(48).default([]),
+    subjectEntityId: z.string().nullish(),
     blocks: z.array(blockSchema).min(1).max(PAGE_LIMITS.blocks),
   })
   .superRefine((page, ctx) => {
+    const entities = new Map(
+      page.entities.map((entity) => [entity.id, entity]),
+    );
+    const issue = (message: string) =>
+      ctx.addIssue({ code: "custom", message });
+    if (entities.size !== page.entities.length) issue("实体标识重复");
+    if (
+      page.schemaVersion === 1 &&
+      (page.entities.length || page.subjectEntityId)
+    )
+      issue("实体需要版本2");
+    for (const entity of page.entities) {
+      if (
+        !/^https?:\/\//.test(entity.id) ||
+        !safeTarget(entity.id) ||
+        new URL(entity.id).href !== entity.id ||
+        new URL(entity.id).hash
+      )
+        issue("实体地址无效");
+    }
+    if (page.subjectEntityId && !entities.has(page.subjectEntityId))
+      issue("主体实体不存在");
+    let subjectVisible = false;
     const ids = new Set<string>();
     let count = 0;
     function visit(block: PageBlock, depth: number) {
       count++;
+      const entity = block.entityId ? entities.get(block.entityId) : undefined;
+      if (block.entityId && (!entity || page.schemaVersion !== 2))
+        issue("实体引用不存在");
+      if (
+        page.schemaVersion === 2 &&
+        block.target &&
+        ["article", "thread", "product"].includes(block.type) &&
+        !entity
+      )
+        issue("条目缺少实体引用");
+      if (
+        entity &&
+        block.target &&
+        /^https?:\/\//.test(block.target) &&
+        new URL(block.target).href.split("#")[0] !== entity.id
+      )
+        issue("链接与实体不匹配");
+      if (block.entityId === page.subjectEntityId && !block.replyRange)
+        subjectVisible = true;
+      const range = block.replyRange;
+      if (
+        range &&
+        (range.to < range.from ||
+          entity?.replyCount == null ||
+          range.to > entity.replyCount ||
+          block.items.length !== range.to - range.from + 1)
+      )
+        issue("回复范围无效");
       if (ids.has(block.id) || depth > PAGE_LIMITS.depth)
         ctx.addIssue({ code: "custom", message: "重复组件 ID 或嵌套过深" });
       ids.add(block.id);
@@ -103,7 +165,8 @@ export const pageSpecSchema = z
         ["button", "card", "article", "product", "thread", "stat"].includes(
           block.type,
         ) &&
-        !block.title?.trim()
+        !block.title?.trim() &&
+        !entity
       )
         ctx.addIssue({ code: "custom", message: "缺少标题" });
       if (block.type === "button" && !block.target)
@@ -115,6 +178,7 @@ export const pageSpecSchema = z
       block.items.forEach((child) => visit(child, depth + 1));
     }
     page.blocks.forEach((block) => visit(block, 1));
+    if (page.subjectEntityId && !subjectVisible) issue("主体实体未展示");
     if (count > PAGE_LIMITS.blocks)
       ctx.addIssue({ code: "custom", message: "组件总数超过48" });
   });

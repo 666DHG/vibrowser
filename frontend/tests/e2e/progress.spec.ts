@@ -280,6 +280,13 @@ test("progress scroll geometry stays stable through spinner frames and long retr
     return samples;
   });
   expect(new Set(sizes).size).toBe(1);
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  expect(
+    await panel
+      .locator(".animate-spin")
+      .first()
+      .evaluate((node) => getComputedStyle(node).animationName),
+  ).toBe("none");
   const [width, scrollWidth, height, scrollHeight, bodyWidth, bodyScrollWidth] =
     JSON.parse(sizes[0]);
   expect(scrollWidth).toBe(width);

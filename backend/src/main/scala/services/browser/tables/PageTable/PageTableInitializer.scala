@@ -11,5 +11,7 @@ object PageTableInitializer:
     CHECK(status != 'ready' OR spec IS NOT NULL))"""
   private val sourceSql =
     "ALTER TABLE pages ADD COLUMN IF NOT EXISTS source TEXT NOT NULL DEFAULT 'pending'"
+  private val contextSql = "ALTER TABLE pages ADD COLUMN IF NOT EXISTS navigation_context JSONB"
   def initialize(c: Connection): IO[Unit] =
-    SqlExecutor.update(c, createSql) *> SqlExecutor.update(c, sourceSql).void
+    SqlExecutor.update(c, createSql) *> SqlExecutor
+      .update(c, sourceSql) *> SqlExecutor.update(c, contextSql).void

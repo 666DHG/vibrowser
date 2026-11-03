@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 2,
+  "title": "月面树洞",
+  "description": "月面夜班交流社区",
+  "theme": "paper",
+  "design": {
+    "layout": "community",
+    "typography": "sans",
+    "density": "compact",
+    "accent": "green"
+  },
+  "entities": [
+    {
+      "id": "https://moon-coffee.example/",
+      "kind": "thread",
+      "title": "夜航回来的那一杯",
+      "summary": "大家夜班结束后喝什么？",
+      "author": "月面旅人",
+      "publishedAt": "2026-11-03 20:14",
+      "replyCount": 37
+    }
+  ],
+  "subjectEntityId": "https://moon-coffee.example/",
+  "blocks": [
+    {
+      "id": "body",
+      "type": "article",
+      "title": null,
+      "text": "我刚刚结束夜班，来聊一聊。",
+      "target": null,
+      "items": [],
+      "entityId": "https://moon-coffee.example/"
+    },
+    {
+      "id": "replies",
+      "type": "list",
+      "title": "回复",
+      "text": null,
+      "target": null,
+      "items": [
+        {
+          "id": "reply1",
+          "type": "text",
+          "title": null,
+          "text": "我通常点一杯热拿铁。",
+          "target": null,
+          "items": []
+        },
+        {
+          "id": "reply2",
+          "type": "text",
+          "title": null,
+          "text": "夜班结束最喜欢清晨的安静。",
+          "target": null,
+          "items": []
+        }
+      ],
+      "entityId": "https://moon-coffee.example/",
+      "replyRange": {
+        "from": 1,
+        "to": 38
+      }
+    }
+  ]
+}

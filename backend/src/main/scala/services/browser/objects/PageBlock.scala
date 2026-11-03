@@ -10,7 +10,9 @@ final case class PageBlock(
     target: Option[String],
     items: List[PageBlock],
     meta: Option[String] = None,
-    style: Option[BlockStyle] = None
+    style: Option[BlockStyle] = None,
+    entityId: Option[String] = None,
+    replyRange: Option[ReplyRange] = None
 )
 object PageBlock:
   given Encoder[PageBlock] = deriveEncoder
