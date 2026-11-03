@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "title": "月球旅行 — Vibe 搜索",
+  "description": "探索那些尚未存在的网站。",
+  "theme": "paper",
+  "blocks": [
+    {
+      "id": "heading",
+      "type": "hero",
+      "title": "月球旅行",
+      "text": "虚构搜索结果 · 内容由 AI 生成，并非真实互联网搜索",
+      "target": null,
+      "items": []
+    },
+    {
+      "id": "results",
+      "type": "results",
+      "title": null,
+      "text": null,
+      "target": null,
+      "items": [
+        {
+          "id": "r1",
+          "type": "card",
+          "title": "Moon Coffee · 静海咖啡馆",
+          "text": "旅行的第一站，来一杯地出拿铁。",
+          "target": "https://moon-coffee.example",
+          "items": []
+        },
+        {
+          "id": "r2",
+          "type": "card",
+          "title": "Lunar Atlas · 月面旅行图鉴",
+          "text": "探索环形山、静海与地球升起的观景点。",
+          "target": "https://lunar-atlas.example",
+          "items": []
+        },
+        {
+          "id": "r3",
+          "type": "card",
+          "title": "Orbital Stay · 月球旅宿",
+          "text": "为跨越星际的旅行者准备的一扇窗。",
+          "target": "https://orbital-stay.example",
+          "items": []
+        }
+      ]
+    },
+    {
+      "id": "foot",
+      "type": "footer",
+      "title": "继续探索",
+      "text": "点击一个结果，让这个网站开始存在。",
+      "target": null,
+      "items": []
+    }
+  ]
+}

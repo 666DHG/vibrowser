@@ -1,0 +1,18 @@
+package services.settings.api
+import cats.effect.IO
+import java.sql.Connection
+import io.circe.Decoder
+import io.circe.generic.semiauto.*
+import services.system.api.NoRequestMessage
+import services.system.objects.AppError
+import services.settings.objects.*
+import services.settings.objects.apiTypes.*
+import services.settings.tables.SettingsTable.SettingsTable
+import services.settings.tables.CredentialsTable.CredentialsTable
+import services.settings.utils.*
+
+final case class GetSettingsMessage() extends NoRequestMessage[ProviderSettings]:
+  override def plan(connection: Connection): IO[ProviderSettings] =
+    SettingsTable.get(connection)
+object GetSettingsMessage:
+  given Decoder[GetSettingsMessage] = deriveDecoder
