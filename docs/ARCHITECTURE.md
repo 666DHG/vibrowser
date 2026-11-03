@@ -1,104 +1,166 @@
 # 架构与开发边界
 
-本文是待实现的设计基线，不代表已有接口或数据库。具体字段在 D1.1 固化为机器可校验契约。
+本文是待实现设计基线。依据课程讲义与本地 rules.txt 修订，替代初版通用 api/domain/service/infrastructure 分层和 REST 端点草案。具体任务见 [ROADMAP.md](ROADMAP.md)，规范出处见 [COURSE_STANDARDS.md](COURSE_STANDARDS.md)。
 
-## 职责分层
+## 1. 三个逻辑模块，单进程部署
+
+| 模块 | 维护责任 | 不承担的责任 |
+| --- | --- | --- |
+| services/browser | 地址、页面与文件、站点设定、导航、内容校验；sites/pages | provider 网络调用、通用连接池 |
+| services/generation | 生成任务、上下文装配、provider、worker、重试；generation_jobs | 浏览器 UI、宿主文件读取 |
+| services/system | 消息框架、路由基础设施、连接/事务、配置、启动和共享错误 | 具体网页与生成业务规则 |
+
+Browser Runtime、Vibe Engine、World Store 是概念责任：分别由浏览消息、生成模块、各服务所属 Table 落实，不为它们各建一个空转发 Service。
 
 ```mermaid
 flowchart TD
-    UI[React 浏览器外壳] --> API[Scala / http4s API]
-    API --> Runtime[Browser Runtime: 路由与 Action]
-    Runtime --> DB[(PostgreSQL / World Store)]
-    Runtime --> Engine[Vibe Engine: 上下文与生成任务]
-    Engine --> LLM[文本 Provider]
-    LLM --> Validate[Schema + 语义校验]
-    Validate --> DB
-    API --> UI
-    UI --> Renderer[确定性 Renderer / 文件预览]
-    Engine -. 可选 .-> Images[图片 Provider 与资源存储]
+    UI[BrowserPage 与 hooks] --> Client[前端 Message.send]
+    Client --> Router[统一 APIMessageRouter]
+    Router --> Message[browser 的消息 plan]
+    Message --> BT[SiteTable / PageTable]
+    Message --> JT[GenerationJobTable]
+    Worker[generation 的受管理 worker] --> Internal[领取 / 完成 / 失败消息]
+    Internal --> BT
+    Internal --> JT
+    Worker --> Provider[文本 provider]
+    Worker --> Validator[browser 的校验消息]
+    BT --> DB[(PostgreSQL)]
+    JT --> DB
 ```
 
-单体后端即可。Browser Runtime、Vibe Engine、World Store 是责任边界，不是三个微服务。所有 AI 请求通过 Scala 后端。
+## 2. 目录与类的归属
 
-建议结构（尚未创建）：
+以下为目标结构，尚未创建源码。子目录按实际内容创建。
 
 ```text
-frontend/src/       browser/ renderer/ api/
-backend/src/main/scala/  api/ domain/ service/ infrastructure/
-backend/src/main/resources/db/migration/
-contracts/          schemas/ fixtures/
+backend/src/main/scala/services/
+  browser/
+    api/                    NavigateMessage.scala / GetPageMessage.scala / ...
+    objects/                PageSpec.scala / FileSpec.scala / SiteProfile.scala / ...
+      apiTypes/             NavigationResponse.scala / PageResponse.scala / ...
+    routes/                 BrowserRoutes.scala
+    tables/
+      PageTable/            PageTable.scala / PageTableInitializer.scala
+      SiteTable/            SiteTable.scala / SiteTableInitializer.scala
+    utils/                  地址与内容校验、响应组装等内部函数
+  generation/
+    api/                    ClaimGenerationJobMessage.scala / CompleteGenerationJobMessage.scala / ...
+    objects/                GenerationJob.scala / GenerationContext.scala / ...
+      apiTypes/             ClaimJobResponse.scala / CompletionResponse.scala / ...
+    tables/
+      GenerationJobTable/   GenerationJobTable.scala / GenerationJobTableInitializer.scala
+    utils/                  provider、Prompt、worker 的服务内部实现
+    GenerationModule.scala  后台资源装配入口
+  system/
+    api/                    APIMessage.scala / NoRequestMessage.scala
+    objects/                AppConfig.scala / RegisteredAPIMessage.scala / ...
+    routes/                 APIMessageRouter.scala
+    utils/                  系统内部配置与资源辅助函数
+    DatabaseSession.scala   公共连接/事务基础设施
+    Main.scala              IOApp 装配入口
+
+frontend/src/
+  apis/
+    browser/                NavigateMessage.ts / GetPageMessage.ts / RetryPageMessage.ts
+    system/                 通用发送、稳定 API 名称映射、错误处理
+  pages/BrowserPage/
+    index.tsx
+    components/             TabBar / NavigationBar / ContentViewport / Renderer / ...
+    hooks/
+    stores/
+    objects/
+    functions/
+  components/ui/            真正共享的基础 UI
+
+contracts/
+  schemas/
+  fixtures/valid/
+  fixtures/invalid/
 docs/
 ```
 
-前端采用 TypeScript 判别联合；后端采用 Scala ADT。持久化可选 Doobie、JSON 编解码可选 Circe；这些属于本次建议，依赖版本和兼容性在 D1.2 核验后锁定。Schema 是跨端契约依据，用共享 fixtures 避免两端规则漂移。
+generation 只有内部消息时不需要 Routes 或前端 API 文件；加入可公开的图片查询后再添加。根部 GenerationModule、DatabaseSession 和 Main 是明确的装配/基础设施文件，不新增无归属目录。system/utils 仍是系统私有；其他模块使用公开基础设施入口。
 
-## 内容与 Action
+## 3. 允许的调用与数据流
 
-| 对象 | 应包含的核心信息 |
-| --- | --- |
-| PageSpec | schemaVersion、title、theme、blocks；pageId/url/status 由后端维护 |
-| FileSpec | schemaVersion、format（md/txt/json）、content；路径由后端维护 |
-| BrowserAction | `navigate(target)`、`toggle(targetId)`；可选 `generate(operation=search)` |
-| SiteProfile | 域名、名称、摘要、主题、已确定实体 |
-| GenerationContext | 目标地址、来源页面/Action、站点设定、有限近期摘要、设计约束 |
+- 路由：解码与边界转换 → 构造消息 → plan(connection) → 响应编码。
+- API：调用其他消息的 plan、任意服务公开 Table def、当前服务私有 utils。
+- Table：封装私有 SQL、参数绑定、执行和私有行映射，公开 IO[T] 方法。
+- objects：纯数据、值定义、枚举与序列化；不查询、随机生成或编排工作流。
+- utils：方法按所属服务标注 private[服务名]；跨服务业务能力通过 Message 公开。
+- worker：在 generation 内协调资源与模型请求，通过公开消息进行领取、校验、完成/失败；不能访问 browser 私有工具。
 
-初始组件：navbar、hero、text、image、card、grid、button、footer。搜索列为 P1，届时再加入 search 组件。样式仅开放颜色、字体枚举、间距、列数等受控字段。
+跨服务 Table 访问是允许边界，不应添加只做转发的 Service。相反，需要实际业务校验的内容接受流程由消息负责，不能直接写表绕过校验。
 
-建议初始限制：每页总组件数不超过 12（含嵌套），最大深度 3，图片请求不超过 3。文本长度、请求体大小、上下文预算也在契约阶段给出明确上限。
+## 4. 消息协议
 
-- `navigate`：前端向后端请求规范化目标，缓存不存在才生成。
-- `toggle`：本地可见性等状态切换，不需要 AI。
-- `generate/search`：提交 pageId、actionId、用户输入与幂等请求 ID；后端从已存 PageSpec 查找并验证 Action，不信任客户端自报操作或模型指令。
-- 网页按钮统一使用 Action；不混用对话早期的 `href` 简写与后期的 Action 示例。
-- 普通刷新只重新读取；“重新生成”作为后续独立功能，不能隐式覆盖旧内容。
+统一 POST /api/{apiName}。规范消息名去掉末尾 Message 再转小写，由共享注册机制推导；前端使用同源稳定元数据，不依赖构建后的运行时 class 名。
 
-Markdown 禁用原始 HTML，TXT 按纯文本展示，JSON 解析后展示。任何格式均不得执行脚本。虚构文件仅提供文中所需的有限预览，不实现完整编辑器。
+| 消息 | 路由 | 结果 |
+| --- | --- | --- |
+| NavigateMessage | /api/navigate | NavigationResponse：ready 或 generating，包含 pageId 和必要的 jobId |
+| GetPageMessage | /api/getpage | PageResponse：页面状态、实际阶段、内容或错误 |
+| RetryPageMessage | /api/retrypage | 受 failedJobId 约束的新尝试或已创建的活动任务 |
+| SubmitSearchMessage（P1） | /api/submitsearch | 搜索目标页或生成任务 |
+| GetAssetMessage（P1） | /api/getasset | 独立图片状态与受控资源地址 |
 
-## 导航与地址
+成功的消息执行返回 200，由响应联合类型区分业务状态。输入不合法/不存在/冲突/限流等映射明确 HTTP 错误；已经存在的生成任务失败是可查询的页面状态。未知字段、错误码、响应上限在契约阶段固定。内部消息不注册 HTTP。
 
-默认是 **Vibe 模式**：HTTP(S) 地址作为虚拟内容的键，不做 DNS 存活探测，也不尝试抓取任意网址。真实网页通过用户显式选择的外部打开入口访问。
+本协议取代早期 GET /api/pages/{id} 与 POST /api/actions 等 REST 草案，不同时维护两套语义。前端轮询 GetPage 消息，查询不得启动生成。
 
-相对链接使用来源页面地址解析；主机名大小写、默认端口和空路径需要统一；保留可能影响内容的 query 参数与顺序；fragment 作为页内定位不进入页面缓存键。路径大小写和尾部斜杠不盲目合并。
+## 5. 类型与内容约束
 
-`file:///...` 进入独立虚拟命名空间；拒绝非空 host/UNC、路径穿越、未支持扩展名，不调用宿主文件系统。HTTP(S) 拒绝带凭证地址以及 localhost、内网/回环 IP 等目标；禁用 javascript/data 等导航协议。后续真实外部入口沿用协议校验。
+PageSpec、FileSpec、SiteProfile 是不可变记录；PageBlock、BrowserAction、FileFormat、页面/任务状态用封闭类型。后端业务 ID 使用领域值类型，前端通过明确类型和运行时解码验证边界。
 
-## API 草案
+初始组件为 navbar、hero、text、image、card、grid、button、footer；Action 为 navigate/toggle，搜索阶段增加 generate。总组件含嵌套最多 12、深度最多 3、图片请求最多 3，其余大小预算在 S1 固定。
 
-| API | 语义 |
-| --- | --- |
-| `POST /api/navigate` | 输入 url、可选 referrerPageId；缓存成功返回 200；新建/复用进行中任务返回 202 + pageId/jobId |
-| `GET /api/pages/{id}` | 轮询页面 status、phase、内容或错误；此操作不创建生成任务 |
-| `POST /api/actions` | P1 搜索入口；输入 pageId/actionId/input/requestId，返回目标页面或任务 |
-| `GET /api/assets/{id}` | P1 图片状态和受控资源地址；图片状态与页面状态分开 |
+内容 JSON 使用 schemaVersion。Scala 派生编解码与前端 type discriminator 需要 fixtures 对照，不能把类型可编译当成协议一致。
 
-未找到返回 404，输入不合法返回 400，超过预算或限流返回 429；不可用的 provider 与内部错误使用稳定错误码并带可读提示，不返回 Key 或 provider 原始敏感响应。
+Markdown 禁用原始 HTML，TXT 按文本展示，JSON 文件内容本身也必须可解析。Renderer 不执行模型返回的 JS/TSX 或任意 CSS。主题采用静态 Tailwind 变体；必要的动态颜色仅通过经校验的 CSS 变量传递。
 
-页面状态：`generating → ready | failed`。生成阶段：`queued → generating → validating → saving`。素材状态单独维护 `pending → ready | failed`，页面 ready 不必等待图片。
+## 6. 导航规则
 
-校验失败最多触发一次修复生成；网络重试与修复共享总尝试次数上限，建议每个生成任务最多两次文本 provider 请求并设置总截止时间。鉴权、额度错误直接失败。前端轮询应退避、有截止时间且在切页后停止；用户主动重试失败页时创建新任务并保留失败记录。
+默认 Vibe 模式：HTTP(S) 地址作为虚构内容键，不做 DNS 探测或真实抓取。真实网页通过用户显式外部打开。
 
-## 持久化与一致性
+相对链接按来源地址解析；主机大小写、默认端口和空路径统一；保留 query 顺序、路径大小写和尾部斜杠意义；fragment 用于页内定位，不进页面缓存键。
 
-| 表 | 建议字段 / 约束 |
-| --- | --- |
-| sites | id、domain UNIQUE、profile JSONB、created_at/updated_at |
-| pages | id、canonical_url UNIQUE、site_id 可空、kind、spec JSONB、summary、status、created_at/updated_at |
-| generation_jobs | id、page_id、status、phase、attempts、error_code、started_at、finished_at |
+file:/// 进入独立虚拟命名空间，拒绝非空 host/UNC、路径穿越和不支持扩展名，不调用宿主文件系统。导航拒绝带凭证地址、javascript/data 等协议及 localhost/内网/回环 IP 目标。下载 provider 图片是另一条受控资源链路，不使用任意页面地址。
 
-三张表支撑单用户本地 MVP；history/tabs 暂存浏览器 localStorage，页面与文件内容存 PostgreSQL。图片接入时再增加 assets 表和本地受控资源目录，不把临时 provider URL 当持久资源。
+刷新只读缓存；重新生成旧页面为后续独立能力。Retry 只针对失败任务，必须确认失败代次，不能无条件替换 ready 内容。
 
-同 URL 的生成通过数据库唯一键和事务协调；同一 page 只允许一个活动任务。先创建或找到 page/job，再由受管理 worker 执行，不能依赖 HTTP 请求内脱离生命周期的裸后台协程。
+## 7. 数据库与状态
 
-同域名首次并发生成时也要协调 SiteProfile 创建，避免两个页面各自保存冲突品牌。任务成功应在事务内保存合法内容并更新状态。启动时处理遗留任务，可重新排队或标记 interrupted，不能永久留在 generating。
+| 表 / 归属 | 字段方向 | 关键约束 |
+| --- | --- | --- |
+| sites / browser | id、domain、profile JSONB、时间 | domain 唯一；首次并发初始化协调 |
+| pages / browser | id、canonical_url、site_id 可空、kind、spec JSONB、summary、status、时间 | 地址唯一；ready 有内容；当前任务一致性 |
+| generation_jobs / generation | id、page_id、status、phase、attempts、error_code、开始/结束时间 | 每页一个活动任务；原子领取与条件终态更新 |
 
-上下文复用 SiteProfile、来源页面和有限近期摘要，不发送全部历史。已存实体优先于模型新推测；一致性以保存的设定为准，复杂语义一致性属于后续改进。
+具体 SQL 和状态约束在 Table/Initializer 中落实。页面内容和文件存数据库，标签/历史先存 localStorage。图片阶段再引入 assets 与受控资源存储。
 
-## 外部能力核验
+页面状态：generating → ready/failed。任务状态：queued → running → succeeded/failed；phase 表达 generating/validating/saving 等实际阶段。图片状态独立，不阻塞页面 ready。用户重试创建新 job，保留旧失败记录。
 
-- DeepSeek 官方与 TokenHub 是不同的 provider 配置，模型 ID、地域、参数不能混用。
-- 学生说明与腾讯官方模型列表均列出了 `deepseek-v4.1-flash`，但当前 Key 的授权、额度和实际返回尚未测试。
-- JSON 输出模式仍须处理空白、截断和业务 Schema 错误；TokenHub 参数行为需要实测。
-- 学生说明包含全景图，不等于授权了常规网页配图模型。先检查权限再决定图片 adapter；不以生图可用作为 P0 前提。
-- 图片下载只接受经过验证的 provider 资源域名，并限制重定向、大小与类型；不下载模型自由指定的 URL。
+初始站点的 profile 尚未确定时，同站其他任务等待，不各自生成互相冲突的设定。上下文使用已存站点、来源与有限近期摘要，不能无限堆历史。
 
-官方依据和核验日期见 [SOURCES.md](SOURCES.md)。
+## 8. 连接、事务与 worker 生命周期
+
+1. 路由从 DatabaseSession 获取短连接，运行 NavigateMessage，提交 page/job 创建后返回。
+2. GenerationModule 装配受管理 worker。worker 另取连接执行领取消息，取得任务与上下文后释放连接。
+3. 网络请求在事务外执行；模型每任务最多两次请求，修复与网络重试共用预算。
+4. browser 的校验消息复用领域规则；提交阶段再次检查内容与当前任务身份。
+5. 完成消息在新短事务内保存合法内容、必要站点更新和 job 终态；失败回滚。
+6. 错误通过失败消息记录；旧任务的迟到成功/失败结果都不得覆盖当前任务。
+7. 进程关闭释放 worker、客户端与连接；单实例启动处理遗留 running，不能永久显示生成中。
+
+不把 HTTP 请求连接交给后台 fiber；同一 JDBC 连接不并发使用。Table 不自行提交事务，整体边界由 DatabaseSession 管理；参数、statement/resultSet 生命周期在表模块中明确。数据库阻塞调用放入阻塞效果边界，资源通过 Resource 释放。
+
+MVP 采用数据库任务作为事实来源，不再依赖可能与事务不同步的内存队列。轮询频率与并发有界。外部调用在崩溃重试后可能再次计费，不宣称 exactly-once；多实例锁租约与自动恢复留后续。
+
+## 9. 待实现验证与决策
+
+- S0 确定运行版本与 JDBC/资源封装，不能直接复制旧模板 try/finally 和长期事务。
+- S1 确定 wire Schema、ID/状态编码、路由稳定名称、输入大小与错误格式。
+- S2 验证唯一约束、同连接事务与跨服务公开 Table 调用。
+- S4 核验 provider 权限、参数和延迟；客户端依赖注入 worker，而非改写所有 API 的 plan 签名。
+- S5 验证事务回滚、并发去重、取消清理、重启和迟到结果。
+- 生图账户授权仍待实测；官方资料见 [SOURCES.md](SOURCES.md)。

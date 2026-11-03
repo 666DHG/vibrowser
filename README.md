@@ -8,7 +8,8 @@
 
 ## 开发入口
 
-- [三天开发路线与验收标准](docs/ROADMAP.md)
+- [分阶段开发路线、类实现与验收标准](docs/ROADMAP.md)
+- [课程规范落实与代码检查依据](docs/COURSE_STANDARDS.md)
 - [架构、接口边界与待确认事项](docs/ARCHITECTURE.md)
 - [对话依据与 API 核验记录](docs/SOURCES.md)
 
@@ -16,13 +17,15 @@
 
 | 层 | 方案 | 职责 |
 | --- | --- | --- |
-| 前端 | TypeScript + React | 浏览器外壳、PageSpec 渲染、虚构文件预览 |
+| 前端 | TypeScript + React + Tailwind | 浏览器外壳、PageSpec 渲染、虚构文件预览 |
 | 后端 | Scala 3 + Cats Effect + http4s | 导航、AI 调用、校验、任务与持久化 |
 | 数据库 | PostgreSQL | 页面、网站设定、生成任务 |
 | 文本生成 | DeepSeek / 腾讯 TokenHub，后端可配置 | 生成结构化内容 |
 | 图片生成 | 腾讯图片 API，可选 | 异步配图；不可用时保留占位图 |
 
 AI 生成数据，应用执行规则。第一版采用 PageSpec JSON + 声明式 Action，不执行模型生成的 JavaScript。
+
+代码按课程资料与本地 `rules.txt` 组织：后端使用 `services/<服务>/api、objects、routes、tables、utils`，每项业务由独立 Message 的 `plan(connection): IO[Response]` 表达；领域记录采用 `final case class`，SQL 封装在所属 Table。前端按页面组织，并为公开消息提供对应 API 调用类。
 
 ## 范围
 
@@ -37,6 +40,6 @@ AI 生成数据，应用执行规则。第一版采用 PageSpec JSON + 声明式
 - 主分支：`main`。
 - 配置与源码使用 UTF-8；普通文本使用 LF。
 - API Key 仅放后端本地环境配置，禁止进入前端包或 Git。
-- 当前未提供启动命令；Day 1 建立可运行骨架后补充。
+- 当前未提供启动命令；工程骨架通过验证后补充。
 
-规划整理于 2026-11-03，依据「Vibe Browser方案」对话。对话建议与本次工程取舍的区别见来源说明。
+规划整理于 2026-11-03，依据「Vibe Browser方案」对话及本地课程资料，按依赖阶段推进，不按天分工。来源与项目取舍见来源说明。
