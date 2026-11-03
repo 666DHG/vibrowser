@@ -1,0 +1,35 @@
+# Local secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Frontend
+node_modules/
+dist/
+coverage/
+playwright-report/
+test-results/
+*.tsbuildinfo
+
+# Scala / JVM
+target/
+.bsp/
+.bloop/
+.metals/
+.scala-build/
+project/project/
+
+# Local runtime data and generated assets
+.data/
+.cache/
+logs/
+*.log
+
+# Editor / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini
