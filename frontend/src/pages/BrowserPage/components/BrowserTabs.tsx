@@ -27,7 +27,7 @@ export function BrowserTabs({
   useEffect(() => {
     strip.current
       ?.querySelector('[aria-selected="true"]')
-      ?.scrollIntoView({ block: "nearest", inline: "nearest" });
+      ?.parentElement?.scrollIntoView({ block: "nearest", inline: "nearest" });
   }, [activeTabId]);
   return (
     <div className="flex h-12 min-w-0 items-center gap-3 px-3 md:px-5">
@@ -56,7 +56,7 @@ export function BrowserTabs({
               key={tab.id}
               role="presentation"
               className={
-                "group flex h-9 w-44 shrink-0 items-center rounded-lg border md:w-52 " +
+                "group flex h-9 w-36 shrink-0 items-center rounded-lg border md:w-52 " +
                 (active
                   ? "border-white/10 bg-[#2e3328] text-[#e4ecd9]"
                   : "border-transparent text-[#919d85] hover:bg-white/5")
@@ -89,6 +89,13 @@ export function BrowserTabs({
                   if (event.key === "Delete") {
                     event.preventDefault();
                     onClose(tab.id);
+                    requestAnimationFrame(() =>
+                      strip.current
+                        ?.querySelector<HTMLButtonElement>(
+                          '[aria-selected="true"]',
+                        )
+                        ?.focus(),
+                    );
                   }
                 }}
                 className="flex h-full min-w-0 flex-1 cursor-pointer items-center gap-2 rounded-lg pl-3 pr-1 text-left text-xs outline-offset-[-2px] focus-visible:outline-2 focus-visible:outline-[#b8d69a]"

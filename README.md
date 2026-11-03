@@ -45,13 +45,13 @@ Mock 的测试连接与生成均为模拟，连接测试结果在设置中说明
 
 ## 本版能力与限制
 
-- 单标签中文浏览器外壳、地址栏、前进/后退/刷新、设置面板、生成进度、失败重试。
+- 多标签中文浏览器外壳与独立新窗口；各标签独立历史、地址草稿、滚动位置和加载状态，支持新建/切换/关闭、前进/后退/刷新。顶部标题与标签居中对齐，已移除左侧栏，详见 [多标签验收](docs/BROWSER_TABS.md)。
 - 裸域名、路径与 HTTP(S) URL 规范化；普通文字生成虚构搜索结果。地址仅作为创作素材，不抓取网址，也不执行真实搜索。
 - PageSpec 支持杂志、商店、文档、社区、工作台、作品集、目录和通用布局；4 套字体、7 种背景主题、可变密度、1–4 列网格与连续主侧栏。文章、商品、讨论、代码、引用等按内容组织，最多 48 个组件、4 层嵌套。详见 [布局扩展与真实验收](docs/LAYOUTS.md)，首页四个新入口可直接查看本轮生成页面。
 - 浏览器与生成页面取消说明性页脚；生成文案采用站点自身口吻，直接呈现品牌、栏目和正文。旧 footer 类型仅保留协议兼容，不渲染。此次缓存清理及验证见 [界面与文案调整](docs/IMMERSIVE_COPY.md)。
 - 单 worker；一次页面任务最多 2 次模型请求，每次最多 60 秒。鉴权、额度、限流错误立即失败。等待较久可刷新查看状态。
 - 短事务、缓存、并发去重、代次检查与重启恢复。重启后 running 任务变为失败，可显式重试；queued 任务继续领取。
-- 本版不含虚构文件、生图、多标签页、完整站点世界设定、真实互联网搜索、部署与账户体系。模型调用不承诺严格只计费一次。
+- 本版不含虚构文件、生图、完整站点世界设定、真实互联网搜索、部署与账户体系。模型调用不承诺严格只计费一次。
 
 ## 数据与配置
 
@@ -62,7 +62,7 @@ Mock 的测试连接与生成均为模拟，连接测试结果在设置中说明
 | `.data/postgres` | 独立 PostgreSQL 实例，数据库 vibrowser |
 | `.data/*log`、`.data/runtime.json` | 启动日志、带创建时间的进程记录 |
 | `.cache` | sbt / Maven / Playwright 缓存、编译运行 classpath |
-| 浏览器 localStorage | 最多 100 条导航记录，不含密钥 |
+| 浏览器 sessionStorage | 每窗口独立标签会话，每标签最多 100 条导航记录，不含密钥；自动迁移原 localStorage 单标签历史 |
 
 数据库分别使用 `vibrowser_live`（真实）、`vibrowser_demo`（Mock）、`smoke_test`（集成测试）schema，每个业务 schema 仅四张表：pages、generation_jobs、provider_settings、provider_credentials。开发初始化为仅限本机的 trust 认证；此配置不用于部署。
 
@@ -71,9 +71,9 @@ Mock 的测试连接与生成均为模拟，连接测试结果在设置中说明
 ## 验证
 
 ```powershell
-.\scripts\check.ps1                # Scala 格式/编译/35 项测试，前端格式/22 项测试/类型/构建
+.\scripts\check.ps1                # Scala 格式/编译/35 项测试，前端格式/26 项测试/类型/构建
 # 先用 start.ps1 -Mock 启动，再运行：
-.\scripts\check.ps1 -Browser       # 另加 11 项 Playwright E2E，并更新截图
+.\scripts\check.ps1 -Browser       # 另加 15 项 Playwright E2E，并更新截图
 ```
 
 数据库测试只清理 `smoke_test` schema。E2E 强制检查 Mock 模式，不进行计费调用；若已有 Key，跳过会替换凭据的 UI 用例。真实验收另用显式启用的 `npm run test:live`，不读取或替换 Key；调用方式、重启阶段和结果见 [真实验收记录](docs/LIVE_SMOKE.md)。首次交付的历史证据见 [Smoke 记录](docs/SMOKE_PROGRESS.md)。

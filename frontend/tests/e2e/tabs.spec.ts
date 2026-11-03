@@ -265,6 +265,9 @@ test("many tabs stay reachable on mobile and support keyboard switching", async 
   );
   await selected(page).press("End");
   await expect(page.getByRole("tab").last()).toBeFocused();
+  await selected(page).press("Delete");
+  await expect(page.getByRole("tab")).toHaveCount(7);
+  await expect(selected(page)).toBeFocused();
   const tab = (await selected(page).boundingBox())!;
   expect(tab.x).toBeGreaterThan(0);
   expect(tab.x + tab.width).toBeLessThanOrEqual(390);

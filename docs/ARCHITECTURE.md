@@ -4,6 +4,8 @@
 
 ## 首版实际结构（2026-11-03）
 
+浏览器会话已扩展为 BrowserSession → BrowserTab[]，每标签独立 ContentState、历史、草稿和请求取消控制器；sessionStorage 按窗口隔离。BrowserTabs 与 TabContent 就近拆分，消息与数据库接口保持不变。后台完成按捕获的 tabId 写入，关闭标签后不接收迟到结果，见 [多标签实现与验收](BROWSER_TABS.md)。
+
 界面后续调整：移除浏览器状态底栏与生成页 footer；Prompt 采用站点自身口吻。旧 PageSpec 的 footer 类型继续可解码，但 Renderer 不输出，避免已有缓存恢复旧页脚。文案变更与本机缓存维护记录见 [IMMERSIVE_COPY.md](IMMERSIVE_COPY.md)。最新布局扩展已替换原先的八组件示例与固定搜索数量建议，改为三种不同结构的示例，按实际内容决定组件数量，见 [LAYOUTS.md](LAYOUTS.md)。
 
 页面契约增加可选 PageDesign（布局、字体、密度、强调色）、BlockStyle（变体、主/侧/通栏位置、网格列数）和 meta。均使用独立 final case class 与封闭 enum；旧 JSON 缺少这些字段仍可读取。全树上限为 48 个组件/4 层。前端分为 PageRenderer（连续区域）、PageBlockView（容器）、ContentBlock（内容）、pageDesign（纯样式/分组计算），模型只选择类型化数据，实际布局由 Tailwind 组件实现。

@@ -2,6 +2,7 @@ import { test, expect } from "@playwright/test";
 import { readFile, writeFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { responseSchema, settingsSchema } from "../../src/shared/pageSpec";
+import { SESSION_KEY } from "../../src/pages/BrowserPage/functions/browserSession";
 
 const evidencePath = "../.data/live-smoke-evidence.json";
 test.beforeEach(async ({ request }) => {
@@ -29,6 +30,12 @@ test("prepare persistent browser history before restart", async ({ page }) => {
   await page
     .context()
     .storageState({ path: "../.data/live-smoke-browser.json" });
+  const session = await page.evaluate(
+    (key) => sessionStorage.getItem(key),
+    SESSION_KEY,
+  );
+  expect(session).not.toBeNull();
+  await writeFile("../.data/live-smoke-session.json", session!, "utf8");
   evidence.restartPreparedAt = new Date().toISOString();
   await writeFile(evidencePath, JSON.stringify(evidence, null, 2));
 });
@@ -62,6 +69,17 @@ test.describe("restore", () => {
     page.on("request", (r) => {
       if (/\/api\/(navigate|retrypage)$/.test(r.url())) generationRequests++;
     });
+    // Playwright storageState excludes sessionStorage; restore the same window explicitly.
+    await page.addInitScript(
+      ({ key, value }) => {
+        if (window.location.origin === "http://127.0.0.1:5173")
+          sessionStorage.setItem(key, value);
+      },
+      {
+        key: SESSION_KEY,
+        value: await readFile("../.data/live-smoke-session.json", "utf8"),
+      },
+    );
     await page.goto("/");
     await expect(
       page.getByTestId("content-viewport").locator(":scope > article"),
