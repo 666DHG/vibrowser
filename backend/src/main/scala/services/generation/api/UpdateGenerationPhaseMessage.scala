@@ -11,8 +11,8 @@ import services.browser.tables.PageTable.PageTable
 import services.browser.objects.*
 import services.browser.api.ValidateGeneratedContentMessage
 
-final case class UpdateGenerationPhaseMessage(jobId: String, phase: String) extends APIMessage[Unit]:
+final case class UpdateGenerationPhaseMessage(jobId: JobId, phase: String) extends APIMessage[Unit]:
   override def plan(connection: Connection): IO[Unit] =
-    GenerationJobTable.phase(connection,jobId,phase)
+    GenerationJobTable.phase(connection, jobId, phase)
 object UpdateGenerationPhaseMessage:
   given Decoder[UpdateGenerationPhaseMessage] = deriveDecoder

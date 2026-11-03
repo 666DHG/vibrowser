@@ -20,7 +20,13 @@ const presets = {
     model: "deepseek-v4.1-flash",
   },
 };
-export function SettingsPanel({ onClose }: { onClose: () => void }) {
+export function SettingsPanel({
+  onClose,
+  mock = false,
+}: {
+  onClose: () => void;
+  mock?: boolean;
+}) {
   const [saved, setSaved] = useState<Settings | null>(null);
   const [url, setUrl] = useState("https://api.deepseek.com");
   const [model, setModel] = useState("deepseek-flash");
@@ -76,7 +82,11 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
       while (active.current && Date.now() < deadline) {
         const { job } = await new GetPageMessage(null, jobId).send();
         if (job?.status === "succeeded") {
-          setNote("连接成功，模型已返回响应");
+          setNote(
+            mock
+              ? "Mock 测试通过，尚未调用真实模型"
+              : "连接成功，模型已返回响应",
+          );
           return;
         }
         if (job?.status === "failed")

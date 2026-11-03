@@ -9,5 +9,7 @@ object GenerationJobTableInitializer:
     phase TEXT NOT NULL, error TEXT, settings_revision BIGINT NOT NULL,
     created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
     CHECK((kind='page' AND page_id IS NOT NULL) OR (kind='connection' AND page_id IS NULL)))"""
-  private val indexSql = "CREATE UNIQUE INDEX IF NOT EXISTS one_active_job_per_page ON generation_jobs(page_id) WHERE status IN ('queued','running')"
-  def initialize(c: Connection): IO[Unit] = SqlExecutor.update(c, createSql) *> SqlExecutor.update(c, indexSql).void
+  private val indexSql =
+    "CREATE UNIQUE INDEX IF NOT EXISTS one_active_job_per_page ON generation_jobs(page_id) WHERE status IN ('queued','running')"
+  def initialize(c: Connection): IO[Unit] =
+    SqlExecutor.update(c, createSql) *> SqlExecutor.update(c, indexSql).void

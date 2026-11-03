@@ -1,6 +1,7 @@
 ThisBuild / scalaVersion := "3.3.7"
 ThisBuild / organization := "edu.vibrowser"
 ThisBuild / version := "0.1.0"
+lazy val writeRuntimeClasspath = taskKey[File]("Write the local runtime classpath for Windows launch scripts")
 lazy val root = (project in file(".")).settings(
   name := "vibrowser",
   libraryDependencies ++= Seq(
@@ -20,5 +21,10 @@ lazy val root = (project in file(".")).settings(
   scalacOptions ++= Seq("-deprecation", "-feature", "-unchecked"),
   Test / parallelExecution := false,
   Compile / run / fork := true,
-  Compile / run / mainClass := Some("services.system.Main")
+  Compile / run / mainClass := Some("services.system.Main"),
+  writeRuntimeClasspath := {
+    val output = baseDirectory.value.getParentFile / ".cache" / "runtime-classpath.txt"
+    IO.write(output, (Runtime / fullClasspath).value.files.map(_.getAbsolutePath).mkString(java.io.File.pathSeparator))
+    output
+  }
 )

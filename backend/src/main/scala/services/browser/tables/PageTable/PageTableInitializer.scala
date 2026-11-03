@@ -9,5 +9,7 @@ object PageTableInitializer:
     spec JSONB, current_job_id TEXT NOT NULL, referrer_id TEXT REFERENCES pages(id), error TEXT,
     created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
     CHECK(status != 'ready' OR spec IS NOT NULL))"""
-  private val sourceSql = "ALTER TABLE pages ADD COLUMN IF NOT EXISTS source TEXT NOT NULL DEFAULT 'pending'"
-  def initialize(c: Connection): IO[Unit] = SqlExecutor.update(c, createSql) *> SqlExecutor.update(c,sourceSql).void
+  private val sourceSql =
+    "ALTER TABLE pages ADD COLUMN IF NOT EXISTS source TEXT NOT NULL DEFAULT 'pending'"
+  def initialize(c: Connection): IO[Unit] =
+    SqlExecutor.update(c, createSql) *> SqlExecutor.update(c, sourceSql).void

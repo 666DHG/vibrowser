@@ -41,6 +41,9 @@ test("home, website, link, history, refresh and fictional search", async ({
   await expect(address).toHaveValue(original + "menu");
   await page.getByRole("button", { name: "刷新", exact: true }).click();
   await expect(page.getByRole("heading", { name: /离地球很远/ })).toBeVisible();
+  await page.reload();
+  await expect(address).toHaveValue(original + "menu");
+  await expect(page.getByRole("heading", { name: /离地球很远/ })).toBeVisible();
   await address.fill("月球旅行");
   await address.press("Enter");
   await expect(
@@ -85,7 +88,9 @@ test("settings save, mask, test, reload and clear fake credential", async ({
     ).text();
     expect(safe).not.toContain("smoke-fake-key-ui-only");
     await page.getByRole("button", { name: "测试连接" }).click();
-    await expect(page.getByText("连接成功，模型已返回响应")).toBeVisible();
+    await expect(
+      page.getByText("Mock 测试通过，尚未调用真实模型"),
+    ).toBeVisible();
     await page.reload();
     await page.getByRole("button", { name: "设置", exact: true }).click();
     await expect(page.getByText("已配置 · 留空保留")).toBeVisible();

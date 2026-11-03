@@ -17,7 +17,7 @@ final case class ClearCredentialsMessage() extends NoRequestMessage[ClearCredent
       _ <- SettingsTable.lock(connection)
       previous <- SettingsTable.get(connection)
       _ <- CredentialsTable.clear(connection)
-      _ <- SettingsTable.save(connection,previous.baseUrl,previous.model)
+      _ <- SettingsTable.save(connection, previous.baseUrl, previous.model)
     yield ClearCredentialsResponse(true)
 object ClearCredentialsMessage:
   given Decoder[ClearCredentialsMessage] = deriveDecoder

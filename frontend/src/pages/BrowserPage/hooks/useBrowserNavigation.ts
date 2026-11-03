@@ -1,4 +1,5 @@
 import { useRef, useEffect, useCallback } from "react";
+import { z } from "zod";
 import { NavigateMessage } from "../../../apis/browser/NavigateMessage";
 import { GetPageMessage } from "../../../apis/browser/GetPageMessage";
 import { RetryPageMessage } from "../../../apis/browser/RetryPageMessage";
@@ -57,6 +58,38 @@ export function useBrowserNavigation() {
         message: e instanceof Error ? e.message : "请求失败",
       });
   };
+  useEffect(() => {
+    const c = begin();
+    try {
+      const stored = localStorage.getItem("vibrowser.history.v1");
+      const schema = z.object({
+        entries: z
+          .array(
+            z.object({
+              input: z.string(),
+              pageId: z.string(),
+              address: z.string(),
+            }),
+          )
+          .max(100),
+        index: z.number().int(),
+      });
+      const parsed = schema.safeParse(stored ? JSON.parse(stored) : null);
+      if (parsed.success && parsed.data.entries[parsed.data.index]) {
+        setHistory(parsed.data.entries, parsed.data.index);
+        setContent({
+          status: "loading",
+          input: parsed.data.entries[parsed.data.index].input,
+        });
+        void load(parsed.data.entries[parsed.data.index].pageId, c).catch((e) =>
+          fail(e, c),
+        );
+      }
+    } catch {
+      /* An unavailable browser store must not prevent navigation. */
+    }
+    return () => c.abort();
+  }, [load]);
   const navigate = async (input: string, referrerPageId?: string) => {
     const c = begin();
     setContent({ status: "loading", input });

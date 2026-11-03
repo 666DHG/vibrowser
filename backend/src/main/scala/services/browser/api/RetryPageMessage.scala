@@ -12,19 +12,29 @@ import services.generation.tables.GenerationJobTable.GenerationJobTable
 import services.generation.objects.*
 import services.settings.tables.SettingsTable.SettingsTable
 
-final case class RetryPageMessage(pageId: String, failedJobId: String) extends APIMessage[NavigationResponse]:
+final case class RetryPageMessage(pageId: PageId, failedJobId: JobId)
+    extends APIMessage[NavigationResponse]:
   override def plan(connection: Connection): IO[NavigationResponse] =
     for
-      page <- PageTable.lockById(connection,pageId).flatMap(IO.fromOption(_)(AppError("not_found","页面不存在",404)))
-      result <- if page.currentJobId != failedJobId || page.status != PageStatus.Failed then
-        IO.pure(NavigationResponse(page.id,page.currentJobId,page.status))
-      else
-        for
-          config <- SettingsTable.get(connection)
-          jobId <- IO(java.util.UUID.randomUUID().toString)
-          _ <- PageTable.retry(connection,pageId,failedJobId,jobId)
-          _ <- GenerationJobTable.insertQueued(connection,jobId,Some(pageId),JobKind.Page,config.revision)
-        yield NavigationResponse(pageId,jobId,PageStatus.Generating)
+      page <- PageTable
+        .lockById(connection, pageId)
+        .flatMap(IO.fromOption(_)(AppError("not_found", "页面不存在", 404)))
+      result <-
+        if page.currentJobId != failedJobId || page.status != PageStatus.Failed then
+          IO.pure(NavigationResponse(page.id, page.currentJobId, page.status))
+        else
+          for
+            config <- SettingsTable.get(connection)
+            jobId <- IO(JobId(java.util.UUID.randomUUID().toString))
+            _ <- PageTable.retry(connection, pageId, failedJobId, jobId)
+            _ <- GenerationJobTable.insertQueued(
+              connection,
+              jobId,
+              Some(pageId),
+              JobKind.Page,
+              config.revision
+            )
+          yield NavigationResponse(pageId, jobId, PageStatus.Generating)
     yield result
 object RetryPageMessage:
   given Decoder[RetryPageMessage] = deriveDecoder

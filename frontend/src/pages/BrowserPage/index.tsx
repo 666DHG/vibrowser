@@ -25,21 +25,35 @@ export default function BrowserPage() {
   const [settings, setSettings] = useState(false);
   const [mock, setMock] = useState(false);
   useEffect(() => {
+    if (!entries.length) return;
+    try {
+      localStorage.setItem(
+        "vibrowser.history.v1",
+        JSON.stringify({ entries, index }),
+      );
+    } catch {
+      /* Browser storage may be disabled. */
+    }
+  }, [entries, index]);
+  useEffect(() => {
     fetch("/health")
       .then((r) => r.json())
       .then((r) => setMock(r.mock === true))
       .catch(() => {});
   }, []);
+  const displayInput =
+    content.status === "ready" || content.status === "generating"
+      ? content.page.kind === "search"
+        ? content.page.prompt
+        : content.page.address
+      : content.status === "loading"
+        ? content.input
+        : content.status === "idle"
+          ? ""
+          : null;
   useEffect(() => {
-    if (content.status === "ready" || content.status === "generating")
-      setDraft(
-        content.page.kind === "search"
-          ? content.page.prompt
-          : content.page.address,
-      );
-    else if (content.status === "idle") setDraft("");
-    else if (content.status === "loading") setDraft(content.input);
-  }, [content]);
+    if (displayInput !== null) setDraft(displayInput);
+  }, [displayInput]);
   const title =
     content.status === "ready" ? content.page.spec?.title : "新的可能";
   const isDemo =
@@ -244,7 +258,9 @@ export default function BrowserPage() {
             : "文字构筑的互联网"}
         </span>
       </footer>
-      {settings && <SettingsPanel onClose={() => setSettings(false)} />}
+      {settings && (
+        <SettingsPanel mock={mock} onClose={() => setSettings(false)} />
+      )}
     </main>
   );
 }

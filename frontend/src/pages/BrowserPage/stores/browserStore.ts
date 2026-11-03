@@ -19,5 +19,6 @@ export const setHistory = (entries: HistoryEntry[], index: number) =>
 export function pushHistory(entry: HistoryEntry) {
   const { entries, index } = store.getState();
   if (entries[index]?.pageId === entry.pageId) return;
-  setHistory([...entries.slice(0, index + 1), entry], index + 1);
+  const next = [...entries.slice(0, index + 1), entry].slice(-100);
+  setHistory(next, next.length - 1);
 }
