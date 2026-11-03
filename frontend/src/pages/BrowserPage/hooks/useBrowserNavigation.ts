@@ -1,141 +1,142 @@
 import { useRef, useEffect, useCallback } from "react";
-import { z } from "zod";
 import { NavigateMessage } from "../../../apis/browser/NavigateMessage";
 import { GetPageMessage } from "../../../apis/browser/GetPageMessage";
 import { RetryPageMessage } from "../../../apis/browser/RetryPageMessage";
 import {
   getBrowserSnapshot,
+  getTab,
   setContent,
   setHistory,
   pushHistory,
+  removeTab,
 } from "../stores/browserStore";
+
 export function useBrowserNavigation() {
-  const controller = useRef<AbortController | null>(null);
-  const begin = () => {
-    controller.current?.abort();
-    const c = new AbortController();
-    controller.current = c;
-    return c;
+  const controllers = useRef(new Map<string, AbortController>());
+  const begin = (id: string) => {
+    controllers.current.get(id)?.abort();
+    const controller = new AbortController();
+    controllers.current.set(id, controller);
+    return controller;
   };
-  useEffect(() => () => controller.current?.abort(), []);
-  const load = useCallback(async (id: string, c: AbortController) => {
-    const deadline = Date.now() + 180000;
-    while (!c.signal.aborted && Date.now() < deadline) {
-      const result = await new GetPageMessage(id).send(c.signal);
-      if (c.signal.aborted) return;
-      const page = result.page;
-      if (!page) throw new Error("页面不存在");
-      if (page.status === "ready" && page.spec) {
-        setContent({ status: "ready", page });
-        return;
-      }
-      if (page.status === "failed") {
-        setContent({
-          status: "error",
-          message: page.error ?? "生成失败",
-          page,
+  const load = useCallback(
+    async (tabId: string, pageId: string, c: AbortController) => {
+      const deadline = Date.now() + 180000;
+      while (!c.signal.aborted && getTab(tabId) && Date.now() < deadline) {
+        const result = await new GetPageMessage(pageId).send(c.signal);
+        if (c.signal.aborted || !getTab(tabId)) return;
+        const page = result.page;
+        if (!page) throw new Error("页面不存在");
+        if (page.status === "ready" && page.spec) {
+          setContent(tabId, { status: "ready", page });
+          return;
+        }
+        if (page.status === "failed") {
+          setContent(tabId, {
+            status: "error",
+            message: page.error ?? "生成失败",
+            page,
+          });
+          return;
+        }
+        if (result.job)
+          setContent(tabId, { status: "generating", page, job: result.job });
+        await new Promise<void>((resolve) => {
+          const finish = () => {
+            clearTimeout(timer);
+            c.signal.removeEventListener("abort", finish);
+            resolve();
+          };
+          const timer = setTimeout(finish, 700);
+          c.signal.addEventListener("abort", finish, { once: true });
         });
-        return;
       }
-      if (result.job)
-        setContent({ status: "generating", page, job: result.job });
-      await new Promise<void>((resolve) => {
-        const finish = () => {
-          clearTimeout(timer);
-          c.signal.removeEventListener("abort", finish);
-          resolve();
-        };
-        const timer = setTimeout(finish, 700);
-        c.signal.addEventListener("abort", finish, { once: true });
-      });
-    }
-    if (!c.signal.aborted) throw new Error("等待时间较长，请刷新查看任务状态");
-  }, []);
-  const fail = (e: unknown, c: AbortController) => {
+      if (!c.signal.aborted && getTab(tabId))
+        throw new Error("等待时间较长，请刷新查看任务状态");
+    },
+    [],
+  );
+  const fail = (id: string, error: unknown, c: AbortController) => {
     if (!c.signal.aborted)
-      setContent({
+      setContent(id, {
         status: "error",
-        message: e instanceof Error ? e.message : "请求失败",
+        message: error instanceof Error ? error.message : "请求失败",
       });
   };
   useEffect(() => {
-    const c = begin();
-    try {
-      const stored = localStorage.getItem("vibrowser.history.v1");
-      const schema = z.object({
-        entries: z
-          .array(
-            z.object({
-              input: z.string(),
-              pageId: z.string(),
-              address: z.string(),
-            }),
-          )
-          .max(100),
-        index: z.number().int(),
-      });
-      const parsed = schema.safeParse(stored ? JSON.parse(stored) : null);
-      if (parsed.success && parsed.data.entries[parsed.data.index]) {
-        setHistory(parsed.data.entries, parsed.data.index);
-        setContent({
-          status: "loading",
-          input: parsed.data.entries[parsed.data.index].input,
-        });
-        void load(parsed.data.entries[parsed.data.index].pageId, c).catch((e) =>
-          fail(e, c),
+    for (const tab of getBrowserSnapshot().tabs) {
+      const entry = tab.entries[tab.index];
+      if (tab.content.status === "loading" && entry) {
+        const c = begin(tab.id);
+        void load(tab.id, entry.pageId, c).catch((error) =>
+          fail(tab.id, error, c),
         );
       }
-    } catch {
-      /* An unavailable browser store must not prevent navigation. */
     }
-    return () => c.abort();
+    const activeControllers = controllers.current;
+    return () => {
+      activeControllers.forEach((c) => c.abort());
+      activeControllers.clear();
+    };
   }, [load]);
-  const navigate = async (input: string, referrerPageId?: string) => {
-    const c = begin();
-    setContent({ status: "loading", input });
+  const activeId = () => getBrowserSnapshot().activeTabId;
+  const navigate = async (
+    input: string,
+    referrerPageId?: string,
+    tabId = activeId(),
+  ) => {
+    const c = begin(tabId);
+    setContent(tabId, { status: "loading", input });
     try {
       const result = await new NavigateMessage(
         input,
         referrerPageId ?? null,
       ).send(c.signal);
-      if (c.signal.aborted) return;
-      pushHistory({ input, pageId: result.pageId, address: input });
-      await load(result.pageId, c);
-    } catch (e) {
-      fail(e, c);
+      if (c.signal.aborted || !getTab(tabId)) return;
+      pushHistory(tabId, { input, pageId: result.pageId, address: input });
+      await load(tabId, result.pageId, c);
+    } catch (error) {
+      fail(tabId, error, c);
     }
   };
   const move = async (index: number) => {
-    const snapshot = getBrowserSnapshot();
-    const entry = snapshot.entries[index];
+    const tabId = activeId();
+    const tab = getTab(tabId)!;
+    const entry = tab.entries[index];
     if (!entry) return;
-    const c = begin();
-    setHistory(snapshot.entries, index);
-    setContent({ status: "loading", input: entry.input });
+    const c = begin(tabId);
+    setHistory(tabId, tab.entries, index);
+    setContent(tabId, { status: "loading", input: entry.input });
     try {
-      await load(entry.pageId, c);
-    } catch (e) {
-      fail(e, c);
+      await load(tabId, entry.pageId, c);
+    } catch (error) {
+      fail(tabId, error, c);
     }
   };
-  const retry = async () => {
-    const state = getBrowserSnapshot().content;
-    if (state.status !== "error" || !state.page) return;
-    const c = begin();
-    setContent({ status: "loading", input: state.page.prompt });
+  const retry = async (tabId = activeId()) => {
+    const state = getTab(tabId)?.content;
+    if (state?.status !== "error" || !state.page) return;
+    const c = begin(tabId);
+    setContent(tabId, { status: "loading", input: state.page.prompt });
     try {
       const result = await new RetryPageMessage(
         state.page.id,
         state.page.currentJobId,
       ).send(c.signal);
-      await load(result.pageId, c);
-    } catch (e) {
-      fail(e, c);
+      if (!c.signal.aborted) await load(tabId, result.pageId, c);
+    } catch (error) {
+      fail(tabId, error, c);
     }
   };
   const home = () => {
-    begin();
-    setContent({ status: "idle" });
+    const id = activeId();
+    begin(id);
+    setContent(id, { status: "idle" });
   };
-  return { navigate, move, retry, home };
+  const close = (id: string) => {
+    controllers.current.get(id)?.abort();
+    controllers.current.delete(id);
+    removeTab(id);
+  };
+  return { navigate, move, retry, home, close };
 }

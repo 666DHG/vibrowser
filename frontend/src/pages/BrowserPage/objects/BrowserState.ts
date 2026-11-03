@@ -10,3 +10,17 @@ export type ContentState =
   | { status: "generating"; page: PageRecord; job: Job }
   | { status: "ready"; page: PageRecord }
   | { status: "error"; message: string; page?: PageRecord };
+
+export interface BrowserTab {
+  id: string;
+  title: string;
+  draft: string;
+  entries: HistoryEntry[];
+  index: number;
+  content: ContentState;
+}
+
+export interface BrowserSession {
+  tabs: BrowserTab[];
+  activeTabId: string;
+}

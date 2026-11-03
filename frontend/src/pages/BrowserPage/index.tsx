@@ -1,88 +1,52 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowLeft,
   ArrowRight,
   RotateCw,
   Home,
   Settings,
-  Globe2,
   Search,
-  LoaderCircle,
-  AlertCircle,
-  Command,
-  Compass,
 } from "lucide-react";
-import { useBrowserState } from "./stores/browserStore";
+import {
+  useBrowserState,
+  addTab,
+  selectTab,
+  setDraft,
+} from "./stores/browserStore";
 import { useBrowserNavigation } from "./hooks/useBrowserNavigation";
-import { HomePage } from "./components/HomePage";
-import { PageRenderer } from "./components/PageRenderer";
+import { BrowserTabs } from "./components/BrowserTabs";
+import { TabContent } from "./components/TabContent";
 import { SettingsPanel } from "./components/SettingsPanel";
+
 export default function BrowserPage() {
-  const { entries, index, content } = useBrowserState();
+  const { tabs, activeTabId } = useBrowserState();
+  const tab = tabs.find((tab) => tab.id === activeTabId)!;
+  const { entries, index, draft } = tab;
   const navigation = useBrowserNavigation();
-  const [draft, setDraft] = useState("");
+  const address = useRef<HTMLInputElement>(null);
   const [settings, setSettings] = useState(false);
   const [mock, setMock] = useState(false);
-  useEffect(() => {
-    if (!entries.length) return;
-    try {
-      localStorage.setItem(
-        "vibrowser.history.v1",
-        JSON.stringify({ entries, index }),
-      );
-    } catch {
-      /* Browser storage may be disabled. */
-    }
-  }, [entries, index]);
   useEffect(() => {
     fetch("/health")
       .then((r) => r.json())
       .then((r) => setMock(r.mock === true))
       .catch(() => {});
   }, []);
-  const displayInput =
-    content.status === "ready" || content.status === "generating"
-      ? content.page.kind === "search"
-        ? content.page.prompt
-        : content.page.address
-      : content.status === "loading"
-        ? content.input
-        : content.status === "idle"
-          ? ""
-          : null;
-  useEffect(() => {
-    if (displayInput !== null) setDraft(displayInput);
-  }, [displayInput]);
-  const title =
-    content.status === "ready" ? content.page.spec?.title : "新的可能";
-  const isLoading =
-    content.status === "loading" || content.status === "generating";
-  const phase =
-    content.status === "generating" ? content.job.phase : "connecting";
-  const phases: Record<string, string> = {
-    queued: "等待加载",
-    generating: "正在加载页面",
-    validating: "正在整理内容",
-    saving: "即将就绪",
-    connecting: "正在连接",
-  };
   const iconButton =
     "cursor-pointer rounded-lg p-2 text-[#a4ac99] transition-colors hover:bg-white/5 hover:text-white disabled:cursor-default disabled:opacity-25";
   return (
     <main className="flex h-dvh min-h-0 flex-col overflow-hidden bg-[#191c17] text-[#dce3d2]">
       <header className="shrink-0 border-b border-white/8 bg-[#242820]">
-        <div className="flex h-12 items-center gap-5 px-4 md:px-6">
-          <div className="flex items-center gap-2 text-sm tracking-tight">
-            <Compass size={18} className="text-[#b8d69a]" />
-            <strong className="font-semibold">
-              vibrowser<span className="text-[#b8d69a]">.</span>
-            </strong>
-          </div>
-          <div className="mt-auto flex h-9 w-52 items-center gap-2 rounded-t-xl border-x border-t border-white/8 bg-[#2e3328] px-4 text-[11px]">
-            <Globe2 size={12} className="text-[#99ac86]" />
-            <span className="truncate">{title}</span>
-          </div>
-        </div>
+        <BrowserTabs
+          tabs={tabs}
+          activeTabId={activeTabId}
+          onSelect={selectTab}
+          onClose={navigation.close}
+          onAdd={() => {
+            addTab();
+            address.current?.focus();
+          }}
+        />
         <div className="flex items-center gap-1 bg-[#2e3328] px-3 py-3 md:gap-2 md:px-5">
           <button
             aria-label="后退"
@@ -117,17 +81,18 @@ export default function BrowserPage() {
           </button>
           <form
             aria-label="地址栏"
-            onSubmit={(e) => {
-              e.preventDefault();
+            onSubmit={(event) => {
+              event.preventDefault();
               void navigation.navigate(draft);
             }}
             className="mx-1 flex min-w-0 flex-1 items-center gap-3 rounded-xl border border-white/8 bg-[#1d211a] px-3 focus-within:border-[#a1bb84]/50 md:px-4"
           >
             <Search size={14} className="shrink-0 text-[#68775c]" />
             <input
+              ref={address}
               aria-label="网址或搜索词"
               value={draft}
-              onChange={(e) => setDraft(e.target.value)}
+              onChange={(event) => setDraft(activeTabId, event.target.value)}
               placeholder="输入网址，或搜索一个尚未存在的世界"
               className="h-10 min-w-0 flex-1 bg-transparent text-xs text-[#d1dcc4] outline-none placeholder:text-[#728068]"
             />
@@ -147,88 +112,18 @@ export default function BrowserPage() {
           </button>
         </div>
       </header>
-      <div className="flex min-h-0 flex-1">
-        <aside className="hidden w-14 shrink-0 flex-col items-center gap-4 border-r border-white/5 bg-[#1e221b] py-6 md:flex">
-          <button
-            aria-label="探索首页"
-            onClick={navigation.home}
-            className="cursor-pointer rounded-xl bg-[#b8d69a]/10 p-2.5 text-[#b8d69a]"
-          >
-            <Compass size={17} />
-          </button>
-          <span className="h-10 w-px bg-white/8" />
-          <span className="font-mono text-[9px] tracking-[.2em] text-[#5a6850] [writing-mode:vertical-rl]">
-            BROWSE THE UNWRITTEN
-          </span>
-          <Command size={14} className="mt-auto text-[#58664d]" />
-        </aside>
-        <div
-          className="relative min-w-0 flex-1 overflow-y-auto"
-          data-testid="content-viewport"
-        >
-          {content.status === "idle" && (
-            <HomePage
-              onNavigate={(input) => void navigation.navigate(input)}
-              onSettings={() => setSettings(true)}
-            />
-          )}
-          {isLoading && (
-            <section className="flex min-h-[65vh] flex-col items-center justify-center px-6 text-center">
-              <div className="relative mb-8 flex size-24 items-center justify-center rounded-full border border-[#b8d69a]/15">
-                <LoaderCircle
-                  className="animate-spin text-[#b8d69a]"
-                  size={30}
-                  strokeWidth={1}
-                />
-                <span className="absolute -right-1 top-3 size-2 rounded-full bg-[#b8d69a]" />
-              </div>
-              <p className="mb-3 font-mono text-[10px] tracking-[.2em] text-[#80966a]">
-                VIBE ENGINE
-              </p>
-              <h1 className="text-2xl">{phases[phase] ?? "生成中"}</h1>
-              <p className="mt-4 max-w-md break-all text-sm text-[#87977a]">
-                {draft}
-              </p>
-            </section>
-          )}
-          {content.status === "ready" && content.page.spec && (
-            <PageRenderer
-              spec={content.page.spec}
-              onNavigate={(target) =>
-                void navigation.navigate(
-                  new URL(target, content.page.address).href,
-                  content.page.id,
-                )
-              }
-            />
-          )}
-          {content.status === "error" && (
-            <section className="mx-auto flex min-h-[65vh] max-w-lg flex-col items-center justify-center gap-5 p-8 text-center">
-              <AlertCircle size={32} className="text-[#c6af80]" />
-              <h1 className="text-2xl">页面暂时无法打开</h1>
-              <p role="alert" className="text-sm leading-7 text-[#a2ad96]">
-                {content.message}
-              </p>
-              <div className="flex gap-4">
-                {content.page && (
-                  <button
-                    onClick={() => void navigation.retry()}
-                    className="cursor-pointer rounded-full bg-[#b8d69a] px-6 py-3 text-xs text-[#26301e]"
-                  >
-                    重新尝试
-                  </button>
-                )}
-                <button
-                  onClick={() => setSettings(true)}
-                  className="cursor-pointer rounded-full border border-white/15 px-6 py-3 text-xs"
-                >
-                  打开设置
-                </button>
-              </div>
-            </section>
-          )}
-        </div>
-      </div>
+      {tabs.map((item) => (
+        <TabContent
+          key={item.id}
+          tab={item}
+          active={item.id === activeTabId}
+          onNavigate={(input, referrer) =>
+            void navigation.navigate(input, referrer, item.id)
+          }
+          onRetry={() => void navigation.retry(item.id)}
+          onSettings={() => setSettings(true)}
+        />
+      ))}
       {settings && (
         <SettingsPanel mock={mock} onClose={() => setSettings(false)} />
       )}
