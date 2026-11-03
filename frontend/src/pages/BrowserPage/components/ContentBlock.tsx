@@ -11,7 +11,8 @@ function LinkedTitle({
 }) {
   return block.target ? (
     <button
-      onClick={() => context.onNavigate(block.target!)}
+      data-navigation-target={block.target}
+      onClick={() => context.onNavigate(block.target!, block.id)}
       className="cursor-pointer text-left hover:text-[var(--site-accent)] hover:underline underline-offset-4"
     >
       {block.title}
@@ -133,7 +134,8 @@ export function ContentBlock({
           />
           {b.target && (
             <button
-              onClick={() => context.onNavigate(b.target!)}
+              data-navigation-target={b.target}
+              onClick={() => context.onNavigate(b.target!, b.id)}
               aria-label={b.title + " · 阅读全文"}
               className="mt-5 flex cursor-pointer items-center gap-2 font-sans text-xs text-[var(--site-accent)]"
             >
@@ -147,7 +149,8 @@ export function ContentBlock({
         <article className="group flex h-full flex-col">
           <button
             disabled={!b.target}
-            onClick={() => b.target && context.onNavigate(b.target)}
+            data-navigation-target={b.target}
+            onClick={() => b.target && context.onNavigate(b.target, b.id)}
             aria-label={b.title ?? ""}
             className={
               "relative flex w-full items-center justify-center overflow-hidden bg-current/5 p-6 text-center disabled:cursor-default " +
@@ -286,7 +289,8 @@ export function ContentBlock({
     case "button":
       return (
         <button
-          onClick={() => b.target && context.onNavigate(b.target)}
+          data-navigation-target={b.target}
+          onClick={() => b.target && context.onNavigate(b.target, b.id)}
           className={
             parent === "navbar" || context.layout === "documentation"
               ? "inline-flex cursor-pointer items-center gap-2 text-left text-sm hover:text-[var(--site-accent)] hover:underline underline-offset-4"

@@ -92,7 +92,10 @@ export function HomePage({
         ].map((x) => (
           <button
             key={x.url}
-            onClick={() => onNavigate(x.url)}
+            data-navigation-target={
+              "https://" + x.url + (x.url.includes("/") ? "" : "/")
+            }
+            onClick={() => onNavigate(new URL("https://" + x.url).href)}
             className="group cursor-pointer rounded-2xl border border-white/8 bg-[#1e211c] p-5 text-left transition-colors hover:border-[#b8d69a]/40 hover:bg-[#252b22]"
           >
             <div className="mb-8 flex justify-between text-[#94ad7e]">

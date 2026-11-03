@@ -1,4 +1,12 @@
-import { useEffect, useRef, useCallback, type ReactNode } from "react";
+import { useProgressPresence } from "../hooks/useProgressPresence";
+import { navigationTarget } from "../functions/navigationTarget";
+import {
+  useEffect,
+  useRef,
+  useCallback,
+  useState,
+  type ReactNode,
+} from "react";
 import type { BrowserTab } from "../objects/BrowserState";
 import { HomePage } from "./HomePage";
 import { PageRenderer } from "./PageRenderer";
@@ -7,7 +15,11 @@ import { updatePending, dismissPending } from "../stores/browserStore";
 type Props = {
   tab: BrowserTab;
   active: boolean;
-  onNavigate: (input: string, referrer?: string) => void;
+  onNavigate: (
+    input: string,
+    referrer?: string,
+    sourceBlockId?: string,
+  ) => void;
   onRetry: () => void;
   onCancel: () => void;
   onSettings: () => void;
@@ -32,8 +44,45 @@ export function TabContent({
     if (pending) dismissPending(tab.id, pending.requestId);
   }, [tab.id, pending?.requestId]);
   const fullscreen = content.status === "idle" && !!pending;
+  const { shown, exiting } = useProgressPresence(pending, fullscreen, dismiss);
+  const [preview, setPreview] = useState("");
+  const hovered = useRef<Element | null>(null);
+  const clearPreview = () => {
+    hovered.current = null;
+    setPreview("");
+  };
+  const previewTarget = (target: EventTarget | null) => {
+    const element =
+      target instanceof Element
+        ? target.closest<HTMLElement>("[data-navigation-target]")
+        : null;
+    hovered.current = element;
+    const value = element?.dataset.navigationTarget;
+    setPreview(
+      value
+        ? navigationTarget(
+            value,
+            content.status === "ready" ? content.page.address : undefined,
+          )
+        : "",
+    );
+  };
+  useEffect(clearPreview, [active, pending?.requestId, pageId]);
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      if (hovered.current && !hovered.current.isConnected) clearPreview();
+    });
+    if (viewport.current)
+      observer.observe(viewport.current, { childList: true, subtree: true });
+    return () => observer.disconnect();
+  }, []);
   return (
     <div
+      onMouseOver={(event) => previewTarget(event.target)}
+      onMouseOut={(event) => previewTarget(event.relatedTarget)}
+      onFocusCapture={(event) => previewTarget(event.target)}
+      onBlurCapture={clearPreview}
+      onScrollCapture={clearPreview}
       role="tabpanel"
       id={"panel-" + tab.id}
       aria-labelledby={"tab-" + tab.id}
@@ -46,7 +95,7 @@ export function TabContent({
       <div
         ref={viewport}
         tabIndex={0}
-        className="h-full overflow-y-auto"
+        className="h-full overflow-y-auto overflow-x-hidden [scrollbar-gutter:stable]"
         data-testid={active ? "content-viewport" : undefined}
       >
         {content.status === "idle" && !pending && (
@@ -54,19 +103,23 @@ export function TabContent({
         )}
         {content.status === "bookmarks" && bookmarks}
         {content.status === "ready" && content.page.spec && (
-          <PageRenderer
-            spec={content.page.spec}
-            onNavigate={(target) =>
-              onNavigate(
-                new URL(target, content.page.address).href,
-                content.page.id,
-              )
-            }
-          />
+          <div key={content.page.id} className="page-arrival min-h-full">
+            <PageRenderer
+              spec={content.page.spec}
+              onNavigate={(target, sourceBlockId) =>
+                onNavigate(
+                  navigationTarget(target, content.page.address),
+                  content.page.id,
+                  sourceBlockId,
+                )
+              }
+            />
+          </div>
         )}
-        {fullscreen && pending && (
+        {fullscreen && shown && (
           <NavigationProgress
-            pending={pending}
+            pending={shown}
+            exiting={exiting}
             fullscreen
             onRetry={onRetry}
             onCancel={onCancel}
@@ -75,19 +128,28 @@ export function TabContent({
           />
         )}
       </div>
-      {!fullscreen && pending && (
+      {!fullscreen && shown && (
         <NavigationProgress
-          pending={pending}
+          pending={shown}
+          exiting={exiting}
           fullscreen={false}
           onRetry={onRetry}
           onCancel={onCancel}
           onDismiss={dismiss}
           onCollapse={() =>
-            updatePending(tab.id, pending.requestId, {
-              collapsed: !pending.collapsed,
+            updatePending(tab.id, shown.requestId, {
+              collapsed: !shown.collapsed,
             })
           }
         />
+      )}
+      {active && preview && (
+        <div
+          data-testid="link-preview"
+          className="pointer-events-none absolute bottom-0 left-0 z-30 max-w-[min(70%,640px)] truncate rounded-tr-md border border-white/15 bg-[#252c21] px-3 py-1 font-sans text-xs text-[#dce3d2]"
+        >
+          {preview}
+        </div>
       )}
     </div>
   );

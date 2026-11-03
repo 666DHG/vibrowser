@@ -20,3 +20,56 @@
     background: #b8d69a55;
   }
 }
+
+@keyframes panel-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes panel-exit {
+  from {
+    opacity: 1;
+    transform: none;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(6px) scale(0.99);
+  }
+}
+@keyframes content-enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.progress-presence {
+  transform-origin: bottom right;
+  animation: panel-enter 180ms ease-out both;
+}
+.progress-presence[data-presence="exiting"] {
+  animation: panel-exit 140ms ease-in both;
+  pointer-events: none;
+}
+.progress-step,
+.progress-body {
+  animation: content-enter 120ms ease-out;
+}
+.page-arrival {
+  animation: content-enter 120ms ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .progress-presence,
+  .progress-step,
+  .progress-body,
+  .page-arrival,
+  .animate-spin {
+    animation: none !important;
+  }
+}

@@ -11,6 +11,7 @@ async function setup(page: Page) {
     ready: false,
     navigations: [] as string[],
     retries: 0,
+    extraSteps: [] as string[],
   };
   await page.route("**/api/navigate", (route) => {
     const input = route.request().postDataJSON().input;
@@ -39,12 +40,14 @@ async function setup(page: Page) {
     const id = route.request().postDataJSON().pageId;
     const slow = id.startsWith("slow");
     const ready = !slow || state.ready;
-    const phases = [
-      "queued",
-      "preparing",
-      "generating",
-      ...(state.phase === "generating" ? [] : [state.phase]),
-    ];
+    const phases = state.extraSteps.length
+      ? state.extraSteps
+      : [
+          "queued",
+          "preparing",
+          "generating",
+          ...(state.phase === "generating" ? [] : [state.phase]),
+        ];
     return route.fulfill({
       json: {
         page: {
@@ -113,6 +116,9 @@ test("retained page, fixed step panel, failure, retry and history commit", async
   expect(await content.evaluate((n) => n.scrollTop)).toBe(scroll);
   await expect(page.getByRole("tab", { selected: true })).toHaveText(
     "old.example",
+  );
+  await panel.evaluate((node) =>
+    Promise.all(node.getAnimations().map((animation) => animation.finished)),
   );
   const y = (await panel.boundingBox())!.y;
   await content.evaluate((n) => {
@@ -230,4 +236,88 @@ test("home uses fullscreen progress and both toolbars remain equal on desktop an
   await page.screenshot({
     path: "../docs/screenshots/bookmarks-progress/mobile-loading.png",
   });
+});
+
+test("progress scroll geometry stays stable through spinner frames and long retry history", async ({
+  page,
+}) => {
+  const state = await setup(page);
+  state.extraSteps = [
+    "queued",
+    "preparing",
+    "generating",
+    "validating",
+    "repairing",
+    "retrying",
+    "generating",
+    "validating",
+    "saving",
+  ];
+  await page.goto("/");
+  await navigate(page, "old.example");
+  await expect(page.locator("[data-page-layout]")).toBeVisible();
+  await page.setViewportSize({ width: 390, height: 400 });
+  await navigate(page, "slow.example/" + "long-path-".repeat(70));
+  const panel = page.getByTestId("navigation-progress");
+  await expect(panel).toBeVisible();
+  await page.waitForTimeout(250);
+  const sizes = await panel.evaluate(async (node) => {
+    const body = node.querySelector(".progress-body")!;
+    const samples: string[] = [];
+    for (let i = 0; i < 90; i++) {
+      await new Promise(requestAnimationFrame);
+      samples.push(
+        JSON.stringify([
+          node.clientWidth,
+          node.scrollWidth,
+          body.clientHeight,
+          body.scrollHeight,
+          body.clientWidth,
+          body.scrollWidth,
+        ]),
+      );
+    }
+    return samples;
+  });
+  expect(new Set(sizes).size).toBe(1);
+  const [width, scrollWidth, height, scrollHeight, bodyWidth, bodyScrollWidth] =
+    JSON.parse(sizes[0]);
+  expect(scrollWidth).toBe(width);
+  expect(bodyScrollWidth).toBe(bodyWidth);
+  expect(scrollHeight).toBeGreaterThan(height);
+  await panel.getByRole("button", { name: "折叠加载进度" }).click();
+  await expect(panel.locator(".progress-body")).toHaveCount(0);
+  await panel.getByRole("button", { name: "展开加载进度" }).click();
+  await panel.getByRole("button", { name: "取消本次打开" }).click();
+  await expect(panel).toHaveCount(0);
+  await navigate(page, "cached.example");
+  await expect(page.getByRole("tab", { selected: true })).toHaveText(
+    "cached.example",
+  );
+  await expect(panel).toHaveCount(0);
+});
+
+test("link previews resolve the click target, handle nested icons/focus and clear on navigation", async ({
+  page,
+}) => {
+  const state = await setup(page);
+  await page.goto("/");
+  const home = page.getByRole("button", { name: /田野观察季刊/ });
+  await home.locator("svg").first().hover();
+  await expect(page.getByTestId("link-preview")).toHaveText(
+    "https://fieldnotes-journal.example/",
+  );
+  await navigate(page, "old.example");
+  const link = page.getByRole("button", { name: "本期", exact: true });
+  await link.focus();
+  await expect(page.getByTestId("link-preview")).toHaveText(
+    "https://old.example/issue",
+  );
+  await link.click();
+  await expect
+    .poll(() => state.navigations.at(-1))
+    .toBe("https://old.example/issue");
+  await expect(page.getByTestId("link-preview")).toHaveCount(0);
+  await page.getByRole("button", { name: "新建标签页", exact: true }).click();
+  await expect(page.getByTestId("link-preview")).toHaveCount(0);
 });

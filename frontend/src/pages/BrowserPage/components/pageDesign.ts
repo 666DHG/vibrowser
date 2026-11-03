@@ -4,7 +4,7 @@ export type PageLayout = PageDesign["layout"];
 export interface RenderContext {
   layout: PageLayout;
   density: PageDesign["density"];
-  onNavigate: (target: string) => void;
+  onNavigate: (target: string, sourceBlockId?: string) => void;
 }
 const themes: Record<PageSpec["theme"], string> = {
   paper: "bg-[#f5f2e9] text-[#292921]",

@@ -1,7 +1,10 @@
 import type { PageSpec, PageBlock } from "../../../shared/pageSpec";
 import { PageBlockView } from "./PageBlockView";
 import { pageAppearance, placement, pageRegions } from "./pageDesign";
-type Props = { spec: PageSpec; onNavigate: (target: string) => void };
+type Props = {
+  spec: PageSpec;
+  onNavigate: (target: string, sourceBlockId?: string) => void;
+};
 export function PageRenderer({ spec, onNavigate }: Props) {
   const appearance = pageAppearance(spec);
   const { layout, density, typography } = appearance.design;

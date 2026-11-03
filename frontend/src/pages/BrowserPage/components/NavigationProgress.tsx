@@ -21,6 +21,7 @@ const labels: Record<string, string> = {
 };
 type Props = {
   pending: PendingNavigation;
+  exiting?: boolean;
   fullscreen: boolean;
   onRetry: () => void;
   onCancel: () => void;
@@ -29,6 +30,7 @@ type Props = {
 };
 export function NavigationProgress({
   pending,
+  exiting = false,
   fullscreen,
   onRetry,
   onCancel,
@@ -65,27 +67,31 @@ export function NavigationProgress({
   return (
     <section
       data-testid={fullscreen ? "fullscreen-progress" : "navigation-progress"}
+      data-presence={exiting ? "exiting" : "visible"}
       className={
         fullscreen
           ? "mx-auto flex min-h-[65vh] max-w-lg flex-col justify-center px-6 py-8"
-          : "absolute bottom-4 right-4 z-20 max-h-[calc(100%-2rem)] w-[360px] max-w-[calc(100%-2rem)] overflow-y-auto rounded-2xl border border-white/15 bg-[#252c21] p-5 text-[#dce3d2] shadow-2xl"
+          : "progress-presence absolute bottom-4 right-4 z-20 flex flex-col max-h-[calc(100%-2rem)] w-[360px] max-w-[calc(100%-2rem)] overflow-hidden rounded-2xl border border-white/15 bg-[#252c21] p-5 text-[#dce3d2] shadow-2xl"
       }
     >
-      <div className="flex items-center gap-3">
-        {error ? (
-          <AlertCircle size={22} className="shrink-0 text-[#e5bc85]" />
-        ) : done ? (
-          <Check size={22} className="shrink-0 text-[#b8d69a]" />
-        ) : (
-          <LoaderCircle
-            size={22}
-            className="shrink-0 animate-spin text-[#b8d69a]"
-          />
-        )}
+      <div className="flex shrink-0 items-center gap-3">
+        <span className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden">
+          {error ? (
+            <AlertCircle size={22} className="shrink-0 text-[#e5bc85]" />
+          ) : done ? (
+            <Check size={22} className="shrink-0 text-[#b8d69a]" />
+          ) : (
+            <LoaderCircle
+              size={22}
+              className="shrink-0 animate-spin text-[#b8d69a]"
+            />
+          )}
+        </span>
         <h1
           aria-live="polite"
           className={
-            "flex-1 " + (fullscreen ? "text-2xl" : "text-sm font-semibold")
+            "min-w-0 flex-1 " +
+            (fullscreen ? "text-2xl" : "text-sm font-semibold")
           }
         >
           {labels[phase] ?? phase}
@@ -108,22 +114,21 @@ export function NavigationProgress({
         )}
       </div>
       {(!pending.collapsed || fullscreen || error) && (
-        <>
+        <div className="progress-body min-h-0 overflow-y-auto overflow-x-hidden [scrollbar-gutter:stable]">
           <p className="mb-4 mt-3 break-all text-xs leading-5 text-[#acbaa1]">
             {pending.input}
           </p>
-          <ol
-            aria-label="加载步骤"
-            className="max-h-60 space-y-2 overflow-y-auto text-xs"
-          >
-            <li className="flex items-center gap-2">
-              {pending.job || done ? (
-                <Check size={12} />
-              ) : error ? (
-                <AlertCircle size={12} />
-              ) : (
-                <LoaderCircle size={12} className="animate-spin" />
-              )}
+          <ol aria-label="加载步骤" className="space-y-2 text-xs">
+            <li className="progress-step flex items-center gap-2">
+              <span className="flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden">
+                {pending.job || done ? (
+                  <Check size={12} />
+                ) : error ? (
+                  <AlertCircle size={12} />
+                ) : (
+                  <LoaderCircle size={12} className="animate-spin" />
+                )}
+              </span>
               <span>{pending.job || done ? "连接完成" : "正在连接"}</span>
             </li>
             {steps.map((step, index) => (
@@ -136,16 +141,18 @@ export function NavigationProgress({
                       ? "active"
                       : "completed"
                 }
-                className="flex items-center gap-2"
+                className="progress-step flex items-center gap-2"
               >
-                {index === steps.length - 1 && !done && !error ? (
-                  <LoaderCircle size={12} className="animate-spin" />
-                ) : step.phase === "failed" ? (
-                  <AlertCircle size={12} className="text-[#e5bc85]" />
-                ) : (
-                  <Check size={12} className="text-[#9cb786]" />
-                )}
-                <span>
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden">
+                  {index === steps.length - 1 && !done && !error ? (
+                    <LoaderCircle size={12} className="animate-spin" />
+                  ) : step.phase === "failed" ? (
+                    <AlertCircle size={12} className="text-[#e5bc85]" />
+                  ) : (
+                    <Check size={12} className="text-[#9cb786]" />
+                  )}
+                </span>
+                <span className="min-w-0 flex-1">
                   {{
                     queued: "等待队列",
                     preparing: "准备页面",
@@ -160,7 +167,7 @@ export function NavigationProgress({
                   {step.attempt > 1 ? ` · 第 ${step.attempt} 次` : ""}
                 </span>
                 {step.at && (
-                  <time className="ml-auto text-[#89997e]">
+                  <time className="ml-auto shrink-0 tabular-nums text-[#89997e]">
                     {new Date(step.at).toLocaleTimeString("zh-CN", {
                       hour12: false,
                     })}
@@ -172,15 +179,18 @@ export function NavigationProgress({
               <li className="text-[#b8d69a]">页面已读取</li>
             )}
           </ol>
-        </>
-      )}
-      {error && (
-        <p role="alert" className="mt-4 text-sm leading-6 text-[#e5cba8]">
-          {pending.message}
-        </p>
+          {error && (
+            <p
+              role="alert"
+              className="mt-4 break-words text-sm leading-6 text-[#e5cba8]"
+            >
+              {pending.message}
+            </p>
+          )}
+        </div>
       )}
       {!done && (
-        <div className="mt-4 flex gap-3 text-xs">
+        <div className="mt-4 flex shrink-0 gap-3 text-xs">
           {error && (
             <button
               onClick={onRetry}

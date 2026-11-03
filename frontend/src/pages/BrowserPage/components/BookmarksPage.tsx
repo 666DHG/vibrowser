@@ -79,6 +79,7 @@ export function BookmarksPage({
         {visible.map((item) => (
           <li key={item.id} className="flex items-start gap-4 py-6">
             <button
+              data-navigation-target={item.address}
               onClick={() => onOpen(item)}
               aria-label={"打开书签：" + item.title}
               className="group min-w-0 flex-1 cursor-pointer text-left"
