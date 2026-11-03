@@ -1,12 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import {
-  X,
-  Check,
-  LoaderCircle,
-  KeyRound,
-  ShieldCheck,
-  ExternalLink,
-} from "lucide-react";
+import { X, Check, LoaderCircle, KeyRound, ShieldCheck } from "lucide-react";
 import { GetSettingsMessage } from "../../../apis/settings/GetSettingsMessage";
 import { SaveSettingsMessage } from "../../../apis/settings/SaveSettingsMessage";
 import { ClearCredentialsMessage } from "../../../apis/settings/ClearCredentialsMessage";

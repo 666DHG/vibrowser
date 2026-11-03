@@ -111,8 +111,8 @@ class IntegrationSuite extends CatsEffectSuite:
     }
   }
   test("one repair for invalid content, none for authentication, two total for network/timeouts") {
-    List(("invalid", 2), ("auth", 1), ("timeout", 2), ("empty", 2)).traverse_ {
-      case (scenario, expected) =>
+    List(("invalid", 2), ("exhausted", 2), ("auth", 1), ("quota", 1), ("timeout", 2), ("empty", 2))
+      .traverse_ { case (scenario, expected) =>
         isolated { db =>
           for
             count <- Ref.of[IO, Int](0)
@@ -125,11 +125,14 @@ class IntegrationSuite extends CatsEffectSuite:
               ): IO[String] =
                 count.getAndUpdate(_ + 1).flatMap { n =>
                   if scenario == "auth" then IO.raiseError(AppError("provider_auth", "auth", 502))
+                  else if scenario == "quota" then
+                    IO.raiseError(AppError("provider_quota", "quota", 502))
+                  else if scenario == "exhausted" then IO.pure("{invalid json")
                   else if scenario == "timeout" then
                     IO.raiseError(AppError("provider_timeout", "timeout", 504))
                   else if scenario == "empty" then
                     IO.raiseError(AppError("provider_content", "empty", 502))
-                  else IO.pure(if n == 0 then "{}" else fixture)
+                  else IO.pure(if n == 0 then "{invalid json" else fixture)
                 }
             nav <- db.transaction(NavigateMessage(s"$scenario.example", None).plan)
             job <- db.transaction(ClaimGenerationJobMessage().plan).map(_.get)
@@ -139,5 +142,5 @@ class IntegrationSuite extends CatsEffectSuite:
             _ = assertEquals(result.isRight, scenario == "invalid")
           yield ()
         }
-    }
+      }
   }

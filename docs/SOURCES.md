@@ -31,6 +31,8 @@ rules.txt 是本地工程规范来源，讲义是课程理念来源；示例工�
 | [腾讯 API 使用说明](https://cloud.tencent.com/document/product/1823/130078) | 广州接入域名、Bearer 鉴权和 `GET /v1/models` 查询方式有官方说明；地域配置需要对应 | 当前 Key 的模型列表与最小生成请求 |
 | [DeepSeek JSON Output](https://api-docs.deepseek.com/guides/json_mode/) | `response_format: {type: json_object}`，Prompt 需明确 JSON；须处理空白与截断输出 | TokenHub 的对应模型参数兼容性与 Schema 合格率 |
 
-本次只进行了资料读取与公开文档核验，**没有调用收费模型 API，也没有验证用户 Key**。公开模型列表不能证明个人授权；JSON 格式能力不能代替应用层 Schema 与语义校验。
+Smoke 实施已完成自动化与 Mock 验证，**没有调用收费模型 API，也没有验证用户 Key**。公开模型列表不能证明个人授权；JSON 格式能力不能代替应用层 Schema 与语义校验。
+
+2026-11-03 补充核验：[官方入门](https://api-docs.deepseek.com/) 当前使用 deepseek-flash；[Thinking Mode](https://api-docs.deepseek.com/guides/thinking_mode/) 默认启用思考，可使用 thinking.type=disabled。首版仅对 api.deepseek.com 显式关闭思考，确保最小连接测试的 128 token 预算用于最终内容；自定义兼容接口不发送此扩展字段。真实兼容性仍须凭有效 Key 验收。
 
 S4 的核验记录应只保存 provider、模型 ID、成功/失败、错误码、延迟、输出是否合法和 usage 摘要；不要记录 API Key 或完整鉴权头。

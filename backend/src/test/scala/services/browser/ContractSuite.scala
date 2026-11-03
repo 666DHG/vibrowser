@@ -26,6 +26,17 @@ class ContractSuite extends FunSuite:
   test("address detection, normalization and search") {
     assertEquals(AddressRules.classify("xx.com", None).map(_.canonical), Right("https://xx.com/"))
     assertEquals(
+      AddressRules.classify("xx.com/menu", None).map(_.canonical),
+      Right("https://xx.com/menu")
+    )
+    assertEquals(
+      AddressRules.classify("xx.com:8080/menu", None).map(_.canonical),
+      Right("https://xx.com:8080/menu")
+    )
+    List("xx.com:abc", "xx.com:65536", "https://bad_host.example").foreach(s =>
+      assert(AddressRules.classify(s, None).isLeft)
+    )
+    assertEquals(
       AddressRules.classify("https://XX.com:443/menu?q=1#x", None).map(_.canonical),
       Right("https://xx.com/menu?q=1")
     )

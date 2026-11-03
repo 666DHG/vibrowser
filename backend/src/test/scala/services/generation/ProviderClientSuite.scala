@@ -25,6 +25,9 @@ class ProviderClientSuite extends CatsEffectSuite:
             Some("Bearer fake-test-key")
           )
           assertEquals(body.hcursor.get[Int]("max_tokens"), Right(128))
+          if request.uri.host.exists(_.value == "api.deepseek.com") then
+            assertEquals(body.hcursor.downField("thinking").get[String]("type"), Right("disabled"))
+          else assert(!body.hcursor.downField("thinking").succeeded)
           assertEquals(
             body.hcursor.downField("response_format").get[String]("type"),
             Right("json_object")
@@ -43,9 +46,12 @@ class ProviderClientSuite extends CatsEffectSuite:
         )
       }
     }
-    new DeepSeekCompatibleClient(Client.fromHttpApp(app))
-      .complete(config, "json", "test", true)
-      .map(s => assertEquals(s, """{"ok":true}"""))
+    List(config, new ProviderConnection("https://custom.example", "model", "fake-test-key", 1))
+      .traverse_ { provider =>
+        new DeepSeekCompatibleClient(Client.fromHttpApp(app))
+          .complete(provider, "json", "test", true)
+          .map(s => assertEquals(s, """{"ok":true}"""))
+      }
   }
   test("authentication, quota and rate-limit failures have stable redacted errors") {
     List(

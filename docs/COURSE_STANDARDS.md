@@ -1,6 +1,27 @@
 # 课程规范落实
 
-本页将课程讲义与当前本地工程规范映射到 Vibrowser。它是实现与代码审查依据，不是对课程评分标准的推测。本文中类型、路径与检查项均为待实现方案。
+本页将课程讲义与当前本地工程规范映射到 Vibrowser。它是实现与代码审查依据，不是对课程评分标准的推测。Smoke 已实现的证据见下表；正文保留的 SiteProfile、FileFormat、Action 等为后续设计示例。
+
+## 首版实现证据与明确取舍
+
+| 关注点 | 已实现文件/类型 | 验证 |
+| --- | --- | --- |
+| 消息与 IO | services/*/api 中各 Message；APIMessage.plan(Connection) | 编译、真实 PostgreSQL 消息集成测试 |
+| 数据类与封闭状态 | PageId、JobId、PageSpec、PageRecord、GenerationJob、ProviderSettings；BlockType/Theme/PageStatus/JobStatus | 独立文件与伴生编解码，共同 fixtures |
+| 表与边界 | PageTable、GenerationJobTable、SettingsTable、CredentialsTable 及各自 Initializer | 私有 SQL、参数绑定、短事务；并发与回滚测试 |
+| 副作用与资源 | DatabaseSession、SqlExecutor、GenerationWorker、DeepSeekCompatibleClient | IO/Resource、超时取消、两次预算、失败终态 |
+| 前端对应类 | frontend/src/apis/browser、settings、system | send()、稳定消息名与 Zod 响应校验 |
+| 页面组织 | BrowserPage/components、hooks、objects、stores | Tailwind、核心状态/派生显示分离、E2E |
+| 凭据 | CredentialProtection、ProviderConnection | DPAPI 往返、接口脱敏、切换地址重填、清除 |
+
+实现取舍：
+
+- PageBlock 是 final case class，组件种类由 BlockType enum 封闭；不同类型的必需字段在语义校验中检查，没有为九种组件复制九套相同传输字段。
+- ProviderConnection 是仅后端内存使用的 final class，刻意不提供通用 JSON 编解码，toString 脱敏；它承载解密后的凭据，不作为普通可序列化领域记录。
+- SqlExecutor 的公开函数属于 system 技术能力；业务 SQL 与行映射仍私有，未把业务查询转移到通用工具。
+- settings 为本次新增服务。每个模块按需要创建目录，没有为无公开接口的 generation 添加空路由。
+- 本次不实现 SiteProfile、虚构文件与复杂 Action；不为长期方案补空类。运行模式、生成来源与进度 phase 为技术元数据，业务终态由封闭枚举表达。
+- Scalafmt/Prettier 是可重复检查；类职责、SQL 私有性和调用边界仍需结合源码审查，不能从测试通过推定全部课程评分项完成。
 
 ## 1. 来源与适用原则
 

@@ -29,7 +29,14 @@ object AddressRules:
       val scheme = Option(uri.getScheme).getOrElse("").toLowerCase(java.util.Locale.ROOT)
       val authority = Option(uri.getRawAuthority).getOrElse("")
       val host = Option(uri.getHost).getOrElse(authority.takeWhile(_ != ':'))
-      val asciiHost = IDN.toASCII(host).toLowerCase(java.util.Locale.ROOT)
+      val asciiHost = IDN.toASCII(host, IDN.USE_STD3_ASCII_RULES).toLowerCase(java.util.Locale.ROOT)
+      val explicitPort = if authority.contains(":") then
+        val value = authority.substring(authority.lastIndexOf(':') + 1)
+        require(value.matches("[0-9]+"))
+        val parsed = value.toInt
+        require(parsed >= 1 && parsed <= 65535)
+        parsed
+      else -1
       val forbidden =
         asciiHost == "localhost" || asciiHost.endsWith(".localhost") || asciiHost.endsWith(
           ".local"
@@ -44,9 +51,9 @@ object AddressRules:
       )
       require(!raw.exists(c => c < ' ' || c == '\\'))
       val port =
-        if (scheme == "https" && uri.getPort == 443) || (scheme == "http" && uri.getPort == 80) then
-          -1
-        else uri.getPort
+        if (scheme == "https" && explicitPort == 443) || (scheme == "http" && explicitPort == 80)
+        then -1
+        else explicitPort
       val path = Option(uri.getRawPath).filter(_.nonEmpty).getOrElse("/")
       val normalized = scheme + "://" + asciiHost + (if port == -1 then "" else ":" + port) + path +
         Option(uri.getRawQuery).fold("")("?" + _)

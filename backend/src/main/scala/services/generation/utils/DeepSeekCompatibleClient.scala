@@ -29,11 +29,15 @@ private[generation] final class DeepSeekCompatibleClient(
       "max_tokens" -> (if test then 128 else 6000).asJson,
       "response_format" -> Json.obj("type" -> "json_object".asJson)
     )
+    val requestPayload =
+      if java.net.URI.create(config.baseUrl).getHost.equalsIgnoreCase("api.deepseek.com") then
+        payload.deepMerge(Json.obj("thinking" -> Json.obj("type" -> "disabled".asJson)))
+      else payload
     val request = Request[IO](
       Method.POST,
       Uri.unsafeFromString(config.baseUrl.stripSuffix("/") + "/chat/completions")
     )
-      .withEntity(payload)
+      .withEntity(requestPayload)
       .putHeaders(Header.Raw(CIString("Authorization"), "Bearer " + config.key))
     client
       .run(request)

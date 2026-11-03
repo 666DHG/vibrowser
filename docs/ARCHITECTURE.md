@@ -1,6 +1,59 @@
 # 架构与开发边界
 
-本文是待实现设计基线。依据课程讲义与本地 rules.txt 修订，替代初版通用 api/domain/service/infrastructure 分层和 REST 端点草案。具体任务见 [ROADMAP.md](ROADMAP.md)，规范出处见 [COURSE_STANDARDS.md](COURSE_STANDARDS.md)。
+本文先记录 Smoke 的实际实现，再保留长期设计基线。依据课程讲义与本地 rules.txt 修订。具体任务见 [ROADMAP.md](ROADMAP.md)，规范出处见 [COURSE_STANDARDS.md](COURSE_STANDARDS.md)。长期部分的 SiteProfile、FileSpec、Action、SiteTable 尚未实现。
+
+## 首版实际结构（2026-11-03）
+
+四个逻辑服务同进程运行：browser 管导航、内容与缓存；generation 管任务和模型调用；settings 管接口配置与 DPAPI；system 管 HTTP、事务与资源。业务入口均为独立 Message.plan，前端同名类通过 send 调用。没有仅转发的 Service。
+
+| 消息 | POST 路径 | 返回与责任 |
+| --- | --- | --- |
+| NavigateMessage | /api/navigate | NavigationResponse；识别网址/搜索、复用缓存或建任务 |
+| GetPageMessage | /api/getpage | PageResponse；pageId/jobId 二选一查询 |
+| RetryPageMessage | /api/retrypage | 检查 failedJobId，锁页面并创建或复用下一代任务 |
+| GetSettingsMessage | /api/getsettings | ProviderSettings；只含非敏感配置与 hasKey |
+| SaveSettingsMessage | /api/savesettings | 保存配置并加密新 Key，增加 revision |
+| ClearCredentialsMessage | /api/clearcredentials | 删除密文并使旧配置 revision 失效 |
+| TestConnectionMessage | /api/testconnection | 返回 jobId；使用 GetPage 查询连接测试结果 |
+
+无输入消息使用空 JSON 对象。内部领取、阶段更新、完成、失败、内容校验与读取解密配置消息不注册 HTTP。路由按类型名去掉 Message 后转小写，生产前端不依赖可被压缩的 constructor.name。
+
+| 表 | 核心字段与约束 | 所属模块 |
+| --- | --- | --- |
+| pages | id、唯一 address、kind、prompt、status、JSONB spec、current_job_id、referrer_id、error、source、created_at | browser |
+| generation_jobs | id、page_id、kind、status、phase、error、settings_revision、时间；每页仅一个 queued/running 任务 | generation |
+| provider_settings | singleton id=1、base_url、model、revision | settings |
+| provider_credentials | settings 外键 id、DPAPI ciphertext BYTEA | settings |
+
+PageId 与 JobId 使用独立 final case class，传输时编码为 UUID 字符串。PageBlock 使用封闭 BlockType 加统一数据字段，语义校验约束不同组件的字段和嵌套。PageStatus 为 generating/ready/failed，JobStatus 为 queued/running/succeeded/failed。phase 只用于显示领取/校验/保存进度，不作为任务状态判断依据。
+
+```mermaid
+sequenceDiagram
+    participant UI as BrowserPage / API.send
+    participant API as Message.plan
+    participant DB as PostgreSQL
+    participant W as 单 worker
+    participant AI as 兼容模型接口
+    UI->>API: NavigateMessage(input, referrerPageId)
+    API->>DB: 短事务查缓存或创建 page/job
+    API-->>UI: pageId/jobId/status
+    W->>DB: 原子领取任务，读配置/来源，释放连接
+    W->>AI: JSON mode，最多两次，每次≤60秒
+    AI-->>W: PageSpec 文本
+    W->>W: 解码及语义校验
+    W->>DB: 新短事务，按 currentJobId 保存终态
+    UI->>API: GetPageMessage 轮询
+    API-->>UI: 实际状态及 PageSpec
+    UI->>UI: 预设 React 组件渲染
+```
+
+DatabaseSession、SQL statement/resultSet、HTTP client 与 worker 由 Resource 管理。SqlExecutor 是 system 的技术性 JDBC 执行工具，业务 SQL、参数和行映射仍由所属 Table 私有持有。外部模型请求期间不占数据库连接。
+
+真实、Mock 与集成测试分别使用 vibrowser_live、vibrowser_demo、smoke_test schema；页面保存 source=live/mock。启动时将遗留 running 任务标记失败并更新页面，queued 继续运行。前端 AbortController 防止旧导航覆盖新状态，刷新只 GetPage，不隐式再生成。
+
+仅监听 loopback；开发前端代理 /api 和 /health。路由校验 Host、Origin、JSON Content-Type 和请求大小，不允许任意 CORS。模型输出只作为数据；全部链接通过宿主导航，ASCII 插画仅渲染文本。Key 不写日志、不返回前端、不进入浏览器存储。
+
+## 长期设计基线
 
 ## 1. 三个逻辑模块，单进程部署
 
@@ -30,7 +83,7 @@ flowchart TD
 
 ## 2. 目录与类的归属
 
-以下为目标结构，尚未创建源码。子目录按实际内容创建。
+以下为扩展目标结构；首版已有源码以开头的实际结构为准。SiteTable、FileSpec 等目录按实际功能引入，不预建空目录。
 
 ```text
 backend/src/main/scala/services/

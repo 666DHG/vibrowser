@@ -7,7 +7,6 @@ import {
   Settings,
   Globe2,
   Search,
-  ArrowUpRight,
   LoaderCircle,
   AlertCircle,
   Command,
