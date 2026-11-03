@@ -6,6 +6,7 @@ import services.system.DatabaseSession
 import services.system.objects.AppError
 import services.generation.api.*
 import services.generation.objects.*
+import services.generation.tables.GenerationJobTable.GenerationJobTable
 import services.browser.objects.*
 import services.browser.api.ValidateGeneratedContentMessage
 import services.browser.tables.PageTable.PageTable
@@ -39,7 +40,9 @@ private[generation] final class GenerationWorker(
         else database.transaction(GetProviderConnectionMessage(job.settingsRevision).plan)
       content <- job.pageId match
         case None =>
-          client
+          database.transaction(
+            UpdateGenerationPhaseMessage(job.id, GenerationPhase.Generating).plan
+          ) *> client
             .complete(config, "Return JSON only.", "Return {\"ok\":true}", true)
             .as(Option.empty[PageSpec])
         case Some(id) =>
@@ -52,7 +55,14 @@ private[generation] final class GenerationWorker(
             )
             spec <- generate(config, page, PromptBuilder.request(page, source), 0)
           yield Some(spec)
-      _ <- database.transaction(UpdateGenerationPhaseMessage(job.id, "saving").plan)
+      current <- database.transaction(c => GenerationJobTable.findById(c, job.id))
+      _ <- database.transaction(
+        UpdateGenerationPhaseMessage(
+          job.id,
+          GenerationPhase.Saving,
+          current.flatMap(_.steps.lastOption).fold(1)(_.attempt)
+        ).plan
+      )
       _ <- database.transaction(
         CompleteGenerationJobMessage(job.id, content, if mock then "mock" else "live").plan
       )
@@ -66,7 +76,11 @@ private[generation] final class GenerationWorker(
     def validate(text: String): IO[PageSpec] =
       for
         _ <- database.transaction(
-          UpdateGenerationPhaseMessage(page.currentJobId, "validating").plan
+          UpdateGenerationPhaseMessage(
+            page.currentJobId,
+            GenerationPhase.Validating,
+            attempt + 1
+          ).plan
         )
         spec <- IO.fromEither(GeneratedPageDecoder.decode(text))
         issues <- database.transaction(ValidateGeneratedContentMessage(spec, page.address).plan)
@@ -78,11 +92,15 @@ private[generation] final class GenerationWorker(
           )
         )
       yield spec
-    client.complete(config, PromptBuilder.system, prompt, false).attempt.flatMap {
+    database.transaction(
+      UpdateGenerationPhaseMessage(page.currentJobId, GenerationPhase.Generating, attempt + 1).plan
+    ) *> client.complete(config, PromptBuilder.system, prompt, false).attempt.flatMap {
       case Right(text) =>
         validate(text).handleErrorWith {
           case e: AppError if attempt == 0 && e.code == "invalid_content" =>
-            generate(config, page, PromptBuilder.repair(prompt, text, e.getMessage), 1)
+            database.transaction(
+              UpdateGenerationPhaseMessage(page.currentJobId, GenerationPhase.Repairing, 2).plan
+            ) *> generate(config, page, PromptBuilder.repair(prompt, text, e.getMessage), 1)
           case e => IO.raiseError(e)
         }
       case Left(e: AppError)
@@ -93,6 +111,13 @@ private[generation] final class GenerationWorker(
             "provider_network",
             "provider_unavailable"
           )(e.code) =>
-        generate(config, page, prompt + "\n上次接口失败：" + e.getMessage + "\n请返回完整的 PageSpec JSON。", 1)
+        database.transaction(
+          UpdateGenerationPhaseMessage(page.currentJobId, GenerationPhase.Retrying, 2).plan
+        ) *> generate(
+          config,
+          page,
+          prompt + "\n上次接口失败：" + e.getMessage + "\n请返回完整的 PageSpec JSON。",
+          1
+        )
       case Left(e) => IO.raiseError(e)
     }

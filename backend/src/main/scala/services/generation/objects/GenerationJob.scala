@@ -8,9 +8,10 @@ final case class GenerationJob(
     pageId: Option[PageId],
     kind: JobKind,
     status: JobStatus,
-    phase: String,
+    phase: GenerationPhase,
     error: Option[String],
-    settingsRevision: Long
+    settingsRevision: Long,
+    steps: List[GenerationStep] = Nil
 )
 object GenerationJob:
   given Encoder[GenerationJob] = deriveEncoder

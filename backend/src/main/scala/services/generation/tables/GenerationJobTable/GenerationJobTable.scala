@@ -12,12 +12,16 @@ object GenerationJobTable:
     JobStatus
       .fromString(r.getString("status"))
       .fold(e => throw new IllegalStateException(e), identity),
-    r.getString("phase"),
+    GenerationPhase
+      .fromString(r.getString("phase"))
+      .fold(e => throw new IllegalStateException(e), identity),
     Option(r.getString("error")),
-    r.getLong("settings_revision")
+    r.getLong("settings_revision"),
+    io.circe.parser.decode[List[GenerationStep]](r.getString("steps")).fold(throw _, identity)
   )
   private val insertSql =
-    "INSERT INTO generation_jobs(id,page_id,kind,status,phase,settings_revision) VALUES(?,?,?,'queued','queued',?)"
+    """INSERT INTO generation_jobs(id,page_id,kind,status,phase,settings_revision,steps)
+      VALUES(?,?,?,'queued','queued',?,jsonb_build_array(jsonb_build_object('phase','queued','attempt',1,'at',clock_timestamp())))"""
   def insertQueued(
       c: Connection,
       id: JobId,
@@ -35,19 +39,32 @@ object GenerationJobTable:
   private val findSql = "SELECT * FROM generation_jobs WHERE id=?"
   def findById(c: Connection, id: JobId): IO[Option[GenerationJob]] =
     SqlExecutor.query(c, findSql, List(id.value))(row).map(_.headOption)
-  private val claimSql = """UPDATE generation_jobs SET status='running',phase='generating'
+  private val claimSql = """UPDATE generation_jobs SET status='running',phase='preparing',
+    steps=steps || jsonb_build_array(jsonb_build_object('phase','preparing','attempt',1,'at',clock_timestamp()))
     WHERE id=(SELECT id FROM generation_jobs WHERE status='queued' ORDER BY created_at,id FOR UPDATE SKIP LOCKED LIMIT 1) RETURNING *"""
   def claimNext(c: Connection): IO[Option[GenerationJob]] =
     SqlExecutor.query(c, claimSql)(row).map(_.headOption)
-  private val phaseSql = "UPDATE generation_jobs SET phase=? WHERE id=? AND status='running'"
-  def phase(c: Connection, id: JobId, phase: String): IO[Unit] =
-    SqlExecutor.update(c, phaseSql, List(phase, id.value)).void
+  private val phaseSql = """UPDATE generation_jobs SET phase=?,
+    steps=steps || jsonb_build_array(jsonb_build_object('phase',?::text,'attempt',?::int,'at',clock_timestamp()))
+    WHERE id=? AND status='running'"""
+  def phase(c: Connection, id: JobId, phase: GenerationPhase, attempt: Int): IO[Unit] =
+    SqlExecutor
+      .update(
+        c,
+        phaseSql,
+        List(GenerationPhase.toString(phase), GenerationPhase.toString(phase), attempt, id.value)
+      )
+      .void
   private val completeSql =
-    "UPDATE generation_jobs SET status='succeeded',phase='ready' WHERE id=? AND status='running'"
+    """UPDATE generation_jobs SET status='succeeded',phase='ready',
+      steps=steps || jsonb_build_array(jsonb_build_object('phase','ready','attempt',coalesce((steps->-1->>'attempt')::int,1),'at',clock_timestamp()))
+      WHERE id=? AND status='running'"""
   def complete(c: Connection, id: JobId): IO[Boolean] =
     SqlExecutor.update(c, completeSql, List(id.value)).map(_ == 1)
   private val failSql =
-    "UPDATE generation_jobs SET status='failed',phase='failed',error=? WHERE id=? AND status IN ('queued','running')"
+    """UPDATE generation_jobs SET status='failed',phase='failed',error=?,
+      steps=steps || jsonb_build_array(jsonb_build_object('phase','failed','attempt',coalesce((steps->-1->>'attempt')::int,1),'at',clock_timestamp()))
+      WHERE id=? AND status IN ('queued','running')"""
   def fail(c: Connection, id: JobId, error: String): IO[Boolean] =
     SqlExecutor.update(c, failSql, List(error, id.value)).map(_ == 1)
   private val interruptedSql = "SELECT * FROM generation_jobs WHERE status='running'"

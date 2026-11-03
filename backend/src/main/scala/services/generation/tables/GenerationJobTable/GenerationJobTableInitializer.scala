@@ -11,5 +11,8 @@ object GenerationJobTableInitializer:
     CHECK((kind='page' AND page_id IS NOT NULL) OR (kind='connection' AND page_id IS NULL)))"""
   private val indexSql =
     "CREATE UNIQUE INDEX IF NOT EXISTS one_active_job_per_page ON generation_jobs(page_id) WHERE status IN ('queued','running')"
+  private val stepsSql =
+    "ALTER TABLE generation_jobs ADD COLUMN IF NOT EXISTS steps JSONB NOT NULL DEFAULT '[]'::jsonb"
   def initialize(c: Connection): IO[Unit] =
-    SqlExecutor.update(c, createSql) *> SqlExecutor.update(c, indexSql).void
+    SqlExecutor.update(c, createSql) *> SqlExecutor
+      .update(c, stepsSql) *> SqlExecutor.update(c, indexSql).void
