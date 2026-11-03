@@ -1,0 +1,87 @@
+{
+  "date": "2026-11-03T11:43:06.669Z",
+  "settings": {
+    "baseUrl": "https://api.deepseek.com",
+    "model": "deepseek-flash",
+    "hasKey": true,
+    "revision": 2
+  },
+  "pages": [
+    {
+      "input": "moon-coffee.example",
+      "pageId": "b48bde73-d095-4075-9b2d-fc3b33c96c46",
+      "jobId": "57ef0348-81a2-414f-8423-7905f87328a2",
+      "address": "https://moon-coffee.example/",
+      "status": "ready",
+      "source": "live",
+      "elapsedMs": 3716,
+      "sha256": "61c277a0a0a815f0644796a5a45420a101cab46a42b6f45d09430e394217d4cd"
+    },
+    {
+      "input": "月球旅行",
+      "pageId": "b74ecd23-6776-4706-ae44-a7b5223e426d",
+      "jobId": "8536d779-baf0-499c-a434-11934adb712d",
+      "address": "vibe://search?q=%E6%9C%88%E7%90%83%E6%97%85%E8%A1%8C",
+      "status": "ready",
+      "source": "live",
+      "elapsedMs": 5143,
+      "sha256": "6a557b85f7a66b37f78e209db89cf198d46f2e21fdd626370b771db84c4cca79"
+    },
+    {
+      "input": "click search result",
+      "pageId": "d114dfad-ea51-4871-b88a-990a0c655f7c",
+      "jobId": "f11ab22a-eb98-49e6-a622-4b9f92c4ef23",
+      "address": "https://orbit.selenelines.example/moon-tour-seven",
+      "status": "ready",
+      "source": "live",
+      "sha256": "1c88ac6cc5847126cc9ad7d0914486d417cd67f74b62d5fec3a1f5705e7bac4e"
+    },
+    {
+      "input": "cat.com",
+      "pageId": "9fec721d-9809-4789-bc44-d8557ce1ebad",
+      "jobId": "f777c6c7-6d7b-430d-881d-63f9e5cc56cb",
+      "address": "https://cat.com/",
+      "status": "ready",
+      "source": "live",
+      "elapsedMs": 4481,
+      "sha256": "54424bc3e4579a715e2d0fcfd9ce3d2ebe8ec4c9c42e2ffc6e9eaab0d80c41f2"
+    },
+    {
+      "input": "猫窝",
+      "pageId": "aae8300b-3c90-40ed-85c3-f1ea62d8d4b9",
+      "jobId": "c6e3c825-02a6-4246-bd6b-c083c32c0122",
+      "address": "vibe://search?q=%E7%8C%AB%E7%AA%9D",
+      "status": "ready",
+      "source": "live",
+      "elapsedMs": 4379,
+      "sha256": "79f0c12824b9aa20aec2425638ca3c7d17282bff2b4e921a87a117a8c1b640ea"
+    },
+    {
+      "input": "future-botany.example",
+      "pageId": "c67f4c69-3968-47e8-ae0d-b17d4d94c8cb",
+      "jobId": "48b5ae75-899e-406f-ad41-773bed358028",
+      "address": "https://future-botany.example/",
+      "status": "ready",
+      "source": "live",
+      "elapsedMs": 4973,
+      "sha256": "083a10acb1a9b90791970b15dee0d06d81f9af59ed26204f79d3d92c616766cb"
+    }
+  ],
+  "connectionJobId": "9ddf2b4b-08cc-430c-ad51-54fb98079e05",
+  "cache": {
+    "pageId": "b74ecd23-6776-4706-ae44-a7b5223e426d",
+    "jobId": "8536d779-baf0-499c-a434-11934adb712d",
+    "unchangedHash": "6a557b85f7a66b37f78e209db89cf198d46f2e21fdd626370b771db84c4cca79",
+    "navigationRequestsDuringHistoryRefreshReload": 0
+  },
+  "status": "passed",
+  "pageErrors": [],
+  "restartPreparedAt": "2026-11-03T11:44:38.654Z",
+  "restart": {
+    "verifiedAt": "2026-11-03T11:45:06.513Z",
+    "preservedPageCount": 6,
+    "settingsUnchanged": true,
+    "historyRestored": true,
+    "generationRequests": 0
+  }
+}

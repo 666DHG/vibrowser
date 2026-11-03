@@ -23,6 +23,7 @@
     "src",
     "vite.config.ts",
     "tests",
-    "playwright.config.ts"
+    "playwright.config.ts",
+    "playwright.live.config.ts"
   ]
 }

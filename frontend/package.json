@@ -8,6 +8,8 @@
     "build": "tsc -b && vite build",
     "test": "vitest run",
     "test:e2e": "playwright test",
+    "test:live": "playwright test --config playwright.live.config.ts smoke.spec.ts",
+    "test:live:restart": "playwright test --config playwright.live.config.ts restart.spec.ts",
     "format": "prettier --write src tests *.ts",
     "format:check": "prettier --check src tests *.ts"
   },

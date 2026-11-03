@@ -51,6 +51,8 @@ DatabaseSession、SQL statement/resultSet、HTTP client 与 worker 由 Resource 
 
 真实、Mock 与集成测试分别使用 vibrowser_live、vibrowser_demo、smoke_test schema；页面保存 source=live/mock。启动时将遗留 running 任务标记失败并更新页面，queued 继续运行。前端 AbortController 防止旧导航覆盖新状态，刷新只 GetPage，不隐式再生成。
 
+真实接口联调后，在 generation 的纯工具 GeneratedPageDecoder 中加入模型边界归一化：navbar 子项的 label/href 简写转换为 button，grid/results 中无 type 的标题卡片转换为 card；缺失 ID 按树路径生成，缺失可空文本和空 items 补齐。显式未知 type 不改写，链接、重复 ID、全树 12 个组件及 3 层深度仍由原校验拒绝。写入数据库和交给前端的仍是严格 PageSpec。错误保留字段路径，唯一一次修复携带有长度限制的原输出与具体校验原因；不截掉超限组件伪装成功。
+
 仅监听 loopback；开发前端代理 /api 和 /health。路由校验 Host、Origin、JSON Content-Type 和请求大小，不允许任意 CORS。模型输出只作为数据；全部链接通过宿主导航，ASCII 插画仅渲染文本。Key 不写日志、不返回前端、不进入浏览器存储。
 
 ## 长期设计基线

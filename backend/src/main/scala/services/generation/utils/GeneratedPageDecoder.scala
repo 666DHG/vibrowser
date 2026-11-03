@@ -1,5 +1,5 @@
 package services.generation.utils
-import io.circe.{Json, JsonObject, DecodingFailure, CursorOp}
+import io.circe.{Json, CursorOp}
 import io.circe.parser.parse
 import services.browser.objects.PageSpec
 import services.system.objects.AppError

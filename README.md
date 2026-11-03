@@ -2,7 +2,7 @@
 
 > Browse what exists. Imagine what doesn't.
 
-本地运行的 AI 虚构浏览器。输入网址或搜索词，生成结构化网页，点击链接继续探索；前进、后退、刷新均复用已保存的页面。首版 Smoke 已实现，真实 DeepSeek 验收仍待填写有效 Key。
+本地运行的 AI 虚构浏览器。输入网址或搜索词，生成结构化网页，点击链接继续探索；前进、后退、刷新均复用已保存的页面。首版 Smoke 已通过真实 DeepSeek 验收：本轮 6 个页面任务全部成功，包含原先失败页面的重试，并验证了重启恢复。详见 [真实验收与问题修复](docs/LIVE_SMOKE.md)。
 
 ![浏览器首页](docs/screenshots/home.png)
 
@@ -70,12 +70,12 @@ Mock 的测试连接与生成均为模拟，界面明确标注；真实模式不
 ## 验证
 
 ```powershell
-.\scripts\check.ps1                # Scala 格式/编译/18 项测试，前端格式/9 项测试/类型/构建
+.\scripts\check.ps1                # Scala 格式/编译/24 项测试，前端格式/9 项测试/类型/构建
 # 先用 start.ps1 -Mock 启动，再运行：
 .\scripts\check.ps1 -Browser       # 另加 4 项 Playwright E2E，并更新截图
 ```
 
-数据库测试只清理 `smoke_test` schema。E2E 强制检查 Mock 模式，不进行计费调用；若已有 Key，跳过会替换凭据的 UI 用例。详细证据、真实验收待办见 [Smoke 记录](docs/SMOKE_PROGRESS.md)。
+数据库测试只清理 `smoke_test` schema。E2E 强制检查 Mock 模式，不进行计费调用；若已有 Key，跳过会替换凭据的 UI 用例。真实验收另用显式启用的 `npm run test:live`，不读取或替换 Key；调用方式、重启阶段和结果见 [真实验收记录](docs/LIVE_SMOKE.md)。首次交付的历史证据见 [Smoke 记录](docs/SMOKE_PROGRESS.md)。
 
 ## 代码入口
 

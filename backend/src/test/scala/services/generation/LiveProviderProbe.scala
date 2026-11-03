@@ -3,7 +3,7 @@ import cats.effect.{IO, IOApp}
 import cats.syntax.all.*
 import java.nio.file.{Files, Paths}
 import org.http4s.ember.client.EmberClientBuilder
-import io.circe.parser.{decode, parse}
+import io.circe.parser.decode
 import services.system.DatabaseSession
 import services.settings.api.{GetSettingsMessage, GetProviderConnectionMessage}
 import services.browser.objects.PageSpec

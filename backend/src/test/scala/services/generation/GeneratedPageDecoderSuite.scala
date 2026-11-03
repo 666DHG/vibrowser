@@ -1,8 +1,7 @@
 package services.generation
 import munit.CatsEffectSuite
-import cats.effect.IO
 import java.nio.file.{Files, Paths}
-import io.circe.{Json, Decoder}
+import io.circe.Json
 import io.circe.parser.parse
 import services.generation.utils.{GeneratedPageDecoder, PromptBuilder}
 import services.browser.objects.*
