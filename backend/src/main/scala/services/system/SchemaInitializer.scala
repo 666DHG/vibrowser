@@ -3,6 +3,7 @@ import cats.effect.IO
 import cats.syntax.all.*
 import java.sql.Connection
 import services.browser.tables.PageTable.PageTableInitializer
+import services.browser.tables.BookmarkTable.BookmarkTableInitializer
 import services.generation.tables.GenerationJobTable.{
   GenerationJobTable,
   GenerationJobTableInitializer
@@ -13,7 +14,9 @@ import services.generation.api.FailGenerationJobMessage
 object SchemaInitializer:
   def initialize(c: Connection): IO[Unit] =
     PageTableInitializer.initialize(c) *> GenerationJobTableInitializer.initialize(c) *>
-      SettingsTableInitializer.initialize(c) *> CredentialsTableInitializer.initialize(c)
+      SettingsTableInitializer.initialize(c) *> CredentialsTableInitializer.initialize(
+        c
+      ) *> BookmarkTableInitializer.initialize(c)
   def recover(c: Connection): IO[Unit] =
     GenerationJobTable
       .interrupted(c)

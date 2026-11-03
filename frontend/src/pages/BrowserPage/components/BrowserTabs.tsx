@@ -49,8 +49,8 @@ export function BrowserTabs({
         {tabs.map((tab, index) => {
           const active = tab.id === activeTabId;
           const loading =
-            tab.content.status === "loading" ||
-            tab.content.status === "generating";
+            tab.pending?.status === "loading" ||
+            tab.pending?.status === "generating";
           return (
             <div
               key={tab.id}

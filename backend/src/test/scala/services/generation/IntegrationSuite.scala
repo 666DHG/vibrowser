@@ -140,7 +140,100 @@ class IntegrationSuite extends CatsEffectSuite:
             attempts <- count.get
             _ = assertEquals(attempts, expected)
             _ = assertEquals(result.isRight, scenario == "invalid")
+            saved <- db.transaction(GetPageMessage(Some(nav.pageId), None).plan)
+            steps = saved.job.get.steps
+            _ = assertEquals(
+              steps.take(3).map(_.phase),
+              List(GenerationPhase.Queued, GenerationPhase.Preparing, GenerationPhase.Generating)
+            )
+            _ = assertEquals(steps.count(_.phase == GenerationPhase.Generating), expected)
+            _ = assert(steps.forall(s => s.attempt >= 1 && s.attempt <= 2 && s.at.nonEmpty))
+            _ = if scenario == "invalid" then
+              assertEquals(
+                steps.map(_.phase),
+                List(
+                  GenerationPhase.Queued,
+                  GenerationPhase.Preparing,
+                  GenerationPhase.Generating,
+                  GenerationPhase.Validating,
+                  GenerationPhase.Repairing,
+                  GenerationPhase.Generating,
+                  GenerationPhase.Validating,
+                  GenerationPhase.Saving,
+                  GenerationPhase.Ready
+                )
+              )
+            _ = if scenario == "timeout" then
+              assert(steps.exists(s => s.phase == GenerationPhase.Retrying && s.attempt == 2))
           yield ()
         }
       }
+  }
+  test("bookmarks reject pending pages, deduplicate concurrent saves and preserve cached content") {
+    isolated { db =>
+      for
+        nav <- db.transaction(NavigateMessage("bookmark.example", None).plan)
+        rejected <- db.transaction(SaveBookmarkMessage(nav.pageId).plan).attempt
+        _ = assert(rejected.isLeft)
+        _ <- db.transaction(ClaimGenerationJobMessage().plan)
+        _ <- db.transaction(CompleteGenerationJobMessage(nav.jobId, Some(spec), "mock").plan)
+        saves <- List.fill(8)(db.transaction(SaveBookmarkMessage(nav.pageId).plan)).parSequence
+        _ = assertEquals(saves.map(_.id).distinct.size, 1)
+        _ = assertEquals(saves.map(_.savedAt).distinct.size, 1)
+        _ = assertEquals(saves.head.title, spec.title)
+        _ <- db.transaction(SchemaInitializer.initialize)
+        _ <- db.transaction(SchemaInitializer.initialize)
+        restored <- db.transaction(ListBookmarksMessage().plan)
+        _ = assertEquals(restored.bookmarks, List(saves.head))
+        isolatedSchema <- db.transaction { c =>
+          SqlExecutor.update(c, "CREATE SCHEMA smoke_test_bookmark_isolation") *>
+            SqlExecutor.update(c, "SET LOCAL search_path TO smoke_test_bookmark_isolation") *>
+            SchemaInitializer.initialize(c) *>
+            ListBookmarksMessage().plan(c).flatMap(list => IO(assertEquals(list.bookmarks, Nil))) *>
+            IO.raiseError[Unit](new RuntimeException("rollback isolated test schema"))
+        }.attempt
+        _ = assertEquals(
+          isolatedSchema.left.toOption.map(_.getMessage),
+          Some("rollback isolated test schema")
+        )
+        removed <- db.transaction(RemoveBookmarkMessage(saves.head.id).plan)
+        _ = assert(removed.removed)
+        repeated <- db.transaction(RemoveBookmarkMessage(saves.head.id).plan)
+        _ = assert(!repeated.removed)
+        empty <- db.transaction(ListBookmarksMessage().plan)
+        _ = assertEquals(empty.bookmarks, Nil)
+        page <- db.transaction(GetPageMessage(Some(nav.pageId), None).plan)
+        _ = assertEquals(page.page.get.spec, Some(spec))
+        _ = assertEquals(page.page.get.currentJobId, nav.jobId)
+      yield ()
+    }
+  }
+  test(
+    "progress migration retains old jobs without invented history and failure is recorded once"
+  ) {
+    isolated { db =>
+      for
+        nav <- db.transaction(NavigateMessage("old-progress.example", None).plan)
+        _ <- db.transaction(c =>
+          SqlExecutor
+            .update(
+              c,
+              "UPDATE generation_jobs SET steps='[]'::jsonb WHERE id=?",
+              List(nav.jobId.value)
+            )
+            .void
+        )
+        _ <- db.transaction(SchemaInitializer.initialize)
+        old <- db.transaction(GetPageMessage(Some(nav.pageId), None).plan)
+        _ = assertEquals(old.job.get.steps, Nil)
+        _ <- db.transaction(ClaimGenerationJobMessage().plan)
+        _ <- db.transaction(SchemaInitializer.recover)
+        _ <- db.transaction(SchemaInitializer.recover)
+        stopped <- db.transaction(GetPageMessage(Some(nav.pageId), None).plan)
+        _ = assertEquals(
+          stopped.job.get.steps.map(_.phase),
+          List(GenerationPhase.Preparing, GenerationPhase.Failed)
+        )
+      yield ()
+    }
   }

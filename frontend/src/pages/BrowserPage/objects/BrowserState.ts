@@ -6,11 +6,25 @@ export interface HistoryEntry {
 }
 export type ContentState =
   | { status: "idle" }
-  | { status: "loading"; input: string }
-  | { status: "generating"; page: PageRecord; job: Job }
-  | { status: "ready"; page: PageRecord }
-  | { status: "error"; message: string; page?: PageRecord };
-
+  | { status: "bookmarks" }
+  | { status: "ready"; page: PageRecord };
+export interface PendingNavigation {
+  requestId: string;
+  input: string;
+  mode: "navigate" | "cached";
+  status: "loading" | "generating" | "error" | "complete";
+  startedAt: number;
+  finishedAt?: number;
+  pageId?: string;
+  referrerPageId?: string;
+  historyIndex?: number;
+  job?: Job;
+  failedPage?: PageRecord;
+  message?: string;
+  collapsed: boolean;
+  cacheHit?: boolean;
+  restoreEntry?: HistoryEntry;
+}
 export interface BrowserTab {
   id: string;
   title: string;
@@ -18,8 +32,8 @@ export interface BrowserTab {
   entries: HistoryEntry[];
   index: number;
   content: ContentState;
+  pending: PendingNavigation | null;
 }
-
 export interface BrowserSession {
   tabs: BrowserTab[];
   activeTabId: string;

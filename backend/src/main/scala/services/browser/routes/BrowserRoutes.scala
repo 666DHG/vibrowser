@@ -7,5 +7,8 @@ object BrowserRoutes:
   val apiMessages: List[RegisteredAPIMessage] = List(
     RegisteredAPIMessage[NavigateMessage, NavigationResponse],
     RegisteredAPIMessage[GetPageMessage, PageResponse],
-    RegisteredAPIMessage[RetryPageMessage, NavigationResponse]
+    RegisteredAPIMessage[RetryPageMessage, NavigationResponse],
+    RegisteredAPIMessage[ListBookmarksMessage, BookmarkListResponse],
+    RegisteredAPIMessage[SaveBookmarkMessage, Bookmark],
+    RegisteredAPIMessage[RemoveBookmarkMessage, BookmarkRemovalResponse]
   )

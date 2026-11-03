@@ -198,7 +198,7 @@ test("background generation stays with its tab and closing stops polling and lat
     page.getByRole("heading", { name: "正在加载页面" }),
   ).toBeVisible();
   await page
-    .getByRole("button", { name: "关闭标签页：waiting.example", exact: true })
+    .getByRole("button", { name: "关闭标签页：slow.example", exact: true })
     .click();
   const count = mock.polls.filter(
     (input) => input === "waiting.example",

@@ -1,75 +1,118 @@
 import { create } from "zustand";
 import type {
-  HistoryEntry,
-  ContentState,
   BrowserTab,
   BrowserSession,
+  PendingNavigation,
+  ContentState,
 } from "../objects/BrowserState";
+import type { PageRecord, Job } from "../../../shared/pageSpec";
 import {
   restoreSession,
   persistSession,
   emptyTab,
 } from "../functions/browserSession";
-
 const store = create<BrowserSession>(() => restoreSession());
 store.subscribe(persistSession);
 export const useBrowserState = () => store();
 export const getBrowserSnapshot = () => store.getState();
 export const getTab = (id: string) =>
   store.getState().tabs.find((tab) => tab.id === id);
-
 function updateTab(id: string, update: (tab: BrowserTab) => BrowserTab) {
   store.setState((state) => ({
     tabs: state.tabs.map((tab) => (tab.id === id ? update(tab) : tab)),
   }));
 }
+export const pageInput = (page: PageRecord) =>
+  page.kind === "search" ? page.prompt : page.address;
+export const visibleInput = (tab: BrowserTab) =>
+  tab.content.status === "ready"
+    ? pageInput(tab.content.page)
+    : tab.content.status === "bookmarks"
+      ? "vibrowser://bookmarks"
+      : "";
 export const setDraft = (id: string, draft: string) =>
   updateTab(id, (tab) => ({ ...tab, draft }));
-export function setContent(id: string, content: ContentState) {
+export const setVisible = (id: string, content: ContentState) =>
+  updateTab(id, (tab) => ({ ...tab, content }));
+export function startNavigation(id: string, pending: PendingNavigation) {
+  updateTab(id, (tab) => ({
+    ...tab,
+    pending,
+    draft: pending.input,
+    title: tab.content.status === "idle" ? pending.input : tab.title,
+  }));
+}
+export function updatePending(
+  id: string,
+  requestId: string,
+  change: Partial<PendingNavigation>,
+) {
+  updateTab(id, (tab) =>
+    tab.pending?.requestId === requestId
+      ? { ...tab, pending: { ...tab.pending, ...change } }
+      : tab,
+  );
+}
+export function completeNavigation(
+  id: string,
+  requestId: string,
+  page: PageRecord,
+  job?: Job,
+) {
   updateTab(id, (tab) => {
-    const page =
-      content.status === "ready" || content.status === "generating"
-        ? content.page
-        : null;
-    const previousInput =
-      tab.content.status === "loading"
-        ? tab.content.input
-        : tab.content.status === "generating" || tab.content.status === "ready"
-          ? tab.content.page.kind === "search"
-            ? tab.content.page.prompt
-            : tab.content.page.address
-          : tab.draft;
-    const draft =
-      page && tab.draft !== previousInput
-        ? tab.draft
-        : page
-          ? page.kind === "search"
-            ? page.prompt
-            : page.address
-          : content.status === "loading"
-            ? content.input
-            : content.status === "idle"
-              ? ""
-              : tab.draft;
-    const title =
-      content.status === "idle"
-        ? "新标签页"
-        : (page?.spec?.title ??
-          (content.status === "loading" ? content.input : tab.title));
-    return { ...tab, content, draft, title };
+    const pending = tab.pending;
+    if (!pending || pending.requestId !== requestId) return tab;
+    const entry = {
+      input: pageInput(page),
+      address: page.address,
+      pageId: page.id,
+    };
+    const entries =
+      pending.historyIndex !== undefined ||
+      tab.entries[tab.index]?.pageId === page.id
+        ? tab.entries
+        : [...tab.entries.slice(0, tab.index + 1), entry].slice(-100);
+    const index =
+      pending.historyIndex ??
+      (entries === tab.entries ? tab.index : entries.length - 1);
+    return {
+      ...tab,
+      entries,
+      index,
+      title: page.spec?.title ?? page.address,
+      draft: tab.draft === pending.input ? pageInput(page) : tab.draft,
+      content: { status: "ready", page },
+      pending: {
+        ...pending,
+        status: "complete",
+        job,
+        finishedAt: Date.now(),
+        restoreEntry: undefined,
+      },
+    };
   });
 }
-export const setHistory = (
-  id: string,
-  entries: HistoryEntry[],
-  index: number,
-) => updateTab(id, (tab) => ({ ...tab, entries, index }));
-export function pushHistory(id: string, entry: HistoryEntry) {
-  updateTab(id, (tab) => {
-    if (tab.entries[tab.index]?.pageId === entry.pageId) return tab;
-    const entries = [...tab.entries.slice(0, tab.index + 1), entry].slice(-100);
-    return { ...tab, entries, index: entries.length - 1 };
-  });
+export function dismissPending(id: string, requestId?: string) {
+  updateTab(id, (tab) =>
+    requestId && tab.pending?.requestId !== requestId
+      ? tab
+      : {
+          ...tab,
+          pending: null,
+          draft:
+            tab.pending?.status === "complete" ? tab.draft : visibleInput(tab),
+          title: tab.content.status === "idle" ? "新标签页" : tab.title,
+        },
+  );
+}
+export function showHome(id: string) {
+  updateTab(id, (tab) => ({
+    ...tab,
+    pending: null,
+    content: { status: "idle" },
+    draft: "",
+    title: "新标签页",
+  }));
 }
 export function addTab() {
   const tab = emptyTab();
@@ -78,6 +121,22 @@ export function addTab() {
     activeTabId: tab.id,
   }));
   return tab.id;
+}
+export function openBookmarks() {
+  const existing = store
+    .getState()
+    .tabs.find((tab) => tab.content.status === "bookmarks");
+  if (existing) {
+    selectTab(existing.id);
+    return;
+  }
+  const id = addTab();
+  updateTab(id, (tab) => ({
+    ...tab,
+    title: "书签",
+    draft: "vibrowser://bookmarks",
+    content: { status: "bookmarks" },
+  }));
 }
 export function selectTab(id: string) {
   if (getTab(id)) store.setState({ activeTabId: id });

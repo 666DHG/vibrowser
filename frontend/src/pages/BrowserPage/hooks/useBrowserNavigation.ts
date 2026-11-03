@@ -2,45 +2,80 @@ import { useRef, useEffect, useCallback } from "react";
 import { NavigateMessage } from "../../../apis/browser/NavigateMessage";
 import { GetPageMessage } from "../../../apis/browser/GetPageMessage";
 import { RetryPageMessage } from "../../../apis/browser/RetryPageMessage";
+import type { PendingNavigation } from "../objects/BrowserState";
 import {
   getBrowserSnapshot,
   getTab,
-  setContent,
-  setHistory,
-  pushHistory,
+  startNavigation,
+  updatePending,
+  completeNavigation,
+  dismissPending,
+  showHome,
   removeTab,
+  addTab,
+  setVisible,
+  openBookmarks,
 } from "../stores/browserStore";
-
 export function useBrowserNavigation() {
   const controllers = useRef(new Map<string, AbortController>());
   const begin = (id: string) => {
     controllers.current.get(id)?.abort();
-    const controller = new AbortController();
-    controllers.current.set(id, controller);
-    return controller;
+    const c = new AbortController();
+    controllers.current.set(id, c);
+    return c;
+  };
+  const fail = (
+    id: string,
+    token: string,
+    error: unknown,
+    c: AbortController,
+  ) => {
+    if (!c.signal.aborted)
+      updatePending(id, token, {
+        status: "error",
+        message: error instanceof Error ? error.message : "请求失败",
+        finishedAt: Date.now(),
+      });
   };
   const load = useCallback(
-    async (tabId: string, pageId: string, c: AbortController) => {
+    async (id: string, token: string, pageId: string, c: AbortController) => {
       const deadline = Date.now() + 180000;
-      while (!c.signal.aborted && getTab(tabId) && Date.now() < deadline) {
+      while (
+        !c.signal.aborted &&
+        getTab(id)?.pending?.requestId === token &&
+        Date.now() < deadline
+      ) {
         const result = await new GetPageMessage(pageId).send(c.signal);
-        if (c.signal.aborted || !getTab(tabId)) return;
+        if (c.signal.aborted || getTab(id)?.pending?.requestId !== token)
+          return;
         const page = result.page;
         if (!page) throw new Error("页面不存在");
         if (page.status === "ready" && page.spec) {
-          setContent(tabId, { status: "ready", page });
+          const pending = getTab(id)?.pending;
+          completeNavigation(
+            id,
+            token,
+            page,
+            pending?.cacheHit || pending?.mode === "cached"
+              ? undefined
+              : (result.job ?? undefined),
+          );
           return;
         }
         if (page.status === "failed") {
-          setContent(tabId, {
+          updatePending(id, token, {
             status: "error",
+            failedPage: page,
+            job: result.job ?? undefined,
             message: page.error ?? "生成失败",
-            page,
+            finishedAt: Date.now(),
           });
           return;
         }
-        if (result.job)
-          setContent(tabId, { status: "generating", page, job: result.job });
+        updatePending(id, token, {
+          status: "generating",
+          job: result.job ?? undefined,
+        });
         await new Promise<void>((resolve) => {
           const finish = () => {
             clearTimeout(timer);
@@ -51,92 +86,123 @@ export function useBrowserNavigation() {
           c.signal.addEventListener("abort", finish, { once: true });
         });
       }
-      if (!c.signal.aborted && getTab(tabId))
-        throw new Error("等待时间较长，请刷新查看任务状态");
+      if (!c.signal.aborted && getTab(id))
+        throw new Error("等待时间较长，请重试查看任务状态");
     },
     [],
   );
-  const fail = (id: string, error: unknown, c: AbortController) => {
-    if (!c.signal.aborted)
-      setContent(id, {
-        status: "error",
-        message: error instanceof Error ? error.message : "请求失败",
-      });
-  };
   useEffect(() => {
     for (const tab of getBrowserSnapshot().tabs) {
-      const entry = tab.entries[tab.index];
-      if (tab.content.status === "loading" && entry) {
-        const c = begin(tab.id);
-        void load(tab.id, entry.pageId, c).catch((error) =>
-          fail(tab.id, error, c),
-        );
-      }
+      const pending = tab.pending;
+      if (!pending || pending.status !== "loading") continue;
+      const c = begin(tab.id);
+      void (async () => {
+        if (pending.restoreEntry) {
+          const previous = await new GetPageMessage(
+            pending.restoreEntry.pageId,
+          ).send(c.signal);
+          if (!c.signal.aborted && previous.page?.status === "ready")
+            setVisible(tab.id, { status: "ready", page: previous.page });
+        }
+        if (pending.pageId)
+          await load(tab.id, pending.requestId, pending.pageId, c);
+        else throw new Error("上次请求尚未取得页面，请重试或取消本次打开");
+      })().catch((error) => fail(tab.id, pending.requestId, error, c));
     }
-    const activeControllers = controllers.current;
+    const active = controllers.current;
     return () => {
-      activeControllers.forEach((c) => c.abort());
-      activeControllers.clear();
+      active.forEach((c) => c.abort());
+      active.clear();
     };
   }, [load]);
   const activeId = () => getBrowserSnapshot().activeTabId;
-  const navigate = async (
+  const run = async (
+    id: string,
+    input: string,
+    options: Partial<PendingNavigation> = {},
+    retry = false,
+  ) => {
+    const c = begin(id);
+    const pending: PendingNavigation = {
+      ...options,
+      requestId: crypto.randomUUID(),
+      input,
+      mode: options.mode ?? "navigate",
+      status: "loading",
+      startedAt: Date.now(),
+      collapsed: false,
+      finishedAt: undefined,
+      message: undefined,
+    };
+    startNavigation(id, pending);
+    try {
+      let pageId = pending.pageId;
+      if (retry && pending.failedPage && pending.mode !== "cached") {
+        const result = await new RetryPageMessage(
+          pending.failedPage.id,
+          pending.failedPage.currentJobId,
+        ).send(c.signal);
+        pageId = result.pageId;
+      } else if (!pageId) {
+        if (pending.mode === "cached") throw new Error("保存的页面不可用");
+        const result = await new NavigateMessage(
+          input,
+          pending.referrerPageId ?? null,
+        ).send(c.signal);
+        pageId = result.pageId;
+        if (!c.signal.aborted)
+          updatePending(id, pending.requestId, {
+            cacheHit: result.status === "ready",
+          });
+      }
+      if (c.signal.aborted) return;
+      updatePending(id, pending.requestId, { pageId, failedPage: undefined });
+      await load(id, pending.requestId, pageId, c);
+    } catch (error) {
+      fail(id, pending.requestId, error, c);
+    }
+  };
+  const navigate = (
     input: string,
     referrerPageId?: string,
-    tabId = activeId(),
+    id = activeId(),
   ) => {
-    const c = begin(tabId);
-    setContent(tabId, { status: "loading", input });
-    try {
-      const result = await new NavigateMessage(
-        input,
-        referrerPageId ?? null,
-      ).send(c.signal);
-      if (c.signal.aborted || !getTab(tabId)) return;
-      pushHistory(tabId, { input, pageId: result.pageId, address: input });
-      await load(tabId, result.pageId, c);
-    } catch (error) {
-      fail(tabId, error, c);
+    if (input.trim() === "vibrowser://bookmarks") {
+      openBookmarks();
+      return Promise.resolve();
     }
+    return run(id, input, { referrerPageId });
   };
-  const move = async (index: number) => {
-    const tabId = activeId();
-    const tab = getTab(tabId)!;
-    const entry = tab.entries[index];
-    if (!entry) return;
-    const c = begin(tabId);
-    setHistory(tabId, tab.entries, index);
-    setContent(tabId, { status: "loading", input: entry.input });
-    try {
-      await load(tabId, entry.pageId, c);
-    } catch (error) {
-      fail(tabId, error, c);
-    }
+  const move = (index: number) => {
+    const id = activeId();
+    const entry = getTab(id)?.entries[index];
+    return entry
+      ? run(id, entry.input, {
+          mode: "cached",
+          pageId: entry.pageId,
+          historyIndex: index,
+        })
+      : Promise.resolve();
   };
-  const retry = async (tabId = activeId()) => {
-    const state = getTab(tabId)?.content;
-    if (state?.status !== "error" || !state.page) return;
-    const c = begin(tabId);
-    setContent(tabId, { status: "loading", input: state.page.prompt });
-    try {
-      const result = await new RetryPageMessage(
-        state.page.id,
-        state.page.currentJobId,
-      ).send(c.signal);
-      if (!c.signal.aborted) await load(tabId, result.pageId, c);
-    } catch (error) {
-      fail(tabId, error, c);
-    }
+  const retry = (id = activeId()) => {
+    const pending = getTab(id)?.pending;
+    return pending ? run(id, pending.input, pending, true) : Promise.resolve();
+  };
+  const cancel = (id = activeId()) => {
+    controllers.current.get(id)?.abort();
+    dismissPending(id);
   };
   const home = () => {
     const id = activeId();
-    begin(id);
-    setContent(id, { status: "idle" });
+    cancel(id);
+    showHome(id);
   };
   const close = (id: string) => {
     controllers.current.get(id)?.abort();
     controllers.current.delete(id);
     removeTab(id);
   };
-  return { navigate, move, retry, home, close };
+  const openSaved = (pageId: string, input: string) =>
+    run(addTab(), input, { pageId, mode: "cached" });
+  return { navigate, move, retry, cancel, home, close, openSaved };
 }

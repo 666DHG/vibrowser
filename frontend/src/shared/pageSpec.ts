@@ -148,6 +148,22 @@ export const pageRecordSchema = z.object({
   error: z.string().nullable(),
   source: z.string(),
 });
+export const generationStepSchema = z.object({
+  phase: z.enum([
+    "queued",
+    "preparing",
+    "generating",
+    "validating",
+    "repairing",
+    "retrying",
+    "saving",
+    "ready",
+    "failed",
+  ]),
+  attempt: z.number().int().min(1),
+  at: z.string(),
+});
+export type GenerationStep = z.infer<typeof generationStepSchema>;
 export const jobSchema = z.object({
   id: z.string(),
   pageId: z.string().nullable(),
@@ -156,6 +172,7 @@ export const jobSchema = z.object({
   phase: z.string(),
   error: z.string().nullable(),
   settingsRevision: z.number(),
+  steps: z.array(generationStepSchema).default([]),
 });
 export const responseSchema = z.object({
   page: pageRecordSchema.nullable(),

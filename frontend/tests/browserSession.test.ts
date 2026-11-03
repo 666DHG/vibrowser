@@ -54,7 +54,7 @@ it("migrates the original single history once without copying it to every new wi
     }),
   );
   const restored = restoreSession();
-  expect(restored.tabs[0].content).toEqual({
+  expect(restored.tabs[0].pending).toMatchObject({
     status: "loading",
     input: "old.example",
   });

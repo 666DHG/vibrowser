@@ -7,6 +7,9 @@ const messageNames = [
   "SaveSettingsMessage",
   "ClearCredentialsMessage",
   "TestConnectionMessage",
+  "ListBookmarksMessage",
+  "SaveBookmarkMessage",
+  "RemoveBookmarkMessage",
 ] as const;
 export type MessageName = (typeof messageNames)[number];
 export function apiName(name: MessageName): string {
