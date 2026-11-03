@@ -1,0 +1,23 @@
+{
+  "preparedAt": "2026-11-03T13:06:28.547Z",
+  "pageId": "c031cd34-8887-4316-8d72-bf2b96ee4422",
+  "jobId": "4957ea03-8747-4955-9879-03e535313c15",
+  "hash": "165030367e047c912f57fd7f373381dac7a9657274f69880f94803c53e899d20",
+  "bookmark": {
+    "id": "f198053a-d28e-4181-af34-2b18efc354fe",
+    "pageId": "c031cd34-8887-4316-8d72-bf2b96ee4422",
+    "title": "Field Notes Journal · 田野观察半年刊",
+    "address": "https://fieldnotes-journal.example/",
+    "kind": "website",
+    "savedAt": "2026-11-03T13:06:28.380814Z"
+  },
+  "createdByTest": true,
+  "verifiedAt": "2026-11-03T13:07:16.409Z",
+  "generationRequestsDuringReopen": 0,
+  "persistedAcrossRestart": true,
+  "cachedContentUnchanged": true,
+  "testBookmarkRemoved": true,
+  "newModelCalls": 0,
+  "databaseStartBeforeRestart": "2026-11-03T21:06:19.186924+08:00",
+  "databaseStartAfterRestart": "2026-11-03T21:07:08.924843+08:00"
+}

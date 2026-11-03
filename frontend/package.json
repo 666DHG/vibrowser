@@ -11,6 +11,7 @@
     "test:live": "playwright test --config playwright.live.config.ts smoke.spec.ts",
     "test:live:layouts": "playwright test --config playwright.live.config.ts layouts.spec.ts",
     "test:live:restart": "playwright test --config playwright.live.config.ts restart.spec.ts",
+    "test:live:bookmarks": "playwright test --config playwright.live.config.ts bookmarks.spec.ts",
     "format": "prettier --write src tests *.ts",
     "format:check": "prettier --check src tests *.ts"
   },

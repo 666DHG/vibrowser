@@ -83,6 +83,7 @@ export function NavigationProgress({
           />
         )}
         <h1
+          aria-live="polite"
           className={
             "flex-1 " + (fullscreen ? "text-2xl" : "text-sm font-semibold")
           }
@@ -116,18 +117,46 @@ export function NavigationProgress({
             className="max-h-60 space-y-2 overflow-y-auto text-xs"
           >
             <li className="flex items-center gap-2">
-              <Check size={12} />
+              {pending.job || done ? (
+                <Check size={12} />
+              ) : error ? (
+                <AlertCircle size={12} />
+              ) : (
+                <LoaderCircle size={12} className="animate-spin" />
+              )}
               <span>{pending.job || done ? "连接完成" : "正在连接"}</span>
             </li>
             {steps.map((step, index) => (
-              <li key={index} className="flex items-center gap-2">
+              <li
+                key={index}
+                data-step-state={
+                  step.phase === "failed"
+                    ? "failed"
+                    : index === steps.length - 1 && !done && !error
+                      ? "active"
+                      : "completed"
+                }
+                className="flex items-center gap-2"
+              >
                 {index === steps.length - 1 && !done && !error ? (
                   <LoaderCircle size={12} className="animate-spin" />
+                ) : step.phase === "failed" ? (
+                  <AlertCircle size={12} className="text-[#e5bc85]" />
                 ) : (
-                  <span className="size-1.5 rounded-full bg-[#9cb786]" />
+                  <Check size={12} className="text-[#9cb786]" />
                 )}
                 <span>
-                  {labels[step.phase] ?? step.phase}
+                  {{
+                    queued: "等待队列",
+                    preparing: "准备页面",
+                    generating: "生成内容",
+                    validating: "校验内容",
+                    repairing: "修复内容",
+                    retrying: "重试接口",
+                    saving: "保存内容",
+                    ready: "页面就绪",
+                    failed: "任务失败",
+                  }[step.phase] ?? step.phase}
                   {step.attempt > 1 ? ` · 第 ${step.attempt} 次` : ""}
                 </span>
                 {step.at && (

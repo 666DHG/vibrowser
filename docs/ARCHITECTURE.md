@@ -4,6 +4,8 @@
 
 ## 首版实际结构（2026-11-03）
 
+最新交互增强将每标签 ContentState 与 PendingNavigation 分开：旧页直到新请求成功才替换，历史也在成功后提交；进度面板读取任务的持久化 steps。书签归属 browser 服务，新增三个消息，全应用现有五张业务表，详见 [加载与书签](BOOKMARKS_PROGRESS.md)。
+
 浏览器会话已扩展为 BrowserSession → BrowserTab[]，每标签独立 ContentState、历史、草稿和请求取消控制器；sessionStorage 按窗口隔离。BrowserTabs 与 TabContent 就近拆分，消息与数据库接口保持不变。后台完成按捕获的 tabId 写入，关闭标签后不接收迟到结果，见 [多标签实现与验收](BROWSER_TABS.md)。
 
 界面后续调整：移除浏览器状态底栏与生成页 footer；Prompt 采用站点自身口吻。旧 PageSpec 的 footer 类型继续可解码，但 Renderer 不输出，避免已有缓存恢复旧页脚。文案变更与本机缓存维护记录见 [IMMERSIVE_COPY.md](IMMERSIVE_COPY.md)。最新布局扩展已替换原先的八组件示例与固定搜索数量建议，改为三种不同结构的示例，按实际内容决定组件数量，见 [LAYOUTS.md](LAYOUTS.md)。
@@ -17,6 +19,9 @@
 | NavigateMessage | /api/navigate | NavigationResponse；识别网址/搜索、复用缓存或建任务 |
 | GetPageMessage | /api/getpage | PageResponse；pageId/jobId 二选一查询 |
 | RetryPageMessage | /api/retrypage | 检查 failedJobId，锁页面并创建或复用下一代任务 |
+| ListBookmarksMessage | /api/listbookmarks | 返回当前 schema 的书签列表，按保存时间倒序 |
+| SaveBookmarkMessage | /api/savebookmark | 读取已就绪 pageId，以服务端标题/地址保存，重复收藏幂等 |
+| RemoveBookmarkMessage | /api/removebookmark | 只删除书签，不删除页面缓存 |
 | GetSettingsMessage | /api/getsettings | ProviderSettings；只含非敏感配置与 hasKey |
 | SaveSettingsMessage | /api/savesettings | 保存配置并加密新 Key，增加 revision |
 | ClearCredentialsMessage | /api/clearcredentials | 删除密文并使旧配置 revision 失效 |
@@ -27,7 +32,8 @@
 | 表 | 核心字段与约束 | 所属模块 |
 | --- | --- | --- |
 | pages | id、唯一 address、kind、prompt、status、JSONB spec、current_job_id、referrer_id、error、source、created_at | browser |
-| generation_jobs | id、page_id、kind、status、phase、error、settings_revision、时间；每页仅一个 queued/running 任务 | generation |
+| generation_jobs | id、page_id、kind、status、phase、steps JSONB、error、settings_revision、时间；每页仅一个 queued/running 任务 | generation |
+| bookmarks | id、唯一 page_id、title、address、kind、saved_at；页面外键 | browser |
 | provider_settings | singleton id=1、base_url、model、revision | settings |
 | provider_credentials | settings 外键 id、DPAPI ciphertext BYTEA | settings |
 

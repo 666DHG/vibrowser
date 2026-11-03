@@ -24,6 +24,82 @@ beforeEach(() => {
 });
 afterEach(() => vi.unstubAllGlobals());
 
+it("restores a pending page alongside the last committed page, without advancing history", () => {
+  sessionStorage.setItem(
+    SESSION_KEY,
+    JSON.stringify({
+      activeTabId: "tab",
+      tabs: [
+        {
+          id: "tab",
+          title: "Old",
+          draft: "next.example",
+          view: "ready",
+          entries: [
+            {
+              input: "old.example",
+              pageId: "old",
+              address: "https://old.example/",
+            },
+          ],
+          index: 0,
+          pending: { mode: "navigate", input: "next.example", pageId: "next" },
+        },
+      ],
+    }),
+  );
+  const tab = restoreSession().tabs[0];
+  expect(tab.pending).toMatchObject({
+    status: "loading",
+    pageId: "next",
+    restoreEntry: { pageId: "old" },
+  });
+  expect(tab.index).toBe(0);
+  expect(tab.entries).toHaveLength(1);
+});
+
+it("restores bookmarks as an internal view with no generation request", () => {
+  const tab = {
+    ...emptyTab(),
+    title: "书签",
+    draft: "vibrowser://bookmarks",
+    content: { status: "bookmarks" as const },
+  };
+  persistSession({ tabs: [tab], activeTabId: tab.id });
+  expect(restoreSession().tabs[0].content.status).toBe("bookmarks");
+  expect(restoreSession().tabs[0].pending).toBeNull();
+});
+
+it("migrates the previous multi-tab session format to cached page restoration", () => {
+  sessionStorage.setItem(
+    "vibrowser.tabs.v1",
+    JSON.stringify({
+      activeTabId: "tab",
+      tabs: [
+        {
+          id: "tab",
+          title: "Old",
+          draft: "old.example",
+          home: false,
+          entries: [
+            {
+              input: "old.example",
+              pageId: "old",
+              address: "https://old.example/",
+            },
+          ],
+          index: 0,
+        },
+      ],
+    }),
+  );
+  expect(restoreSession().tabs[0].pending).toMatchObject({
+    mode: "cached",
+    pageId: "old",
+    historyIndex: 0,
+  });
+});
+
 it("restores home and an unsubmitted draft while preserving that tab's history", () => {
   const tab = {
     ...emptyTab(),

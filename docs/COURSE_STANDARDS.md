@@ -4,6 +4,8 @@
 
 ## 首版实现证据与明确取舍
 
+加载与书签增强新增 BookmarkId/Bookmark/响应、GenerationStep 等独立 final case class 和 GenerationPhase 枚举，消息继续使用 plan(connection)。BookmarkTable/Initializer 维护书签，GenerationJobTable 原子记录阶段历史；前端显示内容与待完成导航分别建模，详见 [实现与验收](BOOKMARKS_PROGRESS.md)。
+
 | 关注点 | 已实现文件/类型 | 验证 |
 | --- | --- | --- |
 | 消息与 IO | services/*/api 中各 Message；APIMessage.plan(Connection) | 编译、真实 PostgreSQL 消息集成测试 |

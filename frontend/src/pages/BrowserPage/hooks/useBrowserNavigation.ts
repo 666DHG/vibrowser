@@ -133,6 +133,8 @@ export function useBrowserNavigation() {
       collapsed: false,
       finishedAt: undefined,
       message: undefined,
+      job: undefined,
+      cacheHit: undefined,
     };
     startNavigation(id, pending);
     try {
