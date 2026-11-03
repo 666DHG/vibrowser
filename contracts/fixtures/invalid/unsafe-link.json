@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "title": "月面咖啡馆 · Moon Coffee",
+  "description": "在静海边缘，等一杯来自地球的温度。",
+  "theme": "paper",
+  "blocks": [
+    {
+      "id": "nav",
+      "type": "navbar",
+      "title": "MOON / COFFEE",
+      "text": "EST. 2089",
+      "target": null,
+      "items": [
+        {
+          "id": "nav-menu",
+          "type": "button",
+          "title": "探索菜单",
+          "text": null,
+          "target": "javascript:alert(1)",
+          "items": []
+        }
+      ]
+    },
+    {
+      "id": "hero",
+      "type": "hero",
+      "title": "离地球很远，\n离一杯好咖啡很近。",
+      "text": "静海基地的第一间咖啡馆。日出每隔 29 天才来一次，咖啡每天都新鲜。",
+      "target": null,
+      "items": []
+    },
+    {
+      "id": "art",
+      "type": "ascii",
+      "title": "EARTHRISE / 06:32",
+      "text": "        .     *         .\n    .        ◯    .          *\n             ─────\n         (  月 面 拿 铁  )\n          \\___________/\n       ──────────────────",
+      "target": null,
+      "items": []
+    },
+    {
+      "id": "grid",
+      "type": "grid",
+      "title": null,
+      "text": null,
+      "target": null,
+      "items": [
+        {
+          "id": "card-one",
+          "type": "card",
+          "title": "01 / 地出拿铁",
+          "text": "燕麦奶、月尘可可与温暖的地球记忆。18 Lunar Credits。",
+          "target": "/menu/earthrise",
+          "items": []
+        },
+        {
+          "id": "card-two",
+          "type": "card",
+          "title": "02 / 静海浓缩",
+          "text": "深烘焙带来安静而漫长的余韵。12 Lunar Credits。",
+          "target": "/menu/espresso",
+          "items": []
+        }
+      ]
+    },
+    {
+      "id": "text",
+      "type": "text",
+      "title": "给慢下来的旅行者",
+      "text": "不用赶下一班飞船。选择窗边的位置，看蓝色星球缓缓升起。",
+      "target": null,
+      "items": []
+    },
+    {
+      "id": "cta",
+      "type": "button",
+      "title": "查看完整菜单 →",
+      "text": null,
+      "target": "/menu",
+      "items": []
+    },
+    {
+      "id": "footer",
+      "type": "footer",
+      "title": "MOON COFFEE",
+      "text": "这是 AI 创造的虚构网站。请把想象留在这里。",
+      "target": null,
+      "items": []
+    }
+  ]
+}

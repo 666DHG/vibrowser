@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "title": "月面咖啡馆 · Moon Coffee",
+  "description": "在静海边缘，等一杯来自地球的温度。",
+  "theme": "paper",
+  "blocks": [
+    {
+      "id": "one",
+      "type": "grid",
+      "title": null,
+      "text": null,
+      "target": null,
+      "items": [
+        {
+          "id": "two",
+          "type": "grid",
+          "title": null,
+          "text": null,
+          "target": null,
+          "items": [
+            {
+              "id": "three",
+              "type": "grid",
+              "title": null,
+              "text": null,
+              "target": null,
+              "items": [
+                {
+                  "id": "four",
+                  "type": "text",
+                  "title": null,
+                  "text": "too deep",
+                  "target": null,
+                  "items": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
