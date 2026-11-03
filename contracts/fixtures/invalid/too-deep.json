@@ -1,43 +1,68 @@
 {
   "schemaVersion": 1,
-  "title": "月面咖啡馆 · Moon Coffee",
-  "description": "在静海边缘，等一杯来自地球的温度。",
+  "title": "超限嵌套",
+  "description": "超限嵌套 · 最新内容与精选栏目",
   "theme": "paper",
+  "design": {
+    "layout": "classic",
+    "typography": "sans",
+    "density": "compact",
+    "accent": "blue"
+  },
   "blocks": [
     {
       "id": "one",
-      "type": "grid",
+      "type": "section",
       "title": null,
       "text": null,
       "target": null,
       "items": [
         {
           "id": "two",
-          "type": "grid",
+          "type": "section",
           "title": null,
           "text": null,
           "target": null,
           "items": [
             {
               "id": "three",
-              "type": "grid",
+              "type": "section",
               "title": null,
               "text": null,
               "target": null,
               "items": [
                 {
                   "id": "four",
-                  "type": "text",
+                  "type": "section",
                   "title": null,
-                  "text": "too deep",
+                  "text": null,
                   "target": null,
-                  "items": []
+                  "items": [
+                    {
+                      "id": "five",
+                      "type": "text",
+                      "title": "超限",
+                      "text": "正文",
+                      "target": null,
+                      "items": [],
+                      "meta": null,
+                      "style": null
+                    }
+                  ],
+                  "meta": null,
+                  "style": null
                 }
-              ]
+              ],
+              "meta": null,
+              "style": null
             }
-          ]
+          ],
+          "meta": null,
+          "style": null
         }
-      ]
+      ],
+      "meta": null,
+      "style": null
     }
   ]
 }

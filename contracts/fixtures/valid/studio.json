@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "title": "无界 / 独立设计工作室",
+  "description": "无界 / 独立设计工作室 · 最新内容与精选栏目",
+  "theme": "coral",
+  "design": {
+    "layout": "studio",
+    "typography": "display",
+    "density": "airy",
+    "accent": "red"
+  },
+  "blocks": [
+    {
+      "id": "studionav",
+      "type": "navbar",
+      "title": "OFFGRID",
+      "text": null,
+      "target": null,
+      "items": [
+        {
+          "id": "studionav0",
+          "type": "button",
+          "title": "作品",
+          "text": null,
+          "target": "/work",
+          "items": [],
+          "meta": null,
+          "style": null
+        },
+        {
+          "id": "studionav1",
+          "type": "button",
+          "title": "关于",
+          "text": null,
+          "target": "/about",
+          "items": [],
+          "meta": null,
+          "style": null
+        },
+        {
+          "id": "studionav2",
+          "type": "button",
+          "title": "联系",
+          "text": null,
+          "target": "/contact",
+          "items": [],
+          "meta": null,
+          "style": null
+        }
+      ],
+      "meta": "INDEPENDENT DESIGN STUDIO",
+      "style": null
+    },
+    {
+      "id": "manifesto",
+      "type": "hero",
+      "title": "为有意思的想法，\n找到清晰的形状。",
+      "text": "品牌、字体与数字体验。我们与小团队合作，把尚未成形的想法变成值得记住的作品。",
+      "target": null,
+      "items": [],
+      "meta": "SHANGHAI / AVAILABLE FOR SELECT PROJECTS",
+      "style": null
+    },
+    {
+      "id": "selected",
+      "type": "divider",
+      "title": "SELECTED WORK / 2024—2026",
+      "text": null,
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "works",
+      "type": "list",
+      "title": null,
+      "text": null,
+      "target": null,
+      "items": [
+        {
+          "id": "w1",
+          "type": "article",
+          "title": "01 / 苔原书店",
+          "text": "品牌策略 · 视觉识别 · 空间导视",
+          "target": "/work/tundra",
+          "items": [],
+          "meta": "2026",
+          "style": null
+        },
+        {
+          "id": "w2",
+          "type": "article",
+          "title": "02 / 某日咖啡",
+          "text": "包装 · 字体 · 数字体验",
+          "target": "/work/someday",
+          "items": [],
+          "meta": "2025",
+          "style": null
+        },
+        {
+          "id": "w3",
+          "type": "article",
+          "title": "03 / 未完的城市",
+          "text": "编辑设计 · 展览视觉",
+          "target": "/work/city",
+          "items": [],
+          "meta": "2024",
+          "style": null
+        }
+      ],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "quote",
+      "type": "quote",
+      "title": null,
+      "text": "好的设计，有时只是把多余的东西拿走。",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": {
+        "placement": "main",
+        "variant": "plain",
+        "columns": null
+      }
+    },
+    {
+      "id": "contact",
+      "type": "text",
+      "title": "聊聊你的下一个项目。",
+      "text": "hello@offgrid.example\n上海市长宁区愚园路 / 工作日 10:00—18:00",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": {
+        "placement": "aside",
+        "variant": "plain",
+        "columns": null
+      }
+    }
+  ]
+}

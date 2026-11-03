@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "title": "沿街 · 城市文化周刊",
+  "description": "沿街 · 城市文化周刊 · 最新内容与精选栏目",
+  "theme": "paper",
+  "design": {
+    "layout": "editorial",
+    "typography": "serif",
+    "density": "comfortable",
+    "accent": "red"
+  },
+  "blocks": [
+    {
+      "id": "masthead",
+      "type": "navbar",
+      "title": "沿 街 / SIDEWALK",
+      "text": null,
+      "target": null,
+      "items": [
+        {
+          "id": "masthead0",
+          "type": "button",
+          "title": "本期",
+          "text": null,
+          "target": "/issue",
+          "items": [],
+          "meta": null,
+          "style": null
+        },
+        {
+          "id": "masthead1",
+          "type": "button",
+          "title": "城市",
+          "text": null,
+          "target": "/city",
+          "items": [],
+          "meta": null,
+          "style": null
+        },
+        {
+          "id": "masthead2",
+          "type": "button",
+          "title": "人物",
+          "text": null,
+          "target": "/people",
+          "items": [],
+          "meta": null,
+          "style": null
+        }
+      ],
+      "meta": "ISSUE 028 · 城市，仍在生长",
+      "style": null
+    },
+    {
+      "id": "lead",
+      "type": "article",
+      "title": "在最后一家旧书店打烊之前",
+      "text": "下午四点，斜阳穿过窄小的天井，照亮书架上被翻旧的书脊。陈先生把一本旧地图铺在桌上，说这条街最早的名字不是现在这个。\n\n我们用了一个星期走访这里的店主，记录一条街道如何留住记忆。",
+      "target": "/stories/bookshop",
+      "items": [],
+      "meta": "封面故事 · 林知远 · 12 分钟",
+      "style": {
+        "placement": "main",
+        "variant": "feature",
+        "columns": null
+      }
+    },
+    {
+      "id": "side",
+      "type": "section",
+      "title": "街角来信",
+      "text": null,
+      "target": null,
+      "items": [
+        {
+          "id": "note1",
+          "type": "article",
+          "title": "一间修钟铺的时间",
+          "text": "师傅和学徒共用一张桌子，三十年来没有搬过位置。",
+          "target": "/time",
+          "items": [],
+          "meta": "人物 / 06.18",
+          "style": null
+        },
+        {
+          "id": "note2",
+          "type": "article",
+          "title": "地铁口的花",
+          "text": "晚高峰的流动花摊，记录城市里最短的停留。",
+          "target": "/flowers",
+          "items": [],
+          "meta": "观察 / 06.17",
+          "style": null
+        },
+        {
+          "id": "note3",
+          "type": "quote",
+          "title": "陈先生",
+          "text": "书不只是一本书，也是一段借给你的时间。",
+          "target": null,
+          "items": [],
+          "meta": null,
+          "style": null
+        }
+      ],
+      "meta": "本周编辑推荐",
+      "style": {
+        "placement": "aside",
+        "variant": "plain",
+        "columns": null
+      }
+    },
+    {
+      "id": "rule",
+      "type": "divider",
+      "title": "更多故事",
+      "text": null,
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "features",
+      "type": "grid",
+      "title": null,
+      "text": null,
+      "target": null,
+      "items": [
+        {
+          "id": "story0",
+          "type": "article",
+          "title": "河岸的星期天",
+          "text": "沿着河走五公里，遇见不同年龄的周末。",
+          "target": "/stories/0",
+          "items": [],
+          "meta": "城市记录 · 5 分钟",
+          "style": null
+        },
+        {
+          "id": "story1",
+          "type": "article",
+          "title": "谁在深夜洗衣",
+          "text": "24 小时洗衣房是另一种城市客厅。",
+          "target": "/stories/1",
+          "items": [],
+          "meta": "城市记录 · 6 分钟",
+          "style": null
+        },
+        {
+          "id": "story2",
+          "type": "article",
+          "title": "重新开门的电影院",
+          "text": "他们用旧电影票换来第一次放映。",
+          "target": "/stories/2",
+          "items": [],
+          "meta": "城市记录 · 7 分钟",
+          "style": null
+        }
+      ],
+      "meta": null,
+      "style": {
+        "placement": "full",
+        "variant": "plain",
+        "columns": 3
+      }
+    }
+  ]
+}

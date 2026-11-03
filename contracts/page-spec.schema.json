@@ -27,16 +27,68 @@
         "paper",
         "midnight",
         "terminal",
-        "coral"
+        "coral",
+        "white",
+        "graphite",
+        "sage"
       ]
     },
     "blocks": {
       "type": "array",
       "minItems": 1,
-      "maxItems": 12,
+      "maxItems": 48,
       "items": {
         "$ref": "#/$defs/block"
       }
+    },
+    "design": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "layout": {
+              "enum": [
+                "classic",
+                "editorial",
+                "storefront",
+                "documentation",
+                "community",
+                "dashboard",
+                "studio",
+                "directory"
+              ]
+            },
+            "typography": {
+              "enum": [
+                "sans",
+                "serif",
+                "mono",
+                "display"
+              ]
+            },
+            "density": {
+              "enum": [
+                "compact",
+                "comfortable",
+                "airy"
+              ]
+            },
+            "accent": {
+              "enum": [
+                "blue",
+                "red",
+                "green",
+                "amber",
+                "violet",
+                "neutral"
+              ]
+            }
+          }
+        }
+      ]
     }
   },
   "$defs": {
@@ -66,7 +118,16 @@
             "button",
             "footer",
             "results",
-            "ascii"
+            "ascii",
+            "section",
+            "list",
+            "article",
+            "product",
+            "thread",
+            "stat",
+            "quote",
+            "code",
+            "divider"
           ]
         },
         "title": {
@@ -92,12 +153,56 @@
         },
         "items": {
           "type": "array",
-          "maxItems": 12,
+          "maxItems": 48,
           "items": {
             "$ref": "#/$defs/block"
           }
+        },
+        "meta": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 240
+        },
+        "style": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "variant": {
+                  "enum": [
+                    "plain",
+                    "feature",
+                    "outline",
+                    "muted"
+                  ]
+                },
+                "placement": {
+                  "enum": [
+                    "auto",
+                    "main",
+                    "aside",
+                    "full"
+                  ]
+                },
+                "columns": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 1,
+                  "maximum": 4
+                }
+              }
+            }
+          ]
         }
       }
     }
-  }
+  },
+  "description": "All nested blocks count toward the 48 block limit; maximum nesting depth is 4. Legacy pages without design/meta/style remain valid. Container, link and content rules are checked by both applications."
 }

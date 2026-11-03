@@ -1,0 +1,215 @@
+{
+  "schemaVersion": 1,
+  "title": "RiverDB / 开发者文档",
+  "description": "RiverDB / 开发者文档 · 最新内容与精选栏目",
+  "theme": "white",
+  "design": {
+    "layout": "documentation",
+    "typography": "sans",
+    "density": "compact",
+    "accent": "blue"
+  },
+  "blocks": [
+    {
+      "id": "docsnav",
+      "type": "navbar",
+      "title": "RiverDB Docs",
+      "text": null,
+      "target": null,
+      "items": [
+        {
+          "id": "docsnav0",
+          "type": "button",
+          "title": "指南",
+          "text": null,
+          "target": "/guide",
+          "items": [],
+          "meta": null,
+          "style": null
+        },
+        {
+          "id": "docsnav1",
+          "type": "button",
+          "title": "API",
+          "text": null,
+          "target": "/api",
+          "items": [],
+          "meta": null,
+          "style": null
+        },
+        {
+          "id": "docsnav2",
+          "type": "button",
+          "title": "更新",
+          "text": null,
+          "target": "/changes",
+          "items": [],
+          "meta": null,
+          "style": null
+        }
+      ],
+      "meta": "v2.4",
+      "style": null
+    },
+    {
+      "id": "toc",
+      "type": "list",
+      "title": "开始使用",
+      "text": null,
+      "target": null,
+      "items": [
+        {
+          "id": "toc0",
+          "type": "button",
+          "title": "概览",
+          "text": null,
+          "target": "/guide/0",
+          "items": [],
+          "meta": null,
+          "style": null
+        },
+        {
+          "id": "toc1",
+          "type": "button",
+          "title": "快速开始",
+          "text": null,
+          "target": "/guide/1",
+          "items": [],
+          "meta": null,
+          "style": null
+        },
+        {
+          "id": "toc2",
+          "type": "button",
+          "title": "连接配置",
+          "text": null,
+          "target": "/guide/2",
+          "items": [],
+          "meta": null,
+          "style": null
+        },
+        {
+          "id": "toc3",
+          "type": "button",
+          "title": "查询数据",
+          "text": null,
+          "target": "/guide/3",
+          "items": [],
+          "meta": null,
+          "style": null
+        },
+        {
+          "id": "toc4",
+          "type": "button",
+          "title": "事务",
+          "text": null,
+          "target": "/guide/4",
+          "items": [],
+          "meta": null,
+          "style": null
+        },
+        {
+          "id": "toc5",
+          "type": "button",
+          "title": "错误处理",
+          "text": null,
+          "target": "/guide/5",
+          "items": [],
+          "meta": null,
+          "style": null
+        },
+        {
+          "id": "toc6",
+          "type": "button",
+          "title": "部署",
+          "text": null,
+          "target": "/guide/6",
+          "items": [],
+          "meta": null,
+          "style": null
+        }
+      ],
+      "meta": null,
+      "style": {
+        "placement": "aside",
+        "variant": "muted",
+        "columns": null
+      }
+    },
+    {
+      "id": "main",
+      "type": "section",
+      "title": "快速开始",
+      "text": "在本地创建项目，连接数据库，并执行第一条查询。",
+      "target": null,
+      "items": [
+        {
+          "id": "prereq",
+          "type": "text",
+          "title": "准备环境",
+          "text": "需要 Node.js 22 或更新版本，以及一个可用的 PostgreSQL 实例。",
+          "target": null,
+          "items": [],
+          "meta": null,
+          "style": null
+        },
+        {
+          "id": "install",
+          "type": "code",
+          "title": "安装客户端",
+          "text": "npm install @riverdb/client",
+          "target": null,
+          "items": [],
+          "meta": "terminal",
+          "style": null
+        },
+        {
+          "id": "connect",
+          "type": "text",
+          "title": "创建连接",
+          "text": "客户端复用连接池。将连接配置放在应用启动入口，在进程结束时统一释放。",
+          "target": null,
+          "items": [],
+          "meta": null,
+          "style": null
+        },
+        {
+          "id": "code",
+          "type": "code",
+          "title": "src/database.ts",
+          "text": "import { createClient } from '@riverdb/client';\\n\\nconst database = createClient({ url: process.env.DATABASE_URL });\\nconst rows = await database.query('select 1 as value');",
+          "target": null,
+          "items": [],
+          "meta": "TypeScript",
+          "style": null
+        },
+        {
+          "id": "result",
+          "type": "text",
+          "title": "检查结果",
+          "text": "查询返回一个数组，第一行的 value 为 1。后续所有查询都可通过同一个客户端执行。",
+          "target": null,
+          "items": [],
+          "meta": null,
+          "style": null
+        },
+        {
+          "id": "next",
+          "type": "button",
+          "title": "下一步：查询与参数绑定",
+          "text": null,
+          "target": "/guide/queries",
+          "items": [],
+          "meta": null,
+          "style": null
+        }
+      ],
+      "meta": "GUIDE / 01",
+      "style": {
+        "placement": "main",
+        "variant": "plain",
+        "columns": null
+      }
+    }
+  ]
+}

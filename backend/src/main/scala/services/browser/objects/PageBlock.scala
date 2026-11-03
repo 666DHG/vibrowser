@@ -8,7 +8,9 @@ final case class PageBlock(
     title: Option[String],
     text: Option[String],
     target: Option[String],
-    items: List[PageBlock]
+    items: List[PageBlock],
+    meta: Option[String] = None,
+    style: Option[BlockStyle] = None
 )
 object PageBlock:
   given Encoder[PageBlock] = deriveEncoder

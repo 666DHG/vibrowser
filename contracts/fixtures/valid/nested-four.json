@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "title": "四层嵌套",
+  "description": "四层嵌套 · 最新内容与精选栏目",
+  "theme": "white",
+  "design": {
+    "layout": "classic",
+    "typography": "sans",
+    "density": "compact",
+    "accent": "blue"
+  },
+  "blocks": [
+    {
+      "id": "one",
+      "type": "section",
+      "title": null,
+      "text": null,
+      "target": null,
+      "items": [
+        {
+          "id": "two",
+          "type": "section",
+          "title": null,
+          "text": null,
+          "target": null,
+          "items": [
+            {
+              "id": "three",
+              "type": "grid",
+              "title": null,
+              "text": null,
+              "target": null,
+              "items": [
+                {
+                  "id": "four",
+                  "type": "text",
+                  "title": "第四层",
+                  "text": "正文",
+                  "target": null,
+                  "items": [],
+                  "meta": null,
+                  "style": null
+                }
+              ],
+              "meta": null,
+              "style": null
+            }
+          ],
+          "meta": null,
+          "style": null
+        }
+      ],
+      "meta": null,
+      "style": null
+    }
+  ]
+}

@@ -2,33 +2,44 @@ package services.generation.utils
 import services.browser.objects.*
 import io.circe.syntax.*
 private[generation] object PromptBuilder:
-  private[generation] val system: String = """你是一名网站设计师与主编。为目标地址制作完整、有生活细节的网站，优先追求真实的浏览体验。
-以站点经营者、编辑或作者的口吻写正文，品牌、栏目、日期、产品与故事前后一致。把读者当作正在访问这个网站的人，内容直接进入主题，语言自然、具体。
-只返回 PageSpec JSON。页面文案仅包含站内内容，生成过程、演示说明、免责声明与技术约束不进入页面。省略 footer，正文自然结束即可。
-PageSpec 字段必须为 schemaVersion:1,title,description,theme,blocks。
-theme 只能 paper/midnight/terminal/coral。每个 block 必须包含 id,type,title,text,target,items。
-type 只能 navbar/hero/text/card/grid/button/results/ascii；title/text/target 不使用时设为 null，items 不使用时为空数组。
-只有 navbar/grid/results 可以包含 items。items 中的每一项也必须是完整 block，包含同样六个字段；不要使用 {label,href} 或省略 id/type 的卡片简写。
-全树每个对象都计为1个组件，包括 navbar/grid/results 容器和所有子项。目标为8个组件，硬上限12，深度不超过3。绝不是顶层12个加子项。
-ID唯一；title<=160字符、text<=6000字符、description<=500字符。
-button 必须有标题及target。card必须有标题。链接使用与品牌相关的 https 域名或站内相对路径，不使用 javascript/data/file/IP地址。
-页面要像一个精心设计的网站，而不是聊天回答。文字具体，视觉层次清楚；无图片，允许 ascii 类型的字符艺术，避免多余字符占满页面。
-搜索生成 results，其中包含3至5个有标题、网址与具体摘要的card，使用普通搜索引擎的文案与信息层次。
-普通网站有明确品牌、hero、内容区与可点击链接；根据站点主题选择布局，不为凑组件增加无关内容。
-网站推荐预算：navbar+1个button=2，hero=1，ascii=1，grid+2个card=3，button=1，总计8。
-搜索推荐预算：hero=1，results+3个card=4，总计5；结果卡片使用绝对 https 链接。
-以下是完整嵌套 JSON 结构示例，共8个组件。只参考结构，为目标网站创作独立品牌与内容，勿照抄示例文案：
-{"schemaVersion":1,"title":"城市档案馆","description":"街区变迁、城市记忆与馆藏故事","theme":"paper","blocks":[
-{"id":"nav","type":"navbar","title":"档案馆","text":null,"target":null,"items":[{"id":"nav-about","type":"button","title":"关于","text":null,"target":"/about","items":[]}]},
-{"id":"hero","type":"hero","title":"翻开尚未写下的历史","text":"探索馆藏故事。","target":null,"items":[]},
-{"id":"art","type":"ascii","title":"文字展品","text":"[  ARCHIVE  ]","target":null,"items":[]},
-{"id":"grid","type":"grid","title":null,"text":null,"target":null,"items":[
-{"id":"card-one","type":"card","title":"第一展厅","text":"展厅简介","target":"/hall-one","items":[]},
-{"id":"card-two","type":"card","title":"第二展厅","text":"展厅简介","target":"/hall-two","items":[]}]},
-{"id":"more","type":"button","title":"浏览馆藏","text":null,"target":"/collection","items":[]}]}
-"""
+  private[generation] val examples: List[String] = List(
+    """{"schemaVersion":1,"title":"慢读 · 文化季刊","description":"慢读 · 文化季刊 · 最新内容与精选栏目","theme":"paper","design":{"layout":"editorial","typography":"serif","density":"comfortable","accent":"red"},"blocks":[{"id":"nav","type":"navbar","title":"慢 读","text":null,"target":null,"items":[{"id":"nav0","type":"button","title":"文章","text":null,"target":"/articles","items":[],"meta":null,"style":null}],"meta":"ISSUE 06","style":null},{"id":"essay","type":"article","title":"一条河的两岸","text":"早晨的码头人很少。我们沿河走，听船工讲今年的水位。","target":"/river","items":[],"meta":"观察 · 8 分钟","style":{"placement":"main","variant":"plain","columns":null}},{"id":"note","type":"quote","title":"船工老李","text":"河水从来没有停过。","target":null,"items":[],"meta":null,"style":{"placement":"aside","variant":"plain","columns":null}}]}""",
+    """{"schemaVersion":1,"title":"铅笔与纸","description":"铅笔与纸 · 最新内容与精选栏目","theme":"white","design":{"layout":"storefront","typography":"sans","density":"airy","accent":"green"},"blocks":[{"id":"collection","type":"grid","title":"桌面文具","text":null,"target":null,"items":[{"id":"p1","type":"product","title":"黄铜尺","text":"15 厘米，刻度蚀刻。","target":"/ruler","items":[],"meta":"¥48","style":null},{"id":"p2","type":"product","title":"方格本","text":"轻量纸张，适合随身记录。","target":"/notebook","items":[],"meta":"¥32","style":null},{"id":"p3","type":"product","title":"软木垫","text":"留住桌面的温度。","target":"/mat","items":[],"meta":"¥68","style":null}],"meta":null,"style":{"placement":"auto","variant":"plain","columns":3}}]}""",
+    """{"schemaVersion":1,"title":"Flow API","description":"Flow API · 最新内容与精选栏目","theme":"white","design":{"layout":"documentation","typography":"sans","density":"compact","accent":"blue"},"blocks":[{"id":"toc","type":"list","title":"目录","text":null,"target":null,"items":[{"id":"link","type":"button","title":"快速开始","text":null,"target":"/start","items":[],"meta":null,"style":null}],"meta":null,"style":{"placement":"aside","variant":"plain","columns":null}},{"id":"body","type":"section","title":"发送请求","text":"使用客户端读取状态。","target":null,"items":[{"id":"code","type":"code","title":"终端","text":"curl https://flow.example/api/status","target":null,"items":[],"meta":"shell","style":null},{"id":"explain","type":"text","title":"响应字段","text":"status 表示当前服务状态。","target":null,"items":[],"meta":null,"style":null}],"meta":null,"style":{"placement":"main","variant":"plain","columns":null}}]}"""
+  )
+  private[generation] val system: String = """你是一名网站设计师与主编。为目标地址制作有完整内容、鲜明视觉语言和生活细节的网站。
+以站点经营者、编辑或作者的口吻写正文。品牌、日期、栏目和故事前后一致；内容直接进入主题，页面正文只写站内信息。省略 footer。
+首先判断这个地址是杂志、商店、文档、社区、工作台、作品集还是检索目录，然后选匹配的版式。不要把不同网站统一做成宣传落地页。
+只返回 PageSpec JSON：schemaVersion:1,title,description,theme,design,blocks。
+theme: paper/midnight/terminal/coral/white/graphite/sage。
+design: {layout,typography,density,accent}。
+layout: editorial（报刊/杂志）、storefront（商店）、documentation（文档/知识库）、community（论坛）、dashboard（工作台）、studio（作品集/品牌）、directory（搜索/目录）、classic（其他）。
+typography: serif（宋体/衬线）、sans（无衬线）、mono（等宽）、display（醒目展示字体）。
+density: compact/comfortable/airy；accent: blue/red/green/amber/violet/neutral。
+按内容决定组件种类、顺序与数量，没有固定配方或目标个数。页面应有足够完整的内容，可以是长文章、多商品目录、密集讨论列表、导航目录、代码示例与多个统计面板。小页保持简洁，内容密集站点可以使用二三十个组件。
+不要为每页安排 hero、ascii 或两个 card。ascii 仅在字符艺术本身适合主题时使用；许多网站完全不需要大标题区。全树最多48个组件，最多4层，包含所有容器与子项。
+可用 type：navbar/hero/text/card/grid/button/results/ascii/section/list/article/product/thread/stat/quote/code/divider。
+每个 block 包含 id,type,title,text,target,items；title/text/target 不使用时为 null，items 不使用时为 []。所有子项也用完整 block。
+可选 meta 是日期、作者、价格、统计值或标签文字（最多240字符）；可选 style: {variant,placement,columns}。
+variant: plain/feature/outline/muted；placement: auto/main/aside/full（仅顶层决定主栏、侧栏或通栏）；columns:1..4，仅 grid 使用。
+navbar/grid/results/section/list 可以包含 items。section 组织一个内容分区；list 排成紧凑条目；grid 可自由选择1–4列，不固定两列。
+article 是文章标题、摘要/正文、作者日期，可点标题读详情；product 是商品标题、介绍、价格meta和详情链接；thread 是讨论标题、摘要、作者/回复数meta；
+stat 用 title 表示指标、meta 表示数值、text 表示变化说明；quote 的 text 为引文，title/meta 为署名；
+code 的 text 为保留缩进换行的代码，meta 为语言；divider 为栏目分隔线。所有内容是数据，组件由应用渲染。
+版式建议（按实际主题自由组合）：
+- editorial 用衬线标题、杂志刊头、文章主栏与短讯侧栏、分隔线、引用；主栏placement=main，侧栏placement=aside。内容可有多个段落与栏目，不要全是卡片。
+- storefront 以商品网格和分类导航为主体，商品数量按内容决定，价格写meta；可有材料、配送或系列介绍，不需要字符画。
+- documentation 用compact、目录侧栏与正文section主栏，正文包含多个标题段落、code和下一篇链接；不用巨大的宣传hero。
+- community 用讨论串thread列表、作者/时间/回复数和板块/活动侧栏；信息密集，标题简短。
+- dashboard 用stat指标网格、项目/活动列表、工作区导航；等宽数字与紧凑布局。
+- studio 可用醒目字体、留白、编号作品、文章长列表或分栏宣言；不要复制电商布局。
+- directory 用查询标题与results，结果含网址与具体摘要，数量按问题范围决定。需要的情况下可附分类侧栏。
+只使用文本与排版表现视觉。链接使用与品牌和目标内容有关的 https 地址或站内相对路径；button 必须有title和target，card/article/product/thread/stat 必须有title；quote/code必须有text。
+ID唯一；title最多160字符、text最多6000字符、description最多500字符。预算优先留给有用内容，文章用段落而非反复列卡片。
+以下三个小例子仅展示不同字段和嵌套写法，不是页面模板；不要照抄内容或组件数量：
+""" + examples.mkString("\n")
   private[generation] def repair(prompt: String, output: String, errors: String): String =
-    prompt + "\n请根据以下校验结果修复上一份输出，返回完整 PageSpec；保留主题内容，并满足全树最多12个组件。\n" +
+    prompt + "\n请按以下校验结果修复上一份输出，返回完整 PageSpec；保留其独特版式与内容，满足全树最多48个组件、4层嵌套。\n" +
       io.circe.Json
         .obj(
           "validationErrors" -> errors.asJson,
@@ -37,4 +48,6 @@ button 必须有标题及target。card必须有标题。链接使用与品牌相
         .noSpaces
   private[generation] def request(page: PageRecord, source: Option[PageRecord]): String =
     s"PAGE_KIND=${PageKind.toString(page.kind)}\n目标：${page.prompt}\n地址：${page.address}\n" +
-      source.flatMap(_.spec).fold("")(p => "来源页面，延续其品牌、设定与文风：" + p.asJson.noSpaces.take(12000))
+      source
+        .flatMap(_.spec)
+        .fold("")(p => "来源页面：延续品牌、字体和视觉语言，但按当前子页用途重新组织内容，不复制首页布局：" + p.asJson.noSpaces.take(16000))

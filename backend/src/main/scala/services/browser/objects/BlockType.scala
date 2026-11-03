@@ -1,7 +1,8 @@
 package services.browser.objects
 import io.circe.{Encoder, Decoder}
 enum BlockType:
-  case Navbar, Hero, Text, Card, Grid, Button, Footer, Results, Ascii
+  case Navbar, Hero, Text, Card, Grid, Button, Footer, Results, Ascii,
+    Section, List, Article, Product, Thread, Stat, Quote, Code, Divider
 object BlockType:
   def toString(value: BlockType): String = value.toString.toLowerCase(java.util.Locale.ROOT)
   def fromString(value: String): Either[String, BlockType] =

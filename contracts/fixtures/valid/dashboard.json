@@ -1,0 +1,200 @@
+{
+  "schemaVersion": 1,
+  "title": "Northstar / 工作台",
+  "description": "Northstar / 工作台 · 最新内容与精选栏目",
+  "theme": "graphite",
+  "design": {
+    "layout": "dashboard",
+    "typography": "mono",
+    "density": "compact",
+    "accent": "violet"
+  },
+  "blocks": [
+    {
+      "id": "dashnav",
+      "type": "navbar",
+      "title": "NORTHSTAR",
+      "text": null,
+      "target": null,
+      "items": [
+        {
+          "id": "dashnav0",
+          "type": "button",
+          "title": "概览",
+          "text": null,
+          "target": "/",
+          "items": [],
+          "meta": null,
+          "style": null
+        },
+        {
+          "id": "dashnav1",
+          "type": "button",
+          "title": "项目",
+          "text": null,
+          "target": "/projects",
+          "items": [],
+          "meta": null,
+          "style": null
+        },
+        {
+          "id": "dashnav2",
+          "type": "button",
+          "title": "报告",
+          "text": null,
+          "target": "/reports",
+          "items": [],
+          "meta": null,
+          "style": null
+        }
+      ],
+      "meta": "WORKSPACE / DESIGN TEAM",
+      "style": null
+    },
+    {
+      "id": "dashhero",
+      "type": "hero",
+      "title": "项目概览",
+      "text": "11 月 03 日 · 工作日进度",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "stats",
+      "type": "grid",
+      "title": null,
+      "text": null,
+      "target": null,
+      "items": [
+        {
+          "id": "s1",
+          "type": "stat",
+          "title": "进行中项目",
+          "text": "较上月增加 3 项",
+          "target": null,
+          "items": [],
+          "meta": "18",
+          "style": null
+        },
+        {
+          "id": "s2",
+          "type": "stat",
+          "title": "本周完成",
+          "text": "目标 32 项",
+          "target": null,
+          "items": [],
+          "meta": "27",
+          "style": null
+        },
+        {
+          "id": "s3",
+          "type": "stat",
+          "title": "平均交付周期",
+          "text": "缩短 1.2 天",
+          "target": null,
+          "items": [],
+          "meta": "4.8 天",
+          "style": null
+        },
+        {
+          "id": "s4",
+          "type": "stat",
+          "title": "待评审",
+          "text": "其中 2 项今天截止",
+          "target": null,
+          "items": [],
+          "meta": "6",
+          "style": null
+        }
+      ],
+      "meta": null,
+      "style": {
+        "placement": "full",
+        "variant": "plain",
+        "columns": 4
+      }
+    },
+    {
+      "id": "projects",
+      "type": "list",
+      "title": "最近项目",
+      "text": null,
+      "target": null,
+      "items": [
+        {
+          "id": "p1",
+          "type": "thread",
+          "title": "官网改版 / 视觉规范",
+          "text": "排版、组件与交互状态已整理，等待最终评审。",
+          "target": "/projects/site",
+          "items": [],
+          "meta": "设计组 · 进行中 · 78%",
+          "style": null
+        },
+        {
+          "id": "p2",
+          "type": "thread",
+          "title": "秋季产品目录",
+          "text": "第二轮校对完成，封面稿正在调整。",
+          "target": "/projects/catalog",
+          "items": [],
+          "meta": "内容组 · 评审中 · 92%",
+          "style": null
+        },
+        {
+          "id": "p3",
+          "type": "thread",
+          "title": "移动端注册流程",
+          "text": "可用性测试记录已更新。",
+          "target": "/projects/mobile",
+          "items": [],
+          "meta": "体验组 · 进行中 · 45%",
+          "style": null
+        }
+      ],
+      "meta": null,
+      "style": {
+        "placement": "main",
+        "variant": "plain",
+        "columns": null
+      }
+    },
+    {
+      "id": "activity",
+      "type": "section",
+      "title": "动态",
+      "text": null,
+      "target": null,
+      "items": [
+        {
+          "id": "a1",
+          "type": "text",
+          "title": "10:42",
+          "text": "林更新了「官网改版」的组件清单。",
+          "target": null,
+          "items": [],
+          "meta": null,
+          "style": null
+        },
+        {
+          "id": "a2",
+          "type": "text",
+          "title": "09:18",
+          "text": "夏完成了产品目录的第二轮校对。",
+          "target": null,
+          "items": [],
+          "meta": null,
+          "style": null
+        }
+      ],
+      "meta": null,
+      "style": {
+        "placement": "aside",
+        "variant": "muted",
+        "columns": null
+      }
+    }
+  ]
+}

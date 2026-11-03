@@ -1,0 +1,185 @@
+{
+  "schemaVersion": 1,
+  "title": "周末骑行 / 车友社区",
+  "description": "周末骑行 / 车友社区 · 最新内容与精选栏目",
+  "theme": "sage",
+  "design": {
+    "layout": "community",
+    "typography": "sans",
+    "density": "compact",
+    "accent": "green"
+  },
+  "blocks": [
+    {
+      "id": "forumnav",
+      "type": "navbar",
+      "title": "周末骑行",
+      "text": null,
+      "target": null,
+      "items": [
+        {
+          "id": "forumnav0",
+          "type": "button",
+          "title": "最新讨论",
+          "text": null,
+          "target": "/latest",
+          "items": [],
+          "meta": null,
+          "style": null
+        },
+        {
+          "id": "forumnav1",
+          "type": "button",
+          "title": "活动",
+          "text": null,
+          "target": "/rides",
+          "items": [],
+          "meta": null,
+          "style": null
+        },
+        {
+          "id": "forumnav2",
+          "type": "button",
+          "title": "装备",
+          "text": null,
+          "target": "/gear",
+          "items": [],
+          "meta": null,
+          "style": null
+        }
+      ],
+      "meta": "路上见",
+      "style": null
+    },
+    {
+      "id": "welcome",
+      "type": "hero",
+      "title": "今天，骑去哪儿？",
+      "text": "分享路线、约伴出发，或者聊一聊刚修好的那辆车。",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "topics",
+      "type": "list",
+      "title": "最新讨论",
+      "text": null,
+      "target": null,
+      "items": [
+        {
+          "id": "thread0",
+          "type": "thread",
+          "title": "周六沿江 40 公里，有人一起吗？",
+          "text": "早上七点半从南门集合，途中休息两次，新人友好。",
+          "target": "/t/0",
+          "items": [],
+          "meta": "@阿远 · 12 回复 · 1 小时前",
+          "style": null
+        },
+        {
+          "id": "thread1",
+          "type": "thread",
+          "title": "第一次换刹车皮，记录一下踩过的坑",
+          "text": null,
+          "target": "/t/1",
+          "items": [],
+          "meta": "@木头 · 15 回复 · 2 小时前",
+          "style": null
+        },
+        {
+          "id": "thread2",
+          "type": "thread",
+          "title": "雨天通勤都穿什么？",
+          "text": null,
+          "target": "/t/2",
+          "items": [],
+          "meta": "@小雨 · 18 回复 · 3 小时前",
+          "style": null
+        },
+        {
+          "id": "thread3",
+          "type": "thread",
+          "title": "分享一条经过旧火车站的小路线",
+          "text": null,
+          "target": "/t/3",
+          "items": [],
+          "meta": "@西瓜 · 21 回复 · 4 小时前",
+          "style": null
+        },
+        {
+          "id": "thread4",
+          "type": "thread",
+          "title": "公路车胎压应该怎样调整",
+          "text": null,
+          "target": "/t/4",
+          "items": [],
+          "meta": "@老周 · 24 回复 · 5 小时前",
+          "style": null
+        },
+        {
+          "id": "thread5",
+          "type": "thread",
+          "title": "这个周末去山里，想找慢一点的队友",
+          "text": null,
+          "target": "/t/5",
+          "items": [],
+          "meta": "@乔 · 27 回复 · 6 小时前",
+          "style": null
+        },
+        {
+          "id": "thread6",
+          "type": "thread",
+          "title": "车灯续航实测，一周夜骑记录",
+          "text": null,
+          "target": "/t/6",
+          "items": [],
+          "meta": "@路灯 · 30 回复 · 7 小时前",
+          "style": null
+        }
+      ],
+      "meta": null,
+      "style": {
+        "placement": "main",
+        "variant": "plain",
+        "columns": null
+      }
+    },
+    {
+      "id": "sidebar",
+      "type": "section",
+      "title": "本周活动",
+      "text": null,
+      "target": null,
+      "items": [
+        {
+          "id": "ride",
+          "type": "article",
+          "title": "北山日出骑行",
+          "text": "周日 05:30 · 东湖集合\n全程 52 公里 / 累计爬升 620 米",
+          "target": "/rides/sunrise",
+          "items": [],
+          "meta": "16 人同行",
+          "style": null
+        },
+        {
+          "id": "members",
+          "type": "stat",
+          "title": "社区成员",
+          "text": "本周新增 86 位车友",
+          "target": null,
+          "items": [],
+          "meta": "8,241",
+          "style": null
+        }
+      ],
+      "meta": null,
+      "style": {
+        "placement": "aside",
+        "variant": "muted",
+        "columns": null
+      }
+    }
+  ]
+}

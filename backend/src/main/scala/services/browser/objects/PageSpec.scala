@@ -7,7 +7,8 @@ final case class PageSpec(
     title: String,
     description: String,
     theme: Theme,
-    blocks: List[PageBlock]
+    blocks: List[PageBlock],
+    design: Option[PageDesign] = None
 )
 object PageSpec:
   given Encoder[PageSpec] = deriveEncoder

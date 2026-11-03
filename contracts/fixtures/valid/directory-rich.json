@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "title": "雨天咖啡馆 / 搜索",
+  "description": "雨天咖啡馆 / 搜索 · 最新内容与精选栏目",
+  "theme": "white",
+  "design": {
+    "layout": "directory",
+    "typography": "sans",
+    "density": "comfortable",
+    "accent": "blue"
+  },
+  "blocks": [
+    {
+      "id": "search",
+      "type": "hero",
+      "title": "雨天咖啡馆",
+      "text": "找到 6 个相关结果",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "results",
+      "type": "results",
+      "title": null,
+      "text": null,
+      "target": null,
+      "items": [
+        {
+          "id": "r0",
+          "type": "card",
+          "title": "雨声咖啡 · 窗边座位预约",
+          "text": "查看营业时间、交通与本周安排。",
+          "target": "https://rain-0.example/",
+          "items": [],
+          "meta": null,
+          "style": null
+        },
+        {
+          "id": "r1",
+          "type": "card",
+          "title": "城市咖啡地图：适合下雨天的十家店",
+          "text": "查看营业时间、交通与本周安排。",
+          "target": "https://rain-1.example/",
+          "items": [],
+          "meta": null,
+          "style": null
+        },
+        {
+          "id": "r2",
+          "type": "card",
+          "title": "小巷咖啡周末营业时间",
+          "text": "查看营业时间、交通与本周安排。",
+          "target": "https://rain-2.example/",
+          "items": [],
+          "meta": null,
+          "style": null
+        },
+        {
+          "id": "r3",
+          "type": "card",
+          "title": "手冲日记：雨天的温度",
+          "text": "查看营业时间、交通与本周安排。",
+          "target": "https://rain-3.example/",
+          "items": [],
+          "meta": null,
+          "style": null
+        },
+        {
+          "id": "r4",
+          "type": "card",
+          "title": "玻璃房咖啡馆菜单",
+          "text": "查看营业时间、交通与本周安排。",
+          "target": "https://rain-4.example/",
+          "items": [],
+          "meta": null,
+          "style": null
+        },
+        {
+          "id": "r5",
+          "type": "card",
+          "title": "河边咖啡与读书会",
+          "text": "查看营业时间、交通与本周安排。",
+          "target": "https://rain-5.example/",
+          "items": [],
+          "meta": null,
+          "style": null
+        }
+      ],
+      "meta": null,
+      "style": null
+    }
+  ]
+}

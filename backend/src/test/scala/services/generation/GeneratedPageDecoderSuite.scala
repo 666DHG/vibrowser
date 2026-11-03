@@ -1,5 +1,6 @@
 package services.generation
 import munit.CatsEffectSuite
+import cats.syntax.all.*
 import java.nio.file.{Files, Paths}
 import io.circe.Json
 import io.circe.parser.parse
@@ -12,7 +13,7 @@ class GeneratedPageDecoderSuite extends CatsEffectSuite:
     Files.readString(Paths.get("../contracts/fixtures/provider/nested-shorthand.json"))
   private val base = "https://moon-coffee.example/"
   test(
-    "real response shorthand becomes typed blocks without dropping content or hiding count violations"
+    "real response shorthand preserves all content within the richer page budget"
   ) {
     val spec = GeneratedPageDecoder.decode(raw).toOption.get
     assertEquals(spec.blocks.head.items.head.`type`, BlockType.Button)
@@ -20,7 +21,7 @@ class GeneratedPageDecoderSuite extends CatsEffectSuite:
     assertEquals(spec.blocks(4).items.head.`type`, BlockType.Card)
     assertEquals(spec.blocks(4).items.head.target, Some("/beans/night-ship"))
     ValidateGeneratedContentMessage(spec, base).plan(null).map { issues =>
-      assert(issues.exists(_.message.contains("当前为 15")))
+      assertEquals(issues, Nil)
     }
   }
   test("bounded shorthand page passes the unchanged PageSpec validator") {
@@ -61,9 +62,11 @@ class GeneratedPageDecoderSuite extends CatsEffectSuite:
     assert(prompt.contains("previousOutput"))
     assert(prompt.length < 25000)
   }
-  test("full nested prompt example satisfies the actual renderer contract") {
-    val text =
-      PromptBuilder.system.substring(PromptBuilder.system.indexOf("{\"schemaVersion\"")).trim
-    val spec = io.circe.parser.decode[PageSpec](text).toOption.get
-    ValidateGeneratedContentMessage(spec, base).plan(null).map(issues => assertEquals(issues, Nil))
+  test("all contrasting prompt examples satisfy the actual renderer contract") {
+    PromptBuilder.examples.traverse_ { text =>
+      val spec = io.circe.parser.decode[PageSpec](text).toOption.get
+      ValidateGeneratedContentMessage(spec, base)
+        .plan(null)
+        .map(issues => assertEquals(issues, Nil))
+    }
   }

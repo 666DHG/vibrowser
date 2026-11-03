@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "title": "非法列数",
+  "description": "非法列数 · 最新内容与精选栏目",
+  "theme": "white",
+  "design": {
+    "layout": "storefront",
+    "typography": "sans",
+    "density": "compact",
+    "accent": "blue"
+  },
+  "blocks": [
+    {
+      "id": "bad",
+      "type": "grid",
+      "title": null,
+      "text": null,
+      "target": null,
+      "items": [
+        {
+          "id": "c",
+          "type": "card",
+          "title": "内容",
+          "text": null,
+          "target": null,
+          "items": [],
+          "meta": null,
+          "style": null
+        }
+      ],
+      "meta": null,
+      "style": {
+        "placement": "auto",
+        "variant": "plain",
+        "columns": 5
+      }
+    }
+  ]
+}

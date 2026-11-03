@@ -26,7 +26,7 @@ private[generation] final class DeepSeekCompatibleClient(
         Json.obj("role" -> "user".asJson, "content" -> prompt.asJson)
       ).asJson,
       "stream" -> false.asJson,
-      "max_tokens" -> (if test then 128 else 6000).asJson,
+      "max_tokens" -> (if test then 128 else 12000).asJson,
       "response_format" -> Json.obj("type" -> "json_object".asJson)
     )
     val requestPayload =

@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 1,
+  "title": "FORM / 日常器物",
+  "description": "FORM / 日常器物 · 最新内容与精选栏目",
+  "theme": "white",
+  "design": {
+    "layout": "storefront",
+    "typography": "sans",
+    "density": "airy",
+    "accent": "green"
+  },
+  "blocks": [
+    {
+      "id": "shopnav",
+      "type": "navbar",
+      "title": "F O R M",
+      "text": null,
+      "target": null,
+      "items": [
+        {
+          "id": "shopnav0",
+          "type": "button",
+          "title": "全部商品",
+          "text": null,
+          "target": "/all",
+          "items": [],
+          "meta": null,
+          "style": null
+        },
+        {
+          "id": "shopnav1",
+          "type": "button",
+          "title": "桌面",
+          "text": null,
+          "target": "/desk",
+          "items": [],
+          "meta": null,
+          "style": null
+        },
+        {
+          "id": "shopnav2",
+          "type": "button",
+          "title": "收纳",
+          "text": null,
+          "target": "/storage",
+          "items": [],
+          "meta": null,
+          "style": null
+        },
+        {
+          "id": "shopnav3",
+          "type": "button",
+          "title": "品牌",
+          "text": null,
+          "target": "/about",
+          "items": [],
+          "meta": null,
+          "style": null
+        }
+      ],
+      "meta": "OBJECTS FOR EVERYDAY",
+      "style": null
+    },
+    {
+      "id": "shophero",
+      "type": "hero",
+      "title": "少一点杂乱，\n多一点日常。",
+      "text": "从一张桌子开始，寻找耐用、安静、愿意陪伴你很久的器物。",
+      "target": null,
+      "items": [],
+      "meta": "COLLECTION / 2026",
+      "style": {
+        "placement": "full",
+        "variant": "plain",
+        "columns": null
+      }
+    },
+    {
+      "id": "categories",
+      "type": "list",
+      "title": "按空间挑选",
+      "text": null,
+      "target": null,
+      "items": [
+        {
+          "id": "cat1",
+          "type": "button",
+          "title": "书桌与工作",
+          "text": null,
+          "target": "/desk",
+          "items": [],
+          "meta": null,
+          "style": null
+        },
+        {
+          "id": "cat2",
+          "type": "button",
+          "title": "厨房与餐桌",
+          "text": null,
+          "target": "/kitchen",
+          "items": [],
+          "meta": null,
+          "style": null
+        },
+        {
+          "id": "cat3",
+          "type": "button",
+          "title": "玄关与收纳",
+          "text": null,
+          "target": "/entry",
+          "items": [],
+          "meta": null,
+          "style": null
+        }
+      ],
+      "meta": null,
+      "style": {
+        "placement": "aside",
+        "variant": "muted",
+        "columns": null
+      }
+    },
+    {
+      "id": "products",
+      "type": "grid",
+      "title": "本周上新",
+      "text": null,
+      "target": null,
+      "items": [
+        {
+          "id": "product0",
+          "type": "product",
+          "title": "折线笔筒",
+          "text": "一张钢板弯折成型，粉末涂层。",
+          "target": "/products/0",
+          "items": [],
+          "meta": "¥88",
+          "style": null
+        },
+        {
+          "id": "product1",
+          "type": "product",
+          "title": "白蜡木托盘",
+          "text": "细腻的天然木纹，每一件都有不同纹路。",
+          "target": "/products/1",
+          "items": [],
+          "meta": "¥168",
+          "style": null
+        },
+        {
+          "id": "product2",
+          "type": "product",
+          "title": "砂岩杯",
+          "text": "低温烧制，保留陶土的肌理。",
+          "target": "/products/2",
+          "items": [],
+          "meta": "¥68",
+          "style": null
+        },
+        {
+          "id": "product3",
+          "type": "product",
+          "title": "织物收纳袋",
+          "text": "可机洗棉麻，折起只占一本书的厚度。",
+          "target": "/products/3",
+          "items": [],
+          "meta": "¥128",
+          "style": null
+        },
+        {
+          "id": "product4",
+          "type": "product",
+          "title": "书立 · 一对",
+          "text": "稳稳支撑桌边的书，底部贴有软木。",
+          "target": "/products/4",
+          "items": [],
+          "meta": "¥198",
+          "style": null
+        },
+        {
+          "id": "product5",
+          "type": "product",
+          "title": "黄铜夹",
+          "text": "用在笔记、地图，或者一张喜欢的照片上。",
+          "target": "/products/5",
+          "items": [],
+          "meta": "¥32",
+          "style": null
+        }
+      ],
+      "meta": null,
+      "style": {
+        "placement": "main",
+        "variant": "plain",
+        "columns": 3
+      }
+    },
+    {
+      "id": "material",
+      "type": "text",
+      "title": "材料会慢慢留下你的痕迹。",
+      "text": "我们保留木材的结疤、陶土的细孔和金属在使用中的自然变化。护理很简单：擦净、晾干，然后继续使用。",
+      "target": null,
+      "items": [],
+      "meta": "OUR MATERIALS",
+      "style": {
+        "placement": "full",
+        "variant": "plain",
+        "columns": null
+      }
+    }
+  ]
+}

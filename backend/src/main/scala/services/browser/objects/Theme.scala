@@ -1,7 +1,7 @@
 package services.browser.objects
 import io.circe.{Encoder, Decoder}
 enum Theme:
-  case Paper, Midnight, Terminal, Coral
+  case Paper, Midnight, Terminal, Coral, White, Graphite, Sage
 object Theme:
   def toString(value: Theme): String = value.toString.toLowerCase(java.util.Locale.ROOT)
   def fromString(value: String): Either[String, Theme] =

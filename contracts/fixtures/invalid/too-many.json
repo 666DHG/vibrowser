@@ -1,122 +1,504 @@
 {
   "schemaVersion": 1,
-  "title": "月面咖啡馆 · Moon Coffee",
-  "description": "在静海边缘，等一杯来自地球的温度。",
+  "title": "超限组件",
+  "description": "超限组件 · 最新内容与精选栏目",
   "theme": "paper",
+  "design": {
+    "layout": "classic",
+    "typography": "sans",
+    "density": "compact",
+    "accent": "blue"
+  },
   "blocks": [
     {
-      "id": "nav",
-      "type": "navbar",
-      "title": "MOON / COFFEE",
-      "text": "EST. 2089",
-      "target": null,
-      "items": [
-        {
-          "id": "nav-menu",
-          "type": "button",
-          "title": "探索菜单",
-          "text": null,
-          "target": "/menu",
-          "items": []
-        }
-      ]
-    },
-    {
-      "id": "hero",
-      "type": "hero",
-      "title": "离地球很远，\n离一杯好咖啡很近。",
-      "text": "静海基地的第一间咖啡馆。日出每隔 29 天才来一次，咖啡每天都新鲜。",
-      "target": null,
-      "items": []
-    },
-    {
-      "id": "art",
-      "type": "ascii",
-      "title": "EARTHRISE / 06:32",
-      "text": "        .     *         .\n    .        ◯    .          *\n             ─────\n         (  月 面 拿 铁  )\n          \\___________/\n       ──────────────────",
-      "target": null,
-      "items": []
-    },
-    {
-      "id": "grid",
-      "type": "grid",
-      "title": null,
-      "text": null,
-      "target": null,
-      "items": [
-        {
-          "id": "card-one",
-          "type": "card",
-          "title": "01 / 地出拿铁",
-          "text": "燕麦奶、月尘可可与温暖的地球记忆。18 Lunar Credits。",
-          "target": "/menu/earthrise",
-          "items": []
-        },
-        {
-          "id": "card-two",
-          "type": "card",
-          "title": "02 / 静海浓缩",
-          "text": "深烘焙带来安静而漫长的余韵。12 Lunar Credits。",
-          "target": "/menu/espresso",
-          "items": []
-        }
-      ]
-    },
-    {
-      "id": "text",
+      "id": "b0",
       "type": "text",
-      "title": "给慢下来的旅行者",
-      "text": "不用赶下一班飞船。选择窗边的位置，看蓝色星球缓缓升起。",
+      "title": "条目",
+      "text": "正文",
       "target": null,
-      "items": []
+      "items": [],
+      "meta": null,
+      "style": null
     },
     {
-      "id": "cta",
-      "type": "button",
-      "title": "查看完整菜单 →",
-      "text": null,
-      "target": "/menu",
-      "items": []
-    },
-    {
-      "id": "footer",
-      "type": "footer",
-      "title": "MOON COFFEE",
-      "text": "这是 AI 创造的虚构网站。请把想象留在这里。",
-      "target": null,
-      "items": []
-    },
-    {
-      "id": "extra0",
+      "id": "b1",
       "type": "text",
-      "title": null,
-      "text": "extra",
+      "title": "条目",
+      "text": "正文",
       "target": null,
-      "items": []
+      "items": [],
+      "meta": null,
+      "style": null
     },
     {
-      "id": "extra1",
+      "id": "b2",
       "type": "text",
-      "title": null,
-      "text": "extra",
+      "title": "条目",
+      "text": "正文",
       "target": null,
-      "items": []
+      "items": [],
+      "meta": null,
+      "style": null
     },
     {
-      "id": "extra2",
+      "id": "b3",
       "type": "text",
-      "title": null,
-      "text": "extra",
+      "title": "条目",
+      "text": "正文",
       "target": null,
-      "items": []
+      "items": [],
+      "meta": null,
+      "style": null
     },
     {
-      "id": "extra3",
+      "id": "b4",
       "type": "text",
-      "title": null,
-      "text": "extra",
+      "title": "条目",
+      "text": "正文",
       "target": null,
-      "items": []
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b5",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b6",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b7",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b8",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b9",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b10",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b11",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b12",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b13",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b14",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b15",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b16",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b17",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b18",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b19",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b20",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b21",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b22",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b23",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b24",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b25",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b26",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b27",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b28",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b29",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b30",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b31",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b32",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b33",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b34",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b35",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b36",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b37",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b38",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b39",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b40",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b41",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b42",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b43",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b44",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b45",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b46",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b47",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    },
+    {
+      "id": "b48",
+      "type": "text",
+      "title": "条目",
+      "text": "正文",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
     }
   ]
 }

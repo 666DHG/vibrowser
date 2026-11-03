@@ -1,7 +1,7 @@
 package services.generation.utils
 import io.circe.{Json, CursorOp}
 import io.circe.parser.parse
-import services.browser.objects.PageSpec
+import services.browser.objects.{PageSpec, PageLimits}
 import services.system.objects.AppError
 
 /** Normalize unambiguous provider shorthand; the persisted PageSpec remains strict. */
@@ -22,7 +22,7 @@ private[generation] object GeneratedPageDecoder:
 
   private def normalize(json: Json): Json =
     def block(value: Json, parent: Option[String], path: String, depth: Int): Json =
-      if depth > 3 then value
+      if depth > PageLimits.maxDepth then value
       else
         value.asObject.fold(value) { fields =>
           val inferred = parent match

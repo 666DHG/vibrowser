@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "title": "空代码",
+  "description": "空代码 · 最新内容与精选栏目",
+  "theme": "white",
+  "design": {
+    "layout": "documentation",
+    "typography": "sans",
+    "density": "compact",
+    "accent": "blue"
+  },
+  "blocks": [
+    {
+      "id": "bad",
+      "type": "code",
+      "title": "示例",
+      "text": "",
+      "target": null,
+      "items": [],
+      "meta": null,
+      "style": null
+    }
+  ]
+}
