@@ -9,20 +9,26 @@ object AddressRules:
       source: Option[String]
   ): Either[String, VirtualAddress] =
     val input = raw.trim
-    if input.isEmpty || input.length > 2048 then Left("请输入网址或搜索词（最多 2048 字符）")
-    else if input.startsWith("/") && source.nonEmpty then
-      Try(URI.create(source.get).resolve(input).toString).toEither.left
-        .map(_ => "链接无效")
-        .flatMap(web)
-    else if !input.contains("://") && !input.exists(_.isWhitespace) && input
-        .takeWhile(c => c != '/' && c != '?' && c != '#')
-        .contains(".")
-    then web("https://" + input)
-    else if input.matches("(?i)^[a-z][a-z0-9+.-]*:.*") then web(input)
-    else
-      Right(
-        VirtualAddress("vibe://search?q=" + URLEncoder.encode(input, UTF_8), PageKind.Search, input)
-      )
+    val result =
+      if input.isEmpty || input.length > 2048 then Left("请输入网址或搜索词（最多 2048 字符）")
+      else if input.startsWith("/") && source.nonEmpty then
+        Try(URI.create(source.get).resolve(input).toString).toEither.left
+          .map(_ => "链接无效")
+          .flatMap(web)
+      else if !input.contains("://") && !input.exists(_.isWhitespace) && input
+          .takeWhile(c => c != '/' && c != '?' && c != '#')
+          .contains(".")
+      then web("https://" + input)
+      else if input.matches("(?i)^[a-z][a-z0-9+.-]*:.*") then web(input)
+      else
+        Right(
+          VirtualAddress(
+            "vibe://search?q=" + URLEncoder.encode(input, UTF_8),
+            PageKind.Search,
+            input
+          )
+        )
+    result.map(address => address.copy(prompt = input))
   private[browser] def web(raw: String): Either[String, VirtualAddress] =
     Try {
       val uri = new URI(raw).normalize()

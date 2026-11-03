@@ -37,3 +37,6 @@ Smoke 实施已完成自动化与 Mock 验证，**没有调用收费模型 API�
 2026-11-03 补充核验：[官方入门](https://api-docs.deepseek.com/) 当前使用 deepseek-flash；[Thinking Mode](https://api-docs.deepseek.com/guides/thinking_mode/) 默认启用思考，可使用 thinking.type=disabled。首版仅对 api.deepseek.com 显式关闭思考，确保最小连接测试的 128 token 预算用于最终内容；自定义兼容接口不发送此扩展字段。真实兼容性仍须凭有效 Key 验收。
 
 S4 的核验记录应只保存 provider、模型 ID、成功/失败、错误码、延迟、输出是否合法和 usage 摘要；不要记录 API Key 或完整鉴权头。
+
+
+2026-11-03 地址语义排查对照：[Thinking Mode 官方说明](https://api-docs.deepseek.com/guides/thinking_mode/)支持 thinking.type=enabled 与 reasoning_effort=low。曾对正式生成尝试 enabled/low、保持12000 token与60秒预算；JT8-3从软件资料变成无关游戏设定，仍未识别明日方舟，耗时约28.6秒。人工语义检查未通过，因此撤回此设置，当前仍采用原 disabled 行为。没有保存或展示 reasoning_content。见 [地址语义排查](ADDRESS_INTENT.md)。

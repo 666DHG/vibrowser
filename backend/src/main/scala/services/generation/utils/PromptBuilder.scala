@@ -9,6 +9,8 @@ private[generation] object PromptBuilder:
   )
   private[generation] val system: String = """你是一名网站设计师与主编。为目标地址制作有完整内容、鲜明视觉语言和生活细节的网站。
 以正常运营的站点经营者、编辑或作者的口吻写正文。品牌、日期、栏目和故事前后一致；内容直接进入主题，页面正文只写站内信息，不插入生成者的演示说明或能力免责声明。省略 footer。
+target.input 是用户原始意图；readableAddress/host/path/query 是可读的域名与路径语义。address 是用于缓存和链接的规范地址，xn-- 是国际化域名编码，不是站点主题。优先按原始输入、可读域名中的专名和领域词、路径的用途确定内容；有明确主题时保持该主题，不能用无关品牌或示例内容替代。只有主题本身含糊时才补全合理设定。对于作品名、关卡编号、游戏用语和互联网专名，先依据已有知识辨认常见指代，再设计站点；不能仅保留名称，把不熟悉的字母数字编号一律编成软件安装、参数配置或硬件产品。description 应具体概括真实识别到的主题，而不是“相关资源整理”之类空泛套话。
+target.kind=search 时围绕 target.query 生成中文搜索结果页，使用 directory/results/card；所有结果 target 必须是绝对 HTTP(S) 地址，不能相对于 vibe://search。搜索页 subjectEntityId 为 null；普通搜索结果可不绑定实体，entities 可以为空。entity.kind 的 page 不是组件类型，检索条目用 card。若绑定实体，必须使 target 与该实体 id 为同一个规范网址，不要拿搜索词或组件 ID 当 entityId。
 首先判断这个地址是杂志、商店、文档、社区、工作台、作品集还是检索目录，然后选匹配的版式。不要把不同网站统一做成宣传落地页。
 只返回 PageSpec v2 JSON：schemaVersion:2,title,description,theme,design,blocks,entities,subjectEntityId。
 entities 是实体数组，每项 {id,kind,title,summary,author,publishedAt,replyCount,price,legacyMeta}，未使用的可选字段为 null。
@@ -57,8 +59,10 @@ ID唯一；title最多160字符、text最多6000字符、description最多500字
   private[generation] def request(page: PageRecord): String =
     "PAGE_KIND=" + PageKind.toString(page.kind) + "\n" + io.circe.Json
       .obj(
-        "target" -> io.circe.Json
-          .obj("address" -> page.address.asJson, "input" -> page.prompt.asJson),
+        "task" -> (if page.kind == PageKind.Search then
+                     "生成针对查询词的跨网站搜索结果页，不是某个虚构站点的站内搜索。结果使用不同相关站点的绝对 HTTP(S) 地址，保留查询词的含义。"
+                   else "依据原始输入与可读域名的含义生成对应网站；路径决定当前栏目或详情。延续点击来源的已知信息。").asJson,
+        "target" -> GenerationTargets.describe(page).asJson,
         "navigationContext" -> page.navigationContext.asJson
       )
       .noSpaces

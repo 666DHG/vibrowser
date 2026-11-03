@@ -82,7 +82,7 @@ private[browser] object EntityValidation:
             AddressRules.resolveLink(t, base).toOption != b.entityId
           ),
           b.id + ".target",
-          "链接与实体地址不匹配"
+          s"target=${b.target.getOrElse("null")} 解析为 ${b.target.flatMap(t => AddressRules.resolveLink(t, base).toOption).getOrElse("无效地址（搜索结果需使用绝对HTTP(S)地址）")}，必须与 entityId=${b.entityId.getOrElse("null")} 一致"
         ),
         issue(
           b.replyRange.exists(r =>
