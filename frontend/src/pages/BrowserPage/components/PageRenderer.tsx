@@ -106,12 +106,7 @@ function Block({
         </figure>
       );
     case "footer":
-      return (
-        <footer className="mt-14 flex flex-wrap justify-between gap-4 border-t border-current/20 pt-5 text-xs opacity-55">
-          <span className="font-mono">{b.title}</span>
-          <span>{b.text}</span>
-        </footer>
-      );
+      return null;
   }
 }
 export function PageRenderer({ spec, onNavigate }: Props) {

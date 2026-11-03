@@ -77,14 +77,6 @@
       "text": null,
       "target": "/menu",
       "items": []
-    },
-    {
-      "id": "footer",
-      "type": "footer",
-      "title": "MOON COFFEE",
-      "text": "这是 AI 创造的虚构网站。请把想象留在这里。",
-      "target": null,
-      "items": []
     }
   ]
 }

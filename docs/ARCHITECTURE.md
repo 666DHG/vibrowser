@@ -4,6 +4,8 @@
 
 ## 首版实际结构（2026-11-03）
 
+界面后续调整：移除浏览器状态底栏与生成页 footer；Prompt 采用站点自身口吻，示例改为八组件、搜索建议五组件。旧 PageSpec 的 footer 类型继续可解码，但 Renderer 不输出，避免已有缓存恢复旧页脚。完整变更与本机缓存维护记录见 [IMMERSIVE_COPY.md](IMMERSIVE_COPY.md)。
+
 四个逻辑服务同进程运行：browser 管导航、内容与缓存；generation 管任务和模型调用；settings 管接口配置与 DPAPI；system 管 HTTP、事务与资源。业务入口均为独立 Message.plan，前端同名类通过 send 调用。没有仅转发的 Service。
 
 | 消息 | POST 路径 | 返回与责任 |

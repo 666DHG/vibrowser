@@ -49,9 +49,7 @@ test("home, website, link, history, refresh and fictional search", async ({
   await expect(
     page.getByRole("heading", { name: "月球旅行", exact: true }),
   ).toBeVisible();
-  await expect(
-    page.getByText("虚构搜索结果 · 内容由 AI 生成，并非真实互联网搜索"),
-  ).toBeVisible();
+  await expect(page.getByText("为你找到 3 个相关结果")).toBeVisible();
   await page.screenshot({
     path: "../docs/screenshots/search.png",
     fullPage: true,

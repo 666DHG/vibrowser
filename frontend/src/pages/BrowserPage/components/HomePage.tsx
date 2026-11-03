@@ -1,4 +1,4 @@
-import { ArrowUpRight, Globe2, Orbit, Search, Sparkles } from "lucide-react";
+import { ArrowUpRight, Globe2, Orbit, Search } from "lucide-react";
 export function HomePage({
   onNavigate,
   onSettings,
@@ -28,7 +28,7 @@ export function HomePage({
             onClick={onSettings}
             className="mt-7 flex cursor-pointer items-center gap-2 text-xs text-[#b9c4ac] hover:text-white"
           >
-            连接你的 DeepSeek <ArrowUpRight size={14} />
+            浏览器设置 <ArrowUpRight size={14} />
           </button>
         </div>
         <div
@@ -43,9 +43,6 @@ export function HomePage({
               "        ·          +       \n    +      .-\"\"\"\"-.         \n         .'  .  .  '.    ·  \n   ─────/  ·    +   \\─────  \n     . /  .      .   \\ .    \n    ──(      ◦       )──    \n       \\  +     .   /       \n    ·   \\    .     /   +    \n         '-.____.-'         \n   +          ·        .   "
             }
           </pre>
-          <span className="absolute bottom-4 right-5 font-mono text-[9px] tracking-widest text-[#5f6a57]">
-            NO PIXELS. JUST POSSIBILITIES.
-          </span>
         </div>
       </div>
       <div className="mb-4 mt-14 flex items-center justify-between">
@@ -63,21 +60,21 @@ export function HomePage({
             title: "月面咖啡馆",
             url: "moon-coffee.example",
             note: "一杯拿铁，和窗外的地球。",
-            tag: "生成网站",
+            tag: "访问网站",
           },
           {
             icon: Globe2,
             title: "未来植物档案",
             url: "future-botany.example",
             note: "记录那些尚未被发现的绿色。",
-            tag: "生成网站",
+            tag: "访问网站",
           },
           {
             icon: Search,
             title: "如果城市漂浮在云上",
             url: "漂浮在云上的城市",
             note: "沿着一个念头，寻找另一种可能。",
-            tag: "虚构搜索",
+            tag: "搜索",
           },
         ].map((x) => (
           <button
@@ -96,18 +93,12 @@ export function HomePage({
             <p className="mt-2 text-xs leading-6 text-[#838d7a]">{x.note}</p>
             <div className="mt-5 flex items-center justify-between border-t border-white/5 pt-3">
               <span className="font-mono text-[9px] text-[#64705b]">
-                {x.tag === "虚构搜索" ? "vibe://search" : x.url}
+                {x.tag === "搜索" ? "vibe://search" : x.url}
               </span>
               <span className="text-[9px] text-[#7f8e72]">{x.tag}</span>
             </div>
           </button>
         ))}
-      </div>
-      <div className="mt-auto flex flex-wrap items-center justify-between gap-4 pt-12 text-[10px] text-[#626e58]">
-        <span className="flex items-center gap-2">
-          <Sparkles size={12} /> 虚构内容，真实的探索。
-        </span>
-        <span>无图片 · 文字构筑的互联网</span>
       </div>
     </div>
   );

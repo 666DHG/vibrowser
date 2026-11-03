@@ -55,18 +55,16 @@ export default function BrowserPage() {
   }, [displayInput]);
   const title =
     content.status === "ready" ? content.page.spec?.title : "新的可能";
-  const isDemo =
-    mock || (content.status === "ready" && content.page.source === "mock");
   const isLoading =
     content.status === "loading" || content.status === "generating";
   const phase =
     content.status === "generating" ? content.job.phase : "connecting";
   const phases: Record<string, string> = {
-    queued: "等待生成",
-    generating: "正在创造这个世界",
-    validating: "正在检查页面结构",
-    saving: "正在保存页面",
-    connecting: "正在连接想象引擎",
+    queued: "等待加载",
+    generating: "正在加载页面",
+    validating: "正在整理内容",
+    saving: "即将就绪",
+    connecting: "正在连接",
   };
   const iconButton =
     "cursor-pointer rounded-lg p-2 text-[#a4ac99] transition-colors hover:bg-white/5 hover:text-white disabled:cursor-default disabled:opacity-25";
@@ -84,9 +82,6 @@ export default function BrowserPage() {
             <Globe2 size={12} className="text-[#99ac86]" />
             <span className="truncate">{title}</span>
           </div>
-          <span className="ml-auto hidden font-mono text-[9px] tracking-[.17em] text-[#77856b] sm:block">
-            SMOKE / 01
-          </span>
         </div>
         <div className="flex items-center gap-1 bg-[#2e3328] px-3 py-3 md:gap-2 md:px-5">
           <button
@@ -194,9 +189,6 @@ export default function BrowserPage() {
               <p className="mt-4 max-w-md break-all text-sm text-[#87977a]">
                 {draft}
               </p>
-              <p className="mt-8 text-xs text-[#66765a]">
-                文字、布局与链接，正在成为一个可以探索的地方。
-              </p>
             </section>
           )}
           {content.status === "ready" && content.page.spec && (
@@ -213,7 +205,7 @@ export default function BrowserPage() {
           {content.status === "error" && (
             <section className="mx-auto flex min-h-[65vh] max-w-lg flex-col items-center justify-center gap-5 p-8 text-center">
               <AlertCircle size={32} className="text-[#c6af80]" />
-              <h1 className="text-2xl">这个世界还没准备好</h1>
+              <h1 className="text-2xl">页面暂时无法打开</h1>
               <p role="alert" className="text-sm leading-7 text-[#a2ad96]">
                 {content.message}
               </p>
@@ -237,26 +229,6 @@ export default function BrowserPage() {
           )}
         </div>
       </div>
-      <footer className="flex h-8 shrink-0 items-center justify-between border-t border-white/6 bg-[#20251c] px-5 font-mono text-[9px] text-[#77876a]">
-        <span className="flex items-center gap-2">
-          <span
-            className={
-              "size-1.5 rounded-full " +
-              (isDemo ? "bg-amber-400" : "bg-[#b8d69a]")
-            }
-          />
-          {isDemo
-            ? "MOCK · 预存演示，非实时 AI"
-            : isLoading
-              ? "GENERATING"
-              : "LOCAL / DEEPSEEK"}
-        </span>
-        <span className="truncate pl-4">
-          {content.status === "ready" && content.page.kind === "search"
-            ? "虚构搜索 · 非真实互联网结果"
-            : "文字构筑的互联网"}
-        </span>
-      </footer>
       {settings && (
         <SettingsPanel mock={mock} onClose={() => setSettings(false)} />
       )}
