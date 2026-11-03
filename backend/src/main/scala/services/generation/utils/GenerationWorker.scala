@@ -2,7 +2,6 @@ package services.generation.utils
 import cats.effect.IO
 import cats.syntax.all.*
 import scala.concurrent.duration.*
-import io.circe.parser.decode
 import services.system.DatabaseSession
 import services.system.objects.AppError
 import services.generation.api.*
@@ -64,33 +63,36 @@ private[generation] final class GenerationWorker(
       prompt: String,
       attempt: Int
   ): IO[PageSpec] =
-    val action = for
-      text <- client.complete(config, PromptBuilder.system, prompt, false)
-      _ <- database.transaction(UpdateGenerationPhaseMessage(page.currentJobId, "validating").plan)
-      spec <- IO.fromEither(
-        decode[PageSpec](text).left.map(_ =>
-          AppError("invalid_content", "生成 JSON 字段不符合 PageSpec", 502)
+    def validate(text: String): IO[PageSpec] =
+      for
+        _ <- database.transaction(
+          UpdateGenerationPhaseMessage(page.currentJobId, "validating").plan
         )
-      )
-      issues <- database.transaction(ValidateGeneratedContentMessage(spec, page.address).plan)
-      _ <- IO.raiseWhen(issues.nonEmpty)(
-        AppError(
-          "invalid_content",
-          issues.take(6).map(i => i.path + ": " + i.message).mkString("; "),
-          502
-        )
-      )
-    yield spec
-    action.handleErrorWith {
-      case e: AppError
-          if attempt == 0 && Set(
+        spec <- IO.fromEither(GeneratedPageDecoder.decode(text))
+        issues <- database.transaction(ValidateGeneratedContentMessage(spec, page.address).plan)
+        _ <- IO.raiseWhen(issues.nonEmpty)(
+          AppError(
             "invalid_content",
+            issues.take(6).map(i => i.path + ": " + i.message).mkString("; "),
+            502
+          )
+        )
+      yield spec
+    client.complete(config, PromptBuilder.system, prompt, false).attempt.flatMap {
+      case Right(text) =>
+        validate(text).handleErrorWith {
+          case e: AppError if attempt == 0 && e.code == "invalid_content" =>
+            generate(config, page, PromptBuilder.repair(prompt, text, e.getMessage), 1)
+          case e => IO.raiseError(e)
+        }
+      case Left(e: AppError)
+          if attempt == 0 && Set(
             "provider_content",
             "provider_format",
             "provider_timeout",
             "provider_network",
             "provider_unavailable"
           )(e.code) =>
-        generate(config, page, prompt + "\n上次失败：" + e.getMessage + "\n请重新返回符合全部限制的 JSON。", 1)
-      case e => IO.raiseError(e)
+        generate(config, page, prompt + "\n上次接口失败：" + e.getMessage + "\n请返回完整的 PageSpec JSON。", 1)
+      case Left(e) => IO.raiseError(e)
     }

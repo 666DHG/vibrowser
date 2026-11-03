@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "title": "月挂咖啡 MOON COFFEE",
+  "description": "月挂咖啡是虚构的夜间烘焙咖啡馆品牌站，提供豆单、冲煮笔记与预约到店体验。",
+  "theme": "midnight",
+  "blocks": [
+    {
+      "id": "nav",
+      "type": "navbar",
+      "title": "月挂咖啡",
+      "text": null,
+      "target": null,
+      "items": [
+        {
+          "label": "豆单",
+          "href": "/beans"
+        },
+        {
+          "label": "冲煮笔记",
+          "href": "/notes"
+        },
+        {
+          "label": "到店预约",
+          "href": "/visit"
+        },
+        {
+          "label": "关于我们",
+          "href": "/about"
+        }
+      ]
+    },
+    {
+      "id": "hero",
+      "type": "hero",
+      "title": "月亮升起时，我们开始烘焙",
+      "text": "月挂咖啡专注深夜烘焙与小批次手冲。每天 20:00 后出炉的豆子，会在次日清晨寄往你的厨房。",
+      "target": null,
+      "items": []
+    },
+    {
+      "id": "moon",
+      "type": "ascii",
+      "title": "夜之印记",
+      "text": "\n    .-\"\"\"-.\n   /  .-.  \\\n  |  ( o )  |\n   \\  `-'  /\n    '-...-'\n  MOON COFFEE\n",
+      "target": null,
+      "items": []
+    },
+    {
+      "id": "intro",
+      "type": "text",
+      "title": "我们把夜晚当作风味的一部分",
+      "text": "月挂咖啡成立于虚构的 2019 年，烘焙间藏在一座旧钟楼的地下层。这里安静、恒温，只有磨豆机与收音机低声工作。我们相信缓慢的降温与稳定的火力，能让豆子保留果香与甜感。",
+      "target": null,
+      "items": []
+    },
+    {
+      "id": "beanGrid",
+      "type": "grid",
+      "title": "本月豆单",
+      "text": "三款当前可预订的小批次咖啡豆。",
+      "target": null,
+      "items": [
+        {
+          "title": "夜航船 · 埃塞俄比亚",
+          "text": "花香与柑橘，浅烘，适合手冲。",
+          "href": "/beans/night-ship"
+        },
+        {
+          "title": "钟楼底 · 哥伦比亚",
+          "text": "焦糖与坚果，中烘，意式与奶咖皆宜。",
+          "href": "/beans/clocktower"
+        },
+        {
+          "title": "月苔 · 云南",
+          "text": "红茶与红糖，中深烘，醇厚顺口。",
+          "href": "/beans/moonmoss"
+        }
+      ]
+    },
+    {
+      "id": "notes",
+      "type": "card",
+      "title": "冲煮笔记：闷蒸的 30 秒",
+      "text": "水温 92°C，粉水比 1:15。先注入两倍粉重的水，静置 30 秒，让二氧化碳从容离开。",
+      "target": "/notes/bloom-30s",
+      "items": []
+    },
+    {
+      "id": "visitBtn",
+      "type": "button",
+      "title": "预约一次夜间杯测",
+      "text": null,
+      "target": "/visit",
+      "items": []
+    },
+    {
+      "id": "foot",
+      "type": "footer",
+      "title": "月挂咖啡 MOON COFFEE",
+      "text": "虚构品牌站点 · 仅作设计演示 · 不提供真实交易",
+      "target": null,
+      "items": []
+    }
+  ]
+}

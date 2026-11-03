@@ -41,6 +41,8 @@ object PageValidation:
       Option
         .when(spec.title.trim.isEmpty || spec.title.length > 160)(ValidationIssue("title", "标题无效")),
       Option.when(spec.description.length > 500)(ValidationIssue("description", "摘要过长")),
-      Option.when(flat.isEmpty || flat.length > 12)(ValidationIssue("blocks", "组件总数须在 1–12 之间")),
+      Option.when(flat.isEmpty || flat.length > 12)(
+        ValidationIssue("blocks", s"组件总数须在 1–12 之间，当前为 ${flat.length}（包含所有嵌套子项）")
+      ),
       Option.when(flat.map(_.id).distinct.size != flat.size)(ValidationIssue("blocks", "组件 ID 重复"))
     ).flatten ++ spec.blocks.zipWithIndex.flatMap((b, i) => inspect(b, 1, s"blocks[$i]"))
