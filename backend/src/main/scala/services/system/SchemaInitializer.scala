@@ -1,0 +1,15 @@
+package services.system
+import cats.effect.IO
+import cats.syntax.all.*
+import java.sql.Connection
+import services.browser.tables.PageTable.PageTableInitializer
+import services.generation.tables.GenerationJobTable.{GenerationJobTable,GenerationJobTableInitializer}
+import services.settings.tables.SettingsTable.SettingsTableInitializer
+import services.settings.tables.CredentialsTable.CredentialsTableInitializer
+import services.generation.api.FailGenerationJobMessage
+object SchemaInitializer:
+  def initialize(c: Connection): IO[Unit] =
+    PageTableInitializer.initialize(c) *> GenerationJobTableInitializer.initialize(c) *>
+      SettingsTableInitializer.initialize(c) *> CredentialsTableInitializer.initialize(c)
+  def recover(c: Connection): IO[Unit] =
+    GenerationJobTable.interrupted(c).flatMap(_.traverse_(j => FailGenerationJobMessage(j.id,"服务已重启，上次任务中断，请重试").plan(c)))

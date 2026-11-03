@@ -11,7 +11,7 @@ import services.browser.tables.PageTable.PageTable
 import services.browser.objects.*
 import services.browser.api.ValidateGeneratedContentMessage
 
-final case class CompleteGenerationJobMessage(jobId: String, spec: Option[PageSpec]) extends APIMessage[Unit]:
+final case class CompleteGenerationJobMessage(jobId: String, spec: Option[PageSpec], source: String) extends APIMessage[Unit]:
   override def plan(connection: Connection): IO[Unit] =
     for
       job <- GenerationJobTable.findById(connection,jobId).flatMap(IO.fromOption(_)(AppError("not_found","任务不存在",404)))
@@ -24,7 +24,7 @@ final case class CompleteGenerationJobMessage(jobId: String, spec: Option[PageSp
               content <- IO.fromOption(spec)(AppError("invalid_content","生成内容缺失"))
               issues <- ValidateGeneratedContentMessage(content,page.address).plan(connection)
               _ <- IO.raiseWhen(issues.nonEmpty)(AppError("invalid_content","生成结构未通过校验"))
-              saved <- PageTable.saveReady(connection,pageId,jobId,content)
+              saved <- PageTable.saveReady(connection,pageId,jobId,content,source)
               _ <- if saved then GenerationJobTable.complete(connection,jobId).void
                    else GenerationJobTable.fail(connection,jobId,"任务已过期").void
             yield ()

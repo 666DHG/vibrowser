@@ -11,7 +11,7 @@ object APIMessageRouter:
   def routes(messages: List[RegisteredAPIMessage], database: DatabaseSession): HttpRoutes[IO] =
     val registry = messages.map(m => m.name -> m).toMap
     HttpRoutes.of[IO] {
-      case GET -> Root / "health" => Ok(Json.obj("status" -> Json.fromString("ok")))
+      case GET -> Root / "health" => Ok(Json.obj("status" -> Json.fromString("ok"), "mock" -> Json.fromBoolean(sys.env.get("VIBROWSER_MOCK").contains("true"))))
       case request @ POST -> Root / "api" / name =>
         val allowedOrigins = Set("http://127.0.0.1:5173", "http://localhost:5173", "http://127.0.0.1:8787")
         val origin = request.headers.headers.find(_.name.toString.equalsIgnoreCase("Origin")).map(_.value)
