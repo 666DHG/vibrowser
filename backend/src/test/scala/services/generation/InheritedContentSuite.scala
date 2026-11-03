@@ -91,3 +91,22 @@ class InheritedContentSuite extends FunSuite:
     )
     assert(prompt.contains("37"))
   }
+
+  test("legacy-only metadata is retained verbatim and cannot be guessed into structured facts") {
+    val legacy = entity.copy(
+      author = None,
+      publishedAt = None,
+      replyCount = None,
+      legacyMeta = Some("匿名 · 37 回复")
+    )
+    val source = page.copy(navigationContext = Some(context.copy(entities = List(legacy))))
+    assertEquals(
+      InheritedContent.prepare(spec, source).toOption.get.entities.head.legacyMeta,
+      legacy.legacyMeta
+    )
+    assert(
+      InheritedContent
+        .prepare(spec.copy(entities = List(legacy.copy(replyCount = Some(37)))), source)
+        .isLeft
+    )
+  }

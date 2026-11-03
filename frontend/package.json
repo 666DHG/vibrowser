@@ -13,7 +13,8 @@
     "test:live:restart": "playwright test --config playwright.live.config.ts restart.spec.ts",
     "test:live:bookmarks": "playwright test --config playwright.live.config.ts bookmarks.spec.ts",
     "format": "prettier --write src tests *.ts",
-    "format:check": "prettier --check src tests *.ts"
+    "format:check": "prettier --check src tests *.ts",
+    "test:live:continuity": "playwright test --config playwright.live.config.ts continuity.spec.ts"
   },
   "dependencies": {
     "lucide-react": "^0.468.0",

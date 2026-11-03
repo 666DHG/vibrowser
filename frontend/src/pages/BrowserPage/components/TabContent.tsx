@@ -85,6 +85,7 @@ export function TabContent({
   }, []);
   return (
     <div
+      onMouseMove={(event) => previewTarget(event.target)}
       onMouseOver={(event) => previewTarget(event.target)}
       onMouseOut={(event) => previewTarget(event.relatedTarget)}
       onFocusCapture={(event) => previewTarget(event.target)}

@@ -4,6 +4,7 @@ import type { PageSpec, PageBlock, PageDesign } from "../../../shared/pageSpec";
 export type PageLayout = PageDesign["layout"];
 export interface RenderContext {
   entities: PageEntity[];
+  subjectEntityId?: string | null;
   layout: PageLayout;
   density: PageDesign["density"];
   onNavigate: (target: string, sourceBlockId?: string) => void;

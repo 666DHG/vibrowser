@@ -1,0 +1,44 @@
+[
+  {
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "frames": 90,
+    "uniqueSizes": 1,
+    "panelWidth": 358,
+    "panelScrollWidth": 358,
+    "bodyHeight": 580,
+    "bodyScrollHeight": 580,
+    "bodyWidth": 303,
+    "bodyScrollWidth": 303
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "frames": 90,
+    "uniqueSizes": 1,
+    "panelWidth": 356,
+    "panelScrollWidth": 356,
+    "bodyHeight": 580,
+    "bodyScrollHeight": 580,
+    "bodyWidth": 301,
+    "bodyScrollWidth": 301
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 400
+    },
+    "frames": 90,
+    "uniqueSizes": 1,
+    "panelWidth": 356,
+    "panelScrollWidth": 356,
+    "bodyHeight": 147,
+    "bodyScrollHeight": 580,
+    "bodyWidth": 301,
+    "bodyScrollWidth": 301
+  }
+]

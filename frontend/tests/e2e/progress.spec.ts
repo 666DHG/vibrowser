@@ -1,5 +1,5 @@
 import { test, expect, type Page } from "@playwright/test";
-import { readFile, mkdir } from "node:fs/promises";
+import { readFile, mkdir, writeFile } from "node:fs/promises";
 
 async function setup(page: Page) {
   const spec = JSON.parse(
@@ -261,25 +261,63 @@ test("progress scroll geometry stays stable through spinner frames and long retr
   const panel = page.getByTestId("navigation-progress");
   await expect(panel).toBeVisible();
   await page.waitForTimeout(250);
-  const sizes = await panel.evaluate(async (node) => {
-    const body = node.querySelector(".progress-body")!;
-    const samples: string[] = [];
-    for (let i = 0; i < 90; i++) {
-      await new Promise(requestAnimationFrame);
-      samples.push(
-        JSON.stringify([
-          node.clientWidth,
-          node.scrollWidth,
-          body.clientHeight,
-          body.scrollHeight,
-          body.clientWidth,
-          body.scrollWidth,
-        ]),
-      );
-    }
-    return samples;
-  });
-  expect(new Set(sizes).size).toBe(1);
+  const observations: unknown[] = [];
+  await mkdir("../docs/screenshots/continuity", { recursive: true });
+  for (const viewport of [
+    { width: 1440, height: 1000 },
+    { width: 390, height: 844 },
+    { width: 390, height: 400 },
+  ]) {
+    await page.setViewportSize(viewport);
+    const sizes = await panel.evaluate(async (node) => {
+      const body = node.querySelector(".progress-body")!;
+      const samples: string[] = [];
+      for (let i = 0; i < 90; i++) {
+        await new Promise(requestAnimationFrame);
+        samples.push(
+          JSON.stringify([
+            node.clientWidth,
+            node.scrollWidth,
+            body.clientHeight,
+            body.scrollHeight,
+            body.clientWidth,
+            body.scrollWidth,
+          ]),
+        );
+      }
+      return samples;
+    });
+    expect(new Set(sizes).size).toBe(1);
+    const [
+      width,
+      scrollWidth,
+      height,
+      scrollHeight,
+      bodyWidth,
+      bodyScrollWidth,
+    ] = JSON.parse(sizes[0]);
+    expect(scrollWidth).toBe(width);
+    expect(bodyScrollWidth).toBe(bodyWidth);
+    if (viewport.height === 400) expect(scrollHeight).toBeGreaterThan(height);
+    observations.push({
+      viewport,
+      frames: sizes.length,
+      uniqueSizes: new Set(sizes).size,
+      panelWidth: width,
+      panelScrollWidth: scrollWidth,
+      bodyHeight: height,
+      bodyScrollHeight: scrollHeight,
+      bodyWidth,
+      bodyScrollWidth,
+    });
+    await page.screenshot({
+      path: `../docs/screenshots/continuity/progress-${viewport.width}-${viewport.height}.png`,
+    });
+  }
+  await writeFile(
+    "../docs/acceptance/scroll-stability-2026-11-03.json",
+    JSON.stringify(observations, null, 2),
+  );
   await page.emulateMedia({ reducedMotion: "reduce" });
   expect(
     await panel
@@ -287,11 +325,6 @@ test("progress scroll geometry stays stable through spinner frames and long retr
       .first()
       .evaluate((node) => getComputedStyle(node).animationName),
   ).toBe("none");
-  const [width, scrollWidth, height, scrollHeight, bodyWidth, bodyScrollWidth] =
-    JSON.parse(sizes[0]);
-  expect(scrollWidth).toBe(width);
-  expect(bodyScrollWidth).toBe(bodyWidth);
-  expect(scrollHeight).toBeGreaterThan(height);
   await panel.getByRole("button", { name: "折叠加载进度" }).click();
   await expect(panel.locator(".progress-body")).toHaveCount(0);
   await panel.getByRole("button", { name: "展开加载进度" }).click();

@@ -5,6 +5,7 @@ import type { PageEntity } from "../../../shared/pageEntity";
 export function bindEntity(
   block: PageBlock,
   entities: PageEntity[],
+  subjectEntityId?: string | null,
 ): PageBlock {
   const entity = entities.find((e) => e.id === block.entityId);
   if (!entity) return block;
@@ -13,7 +14,12 @@ export function bindEntity(
     entity.publishedAt,
     entity.replyCount == null ? null : `${entity.replyCount} 条回复`,
     entity.price ? `${entity.price.currency} ${entity.price.amount}` : null,
-    entity.legacyMeta,
+    !entity.author &&
+    !entity.publishedAt &&
+    entity.replyCount == null &&
+    !entity.price
+      ? entity.legacyMeta
+      : null,
     block.replyRange
       ? `显示第 ${block.replyRange.from}–${block.replyRange.to} 条`
       : null,
@@ -23,7 +29,10 @@ export function bindEntity(
   return {
     ...block,
     title: block.replyRange ? block.title : entity.title,
-    text: block.target ? (entity.summary ?? block.text) : block.text,
+    text:
+      block.target && block.entityId !== subjectEntityId
+        ? (entity.summary ?? block.text)
+        : block.text,
     meta: facts || null,
   };
 }

@@ -13,6 +13,7 @@ export function PageRenderer({ spec, onNavigate }: Props) {
     density,
     onNavigate,
     entities: spec.entities ?? [],
+    subjectEntityId: spec.subjectEntityId,
   };
   const asideFirst = ["documentation", "storefront", "dashboard"].includes(
     layout,

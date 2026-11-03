@@ -4,6 +4,8 @@
 
 ## 首版实际结构（2026-11-03）
 
+新增 PageSpec v2 实体与来源组件 ID：NavigateMessage 在短事务中验证父页目标并保存 navigation_context 快照；worker 读取快照，在 generation 内部完成继承补齐/冲突检查，再调用 browser 的语义校验消息。模型请求不再拼接截断的父页 JSON。v1 缓存仍可读取；实体标题/元信息由宿主渲染，详见 [上下文与动效实现](CONTINUITY.md)。加载 UI 使用 requestId 隔离的存在状态 hook，面板只有一个滚动内容区；预览与点击共用地址解析。
+
 最新交互增强将每标签 ContentState 与 PendingNavigation 分开：旧页直到新请求成功才替换，历史也在成功后提交；进度面板读取任务的持久化 steps。书签归属 browser 服务，新增三个消息，全应用现有五张业务表，详见 [加载与书签](BOOKMARKS_PROGRESS.md)。
 
 浏览器会话已扩展为 BrowserSession → BrowserTab[]，每标签独立 ContentState、历史、草稿和请求取消控制器；sessionStorage 按窗口隔离。BrowserTabs 与 TabContent 就近拆分，消息与数据库接口保持不变。后台完成按捕获的 tabId 写入，关闭标签后不接收迟到结果，见 [多标签实现与验收](BROWSER_TABS.md)。
@@ -16,7 +18,7 @@
 
 | 消息 | POST 路径 | 返回与责任 |
 | --- | --- | --- |
-| NavigateMessage | /api/navigate | NavigationResponse；识别网址/搜索、复用缓存或建任务 |
+| NavigateMessage | /api/navigate | NavigationResponse；识别网址/搜索、复用缓存或验证 sourceBlockId 并保存点击快照/建任务 |
 | GetPageMessage | /api/getpage | PageResponse；pageId/jobId 二选一查询 |
 | RetryPageMessage | /api/retrypage | 检查 failedJobId，锁页面并创建或复用下一代任务 |
 | ListBookmarksMessage | /api/listbookmarks | 返回当前 schema 的书签列表，按保存时间倒序 |
@@ -31,7 +33,7 @@
 
 | 表 | 核心字段与约束 | 所属模块 |
 | --- | --- | --- |
-| pages | id、唯一 address、kind、prompt、status、JSONB spec、current_job_id、referrer_id、error、source、created_at | browser |
+| pages | id、唯一 address、kind、prompt、status、JSONB spec、JSONB navigation_context、current_job_id、referrer_id、error、source、created_at | browser |
 | generation_jobs | id、page_id、kind、status、phase、steps JSONB、error、settings_revision、时间；每页仅一个 queued/running 任务 | generation |
 | bookmarks | id、唯一 page_id、title、address、kind、saved_at；页面外键 | browser |
 | provider_settings | singleton id=1、base_url、model、revision | settings |
@@ -46,13 +48,13 @@ sequenceDiagram
     participant DB as PostgreSQL
     participant W as 单 worker
     participant AI as 兼容模型接口
-    UI->>API: NavigateMessage(input, referrerPageId)
+    UI->>API: NavigateMessage(input, referrerPageId, sourceBlockId)
     API->>DB: 短事务查缓存或创建 page/job
     API-->>UI: pageId/jobId/status
-    W->>DB: 原子领取任务，读配置/来源，释放连接
+    W->>DB: 原子领取任务，读配置/上下文快照，释放连接
     W->>AI: JSON mode，最多两次，每次≤60秒
     AI-->>W: PageSpec 文本
-    W->>W: 解码及语义校验
+    W->>W: 解码、实体继承及语义校验
     W->>DB: 新短事务，按 currentJobId 保存终态
     UI->>API: GetPageMessage 轮询
     API-->>UI: 实际状态及 PageSpec

@@ -15,7 +15,7 @@ export function PageBlockView({
   context: RenderContext;
   parent?: string;
 }) {
-  const block = bindEntity(original, context.entities);
+  const block = bindEntity(original, context.entities, context.subjectEntityId);
   const children = block.items.map((item) => (
     <PageBlockView
       key={item.id}

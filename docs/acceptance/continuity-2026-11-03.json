@@ -1,0 +1,901 @@
+[
+  {
+    "startedAt": "2026-11-03T13:58:09.136Z",
+    "pages": [
+      {
+        "label": "listing",
+        "submitted": {
+          "input": "forum.moon-night.example/boards/night-shift-20261103",
+          "referrerPageId": null,
+          "sourceBlockId": null
+        },
+        "cacheHit": false,
+        "elapsedMs": 10882,
+        "pageId": "6acd2624-b079-4612-93f9-67b0e8098e10",
+        "jobId": "a0550b79-131c-4550-8f67-43f6be3f9421",
+        "status": "ready",
+        "error": null,
+        "schemaVersion": 2,
+        "source": "live",
+        "stages": [
+          {
+            "phase": "queued",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:09.557847+08:00"
+          },
+          {
+            "phase": "preparing",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:09.685486+08:00"
+          },
+          {
+            "phase": "generating",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:09.791782+08:00"
+          },
+          {
+            "phase": "validating",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:19.786934+08:00"
+          },
+          {
+            "phase": "saving",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:19.843588+08:00"
+          },
+          {
+            "phase": "ready",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:19.859639+08:00"
+          }
+        ],
+        "title": "夜班留言板 · 2026 年 11 月 3 日夜",
+        "theme": "midnight",
+        "design": {
+          "layout": "community",
+          "typography": "sans",
+          "density": "compact",
+          "accent": "violet"
+        },
+        "context": null
+      },
+      {
+        "label": "thread",
+        "submitted": {
+          "input": "https://forum.moon-night.example/threads/3021",
+          "referrerPageId": "6acd2624-b079-4612-93f9-67b0e8098e10",
+          "sourceBlockId": "t1"
+        },
+        "cacheHit": false,
+        "elapsedMs": 9928,
+        "pageId": "c9040707-25c0-425e-8ebf-b29b2fa65598",
+        "jobId": "c3993a65-3c94-48b4-9668-893a09b87023",
+        "status": "ready",
+        "error": null,
+        "schemaVersion": 2,
+        "source": "live",
+        "stages": [
+          {
+            "phase": "queued",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:20.561937+08:00"
+          },
+          {
+            "phase": "preparing",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:20.7668+08:00"
+          },
+          {
+            "phase": "generating",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:20.772369+08:00"
+          },
+          {
+            "phase": "validating",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:29.701026+08:00"
+          },
+          {
+            "phase": "saving",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:29.708672+08:00"
+          },
+          {
+            "phase": "ready",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:29.714364+08:00"
+          }
+        ],
+        "title": "三楼空调异响，已报修 · 夜班留言板 · 月夜论坛",
+        "theme": "midnight",
+        "design": {
+          "layout": "community",
+          "typography": "sans",
+          "density": "compact",
+          "accent": "violet"
+        },
+        "expectedEntity": {
+          "id": "https://forum.moon-night.example/threads/3021",
+          "kind": "thread",
+          "title": "三楼空调异响，已报修",
+          "summary": "凌晨两点起间歇性轰鸣，已联系物业，明早复检。",
+          "author": "夜行者",
+          "publishedAt": "2026-11-03T03:12:00+08:00",
+          "replyCount": 5,
+          "price": null,
+          "legacyMeta": "夜行者 · 03:12 · 5 回复"
+        },
+        "actualSubject": {
+          "id": "https://forum.moon-night.example/threads/3021",
+          "kind": "thread",
+          "title": "三楼空调异响，已报修",
+          "summary": "凌晨两点起间歇性轰鸣，已联系物业，明早复检。",
+          "author": "夜行者",
+          "publishedAt": "2026-11-03T03:12:00+08:00",
+          "replyCount": 5,
+          "price": null,
+          "legacyMeta": "夜行者 · 03:12 · 5 回复"
+        },
+        "context": {
+          "characters": 1979,
+          "selected": {
+            "blockId": "t1",
+            "kind": "thread",
+            "target": "https://forum.moon-night.example/threads/3021",
+            "title": "三楼空调异响，已报修",
+            "text": "凌晨两点起间歇性轰鸣，已联系物业，明早复检。",
+            "meta": "夜行者 · 03:12 · 5 回复"
+          },
+          "appearance": {
+            "title": "夜班留言板 · 2026 年 11 月 3 日夜",
+            "description": "月夜论坛夜班留言板：本夜值班记录、设备状态与交接事项。",
+            "theme": "midnight",
+            "design": {
+              "layout": "community",
+              "typography": "sans",
+              "density": "compact",
+              "accent": "violet"
+            },
+            "brand": "月 夜 论 坛"
+          },
+          "entities": [
+            {
+              "id": "https://forum.moon-night.example/threads/3021",
+              "title": "三楼空调异响，已报修",
+              "author": "夜行者",
+              "replyCount": 5
+            },
+            {
+              "id": "https://forum.moon-night.example/threads/3022",
+              "title": "交接：B 区闸机读卡延迟",
+              "author": "青柠",
+              "replyCount": 8
+            },
+            {
+              "id": "https://forum.moon-night.example/threads/3023",
+              "title": "夜间巡逻路线微调（临时）",
+              "author": "老周",
+              "replyCount": 3
+            },
+            {
+              "id": "https://forum.moon-night.example/threads/3024",
+              "title": "监控 12 号画面偏暗",
+              "author": "小满",
+              "replyCount": 2
+            },
+            {
+              "id": "https://forum.moon-night.example/threads/3025",
+              "title": "今晚有人带热饮吗",
+              "author": "阿岚",
+              "replyCount": 11
+            }
+          ],
+          "ancestors": [
+            {
+              "address": "https://forum.moon-night.example/boards/night-shift-20261103",
+              "title": "夜班留言板 · 2026 年 11 月 3 日夜",
+              "summary": "月夜论坛夜班留言板：本夜值班记录、设备状态与交接事项。"
+            }
+          ]
+        }
+      }
+    ],
+    "result": "\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('link-preview')\nExpected: \u001b[32m\"https://forum.moon-night.example/threads/3023\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('link-preview') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('link-preview')\u001b[22m\n"
+  },
+  {
+    "startedAt": "2026-11-03T14:00:43.807Z",
+    "pages": [
+      {
+        "label": "listing",
+        "submitted": {
+          "input": "forum.moon-night.example/boards/night-shift-20261103",
+          "referrerPageId": null,
+          "sourceBlockId": null
+        },
+        "cacheHit": true,
+        "elapsedMs": 254,
+        "pageId": "6acd2624-b079-4612-93f9-67b0e8098e10",
+        "jobId": "a0550b79-131c-4550-8f67-43f6be3f9421",
+        "status": "ready",
+        "error": null,
+        "schemaVersion": 2,
+        "source": "live",
+        "stages": [
+          {
+            "phase": "queued",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:09.557847+08:00"
+          },
+          {
+            "phase": "preparing",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:09.685486+08:00"
+          },
+          {
+            "phase": "generating",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:09.791782+08:00"
+          },
+          {
+            "phase": "validating",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:19.786934+08:00"
+          },
+          {
+            "phase": "saving",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:19.843588+08:00"
+          },
+          {
+            "phase": "ready",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:19.859639+08:00"
+          }
+        ],
+        "title": "夜班留言板 · 2026 年 11 月 3 日夜",
+        "theme": "midnight",
+        "design": {
+          "layout": "community",
+          "typography": "sans",
+          "density": "compact",
+          "accent": "violet"
+        },
+        "context": null
+      },
+      {
+        "label": "thread",
+        "submitted": {
+          "input": "https://forum.moon-night.example/threads/3021",
+          "referrerPageId": "6acd2624-b079-4612-93f9-67b0e8098e10",
+          "sourceBlockId": "t1"
+        },
+        "cacheHit": true,
+        "elapsedMs": 203,
+        "pageId": "c9040707-25c0-425e-8ebf-b29b2fa65598",
+        "jobId": "c3993a65-3c94-48b4-9668-893a09b87023",
+        "status": "ready",
+        "error": null,
+        "schemaVersion": 2,
+        "source": "live",
+        "stages": [
+          {
+            "phase": "queued",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:20.561937+08:00"
+          },
+          {
+            "phase": "preparing",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:20.7668+08:00"
+          },
+          {
+            "phase": "generating",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:20.772369+08:00"
+          },
+          {
+            "phase": "validating",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:29.701026+08:00"
+          },
+          {
+            "phase": "saving",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:29.708672+08:00"
+          },
+          {
+            "phase": "ready",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:29.714364+08:00"
+          }
+        ],
+        "title": "三楼空调异响，已报修 · 夜班留言板 · 月夜论坛",
+        "theme": "midnight",
+        "design": {
+          "layout": "community",
+          "typography": "sans",
+          "density": "compact",
+          "accent": "violet"
+        },
+        "expectedEntity": {
+          "id": "https://forum.moon-night.example/threads/3021",
+          "kind": "thread",
+          "title": "三楼空调异响，已报修",
+          "summary": "凌晨两点起间歇性轰鸣，已联系物业，明早复检。",
+          "author": "夜行者",
+          "publishedAt": "2026-11-03T03:12:00+08:00",
+          "replyCount": 5,
+          "price": null,
+          "legacyMeta": "夜行者 · 03:12 · 5 回复"
+        },
+        "actualSubject": {
+          "id": "https://forum.moon-night.example/threads/3021",
+          "kind": "thread",
+          "title": "三楼空调异响，已报修",
+          "summary": "凌晨两点起间歇性轰鸣，已联系物业，明早复检。",
+          "author": "夜行者",
+          "publishedAt": "2026-11-03T03:12:00+08:00",
+          "replyCount": 5,
+          "price": null,
+          "legacyMeta": "夜行者 · 03:12 · 5 回复"
+        },
+        "context": {
+          "characters": 1979,
+          "selected": {
+            "blockId": "t1",
+            "kind": "thread",
+            "target": "https://forum.moon-night.example/threads/3021",
+            "title": "三楼空调异响，已报修",
+            "text": "凌晨两点起间歇性轰鸣，已联系物业，明早复检。",
+            "meta": "夜行者 · 03:12 · 5 回复"
+          },
+          "appearance": {
+            "title": "夜班留言板 · 2026 年 11 月 3 日夜",
+            "description": "月夜论坛夜班留言板：本夜值班记录、设备状态与交接事项。",
+            "theme": "midnight",
+            "design": {
+              "layout": "community",
+              "typography": "sans",
+              "density": "compact",
+              "accent": "violet"
+            },
+            "brand": "月 夜 论 坛"
+          },
+          "entities": [
+            {
+              "id": "https://forum.moon-night.example/threads/3021",
+              "title": "三楼空调异响，已报修",
+              "author": "夜行者",
+              "replyCount": 5
+            },
+            {
+              "id": "https://forum.moon-night.example/threads/3022",
+              "title": "交接：B 区闸机读卡延迟",
+              "author": "青柠",
+              "replyCount": 8
+            },
+            {
+              "id": "https://forum.moon-night.example/threads/3023",
+              "title": "夜间巡逻路线微调（临时）",
+              "author": "老周",
+              "replyCount": 3
+            },
+            {
+              "id": "https://forum.moon-night.example/threads/3024",
+              "title": "监控 12 号画面偏暗",
+              "author": "小满",
+              "replyCount": 2
+            },
+            {
+              "id": "https://forum.moon-night.example/threads/3025",
+              "title": "今晚有人带热饮吗",
+              "author": "阿岚",
+              "replyCount": 11
+            }
+          ],
+          "ancestors": [
+            {
+              "address": "https://forum.moon-night.example/boards/night-shift-20261103",
+              "title": "夜班留言板 · 2026 年 11 月 3 日夜",
+              "summary": "月夜论坛夜班留言板：本夜值班记录、设备状态与交接事项。"
+            }
+          ]
+        }
+      },
+      {
+        "label": "onward",
+        "submitted": {
+          "input": "https://forum.moon-night.example/threads/3023",
+          "referrerPageId": "c9040707-25c0-425e-8ebf-b29b2fa65598",
+          "sourceBlockId": "t3023"
+        },
+        "cacheHit": false,
+        "elapsedMs": 9217,
+        "pageId": "e27b6bd5-d7fb-4da6-b387-d1055410c8e0",
+        "jobId": "cab6387b-ab14-45e2-ac86-6a19e13694ff",
+        "status": "ready",
+        "error": null,
+        "schemaVersion": 2,
+        "source": "live",
+        "stages": [
+          {
+            "phase": "queued",
+            "attempt": 1,
+            "at": "2026-11-03T22:00:47.080633+08:00"
+          },
+          {
+            "phase": "preparing",
+            "attempt": 1,
+            "at": "2026-11-03T22:00:47.288465+08:00"
+          },
+          {
+            "phase": "generating",
+            "attempt": 1,
+            "at": "2026-11-03T22:00:47.383889+08:00"
+          },
+          {
+            "phase": "validating",
+            "attempt": 1,
+            "at": "2026-11-03T22:00:55.973457+08:00"
+          },
+          {
+            "phase": "saving",
+            "attempt": 1,
+            "at": "2026-11-03T22:00:55.998457+08:00"
+          },
+          {
+            "phase": "ready",
+            "attempt": 1,
+            "at": "2026-11-03T22:00:56.009178+08:00"
+          }
+        ],
+        "title": "夜间巡逻路线微调（临时） · 夜班留言板 · 月夜论坛",
+        "theme": "midnight",
+        "design": {
+          "layout": "community",
+          "typography": "sans",
+          "density": "compact",
+          "accent": "violet"
+        },
+        "expectedEntity": {
+          "id": "https://forum.moon-night.example/threads/3023",
+          "kind": "thread",
+          "title": "夜间巡逻路线微调（临时）",
+          "summary": "东侧施工，路线临时绕行西廊，明晚恢复。",
+          "author": "老周",
+          "publishedAt": "2026-11-03T01:40:00+08:00",
+          "replyCount": 3,
+          "price": null,
+          "legacyMeta": "老周 · 01:40 · 3 回复"
+        },
+        "actualSubject": {
+          "id": "https://forum.moon-night.example/threads/3023",
+          "kind": "thread",
+          "title": "夜间巡逻路线微调（临时）",
+          "summary": "东侧施工，路线临时绕行西廊，明晚恢复。",
+          "author": "老周",
+          "publishedAt": "2026-11-03T01:40:00+08:00",
+          "replyCount": 3,
+          "price": null,
+          "legacyMeta": "老周 · 01:40 · 3 回复"
+        },
+        "context": {
+          "characters": 2099,
+          "selected": {
+            "blockId": "t3023",
+            "kind": "thread",
+            "target": "https://forum.moon-night.example/threads/3023",
+            "title": "夜间巡逻路线微调（临时）",
+            "text": "东侧施工，路线临时绕行西廊，明晚恢复。",
+            "meta": null
+          },
+          "appearance": {
+            "title": "三楼空调异响，已报修 · 夜班留言板 · 月夜论坛",
+            "description": "月夜论坛夜班留言板：三楼空调异响已报修，跟帖记录复检与交接情况。",
+            "theme": "midnight",
+            "design": {
+              "layout": "community",
+              "typography": "sans",
+              "density": "compact",
+              "accent": "violet"
+            },
+            "brand": "月 夜 论 坛"
+          },
+          "entities": [
+            {
+              "id": "https://forum.moon-night.example/threads/3023",
+              "title": "夜间巡逻路线微调（临时）",
+              "author": "老周",
+              "replyCount": 3
+            },
+            {
+              "id": "https://forum.moon-night.example/threads/3021",
+              "title": "三楼空调异响，已报修",
+              "author": "夜行者",
+              "replyCount": 5
+            },
+            {
+              "id": "https://forum.moon-night.example/threads/3022",
+              "title": "交接：B 区闸机读卡延迟",
+              "author": "青柠",
+              "replyCount": 8
+            },
+            {
+              "id": "https://forum.moon-night.example/threads/3024",
+              "title": "监控 12 号画面偏暗",
+              "author": "小满",
+              "replyCount": 2
+            },
+            {
+              "id": "https://forum.moon-night.example/threads/3025",
+              "title": "今晚有人带热饮吗",
+              "author": "阿岚",
+              "replyCount": 11
+            }
+          ],
+          "ancestors": [
+            {
+              "address": "https://forum.moon-night.example/boards/night-shift-20261103",
+              "title": "夜班留言板 · 2026 年 11 月 3 日夜",
+              "summary": "月夜论坛夜班留言板：本夜值班记录、设备状态与交接事项。"
+            },
+            {
+              "address": "https://forum.moon-night.example/threads/3021",
+              "title": "三楼空调异响，已报修 · 夜班留言板 · 月夜论坛",
+              "summary": "月夜论坛夜班留言板：三楼空调异响已报修，跟帖记录复检与交接情况。"
+            }
+          ]
+        }
+      }
+    ],
+    "result": "passed"
+  },
+  {
+    "startedAt": "2026-11-03T14:05:28.076Z",
+    "pages": [
+      {
+        "label": "listing",
+        "submitted": {
+          "input": "forum.moon-night.example/boards/night-shift-20261103",
+          "referrerPageId": null,
+          "sourceBlockId": null
+        },
+        "cacheHit": true,
+        "elapsedMs": 394,
+        "pageId": "6acd2624-b079-4612-93f9-67b0e8098e10",
+        "jobId": "a0550b79-131c-4550-8f67-43f6be3f9421",
+        "status": "ready",
+        "error": null,
+        "schemaVersion": 2,
+        "source": "live",
+        "stages": [
+          {
+            "phase": "queued",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:09.557847+08:00"
+          },
+          {
+            "phase": "preparing",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:09.685486+08:00"
+          },
+          {
+            "phase": "generating",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:09.791782+08:00"
+          },
+          {
+            "phase": "validating",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:19.786934+08:00"
+          },
+          {
+            "phase": "saving",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:19.843588+08:00"
+          },
+          {
+            "phase": "ready",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:19.859639+08:00"
+          }
+        ],
+        "title": "夜班留言板 · 2026 年 11 月 3 日夜",
+        "theme": "midnight",
+        "design": {
+          "layout": "community",
+          "typography": "sans",
+          "density": "compact",
+          "accent": "violet"
+        },
+        "context": null
+      },
+      {
+        "label": "thread",
+        "submitted": {
+          "input": "https://forum.moon-night.example/threads/3021",
+          "referrerPageId": "6acd2624-b079-4612-93f9-67b0e8098e10",
+          "sourceBlockId": "t1"
+        },
+        "cacheHit": true,
+        "elapsedMs": 237,
+        "pageId": "c9040707-25c0-425e-8ebf-b29b2fa65598",
+        "jobId": "c3993a65-3c94-48b4-9668-893a09b87023",
+        "status": "ready",
+        "error": null,
+        "schemaVersion": 2,
+        "source": "live",
+        "stages": [
+          {
+            "phase": "queued",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:20.561937+08:00"
+          },
+          {
+            "phase": "preparing",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:20.7668+08:00"
+          },
+          {
+            "phase": "generating",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:20.772369+08:00"
+          },
+          {
+            "phase": "validating",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:29.701026+08:00"
+          },
+          {
+            "phase": "saving",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:29.708672+08:00"
+          },
+          {
+            "phase": "ready",
+            "attempt": 1,
+            "at": "2026-11-03T21:58:29.714364+08:00"
+          }
+        ],
+        "title": "三楼空调异响，已报修 · 夜班留言板 · 月夜论坛",
+        "theme": "midnight",
+        "design": {
+          "layout": "community",
+          "typography": "sans",
+          "density": "compact",
+          "accent": "violet"
+        },
+        "expectedEntity": {
+          "id": "https://forum.moon-night.example/threads/3021",
+          "kind": "thread",
+          "title": "三楼空调异响，已报修",
+          "summary": "凌晨两点起间歇性轰鸣，已联系物业，明早复检。",
+          "author": "夜行者",
+          "publishedAt": "2026-11-03T03:12:00+08:00",
+          "replyCount": 5,
+          "price": null,
+          "legacyMeta": "夜行者 · 03:12 · 5 回复"
+        },
+        "actualSubject": {
+          "id": "https://forum.moon-night.example/threads/3021",
+          "kind": "thread",
+          "title": "三楼空调异响，已报修",
+          "summary": "凌晨两点起间歇性轰鸣，已联系物业，明早复检。",
+          "author": "夜行者",
+          "publishedAt": "2026-11-03T03:12:00+08:00",
+          "replyCount": 5,
+          "price": null,
+          "legacyMeta": "夜行者 · 03:12 · 5 回复"
+        },
+        "context": {
+          "characters": 1979,
+          "selected": {
+            "blockId": "t1",
+            "kind": "thread",
+            "target": "https://forum.moon-night.example/threads/3021",
+            "title": "三楼空调异响，已报修",
+            "text": "凌晨两点起间歇性轰鸣，已联系物业，明早复检。",
+            "meta": "夜行者 · 03:12 · 5 回复"
+          },
+          "appearance": {
+            "title": "夜班留言板 · 2026 年 11 月 3 日夜",
+            "description": "月夜论坛夜班留言板：本夜值班记录、设备状态与交接事项。",
+            "theme": "midnight",
+            "design": {
+              "layout": "community",
+              "typography": "sans",
+              "density": "compact",
+              "accent": "violet"
+            },
+            "brand": "月 夜 论 坛"
+          },
+          "entities": [
+            {
+              "id": "https://forum.moon-night.example/threads/3021",
+              "title": "三楼空调异响，已报修",
+              "author": "夜行者",
+              "replyCount": 5
+            },
+            {
+              "id": "https://forum.moon-night.example/threads/3022",
+              "title": "交接：B 区闸机读卡延迟",
+              "author": "青柠",
+              "replyCount": 8
+            },
+            {
+              "id": "https://forum.moon-night.example/threads/3023",
+              "title": "夜间巡逻路线微调（临时）",
+              "author": "老周",
+              "replyCount": 3
+            },
+            {
+              "id": "https://forum.moon-night.example/threads/3024",
+              "title": "监控 12 号画面偏暗",
+              "author": "小满",
+              "replyCount": 2
+            },
+            {
+              "id": "https://forum.moon-night.example/threads/3025",
+              "title": "今晚有人带热饮吗",
+              "author": "阿岚",
+              "replyCount": 11
+            }
+          ],
+          "ancestors": [
+            {
+              "address": "https://forum.moon-night.example/boards/night-shift-20261103",
+              "title": "夜班留言板 · 2026 年 11 月 3 日夜",
+              "summary": "月夜论坛夜班留言板：本夜值班记录、设备状态与交接事项。"
+            }
+          ]
+        }
+      },
+      {
+        "label": "onward",
+        "submitted": {
+          "input": "https://forum.moon-night.example/threads/3023",
+          "referrerPageId": "c9040707-25c0-425e-8ebf-b29b2fa65598",
+          "sourceBlockId": "t3023"
+        },
+        "cacheHit": true,
+        "elapsedMs": 238,
+        "pageId": "e27b6bd5-d7fb-4da6-b387-d1055410c8e0",
+        "jobId": "cab6387b-ab14-45e2-ac86-6a19e13694ff",
+        "status": "ready",
+        "error": null,
+        "schemaVersion": 2,
+        "source": "live",
+        "stages": [
+          {
+            "phase": "queued",
+            "attempt": 1,
+            "at": "2026-11-03T22:00:47.080633+08:00"
+          },
+          {
+            "phase": "preparing",
+            "attempt": 1,
+            "at": "2026-11-03T22:00:47.288465+08:00"
+          },
+          {
+            "phase": "generating",
+            "attempt": 1,
+            "at": "2026-11-03T22:00:47.383889+08:00"
+          },
+          {
+            "phase": "validating",
+            "attempt": 1,
+            "at": "2026-11-03T22:00:55.973457+08:00"
+          },
+          {
+            "phase": "saving",
+            "attempt": 1,
+            "at": "2026-11-03T22:00:55.998457+08:00"
+          },
+          {
+            "phase": "ready",
+            "attempt": 1,
+            "at": "2026-11-03T22:00:56.009178+08:00"
+          }
+        ],
+        "title": "夜间巡逻路线微调（临时） · 夜班留言板 · 月夜论坛",
+        "theme": "midnight",
+        "design": {
+          "layout": "community",
+          "typography": "sans",
+          "density": "compact",
+          "accent": "violet"
+        },
+        "expectedEntity": {
+          "id": "https://forum.moon-night.example/threads/3023",
+          "kind": "thread",
+          "title": "夜间巡逻路线微调（临时）",
+          "summary": "东侧施工，路线临时绕行西廊，明晚恢复。",
+          "author": "老周",
+          "publishedAt": "2026-11-03T01:40:00+08:00",
+          "replyCount": 3,
+          "price": null,
+          "legacyMeta": "老周 · 01:40 · 3 回复"
+        },
+        "actualSubject": {
+          "id": "https://forum.moon-night.example/threads/3023",
+          "kind": "thread",
+          "title": "夜间巡逻路线微调（临时）",
+          "summary": "东侧施工，路线临时绕行西廊，明晚恢复。",
+          "author": "老周",
+          "publishedAt": "2026-11-03T01:40:00+08:00",
+          "replyCount": 3,
+          "price": null,
+          "legacyMeta": "老周 · 01:40 · 3 回复"
+        },
+        "context": {
+          "characters": 2099,
+          "selected": {
+            "blockId": "t3023",
+            "kind": "thread",
+            "target": "https://forum.moon-night.example/threads/3023",
+            "title": "夜间巡逻路线微调（临时）",
+            "text": "东侧施工，路线临时绕行西廊，明晚恢复。",
+            "meta": null
+          },
+          "appearance": {
+            "title": "三楼空调异响，已报修 · 夜班留言板 · 月夜论坛",
+            "description": "月夜论坛夜班留言板：三楼空调异响已报修，跟帖记录复检与交接情况。",
+            "theme": "midnight",
+            "design": {
+              "layout": "community",
+              "typography": "sans",
+              "density": "compact",
+              "accent": "violet"
+            },
+            "brand": "月 夜 论 坛"
+          },
+          "entities": [
+            {
+              "id": "https://forum.moon-night.example/threads/3023",
+              "title": "夜间巡逻路线微调（临时）",
+              "author": "老周",
+              "replyCount": 3
+            },
+            {
+              "id": "https://forum.moon-night.example/threads/3021",
+              "title": "三楼空调异响，已报修",
+              "author": "夜行者",
+              "replyCount": 5
+            },
+            {
+              "id": "https://forum.moon-night.example/threads/3022",
+              "title": "交接：B 区闸机读卡延迟",
+              "author": "青柠",
+              "replyCount": 8
+            },
+            {
+              "id": "https://forum.moon-night.example/threads/3024",
+              "title": "监控 12 号画面偏暗",
+              "author": "小满",
+              "replyCount": 2
+            },
+            {
+              "id": "https://forum.moon-night.example/threads/3025",
+              "title": "今晚有人带热饮吗",
+              "author": "阿岚",
+              "replyCount": 11
+            }
+          ],
+          "ancestors": [
+            {
+              "address": "https://forum.moon-night.example/boards/night-shift-20261103",
+              "title": "夜班留言板 · 2026 年 11 月 3 日夜",
+              "summary": "月夜论坛夜班留言板：本夜值班记录、设备状态与交接事项。"
+            },
+            {
+              "address": "https://forum.moon-night.example/threads/3021",
+              "title": "三楼空调异响，已报修 · 夜班留言板 · 月夜论坛",
+              "summary": "月夜论坛夜班留言板：三楼空调异响已报修，跟帖记录复检与交接情况。"
+            }
+          ]
+        }
+      }
+    ],
+    "result": "passed"
+  }
+]

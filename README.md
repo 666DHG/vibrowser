@@ -45,6 +45,8 @@ Mock 的测试连接与生成均为模拟，连接测试结果在设置中说明
 
 ## 本版能力与限制
 
+- 加载面板轻微弹入/淡出、单一滚动区，网页成功替换时整体淡入；悬停或聚焦链接在左下角预览目标。PageSpec v2 沿点击路径继承帖子/文章/商品实体事实，旧缓存保持读取，详见 [真实三页连续点击验收](docs/CONTINUITY.md)。
+
 - 多标签中文浏览器外壳与独立新窗口；各标签独立历史、地址草稿、滚动位置和加载状态，支持新建/切换/关闭、前进/后退/刷新。顶部标题与标签居中对齐，已移除左侧栏，详见 [多标签验收](docs/BROWSER_TABS.md)。
 - 顶部两栏统一 48px；非首页导航保留旧内容，右下角展示真实阶段，成功后再切换。地址栏星标保存书签，书签页跨窗口共享并在新标签打开原缓存，详见 [加载与书签验收](docs/BOOKMARKS_PROGRESS.md)。
 - 裸域名、路径与 HTTP(S) URL 规范化；普通文字生成虚构搜索结果。地址仅作为创作素材，不抓取网址，也不执行真实搜索。
@@ -72,9 +74,9 @@ Mock 的测试连接与生成均为模拟，连接测试结果在设置中说明
 ## 验证
 
 ```powershell
-.\scripts\check.ps1                # Scala 格式/编译/37 项测试，前端格式/29 项测试/类型/构建
+.\scripts\check.ps1                # Scala 格式/编译/53 项测试，前端格式/41 项测试/类型/构建
 # 先用 start.ps1 -Mock 启动，再运行：
-.\scripts\check.ps1 -Browser       # 另加 19 项 Playwright E2E，并更新截图
+.\scripts\check.ps1 -Browser       # 另加 23 项 Playwright E2E，并更新截图
 ```
 
 数据库测试只清理 `smoke_test` schema。E2E 强制检查 Mock 模式，不进行计费调用；若已有 Key，跳过会替换凭据的 UI 用例。真实验收另用显式启用的 `npm run test:live`，不读取或替换 Key；调用方式、重启阶段和结果见 [真实验收记录](docs/LIVE_SMOKE.md)。首次交付的历史证据见 [Smoke 记录](docs/SMOKE_PROGRESS.md)。

@@ -9,7 +9,14 @@ private[generation] object InheritedContent:
       if old.nonEmpty && next.nonEmpty && old != next then
         Left(AppError("invalid_content", s"实体 ${known.id} 的 $name 与来源事实冲突；必须原样继承", 502))
       else Right(next.orElse(old))
+    val legacyOnly =
+      known.legacyMeta.nonEmpty && known.author.isEmpty && known.publishedAt.isEmpty && known.replyCount.isEmpty && known.price.isEmpty
     for
+      _ <- Either.cond(
+        !legacyOnly || (generated.author.isEmpty && generated.publishedAt.isEmpty && generated.replyCount.isEmpty && generated.price.isEmpty),
+        (),
+        AppError("invalid_content", "旧条目只有原始 legacyMeta，不得猜测拆解为作者、时间、回复数或价格", 502)
+      )
       _ <- Either.cond(
         known.kind == generated.kind,
         (),
