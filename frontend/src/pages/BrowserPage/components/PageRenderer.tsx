@@ -1,10 +1,18 @@
-import type { PageSpec } from "../../../shared/pageSpec";
+import type { PageSpec, PageBlock } from "../../../shared/pageSpec";
 import { PageBlockView } from "./PageBlockView";
-import { pageAppearance, placement } from "./pageDesign";
+import { pageAppearance, placement, pageRegions } from "./pageDesign";
 type Props = { spec: PageSpec; onNavigate: (target: string) => void };
 export function PageRenderer({ spec, onNavigate }: Props) {
   const appearance = pageAppearance(spec);
   const { layout, density, typography } = appearance.design;
+  const context = { layout, density, onNavigate };
+  const asideFirst = ["documentation", "storefront", "dashboard"].includes(
+    layout,
+  );
+  const render = (block: PageBlock) => (
+    <PageBlockView key={block.id} block={block} context={context} />
+  );
+  const column = (side: "main" | "aside") => placement(side, layout);
   return (
     <article
       data-page-layout={layout}
@@ -23,24 +31,42 @@ export function PageRenderer({ spec, onNavigate }: Props) {
     >
       <div
         className={
-          "mx-auto grid grid-cols-12 items-start gap-x-7 lg:gap-x-10 gap-y-[var(--site-gap)] " +
-          appearance.width
+          "mx-auto flex flex-col gap-[var(--site-gap)] " + appearance.width
         }
       >
-        {spec.blocks
-          .filter((block) => block.type !== "footer")
-          .map((block) => (
-            <div
-              key={block.id}
-              data-placement={block.style?.placement ?? "auto"}
-              className={"min-w-0 " + placement(block, layout)}
-            >
-              <PageBlockView
-                block={block}
-                context={{ layout, density, onNavigate }}
-              />
+        {pageRegions(spec.blocks).map((region, index) =>
+          region.kind === "full" ? (
+            <div key={region.block.id} className="min-w-0">
+              {render(region.block)}
             </div>
-          ))}
+          ) : (
+            <div
+              key={"columns-" + index}
+              className="grid grid-cols-12 items-start gap-x-7 lg:gap-x-10 gap-y-[var(--site-gap)]"
+            >
+              <div
+                data-placement="main"
+                className={
+                  "flex min-w-0 flex-col gap-[var(--site-gap)] " +
+                  column("main") +
+                  (asideFirst ? " order-2" : " order-1")
+                }
+              >
+                {region.main.map(render)}
+              </div>
+              <aside
+                data-placement="aside"
+                className={
+                  "flex min-w-0 flex-col gap-[var(--site-gap)] " +
+                  column("aside") +
+                  (asideFirst ? " order-1" : " order-2")
+                }
+              >
+                {region.aside.map(render)}
+              </aside>
+            </div>
+          ),
+        )}
       </div>
     </article>
   );

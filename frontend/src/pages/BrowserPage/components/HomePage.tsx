@@ -1,4 +1,10 @@
-import { ArrowUpRight, Globe2, Orbit, Search } from "lucide-react";
+import {
+  ArrowUpRight,
+  BookOpen,
+  ShoppingBag,
+  Code2,
+  MessagesSquare,
+} from "lucide-react";
 export function HomePage({
   onNavigate,
   onSettings,
@@ -53,28 +59,35 @@ export function HomePage({
           SUGGESTED EXPLORATIONS
         </span>
       </div>
-      <div className="grid gap-3 md:grid-cols-3">
+      <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
         {[
           {
-            icon: Orbit,
-            title: "月面咖啡馆",
-            url: "moon-coffee.example",
-            note: "一杯拿铁，和窗外的地球。",
-            tag: "访问网站",
+            icon: BookOpen,
+            title: "田野观察季刊",
+            url: "fieldnotes-journal.example",
+            note: "沿着河岸、街巷和山谷，读几篇故事。",
+            tag: "杂志",
           },
           {
-            icon: Globe2,
-            title: "未来植物档案",
-            url: "future-botany.example",
-            note: "记录那些尚未被发现的绿色。",
-            tag: "访问网站",
+            icon: ShoppingBag,
+            title: "纸间文具店",
+            url: "stationery-shop.example",
+            note: "纸张、笔墨，和一张重新整理的书桌。",
+            tag: "商店",
           },
           {
-            icon: Search,
-            title: "如果城市漂浮在云上",
-            url: "漂浮在云上的城市",
-            note: "沿着一个念头，寻找另一种可能。",
-            tag: "搜索",
+            icon: Code2,
+            title: "TiDB Lab 文档",
+            url: "docs.tidb-lab.example/quickstart",
+            note: "从第一条命令开始，搭建自己的实验室。",
+            tag: "文档",
+          },
+          {
+            icon: MessagesSquare,
+            title: "城市骑行论坛",
+            url: "forum.city-cycling.example",
+            note: "约一场夜骑，交换几条熟悉的小路。",
+            tag: "社区",
           },
         ].map((x) => (
           <button
@@ -92,8 +105,8 @@ export function HomePage({
             <h3 className="text-sm text-[#e0e4d8]">{x.title}</h3>
             <p className="mt-2 text-xs leading-6 text-[#838d7a]">{x.note}</p>
             <div className="mt-5 flex items-center justify-between border-t border-white/5 pt-3">
-              <span className="font-mono text-[9px] text-[#64705b]">
-                {x.tag === "搜索" ? "vibe://search" : x.url}
+              <span className="min-w-0 truncate pr-2 font-mono text-[9px] text-[#64705b]">
+                {x.url}
               </span>
               <span className="text-[9px] text-[#7f8e72]">{x.tag}</span>
             </div>

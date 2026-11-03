@@ -4,7 +4,9 @@
 
 ## 首版实际结构（2026-11-03）
 
-界面后续调整：移除浏览器状态底栏与生成页 footer；Prompt 采用站点自身口吻，示例改为八组件、搜索建议五组件。旧 PageSpec 的 footer 类型继续可解码，但 Renderer 不输出，避免已有缓存恢复旧页脚。完整变更与本机缓存维护记录见 [IMMERSIVE_COPY.md](IMMERSIVE_COPY.md)。
+界面后续调整：移除浏览器状态底栏与生成页 footer；Prompt 采用站点自身口吻。旧 PageSpec 的 footer 类型继续可解码，但 Renderer 不输出，避免已有缓存恢复旧页脚。文案变更与本机缓存维护记录见 [IMMERSIVE_COPY.md](IMMERSIVE_COPY.md)。最新布局扩展已替换原先的八组件示例与固定搜索数量建议，改为三种不同结构的示例，按实际内容决定组件数量，见 [LAYOUTS.md](LAYOUTS.md)。
+
+页面契约增加可选 PageDesign（布局、字体、密度、强调色）、BlockStyle（变体、主/侧/通栏位置、网格列数）和 meta。均使用独立 final case class 与封闭 enum；旧 JSON 缺少这些字段仍可读取。全树上限为 48 个组件/4 层。前端分为 PageRenderer（连续区域）、PageBlockView（容器）、ContentBlock（内容）、pageDesign（纯样式/分组计算），模型只选择类型化数据，实际布局由 Tailwind 组件实现。
 
 四个逻辑服务同进程运行：browser 管导航、内容与缓存；generation 管任务和模型调用；settings 管接口配置与 DPAPI；system 管 HTTP、事务与资源。业务入口均为独立 Message.plan，前端同名类通过 send 调用。没有仅转发的 Service。
 
@@ -53,7 +55,7 @@ DatabaseSession、SQL statement/resultSet、HTTP client 与 worker 由 Resource 
 
 真实、Mock 与集成测试分别使用 vibrowser_live、vibrowser_demo、smoke_test schema；页面保存 source=live/mock。启动时将遗留 running 任务标记失败并更新页面，queued 继续运行。前端 AbortController 防止旧导航覆盖新状态，刷新只 GetPage，不隐式再生成。
 
-真实接口联调后，在 generation 的纯工具 GeneratedPageDecoder 中加入模型边界归一化：navbar 子项的 label/href 简写转换为 button，grid/results 中无 type 的标题卡片转换为 card；缺失 ID 按树路径生成，缺失可空文本和空 items 补齐。显式未知 type 不改写，链接、重复 ID、全树 12 个组件及 3 层深度仍由原校验拒绝。写入数据库和交给前端的仍是严格 PageSpec。错误保留字段路径，唯一一次修复携带有长度限制的原输出与具体校验原因；不截掉超限组件伪装成功。
+真实接口联调后，在 generation 的纯工具 GeneratedPageDecoder 中加入模型边界归一化：navbar 子项的 label/href 简写转换为 button，grid/results 中无 type 的标题卡片转换为 card；缺失 ID 按树路径生成，缺失可空文本和空 items 补齐。显式未知 type 不改写；链接、重复 ID 与组件预算仍通过语义校验，本轮预算更新为全树 48 个组件及 4 层深度。写入数据库和交给前端的仍是严格 PageSpec。错误保留字段路径，唯一一次修复携带有长度限制的原输出与具体校验原因；不截掉超限组件伪装成功。
 
 仅监听 loopback；开发前端代理 /api 和 /health。路由校验 Host、Origin、JSON Content-Type 和请求大小，不允许任意 CORS。模型输出只作为数据；全部链接通过宿主导航，ASCII 插画仅渲染文本。Key 不写日志、不返回前端、不进入浏览器存储。
 
@@ -169,7 +171,7 @@ generation 只有内部消息时不需要 Routes 或前端 API 文件；加入�
 
 PageSpec、FileSpec、SiteProfile 是不可变记录；PageBlock、BrowserAction、FileFormat、页面/任务状态用封闭类型。后端业务 ID 使用领域值类型，前端通过明确类型和运行时解码验证边界。
 
-初始组件为 navbar、hero、text、image、card、grid、button、footer；Action 为 navigate/toggle，搜索阶段增加 generate。总组件含嵌套最多 12、深度最多 3、图片请求最多 3，其余大小预算在 S1 固定。
+此处为长期设计示意：初始组件包括 navbar、hero、text、image、card、grid、button、footer；Action 为 navigate/toggle，搜索阶段增加 generate。当前实现已采用 48 个组件、4 层深度与扩展 BlockType，尚不支持 image 或复杂 Action，footer 只解码不渲染；以本页开头的当前结构为准。
 
 内容 JSON 使用 schemaVersion。Scala 派生编解码与前端 type discriminator 需要 fixtures 对照，不能把类型可编译当成协议一致。
 

@@ -6,16 +6,18 @@
 
 ## 本次交付与下一阶段
 
+本轮继续完成网站布局扩展：8 种布局、4 套字体、7 种主题、可变组件数量及 48 个/4 层预算；新增文章、商品、讨论、代码等内容类型，并修复长正文与侧栏连续排版。真实 DeepSeek 新增四个站点全部成功，分别生成 35/39/41/37 个组件，见 [布局验收](LAYOUTS.md)。下方长期方案中旧的 12 组件/3 层等预算由本轮契约替代，后续仍需站点级风格持久化与更丰富的交互。
+
 | 阶段 | 首版实际实现 | 尚未完成 |
 | --- | --- | --- |
 | S0 工程 | React/TS/Tailwind、Scala/Cats Effect/http4s、独立 PG16、格式化、启动/停止/检查脚本 | 干净新机器安装复验 |
-| S1 契约 | PageId/JobId、PageSpec/PageBlock、9 种 BlockType、4 种 Theme、页面/任务状态枚举、跨端 fixtures | SiteProfile、FileSpec、声明式复杂 Action |
+| S1 契约 | PageId/JobId、PageSpec/PageBlock、PageDesign/BlockStyle、18 种 BlockType（含兼容 footer）、7 种 Theme、封闭状态/风格枚举、跨端 fixtures | SiteProfile、FileSpec、声明式复杂 Action |
 | S2 消息与表 | 7 个公开消息、4 张表、统一 POST、短事务、唯一约束 | SiteTable、AssetTable、迁移版本管理 |
 | S3 浏览器 | 中文单标签外壳、历史恢复、确定性 Renderer、设置、桌面/窄屏布局 | 多标签、虚构文件预览 |
 | S4 生成 | DeepSeek 真实全链路、兼容接口预设、DPAPI、单 worker、模型结构归一化、JSON 校验、带错误上下文的单次修复 | TokenHub/自定义接口实测、更大样本稳定性 |
 | S5 稳定性 | 缓存、并发去重、条件重试、迟到响应保护、重启中断恢复、Mock/真实 schema 隔离 | 多进程 lease/心跳、长队列调度 |
 | S6 增强 | 地址栏生成虚构搜索结果；ASCII/文字插画 | 表单内搜索 Action、生图、显式外部打开 |
-| S7 交付 | 运行说明、24 项 Scala 测试、9 项前端单测、4 项 Mock E2E、3 个真实浏览器验收阶段、截图、分阶段提交 | 新机器复验 |
+| S7 交付 | 运行说明、35 项 Scala 测试、22 项前端单测、11 项 Mock E2E、原始真实 Smoke 与新增四站布局验收、截图、分阶段提交 | 新机器复验 |
 
 下一步按以下依赖推进，不按天分工：
 

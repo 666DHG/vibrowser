@@ -60,8 +60,10 @@ export function pageAppearance(spec: PageSpec) {
     } as CSSProperties,
   };
 }
-export function placement(block: PageBlock, layout: PageLayout) {
-  const position = block.style?.placement ?? "auto";
+export function placement(
+  position: "auto" | "main" | "aside" | "full",
+  layout: PageLayout,
+) {
   const narrow =
     layout === "storefront" ||
     layout === "documentation" ||
@@ -86,4 +88,32 @@ export function variantClasses(block: PageBlock) {
     outline: "border border-current/20 p-5",
     muted: "bg-current/5 p-5",
   }[block.style?.variant ?? "plain"];
+}
+export type PageRegion =
+  | { kind: "full"; block: PageBlock }
+  | { kind: "columns"; main: PageBlock[]; aside: PageBlock[] };
+export function pageRegions(blocks: PageBlock[]): PageRegion[] {
+  const regions: PageRegion[] = [];
+  let pending: PageBlock[] = [];
+  const flush = () => {
+    if (!pending.length) return;
+    const aside = pending.filter((block) => block.style?.placement === "aside");
+    if (aside.length)
+      regions.push({
+        kind: "columns",
+        aside,
+        main: pending.filter((block) => block.style?.placement !== "aside"),
+      });
+    else pending.forEach((block) => regions.push({ kind: "full", block }));
+    pending = [];
+  };
+  for (const block of blocks) {
+    if (block.type === "footer") continue;
+    if (block.type === "navbar" || block.style?.placement === "full") {
+      flush();
+      regions.push({ kind: "full", block });
+    } else pending.push(block);
+  }
+  flush();
+  return regions;
 }

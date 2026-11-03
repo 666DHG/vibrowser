@@ -8,7 +8,7 @@ private[generation] object PromptBuilder:
     """{"schemaVersion":1,"title":"Flow API","description":"Flow API · 最新内容与精选栏目","theme":"white","design":{"layout":"documentation","typography":"sans","density":"compact","accent":"blue"},"blocks":[{"id":"toc","type":"list","title":"目录","text":null,"target":null,"items":[{"id":"link","type":"button","title":"快速开始","text":null,"target":"/start","items":[],"meta":null,"style":null}],"meta":null,"style":{"placement":"aside","variant":"plain","columns":null}},{"id":"body","type":"section","title":"发送请求","text":"使用客户端读取状态。","target":null,"items":[{"id":"code","type":"code","title":"终端","text":"curl https://flow.example/api/status","target":null,"items":[],"meta":"shell","style":null},{"id":"explain","type":"text","title":"响应字段","text":"status 表示当前服务状态。","target":null,"items":[],"meta":null,"style":null}],"meta":null,"style":{"placement":"main","variant":"plain","columns":null}}]}"""
   )
   private[generation] val system: String = """你是一名网站设计师与主编。为目标地址制作有完整内容、鲜明视觉语言和生活细节的网站。
-以站点经营者、编辑或作者的口吻写正文。品牌、日期、栏目和故事前后一致；内容直接进入主题，页面正文只写站内信息。省略 footer。
+以正常运营的站点经营者、编辑或作者的口吻写正文。品牌、日期、栏目和故事前后一致；内容直接进入主题，页面正文只写站内信息，不插入生成者的演示说明或能力免责声明。省略 footer。
 首先判断这个地址是杂志、商店、文档、社区、工作台、作品集还是检索目录，然后选匹配的版式。不要把不同网站统一做成宣传落地页。
 只返回 PageSpec JSON：schemaVersion:1,title,description,theme,design,blocks。
 theme: paper/midnight/terminal/coral/white/graphite/sage。
@@ -16,7 +16,7 @@ design: {layout,typography,density,accent}。
 layout: editorial（报刊/杂志）、storefront（商店）、documentation（文档/知识库）、community（论坛）、dashboard（工作台）、studio（作品集/品牌）、directory（搜索/目录）、classic（其他）。
 typography: serif（宋体/衬线）、sans（无衬线）、mono（等宽）、display（醒目展示字体）。
 density: compact/comfortable/airy；accent: blue/red/green/amber/violet/neutral。
-按内容决定组件种类、顺序与数量，没有固定配方或目标个数。页面应有足够完整的内容，可以是长文章、多商品目录、密集讨论列表、导航目录、代码示例与多个统计面板。小页保持简洁，内容密集站点可以使用二三十个组件。
+按内容决定组件种类、顺序与数量，没有固定配方或目标个数。页面应有足够完整的内容，可以是长文章、多商品目录、密集讨论列表、导航目录、代码示例与多个统计面板。小页保持简洁，内容密集站点可以使用二三十个组件。只选择主题需要的组件，不必遍历组件清单。
 不要为每页安排 hero、ascii 或两个 card。ascii 仅在字符艺术本身适合主题时使用；许多网站完全不需要大标题区。全树最多48个组件，最多4层，包含所有容器与子项。
 可用 type：navbar/hero/text/card/grid/button/results/ascii/section/list/article/product/thread/stat/quote/code/divider。
 每个 block 包含 id,type,title,text,target,items；title/text/target 不使用时为 null，items 不使用时为 []。所有子项也用完整 block。
@@ -50,4 +50,13 @@ ID唯一；title最多160字符、text最多6000字符、description最多500字
     s"PAGE_KIND=${PageKind.toString(page.kind)}\n目标：${page.prompt}\n地址：${page.address}\n" +
       source
         .flatMap(_.spec)
-        .fold("")(p => "来源页面：延续品牌、字体和视觉语言，但按当前子页用途重新组织内容，不复制首页布局：" + p.asJson.noSpaces.take(16000))
+        .fold("") { p =>
+          val identity = io.circe.Json.obj(
+            "title" -> p.title.asJson,
+            "description" -> p.description.asJson,
+            "theme" -> p.theme.asJson,
+            "design" -> p.design.asJson
+          )
+          "来源页面：延续品牌、字体和视觉语言，但按当前子页用途重新组织内容，不复制首页布局：" +
+            identity.noSpaces + "\n来源内容片段：" + p.blocks.asJson.noSpaces.take(16000)
+        }

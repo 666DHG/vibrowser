@@ -16,7 +16,8 @@
 
 实现取舍：
 
-- PageBlock 是 final case class，组件种类由 BlockType enum 封闭；不同类型的必需字段在语义校验中检查，没有为九种组件复制九套相同传输字段。
+- PageBlock 是 final case class，组件种类由 BlockType enum 封闭；不同类型的必需字段在语义校验中检查，没有为每种组件复制相同传输字段。
+- 布局扩展新增独立 PageDesign/BlockStyle final case class 与伴生编解码器，以及 PageLayout/Typography/Density/Accent/BlockVariant/BlockPlacement 枚举。布局规则为页面附近的纯函数，容器和内容组件按职责拆分；没有新增只转发的 Service，消息、表和 IO 边界保持原结构。跨端 fixtures 与桌面/手机浏览器测试验证契约和实际渲染，见 [布局验收](LAYOUTS.md)。
 - ProviderConnection 是仅后端内存使用的 final class，刻意不提供通用 JSON 编解码，toString 脱敏；它承载解密后的凭据，不作为普通可序列化领域记录。
 - SqlExecutor 的公开函数属于 system 技术能力；业务 SQL 与行映射仍私有，未把业务查询转移到通用工具。
 - settings 为本次新增服务。每个模块按需要创建目录，没有为无公开接口的 generation 添加空路由。

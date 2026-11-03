@@ -177,7 +177,7 @@
           "id": "code",
           "type": "code",
           "title": "src/database.ts",
-          "text": "import { createClient } from '@riverdb/client';\\n\\nconst database = createClient({ url: process.env.DATABASE_URL });\\nconst rows = await database.query('select 1 as value');",
+          "text": "import { createClient } from '@riverdb/client';\n\nconst database = createClient({ url: process.env.DATABASE_URL });\nconst rows = await database.query('select 1 as value');",
           "target": null,
           "items": [],
           "meta": "TypeScript",
