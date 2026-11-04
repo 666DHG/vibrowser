@@ -4,7 +4,7 @@ import java.sql.Connection
 import services.system.SqlExecutor
 object PageTableInitializer:
   private val createSql = """CREATE TABLE IF NOT EXISTS pages (
-    id TEXT PRIMARY KEY, address TEXT UNIQUE NOT NULL, kind TEXT NOT NULL CHECK(kind IN ('website','search')),
+    id TEXT PRIMARY KEY, address TEXT NOT NULL, kind TEXT NOT NULL CHECK(kind IN ('website','search')),
     prompt TEXT NOT NULL, status TEXT NOT NULL CHECK(status IN ('generating','ready','failed')),
     spec JSONB, current_job_id TEXT NOT NULL, referrer_id TEXT REFERENCES pages(id), error TEXT,
     created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
@@ -12,6 +12,12 @@ object PageTableInitializer:
   private val sourceSql =
     "ALTER TABLE pages ADD COLUMN IF NOT EXISTS source TEXT NOT NULL DEFAULT 'pending'"
   private val contextSql = "ALTER TABLE pages ADD COLUMN IF NOT EXISTS navigation_context JSONB"
+  private val cachePolicySql = "ALTER TABLE pages DROP CONSTRAINT IF EXISTS pages_address_key"
+  private val activeIndexSql =
+    "CREATE UNIQUE INDEX IF NOT EXISTS one_pending_page_per_address ON pages(address) WHERE status='generating'"
   def initialize(c: Connection): IO[Unit] =
     SqlExecutor.update(c, createSql) *> SqlExecutor
-      .update(c, sourceSql) *> SqlExecutor.update(c, contextSql).void
+      .update(c, sourceSql) *> SqlExecutor.update(c, contextSql) *> SqlExecutor.update(
+      c,
+      cachePolicySql
+    ) *> SqlExecutor.update(c, activeIndexSql).void

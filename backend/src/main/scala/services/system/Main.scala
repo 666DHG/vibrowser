@@ -27,6 +27,9 @@ object Main extends IOApp.Simple:
       )
       _ <- Resource.eval(database.transaction(SchemaInitializer.initialize))
       _ <- Resource.eval(database.transaction(SchemaInitializer.recover))
+      _ <- Resource.eval(
+        database.transaction(services.browser.tables.PageTable.PageTable.clearTemporary)
+      )
       client <- EmberClientBuilder.default[IO].build
       _ <- GenerationModule.resource(database, client, mock)
       server <- EmberServerBuilder

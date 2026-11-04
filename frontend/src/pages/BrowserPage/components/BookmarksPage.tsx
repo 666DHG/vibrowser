@@ -1,3 +1,4 @@
+import { displayAddress } from "../functions/displayAddress";
 import { useState } from "react";
 import {
   Bookmark as BookmarkIcon,
@@ -27,7 +28,9 @@ export function BookmarksPage({
   const [query, setQuery] = useState("");
   const filter = query.trim().toLocaleLowerCase();
   const visible = items.filter((item) =>
-    (item.title + " " + item.address).toLocaleLowerCase().includes(filter),
+    (item.title + " " + displayAddress(item.address))
+      .toLocaleLowerCase()
+      .includes(filter),
   );
   return (
     <section className="mx-auto max-w-5xl px-6 py-10 md:px-12 md:py-16">
@@ -79,7 +82,7 @@ export function BookmarksPage({
         {visible.map((item) => (
           <li key={item.id} className="flex items-start gap-4 py-6">
             <button
-              data-navigation-target={item.address}
+              data-navigation-target={displayAddress(item.address)}
               onClick={() => onOpen(item)}
               aria-label={"打开书签：" + item.title}
               className="group min-w-0 flex-1 cursor-pointer text-left"
@@ -89,7 +92,7 @@ export function BookmarksPage({
                 <ArrowUpRight size={16} className="shrink-0" />
               </h2>
               <p className="mt-2 break-all text-xs text-[#92a382]">
-                {item.address}
+                {displayAddress(item.address)}
               </p>
               <p className="mt-3 text-xs text-[#728369]">
                 {new Date(item.savedAt).toLocaleString("zh-CN")}

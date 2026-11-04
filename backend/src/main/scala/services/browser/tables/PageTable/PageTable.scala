@@ -29,14 +29,26 @@ object PageTable:
   private val findByIdSql = "SELECT * FROM pages WHERE id=?"
   def findById(c: Connection, id: PageId): IO[Option[PageRecord]] =
     SqlExecutor.query(c, findByIdSql, List(id.value))(row).map(_.headOption)
-  private val findByAddressSql = "SELECT * FROM pages WHERE address=?"
+  private val findByAddressSql =
+    "SELECT p.* FROM pages p WHERE address=? AND (status='generating' OR EXISTS (SELECT 1 FROM bookmarks b WHERE b.page_id=p.id)) ORDER BY CASE WHEN status='ready' THEN 0 ELSE 1 END, created_at DESC LIMIT 1"
   def findByAddress(c: Connection, address: String): IO[Option[PageRecord]] =
     SqlExecutor.query(c, findByAddressSql, List(address))(row).map(_.headOption)
+  private val detachTemporaryParentsSql =
+    "UPDATE pages SET referrer_id=NULL WHERE referrer_id IN (SELECT id FROM pages WHERE id NOT IN (SELECT page_id FROM bookmarks))"
+  private val clearTemporaryJobsSql =
+    "DELETE FROM generation_jobs WHERE page_id IN (SELECT id FROM pages WHERE id NOT IN (SELECT page_id FROM bookmarks))"
+  private val clearTemporaryPagesSql =
+    "DELETE FROM pages WHERE id NOT IN (SELECT page_id FROM bookmarks)"
+  def clearTemporary(c: Connection): IO[Unit] =
+    SqlExecutor.update(c, detachTemporaryParentsSql) *> SqlExecutor.update(
+      c,
+      clearTemporaryJobsSql
+    ) *> SqlExecutor.update(c, clearTemporaryPagesSql).void
   private val lockSql = "SELECT * FROM pages WHERE id=? FOR UPDATE"
   def lockById(c: Connection, id: PageId): IO[Option[PageRecord]] =
     SqlExecutor.query(c, lockSql, List(id.value))(row).map(_.headOption)
   private val insertSql =
-    "INSERT INTO pages(id,address,kind,prompt,status,current_job_id,referrer_id,navigation_context) VALUES(?,?,?,?,'generating',?,?,?::jsonb) ON CONFLICT(address) DO NOTHING"
+    "INSERT INTO pages(id,address,kind,prompt,status,current_job_id,referrer_id,navigation_context) VALUES(?,?,?,?,'generating',?,?,?::jsonb) ON CONFLICT(address) WHERE status='generating' DO NOTHING"
   def insertPending(
       c: Connection,
       id: PageId,

@@ -1,3 +1,4 @@
+import { displayAddress } from "../functions/displayAddress";
 import { useEffect, useState } from "react";
 import {
   Check,
@@ -116,7 +117,7 @@ export function NavigationProgress({
       {(!pending.collapsed || fullscreen || error) && (
         <div className="progress-body min-h-0 overflow-y-auto overflow-x-hidden [scrollbar-gutter:stable]">
           <p className="mb-4 mt-3 break-all text-xs leading-5 text-[#acbaa1]">
-            {pending.input}
+            {displayAddress(pending.input)}
           </p>
           <ol aria-label="加载步骤" className="space-y-2 text-xs">
             <li className="progress-step flex items-center gap-2">

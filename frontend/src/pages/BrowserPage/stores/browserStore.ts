@@ -1,3 +1,4 @@
+import { displayAddress } from "../functions/displayAddress";
 import { create } from "zustand";
 import type {
   BrowserTab,
@@ -23,7 +24,7 @@ function updateTab(id: string, update: (tab: BrowserTab) => BrowserTab) {
   }));
 }
 export const pageInput = (page: PageRecord) =>
-  page.kind === "search" ? page.prompt : page.address;
+  page.kind === "search" ? page.prompt : displayAddress(page.address);
 export const visibleInput = (tab: BrowserTab) =>
   tab.content.status === "ready"
     ? pageInput(tab.content.page)
@@ -38,7 +39,7 @@ export function startNavigation(id: string, pending: PendingNavigation) {
   updateTab(id, (tab) => ({
     ...tab,
     pending,
-    draft: pending.input,
+    draft: displayAddress(pending.input),
     title: tab.content.status === "idle" ? pending.input : tab.title,
   }));
 }
@@ -68,7 +69,6 @@ export function completeNavigation(
       pageId: page.id,
     };
     const entries =
-      pending.historyIndex !== undefined ||
       tab.entries[tab.index]?.pageId === page.id
         ? tab.entries
         : [...tab.entries.slice(0, tab.index + 1), entry].slice(-100);
@@ -77,10 +77,18 @@ export function completeNavigation(
       (entries === tab.entries ? tab.index : entries.length - 1);
     return {
       ...tab,
-      entries,
+      entries:
+        pending.historyIndex !== undefined
+          ? tab.entries.map((old, i) =>
+              i === pending.historyIndex ? entry : old,
+            )
+          : entries,
       index,
       title: page.spec?.title ?? page.address,
-      draft: tab.draft === pending.input ? pageInput(page) : tab.draft,
+      draft:
+        tab.draft === displayAddress(pending.input)
+          ? pageInput(page)
+          : tab.draft,
       content: { status: "ready", page },
       pending: {
         ...pending,

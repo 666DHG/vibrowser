@@ -38,7 +38,7 @@ class IntegrationSuite extends CatsEffectSuite:
       }
   private val fixture = Files.readString(Paths.get("../contracts/fixtures/valid/moon-coffee.json"))
   private val spec = decode[PageSpec](fixture).toOption.get
-  test("concurrent navigate deduplicates; completed page is cached") {
+  test("concurrent navigate deduplicates; only bookmarked pages are reused") {
     isolated { db =>
       for
         responses <- List
@@ -48,9 +48,18 @@ class IntegrationSuite extends CatsEffectSuite:
         _ = assertEquals(responses.map(_.jobId).distinct.size, 1)
         job <- db.transaction(ClaimGenerationJobMessage().plan).map(_.get)
         _ <- db.transaction(CompleteGenerationJobMessage(job.id, Some(spec), "mock").plan)
+        fresh <- db.transaction(NavigateMessage("cache.example", None).plan)
+        _ = assertNotEquals(fresh.pageId, job.pageId.get)
+        _ <- db.transaction(SaveBookmarkMessage(job.pageId.get).plan)
         cached <- db.transaction(NavigateMessage("cache.example", None).plan)
         _ = assertEquals(cached.status, PageStatus.Ready)
         _ = assertEquals(cached.jobId, job.id)
+        _ <- db.transaction(PageTable.clearTemporary)
+        retained <- db.transaction(c => PageTable.findById(c, cached.pageId))
+        removed <- db.transaction(c => PageTable.findById(c, fresh.pageId))
+        _ = assert(retained.nonEmpty)
+        _ = assertEquals(removed, None)
+        _ <- db.transaction(PageTable.clearTemporary)
       yield ()
     }
   }
@@ -311,6 +320,9 @@ class IntegrationSuite extends CatsEffectSuite:
                 _ = assertEquals(retry.navigationContext, before.navigationContext)
               yield ()
             else IO { assertEquals(saved.page.get.spec.get.entities.head.replyCount, Some(37)) }
+          _ <-
+            if keepConflict then IO.unit
+            else db.transaction(SaveBookmarkMessage(nav.pageId).plan).void
           cached <- db.transaction(NavigateMessage(entity.id, None).plan)
           _ = assertEquals(cached.pageId, nav.pageId)
           unchanged <- db.transaction(c => PageTable.findById(c, nav.pageId)).map(_.get)

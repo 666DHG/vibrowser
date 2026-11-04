@@ -1,3 +1,4 @@
+import { displayAddress } from "../functions/displayAddress";
 import { useProgressPresence } from "../hooks/useProgressPresence";
 import { navigationTarget } from "../functions/navigationTarget";
 import {
@@ -159,7 +160,7 @@ export function TabContent({
           data-testid="link-preview"
           className="pointer-events-none absolute bottom-0 left-0 z-30 max-w-[min(70%,640px)] truncate rounded-tr-md border border-white/15 bg-[#252c21] px-3 py-1 font-sans text-xs text-[#dce3d2]"
         >
-          {preview}
+          {displayAddress(preview)}
         </div>
       )}
     </div>

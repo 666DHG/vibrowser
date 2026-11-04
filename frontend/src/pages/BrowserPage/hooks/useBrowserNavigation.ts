@@ -188,6 +188,13 @@ export function useBrowserNavigation() {
         })
       : Promise.resolve();
   };
+  const refresh = () => {
+    const tab = getTab(activeId());
+    const entry = tab?.entries[tab.index];
+    return entry
+      ? run(tab!.id, entry.input, { historyIndex: tab!.index })
+      : Promise.resolve();
+  };
   const retry = (id = activeId()) => {
     const pending = getTab(id)?.pending;
     return pending ? run(id, pending.input, pending, true) : Promise.resolve();
@@ -208,5 +215,5 @@ export function useBrowserNavigation() {
   };
   const openSaved = (pageId: string, input: string) =>
     run(addTab(), input, { pageId, mode: "cached" });
-  return { navigate, move, retry, cancel, home, close, openSaved };
+  return { navigate, move, refresh, retry, cancel, home, close, openSaved };
 }

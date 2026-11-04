@@ -84,7 +84,7 @@ export default function BrowserPage() {
           <button
             aria-label="刷新"
             disabled={index < 0}
-            onClick={() => void navigation.move(index)}
+            onClick={() => void navigation.refresh()}
             className={iconButton}
           >
             <RotateCw size={16} />
