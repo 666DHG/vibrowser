@@ -91,7 +91,7 @@ final case class NormalizeWebDocumentMessage(document: WebDocument, address: Str
         WebAction("vib-nav-" + id, WebActionKind.Navigate, id, target = Some(e.attr("href")))
       }
     val ids = document.entities
-      .map(e => e.id -> AddressRules.resolveLink(e.id, address).getOrElse(e.id))
+      .map(e => e.id -> AddressRules.resolveEntityId(e.id, address).getOrElse(e.id))
       .toMap
     val entities = document.entities.map(e => e.copy(id = ids(e.id)))
     val bindings = WebDocumentBindings.normalize(

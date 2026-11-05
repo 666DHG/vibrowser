@@ -89,3 +89,26 @@ class ContractSuite extends FunSuite:
     assert(invalid.exists(_.message.contains("https://rhymes.example/song")))
     assert(invalid.exists(_.message.contains("target=/song")))
   }
+
+  test("entity identity preserves fragments while page navigation keeps its cache identity") {
+    val source = "https://site.example/profile?q=1"
+    assertEquals(AddressRules.resolveEntityId("#paper-a", source), Right(source + "#paper-a"))
+    assertEquals(AddressRules.resolveEntityId("#论文", source), Right(source + "#%E8%AE%BA%E6%96%87"))
+    assertEquals(
+      AddressRules.resolveEntityId("#%E8%AE%BA%E6%96%87", source),
+      Right(source + "#%E8%AE%BA%E6%96%87")
+    )
+    assertEquals(
+      AddressRules.resolveEntityId("https://清华树洞.com:443/论文#条目", source),
+      AddressRules.web("https://清华树洞.com/论文").map(_.canonical + "#%E6%9D%A1%E7%9B%AE")
+    )
+    assertEquals(AddressRules.resolveLink("#paper-a", source), Right(source))
+    assertEquals(AddressRules.resolveEntityId("#", source), Right(source))
+    List(
+      "javascript:alert(1)#x",
+      "https://127.0.0.1/#x",
+      "https://user:pass@site.example/#x",
+      "https://site.example/#bad fragment"
+    )
+      .foreach(s => assert(AddressRules.resolveEntityId(s, source).isLeft))
+  }

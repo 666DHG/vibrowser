@@ -189,12 +189,18 @@ private[browser] object WebDocuments:
         doc.actions.map(_.elementId).distinct.size == doc.actions.size,
         "one action per element"
       )
-      requireThat(doc.entities.map(_.id).distinct.size == doc.entities.size, "duplicate entity id")
+      val duplicateEntities = doc.entities.groupBy(_.id).filter(_._2.size > 1).keys.toList.sorted
       requireThat(
-        doc.entities.forall(e => AddressRules.resolveLink(e.id, address).contains(e.id)),
+        duplicateEntities.isEmpty,
+        "duplicate entity id: " + duplicateEntities.mkString(", ")
+      )
+      requireThat(
+        doc.entities.forall(e => AddressRules.resolveEntityId(e.id, address).contains(e.id)),
         "entity id must be canonical URL: " + doc.entities
-          .filterNot(e => AddressRules.resolveLink(e.id, address).contains(e.id))
-          .map(e => e.id + " => " + AddressRules.resolveLink(e.id, address).getOrElse("invalid"))
+          .filterNot(e => AddressRules.resolveEntityId(e.id, address).contains(e.id))
+          .map(e =>
+            e.id + " => " + AddressRules.resolveEntityId(e.id, address).getOrElse("invalid")
+          )
           .mkString(", ")
       )
       requireThat(doc.entities.forall(_.replyCount.forall(_ >= 0)), "negative reply count")

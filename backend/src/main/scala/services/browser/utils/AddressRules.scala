@@ -71,3 +71,13 @@ object AddressRules:
       .map(_ => "链接格式无效")
       .flatMap(web)
       .map(_.canonical)
+
+  // A page cache ignores fragments; an entity may identify one work within that page.
+  private[browser] def resolveEntityId(target: String, source: String): Either[String, String] =
+    for
+      uri <- Try(new URI(source).resolve(target)).toEither.left
+        .map(_ => "实体标识格式无效")
+      page <- web(uri.toString)
+    yield page.canonical + Option(new URI(uri.toASCIIString).getRawFragment)
+      .filter(_.nonEmpty)
+      .fold("")("#" + _)

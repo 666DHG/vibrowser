@@ -12,9 +12,17 @@ import services.browser.api.{NormalizeWebDocumentMessage, ValidateWebDocumentMes
 // Opt-in local corpus: no API keys, network calls or database mutation.
 class GenerationReplaySuite extends CatsEffectSuite:
   if sys.env.get("VIBROWSER_GENERATION_REPLAY").contains("true") then
-    test("real rejected outputs pass the corrected compiler without model calls") {
+    test(
+      "real outputs replay against explicit acceptance or rejection expectations without model calls"
+    ) {
       for
-        data <- IO.blocking(Files.readString(Paths.get("../.cache/generation-replay.json")))
+        data <- IO.blocking(
+          Files.readString(
+            Paths.get(
+              sys.env.getOrElse("VIBROWSER_REPLAY_INPUT", "../.cache/generation-replay.json")
+            )
+          )
+        )
         rows <- IO.fromEither(parse(data)).map(_.asArray.get.toList)
         results <- rows.traverse { row =>
           val c = row.hcursor
@@ -28,20 +36,35 @@ class GenerationReplaySuite extends CatsEffectSuite:
             Json.obj(
               "pageId" -> c.get[String]("pageId").toOption.asJson,
               "originalError" -> c.get[String]("error").toOption.asJson,
+              "jobId" -> c.get[String]("jobId").toOption.asJson,
+              "attempt" -> c.get[Int]("attempt").toOption.asJson,
               "passed" -> result.isRight.asJson,
               "remainingError" -> result.swap.toOption.map(_.getMessage).asJson,
+              "expectedError" -> c.get[String]("expectedError").toOption.asJson,
+              "expectationMet" -> c
+                .get[String]("expectedError")
+                .toOption
+                .fold(result.isRight)(expected =>
+                  result.swap.toOption.exists(_.getMessage.contains(expected))
+                )
+                .asJson,
               "modelRequests" -> 0.asJson
             )
           }
         }
         _ <- IO.blocking(
           Files.writeString(
-            Paths.get("../docs/acceptance/reliability-replay-2026-11-05.json"),
+            Paths.get(
+              sys.env.getOrElse(
+                "VIBROWSER_REPLAY_REPORT",
+                "../docs/acceptance/reliability-replay-2026-11-05.json"
+              )
+            ),
             results.asJson.spaces2
           )
         )
         _ = assert(
-          results.forall(_.hcursor.get[Boolean]("passed").contains(true)),
+          results.forall(_.hcursor.get[Boolean]("expectationMet").contains(true)),
           results.asJson.spaces2
         )
       yield ()

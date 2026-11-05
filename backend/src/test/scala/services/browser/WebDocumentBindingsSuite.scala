@@ -173,3 +173,40 @@ class WebDocumentBindingsSuite extends CatsEffectSuite:
       _ = assert(result.swap.toOption.get.getMessage.contains("javascript:alert(1)"))
     yield ()
   }
+
+  test("distinct works on one page retain independent inline and explicit bindings") {
+    val entities = List(
+      entity.copy(id = "https://site.example/profile", title = Some("作者主页")),
+      entity.copy(id = "https://site.example/profile#paper-a", title = Some("论文甲")),
+      entity.copy(id = "https://site.example/profile#paper-b", title = Some("论文乙"))
+    )
+    for
+      normalized <- normalize(
+        base.copy(
+          entities = entities,
+          subjectEntityId = Some("https://site.example/profile"),
+          html =
+            """<h1 id="author">作者</h1><h2 id="work-a">甲</h2><h2 data-entity-id="/profile#paper-b" data-entity-field="Title">乙</h2>""",
+          bindings = List(
+            WebBinding("author", entities.head.id, EntityField.Title),
+            WebBinding("work-a", entities(1).id, EntityField.Title)
+          )
+        )
+      )
+      ready <- ValidateWebDocumentMessage(normalized, "https://site.example/").plan(null)
+      _ = assertEquals(ready.entities.map(_.id), entities.map(_.id))
+      _ = assertEquals(ready.bindings.map(_.entityId).toSet, entities.map(_.id).toSet)
+      _ = assert(List("作者主页", "论文甲", "论文乙").forall(ready.html.contains))
+      twice <- normalize(ready)
+      _ = assertEquals(twice.entities, ready.entities)
+      _ = assertEquals(twice.bindings, ready.bindings)
+      duplicate <- normalize(
+        base.copy(html = "<p>重复条目</p>", entities = List(entities(1), entities(1)))
+      )
+      rejected <- ValidateWebDocumentMessage(duplicate, "https://site.example/").plan(null).attempt
+      _ = assert(
+        rejected.swap.toOption.get.getMessage
+          .contains("duplicate entity id: https://site.example/profile#paper-a")
+      )
+    yield ()
+  }

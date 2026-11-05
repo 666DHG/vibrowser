@@ -38,7 +38,7 @@ private[browser] object WebDocumentBindings:
         .find(_.toString.equalsIgnoreCase(e.attr("data-entity-field")))
         .getOrElse(throw AppError("invalid_content", "未知实体字段: " + e.attr("data-entity-field"), 502))
       val entity = AddressRules
-        .resolveLink(e.attr("data-entity-id"), address)
+        .resolveEntityId(e.attr("data-entity-id"), address)
         .getOrElse(e.attr("data-entity-id"))
       e.attr("data-entity-id", entity).attr("data-entity-field", field.toString)
       WebBinding(allocate(e), entity, field)
