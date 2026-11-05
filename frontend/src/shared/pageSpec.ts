@@ -220,6 +220,10 @@ export const pageRecordSchema = z.object({
 });
 export const generationStepSchema = z.object({
   phase: z.enum([
+    "designing",
+    "measuring",
+    "reviewing",
+    "refining",
     "planning",
     "searching",
     "reading",

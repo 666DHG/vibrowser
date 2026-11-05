@@ -9,6 +9,10 @@ import {
 } from "lucide-react";
 import type { PendingNavigation } from "../objects/BrowserState";
 const labels: Record<string, string> = {
+  designing: "设计页面",
+  measuring: "检查布局",
+  reviewing: "评审设计",
+  refining: "优化页面",
   planning: "理解需求",
   searching: "搜索资料",
   reading: "阅读来源",
@@ -172,7 +176,9 @@ export function NavigationProgress({
                     saving: "保存内容",
                     ready: "页面就绪",
                     failed: "任务失败",
-                  }[step.phase] ?? step.phase}
+                  }[step.phase] ??
+                    labels[step.phase] ??
+                    step.phase}
                   {step.attempt > 1 ? ` · 第 ${step.attempt} 次` : ""}
                 </span>
                 {step.at && (

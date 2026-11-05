@@ -14,6 +14,14 @@ if (-not (Test-Path -LiteralPath (Join-Path $root 'frontend\node_modules'))) {
 if (-not $SkipBuild -or -not (Test-Path -LiteralPath (Join-Path $root '.cache\runtime-classpath.txt'))) {
   & (Join-Path $PSScriptRoot 'sbt.ps1') compile writeRuntimeClasspath
 }
+Push-Location (Join-Path $root 'frontend')
+try {
+  & npm.cmd run build:measure
+  if ($LASTEXITCODE -ne 0) { throw 'Layout measurement build failed' }
+  $env:PLAYWRIGHT_BROWSERS_PATH = Join-Path $root '.cache\playwright'
+  & npx.cmd playwright install chromium
+  if ($LASTEXITCODE -ne 0) { Write-Warning 'Chromium unavailable; optional layout review will fall back to the validated page.' }
+} finally { Pop-Location }
 & (Join-Path $PSScriptRoot 'database.ps1') start
 if ($Mock) { $env:VIBROWSER_MOCK = 'true' } else { Remove-Item Env:VIBROWSER_MOCK -ErrorAction SilentlyContinue }
 $classpath = (Get-Content -LiteralPath (Join-Path $root '.cache\runtime-classpath.txt') -Encoding UTF8 -Raw).Trim()

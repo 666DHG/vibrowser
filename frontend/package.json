@@ -5,16 +5,17 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && npm run build:measure",
     "test": "vitest run",
     "test:e2e": "playwright test",
     "test:live": "playwright test --config playwright.live.config.ts smoke.spec.ts",
     "test:live:layouts": "playwright test --config playwright.live.config.ts layouts.spec.ts",
     "test:live:restart": "playwright test --config playwright.live.config.ts restart.spec.ts",
     "test:live:bookmarks": "playwright test --config playwright.live.config.ts bookmarks.spec.ts",
-    "format": "prettier --write src tests *.ts",
-    "format:check": "prettier --check src tests *.ts",
-    "test:live:continuity": "playwright test --config playwright.live.config.ts continuity.spec.ts"
+    "format": "prettier --write src tests *.ts tools/*.mjs",
+    "format:check": "prettier --check src tests *.ts tools/*.mjs",
+    "test:live:continuity": "playwright test --config playwright.live.config.ts continuity.spec.ts",
+    "build:measure": "node tools/build-measure.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.468.0",

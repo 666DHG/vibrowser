@@ -361,3 +361,36 @@ test("link previews resolve the click target, handle nested icons/focus and clea
   await page.getByRole("button", { name: "新建标签页", exact: true }).click();
   await expect(page.getByTestId("link-preview")).toHaveCount(0);
 });
+
+test("design stages keep the previous page visible and render translated progress", async ({
+  page,
+}) => {
+  const state = await setup(page);
+  await page.goto("/");
+  await navigate(page, "old.example");
+  await expect(
+    page.getByTestId("content-viewport").locator("[data-page-layout]"),
+  ).toBeVisible();
+  await navigate(page, "slow.design.example");
+  const phases = ["designing", "measuring", "reviewing", "refining"];
+  const names = ["设计页面", "检查布局", "评审设计", "优化页面"];
+  for (let i = 0; i < phases.length; i++) {
+    state.phase = phases[i];
+    state.extraSteps = ["queued", ...phases.slice(0, i + 1)];
+    await expect(
+      page
+        .getByTestId("navigation-progress")
+        .getByRole("heading", { name: names[i] }),
+    ).toBeVisible();
+    await expect(
+      page.getByTestId("navigation-progress").getByRole("list"),
+    ).toContainText(names[i]);
+    await expect(
+      page.getByTestId("content-viewport").locator("[data-page-layout]"),
+    ).toBeVisible();
+  }
+  state.ready = true;
+  await expect(page.getByRole("tab", { selected: true })).toHaveText(
+    "slow.design.example",
+  );
+});

@@ -15,6 +15,8 @@ try {
     $env:PLAYWRIGHT_BROWSERS_PATH = Join-Path $root '.cache\playwright'
     & npx.cmd playwright install chromium
     if ($LASTEXITCODE -ne 0) { throw 'Browser installation failed' }
+    & node --test tools/measure.test.mjs
+    if ($LASTEXITCODE -ne 0) { throw 'Layout measurement tests failed' }
     & npm.cmd run test:e2e
     if ($LASTEXITCODE -ne 0) { throw 'Browser smoke failed' }
   }
