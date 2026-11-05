@@ -12,7 +12,7 @@ export interface HistoryEntry {
 export type ContentState =
   | { status: "idle" }
   | { status: "bookmarks" }
-  | { status: "settings" }
+  | { status: "settings"; focusResearchAt?: number }
   | { status: "ready"; page: PageRecord };
 export interface PendingNavigation {
   researchCandidates?: ResearchCandidate[];

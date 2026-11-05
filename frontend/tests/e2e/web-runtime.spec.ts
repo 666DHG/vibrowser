@@ -5,6 +5,14 @@ for (const name of ["forum", "shop", "docs"])
     const document = JSON.parse(
       await readFile("../contracts/web-documents/" + name + ".json", "utf8"),
     );
+    document.html +=
+      '<a id="local-anchor" href="#anchor-target">页内目录</a><div id="anchor-target">本页章节</div>';
+    document.actions.push({
+      id: "local-anchor-action",
+      kind: "Navigate",
+      elementId: "local-anchor",
+      target: "#anchor-target",
+    });
     let currentDocument = document;
     let currentId = "sample";
     const errors: string[] = [];
@@ -59,6 +67,7 @@ for (const name of ["forum", "shop", "docs"])
       if (/\/api\/(navigate|submitpageaction|retrypage)$/.test(r.url()))
         requests++;
     });
+    await frame.locator("#local-anchor").click();
     if (name === "forum") {
       await frame.locator("#toggle").click();
       await expect(frame.locator("#replies")).toBeVisible();

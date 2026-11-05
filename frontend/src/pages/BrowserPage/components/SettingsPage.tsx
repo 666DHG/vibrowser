@@ -1,8 +1,23 @@
 import { ResearchSettingsPanel } from "./ResearchSettingsPanel";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { SettingsPanel } from "./SettingsPanel";
-export function SettingsPage({ mock }: { mock: boolean }) {
+export function SettingsPage({
+  mock,
+  focusResearchAt,
+}: {
+  mock: boolean;
+  focusResearchAt?: number;
+}) {
   const [section, setSection] = useState("api");
+  const research = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!focusResearchAt) return;
+    setSection("api");
+    const frame = requestAnimationFrame(() =>
+      research.current?.scrollIntoView({ block: "start" }),
+    );
+    return () => cancelAnimationFrame(frame);
+  }, [focusResearchAt]);
   return (
     <section className="mx-auto flex min-h-full max-w-6xl flex-col gap-8 p-5 md:flex-row md:p-10">
       <nav
@@ -30,7 +45,9 @@ export function SettingsPage({ mock }: { mock: boolean }) {
       <div className="min-w-0 flex-1">
         <div hidden={section !== "api"}>
           <SettingsPanel mock={mock} />
-          <ResearchSettingsPanel mock={mock} />
+          <div ref={research}>
+            <ResearchSettingsPanel mock={mock} />
+          </div>
         </div>
         <article
           hidden={section !== "about"}

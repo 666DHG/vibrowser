@@ -1,0 +1,693 @@
+[
+  {
+    "label": "person",
+    "pageId": "03a5928e-c206-446b-a73f-9f1c899aa880",
+    "jobId": "1c263c4c-f80e-40fb-ba06-e2c344c0efdb",
+    "status": "ready",
+    "error": null,
+    "mode": "research",
+    "title": "袁洋 · 清华大学交叉信息研究院",
+    "elapsedMs": 75203,
+    "steps": [
+      {
+        "phase": "queued",
+        "attempt": 1,
+        "at": "2026-11-05T11:21:41.604889+08:00"
+      },
+      {
+        "phase": "preparing",
+        "attempt": 1,
+        "at": "2026-11-05T11:21:41.83871+08:00"
+      },
+      {
+        "phase": "searching",
+        "attempt": 1,
+        "at": "2026-11-05T11:21:41.882322+08:00"
+      },
+      {
+        "phase": "planning",
+        "attempt": 1,
+        "at": "2026-11-05T11:21:42.447994+08:00"
+      },
+      {
+        "phase": "reading",
+        "attempt": 1,
+        "at": "2026-11-05T11:21:43.827726+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 1,
+        "at": "2026-11-05T11:22:25.829727+08:00"
+      },
+      {
+        "phase": "validating",
+        "attempt": 1,
+        "at": "2026-11-05T11:22:55.948983+08:00"
+      },
+      {
+        "phase": "saving",
+        "attempt": 1,
+        "at": "2026-11-05T11:22:56.22901+08:00"
+      },
+      {
+        "phase": "ready",
+        "attempt": 1,
+        "at": "2026-11-05T11:22:56.273323+08:00"
+      }
+    ],
+    "research": {
+      "sourceCount": 5,
+      "candidates": [],
+      "selectedCandidateId": null
+    },
+    "sources": [
+      {
+        "id": "source-1",
+        "url": "https://people.iiis.tsinghua.edu.cn/~yuanyang/index.html",
+        "title": "袁洋",
+        "retrievedAt": "2026-11-05T03:21:42.425579700Z",
+        "excerpt": ""
+      },
+      {
+        "id": "source-2",
+        "url": "http://people.iiis.tsinghua.edu.cn/~yuanyang/index.html",
+        "title": "袁洋",
+        "retrievedAt": "2026-11-05T03:21:42.425579700Z",
+        "excerpt": ""
+      },
+      {
+        "id": "source-3",
+        "url": "https://people.iiis.tsinghua.edu.cn/~yuanyang/student.html",
+        "title": "袁洋",
+        "retrievedAt": "2026-11-05T03:21:42.425579700Z",
+        "excerpt": ""
+      },
+      {
+        "id": "source-4",
+        "url": "https://www.sqz.ac.cn/jushen-1",
+        "title": "袁洋-具身智能与智能制造-上海期智研究院",
+        "retrievedAt": "2026-11-05T03:21:42.425579700Z",
+        "excerpt": ""
+      },
+      {
+        "id": "source-5",
+        "url": "https://www.sqz.ac.cn/artificial-1",
+        "title": "袁洋-人工智能-上海期智研究院",
+        "retrievedAt": "2026-11-05T03:21:42.425579700Z",
+        "excerpt": ""
+      }
+    ]
+  },
+  {
+    "label": "institution",
+    "pageId": "cbe3aff0-e781-4a76-a32a-5c2792a53b31",
+    "jobId": "195c6321-d88d-47ce-88ac-c14f66dab9db",
+    "status": "failed",
+    "error": "无法连接模型接口，请检查地址或网络",
+    "mode": "research",
+    "elapsedMs": 495569,
+    "steps": [
+      {
+        "phase": "queued",
+        "attempt": 1,
+        "at": "2026-11-05T11:22:58.762788+08:00"
+      },
+      {
+        "phase": "preparing",
+        "attempt": 1,
+        "at": "2026-11-05T11:22:58.990293+08:00"
+      },
+      {
+        "phase": "searching",
+        "attempt": 1,
+        "at": "2026-11-05T11:22:58.996262+08:00"
+      },
+      {
+        "phase": "planning",
+        "attempt": 1,
+        "at": "2026-11-05T11:22:59.445511+08:00"
+      },
+      {
+        "phase": "reading",
+        "attempt": 1,
+        "at": "2026-11-05T11:23:00.454762+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 1,
+        "at": "2026-11-05T11:23:35.17868+08:00"
+      },
+      {
+        "phase": "retrying",
+        "attempt": 2,
+        "at": "2026-11-05T11:31:05.508399+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 2,
+        "at": "2026-11-05T11:31:05.984457+08:00"
+      },
+      {
+        "phase": "failed",
+        "attempt": 2,
+        "at": "2026-11-05T11:31:13.507315+08:00"
+      }
+    ],
+    "research": {
+      "sourceCount": 6,
+      "candidates": [],
+      "selectedCandidateId": null
+    },
+    "sources": [
+      {
+        "id": "source-1",
+        "url": "https://iiis.tsinghua.edu.cn/yxgk/yxjj.htm",
+        "title": "院系简介-清华大学交叉信息研究院",
+        "retrievedAt": "2026-11-05T03:22:59.438486300Z",
+        "excerpt": ""
+      },
+      {
+        "id": "source-2",
+        "url": "https://iiis.tsinghua.edu.cn/?fr=qb",
+        "title": "清华大学交叉信息研究院",
+        "retrievedAt": "2026-11-05T03:22:59.438486300Z",
+        "excerpt": ""
+      },
+      {
+        "id": "source-3",
+        "url": "https://iiis.tsinghua.edu.cn/yxgk/yxyg.htm",
+        "title": "院系沿革-清华大学交叉信息研究院",
+        "retrievedAt": "2026-11-05T03:22:59.438486300Z",
+        "excerpt": ""
+      },
+      {
+        "id": "source-4",
+        "url": "http://www.iiisct.com/about.htm",
+        "title": "交叉信息核心技术研究院",
+        "retrievedAt": "2026-11-05T03:22:59.438486300Z",
+        "excerpt": ""
+      },
+      {
+        "id": "source-5",
+        "url": "http://www.iiisct.com/gywmwap.htm",
+        "title": "交叉信息核心技术研究院（西安）有限公司",
+        "retrievedAt": "2026-11-05T03:22:59.438486300Z",
+        "excerpt": ""
+      },
+      {
+        "id": "source-6",
+        "url": "https://ysg.ckcest.cn/ysgNews/1747985.html",
+        "title": "中国工程院院士馆-院士动态-院士资讯",
+        "retrievedAt": "2026-11-05T03:22:59.438486300Z",
+        "excerpt": ""
+      }
+    ]
+  },
+  {
+    "label": "institution",
+    "pageId": "cbe3aff0-e781-4a76-a32a-5c2792a53b31",
+    "jobId": "b96ae454-a697-4b07-bc66-41a7bff3b1db",
+    "status": "ready",
+    "error": null,
+    "mode": "research",
+    "title": "清华大学交叉信息研究院",
+    "elapsedMs": 47322,
+    "steps": [
+      {
+        "phase": "queued",
+        "attempt": 1,
+        "at": "2026-11-05T11:34:35.499806+08:00"
+      },
+      {
+        "phase": "preparing",
+        "attempt": 1,
+        "at": "2026-11-05T11:34:35.51511+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 1,
+        "at": "2026-11-05T11:34:35.659459+08:00"
+      },
+      {
+        "phase": "validating",
+        "attempt": 1,
+        "at": "2026-11-05T11:34:59.423129+08:00"
+      },
+      {
+        "phase": "repairing",
+        "attempt": 2,
+        "at": "2026-11-05T11:34:59.522893+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 2,
+        "at": "2026-11-05T11:34:59.523681+08:00"
+      },
+      {
+        "phase": "validating",
+        "attempt": 2,
+        "at": "2026-11-05T11:35:22.066983+08:00"
+      },
+      {
+        "phase": "saving",
+        "attempt": 2,
+        "at": "2026-11-05T11:35:22.21841+08:00"
+      },
+      {
+        "phase": "ready",
+        "attempt": 2,
+        "at": "2026-11-05T11:35:22.2424+08:00"
+      }
+    ],
+    "research": {
+      "sourceCount": 6,
+      "candidates": [],
+      "selectedCandidateId": null
+    },
+    "sources": [
+      {
+        "id": "source-1",
+        "url": "https://iiis.tsinghua.edu.cn/yxgk/yxjj.htm",
+        "title": "院系简介-清华大学交叉信息研究院",
+        "retrievedAt": "2026-11-05T03:22:59.438486300Z",
+        "excerpt": ""
+      },
+      {
+        "id": "source-2",
+        "url": "https://iiis.tsinghua.edu.cn/?fr=qb",
+        "title": "清华大学交叉信息研究院",
+        "retrievedAt": "2026-11-05T03:22:59.438486300Z",
+        "excerpt": ""
+      },
+      {
+        "id": "source-3",
+        "url": "https://iiis.tsinghua.edu.cn/yxgk/yxyg.htm",
+        "title": "院系沿革-清华大学交叉信息研究院",
+        "retrievedAt": "2026-11-05T03:22:59.438486300Z",
+        "excerpt": ""
+      },
+      {
+        "id": "source-4",
+        "url": "http://www.iiisct.com/about.htm",
+        "title": "交叉信息核心技术研究院",
+        "retrievedAt": "2026-11-05T03:22:59.438486300Z",
+        "excerpt": ""
+      },
+      {
+        "id": "source-5",
+        "url": "http://www.iiisct.com/gywmwap.htm",
+        "title": "交叉信息核心技术研究院（西安）有限公司",
+        "retrievedAt": "2026-11-05T03:22:59.438486300Z",
+        "excerpt": ""
+      },
+      {
+        "id": "source-6",
+        "url": "https://ysg.ckcest.cn/ysgNews/1747985.html",
+        "title": "中国工程院院士馆-院士动态-院士资讯",
+        "retrievedAt": "2026-11-05T03:22:59.438486300Z",
+        "excerpt": ""
+      }
+    ]
+  },
+  {
+    "label": "knowledge",
+    "pageId": "0d9d9306-849c-4910-80b6-19a1b3213a6a",
+    "jobId": "76642e3d-cd5d-4b16-9f21-03cc6e4c0b72",
+    "status": "ready",
+    "error": null,
+    "mode": "research",
+    "title": "深入了解 Transformer 注意力机制",
+    "elapsedMs": 95140,
+    "steps": [
+      {
+        "phase": "queued",
+        "attempt": 1,
+        "at": "2026-11-05T11:35:23.534434+08:00"
+      },
+      {
+        "phase": "preparing",
+        "attempt": 1,
+        "at": "2026-11-05T11:35:23.750112+08:00"
+      },
+      {
+        "phase": "searching",
+        "attempt": 1,
+        "at": "2026-11-05T11:35:23.760735+08:00"
+      },
+      {
+        "phase": "planning",
+        "attempt": 1,
+        "at": "2026-11-05T11:35:24.172155+08:00"
+      },
+      {
+        "phase": "reading",
+        "attempt": 1,
+        "at": "2026-11-05T11:35:24.98938+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 1,
+        "at": "2026-11-05T11:36:19.754322+08:00"
+      },
+      {
+        "phase": "validating",
+        "attempt": 1,
+        "at": "2026-11-05T11:36:41.389608+08:00"
+      },
+      {
+        "phase": "repairing",
+        "attempt": 2,
+        "at": "2026-11-05T11:36:41.394806+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 2,
+        "at": "2026-11-05T11:36:41.395329+08:00"
+      },
+      {
+        "phase": "validating",
+        "attempt": 2,
+        "at": "2026-11-05T11:36:57.952754+08:00"
+      },
+      {
+        "phase": "saving",
+        "attempt": 2,
+        "at": "2026-11-05T11:36:57.968878+08:00"
+      },
+      {
+        "phase": "ready",
+        "attempt": 2,
+        "at": "2026-11-05T11:36:57.984164+08:00"
+      }
+    ],
+    "research": {
+      "sourceCount": 6,
+      "candidates": [],
+      "selectedCandidateId": null
+    },
+    "sources": [
+      {
+        "id": "source-1",
+        "url": "https://sciengine.las.ac.cn/Research_21_06",
+        "title": "文本挖掘与机器学习跟踪扫描动态快报（2021.06）",
+        "retrievedAt": "2026-11-05T03:35:24.161520500Z",
+        "excerpt": ""
+      },
+      {
+        "id": "source-2",
+        "url": "https://docs.aws.amazon.com/pdfs/prescriptive-guidance/latest/gen-ai-inference-architecture-and-best-practices-on-aws/gen-ai-inference-architecture-and-best-practices-on-aws.pdf#2",
+        "title": "The **transformer** architecture, introduced in 2017, is the foundation behind the vast majority of modern AI models used in pro...",
+        "retrievedAt": "2026-11-05T03:35:24.161520500Z",
+        "excerpt": ""
+      },
+      {
+        "id": "source-3",
+        "url": "https://cloud.tencent.com.cn/developer/article/2699460?policyId=1003#1",
+        "title": "大语言模型的基石：Transformer 入坑笔记（三） - 注意力机制和 Transformer - owent",
+        "retrievedAt": "2026-11-05T03:35:24.161520500Z",
+        "excerpt": ""
+      },
+      {
+        "id": "source-4",
+        "url": "https://cloud.tencent.cn/developer/article/2668871?policyId=1004#1",
+        "title": "transformer进阶之路：#4 attention从如何「工作」到「为何」如此高效 - AI-Frontiers",
+        "retrievedAt": "2026-11-05T03:35:24.161520500Z",
+        "excerpt": ""
+      },
+      {
+        "id": "source-5",
+        "url": "https://repositorio.uchile.cl/bitstream/handle/2250/217754/self-supervised-multimodal-learning-for-astronomical-event-classification.pdf?sequence=1&isAllowed=y#4",
+        "title": "\\[\\gamma_b^2(t) = \\sum_{h=1}^{H} \\alpha_{b,h}^2 \\sin\\left(\\frac{2\\pi h}{T_{\\text{max}}} t\\right) + \\beta_{b,h}^2 \\cos\\left(\\frac...",
+        "retrievedAt": "2026-11-05T03:35:24.161520500Z",
+        "excerpt": ""
+      },
+      {
+        "id": "source-6",
+        "url": "https://raw.githubusercontent.com/yeasy/ai_beginner_guide/e500f4ae450ae52a693a614da24cf086c0ca02be/06_llm/6.3_transformer_attention.md#1",
+        "title": "6.3 Transformer 的注意力机制详解 - 6.3 Transformer 的注意力机制详解",
+        "retrievedAt": "2026-11-05T03:35:24.161520500Z",
+        "excerpt": ""
+      }
+    ]
+  },
+  {
+    "label": "person-site-search",
+    "pageId": "8fbbad2c-9a7d-410b-a7af-1eadc79deba0",
+    "jobId": "f42fd6b7-39b9-430f-9783-efcbb7eeef6e",
+    "status": "ready",
+    "error": null,
+    "mode": "research",
+    "title": "搜索：研究方向 · 袁洋（清华大学交叉信息研究院）",
+    "elapsedMs": 34120,
+    "steps": [
+      {
+        "phase": "queued",
+        "attempt": 1,
+        "at": "2026-11-05T11:36:59.782243+08:00"
+      },
+      {
+        "phase": "preparing",
+        "attempt": 1,
+        "at": "2026-11-05T11:36:59.798648+08:00"
+      },
+      {
+        "phase": "planning",
+        "attempt": 1,
+        "at": "2026-11-05T11:36:59.81052+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 1,
+        "at": "2026-11-05T11:37:00.552687+08:00"
+      },
+      {
+        "phase": "validating",
+        "attempt": 1,
+        "at": "2026-11-05T11:37:18.543648+08:00"
+      },
+      {
+        "phase": "repairing",
+        "attempt": 2,
+        "at": "2026-11-05T11:37:18.548912+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 2,
+        "at": "2026-11-05T11:37:18.549717+08:00"
+      },
+      {
+        "phase": "validating",
+        "attempt": 2,
+        "at": "2026-11-05T11:37:33.698286+08:00"
+      },
+      {
+        "phase": "saving",
+        "attempt": 2,
+        "at": "2026-11-05T11:37:33.712244+08:00"
+      },
+      {
+        "phase": "ready",
+        "attempt": 2,
+        "at": "2026-11-05T11:37:33.726433+08:00"
+      }
+    ],
+    "research": {
+      "sourceCount": 5,
+      "candidates": [],
+      "selectedCandidateId": null
+    },
+    "sources": [
+      {
+        "id": "source-1",
+        "url": "https://people.iiis.tsinghua.edu.cn/~yuanyang/index.html",
+        "title": "袁洋",
+        "retrievedAt": "2026-11-05T03:21:42.425579700Z",
+        "excerpt": ""
+      },
+      {
+        "id": "source-2",
+        "url": "http://people.iiis.tsinghua.edu.cn/~yuanyang/index.html",
+        "title": "袁洋",
+        "retrievedAt": "2026-11-05T03:21:42.425579700Z",
+        "excerpt": ""
+      },
+      {
+        "id": "source-3",
+        "url": "https://people.iiis.tsinghua.edu.cn/~yuanyang/student.html",
+        "title": "袁洋",
+        "retrievedAt": "2026-11-05T03:21:42.425579700Z",
+        "excerpt": ""
+      },
+      {
+        "id": "source-4",
+        "url": "https://www.sqz.ac.cn/jushen-1",
+        "title": "袁洋-具身智能与智能制造-上海期智研究院",
+        "retrievedAt": "2026-11-05T03:21:42.425579700Z",
+        "excerpt": ""
+      },
+      {
+        "id": "source-5",
+        "url": "https://www.sqz.ac.cn/artificial-1",
+        "title": "袁洋-人工智能-上海期智研究院",
+        "retrievedAt": "2026-11-05T03:21:42.425579700Z",
+        "excerpt": ""
+      }
+    ]
+  },
+  {
+    "label": "person-detail",
+    "pageId": "df9f1c29-c30c-4f79-be5d-a1ed2d078ac8",
+    "jobId": "8fe597e2-9578-47cc-a738-344a98c9b9d1",
+    "status": "ready",
+    "error": null,
+    "mode": "research",
+    "title": "袁洋 · 清华大学交叉信息研究院",
+    "elapsedMs": 47113,
+    "steps": [
+      {
+        "phase": "queued",
+        "attempt": 1,
+        "at": "2026-11-05T11:37:34.083097+08:00"
+      },
+      {
+        "phase": "preparing",
+        "attempt": 1,
+        "at": "2026-11-05T11:37:34.329587+08:00"
+      },
+      {
+        "phase": "planning",
+        "attempt": 1,
+        "at": "2026-11-05T11:37:34.336158+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 1,
+        "at": "2026-11-05T11:37:35.402218+08:00"
+      },
+      {
+        "phase": "validating",
+        "attempt": 1,
+        "at": "2026-11-05T11:37:58.479145+08:00"
+      },
+      {
+        "phase": "repairing",
+        "attempt": 2,
+        "at": "2026-11-05T11:37:58.484627+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 2,
+        "at": "2026-11-05T11:37:58.485117+08:00"
+      },
+      {
+        "phase": "validating",
+        "attempt": 2,
+        "at": "2026-11-05T11:38:20.46677+08:00"
+      },
+      {
+        "phase": "saving",
+        "attempt": 2,
+        "at": "2026-11-05T11:38:20.483597+08:00"
+      },
+      {
+        "phase": "ready",
+        "attempt": 2,
+        "at": "2026-11-05T11:38:20.500389+08:00"
+      }
+    ],
+    "research": {
+      "sourceCount": 5,
+      "candidates": [],
+      "selectedCandidateId": null
+    },
+    "sources": [
+      {
+        "id": "source-1",
+        "url": "https://people.iiis.tsinghua.edu.cn/~yuanyang/index.html",
+        "title": "袁洋",
+        "retrievedAt": "2026-11-05T03:21:42.425579700Z",
+        "excerpt": ""
+      },
+      {
+        "id": "source-2",
+        "url": "http://people.iiis.tsinghua.edu.cn/~yuanyang/index.html",
+        "title": "袁洋",
+        "retrievedAt": "2026-11-05T03:21:42.425579700Z",
+        "excerpt": ""
+      },
+      {
+        "id": "source-3",
+        "url": "https://people.iiis.tsinghua.edu.cn/~yuanyang/student.html",
+        "title": "袁洋",
+        "retrievedAt": "2026-11-05T03:21:42.425579700Z",
+        "excerpt": ""
+      },
+      {
+        "id": "source-4",
+        "url": "https://www.sqz.ac.cn/jushen-1",
+        "title": "袁洋-具身智能与智能制造-上海期智研究院",
+        "retrievedAt": "2026-11-05T03:21:42.425579700Z",
+        "excerpt": ""
+      },
+      {
+        "id": "source-5",
+        "url": "https://www.sqz.ac.cn/artificial-1",
+        "title": "袁洋-人工智能-上海期智研究院",
+        "retrievedAt": "2026-11-05T03:21:42.425579700Z",
+        "excerpt": ""
+      }
+    ]
+  },
+  {
+    "label": "imagination-control",
+    "pageId": "395974b4-377b-48f1-a1ba-e9102e76c81c",
+    "jobId": "b1499299-42f4-4dea-867b-5f1cd0820c3a",
+    "status": "ready",
+    "error": null,
+    "mode": "imagination",
+    "title": "袁洋 · 清华大学交叉信息研究院个人主页",
+    "elapsedMs": 19494,
+    "steps": [
+      {
+        "phase": "queued",
+        "attempt": 1,
+        "at": "2026-11-05T11:38:21.277817+08:00"
+      },
+      {
+        "phase": "preparing",
+        "attempt": 1,
+        "at": "2026-11-05T11:38:21.405297+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 1,
+        "at": "2026-11-05T11:38:21.410314+08:00"
+      },
+      {
+        "phase": "validating",
+        "attempt": 1,
+        "at": "2026-11-05T11:38:40.025179+08:00"
+      },
+      {
+        "phase": "saving",
+        "attempt": 1,
+        "at": "2026-11-05T11:38:40.0382+08:00"
+      },
+      {
+        "phase": "ready",
+        "attempt": 1,
+        "at": "2026-11-05T11:38:40.046538+08:00"
+      }
+    ],
+    "research": null,
+    "sources": []
+  },
+  {
+    "label": "restart-bookmark",
+    "bookmarkId": "3e6e92e0-c86b-4db0-9ad8-7280110b319a",
+    "pageId": "03a5928e-c206-446b-a73f-9f1c899aa880",
+    "jobId": "1c263c4c-f80e-40fb-ba06-e2c344c0efdb",
+    "title": "袁洋 · 清华大学交叉信息研究院",
+    "sourceCount": 5
+  }
+]

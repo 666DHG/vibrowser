@@ -72,6 +72,7 @@ test("entity-bound navigation submits exact source block and preserves displayed
     input: target,
     referrerPageId: "parent",
     sourceBlockId: "thread-84458",
+    mode: "imagination",
   });
   await expect(
     page.getByRole("heading", { name: "夜航回来的那一杯", exact: true }),

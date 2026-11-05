@@ -43,6 +43,11 @@ function runtime(
         ? element.value
         : (action.value ?? "");
     const key = action.stateKey ?? action.id;
+    if (action.kind === "Navigate" && action.target?.startsWith("#")) {
+      byId(action.target.slice(1))?.scrollIntoView();
+      publish();
+      return;
+    }
     if (action.kind === "Toggle") {
       if (region) {
         region.hidden = !region.hidden;

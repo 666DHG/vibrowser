@@ -218,7 +218,7 @@ export default function BrowserPage() {
               onRemove={(id) => void bookmarks.remove(id)}
             />
           }
-          onSettings={() => openSettings()}
+          onSettings={() => openSettings(true)}
         />
       ))}
       {sourcesOpen && visiblePage && (
@@ -232,12 +232,6 @@ export default function BrowserPage() {
           role="alert"
           className="absolute left-4 top-28 z-30 max-w-[calc(100%-2rem)] rounded-xl border border-white/15 bg-[#252c21] p-4 text-sm text-[#e5bc85]"
         >
-          {sourcesOpen && visiblePage && (
-            <SourcesPanel
-              pageId={visiblePage.id}
-              onClose={() => setSourcesOpen(false)}
-            />
-          )}
           {bookmarks.error}
           <button
             onClick={() => void bookmarks.refresh()}

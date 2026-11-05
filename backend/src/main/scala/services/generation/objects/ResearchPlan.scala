@@ -5,6 +5,7 @@ final case class ResearchPlan(
     topic: String,
     queries: List[String],
     reuseSources: Boolean = false,
+    sameTopic: Option[Boolean] = None,
     candidates: List[services.browser.objects.ResearchCandidate] = Nil
 )
 object ResearchPlan:

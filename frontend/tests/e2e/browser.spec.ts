@@ -86,9 +86,7 @@ test("settings save, mask, test, reload and clear fake credential", async ({
   test.skip(previous.hasKey, "Never overwrite a pre-existing user credential");
   await page.goto("/");
   await page.getByRole("button", { name: "设置", exact: true }).click();
-  await expect(
-    page.getByRole("heading", { name: "连接你的想象引擎" }),
-  ).toBeVisible();
+  await expect(page.getByRole("heading", { name: "页面生成" })).toBeVisible();
   try {
     await page
       .getByRole("textbox", { name: "API Key" })

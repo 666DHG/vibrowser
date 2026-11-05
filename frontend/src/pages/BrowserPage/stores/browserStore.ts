@@ -202,11 +202,16 @@ export function savePageState(
 
 export const setBrowsingMode = (id: string, browsingMode: BrowsingMode) =>
   updateTab(id, (tab) => ({ ...tab, browsingMode }));
-export function openSettings() {
+export function openSettings(focusResearch = false) {
   const existing = store
     .getState()
     .tabs.find((t) => t.content.status === "settings");
   if (existing) {
+    if (focusResearch)
+      updateTab(existing.id, (t) => ({
+        ...t,
+        content: { status: "settings", focusResearchAt: Date.now() },
+      }));
     selectTab(existing.id);
     return;
   }
@@ -215,6 +220,9 @@ export function openSettings() {
     ...t,
     title: "设置",
     draft: "vibrowser://settings",
-    content: { status: "settings" },
+    content: {
+      status: "settings",
+      focusResearchAt: focusResearch ? Date.now() : undefined,
+    },
   }));
 }

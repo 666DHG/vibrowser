@@ -83,10 +83,17 @@ export function ResearchSettingsPanel({ mock }: { mock: boolean }) {
           }}
           className="my-3 block w-full rounded-xl bg-[#171a16] p-3"
         >
-          <option value="reuse">复用 DeepSeek 官方生成凭据</option>
+          <option value="reuse" disabled={!config?.canReuseGenerationKey}>
+            复用 DeepSeek 官方生成凭据
+          </option>
           <option value="separate">单独配置 DeepSeek Key</option>
         </select>
       </label>
+      {config && !config.canReuseGenerationKey && (
+        <p className="mb-3 text-xs text-[#9cad8e]">
+          当前生成接口需单独配置官方检索 Key。
+        </p>
+      )}
       {!reuse && (
         <label className="block text-sm">
           检索 API Key

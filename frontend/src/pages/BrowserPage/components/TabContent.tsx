@@ -128,7 +128,9 @@ export function TabContent({
           <HomePage onNavigate={onNavigate} onSettings={onSettings} />
         )}
         {content.status === "bookmarks" && bookmarks}
-        {content.status === "settings" && <SettingsPage mock={mock} />}
+        {content.status === "settings" && (
+          <SettingsPage mock={mock} focusResearchAt={content.focusResearchAt} />
+        )}
         {content.status === "ready" && content.page.document && (
           <WebDocumentFrame
             key={content.page.address}

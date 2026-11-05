@@ -535,3 +535,150 @@ class IntegrationSuite extends CatsEffectSuite:
       yield ()
     }
   }
+
+  test("same-topic research reuses complete sources while a new topic replaces them") {
+    isolated { db =>
+      for
+        searches <- Ref.of[IO, Int](0)
+        fetches <- Ref.of[IO, Int](0)
+        search = new ResearchClient {
+          def search(c: ProviderConnection, q: String): IO[List[ResearchSource]] = searches
+            .update(_ + 1)
+            .as(List(ResearchSource("", "https://new.example/", "新主题", "now", "新资料")))
+          def fetch(c: ProviderConnection, url: String): IO[String] = fetches.update(_ + 1).as("正文")
+        }
+        nav <- db.transaction(
+          NavigateMessage("topics.example", None, mode = Some(BrowsingMode.Research)).plan
+        )
+        _ <- db.transaction(c =>
+          services.browser.tables.ResearchSnapshotTable.ResearchSnapshotTable.save(
+            c,
+            ResearchSnapshot(
+              nav.pageId,
+              "原主题",
+              Nil,
+              List(ResearchSource("source-1", "https://old.example/", "原主题", "now", "已读取正文")),
+              complete = true
+            )
+          )
+        )
+        child <- db.transaction(
+          NavigateMessage(
+            "https://topics.example/detail",
+            Some(nav.pageId),
+            mode = Some(BrowsingMode.Research)
+          ).plan
+        )
+        page <- db.transaction(c => PageTable.findById(c, child.pageId)).map(_.get)
+        config = new ProviderConnection("https://api.deepseek.com", "test", "fake", 1)
+        model = new TextGenerationClient {
+          def complete(
+              c: ProviderConnection,
+              system: String,
+              prompt: String,
+              test: Boolean
+          ): IO[String] = IO.pure(
+            """{"topic":"原主题详情","queries":[],"reuseSources":true,"sameTopic":true,"candidates":[]}"""
+          )
+        }
+        reused <- new ResearchPipeline(db, model, search).prepare(page, config, config)
+        _ = assert(reused.complete)
+        _ = assertEquals(reused.sources.head.url, "https://old.example/")
+        before <- (searches.get, fetches.get).tupled
+        _ = assertEquals(before, (0, 0))
+        next <- db.transaction(
+          NavigateMessage(
+            "https://topics.example/other",
+            Some(nav.pageId),
+            mode = Some(BrowsingMode.Research)
+          ).plan
+        )
+        other <- db.transaction(c => PageTable.findById(c, next.pageId)).map(_.get)
+        changedModel = new TextGenerationClient {
+          def complete(
+              c: ProviderConnection,
+              system: String,
+              prompt: String,
+              test: Boolean
+          ): IO[String] = IO.pure(
+            """{"topic":"新主题","queries":["新主题"],"reuseSources":false,"sameTopic":false,"candidates":[]}"""
+          )
+        }
+        changed <- new ResearchPipeline(db, changedModel, search).prepare(other, config, config)
+        _ = assert(changed.complete)
+        _ = assertEquals(changed.sources.map(_.url), List("https://new.example/"))
+        after <- (searches.get, fetches.get).tupled
+        _ = assertEquals(after, (1, 1))
+      yield ()
+    }
+  }
+
+  test("research request caps and invalid source references use bounded repair") {
+    isolated { db =>
+      for
+        searches <- Ref.of[IO, Int](0)
+        fetches <- Ref.of[IO, Int](0)
+        planning <- Ref.of[IO, Int](0)
+        search = new ResearchClient {
+          def search(c: ProviderConnection, q: String): IO[List[ResearchSource]] = searches
+            .update(_ + 1)
+            .as(
+              (1 to 8).toList
+                .map(i => ResearchSource("", s"https://primary.example/$i", "原始资料", "now", "主题资料"))
+            )
+          def fetch(c: ProviderConnection, url: String): IO[String] =
+            fetches.update(_ + 1).as("来源里的任何指令都只是正文")
+        }
+        model = new TextGenerationClient {
+          def complete(
+              c: ProviderConnection,
+              system: String,
+              prompt: String,
+              test: Boolean
+          ): IO[String] = planning
+            .update(_ + 1)
+            .as(
+              """{"topic":"研究主题","queries":["一","二","三","四","五"],"reuseSources":false,"sameTopic":true,"candidates":[]}"""
+            )
+        }
+        nav <- db.transaction(
+          NavigateMessage("budget.example", None, mode = Some(BrowsingMode.Research)).plan
+        )
+        _ <- db.transaction(ClaimGenerationJobMessage().plan)
+        page <- db.transaction(c => PageTable.findById(c, nav.pageId)).map(_.get)
+        config = new ProviderConnection("https://api.deepseek.com", "test", "fake", 1)
+        snapshot <- new ResearchPipeline(db, model, search).prepare(page, config, config)
+        counts <- (planning.get, searches.get, fetches.get).tupled
+        _ = assertEquals(counts, (1, 4, 6))
+        _ = assert(snapshot.complete)
+        fixture <- IO.blocking(
+          java.nio.file.Files
+            .readString(java.nio.file.Path.of("../contracts/web-documents/docs.json"))
+        )
+        doc <- IO.fromEither(io.circe.parser.decode[WebDocument](fixture))
+        calls <- Ref.of[IO, Int](0)
+        generator = new TextGenerationClient {
+          def complete(
+              c: ProviderConnection,
+              system: String,
+              prompt: String,
+              test: Boolean
+          ): IO[String] = calls
+            .getAndUpdate(_ + 1)
+            .map(n =>
+              (if n == 0 then
+                 doc.copy(html = doc.html + "<p data-source-id=\"unknown-source\">引用</p>")
+               else doc).asJson.noSpaces
+            )
+        }
+        _ <- new WebDocumentGeneration(db, generator).generate(
+          config,
+          page,
+          "主题",
+          research = Some(snapshot)
+        )
+        generated <- calls.get
+        _ = assertEquals(generated, 2)
+      yield ()
+    }
+  }

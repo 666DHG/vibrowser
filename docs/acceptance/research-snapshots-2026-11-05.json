@@ -1,0 +1,78 @@
+[
+  {
+    "pageId": "03a5928e-c206-446b-a73f-9f1c899aa880",
+    "input": "清华大学袁洋老师的个人主页.com",
+    "mode": "research",
+    "jobId": "1c263c4c-f80e-40fb-ba06-e2c344c0efdb",
+    "status": "ready",
+    "topic": "清华大学交叉信息研究院袁洋（Yang Yuan）副教授个人主页",
+    "planningRequests": 1,
+    "searchRequests": 1,
+    "fetchRequests": 5,
+    "complete": true,
+    "queries": [
+      "清华大学袁洋老师的个人主页"
+    ],
+    "selectedCandidateId": null
+  },
+  {
+    "pageId": "cbe3aff0-e781-4a76-a32a-5c2792a53b31",
+    "input": "清华大学交叉信息研究院介绍.com",
+    "mode": "research",
+    "jobId": "b96ae454-a697-4b07-bc66-41a7bff3b1db",
+    "status": "ready",
+    "topic": "清华大学交叉信息研究院介绍网站",
+    "planningRequests": 1,
+    "searchRequests": 1,
+    "fetchRequests": 6,
+    "complete": true,
+    "queries": [
+      "清华大学交叉信息研究院介绍"
+    ],
+    "selectedCandidateId": null
+  },
+  {
+    "pageId": "0d9d9306-849c-4910-80b6-19a1b3213a6a",
+    "input": "深入了解Transformer注意力机制.com",
+    "mode": "research",
+    "jobId": "76642e3d-cd5d-4b16-9f21-03cc6e4c0b72",
+    "status": "ready",
+    "topic": "Transformer注意力机制",
+    "planningRequests": 1,
+    "searchRequests": 1,
+    "fetchRequests": 6,
+    "complete": true,
+    "queries": [
+      "深入了解Transformer注意力机制"
+    ],
+    "selectedCandidateId": null
+  },
+  {
+    "pageId": "8fbbad2c-9a7d-410b-a7af-1eadc79deba0",
+    "input": "研究方向",
+    "mode": "research",
+    "jobId": "f42fd6b7-39b9-430f-9783-efcbb7eeef6e",
+    "status": "ready",
+    "topic": "清华大学交叉信息研究院袁洋（Yang Yuan）副教授个人主页",
+    "planningRequests": 1,
+    "searchRequests": 0,
+    "fetchRequests": 0,
+    "complete": true,
+    "queries": [],
+    "selectedCandidateId": null
+  },
+  {
+    "pageId": "df9f1c29-c30c-4f79-be5d-a1ed2d078ac8",
+    "input": "https://xn--ciq8a4zf5m4viurd23fno0bg3bu09am1x9jxen1c.com/#bio",
+    "mode": "research",
+    "jobId": "8fe597e2-9578-47cc-a738-344a98c9b9d1",
+    "status": "ready",
+    "topic": "清华大学交叉信息研究院袁洋（Yang Yuan）副教授个人主页",
+    "planningRequests": 1,
+    "searchRequests": 0,
+    "fetchRequests": 0,
+    "complete": true,
+    "queries": [],
+    "selectedCandidateId": null
+  }
+]
