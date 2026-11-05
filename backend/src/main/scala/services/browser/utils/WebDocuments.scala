@@ -206,7 +206,9 @@ private[browser] object WebDocuments:
         if a.kind == WebActionKind.Navigate then
           requireThat(
             a.target.exists(t => AddressRules.resolveLink(t, address).isRight),
-            "navigation target invalid"
+            "navigation target invalid: actions/" + a.id + " target=" + a.target.getOrElse(
+              "null"
+            ) + "; 使用 HTTP(S) 或站内路径，联系方式显示为文本"
           )
         if Set(
             WebActionKind.Append,

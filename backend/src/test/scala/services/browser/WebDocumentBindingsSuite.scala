@@ -94,3 +94,82 @@ class WebDocumentBindingsSuite extends CatsEffectSuite:
       _ = assert(unknown.isLeft)
     yield ()
   }
+
+  test(
+    "host-bound forms accept ordinary action and method attributes without external submission"
+  ) {
+    val search = WebAction("search", WebActionKind.Search, "search-form")
+    for
+      normalized <- normalize(
+        base.copy(
+          html =
+            """<form id="search-form" action="/search" method="get"><input name="q" required><button type="submit">搜索</button></form>""",
+          actions = List(search)
+        )
+      )
+      ready <- ValidateWebDocumentMessage(normalized, "https://site.example/").plan(null)
+      _ = assert(!ready.html.contains("action="))
+      _ = assert(!ready.html.contains("method="))
+      _ = assertEquals(ready.actions, List(search))
+      unsafe <- normalize(
+        base.copy(
+          html =
+            """<form id="search-form" action="/search" method="get" onsubmit="alert(1)"><input name="q"></form>""",
+          actions = List(search)
+        )
+      )
+      rejected <- ValidateWebDocumentMessage(unsafe, "https://site.example/").plan(null).attempt
+      _ = assert(rejected.isLeft)
+    yield ()
+  }
+
+  test("an explicit data-action-id marker reconnects its single action without guessing") {
+    val action = WebAction("act-search", WebActionKind.Search, "missing-form")
+    for
+      normalized <- normalize(
+        base.copy(
+          html =
+            """<form data-action-id="act-search"><input name="q" required><button type="submit">搜索</button></form>""",
+          actions = List(action)
+        )
+      )
+      _ <- ValidateWebDocumentMessage(normalized, "https://site.example/").plan(null)
+      _ = assert(normalized.html.contains("id=\"missing-form\""))
+      ambiguous <- normalize(
+        base.copy(
+          html =
+            """<form data-action-id="act-search"></form><form data-action-id="act-search"></form>""",
+          actions = List(action)
+        )
+      )
+      rejected <- ValidateWebDocumentMessage(ambiguous, "https://site.example/").plan(null).attempt
+      _ = assert(rejected.isLeft)
+    yield ()
+  }
+
+  test(
+    "contact addresses remain visible while unsafe navigation remains rejected with its target"
+  ) {
+    for
+      normalized <- normalize(
+        base.copy(
+          html =
+            """<a href="mailto:author@example.com" id="mail">联系作者 author@example.com</a><a href="tel:+123">+123</a>""",
+          actions = List(
+            WebAction(
+              "mail",
+              WebActionKind.Navigate,
+              "mail",
+              target = Some("mailto:author@example.com")
+            )
+          )
+        )
+      )
+      ready <- ValidateWebDocumentMessage(normalized, "https://site.example/").plan(null)
+      _ = assert(ready.html.contains("author@example.com") && ready.html.contains("+123"))
+      _ = assert(ready.actions.isEmpty)
+      unsafe <- normalize(base.copy(html = """<a href="javascript:alert(1)">危险链接</a>"""))
+      result <- ValidateWebDocumentMessage(unsafe, "https://site.example/").plan(null).attempt
+      _ = assert(result.swap.toOption.get.getMessage.contains("javascript:alert(1)"))
+    yield ()
+  }

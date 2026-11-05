@@ -10,7 +10,7 @@ html 是 body 片段，CSS 单独提供；不用 style 属性、script、图片�
 按用途提供可操作功能：论坛列表至少有站内搜索与帖子链接，帖子详情有 Toggle 展开回复与 Append 加载更多；商店列表有 Filter 筛选和 Sort 排序，商品详情有 Set 规格选择与 Increment 购物车；文档站有 Toggle 目录、章节导航和 Search。Sort 的 select 使用 asc/desc option，Filter 的“全部”选项值为空字符串。
 每个动作 {id,kind,elementId,target,region,stateKey,value,field}，可选字段为 null。id 与 elementId 唯一，elementId 必须存在于 HTML。
 kind: Navigate/Search/Submit/Replace/Append/Toggle/Switch/Filter/Sort/Set/Increment（大小写准确）。
-Navigate: target 为 HTTP(S) URL 或站内相对路径，绑定 a 或 button。普通 a 链接只需填写 href，宿主自动生成 Navigate；若显式声明，href 与 target 一致。
+Navigate: target 为 HTTP(S) URL 或站内相对路径，绑定 a 或 button。邮箱和电话显示为可选择的文本，不使用 mailto:/tel: 导航。普通 a 链接只需填写 href，宿主自动生成 Navigate；若显式声明，href 与 target 一致。
 Search: 绑定 form，里面有 label、name=q 的 required input 和 submit button，表示当前站点搜索。无需 region。不能绑定提交按钮本身。每个 form（包括发帖、回复、订阅）必须有且仅有一个绑定 form 元素 ID 的 Search 或 Submit 动作，不提供无动作表单。
 Append/Replace/Submit: 必须指定已有 region 元素 ID，后端生成该区域追加或替换内容。Submit 绑定 form，Append 可绑定加载更多按钮。
 Toggle: region 指定展开区域，初始可 hidden。Switch: region 的直接子元素按 value 指定的 ID 切换。

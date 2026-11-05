@@ -9,6 +9,18 @@ final case class NormalizeWebDocumentMessage(document: WebDocument, address: Str
     extends APIMessage[WebDocument]:
   override def plan(connection: Connection): IO[WebDocument] = IO {
     val parsed = org.jsoup.Jsoup.parseBodyFragment(document.html)
+    val contacts = parsed
+      .select("a[href]")
+      .asScala
+      .filter(e => {
+        val href = e.attr("href").toLowerCase(java.util.Locale.ROOT)
+        href.startsWith("mailto:") || href.startsWith("tel:")
+      })
+      .toList
+    val contactIds = contacts.map(_.id()).filter(_.nonEmpty).toSet
+    contacts.foreach(e =>
+      e.tagName("span").removeAttr("href").removeAttr("target").removeAttr("rel")
+    )
     val inline = parsed
       .select("[style]")
       .asScala
@@ -21,19 +33,43 @@ final case class NormalizeWebDocumentMessage(document: WebDocument, address: Str
         rule
       }
       .mkString("\n")
-    val actions = document.actions.map { a =>
-      val element = parsed.getElementById(a.elementId)
-      if element != null && Set(
-          WebActionKind.Search,
-          WebActionKind.Submit,
-          WebActionKind.Replace,
-          WebActionKind.Append
-        )(a.kind) && element.normalName() != "form"
-      then
-        Option(element.closest("form"))
-          .filter(_.id().nonEmpty)
-          .fold(a)(form => a.copy(elementId = form.id()))
-      else a
+    val actions = document.actions
+      .filterNot(a => a.kind == WebActionKind.Navigate && contactIds(a.elementId))
+      .map { a =>
+        val marked =
+          parsed.select("[data-action-id]").asScala.filter(_.attr("data-action-id") == a.id).toList
+        val element = Option(parsed.getElementById(a.elementId))
+          .orElse(if marked.size == 1 then Some(marked.head) else None)
+          .orNull
+        if element != null && element.id().isEmpty then
+          val id =
+            if a.elementId.nonEmpty then a.elementId
+            else
+              Iterator
+                .from(0)
+                .map(i => "vib-action-" + i)
+                .find(id => parsed.getElementById(id) == null)
+                .get
+          element.attr("id", id)
+        val resolved = if element != null then a.copy(elementId = element.id()) else a
+        if element != null && Set(
+            WebActionKind.Search,
+            WebActionKind.Submit,
+            WebActionKind.Replace,
+            WebActionKind.Append
+          )(a.kind) && element.normalName() != "form"
+        then
+          Option(element.closest("form"))
+            .filter(_.id().nonEmpty)
+            .fold(resolved)(form => resolved.copy(elementId = form.id()))
+        else resolved
+      }
+    // Form submission belongs to the declared host action, not the generated action/method URL.
+    // Standard form attributes are redundant here and need no model round-trip.
+    actions.filter(a => Set(WebActionKind.Search, WebActionKind.Submit)(a.kind)).foreach { a =>
+      Option(parsed.getElementById(a.elementId)).filter(_.normalName() == "form").foreach { form =>
+        form.removeAttr("action").removeAttr("method")
+      }
     }
     val existingIds = parsed.select("[id]").asScala.map(_.id()).toSet ++ actions.map(_.id)
     val links = parsed

@@ -3,6 +3,7 @@ import cats.effect.{IO, IOApp, Resource}
 import com.comcast.ip4s.*
 import org.http4s.ember.server.EmberServerBuilder
 import org.http4s.ember.client.EmberClientBuilder
+import scala.concurrent.duration.*
 import services.system.routes.APIMessageRouter
 import services.browser.routes.BrowserRoutes
 import services.settings.routes.SettingsRoutes
@@ -32,7 +33,11 @@ object Main extends IOApp.Simple:
           cats.effect.IO.unit
         else database.transaction(services.browser.tables.PageTable.PageTable.clearTemporary)
       )
-      client <- EmberClientBuilder.default[IO].build
+      client <- EmberClientBuilder
+        .default[IO]
+        .withTimeout(190.seconds)
+        .withIdleConnectionTime(200.seconds)
+        .build
       _ <- GenerationModule.resource(database, client, mock)
       server <- EmberServerBuilder
         .default[IO]
