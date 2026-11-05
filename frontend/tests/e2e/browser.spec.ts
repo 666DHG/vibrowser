@@ -102,7 +102,7 @@ test("settings save, mask, test, reload and clear fake credential", async ({
       await request.post("/api/getsettings", { data: {} })
     ).text();
     expect(safe).not.toContain("smoke-fake-key-ui-only");
-    await page.getByRole("button", { name: "测试连接" }).click();
+    await page.getByRole("button", { name: "测试生成连接" }).click();
     await expect(
       page.getByText("Mock 测试通过，尚未调用真实模型"),
     ).toBeVisible();

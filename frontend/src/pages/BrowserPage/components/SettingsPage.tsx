@@ -1,3 +1,4 @@
+import { ResearchSettingsPanel } from "./ResearchSettingsPanel";
 import { useState } from "react";
 import { SettingsPanel } from "./SettingsPanel";
 export function SettingsPage({ mock }: { mock: boolean }) {
@@ -29,6 +30,7 @@ export function SettingsPage({ mock }: { mock: boolean }) {
       <div className="min-w-0 flex-1">
         <div hidden={section !== "api"}>
           <SettingsPanel mock={mock} />
+          <ResearchSettingsPanel mock={mock} />
         </div>
         <article
           hidden={section !== "about"}

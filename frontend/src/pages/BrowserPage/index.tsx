@@ -1,3 +1,4 @@
+import { SourcesPanel } from "./components/SourcesPanel";
 import { useEffect, useRef, useState } from "react";
 import {
   ArrowLeft,
@@ -35,6 +36,8 @@ export default function BrowserPage() {
     !!visiblePage &&
     bookmarks.items.some((item) => item.pageId === visiblePage.id);
   const address = useRef<HTMLInputElement>(null);
+  const [sourcesOpen, setSourcesOpen] = useState(false);
+  useEffect(() => setSourcesOpen(false), [activeTabId, visiblePage?.id]);
   const [mock, setMock] = useState(false);
   useEffect(() => {
     fetch("/health")
@@ -161,6 +164,14 @@ export default function BrowserPage() {
               <ArrowRight size={16} />
             </button>
           </form>
+          {visiblePage?.mode === "research" && (
+            <button
+              onClick={() => setSourcesOpen((v) => !v)}
+              className="shrink-0 rounded-lg px-2 py-1 text-xs text-[#b8d69a]"
+            >
+              来源 {visiblePage.sourceCount}
+            </button>
+          )}
           <button
             aria-label="书签"
             onClick={showBookmarks}
@@ -189,6 +200,7 @@ export default function BrowserPage() {
           onAction={(action, values) =>
             void navigation.submitAction(item.id, action, values)
           }
+          onSelectCandidate={(id) => void navigation.selectSubject(item.id, id)}
           onRetry={() => void navigation.retry(item.id)}
           onCancel={() => navigation.cancel(item.id)}
           bookmarks={
@@ -209,11 +221,23 @@ export default function BrowserPage() {
           onSettings={() => openSettings()}
         />
       ))}
+      {sourcesOpen && visiblePage && (
+        <SourcesPanel
+          pageId={visiblePage.id}
+          onClose={() => setSourcesOpen(false)}
+        />
+      )}
       {bookmarks.error && tab.content.status !== "bookmarks" && (
         <div
           role="alert"
           className="absolute left-4 top-28 z-30 max-w-[calc(100%-2rem)] rounded-xl border border-white/15 bg-[#252c21] p-4 text-sm text-[#e5bc85]"
         >
+          {sourcesOpen && visiblePage && (
+            <SourcesPanel
+              pageId={visiblePage.id}
+              onClose={() => setSourcesOpen(false)}
+            />
+          )}
           {bookmarks.error}
           <button
             onClick={() => void bookmarks.refresh()}

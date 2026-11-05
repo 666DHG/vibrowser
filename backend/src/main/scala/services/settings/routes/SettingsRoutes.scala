@@ -6,6 +6,10 @@ import services.settings.objects.apiTypes.*
 object SettingsRoutes:
   val apiMessages: List[RegisteredAPIMessage] = List(
     RegisteredAPIMessage[GetSettingsMessage, ProviderSettings],
+    RegisteredAPIMessage[GetResearchSettingsMessage, ResearchSettings],
+    RegisteredAPIMessage[SaveResearchSettingsMessage, ResearchSettings],
+    RegisteredAPIMessage[ClearResearchCredentialsMessage, ResearchSettings],
+    RegisteredAPIMessage[TestResearchConnectionMessage, ConnectionTestResponse],
     RegisteredAPIMessage[SaveSettingsMessage, ProviderSettings],
     RegisteredAPIMessage[ClearCredentialsMessage, ClearCredentialsResponse],
     RegisteredAPIMessage[TestConnectionMessage, ConnectionTestResponse]

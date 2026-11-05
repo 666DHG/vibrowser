@@ -13,8 +13,14 @@ import services.settings.tables.CredentialsTable.CredentialsTableInitializer
 import services.generation.api.FailGenerationJobMessage
 object SchemaInitializer:
   def initialize(c: Connection): IO[Unit] =
-    PageTableInitializer.initialize(c) *> GenerationJobTableInitializer.initialize(c) *>
-      SettingsTableInitializer.initialize(c) *> CredentialsTableInitializer.initialize(
+    PageTableInitializer.initialize(
+      c
+    ) *> services.browser.tables.ResearchSnapshotTable.ResearchSnapshotTableInitializer
+      .initialize(c) *> GenerationJobTableInitializer.initialize(c) *>
+      SettingsTableInitializer.initialize(
+        c
+      ) *> services.settings.tables.ResearchSettingsTable.ResearchSettingsTableInitializer
+        .initialize(c) *> CredentialsTableInitializer.initialize(
         c
       ) *> BookmarkTableInitializer.initialize(
         c

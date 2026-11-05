@@ -58,6 +58,7 @@ export function SettingsPanel({ mock = false }: { mock?: boolean }) {
       setSaved(s);
       setKey("");
       setNote("设置已保存到本机");
+      window.dispatchEvent(new Event("vibrowser:provider-settings"));
     }
   };
   const test = () =>
@@ -111,7 +112,7 @@ export function SettingsPanel({ mock = false }: { mock?: boolean }) {
                   ? "tokenhub"
                   : "custom"
             }
-            disabled={busy}
+            disabled={busy || !saved}
             onChange={(e) => {
               const p = presets[e.target.value as keyof typeof presets];
               setKey("");
@@ -137,7 +138,7 @@ export function SettingsPanel({ mock = false }: { mock?: boolean }) {
             aria-label="Base URL"
             required
             value={url}
-            disabled={busy}
+            disabled={busy || !saved}
             onChange={(e) => {
               setUrl(e.target.value);
               setKey("");
@@ -151,7 +152,7 @@ export function SettingsPanel({ mock = false }: { mock?: boolean }) {
             aria-label="模型"
             required
             value={model}
-            disabled={busy}
+            disabled={busy || !saved}
             onChange={(e) => setModel(e.target.value)}
             className={inputStyle}
           />
@@ -171,7 +172,7 @@ export function SettingsPanel({ mock = false }: { mock?: boolean }) {
             type="password"
             autoComplete="new-password"
             value={key}
-            disabled={busy}
+            disabled={busy || !saved}
             onChange={(e) => setKey(e.target.value)}
             placeholder={
               saved?.hasKey
@@ -231,6 +232,9 @@ export function SettingsPanel({ mock = false }: { mock?: boolean }) {
                   setSaved(s);
                   setKey("");
                   setNote("密钥已清除");
+                  window.dispatchEvent(
+                    new Event("vibrowser:provider-settings"),
+                  );
                 }
               })
             }

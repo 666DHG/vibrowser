@@ -26,14 +26,21 @@ final case class GetPageMessage(pageId: Option[PageId], jobId: Option[JobId])
         .orElse(jobId)
         .fold(IO.pure(Option.empty[GenerationJob]))(GenerationJobTable.findById(connection, _))
       _ <- IO.raiseWhen(job.isEmpty)(AppError("not_found", "任务不存在", 404))
+      research <- pageId.fold(IO.pure(Option.empty[ResearchSnapshot]))(
+        services.browser.tables.ResearchSnapshotTable.ResearchSnapshotTable.get(connection, _)
+      )
       state <- page.fold(IO.pure(Map.empty[String, String]))(p =>
         services.browser.tables.BookmarkTable.BookmarkTable.state(connection, p.id)
       )
     yield PageResponse(
       page.map(p =>
-        p.copy(document = p.document.map(d => d.copy(initialState = d.initialState ++ state)))
+        p.copy(
+          document = p.document.map(d => d.copy(initialState = d.initialState ++ state)),
+          sourceCount = research.fold(0)(_.sources.size)
+        )
       ),
-      job
+      job,
+      research.map(s => ResearchSummary(s.sources.size, s.candidates, s.selectedCandidateId))
     )
 object GetPageMessage:
   given Decoder[GetPageMessage] = deriveDecoder

@@ -1,3 +1,4 @@
+import type { ResearchCandidate } from "../../../shared/research";
 import type { BrowsingMode } from "../../../shared/browsingMode";
 import type { PageRecord, Job } from "../../../shared/pageSpec";
 export interface HistoryEntry {
@@ -14,6 +15,7 @@ export type ContentState =
   | { status: "settings" }
   | { status: "ready"; page: PageRecord };
 export interface PendingNavigation {
+  researchCandidates?: ResearchCandidate[];
   browsingMode?: BrowsingMode;
   requestId: string;
   input: string;

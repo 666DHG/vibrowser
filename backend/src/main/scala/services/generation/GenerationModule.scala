@@ -14,7 +14,9 @@ object GenerationModule:
           database,
           provider,
           mock,
-          webDocuments = !sys.env.get("VIBROWSER_LEGACY_MOCK").contains("true")
+          webDocuments = !sys.env.get("VIBROWSER_LEGACY_MOCK").contains("true"),
+          researchClient =
+            Some(if mock then new MockResearchClient else new DeepSeekResearchClient(client))
         ).run.start
       )(_.cancel)
       .void

@@ -9,6 +9,10 @@ import {
 } from "lucide-react";
 import type { PendingNavigation } from "../objects/BrowserState";
 const labels: Record<string, string> = {
+  planning: "理解需求",
+  searching: "搜索资料",
+  reading: "阅读来源",
+  choosing: "选择要浏览的对象",
   connecting: "正在连接",
   queued: "等待加载",
   preparing: "准备页面",
@@ -25,6 +29,8 @@ type Props = {
   exiting?: boolean;
   fullscreen: boolean;
   onRetry: () => void;
+  onSettings?: () => void;
+  onSelectCandidate?: (id: string) => void;
   onCancel: () => void;
   onCollapse: () => void;
   onDismiss: () => void;
@@ -34,6 +40,8 @@ export function NavigationProgress({
   exiting = false,
   fullscreen,
   onRetry,
+  onSettings,
+  onSelectCandidate,
   onCancel,
   onCollapse,
   onDismiss,
@@ -207,6 +215,28 @@ export function NavigationProgress({
             取消本次打开
           </button>
         </div>
+      )}
+      {!!pending.researchCandidates?.length && (
+        <div className="mt-4 space-y-2 overflow-y-auto">
+          {pending.researchCandidates.map((c) => (
+            <button
+              key={c.id}
+              onClick={() => onSelectCandidate?.(c.id)}
+              className="block w-full rounded-xl border border-white/15 p-3 text-left"
+            >
+              <strong className="text-sm">{c.title}</strong>
+              <p className="mt-1 text-xs text-[#a5b49a]">{c.description}</p>
+            </button>
+          ))}
+        </div>
+      )}
+      {error && pending.message?.includes("配置联网搜索") && (
+        <button
+          onClick={onSettings}
+          className="mt-3 rounded-lg bg-[#b8d69a] p-2 text-sm text-[#25301c]"
+        >
+          配置联网搜索
+        </button>
       )}
     </section>
   );

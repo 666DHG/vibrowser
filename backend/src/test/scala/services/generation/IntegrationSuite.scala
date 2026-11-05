@@ -30,7 +30,7 @@ class IntegrationSuite extends CatsEffectSuite:
             SqlExecutor
               .update(
                 c,
-                "TRUNCATE generation_jobs,pages,provider_credentials,provider_settings CASCADE"
+                "TRUNCATE generation_jobs,pages,provider_credentials,provider_settings,research_settings CASCADE"
               )
               .void *>
             SchemaInitializer.initialize(c)
@@ -433,4 +433,105 @@ class IntegrationSuite extends CatsEffectSuite:
       _ = assertEquals(checked.actions.find(_.kind == WebActionKind.Search).get.elementId, "search")
       _ = assert(!checked.html.contains("style="))
     yield ()
+  }
+
+  test("modes isolate address deduplication and research credentials stay encrypted") {
+    isolated { db =>
+      for
+        imagined <- db.transaction(NavigateMessage("same.example", None).plan)
+        researched <- db.transaction(
+          NavigateMessage("same.example", None, mode = Some(BrowsingMode.Research)).plan
+        )
+        duplicate <- db.transaction(
+          NavigateMessage("same.example", None, mode = Some(BrowsingMode.Research)).plan
+        )
+        _ = assertNotEquals(imagined.pageId, researched.pageId)
+        _ = assertEquals(duplicate.pageId, researched.pageId)
+        page <- db.transaction(c => PageTable.findById(c, researched.pageId)).map(_.get)
+        _ = assertEquals(page.mode, BrowsingMode.Research)
+        config <- db.transaction(
+          SaveResearchSettingsMessage(false, Some("fake-search-test-key")).plan
+        )
+        _ = assert(config.hasKey)
+        _ = assert(!config.asJson.noSpaces.contains("fake-search-test-key"))
+        connection <- db.transaction(GetResearchConnectionMessage().plan)
+        _ = assertEquals(connection.key, "fake-search-test-key")
+        cleared <- db.transaction(ClearResearchCredentialsMessage().plan)
+        _ = assert(!cleared.hasKey)
+        _ <- db.transaction(SchemaInitializer.initialize)
+        kept <- db.transaction(c => PageTable.findById(c, researched.pageId))
+        _ = assertEquals(kept.map(_.mode), Some(BrowsingMode.Research))
+      yield ()
+    }
+  }
+  test("research choice resumes stored sources, bounded fetch and completed retry reuse") {
+    isolated { db =>
+      for
+        calls <- Ref.of[IO, Int](0)
+        searches <- Ref.of[IO, Int](0)
+        fetches <- Ref.of[IO, Int](0)
+        model = new TextGenerationClient {
+          def complete(
+              c: ProviderConnection,
+              system: String,
+              prompt: String,
+              test: Boolean
+          ): IO[String] = calls
+            .update(_ + 1)
+            .as(
+              """{"topic":"同名人物","queries":[],"reuseSources":true,"candidates":[{"id":"a","title":"甲","description":"甲院系","sourceIds":["source-1"]},{"id":"b","title":"乙","description":"乙院系","sourceIds":["source-2"]}]}"""
+            )
+        }
+        search = new ResearchClient {
+          def search(c: ProviderConnection, q: String): IO[List[ResearchSource]] = searches
+            .update(_ + 1)
+            .as(
+              List(
+                ResearchSource("", "https://one.example/", "甲", "now", "甲院系"),
+                ResearchSource("", "https://two.example/", "乙", "now", "乙院系")
+              )
+            )
+          def fetch(c: ProviderConnection, u: String): IO[String] =
+            fetches.update(_ + 1) *> (if u.contains("two") then
+                                        IO.raiseError(AppError("search_network", "网络失败"))
+                                      else IO.pure("原始资料正文"))
+        }
+        nav <- db.transaction(
+          NavigateMessage("人物.example", None, mode = Some(BrowsingMode.Research)).plan
+        )
+        _ <- db.transaction(ClaimGenerationJobMessage().plan)
+        page <- db.transaction(c => PageTable.findById(c, nav.pageId)).map(_.get)
+        connection = new ProviderConnection("https://api.deepseek.com", "test", "fake", 1)
+        pipeline = new ResearchPipeline(db, model, search)
+        choice <- pipeline.prepare(page, connection, connection)
+        _ = assert(!choice.complete)
+        _ = assertEquals(choice.candidates.size, 2)
+        _ <- db.transaction(c =>
+          services.generation.tables.GenerationJobTable.GenerationJobTable
+            .waitForChoice(c, nav.jobId)
+        )
+        invalid <- db.transaction(SelectResearchSubjectMessage(nav.pageId, "missing").plan).attempt
+        _ = assert(invalid.isLeft)
+        _ <- db.transaction(SelectResearchSubjectMessage(nav.pageId, "a").plan)
+        _ <- db.transaction(SelectResearchSubjectMessage(nav.pageId, "a").plan)
+        _ <- db.transaction(ClaimGenerationJobMessage().plan)
+        complete <- pipeline.prepare(page, connection, connection)
+        _ = assert(complete.complete)
+        again <- pipeline.prepare(page, connection, connection)
+        _ = assertEquals(again, complete)
+        modelCount <- calls.get
+        searchCount <- searches.get
+        fetchCount <- fetches.get
+        _ = assertEquals(modelCount, 1)
+        _ = assertEquals(searchCount, 1)
+        _ = assertEquals(fetchCount, 2)
+        response <- db.transaction(GetPageMessage(Some(nav.pageId), None).plan)
+        _ = assertEquals(response.page.map(_.sourceCount), Some(2))
+        _ <- db.transaction(PageTable.clearTemporary)
+        removed <- db.transaction(c =>
+          services.browser.tables.ResearchSnapshotTable.ResearchSnapshotTable.get(c, nav.pageId)
+        )
+        _ = assert(removed.isEmpty)
+      yield ()
+    }
   }

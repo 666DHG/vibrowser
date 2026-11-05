@@ -30,6 +30,7 @@ type Props = {
   ) => void;
   onAction: (action: WebAction, values: Record<string, string>) => void;
   onRetry: () => void;
+  onSelectCandidate?: (id: string) => void;
   onCancel: () => void;
   onSettings: () => void;
   bookmarks?: ReactNode;
@@ -41,6 +42,7 @@ export function TabContent({
   onNavigate,
   onAction,
   onRetry,
+  onSelectCandidate,
   onCancel,
   onSettings,
   bookmarks,
@@ -174,6 +176,8 @@ export function TabContent({
             exiting={exiting}
             fullscreen
             onRetry={onRetry}
+            onSettings={onSettings}
+            onSelectCandidate={onSelectCandidate}
             onCancel={onCancel}
             onDismiss={dismiss}
             onCollapse={() => {}}
@@ -186,6 +190,8 @@ export function TabContent({
           exiting={exiting}
           fullscreen={false}
           onRetry={onRetry}
+          onSettings={onSettings}
+          onSelectCandidate={onSelectCandidate}
           onCancel={onCancel}
           onDismiss={dismiss}
           onCollapse={() =>

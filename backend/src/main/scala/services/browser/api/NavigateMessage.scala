@@ -69,7 +69,7 @@ final case class NavigateMessage(
                 )
               else IO.unit
             page <- PageTable
-              .findByAddress(connection, address.canonical)
+              .findByAddress(connection, address.canonical, selectedMode)
               .flatMap(IO.fromOption(_)(AppError("internal_error", "页面创建失败", 500)))
           yield NavigationResponse(page.id, page.currentJobId, page.status)
     yield result

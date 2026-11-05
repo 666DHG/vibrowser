@@ -1,5 +1,7 @@
+import { browsingModeSchema } from "./browsingMode";
 import { z } from "zod";
 export const bookmarkSchema = z.object({
+  mode: browsingModeSchema.default("imagination"),
   id: z.string(),
   pageId: z.string(),
   title: z.string(),

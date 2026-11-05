@@ -69,7 +69,9 @@ export function completeNavigation(
     const entry = {
       browsingMode: page.mode,
       state:
-        pending.historyIndex !== undefined
+        pending.historyIndex !== undefined &&
+        (tab.entries[pending.historyIndex]?.browsingMode ?? "imagination") ===
+          page.mode
           ? tab.entries[pending.historyIndex]?.state
           : undefined,
       scroll:

@@ -1,7 +1,7 @@
 package services.generation.objects
 import io.circe.{Encoder, Decoder}
 enum JobStatus:
-  case Queued, Running, Succeeded, Failed
+  case Queued, Running, Waiting, Succeeded, Failed
 object JobStatus:
   def toString(value: JobStatus): String = value.toString.toLowerCase(java.util.Locale.ROOT)
   def fromString(value: String): Either[String, JobStatus] =

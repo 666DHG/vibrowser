@@ -1,5 +1,11 @@
 import { z } from "zod";
 const messageNames = [
+  "GetResearchSettingsMessage",
+  "SaveResearchSettingsMessage",
+  "ClearResearchCredentialsMessage",
+  "TestResearchConnectionMessage",
+  "GetPageSourcesMessage",
+  "SelectResearchSubjectMessage",
   "NavigateMessage",
   "SubmitPageActionMessage",
   "GetPageMessage",

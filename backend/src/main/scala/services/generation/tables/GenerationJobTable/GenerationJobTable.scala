@@ -70,3 +70,12 @@ object GenerationJobTable:
   private val interruptedSql = "SELECT * FROM generation_jobs WHERE status='running'"
   def interrupted(c: Connection): IO[List[GenerationJob]] =
     SqlExecutor.query(c, interruptedSql)(row)
+
+  private val waitSql =
+    "UPDATE generation_jobs SET status='waiting' WHERE id=? AND status='running'"
+  private val resumeSql =
+    "UPDATE generation_jobs SET status='queued',phase='queued',steps=steps || jsonb_build_array(jsonb_build_object('phase','queued','attempt',1,'at',clock_timestamp())) WHERE id=? AND status='waiting'"
+  def waitForChoice(c: Connection, id: JobId): IO[Unit] =
+    SqlExecutor.update(c, waitSql, List(id.value)).void
+  def resumeChoice(c: Connection, id: JobId): IO[Unit] =
+    SqlExecutor.update(c, resumeSql, List(id.value)).void

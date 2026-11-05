@@ -1,3 +1,4 @@
+import { SelectResearchSubjectMessage } from "../../../apis/browser/SelectResearchSubjectMessage";
 import { SubmitPageActionMessage } from "../../../apis/browser/SubmitPageActionMessage";
 import type { WebAction } from "../../../shared/webDocument";
 import { useRef, useEffect, useCallback } from "react";
@@ -63,6 +64,18 @@ export function useBrowserNavigation() {
               ? undefined
               : (result.job ?? undefined),
           );
+          return;
+        }
+        if (
+          result.job?.status === "waiting" &&
+          result.research?.candidates.length
+        ) {
+          updatePending(id, token, {
+            status: "generating",
+            job: result.job,
+            researchCandidates: result.research.candidates,
+            finishedAt: Date.now(),
+          });
           return;
         }
         if (page.status === "failed") {
@@ -136,6 +149,7 @@ export function useBrowserNavigation() {
       status: "loading",
       startedAt: Date.now(),
       collapsed: false,
+      researchCandidates: undefined,
       finishedAt: undefined,
       message: undefined,
       job: undefined,
@@ -231,6 +245,23 @@ export function useBrowserNavigation() {
       },
     );
   };
+  const selectSubject = async (id: string, candidateId: string) => {
+    const pending = getTab(id)?.pending;
+    if (!pending?.pageId) return;
+    try {
+      await new SelectResearchSubjectMessage(
+        pending.pageId,
+        candidateId,
+      ).send();
+      if (getTab(id)?.pending?.requestId === pending.requestId)
+        await run(id, pending.input, { ...pending, pageId: pending.pageId });
+    } catch (error) {
+      if (getTab(id)?.pending?.requestId === pending.requestId)
+        updatePending(id, pending.requestId, {
+          message: error instanceof Error ? error.message : "选择失败",
+        });
+    }
+  };
   const move = (index: number) => {
     const id = activeId();
     const entry = getTab(id)?.entries[index];
@@ -279,5 +310,6 @@ export function useBrowserNavigation() {
     close,
     openSaved,
     submitAction,
+    selectSubject,
   };
 }

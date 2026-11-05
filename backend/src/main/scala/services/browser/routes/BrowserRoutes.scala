@@ -8,6 +8,8 @@ object BrowserRoutes:
     RegisteredAPIMessage[NavigateMessage, NavigationResponse],
     RegisteredAPIMessage[SubmitPageActionMessage, NavigationResponse],
     RegisteredAPIMessage[GetPageMessage, PageResponse],
+    RegisteredAPIMessage[GetPageSourcesMessage, ResearchSourcesResponse],
+    RegisteredAPIMessage[SelectResearchSubjectMessage, NavigationResponse],
     RegisteredAPIMessage[RetryPageMessage, NavigationResponse],
     RegisteredAPIMessage[ListBookmarksMessage, BookmarkListResponse],
     RegisteredAPIMessage[SaveBookmarkMessage, Bookmark],

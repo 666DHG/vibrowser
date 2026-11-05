@@ -1,3 +1,4 @@
+import { researchSummarySchema } from "./research";
 import { browsingModeSchema } from "./browsingMode";
 import { webDocumentSchema } from "./webDocument";
 import {
@@ -203,6 +204,7 @@ export function safeTarget(target: string): boolean {
   }
 }
 export const pageRecordSchema = z.object({
+  sourceCount: z.number().default(0),
   mode: browsingModeSchema.default("imagination"),
   id: z.string(),
   address: z.string(),
@@ -218,6 +220,10 @@ export const pageRecordSchema = z.object({
 });
 export const generationStepSchema = z.object({
   phase: z.enum([
+    "planning",
+    "searching",
+    "reading",
+    "choosing",
     "queued",
     "preparing",
     "generating",
@@ -235,14 +241,15 @@ export type GenerationStep = z.infer<typeof generationStepSchema>;
 export const jobSchema = z.object({
   id: z.string(),
   pageId: z.string().nullable(),
-  kind: z.enum(["page", "connection", "action"]),
-  status: z.enum(["queued", "running", "succeeded", "failed"]),
+  kind: z.enum(["page", "connection", "action", "searchconnection"]),
+  status: z.enum(["queued", "running", "waiting", "succeeded", "failed"]),
   phase: z.string(),
   error: z.string().nullable(),
   settingsRevision: z.number(),
   steps: z.array(generationStepSchema).default([]),
 });
 export const responseSchema = z.object({
+  research: researchSummarySchema.nullish(),
   page: pageRecordSchema.nullable(),
   job: jobSchema.nullable(),
 });
