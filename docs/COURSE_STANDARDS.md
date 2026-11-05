@@ -4,6 +4,8 @@
 
 ## 首版实现证据与明确取舍
 
+2026-11-05 设计实验：DesignBrief、DesignIssue/Review、LayoutElement/Viewport/Report、DesignWorkflow/Event 独立数据类与伴生 codec；DesignStage/Status/Selection 为封闭枚举。SaveDesignWorkflowMessage 使用 plan(connection): IO，GenerationJobTable 私有 SQL 保存 JSONB，候选与当前任务代次绑定。模型调用及 Chromium 进程由 IO/Resource 在事务外管理。见 [设计流程](DESIGN_WORKFLOW.md)。
+
 2026-11-05 双模式：BrowsingMode 与检索阶段采用封闭枚举；ResearchSource/ResearchCandidate/ResearchSnapshot/ResearchSettings 等独立数据类及伴生 codecs。检索消息维持 plan(connection): IO，ResearchSnapshotTable 与 ResearchSettingsTable 分别管理快照和 DPAPI 密文；工具与模型在事务外执行。前端独立设置视图、来源面板、对应 API 类及标签模式迁移均就近组织。详见 [双模式实现与验收](DUAL_MODES.md)。
 
 2026-11-05 v3：WebDocument、WebAction、WebBinding、SiteStyle、PageActionSnapshot 独立 final case class 与伴生 codecs；WebActionKind/EntityField 为封闭 enum。SubmitPageActionMessage 与校验/归一化消息保持 plan(connection): IO；PageActionTable/Initializer 管理快照与幂等请求，BookmarkTable 在首次 INSERT 原子保存状态，重复收藏不覆盖。前端 API 类提供 send，iframe 运行时与 hooks 位于 BrowserPage 附近；未增加转发 Service。HTML/CSS 解析、事实合并与模型协议分别归 browser/generation 私有工具，模型调用仍在短事务之外。见 [v3 验收](WEB_DOCUMENTS.md)。

@@ -1,0 +1,42 @@
+[
+  {
+    "file": "academic-new.json",
+    "localActions": [
+      "toggle-awm"
+    ],
+    "searchSubmitted": false,
+    "extraModelCalls": 0
+  },
+  {
+    "file": "comparison-new.json",
+    "localActions": [
+      "a-toggle-tips"
+    ],
+    "searchSubmitted": true,
+    "extraModelCalls": 0
+  },
+  {
+    "file": "discussion-new.json",
+    "localActions": [],
+    "searchSubmitted": true,
+    "extraModelCalls": 0
+  },
+  {
+    "file": "news-new.json",
+    "localActions": [],
+    "searchSubmitted": true,
+    "extraModelCalls": 0
+  },
+  {
+    "file": "reading-new.json",
+    "localActions": [],
+    "searchSubmitted": true,
+    "extraModelCalls": 0
+  },
+  {
+    "file": "writing-new.json",
+    "localActions": [],
+    "searchSubmitted": true,
+    "extraModelCalls": 0
+  }
+]

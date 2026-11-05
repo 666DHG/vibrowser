@@ -15,7 +15,7 @@ object GenerationModule:
           provider,
           mock,
           webDocuments = !sys.env.get("VIBROWSER_LEGACY_MOCK").contains("true"),
-          designWorkflow = !mock && !sys.env.get("VIBROWSER_DESIGN_WORKFLOW").contains("false"),
+          designWorkflow = !mock && sys.env.get("VIBROWSER_DESIGN_WORKFLOW").contains("true"),
           researchClient =
             Some(if mock then new MockResearchClient else new DeepSeekResearchClient(client))
         ).run.start

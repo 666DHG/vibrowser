@@ -142,7 +142,7 @@ private[generation] final class DesignWorkflowGeneration(
         w.copy(brief = Some(b))
       }
       fullPrompt =
-        prompt + "\n设计指导：\n" + DesignGuidance.design + "\n设计说明：" + planned.brief.asJson.noSpaces
+        prompt + "\n设计指导：\n" + DesignGuidance.design + "\n交互能力：\n" + WebDocumentPrompt.actionContract + "\n设计说明：" + planned.brief.asJson.noSpaces
       candidate <- planned.candidate match
         case Some(doc) => generator.validate(page, doc.asJson.noSpaces, snapshot, research)
         case None      => generator.generate(config, page, fullPrompt, snapshot, research)
