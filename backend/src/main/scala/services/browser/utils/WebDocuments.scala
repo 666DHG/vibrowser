@@ -198,6 +198,8 @@ private[browser] object WebDocuments:
           .mkString(", ")
       )
       requireThat(doc.entities.forall(_.replyCount.forall(_ >= 0)), "negative reply count")
+      val references = WebDocumentBindings.issues(doc, parsed)
+      requireThat(references.isEmpty, references.mkString("; "))
       doc.actions.foreach { a =>
         requireThat(ids.contains(a.elementId), "action element missing: " + a.elementId)
         requireThat(a.region.forall(ids.contains), "action region missing")
@@ -265,14 +267,7 @@ private[browser] object WebDocuments:
         val e = doc.entities
           .find(_.id == b.entityId)
           .getOrElse(throw AppError("invalid_content", "binding entity missing", 502))
-        val value = b.field match
-          case EntityField.Title       => e.title
-          case EntityField.Summary     => e.summary
-          case EntityField.Author      => e.author
-          case EntityField.PublishedAt => e.publishedAt
-          case EntityField.ReplyCount  => e.replyCount.map(_.toString)
-          case EntityField.Price       => e.price.map(p => p.amount.toString + " " + p.currency)
-          case EntityField.LegacyMeta  => e.legacyMeta
+        val value = WebDocumentBindings.value(e, b.field)
         requireThat(
           parsed.getElementById(b.elementId).children().isEmpty,
           "binding must use text leaf element"

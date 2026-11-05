@@ -1,4 +1,5 @@
 package services.generation.tables.GenerationJobTable
+import io.circe.syntax.*
 import services.browser.objects.PageId
 import cats.effect.IO
 import java.sql.{Connection, ResultSet}
@@ -79,3 +80,15 @@ object GenerationJobTable:
     SqlExecutor.update(c, waitSql, List(id.value)).void
   def resumeChoice(c: Connection, id: JobId): IO[Unit] =
     SqlExecutor.update(c, resumeSql, List(id.value)).void
+
+  private val diagnosticSql =
+    "UPDATE generation_jobs SET diagnostics=diagnostics || ?::jsonb WHERE id=? AND status='running'"
+  private val readDiagnosticsSql = "SELECT diagnostics::text FROM generation_jobs WHERE id=?"
+  def recordAttempt(c: Connection, id: JobId, record: GenerationAttempt): IO[Unit] =
+    SqlExecutor.update(c, diagnosticSql, List(List(record).asJson.noSpaces, id.value)).void
+  def diagnostics(c: Connection, id: JobId): IO[List[GenerationAttempt]] =
+    SqlExecutor
+      .query(c, readDiagnosticsSql, List(id.value))(r =>
+        io.circe.parser.decode[List[GenerationAttempt]](r.getString(1)).fold(throw _, identity)
+      )
+      .map(_.headOption.getOrElse(Nil))

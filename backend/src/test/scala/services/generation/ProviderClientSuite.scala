@@ -112,3 +112,27 @@ class ProviderClientSuite extends CatsEffectSuite:
       _ = assert(closed)
     yield ()
   }
+
+  test("normal official generation allows larger UTF-8 documents and 24000 output tokens") {
+    val content = "中" * 100000
+    val client = Client.fromHttpApp(
+      HttpApp[IO](request =>
+        request.as[Json].map { body =>
+          assertEquals(body.hcursor.get[Int]("max_tokens"), Right(24000))
+          Response[IO](Status.Ok).withEntity(
+            Json.obj(
+              "choices" -> Json.arr(
+                Json.obj(
+                  "finish_reason" -> Json.fromString("stop"),
+                  "message" -> Json.obj("content" -> Json.fromString(content))
+                )
+              )
+            )
+          )
+        }
+      )
+    )
+    new DeepSeekCompatibleClient(client)
+      .complete(config, "JSON", "test", false)
+      .map(s => assertEquals(s, content))
+  }

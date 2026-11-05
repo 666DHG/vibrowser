@@ -11,7 +11,7 @@ import services.settings.objects.ProviderConnection
 import services.system.objects.AppError
 private[generation] final class DeepSeekCompatibleClient(
     client: Client[IO],
-    requestTimeout: FiniteDuration = 60.seconds
+    requestTimeout: FiniteDuration = GenerationPolicy.requestTimeout
 ) extends TextGenerationClient:
   def complete(
       config: ProviderConnection,
@@ -19,6 +19,7 @@ private[generation] final class DeepSeekCompatibleClient(
       prompt: String,
       test: Boolean
   ): IO[String] =
+    val official = java.net.URI.create(config.baseUrl).getHost.equalsIgnoreCase("api.deepseek.com")
     val payload = Json.obj(
       "model" -> config.model.asJson,
       "messages" -> List(
@@ -26,11 +27,13 @@ private[generation] final class DeepSeekCompatibleClient(
         Json.obj("role" -> "user".asJson, "content" -> prompt.asJson)
       ).asJson,
       "stream" -> false.asJson,
-      "max_tokens" -> (if test then 128 else 12000).asJson,
+      "max_tokens" -> (if test then 128
+                       else if official then GenerationPolicy.officialOutputTokens
+                       else 12000) .asJson,
       "response_format" -> Json.obj("type" -> "json_object".asJson)
     )
     val requestPayload =
-      if java.net.URI.create(config.baseUrl).getHost.equalsIgnoreCase("api.deepseek.com") then
+      if official then
         payload.deepMerge(Json.obj("thinking" -> Json.obj("type" -> "disabled".asJson)))
       else payload
     val request = Request[IO](
@@ -50,26 +53,31 @@ private[generation] final class DeepSeekCompatibleClient(
         else if !response.status.isSuccess then
           IO.raiseError(AppError("provider_unavailable", s"模型接口返回 HTTP $code", 502))
         else
-          response.body.take(262145).compile.toVector.flatMap { bytes =>
-            if bytes.size > 262144 then IO.raiseError(AppError("provider_size", "模型响应过大", 502))
-            else
-              IO.fromEither(
-                io.circe.parser
-                  .parse(new String(bytes.toArray, java.nio.charset.StandardCharsets.UTF_8))
-                  .left
-                  .map(_ => AppError("provider_format", "模型接口未返回合法 JSON", 502))
-              ).flatMap { json =>
-                val cursor = json.hcursor.downField("choices").downArray
-                val content =
-                  cursor.downField("message").get[String]("content").toOption.getOrElse("")
-                val truncated = cursor.get[String]("finish_reason").toOption.contains("length")
-                if content.trim.isEmpty || truncated then
-                  IO.raiseError(AppError("provider_content", "模型输出为空或被截断，请重试", 502))
-                else IO.pure(content)
-              }
+          response.body.take(GenerationPolicy.responseBytes.toLong + 1).compile.toVector.flatMap {
+            bytes =>
+              if bytes.size > GenerationPolicy.responseBytes then
+                IO.raiseError(AppError("provider_size", "模型响应过大", 502))
+              else
+                IO.fromEither(
+                  io.circe.parser
+                    .parse(new String(bytes.toArray, java.nio.charset.StandardCharsets.UTF_8))
+                    .left
+                    .map(_ => AppError("provider_format", "模型接口未返回合法 JSON", 502))
+                ).flatMap { json =>
+                  val cursor = json.hcursor.downField("choices").downArray
+                  val content =
+                    cursor.downField("message").get[String]("content").toOption.getOrElse("")
+                  val truncated = cursor.get[String]("finish_reason").toOption.contains("length")
+                  if content.trim.isEmpty || truncated then
+                    IO.raiseError(AppError("provider_content", "模型输出为空或被截断，请重试", 502))
+                  else IO.pure(content)
+                }
           }
       }
-      .timeoutTo(requestTimeout, IO.raiseError(AppError("provider_timeout", "模型响应超时，请重试", 504)))
+      .timeoutTo(
+        if test then 30.seconds.min(requestTimeout) else requestTimeout,
+        IO.raiseError(AppError("provider_timeout", "模型响应超时，请重试", 504))
+      )
       .adaptError {
         case e if !e.isInstanceOf[AppError] =>
           AppError("provider_network", "无法连接模型接口，请检查地址或网络", 502)

@@ -43,7 +43,7 @@ export function useBrowserNavigation() {
   };
   const load = useCallback(
     async (id: string, token: string, pageId: string, c: AbortController) => {
-      const deadline = Date.now() + 240000;
+      const deadline = Date.now() + 1200000;
       while (
         !c.signal.aborted &&
         getTab(id)?.pending?.requestId === token &&

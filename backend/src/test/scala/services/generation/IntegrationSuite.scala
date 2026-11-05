@@ -682,3 +682,62 @@ class IntegrationSuite extends CatsEffectSuite:
       yield ()
     }
   }
+
+  test("v3 attempts retain diagnostics, repair up to four requests, and stop on auth") {
+    List(("repair", 4), ("exhausted", 4), ("auth", 1)).traverse_ { (scenario, expected) =>
+      isolated { db =>
+        for
+          count <- Ref.of[IO, Int](0)
+          nav <- db.transaction(NavigateMessage("attempts.example/" + scenario, None).plan)
+          _ <- db.transaction(ClaimGenerationJobMessage().plan)
+          page <- db.transaction(c => PageTable.findById(c, nav.pageId)).map(_.get)
+          fixture <- IO.blocking(
+            Files.readString(Paths.get("../contracts/web-documents/docs.json"))
+          )
+          client = new TextGenerationClient {
+            def complete(
+                c: ProviderConnection,
+                system: String,
+                prompt: String,
+                test: Boolean
+            ): IO[String] =
+              count.getAndUpdate(_ + 1).flatMap { n =>
+                if scenario == "auth" then IO.raiseError(AppError("provider_auth", "密钥无效", 502))
+                else if scenario == "exhausted" || n < 3 then IO.pure("{}")
+                else IO.pure(fixture)
+              }
+          }
+          result <- new WebDocumentGeneration(db, client)
+            .generate(
+              new ProviderConnection("https://example.com", "test", "fake-private-key", 1),
+              page,
+              "生成页面"
+            )
+            .attempt
+          attempts <- count.get
+          records <- db.transaction(c =>
+            services.generation.tables.GenerationJobTable.GenerationJobTable
+              .diagnostics(c, nav.jobId)
+          )
+          _ = assertEquals(attempts, expected)
+          _ = assertEquals(records.size, expected)
+          _ = assertEquals(result.isRight, scenario == "repair")
+          _ = assert(!records.asJson.noSpaces.contains("fake-private-key"))
+          _ = assertEquals(
+            records.last.outcome,
+            if scenario == "repair" then AttemptOutcome.Accepted
+            else if scenario == "auth" then AttemptOutcome.ProviderFailure
+            else AttemptOutcome.InvalidContent
+          )
+          _ <- db.transaction(SchemaInitializer.initialize)
+          kept <- db.transaction(c =>
+            services.generation.tables.GenerationJobTable.GenerationJobTable
+              .diagnostics(c, nav.jobId)
+          )
+          _ = assertEquals(kept, records)
+          response <- db.transaction(GetPageMessage(Some(nav.pageId), None).plan)
+          _ = assert(!response.asJson.noSpaces.contains("diagnostics"))
+        yield ()
+      }
+    }
+  }

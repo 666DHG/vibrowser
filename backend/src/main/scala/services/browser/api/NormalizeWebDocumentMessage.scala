@@ -4,10 +4,10 @@ import cats.effect.IO
 import java.sql.Connection
 import services.system.api.APIMessage
 import services.browser.objects.*
-import services.browser.utils.AddressRules
+import services.browser.utils.{AddressRules, WebDocumentBindings}
 final case class NormalizeWebDocumentMessage(document: WebDocument, address: String)
     extends APIMessage[WebDocument]:
-  override def plan(connection: Connection): IO[WebDocument] = IO.pure {
+  override def plan(connection: Connection): IO[WebDocument] = IO {
     val parsed = org.jsoup.Jsoup.parseBodyFragment(document.html)
     val inline = parsed
       .select("[style]")
@@ -57,13 +57,19 @@ final case class NormalizeWebDocumentMessage(document: WebDocument, address: Str
     val ids = document.entities
       .map(e => e.id -> AddressRules.resolveLink(e.id, address).getOrElse(e.id))
       .toMap
+    val entities = document.entities.map(e => e.copy(id = ids(e.id)))
+    val bindings = WebDocumentBindings.normalize(
+      parsed,
+      document.bindings.map(b => b.copy(entityId = ids.getOrElse(b.entityId, b.entityId))),
+      entities,
+      address
+    )
     document.copy(
       html = parsed.body().html(),
       css = document.css + "\n" + inline,
       actions = actions ++ links,
-      entities = document.entities.map(e => e.copy(id = ids(e.id))),
-      bindings =
-        document.bindings.map(b => b.copy(entityId = ids.getOrElse(b.entityId, b.entityId))),
+      entities = entities,
+      bindings = bindings,
       subjectEntityId = document.subjectEntityId.map(id => ids.getOrElse(id, id))
     )
   }
