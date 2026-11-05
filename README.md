@@ -29,6 +29,8 @@ $env:VIBROWSER_PG_BIN = 'D:\Installs\PostgreSQL\16\bin'
 
 切换模式前先停止旧实例。脚本拒绝占用中的端口，不结束不属于本项目的进程。请在启动应用的 Windows 用户/会话中停止应用；若开发工具隔离了进程，需结束原启动终端。
 
+Windows PowerShell 5.1 与 PowerShell 7 均可启动。若旧版本脚本在 `database.ps1` 的 `psql` 探测处报 `Connection refused` / `NativeCommandError`，请使用包含 2026-11-05 修复的脚本：数据库尚未运行属于正常冷启动状态，探测失败后应继续启动数据库。Java 25 的 `Unsafe` / `native access` WARNING 不代表编译失败。排查与验证见 [启动兼容性记录](docs/STARTUP.md)。
+
 ## 配置模型与真实验收
 
 1. 点击右上角“设置”，选择 DeepSeek 官方、TokenHub 或自定义兼容接口。

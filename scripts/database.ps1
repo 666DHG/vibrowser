@@ -13,8 +13,18 @@ if ($Action -eq 'start') {
   }
   & (Join-Path $bin 'pg_ctl.exe') -D $data status *> $null
   if ($LASTEXITCODE -ne 0) {
-    $activeData = & (Join-Path $bin 'psql.exe') -w -h 127.0.0.1 -p $port -U vibrowser -d postgres -tAc 'SHOW data_directory' 2>$null
-    if ($LASTEXITCODE -eq 0) {
+    # A stopped database is expected here. Windows PowerShell 5.1 converts
+    # redirected native stderr into terminating errors under Stop, before
+    # we can inspect the exit code and start PostgreSQL.
+    $probeErrorPreference = $ErrorActionPreference
+    try {
+      $ErrorActionPreference = 'Continue'
+      $activeData = & (Join-Path $bin 'psql.exe') -w -h 127.0.0.1 -p $port -U vibrowser -d postgres -tAc 'SHOW data_directory' 2>$null
+      $probeExitCode = $LASTEXITCODE
+    } finally {
+      $ErrorActionPreference = $probeErrorPreference
+    }
+    if ($probeExitCode -eq 0) {
       if ([IO.Path]::GetFullPath($activeData.Trim()) -ne [IO.Path]::GetFullPath($data)) { throw 'Port 55432 belongs to another PostgreSQL data directory' }
     } else {
       & (Join-Path $bin 'pg_ctl.exe') -D $data -l (Join-Path $root '.data\postgres.log') -w start
