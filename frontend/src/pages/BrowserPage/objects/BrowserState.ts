@@ -1,5 +1,7 @@
+import type { BrowsingMode } from "../../../shared/browsingMode";
 import type { PageRecord, Job } from "../../../shared/pageSpec";
 export interface HistoryEntry {
+  browsingMode?: BrowsingMode;
   state?: Record<string, string>;
   scroll?: number;
   input: string;
@@ -9,8 +11,10 @@ export interface HistoryEntry {
 export type ContentState =
   | { status: "idle" }
   | { status: "bookmarks" }
+  | { status: "settings" }
   | { status: "ready"; page: PageRecord };
 export interface PendingNavigation {
+  browsingMode?: BrowsingMode;
   requestId: string;
   input: string;
   mode: "navigate" | "cached";
@@ -36,6 +40,7 @@ export interface PendingNavigation {
   };
 }
 export interface BrowserTab {
+  browsingMode?: BrowsingMode;
   id: string;
   title: string;
   draft: string;

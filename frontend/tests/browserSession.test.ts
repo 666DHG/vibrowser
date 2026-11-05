@@ -113,7 +113,9 @@ it("restores home and an unsubmitted draft while preserving that tab's history",
   const restored = restoreSession();
   expect(restored.tabs[0].content.status).toBe("idle");
   expect(restored.tabs[0].draft).toBe("下一站");
-  expect(restored.tabs[0].entries).toEqual(tab.entries);
+  expect(restored.tabs[0].entries).toEqual(
+    tab.entries.map((e) => ({ ...e, browsingMode: "imagination" })),
+  );
   expect(
     JSON.parse(sessionStorage.getItem(SESSION_KEY)!).tabs[0],
   ).not.toHaveProperty("content");

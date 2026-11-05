@@ -1,3 +1,4 @@
+import { SettingsPage } from "./SettingsPage";
 import type { WebAction } from "../../../shared/webDocument";
 import { WebDocumentFrame } from "./WebDocumentFrame";
 import { displayAddress } from "../functions/displayAddress";
@@ -32,6 +33,7 @@ type Props = {
   onCancel: () => void;
   onSettings: () => void;
   bookmarks?: ReactNode;
+  mock?: boolean;
 };
 export function TabContent({
   tab,
@@ -42,6 +44,7 @@ export function TabContent({
   onCancel,
   onSettings,
   bookmarks,
+  mock = false,
 }: Props) {
   const { content, pending } = tab;
   const viewport = useRef<HTMLDivElement>(null);
@@ -123,6 +126,7 @@ export function TabContent({
           <HomePage onNavigate={onNavigate} onSettings={onSettings} />
         )}
         {content.status === "bookmarks" && bookmarks}
+        {content.status === "settings" && <SettingsPage mock={mock} />}
         {content.status === "ready" && content.page.document && (
           <WebDocumentFrame
             key={content.page.address}

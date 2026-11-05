@@ -15,7 +15,8 @@ final case class PageRecord(
     error: Option[String],
     source: String,
     navigationContext: Option[NavigationContext] = None,
-    document: Option[WebDocument] = None
+    document: Option[WebDocument] = None,
+    mode: BrowsingMode = BrowsingMode.Imagination
 )
 object PageRecord:
   given Encoder[PageRecord] = deriveEncoder

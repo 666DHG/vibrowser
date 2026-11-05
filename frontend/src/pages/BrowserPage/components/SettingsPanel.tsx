@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { X, Check, LoaderCircle, KeyRound, ShieldCheck } from "lucide-react";
+import { Check, LoaderCircle, KeyRound, ShieldCheck } from "lucide-react";
 import { GetSettingsMessage } from "../../../apis/settings/GetSettingsMessage";
 import { SaveSettingsMessage } from "../../../apis/settings/SaveSettingsMessage";
 import { ClearCredentialsMessage } from "../../../apis/settings/ClearCredentialsMessage";
@@ -13,13 +13,7 @@ const presets = {
     model: "deepseek-v4.1-flash",
   },
 };
-export function SettingsPanel({
-  onClose,
-  mock = false,
-}: {
-  onClose: () => void;
-  mock?: boolean;
-}) {
+export function SettingsPanel({ mock = false }: { mock?: boolean }) {
   const [saved, setSaved] = useState<Settings | null>(null);
   const [url, setUrl] = useState("https://api.deepseek.com");
   const [model, setModel] = useState("deepseek-flash");
@@ -28,10 +22,8 @@ export function SettingsPanel({
   const [note, setNote] = useState("");
   const [error, setError] = useState("");
   const active = useRef(true);
-  const dialog = useRef<HTMLDialogElement>(null);
   useEffect(() => {
     active.current = true;
-    dialog.current?.showModal();
     const controller = new AbortController();
     new GetSettingsMessage()
       .send(controller.signal)
@@ -92,25 +84,14 @@ export function SettingsPanel({
   const inputStyle =
     "mt-2 w-full rounded-xl border border-white/10 bg-[#171a16] px-4 py-3 font-mono text-sm text-[#e1e6d8] outline-none focus:border-[#b8d69a]/60 disabled:opacity-50";
   return (
-    <dialog
-      ref={dialog}
-      onCancel={onClose}
-      className="fixed m-auto w-[min(94vw,520px)] rounded-3xl border border-white/10 bg-[#23271f] p-0 text-[#e2e7da] shadow-2xl backdrop:bg-black/65"
-    >
+    <section className="max-w-3xl rounded-2xl border border-white/10 bg-[#23271f] text-[#e2e7da]">
       <div className="flex items-start justify-between border-b border-white/8 p-6">
         <div>
           <p className="mb-2 font-mono text-[9px] tracking-[.25em] text-[#9bae87]">
             MAKE THE CONNECTION
           </p>
-          <h2 className="text-xl">连接你的想象引擎</h2>
+          <h2 className="text-xl">页面生成</h2>
         </div>
-        <button
-          aria-label="关闭设置"
-          onClick={onClose}
-          className="cursor-pointer rounded-lg p-2 hover:bg-white/5"
-        >
-          <X size={18} />
-        </button>
       </div>
       <form
         onSubmit={(e) => {
@@ -237,7 +218,7 @@ export function SettingsPanel({
             onClick={() => void test()}
             className="cursor-pointer rounded-full border border-white/15 px-5 py-3 text-xs disabled:opacity-30"
           >
-            测试连接
+            测试生成连接
           </button>
           <button
             type="button"
@@ -262,6 +243,6 @@ export function SettingsPanel({
           修改后先保存，再测试。测试会发送一次小型模型请求。
         </p>
       </form>
-    </dialog>
+    </section>
   );
 }

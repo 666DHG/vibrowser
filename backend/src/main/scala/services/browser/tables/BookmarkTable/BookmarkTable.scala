@@ -13,9 +13,13 @@ object BookmarkTable:
     PageKind
       .fromString(r.getString("kind"))
       .fold(e => throw new IllegalStateException(e), identity),
-    r.getTimestamp("saved_at").toInstant.toString
+    r.getTimestamp("saved_at").toInstant.toString,
+    BrowsingMode
+      .fromString(r.getString("mode"))
+      .fold(e => throw new IllegalStateException(e), identity)
   )
-  private val listSql = "SELECT * FROM bookmarks ORDER BY saved_at DESC,id"
+  private val listSql =
+    "SELECT b.*, p.mode FROM bookmarks b JOIN pages p ON p.id=b.page_id ORDER BY b.saved_at DESC,b.id"
   def list(c: Connection): IO[List[Bookmark]] = SqlExecutor.query(c, listSql)(row)
   private val saveSql =
     """INSERT INTO bookmarks(id,page_id,title,address,kind,state) VALUES(?,?,?,?,?,?::jsonb)
@@ -39,7 +43,17 @@ object BookmarkTable:
           PageKind.toString(page.kind),
           state.asJson.noSpaces
         )
-      )(row)
+      )(r =>
+        Bookmark(
+          BookmarkId(r.getString("id")),
+          page.id,
+          title,
+          page.address,
+          page.kind,
+          r.getTimestamp("saved_at").toInstant.toString,
+          page.mode
+        )
+      )
       .map(_.head)
   private val removeSql = "DELETE FROM bookmarks WHERE id=?"
   def remove(c: Connection, id: BookmarkId): IO[Boolean] =

@@ -1,3 +1,4 @@
+import { browsingModeSchema } from "./browsingMode";
 import { webDocumentSchema } from "./webDocument";
 import {
   pageEntitySchema,
@@ -202,6 +203,7 @@ export function safeTarget(target: string): boolean {
   }
 }
 export const pageRecordSchema = z.object({
+  mode: browsingModeSchema.default("imagination"),
   id: z.string(),
   address: z.string(),
   kind: z.enum(["website", "search"]),

@@ -17,6 +17,7 @@ import {
   addTab,
   setVisible,
   openBookmarks,
+  openSettings,
 } from "../stores/browserStore";
 export function useBrowserNavigation() {
   const controllers = useRef(new Map<string, AbortController>());
@@ -41,7 +42,7 @@ export function useBrowserNavigation() {
   };
   const load = useCallback(
     async (id: string, token: string, pageId: string, c: AbortController) => {
-      const deadline = Date.now() + 180000;
+      const deadline = Date.now() + 240000;
       while (
         !c.signal.aborted &&
         getTab(id)?.pending?.requestId === token &&
@@ -130,6 +131,8 @@ export function useBrowserNavigation() {
       requestId: crypto.randomUUID(),
       input,
       mode: options.mode ?? "navigate",
+      browsingMode:
+        options.browsingMode ?? getTab(id)?.browsingMode ?? "imagination",
       status: "loading",
       startedAt: Date.now(),
       collapsed: false,
@@ -162,6 +165,7 @@ export function useBrowserNavigation() {
               input,
               pending.referrerPageId ?? null,
               pending.sourceBlockId ?? null,
+              pending.browsingMode,
             ).send(c.signal);
         pageId = result.pageId;
         if (!c.signal.aborted)
@@ -182,6 +186,10 @@ export function useBrowserNavigation() {
     id = activeId(),
     sourceBlockId?: string,
   ) => {
+    if (input.trim() === "vibrowser://settings") {
+      openSettings();
+      return Promise.resolve();
+    }
     if (input.trim() === "vibrowser://bookmarks") {
       openBookmarks();
       return Promise.resolve();
@@ -212,6 +220,7 @@ export function useBrowserNavigation() {
         : page.address,
       {
         historyIndex: action.kind === "Search" ? undefined : tab.index,
+        browsingMode: page.mode,
         action: {
           pageId: page.id,
           actionId: action.id,

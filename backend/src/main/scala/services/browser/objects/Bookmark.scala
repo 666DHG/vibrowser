@@ -7,7 +7,8 @@ final case class Bookmark(
     title: String,
     address: String,
     kind: PageKind,
-    savedAt: String
+    savedAt: String,
+    mode: BrowsingMode = BrowsingMode.Imagination
 )
 object Bookmark:
   given Encoder[Bookmark] = deriveEncoder

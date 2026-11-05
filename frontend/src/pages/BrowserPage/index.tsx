@@ -15,11 +15,12 @@ import {
   selectTab,
   setDraft,
   openBookmarks,
+  openSettings,
+  setBrowsingMode,
 } from "./stores/browserStore";
 import { useBrowserNavigation } from "./hooks/useBrowserNavigation";
 import { BrowserTabs } from "./components/BrowserTabs";
 import { TabContent } from "./components/TabContent";
-import { SettingsPanel } from "./components/SettingsPanel";
 import { BookmarksPage } from "./components/BookmarksPage";
 import { useBookmarks } from "./hooks/useBookmarks";
 
@@ -34,7 +35,6 @@ export default function BrowserPage() {
     !!visiblePage &&
     bookmarks.items.some((item) => item.pageId === visiblePage.id);
   const address = useRef<HTMLInputElement>(null);
-  const [settings, setSettings] = useState(false);
   const [mock, setMock] = useState(false);
   useEffect(() => {
     fetch("/health")
@@ -108,6 +108,20 @@ export default function BrowserPage() {
               size={14}
               className="hidden shrink-0 text-[#68775c] sm:block"
             />
+            <select
+              aria-label="浏览模式"
+              value={tab.browsingMode ?? "imagination"}
+              onChange={(e) =>
+                setBrowsingMode(
+                  activeTabId,
+                  e.target.value as "imagination" | "research",
+                )
+              }
+              className="max-w-20 shrink-0 rounded-md bg-[#303829] py-1 text-xs text-[#c1d5ad]"
+            >
+              <option value="imagination">幻觉</option>
+              <option value="research">认真</option>
+            </select>
             <input
               ref={address}
               aria-label="网址或搜索词"
@@ -156,7 +170,7 @@ export default function BrowserPage() {
           </button>
           <button
             aria-label="设置"
-            onClick={() => setSettings(true)}
+            onClick={() => openSettings()}
             className={iconButton}
           >
             <Settings size={18} />
@@ -166,6 +180,7 @@ export default function BrowserPage() {
       {tabs.map((item) => (
         <TabContent
           key={item.id}
+          mock={mock}
           tab={item}
           active={item.id === activeTabId}
           onNavigate={(input, referrer, sourceBlockId) =>
@@ -191,7 +206,7 @@ export default function BrowserPage() {
               onRemove={(id) => void bookmarks.remove(id)}
             />
           }
-          onSettings={() => setSettings(true)}
+          onSettings={() => openSettings()}
         />
       ))}
       {bookmarks.error && tab.content.status !== "bookmarks" && (
@@ -207,9 +222,6 @@ export default function BrowserPage() {
             重试读取书签
           </button>
         </div>
-      )}
-      {settings && (
-        <SettingsPanel mock={mock} onClose={() => setSettings(false)} />
       )}
     </main>
   );

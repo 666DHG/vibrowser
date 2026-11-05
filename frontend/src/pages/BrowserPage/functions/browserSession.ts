@@ -1,3 +1,4 @@
+import { browsingModeSchema } from "../../../shared/browsingMode";
 import { z } from "zod";
 import type {
   BrowserTab,
@@ -6,6 +7,7 @@ import type {
 } from "../objects/BrowserState";
 export const SESSION_KEY = "vibrowser.tabs.v2";
 const entrySchema = z.object({
+  browsingMode: browsingModeSchema.default("imagination"),
   state: z.record(z.string(), z.string()).optional(),
   scroll: z.number().optional(),
   input: z.string(),
@@ -17,6 +19,7 @@ const historySchema = z.object({
   index: z.number().int(),
 });
 const pendingSchema = z.object({
+  browsingMode: browsingModeSchema.default("imagination"),
   action: z
     .object({
       pageId: z.string(),
@@ -38,11 +41,12 @@ const sessionSchema = z.object({
   tabs: z
     .array(
       historySchema.extend({
+        browsingMode: browsingModeSchema.default("imagination"),
         id: z.string(),
         title: z.string(),
         draft: z.string(),
         home: z.boolean().optional(),
-        view: z.enum(["idle", "ready", "bookmarks"]).optional(),
+        view: z.enum(["idle", "ready", "bookmarks", "settings"]).optional(),
         pending: pendingSchema.nullable().optional(),
       }),
     )
@@ -50,6 +54,7 @@ const sessionSchema = z.object({
 });
 export function emptyTab(): BrowserTab {
   return {
+    browsingMode: "imagination",
     id: crypto.randomUUID(),
     title: "新标签页",
     draft: "",
@@ -95,7 +100,10 @@ export function restoreSession(): BrowserSession {
           return {
             ...tab,
             index: entry ? tab.index : -1,
-            content: { status: kind === "bookmarks" ? "bookmarks" : "idle" },
+            content: {
+              status:
+                kind === "bookmarks" || kind === "settings" ? kind : "idle",
+            },
             pending: navigation,
           };
         },
@@ -148,6 +156,7 @@ function savedSession(session: BrowserSession) {
     activeTabId: session.activeTabId,
     tabs: session.tabs.map((tab) => ({
       id: tab.id,
+      browsingMode: tab.browsingMode ?? "imagination",
       title: tab.title,
       draft: tab.draft,
       entries: tab.entries,
@@ -157,6 +166,7 @@ function savedSession(session: BrowserSession) {
         tab.pending && tab.pending.status !== "complete"
           ? {
               action: tab.pending.action,
+              browsingMode: tab.pending.browsingMode,
               input: tab.pending.input,
               mode: tab.pending.mode,
               pageId: tab.pending.pageId,

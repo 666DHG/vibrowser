@@ -1,3 +1,4 @@
+import type { BrowsingMode } from "../../../shared/browsingMode";
 import { displayAddress } from "../functions/displayAddress";
 import { create } from "zustand";
 import type {
@@ -28,9 +29,11 @@ export const pageInput = (page: PageRecord) =>
 export const visibleInput = (tab: BrowserTab) =>
   tab.content.status === "ready"
     ? pageInput(tab.content.page)
-    : tab.content.status === "bookmarks"
-      ? "vibrowser://bookmarks"
-      : "";
+    : tab.content.status === "settings"
+      ? "vibrowser://settings"
+      : tab.content.status === "bookmarks"
+        ? "vibrowser://bookmarks"
+        : "";
 export const setDraft = (id: string, draft: string) =>
   updateTab(id, (tab) => ({ ...tab, draft }));
 export const setVisible = (id: string, content: ContentState) =>
@@ -64,6 +67,7 @@ export function completeNavigation(
     const pending = tab.pending;
     if (!pending || pending.requestId !== requestId) return tab;
     const entry = {
+      browsingMode: page.mode,
       state:
         pending.historyIndex !== undefined
           ? tab.entries[pending.historyIndex]?.state
@@ -92,6 +96,7 @@ export function completeNavigation(
             )
           : entries,
       index,
+      browsingMode: pending.mode === "cached" ? page.mode : tab.browsingMode,
       title: page.document?.title ?? page.spec?.title ?? page.address,
       draft:
         tab.draft === displayAddress(pending.input)
@@ -131,7 +136,12 @@ export function showHome(id: string) {
   }));
 }
 export function addTab() {
-  const tab = emptyTab();
+  const tab = {
+    ...emptyTab(),
+    browsingMode:
+      getTab(store.getState().activeTabId)?.browsingMode ??
+      ("imagination" as BrowsingMode),
+  };
   store.setState((state) => ({
     tabs: [...state.tabs, tab],
     activeTabId: tab.id,
@@ -185,5 +195,24 @@ export function savePageState(
         ? { ...entry, state, scroll: scroll ?? entry.scroll }
         : entry,
     ),
+  }));
+}
+
+export const setBrowsingMode = (id: string, browsingMode: BrowsingMode) =>
+  updateTab(id, (tab) => ({ ...tab, browsingMode }));
+export function openSettings() {
+  const existing = store
+    .getState()
+    .tabs.find((t) => t.content.status === "settings");
+  if (existing) {
+    selectTab(existing.id);
+    return;
+  }
+  const id = addTab();
+  updateTab(id, (t) => ({
+    ...t,
+    title: "设置",
+    draft: "vibrowser://settings",
+    content: { status: "settings" },
   }));
 }

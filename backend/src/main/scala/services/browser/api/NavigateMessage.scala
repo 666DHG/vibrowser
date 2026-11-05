@@ -15,27 +15,34 @@ import services.browser.utils.{AddressRules, NavigationContexts}
 final case class NavigateMessage(
     input: String,
     referrerPageId: Option[PageId],
-    sourceBlockId: Option[String] = None
+    sourceBlockId: Option[String] = None,
+    mode: Option[BrowsingMode] = None
 ) extends APIMessage[NavigationResponse]:
   override def plan(connection: Connection): IO[NavigationResponse] =
     for
       source <- referrerPageId.fold(IO.pure(Option.empty[PageRecord]))(
         PageTable.findById(connection, _)
       )
+      selectedMode = mode.getOrElse(BrowsingMode.Imagination)
+      matchingSource = source.filter(_.mode == selectedMode)
       address <- IO.fromEither(
         AddressRules
-          .classify(input, source.map(_.address))
+          .classify(input, matchingSource.map(_.address))
           .left
           .map(m => AppError("invalid_address", m))
       )
-      existing <- PageTable.findByAddress(connection, address.canonical)
+      existing <- PageTable.findByAddress(connection, address.canonical, selectedMode)
       result <- existing match
         case Some(page) => IO.pure(NavigationResponse(page.id, page.currentJobId, page.status))
         case None =>
           for
             context <- IO.fromEither(
               NavigationContexts
-                .capture(source, sourceBlockId, address.canonical)
+                .capture(
+                  matchingSource,
+                  if matchingSource.nonEmpty then sourceBlockId else None,
+                  address.canonical
+                )
                 .left
                 .map(m => AppError("invalid_source", m))
             )
@@ -47,8 +54,9 @@ final case class NavigateMessage(
               pageId,
               address,
               jobId,
-              source.map(_.id),
-              context
+              matchingSource.map(_.id),
+              context,
+              selectedMode
             )
             _ <-
               if inserted then
