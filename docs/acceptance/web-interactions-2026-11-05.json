@@ -1,0 +1,383 @@
+[
+  {
+    "pageId": "6801199b-e27f-4c72-b421-0719f7e3025a",
+    "jobId": "788e4011-e106-497f-bea5-a29bb86507bb",
+    "status": "ready",
+    "error": null,
+    "steps": [
+      {
+        "phase": "queued",
+        "attempt": 1,
+        "at": "2026-11-05T09:58:10.31102+08:00"
+      },
+      {
+        "phase": "preparing",
+        "attempt": 1,
+        "at": "2026-11-05T09:58:10.509716+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 1,
+        "at": "2026-11-05T09:58:10.678037+08:00"
+      },
+      {
+        "phase": "validating",
+        "attempt": 1,
+        "at": "2026-11-05T09:58:35.577096+08:00"
+      },
+      {
+        "phase": "saving",
+        "attempt": 1,
+        "at": "2026-11-05T09:58:35.806387+08:00"
+      },
+      {
+        "phase": "ready",
+        "attempt": 1,
+        "at": "2026-11-05T09:58:35.840998+08:00"
+      }
+    ],
+    "title": "搜索“选课” · 校园树洞"
+  },
+  {
+    "pageId": "77c05b49-1c2a-4f9a-a1c8-b95e95616994",
+    "jobId": "e44fa97e-ed50-48b4-a57a-f56c5368ac1d",
+    "status": "ready",
+    "error": null,
+    "steps": [
+      {
+        "phase": "queued",
+        "attempt": 1,
+        "at": "2026-11-05T09:58:36.733827+08:00"
+      },
+      {
+        "phase": "preparing",
+        "attempt": 1,
+        "at": "2026-11-05T09:58:36.756594+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 1,
+        "at": "2026-11-05T09:58:36.764924+08:00"
+      },
+      {
+        "phase": "validating",
+        "attempt": 1,
+        "at": "2026-11-05T09:59:03.278657+08:00"
+      },
+      {
+        "phase": "repairing",
+        "attempt": 2,
+        "at": "2026-11-05T09:59:03.293724+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 2,
+        "at": "2026-11-05T09:59:03.294543+08:00"
+      },
+      {
+        "phase": "validating",
+        "attempt": 2,
+        "at": "2026-11-05T09:59:23.736346+08:00"
+      },
+      {
+        "phase": "saving",
+        "attempt": 1,
+        "at": "2026-11-05T09:59:23.753705+08:00"
+      },
+      {
+        "phase": "ready",
+        "attempt": 1,
+        "at": "2026-11-05T09:59:23.772367+08:00"
+      }
+    ],
+    "title": "凌晨三点的图书馆，是谁在敲键盘？ · 校园树洞"
+  },
+  {
+    "pageId": "8573843f-2e3c-4624-a4c1-055bee5fb611",
+    "jobId": "9e6ef604-6876-496d-91e0-4ee32d414afb",
+    "status": "ready",
+    "error": null,
+    "steps": [
+      {
+        "phase": "queued",
+        "attempt": 1,
+        "at": "2026-11-05T09:59:24.418504+08:00"
+      },
+      {
+        "phase": "preparing",
+        "attempt": 1,
+        "at": "2026-11-05T09:59:24.702496+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 1,
+        "at": "2026-11-05T09:59:24.713496+08:00"
+      },
+      {
+        "phase": "validating",
+        "attempt": 1,
+        "at": "2026-11-05T09:59:28.945915+08:00"
+      },
+      {
+        "phase": "saving",
+        "attempt": 1,
+        "at": "2026-11-05T09:59:28.960842+08:00"
+      },
+      {
+        "phase": "ready",
+        "attempt": 1,
+        "at": "2026-11-05T09:59:28.983124+08:00"
+      }
+    ],
+    "title": "凌晨三点的图书馆，是谁在敲键盘？ · 校园树洞"
+  },
+  {
+    "pageId": "ba295d29-d3c7-4e03-b4f4-5a1d3fa79e06",
+    "jobId": "1f459a84-95c1-43ae-b17a-070ce07cc09a",
+    "status": "ready",
+    "error": null,
+    "steps": [
+      {
+        "phase": "queued",
+        "attempt": 1,
+        "at": "2026-11-05T10:03:18.953497+08:00"
+      },
+      {
+        "phase": "preparing",
+        "attempt": 1,
+        "at": "2026-11-05T10:03:19.128963+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 1,
+        "at": "2026-11-05T10:03:19.134417+08:00"
+      },
+      {
+        "phase": "validating",
+        "attempt": 1,
+        "at": "2026-11-05T10:03:46.028539+08:00"
+      },
+      {
+        "phase": "repairing",
+        "attempt": 2,
+        "at": "2026-11-05T10:03:46.03437+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 2,
+        "at": "2026-11-05T10:03:46.034894+08:00"
+      },
+      {
+        "phase": "validating",
+        "attempt": 2,
+        "at": "2026-11-05T10:04:08.059736+08:00"
+      },
+      {
+        "phase": "saving",
+        "attempt": 1,
+        "at": "2026-11-05T10:04:08.077212+08:00"
+      },
+      {
+        "phase": "ready",
+        "attempt": 1,
+        "at": "2026-11-05T10:04:08.099698+08:00"
+      }
+    ],
+    "title": "灰釉茶碗 — 山间手作 SHANJIAN CRAFT"
+  },
+  {
+    "pageId": "59f369bf-a530-4ccd-948b-66fa88d20d2a",
+    "jobId": "9bc99592-3533-49b6-a302-43e3e9cfc408",
+    "status": "failed",
+    "error": "unsupported HTML element",
+    "steps": [
+      {
+        "phase": "queued",
+        "attempt": 1,
+        "at": "2026-11-05T10:06:33.647851+08:00"
+      },
+      {
+        "phase": "preparing",
+        "attempt": 1,
+        "at": "2026-11-05T10:06:33.653707+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 1,
+        "at": "2026-11-05T10:06:33.660696+08:00"
+      },
+      {
+        "phase": "validating",
+        "attempt": 1,
+        "at": "2026-11-05T10:06:52.507877+08:00"
+      },
+      {
+        "phase": "repairing",
+        "attempt": 2,
+        "at": "2026-11-05T10:06:52.513323+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 2,
+        "at": "2026-11-05T10:06:52.514037+08:00"
+      },
+      {
+        "phase": "validating",
+        "attempt": 2,
+        "at": "2026-11-05T10:07:08.256421+08:00"
+      },
+      {
+        "phase": "failed",
+        "attempt": 2,
+        "at": "2026-11-05T10:07:08.263615+08:00"
+      }
+    ]
+  },
+  {
+    "pageId": "59f369bf-a530-4ccd-948b-66fa88d20d2a",
+    "jobId": "acf0be7d-a1a4-43dd-a254-6605e8ec77e3",
+    "status": "ready",
+    "error": null,
+    "steps": [
+      {
+        "phase": "queued",
+        "attempt": 1,
+        "at": "2026-11-05T10:09:06.520324+08:00"
+      },
+      {
+        "phase": "preparing",
+        "attempt": 1,
+        "at": "2026-11-05T10:09:06.587798+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 1,
+        "at": "2026-11-05T10:09:06.764046+08:00"
+      },
+      {
+        "phase": "validating",
+        "attempt": 1,
+        "at": "2026-11-05T10:09:28.120439+08:00"
+      },
+      {
+        "phase": "repairing",
+        "attempt": 2,
+        "at": "2026-11-05T10:09:28.257977+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 2,
+        "at": "2026-11-05T10:09:28.25915+08:00"
+      },
+      {
+        "phase": "validating",
+        "attempt": 2,
+        "at": "2026-11-05T10:09:45.011491+08:00"
+      },
+      {
+        "phase": "saving",
+        "attempt": 2,
+        "at": "2026-11-05T10:09:45.200569+08:00"
+      },
+      {
+        "phase": "ready",
+        "attempt": 2,
+        "at": "2026-11-05T10:09:45.230203+08:00"
+      }
+    ],
+    "title": "搜索结果：快速开始 · 星轨开发者文档 v3.2"
+  },
+  {
+    "pageId": "a9f2ffc9-0e0e-474f-befa-187d7f1eaef5",
+    "jobId": "8e3672ce-548d-40b2-a721-8b6c5a1ff7d5",
+    "status": "ready",
+    "error": null,
+    "steps": [
+      {
+        "phase": "queued",
+        "attempt": 1,
+        "at": "2026-11-05T10:09:46.082885+08:00"
+      },
+      {
+        "phase": "preparing",
+        "attempt": 1,
+        "at": "2026-11-05T10:09:46.160434+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 1,
+        "at": "2026-11-05T10:09:46.168908+08:00"
+      },
+      {
+        "phase": "validating",
+        "attempt": 1,
+        "at": "2026-11-05T10:10:14.264933+08:00"
+      },
+      {
+        "phase": "saving",
+        "attempt": 1,
+        "at": "2026-11-05T10:10:14.293556+08:00"
+      },
+      {
+        "phase": "ready",
+        "attempt": 1,
+        "at": "2026-11-05T10:10:14.32029+08:00"
+      }
+    ],
+    "title": "接入基础：v3.2 服务端规范 — 星轨开发者文档"
+  },
+  {
+    "pageId": "26323c4f-60c7-42f1-9726-aa596201983f",
+    "jobId": "189783c6-300f-4700-a1fb-de4e014db7f0",
+    "status": "ready",
+    "error": null,
+    "steps": [
+      {
+        "phase": "queued",
+        "attempt": 1,
+        "at": "2026-11-05T10:12:44.675149+08:00"
+      },
+      {
+        "phase": "preparing",
+        "attempt": 1,
+        "at": "2026-11-05T10:12:44.962479+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 1,
+        "at": "2026-11-05T10:12:45.183426+08:00"
+      },
+      {
+        "phase": "validating",
+        "attempt": 1,
+        "at": "2026-11-05T10:13:17.107006+08:00"
+      },
+      {
+        "phase": "repairing",
+        "attempt": 2,
+        "at": "2026-11-05T10:13:17.165469+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 2,
+        "at": "2026-11-05T10:13:17.166276+08:00"
+      },
+      {
+        "phase": "validating",
+        "attempt": 2,
+        "at": "2026-11-05T10:13:42.242172+08:00"
+      },
+      {
+        "phase": "saving",
+        "attempt": 2,
+        "at": "2026-11-05T10:13:42.417051+08:00"
+      },
+      {
+        "phase": "ready",
+        "attempt": 2,
+        "at": "2026-11-05T10:13:42.446329+08:00"
+      }
+    ],
+    "title": "接入基础：v3.2 服务端规范 · 星轨开放平台文档"
+  }
+]

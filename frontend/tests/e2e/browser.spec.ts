@@ -31,18 +31,35 @@ test("home, website, link, history, refresh and fictional search", async ({
     path: "../docs/screenshots/generated-page.png",
     fullPage: true,
   });
+  const committed = async (target: string) => {
+    await expect
+      .poll(() =>
+        page.evaluate(() => {
+          const s = JSON.parse(sessionStorage.getItem("vibrowser.tabs.v2")!);
+          const t = s.tabs.find(
+            (tab: { id: string }) => tab.id === s.activeTabId,
+          );
+          return t.entries[t.index]?.address;
+        }),
+      )
+      .toBe(target);
+  };
   const original = await address.inputValue();
   await page.getByRole("button", { name: "查看完整菜单" }).click();
   await expect(address).toHaveValue(original + "menu");
+  await committed(original + "menu");
   await expect(page.getByRole("heading", { name: /离地球很远/ })).toBeVisible();
   await page.getByRole("button", { name: "后退", exact: true }).click();
   await expect(address).toHaveValue(original);
+  await committed(original);
   await page.getByRole("button", { name: "前进", exact: true }).click();
   await expect(address).toHaveValue(original + "menu");
+  await committed(original + "menu");
   await page.getByRole("button", { name: "刷新", exact: true }).click();
   await expect(page.getByRole("heading", { name: /离地球很远/ })).toBeVisible();
   await page.reload();
   await expect(address).toHaveValue(original + "menu");
+  await committed(original + "menu");
   await expect(page.getByRole("heading", { name: /离地球很远/ })).toBeVisible();
   await address.fill("月球旅行");
   await address.press("Enter");

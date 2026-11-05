@@ -137,3 +137,90 @@ for (const name of ["forum", "shop", "docs"])
     );
     await page.screenshot({ path: "../.cache/v3-" + name + ".png" });
   });
+
+test("v3 IME and consecutive searches accept only the newest response", async ({
+  page,
+}) => {
+  const base = JSON.parse(
+    await readFile("../contracts/web-documents/forum.json", "utf8"),
+  );
+  let release!: () => void;
+  const delayed = new Promise<void>((r) => {
+    release = r;
+  });
+  const submissions: string[] = [];
+  await page.route("**/health", (r) =>
+    r.fulfill({ json: { status: "ok", mock: true } }),
+  );
+  await page.route("**/api/listbookmarks", (r) =>
+    r.fulfill({ json: { bookmarks: [] } }),
+  );
+  await page.route("**/api/navigate", (r) =>
+    r.fulfill({ json: { pageId: "base", jobId: "job", status: "ready" } }),
+  );
+  await page.route("**/api/getpage", (r) => {
+    const id = r.request().postDataJSON().pageId;
+    return r.fulfill({
+      json: {
+        page: {
+          id,
+          address:
+            "https://sample.example/" + (id === "base" ? "" : "search?q=" + id),
+          kind: "website",
+          prompt: id,
+          status: "ready",
+          spec: null,
+          document: { ...base, title: id },
+          currentJobId: "job",
+          referrerId: null,
+          error: null,
+          source: "mock",
+        },
+        job: {
+          id: "job",
+          pageId: id,
+          kind: "page",
+          status: "succeeded",
+          phase: "ready",
+          error: null,
+          settingsRevision: 1,
+          steps: [],
+        },
+      },
+    });
+  });
+  await page.route("**/api/submitpageaction", async (r) => {
+    const q = r.request().postDataJSON().values.q;
+    submissions.push(q);
+    if (q === "first") await delayed;
+    await r
+      .fulfill({ json: { pageId: q, jobId: "job", status: "ready" } })
+      .catch(() => {});
+  });
+  await page.goto("/");
+  const address = page.getByRole("textbox", { name: "网址或搜索词" });
+  await address.fill("sample.example");
+  await address.press("Enter");
+  await expect(page.locator("iframe")).toHaveAttribute("title", "base");
+  const input = page.frameLocator("iframe").locator('input[name="q"]');
+  await input.fill("first");
+  await input.dispatchEvent("compositionstart");
+  await input.press("Enter");
+  expect(submissions).toEqual([]);
+  await input.dispatchEvent("compositionend");
+  await input.press("Enter");
+  await expect.poll(() => submissions.length).toBe(1);
+  await input.fill("second");
+  await input.press("Enter");
+  await expect(page.locator("iframe")).toHaveAttribute("title", "second");
+  release();
+  await page.waitForTimeout(200);
+  await expect(page.locator("iframe")).toHaveAttribute("title", "second");
+  expect(submissions).toEqual(["first", "second"]);
+  const session = await page.evaluate(() =>
+    JSON.parse(sessionStorage.getItem("vibrowser.tabs.v2")!),
+  );
+  expect(
+    session.tabs[0].entries.map((e: { pageId: string }) => e.pageId),
+  ).toEqual(["base", "second"]);
+});

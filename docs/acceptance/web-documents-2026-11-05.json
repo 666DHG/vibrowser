@@ -1,0 +1,564 @@
+[
+  {
+    "kind": "forum",
+    "variant": 1,
+    "input": "校园树洞论坛.com/v3-1",
+    "pageId": "e2f73cca-e90c-4225-b4f0-096f8bbed35a",
+    "jobId": "ae4996c1-c078-4d78-b4ef-9b8531e77c72",
+    "status": "failed",
+    "error": "unsupported HTML attribute; put styles in css",
+    "elapsedMs": 65314,
+    "steps": [
+      {
+        "phase": "queued",
+        "attempt": 1,
+        "at": "2026-11-05T09:47:56.048646+08:00"
+      },
+      {
+        "phase": "preparing",
+        "attempt": 1,
+        "at": "2026-11-05T09:47:56.341557+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 1,
+        "at": "2026-11-05T09:47:56.511515+08:00"
+      },
+      {
+        "phase": "validating",
+        "attempt": 1,
+        "at": "2026-11-05T09:48:31.614072+08:00"
+      },
+      {
+        "phase": "repairing",
+        "attempt": 2,
+        "at": "2026-11-05T09:48:31.709011+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 2,
+        "at": "2026-11-05T09:48:31.709944+08:00"
+      },
+      {
+        "phase": "validating",
+        "attempt": 2,
+        "at": "2026-11-05T09:49:00.54002+08:00"
+      },
+      {
+        "phase": "failed",
+        "attempt": 2,
+        "at": "2026-11-05T09:49:00.547508+08:00"
+      }
+    ],
+    "retests": [
+      {
+        "jobId": "8cdc49c8-0451-4209-aae7-be5d9cedd7c2",
+        "status": "failed",
+        "error": "link/form requires declared action: compose-form",
+        "steps": [
+          {
+            "phase": "queued",
+            "attempt": 1,
+            "at": "2026-11-05T09:54:19.947447+08:00"
+          },
+          {
+            "phase": "preparing",
+            "attempt": 1,
+            "at": "2026-11-05T09:54:19.999759+08:00"
+          },
+          {
+            "phase": "generating",
+            "attempt": 1,
+            "at": "2026-11-05T09:54:20.189497+08:00"
+          },
+          {
+            "phase": "validating",
+            "attempt": 1,
+            "at": "2026-11-05T09:54:37.739716+08:00"
+          },
+          {
+            "phase": "repairing",
+            "attempt": 2,
+            "at": "2026-11-05T09:54:37.834884+08:00"
+          },
+          {
+            "phase": "generating",
+            "attempt": 2,
+            "at": "2026-11-05T09:54:37.836714+08:00"
+          },
+          {
+            "phase": "validating",
+            "attempt": 2,
+            "at": "2026-11-05T09:54:58.126653+08:00"
+          },
+          {
+            "phase": "failed",
+            "attempt": 2,
+            "at": "2026-11-05T09:54:58.174164+08:00"
+          }
+        ],
+        "elapsedMs": 38393
+      },
+      {
+        "jobId": "8a9f8559-4bf1-4109-adf9-73cbbc1c857b",
+        "status": "ready",
+        "error": null,
+        "steps": [
+          {
+            "phase": "queued",
+            "attempt": 1,
+            "at": "2026-11-05T09:59:32.030918+08:00"
+          },
+          {
+            "phase": "preparing",
+            "attempt": 1,
+            "at": "2026-11-05T09:59:32.056747+08:00"
+          },
+          {
+            "phase": "generating",
+            "attempt": 1,
+            "at": "2026-11-05T09:59:32.067153+08:00"
+          },
+          {
+            "phase": "validating",
+            "attempt": 1,
+            "at": "2026-11-05T09:59:58.861579+08:00"
+          },
+          {
+            "phase": "repairing",
+            "attempt": 2,
+            "at": "2026-11-05T09:59:58.869475+08:00"
+          },
+          {
+            "phase": "generating",
+            "attempt": 2,
+            "at": "2026-11-05T09:59:58.870262+08:00"
+          },
+          {
+            "phase": "validating",
+            "attempt": 2,
+            "at": "2026-11-05T10:00:20.70205+08:00"
+          },
+          {
+            "phase": "saving",
+            "attempt": 1,
+            "at": "2026-11-05T10:00:20.713878+08:00"
+          },
+          {
+            "phase": "ready",
+            "attempt": 1,
+            "at": "2026-11-05T10:00:20.725923+08:00"
+          }
+        ],
+        "elapsedMs": 49013
+      }
+    ]
+  },
+  {
+    "kind": "forum",
+    "variant": 2,
+    "input": "校园树洞论坛.com/v3-2",
+    "pageId": "df2fedeb-dfea-4c7a-8f2a-f622bab27498",
+    "jobId": "1ff899f2-54de-42e8-b8ad-c64902a49d15",
+    "status": "failed",
+    "error": "link/form requires declared action: m5507",
+    "elapsedMs": 63604,
+    "steps": [
+      {
+        "phase": "queued",
+        "attempt": 1,
+        "at": "2026-11-05T09:49:01.298785+08:00"
+      },
+      {
+        "phase": "preparing",
+        "attempt": 1,
+        "at": "2026-11-05T09:49:01.470401+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 1,
+        "at": "2026-11-05T09:49:01.474273+08:00"
+      },
+      {
+        "phase": "validating",
+        "attempt": 1,
+        "at": "2026-11-05T09:49:36.641805+08:00"
+      },
+      {
+        "phase": "repairing",
+        "attempt": 2,
+        "at": "2026-11-05T09:49:36.65179+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 2,
+        "at": "2026-11-05T09:49:36.652399+08:00"
+      },
+      {
+        "phase": "validating",
+        "attempt": 2,
+        "at": "2026-11-05T09:50:04.425667+08:00"
+      },
+      {
+        "phase": "failed",
+        "attempt": 2,
+        "at": "2026-11-05T09:50:04.43336+08:00"
+      }
+    ],
+    "retests": [
+      {
+        "jobId": "db14440e-784c-4bc8-8497-dc0d9fa88beb",
+        "status": "ready",
+        "error": null,
+        "steps": [
+          {
+            "phase": "queued",
+            "attempt": 1,
+            "at": "2026-11-05T09:54:58.335689+08:00"
+          },
+          {
+            "phase": "preparing",
+            "attempt": 1,
+            "at": "2026-11-05T09:54:58.477544+08:00"
+          },
+          {
+            "phase": "generating",
+            "attempt": 1,
+            "at": "2026-11-05T09:54:58.482913+08:00"
+          },
+          {
+            "phase": "validating",
+            "attempt": 1,
+            "at": "2026-11-05T09:55:18.2498+08:00"
+          },
+          {
+            "phase": "repairing",
+            "attempt": 2,
+            "at": "2026-11-05T09:55:18.259557+08:00"
+          },
+          {
+            "phase": "generating",
+            "attempt": 2,
+            "at": "2026-11-05T09:55:18.260708+08:00"
+          },
+          {
+            "phase": "validating",
+            "attempt": 2,
+            "at": "2026-11-05T09:55:35.309411+08:00"
+          },
+          {
+            "phase": "saving",
+            "attempt": 1,
+            "at": "2026-11-05T09:55:35.52675+08:00"
+          },
+          {
+            "phase": "ready",
+            "attempt": 1,
+            "at": "2026-11-05T09:55:35.576686+08:00"
+          }
+        ],
+        "elapsedMs": 37515
+      }
+    ]
+  },
+  {
+    "kind": "shop",
+    "variant": 1,
+    "input": "山间手作商店.com/v3-1",
+    "pageId": "5ce58396-cdb8-4b9f-9b7c-e74c03079130",
+    "jobId": "ca9c6d37-c570-40b5-8d9d-48b9adfd790d",
+    "status": "ready",
+    "error": null,
+    "title": "山间手作 · 木器与陶作",
+    "elapsedMs": 32386,
+    "steps": [
+      {
+        "phase": "queued",
+        "attempt": 1,
+        "at": "2026-11-05T09:50:04.900413+08:00"
+      },
+      {
+        "phase": "preparing",
+        "attempt": 1,
+        "at": "2026-11-05T09:50:05.046184+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 1,
+        "at": "2026-11-05T09:50:05.052278+08:00"
+      },
+      {
+        "phase": "validating",
+        "attempt": 1,
+        "at": "2026-11-05T09:50:36.526187+08:00"
+      },
+      {
+        "phase": "saving",
+        "attempt": 1,
+        "at": "2026-11-05T09:50:36.685342+08:00"
+      },
+      {
+        "phase": "ready",
+        "attempt": 1,
+        "at": "2026-11-05T09:50:36.71719+08:00"
+      }
+    ]
+  },
+  {
+    "kind": "shop",
+    "variant": 2,
+    "input": "山间手作商店.com/v3-2",
+    "pageId": "e58f0776-b79a-4701-ba0a-ac4a0726e6d8",
+    "jobId": "58ff1c47-4cea-42a2-be86-4d55c5761be5",
+    "status": "failed",
+    "error": "unsupported HTML attribute; put styles in css",
+    "elapsedMs": 55058,
+    "steps": [
+      {
+        "phase": "queued",
+        "attempt": 1,
+        "at": "2026-11-05T09:50:37.83077+08:00"
+      },
+      {
+        "phase": "preparing",
+        "attempt": 1,
+        "at": "2026-11-05T09:50:37.958988+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 1,
+        "at": "2026-11-05T09:50:37.962275+08:00"
+      },
+      {
+        "phase": "validating",
+        "attempt": 1,
+        "at": "2026-11-05T09:51:10.091644+08:00"
+      },
+      {
+        "phase": "repairing",
+        "attempt": 2,
+        "at": "2026-11-05T09:51:10.095457+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 2,
+        "at": "2026-11-05T09:51:10.096047+08:00"
+      },
+      {
+        "phase": "validating",
+        "attempt": 2,
+        "at": "2026-11-05T09:51:32.825269+08:00"
+      },
+      {
+        "phase": "failed",
+        "attempt": 2,
+        "at": "2026-11-05T09:51:32.827746+08:00"
+      }
+    ],
+    "retests": [
+      {
+        "jobId": "dd0481d3-0160-43a3-856a-5f21ced73d85",
+        "status": "ready",
+        "error": null,
+        "steps": [
+          {
+            "phase": "queued",
+            "attempt": 1,
+            "at": "2026-11-05T09:55:37.501347+08:00"
+          },
+          {
+            "phase": "preparing",
+            "attempt": 1,
+            "at": "2026-11-05T09:55:37.746354+08:00"
+          },
+          {
+            "phase": "generating",
+            "attempt": 1,
+            "at": "2026-11-05T09:55:37.750001+08:00"
+          },
+          {
+            "phase": "validating",
+            "attempt": 1,
+            "at": "2026-11-05T09:55:58.371153+08:00"
+          },
+          {
+            "phase": "repairing",
+            "attempt": 2,
+            "at": "2026-11-05T09:55:58.382645+08:00"
+          },
+          {
+            "phase": "generating",
+            "attempt": 2,
+            "at": "2026-11-05T09:55:58.383238+08:00"
+          },
+          {
+            "phase": "validating",
+            "attempt": 2,
+            "at": "2026-11-05T09:56:14.114939+08:00"
+          },
+          {
+            "phase": "saving",
+            "attempt": 1,
+            "at": "2026-11-05T09:56:14.130106+08:00"
+          },
+          {
+            "phase": "ready",
+            "attempt": 1,
+            "at": "2026-11-05T09:56:14.143766+08:00"
+          }
+        ],
+        "elapsedMs": 36663
+      }
+    ]
+  },
+  {
+    "kind": "docs",
+    "variant": 1,
+    "input": "星轨开发文档.com/v3-1",
+    "pageId": "a6e502e4-7e9f-49fc-adab-437fcc2b5734",
+    "jobId": "18c44353-3b72-47c5-88af-f87012552701",
+    "status": "ready",
+    "error": null,
+    "title": "星轨开发文档 · v3-1 开发者手册",
+    "elapsedMs": 36734,
+    "steps": [
+      {
+        "phase": "queued",
+        "attempt": 1,
+        "at": "2026-11-05T09:51:32.893228+08:00"
+      },
+      {
+        "phase": "preparing",
+        "attempt": 1,
+        "at": "2026-11-05T09:51:33.134019+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 1,
+        "at": "2026-11-05T09:51:33.139857+08:00"
+      },
+      {
+        "phase": "validating",
+        "attempt": 1,
+        "at": "2026-11-05T09:52:09.358313+08:00"
+      },
+      {
+        "phase": "saving",
+        "attempt": 1,
+        "at": "2026-11-05T09:52:09.383092+08:00"
+      },
+      {
+        "phase": "ready",
+        "attempt": 1,
+        "at": "2026-11-05T09:52:09.406942+08:00"
+      }
+    ]
+  },
+  {
+    "kind": "docs",
+    "variant": 2,
+    "input": "星轨开发文档.com/v3-2",
+    "pageId": "39f28957-f1a1-4df2-aa64-06661fb566ab",
+    "jobId": "d7af7db9-65b6-4f03-b8e6-c8774d33d47b",
+    "status": "failed",
+    "error": "unsupported HTML attribute; put styles in css",
+    "elapsedMs": 43586,
+    "steps": [
+      {
+        "phase": "queued",
+        "attempt": 1,
+        "at": "2026-11-05T09:52:10.028919+08:00"
+      },
+      {
+        "phase": "preparing",
+        "attempt": 1,
+        "at": "2026-11-05T09:52:10.33719+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 1,
+        "at": "2026-11-05T09:52:10.341039+08:00"
+      },
+      {
+        "phase": "validating",
+        "attempt": 1,
+        "at": "2026-11-05T09:52:34.449984+08:00"
+      },
+      {
+        "phase": "repairing",
+        "attempt": 2,
+        "at": "2026-11-05T09:52:34.45438+08:00"
+      },
+      {
+        "phase": "generating",
+        "attempt": 2,
+        "at": "2026-11-05T09:52:34.455055+08:00"
+      },
+      {
+        "phase": "validating",
+        "attempt": 2,
+        "at": "2026-11-05T09:52:53.345011+08:00"
+      },
+      {
+        "phase": "failed",
+        "attempt": 2,
+        "at": "2026-11-05T09:52:53.348481+08:00"
+      }
+    ],
+    "retests": [
+      {
+        "jobId": "5841171c-650d-438b-8355-c041d1caf064",
+        "status": "ready",
+        "error": null,
+        "steps": [
+          {
+            "phase": "queued",
+            "attempt": 1,
+            "at": "2026-11-05T09:56:14.778499+08:00"
+          },
+          {
+            "phase": "preparing",
+            "attempt": 1,
+            "at": "2026-11-05T09:56:15.075772+08:00"
+          },
+          {
+            "phase": "generating",
+            "attempt": 1,
+            "at": "2026-11-05T09:56:15.07925+08:00"
+          },
+          {
+            "phase": "validating",
+            "attempt": 1,
+            "at": "2026-11-05T09:56:33.441553+08:00"
+          },
+          {
+            "phase": "repairing",
+            "attempt": 2,
+            "at": "2026-11-05T09:56:33.448828+08:00"
+          },
+          {
+            "phase": "generating",
+            "attempt": 2,
+            "at": "2026-11-05T09:56:33.449309+08:00"
+          },
+          {
+            "phase": "validating",
+            "attempt": 2,
+            "at": "2026-11-05T09:56:48.489621+08:00"
+          },
+          {
+            "phase": "saving",
+            "attempt": 1,
+            "at": "2026-11-05T09:56:48.502034+08:00"
+          },
+          {
+            "phase": "ready",
+            "attempt": 1,
+            "at": "2026-11-05T09:56:48.51392+08:00"
+          }
+        ],
+        "elapsedMs": 34485
+      }
+    ]
+  }
+]

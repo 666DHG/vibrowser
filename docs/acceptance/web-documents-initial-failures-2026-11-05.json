@@ -1,0 +1,194 @@
+[
+  {
+    "id": "00bc5d2f-2d82-4b2c-a932-2687129494cc",
+    "prompt": "校园树洞论坛.com/v3-1",
+    "status": "failed",
+    "error": "DecodingFailure at .initialState.collected: Got value '0' with wrong type, expecting string",
+    "steps": [
+      {
+        "at": "2026-11-05T09:42:24.284608+08:00",
+        "phase": "queued",
+        "attempt": 1
+      },
+      {
+        "at": "2026-11-05T09:42:24.473713+08:00",
+        "phase": "preparing",
+        "attempt": 1
+      },
+      {
+        "at": "2026-11-05T09:42:24.645196+08:00",
+        "phase": "generating",
+        "attempt": 1
+      },
+      {
+        "at": "2026-11-05T09:42:49.540256+08:00",
+        "phase": "validating",
+        "attempt": 1
+      },
+      {
+        "at": "2026-11-05T09:42:49.578089+08:00",
+        "phase": "repairing",
+        "attempt": 2
+      },
+      {
+        "at": "2026-11-05T09:42:49.578823+08:00",
+        "phase": "generating",
+        "attempt": 2
+      },
+      {
+        "at": "2026-11-05T09:43:12.619775+08:00",
+        "phase": "validating",
+        "attempt": 2
+      },
+      {
+        "at": "2026-11-05T09:43:12.631266+08:00",
+        "phase": "failed",
+        "attempt": 2
+      }
+    ]
+  },
+  {
+    "id": "009b0308-c003-4dc3-a3df-66b65c6a9aef",
+    "prompt": "校园树洞论坛.com/v3-2",
+    "status": "failed",
+    "error": "entity id must be canonical URL",
+    "steps": [
+      {
+        "at": "2026-11-05T09:43:12.685952+08:00",
+        "phase": "queued",
+        "attempt": 1
+      },
+      {
+        "at": "2026-11-05T09:43:12.944839+08:00",
+        "phase": "preparing",
+        "attempt": 1
+      },
+      {
+        "at": "2026-11-05T09:43:12.949598+08:00",
+        "phase": "generating",
+        "attempt": 1
+      },
+      {
+        "at": "2026-11-05T09:43:32.967573+08:00",
+        "phase": "validating",
+        "attempt": 1
+      },
+      {
+        "at": "2026-11-05T09:43:32.971013+08:00",
+        "phase": "repairing",
+        "attempt": 2
+      },
+      {
+        "at": "2026-11-05T09:43:32.971793+08:00",
+        "phase": "generating",
+        "attempt": 2
+      },
+      {
+        "at": "2026-11-05T09:43:49.710112+08:00",
+        "phase": "validating",
+        "attempt": 2
+      },
+      {
+        "at": "2026-11-05T09:43:49.772774+08:00",
+        "phase": "failed",
+        "attempt": 2
+      }
+    ]
+  },
+  {
+    "id": "6271c4be-8911-4b02-8162-d7fece38c483",
+    "prompt": "山间手作商店.com/v3-1",
+    "status": "failed",
+    "error": "DecodingFailure at .initialState.cartCount: Got value '0' with wrong type, expecting string",
+    "steps": [
+      {
+        "at": "2026-11-05T09:43:50.254009+08:00",
+        "phase": "queued",
+        "attempt": 1
+      },
+      {
+        "at": "2026-11-05T09:43:50.390359+08:00",
+        "phase": "preparing",
+        "attempt": 1
+      },
+      {
+        "at": "2026-11-05T09:43:50.394087+08:00",
+        "phase": "generating",
+        "attempt": 1
+      },
+      {
+        "at": "2026-11-05T09:44:13.048062+08:00",
+        "phase": "validating",
+        "attempt": 1
+      },
+      {
+        "at": "2026-11-05T09:44:13.050045+08:00",
+        "phase": "repairing",
+        "attempt": 2
+      },
+      {
+        "at": "2026-11-05T09:44:13.050687+08:00",
+        "phase": "generating",
+        "attempt": 2
+      },
+      {
+        "at": "2026-11-05T09:44:29.501498+08:00",
+        "phase": "validating",
+        "attempt": 2
+      },
+      {
+        "at": "2026-11-05T09:44:29.504036+08:00",
+        "phase": "failed",
+        "attempt": 2
+      }
+    ]
+  },
+  {
+    "id": "81152eb3-f822-466f-9d13-6b8bd4b26da2",
+    "prompt": "山间手作商店.com/v3-2",
+    "status": "failed",
+    "error": "DecodingFailure at .actions[14].value: Got value '1' with wrong type, expecting string",
+    "steps": [
+      {
+        "at": "2026-11-05T09:44:30.141687+08:00",
+        "phase": "queued",
+        "attempt": 1
+      },
+      {
+        "at": "2026-11-05T09:44:30.416586+08:00",
+        "phase": "preparing",
+        "attempt": 1
+      },
+      {
+        "at": "2026-11-05T09:44:30.421921+08:00",
+        "phase": "generating",
+        "attempt": 1
+      },
+      {
+        "at": "2026-11-05T09:44:58.756847+08:00",
+        "phase": "validating",
+        "attempt": 1
+      },
+      {
+        "at": "2026-11-05T09:44:58.759307+08:00",
+        "phase": "repairing",
+        "attempt": 2
+      },
+      {
+        "at": "2026-11-05T09:44:58.760098+08:00",
+        "phase": "generating",
+        "attempt": 2
+      },
+      {
+        "at": "2026-11-05T09:45:20.627083+08:00",
+        "phase": "validating",
+        "attempt": 2
+      },
+      {
+        "at": "2026-11-05T09:45:20.629063+08:00",
+        "phase": "failed",
+        "attempt": 2
+      }
+    ]
+  }
+]

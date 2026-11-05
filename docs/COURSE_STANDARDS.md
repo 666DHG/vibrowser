@@ -4,6 +4,8 @@
 
 ## 首版实现证据与明确取舍
 
+2026-11-05 v3：WebDocument、WebAction、WebBinding、SiteStyle、PageActionSnapshot 独立 final case class 与伴生 codecs；WebActionKind/EntityField 为封闭 enum。SubmitPageActionMessage 与校验/归一化消息保持 plan(connection): IO；PageActionTable/Initializer 管理快照与幂等请求，BookmarkTable 在首次 INSERT 原子保存状态，重复收藏不覆盖。前端 API 类提供 send，iframe 运行时与 hooks 位于 BrowserPage 附近；未增加转发 Service。HTML/CSS 解析、事实合并与模型协议分别归 browser/generation 私有工具，模型调用仍在短事务之外。见 [v3 验收](WEB_DOCUMENTS.md)。
+
 本轮 v2 新增 EntityKind、PageEntity、EntityPrice、ReplyRange、NavigationItem、NavigationContext、SiteAppearance、AncestorSummary，均按独立数据文件与编解码组织；纯上下文提取属于 browser.utils，事实合并属于 generation.utils，跨服务校验仍通过消息。PageTable/Initializer 维护 JSONB 快照，NavigateMessage 保持 plan(connection)，前端对应 API.send；没有转发 Service。UI presence hook、目标解析和实体绑定均就近放置，见 [验证与类职责](CONTINUITY.md)。
 
 加载与书签增强新增 BookmarkId/Bookmark/响应、GenerationStep 等独立 final case class 和 GenerationPhase 枚举，消息继续使用 plan(connection)。BookmarkTable/Initializer 维护书签，GenerationJobTable 原子记录阶段历史；前端显示内容与待完成导航分别建模，详见 [实现与验收](BOOKMARKS_PROGRESS.md)。

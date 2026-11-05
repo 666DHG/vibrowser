@@ -33,3 +33,7 @@ logs/
 .DS_Store
 Thumbs.db
 Desktop.ini
+
+frontend/test-results-live/
+frontend/test-results-regression/
+frontend/test-results-review/
