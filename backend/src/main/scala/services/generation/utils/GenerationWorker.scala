@@ -18,7 +18,9 @@ private[generation] final class GenerationWorker(
     client: TextGenerationClient,
     mock: Boolean,
     webDocuments: Boolean = false,
-    researchClient: Option[ResearchClient] = None
+    researchClient: Option[ResearchClient] = None,
+    designWorkflow: Boolean = false,
+    layoutMeasurer: LayoutMeasurer = new NodeLayoutMeasurer
 ):
   private[generation] def run: IO[Unit] =
     def tick: IO[Unit] =
@@ -103,15 +105,28 @@ private[generation] final class GenerationWorker(
         document <-
           if research.exists(s => !s.complete) then IO.pure(Option.empty[WebDocument])
           else
-            new WebDocumentGeneration(database, client)
-              .generate(
-                config,
-                page,
-                prompt + research.map(ResearchContent.prompt).getOrElse(""),
-                snapshot = snapshot,
-                research = research
-              )
-              .map(Some(_))
+            val request = prompt + research.map(ResearchContent.prompt).getOrElse("")
+            val fullPage = snapshot.forall(_.action.kind == WebActionKind.Search)
+            (if designWorkflow && fullPage then
+               new DesignWorkflowGeneration(database, client, layoutMeasurer).generate(
+                 config,
+                 page,
+                 request,
+                 snapshot,
+                 research
+               )
+             else
+               new WebDocumentGeneration(database, client).generate(
+                 config,
+                 page,
+                 request,
+                 snapshot,
+                 research,
+                 system =
+                   if designWorkflow then WebDocumentPrompt.system
+                   else WebDocumentPrompt.legacySystem
+               )
+            ).map(Some(_))
         current <- database.transaction(c => GenerationJobTable.findById(c, job.id))
         _ <-
           if document.isEmpty then IO.unit

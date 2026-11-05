@@ -36,6 +36,7 @@ final case class RetryPageMessage(pageId: PageId, failedJobId: JobId)
               if snapshot.nonEmpty then JobKind.Action else JobKind.Page,
               config.revision
             )
+            _ <- GenerationJobTable.copyDesignWorkflow(connection, failedJobId, jobId)
           yield NavigationResponse(pageId, jobId, PageStatus.Generating)
     yield result
 object RetryPageMessage:

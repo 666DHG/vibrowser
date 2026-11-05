@@ -13,6 +13,8 @@ object GenerationJobTableInitializer:
     "CREATE UNIQUE INDEX IF NOT EXISTS one_active_job_per_page ON generation_jobs(page_id) WHERE status IN ('queued','running')"
   private val stepsSql =
     "ALTER TABLE generation_jobs ADD COLUMN IF NOT EXISTS steps JSONB NOT NULL DEFAULT '[]'::jsonb"
+  private val workflowSql =
+    "ALTER TABLE generation_jobs ADD COLUMN IF NOT EXISTS design_workflow JSONB"
   private val diagnosticsSql =
     "ALTER TABLE generation_jobs ADD COLUMN IF NOT EXISTS diagnostics JSONB NOT NULL DEFAULT '[]'::jsonb"
   private val actionKindSql =
@@ -26,6 +28,9 @@ object GenerationJobTableInitializer:
   def initialize(c: Connection): IO[Unit] =
     SqlExecutor.update(c, createSql) *> SqlExecutor
       .update(c, stepsSql) *> SqlExecutor.update(c, diagnosticsSql) *> SqlExecutor.update(
+      c,
+      workflowSql
+    ) *> SqlExecutor.update(
       c,
       indexSql
     ) *> SqlExecutor.update(

@@ -4,6 +4,14 @@ ThisBuild / version := "0.1.0"
 lazy val writeRuntimeClasspath = taskKey[File]("Write the local runtime classpath for Windows launch scripts")
 lazy val root = (project in file(".")).settings(
   name := "vibrowser",
+  Compile / resourceGenerators += Def.task {
+    val source = baseDirectory.value.getParentFile / ".agents" / "skills" / "vibrowser-web-design" / "references"
+    Seq("design.md", "review.md").map { name =>
+      val target = (Compile / resourceManaged).value / "design-guidance" / name
+      IO.copyFile(source / name, target)
+      target
+    }
+  }.taskValue,
   libraryDependencies ++= Seq(
     "org.typelevel" %% "cats-effect" % "3.6.3",
     "org.http4s" %% "http4s-dsl" % "0.23.30",

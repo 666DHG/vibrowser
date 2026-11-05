@@ -92,3 +92,25 @@ object GenerationJobTable:
         io.circe.parser.decode[List[GenerationAttempt]](r.getString(1)).fold(throw _, identity)
       )
       .map(_.headOption.getOrElse(Nil))
+
+  private val workflowReadSql = "SELECT design_workflow::text FROM generation_jobs WHERE id=?"
+  def designWorkflow(c: Connection, id: JobId): IO[Option[DesignWorkflow]] =
+    SqlExecutor
+      .query(c, workflowReadSql, List(id.value))(r =>
+        Option(r.getString(1))
+          .map(s => io.circe.parser.decode[DesignWorkflow](s).fold(throw _, identity))
+      )
+      .map(_.headOption.flatten)
+  private val workflowSaveSql =
+    """UPDATE generation_jobs j SET design_workflow=?::jsonb WHERE j.id=? AND j.status='running'
+    AND EXISTS (SELECT 1 FROM pages p WHERE p.id=j.page_id AND p.current_job_id=j.id)"""
+  def saveDesignWorkflow(c: Connection, id: JobId, workflow: DesignWorkflow): IO[Unit] =
+    SqlExecutor
+      .update(c, workflowSaveSql, List(workflow.asJson.noSpaces, id.value))
+      .flatMap(n =>
+        IO.raiseWhen(n != 1)(services.system.objects.AppError("stale_job", "页面任务已被替换", 409))
+      )
+  private val workflowCopySql = """UPDATE generation_jobs target SET design_workflow=source.design_workflow
+    FROM generation_jobs source WHERE target.id=? AND source.id=? AND target.page_id=source.page_id AND target.status='queued'"""
+  def copyDesignWorkflow(c: Connection, from: JobId, to: JobId): IO[Unit] =
+    SqlExecutor.update(c, workflowCopySql, List(to.value, from.value)).void

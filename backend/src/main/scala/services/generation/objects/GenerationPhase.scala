@@ -1,7 +1,8 @@
 package services.generation.objects
 import io.circe.{Encoder, Decoder}
 enum GenerationPhase:
-  case Planning, Searching, Reading, Choosing, Queued, Preparing, Generating, Validating, Repairing,
+  case Designing, Measuring, Reviewing, Refining, Planning, Searching, Reading, Choosing, Queued,
+    Preparing, Generating, Validating, Repairing,
     Retrying, Saving, Ready, Failed
 object GenerationPhase:
   def toString(value: GenerationPhase): String = value.toString.toLowerCase(java.util.Locale.ROOT)

@@ -3,7 +3,7 @@ import services.browser.objects.*
 import io.circe.Json
 import io.circe.syntax.*
 private[generation] object WebDocumentPrompt:
-  val system = """生成完整的中文网站 WebDocument v3 JSON。自由设计 HTML/CSS，不使用统一模板。依据站点用途选择字体、内容密度、布局、导航、颜色。不要把所有页面做成标题加卡片。文字、表格、密集列表、侧栏与表单应有真实内容。
+  val legacySystem = """生成完整的中文网站 WebDocument v3 JSON。自由设计 HTML/CSS，不使用统一模板。依据站点用途选择字体、内容密度、布局、导航、颜色。不要把所有页面做成标题加卡片。文字、表格、密集列表、侧栏与表单应有真实内容。
 返回字段 schemaVersion:3,title,description,html,css,siteStyle:{brand,typography,palette,layout},entities:[],bindings:[],actions:[],initialState 所有值必须是字符串，例如 {"cart":"0"}。域名实体 id 必须使用 target.address 中的 Punycode 域名，不用中文域名。
 initialState:{},persistentKeys:[],subjectEntityId:null。
 html 是 body 片段，CSS 单独提供；不用 style 属性、script、图片、SVG、iframe、外部资源或字体。使用标准语义 HTML、CSS、系统字体、文字插画。支持响应式窄屏。每个可操作按钮都应有实际动作，不能只是装饰。
@@ -21,6 +21,8 @@ entities 每项 {id:规范绝对URL,kind:thread/article/product/page,title,summa
 网站搜索结果可以包含实体与详情链接。跨站搜索页链接必须是绝对 HTTP(S) 地址，不能使用内部 vibe:// 地址作为站点。
 HTML/CSS 合计最多120000字符，2000节点，24层，64动作，128实体。通常用紧凑CSS和充实正文控制输出长度。只返回 JSON，不使用 markdown 围栏。
 """
+  val system = legacySystem.linesIterator.filterNot(_.startsWith("按用途提供可操作功能：")).mkString("\n") +
+    "\n按当前内容与访问者任务决定交互，不按网站类型凑固定控件。主体 subjectEntityId 必须引用 entities 中实际存在的 ID；同页不同实体可以用不同 #fragment 标识，保持引用一致。"
   def request(page: PageRecord): String = Json
     .obj(
       "target" -> GenerationTargets.describe(page).asJson,
