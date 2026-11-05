@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 3,
+  "description": "交互样例",
+  "entities": [],
+  "bindings": [],
+  "initialState": {
+    "cart": "0",
+    "spec": "小号"
+  },
+  "persistentKeys": [
+    "cart",
+    "spec"
+  ],
+  "subjectEntityId": null,
+  "title": "山间器物",
+  "html": "<header><h1>山间器物</h1><p>手作与日常之间</p></header><form id=\"search\"><label>站内搜索<input name=\"q\" required placeholder=\"搜索本站\"></label><button type=\"submit\">搜索</button></form><aside><label>筛选<input id=\"filter\" placeholder=\"搜索器物\"></label><button id=\"sort\">价格从低到高</button></aside><main id=\"products\"><article data-sort=\"120\"><h2>陶杯</h2><p>120 元</p><a id=\"product\" href=\"/products/cup\">查看陶杯</a></article><article data-sort=\"80\"><h2>木勺</h2><p>80 元</p></article></main><section><label>规格<select id=\"spec\"><option>小号</option><option>大号</option></select></label><button id=\"add\">加入购物车</button><button id=\"remove\">减少数量</button><p>购物车 <output data-state=\"cart\">0</output> 件</p></section>",
+  "css": "body{font:17px Georgia,serif;color:#493c2e;background:#f4eee2;padding:28px}header{border-bottom:1px solid #82715b}h1{font-size:48px;letter-spacing:6px}main{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;margin:32px 0}article{background:#dfd3bd;padding:45px}button,input,select{padding:10px;margin:8px}",
+  "actions": [
+    {
+      "id": "search",
+      "kind": "Search",
+      "elementId": "search"
+    },
+    {
+      "id": "filter",
+      "kind": "Filter",
+      "elementId": "filter",
+      "region": "products"
+    },
+    {
+      "id": "sort",
+      "kind": "Sort",
+      "elementId": "sort",
+      "region": "products",
+      "value": "asc"
+    },
+    {
+      "id": "product",
+      "kind": "Navigate",
+      "elementId": "product",
+      "target": "/products/cup"
+    },
+    {
+      "id": "spec",
+      "kind": "Set",
+      "elementId": "spec",
+      "stateKey": "spec"
+    },
+    {
+      "id": "add",
+      "kind": "Increment",
+      "elementId": "add",
+      "stateKey": "cart",
+      "value": "1"
+    },
+    {
+      "id": "remove",
+      "kind": "Increment",
+      "elementId": "remove",
+      "stateKey": "cart",
+      "value": "-1"
+    }
+  ],
+  "siteStyle": {
+    "brand": "山间器物",
+    "typography": "shop",
+    "palette": "shop",
+    "layout": "shop"
+  }
+}

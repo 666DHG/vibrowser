@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 3,
+  "description": "交互样例",
+  "entities": [],
+  "bindings": [],
+  "initialState": {
+    "cart": "0",
+    "spec": "小号"
+  },
+  "persistentKeys": [
+    "cart",
+    "spec"
+  ],
+  "subjectEntityId": null,
+  "title": "月夜树洞",
+  "html": "<form id=\"search\"><label>站内搜索<input name=\"q\" required placeholder=\"搜索本站\"></label><button type=\"submit\">搜索</button></form><header><h1>月夜树洞</h1><p>今天也有人与你同路。</p></header><nav>全部 · 校园 · 生活</nav><input id=\"filter\" aria-label=\"筛选\" placeholder=\"筛选帖子\"><button id=\"sort\">按热度排序</button><main id=\"posts\"><article data-sort=\"37\"><a id=\"thread\" href=\"/t/84458\">选课系统又排队了</a><span>37 条回复</span></article><article data-sort=\"5\">食堂的新窗口值得排队吗</article></main><button id=\"toggle\">展开回复</button><section id=\"replies\" hidden>我也遇到了，建议错峰。</section><button id=\"more\">加载更多</button>",
+  "css": "body{font:15px Arial;background:#f0f2f4;color:#253344}header,nav,main,form,section{max-width:960px;margin:auto;padding:14px}header{border-top:5px solid #27748b}article{padding:18px;border-bottom:1px solid #ccc;background:white}a{color:#176076}button,input{padding:8px;margin:8px}",
+  "actions": [
+    {
+      "id": "search",
+      "kind": "Search",
+      "elementId": "search"
+    },
+    {
+      "id": "thread",
+      "kind": "Navigate",
+      "elementId": "thread",
+      "target": "/t/84458"
+    },
+    {
+      "id": "filter",
+      "kind": "Filter",
+      "elementId": "filter",
+      "region": "posts"
+    },
+    {
+      "id": "sort",
+      "kind": "Sort",
+      "elementId": "sort",
+      "region": "posts",
+      "value": "desc"
+    },
+    {
+      "id": "toggle",
+      "kind": "Toggle",
+      "elementId": "toggle",
+      "region": "replies"
+    },
+    {
+      "id": "more",
+      "kind": "Append",
+      "elementId": "more",
+      "region": "posts"
+    }
+  ],
+  "siteStyle": {
+    "brand": "月夜树洞",
+    "typography": "forum",
+    "palette": "forum",
+    "layout": "forum"
+  }
+}
