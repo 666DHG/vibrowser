@@ -28,7 +28,9 @@ object Main extends IOApp.Simple:
       _ <- Resource.eval(database.transaction(SchemaInitializer.initialize))
       _ <- Resource.eval(database.transaction(SchemaInitializer.recover))
       _ <- Resource.eval(
-        database.transaction(services.browser.tables.PageTable.PageTable.clearTemporary)
+        if sys.env.get("VIBROWSER_KEEP_TEMPORARY_FOR_TEST").contains("true") then
+          cats.effect.IO.unit
+        else database.transaction(services.browser.tables.PageTable.PageTable.clearTemporary)
       )
       client <- EmberClientBuilder.default[IO].build
       _ <- GenerationModule.resource(database, client, mock)

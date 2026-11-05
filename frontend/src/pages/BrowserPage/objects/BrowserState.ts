@@ -1,5 +1,7 @@
 import type { PageRecord, Job } from "../../../shared/pageSpec";
 export interface HistoryEntry {
+  state?: Record<string, string>;
+  scroll?: number;
   input: string;
   pageId: string;
   address: string;
@@ -25,6 +27,13 @@ export interface PendingNavigation {
   collapsed: boolean;
   cacheHit?: boolean;
   restoreEntry?: HistoryEntry;
+  action?: {
+    pageId: string;
+    actionId: string;
+    revision: string;
+    requestId: string;
+    values: Record<string, string>;
+  };
 }
 export interface BrowserTab {
   id: string;

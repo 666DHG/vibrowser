@@ -1,3 +1,5 @@
+import { SubmitPageActionMessage } from "../../../apis/browser/SubmitPageActionMessage";
+import type { WebAction } from "../../../shared/webDocument";
 import { useRef, useEffect, useCallback } from "react";
 import { NavigateMessage } from "../../../apis/browser/NavigateMessage";
 import { GetPageMessage } from "../../../apis/browser/GetPageMessage";
@@ -50,7 +52,7 @@ export function useBrowserNavigation() {
           return;
         const page = result.page;
         if (!page) throw new Error("页面不存在");
-        if (page.status === "ready" && page.spec) {
+        if (page.status === "ready" && (page.spec || page.document)) {
           const pending = getTab(id)?.pending;
           completeNavigation(
             id,
@@ -147,11 +149,20 @@ export function useBrowserNavigation() {
         pageId = result.pageId;
       } else if (!pageId) {
         if (pending.mode === "cached") throw new Error("保存的页面不可用");
-        const result = await new NavigateMessage(
-          input,
-          pending.referrerPageId ?? null,
-          pending.sourceBlockId ?? null,
-        ).send(c.signal);
+        const a = pending.action;
+        const result = a
+          ? await new SubmitPageActionMessage(
+              a.pageId,
+              a.actionId,
+              a.revision,
+              a.requestId,
+              a.values,
+            ).send(c.signal)
+          : await new NavigateMessage(
+              input,
+              pending.referrerPageId ?? null,
+              pending.sourceBlockId ?? null,
+            ).send(c.signal);
         pageId = result.pageId;
         if (!c.signal.aborted)
           updatePending(id, pending.requestId, {
@@ -176,6 +187,39 @@ export function useBrowserNavigation() {
       return Promise.resolve();
     }
     return run(id, input, { referrerPageId, sourceBlockId });
+  };
+  const submitAction = (
+    id: string,
+    action: WebAction,
+    values: Record<string, string>,
+  ) => {
+    const tab = getTab(id);
+    if (!tab || tab.content.status !== "ready") return Promise.resolve();
+    if (
+      tab.pending?.action?.actionId === action.id &&
+      ["loading", "generating"].includes(tab.pending.status)
+    )
+      return Promise.resolve();
+    const page = tab.content.page;
+    return run(
+      id,
+      action.kind === "Search"
+        ? new URL(
+            "/search?q=" + encodeURIComponent(values.q ?? ""),
+            page.address,
+          ).href
+        : page.address,
+      {
+        historyIndex: action.kind === "Search" ? undefined : tab.index,
+        action: {
+          pageId: page.id,
+          actionId: action.id,
+          revision: page.currentJobId,
+          requestId: crypto.randomUUID(),
+          values,
+        },
+      },
+    );
   };
   const move = (index: number) => {
     const id = activeId();
@@ -215,5 +259,15 @@ export function useBrowserNavigation() {
   };
   const openSaved = (pageId: string, input: string) =>
     run(addTab(), input, { pageId, mode: "cached" });
-  return { navigate, move, refresh, retry, cancel, home, close, openSaved };
+  return {
+    navigate,
+    move,
+    refresh,
+    retry,
+    cancel,
+    home,
+    close,
+    openSaved,
+    submitAction,
+  };
 }

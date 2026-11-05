@@ -1,6 +1,7 @@
 import { z } from "zod";
 const messageNames = [
   "NavigateMessage",
+  "SubmitPageActionMessage",
   "GetPageMessage",
   "RetryPageMessage",
   "GetSettingsMessage",

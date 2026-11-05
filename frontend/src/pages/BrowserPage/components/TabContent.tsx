@@ -1,3 +1,5 @@
+import type { WebAction } from "../../../shared/webDocument";
+import { WebDocumentFrame } from "./WebDocumentFrame";
 import { displayAddress } from "../functions/displayAddress";
 import { useProgressPresence } from "../hooks/useProgressPresence";
 import { navigationTarget } from "../functions/navigationTarget";
@@ -12,7 +14,11 @@ import type { BrowserTab } from "../objects/BrowserState";
 import { HomePage } from "./HomePage";
 import { PageRenderer } from "./PageRenderer";
 import { NavigationProgress } from "./NavigationProgress";
-import { updatePending, dismissPending } from "../stores/browserStore";
+import {
+  updatePending,
+  dismissPending,
+  savePageState,
+} from "../stores/browserStore";
 type Props = {
   tab: BrowserTab;
   active: boolean;
@@ -21,6 +27,7 @@ type Props = {
     referrer?: string,
     sourceBlockId?: string,
   ) => void;
+  onAction: (action: WebAction, values: Record<string, string>) => void;
   onRetry: () => void;
   onCancel: () => void;
   onSettings: () => void;
@@ -30,6 +37,7 @@ export function TabContent({
   tab,
   active,
   onNavigate,
+  onAction,
   onRetry,
   onCancel,
   onSettings,
@@ -111,6 +119,28 @@ export function TabContent({
           <HomePage onNavigate={onNavigate} onSettings={onSettings} />
         )}
         {content.status === "bookmarks" && bookmarks}
+        {content.status === "ready" && content.page.document && (
+          <WebDocumentFrame
+            savedState={tab.entries[tab.index]?.state}
+            savedScroll={tab.entries[tab.index]?.scroll}
+            onState={(state, scroll) => savePageState(tab.id, state, scroll)}
+            document={content.page.document}
+            onPreview={(target) =>
+              setPreview(
+                target ? navigationTarget(target, content.page.address) : "",
+              )
+            }
+            onAction={(action, values) => {
+              if (action.kind === "Navigate" && action.target)
+                onNavigate(
+                  navigationTarget(action.target, content.page.address),
+                  content.page.id,
+                  action.id,
+                );
+              else onAction(action, values);
+            }}
+          />
+        )}
         {content.status === "ready" && content.page.spec && (
           <div
             key={content.page.id}

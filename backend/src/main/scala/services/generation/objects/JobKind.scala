@@ -1,7 +1,7 @@
 package services.generation.objects
 import io.circe.{Encoder, Decoder}
 enum JobKind:
-  case Page, Connection
+  case Page, Connection, Action
 object JobKind:
   def toString(value: JobKind): String = value.toString.toLowerCase(java.util.Locale.ROOT)
   def fromString(value: String): Either[String, JobKind] =

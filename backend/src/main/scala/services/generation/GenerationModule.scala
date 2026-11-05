@@ -8,4 +8,13 @@ object GenerationModule:
   def resource(database: DatabaseSession, client: Client[IO], mock: Boolean): Resource[IO, Unit] =
     val provider: TextGenerationClient =
       if mock then new MockTextGenerationClient else new DeepSeekCompatibleClient(client)
-    Resource.make(new GenerationWorker(database, provider, mock).run.start)(_.cancel).void
+    Resource
+      .make(
+        new GenerationWorker(
+          database,
+          provider,
+          mock,
+          webDocuments = !sys.env.get("VIBROWSER_LEGACY_MOCK").contains("true")
+        ).run.start
+      )(_.cancel)
+      .void

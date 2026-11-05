@@ -29,3 +29,15 @@ object BookmarkTable:
   private val removeSql = "DELETE FROM bookmarks WHERE id=?"
   def remove(c: Connection, id: BookmarkId): IO[Boolean] =
     SqlExecutor.update(c, removeSql, List(id.value)).map(_ == 1)
+
+  private val stateSql = "UPDATE bookmarks SET state=?::jsonb WHERE id=? AND state='{}'::jsonb"
+  def saveState(c: Connection, id: BookmarkId, state: Map[String, String]): IO[Unit] =
+    import io.circe.syntax.*
+    SqlExecutor.update(c, stateSql, List(state.asJson.noSpaces, id.value)).void
+  private val readStateSql = "SELECT state::text FROM bookmarks WHERE page_id=?"
+  def state(c: Connection, page: PageId): IO[Map[String, String]] =
+    SqlExecutor
+      .query(c, readStateSql, List(page.value))(r =>
+        io.circe.parser.decode[Map[String, String]](r.getString(1)).fold(throw _, identity)
+      )
+      .map(_.headOption.getOrElse(Map.empty))

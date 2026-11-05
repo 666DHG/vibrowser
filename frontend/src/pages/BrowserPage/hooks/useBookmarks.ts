@@ -74,11 +74,11 @@ export function useBookmarks() {
   };
   const remove = (bookmarkId: string) =>
     change(() => new RemoveBookmarkMessage(bookmarkId).send());
-  const toggle = (pageId: string) => {
+  const toggle = (pageId: string, state?: Record<string, string>) => {
     const existing = items.find((item) => item.pageId === pageId);
     return existing
       ? remove(existing.id)
-      : change(() => new SaveBookmarkMessage(pageId).send());
+      : change(() => new SaveBookmarkMessage(pageId, state).send());
   };
   return { items, status, error, busy, refresh, remove, toggle };
 }

@@ -64,6 +64,14 @@ export function completeNavigation(
     const pending = tab.pending;
     if (!pending || pending.requestId !== requestId) return tab;
     const entry = {
+      state:
+        pending.historyIndex !== undefined
+          ? tab.entries[pending.historyIndex]?.state
+          : undefined,
+      scroll:
+        pending.historyIndex !== undefined
+          ? tab.entries[pending.historyIndex]?.scroll
+          : undefined,
       input: pageInput(page),
       address: page.address,
       pageId: page.id,
@@ -84,7 +92,7 @@ export function completeNavigation(
             )
           : entries,
       index,
-      title: page.spec?.title ?? page.address,
+      title: page.document?.title ?? page.spec?.title ?? page.address,
       draft:
         tab.draft === displayAddress(pending.input)
           ? pageInput(page)
@@ -163,4 +171,19 @@ export function removeTab(id: string) {
           : state.activeTabId,
     };
   });
+}
+
+export function savePageState(
+  id: string,
+  state: Record<string, string>,
+  scroll?: number,
+) {
+  updateTab(id, (tab) => ({
+    ...tab,
+    entries: tab.entries.map((entry, index) =>
+      index === tab.index
+        ? { ...entry, state, scroll: scroll ?? entry.scroll }
+        : entry,
+    ),
+  }));
 }

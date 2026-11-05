@@ -26,6 +26,14 @@ final case class GetPageMessage(pageId: Option[PageId], jobId: Option[JobId])
         .orElse(jobId)
         .fold(IO.pure(Option.empty[GenerationJob]))(GenerationJobTable.findById(connection, _))
       _ <- IO.raiseWhen(job.isEmpty)(AppError("not_found", "任务不存在", 404))
-    yield PageResponse(page, job)
+      state <- page.fold(IO.pure(Map.empty[String, String]))(p =>
+        services.browser.tables.BookmarkTable.BookmarkTable.state(connection, p.id)
+      )
+    yield PageResponse(
+      page.map(p =>
+        p.copy(document = p.document.map(d => d.copy(initialState = d.initialState ++ state)))
+      ),
+      job
+    )
 object GetPageMessage:
   given Decoder[GetPageMessage] = deriveDecoder

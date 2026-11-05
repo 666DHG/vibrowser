@@ -8,7 +8,8 @@ final case class NavigationContext(
     containers: List[AncestorSummary],
     appearance: Option[SiteAppearance],
     entities: List[PageEntity],
-    ancestors: List[AncestorSummary]
+    ancestors: List[AncestorSummary],
+    siteStyle: Option[SiteStyle] = None
 )
 object NavigationContext:
   given Encoder[NavigationContext] = deriveEncoder

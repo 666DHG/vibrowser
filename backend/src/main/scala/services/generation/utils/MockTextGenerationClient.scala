@@ -14,6 +14,17 @@ private[generation] final class MockTextGenerationClient extends TextGenerationC
       test: Boolean
   ): IO[String] =
     IO.sleep(400.millis) *> (if test then IO.pure("""{"ok":true}""")
+                             else if system.contains("WebDocument v3") then
+                               IO.blocking {
+                                 val file =
+                                   if prompt.contains("商店") || prompt.contains("shop") then "shop"
+                                   else if prompt.contains("文档") || prompt.contains("docs") then
+                                     "docs"
+                                   else "forum"
+                                 Files.readString(
+                                   Paths.get("../contracts/web-documents/" + file + ".json")
+                                 )
+                               }
                              else
                                IO.blocking {
                                  val file =

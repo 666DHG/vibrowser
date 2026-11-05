@@ -122,14 +122,19 @@ export default function BrowserPage() {
               aria-pressed={saved}
               title={
                 visiblePage
-                  ? (saved ? "取消收藏：" : "收藏：") + visiblePage.spec?.title
+                  ? (saved ? "取消收藏：" : "收藏：") +
+                    (visiblePage.document?.title ?? visiblePage.spec?.title)
                   : "加载网页后可收藏"
               }
               disabled={
                 !visiblePage || bookmarks.busy || bookmarks.status !== "ready"
               }
               onClick={() =>
-                visiblePage && void bookmarks.toggle(visiblePage.id)
+                visiblePage &&
+                void bookmarks.toggle(
+                  visiblePage.id,
+                  tab.entries[tab.index]?.state,
+                )
               }
               className="shrink-0 cursor-pointer p-1 text-[#b8d69a] disabled:opacity-25"
             >
@@ -165,6 +170,9 @@ export default function BrowserPage() {
           active={item.id === activeTabId}
           onNavigate={(input, referrer, sourceBlockId) =>
             void navigation.navigate(input, referrer, item.id, sourceBlockId)
+          }
+          onAction={(action, values) =>
+            void navigation.submitAction(item.id, action, values)
           }
           onRetry={() => void navigation.retry(item.id)}
           onCancel={() => navigation.cancel(item.id)}

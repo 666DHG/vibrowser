@@ -6,6 +6,8 @@ import type {
 } from "../objects/BrowserState";
 export const SESSION_KEY = "vibrowser.tabs.v2";
 const entrySchema = z.object({
+  state: z.record(z.string(), z.string()).optional(),
+  scroll: z.number().optional(),
   input: z.string(),
   pageId: z.string(),
   address: z.string(),
@@ -15,6 +17,15 @@ const historySchema = z.object({
   index: z.number().int(),
 });
 const pendingSchema = z.object({
+  action: z
+    .object({
+      pageId: z.string(),
+      actionId: z.string(),
+      revision: z.string(),
+      requestId: z.string(),
+      values: z.record(z.string(), z.string()),
+    })
+    .optional(),
   input: z.string(),
   mode: z.enum(["navigate", "cached"]),
   pageId: z.string().optional(),
@@ -145,6 +156,7 @@ function savedSession(session: BrowserSession) {
       pending:
         tab.pending && tab.pending.status !== "complete"
           ? {
+              action: tab.pending.action,
               input: tab.pending.input,
               mode: tab.pending.mode,
               pageId: tab.pending.pageId,

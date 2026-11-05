@@ -14,7 +14,8 @@ final case class PageRecord(
     referrerId: Option[PageId],
     error: Option[String],
     source: String,
-    navigationContext: Option[NavigationContext] = None
+    navigationContext: Option[NavigationContext] = None,
+    document: Option[WebDocument] = None
 )
 object PageRecord:
   given Encoder[PageRecord] = deriveEncoder

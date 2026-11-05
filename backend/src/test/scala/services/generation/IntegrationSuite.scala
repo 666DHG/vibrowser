@@ -331,3 +331,65 @@ class IntegrationSuite extends CatsEffectSuite:
       }
     }
   }
+
+  test(
+    "v3 action snapshots deduplicate, reject stale versions, preserve bookmarks and clean temporary versions"
+  ) {
+    isolated { db =>
+      val document = decode[WebDocument](
+        Files.readString(Paths.get("../contracts/web-documents/forum.json"))
+      ).toOption.get
+      for
+        nav <- db.transaction(NavigateMessage("forum-v3.example", None).plan)
+        job <- db.transaction(ClaimGenerationJobMessage().plan).map(_.get)
+        _ <- db.transaction(CompleteWebDocumentMessage(job.id, document, "mock").plan)
+        bookmark <- db.transaction(SaveBookmarkMessage(nav.pageId).plan)
+        responses <- List
+          .fill(4)(
+            db.transaction(
+              SubmitPageActionMessage(
+                nav.pageId,
+                "search",
+                job.id.value,
+                "request-v3",
+                Map("q" -> "选课")
+              ).plan
+            )
+          )
+          .parSequence
+        _ = assertEquals(responses.map(_.pageId).distinct.size, 1)
+        stale <- db
+          .transaction(
+            SubmitPageActionMessage(nav.pageId, "search", "old", "stale", Map("q" -> "x")).plan
+          )
+          .attempt
+        _ = assert(stale.isLeft)
+        mismatch <- db
+          .transaction(
+            SubmitPageActionMessage(
+              nav.pageId,
+              "search",
+              job.id.value,
+              "request-v3",
+              Map("q" -> "other")
+            ).plan
+          )
+          .attempt
+        _ = assert(mismatch.isLeft)
+        snapshot <- db
+          .transaction(c =>
+            services.browser.tables.PageActionTable.PageActionTable
+              .forPage(c, responses.head.pageId)
+          )
+          .map(_.get)
+        _ = assertEquals(snapshot.values, Map("q" -> "选课"))
+        _ <- db.transaction(PageTable.clearTemporary)
+        original <- db.transaction(c => PageTable.findById(c, bookmark.pageId)).map(_.get)
+        _ = assert(original.document.nonEmpty)
+        removed <- db.transaction(c =>
+          services.browser.tables.PageActionTable.PageActionTable.forPage(c, responses.head.pageId)
+        )
+        _ = assertEquals(removed, None)
+      yield ()
+    }
+  }

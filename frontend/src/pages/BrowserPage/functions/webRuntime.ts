@@ -15,7 +15,11 @@ function runtime(
   const publish = () => send("state", { state, scroll: window.scrollY });
   const draw = () => {
     document.querySelectorAll<HTMLElement>("[data-state]").forEach((e) => {
-      e.textContent = state[e.dataset.state!] ?? "";
+      if (
+        !e.matches("button,a,input,select,textarea,form") &&
+        e.children.length === 0
+      )
+        e.textContent = state[e.dataset.state!] ?? "";
     });
   };
   const values = (element: HTMLElement) => {
@@ -34,11 +38,10 @@ function runtime(
     if (!action) return;
     const region = byId(action.region);
     const value =
-      action.value ??
-      (element instanceof HTMLInputElement ||
+      element instanceof HTMLInputElement ||
       element instanceof HTMLSelectElement
         ? element.value
-        : "");
+        : (action.value ?? "");
     const key = action.stateKey ?? action.id;
     if (action.kind === "Toggle") {
       if (region) {
@@ -138,6 +141,23 @@ function runtime(
       event.preventDefault();
   });
   document.addEventListener("input", (event) => {
+    const field = event.target;
+    if (
+      field instanceof HTMLInputElement ||
+      field instanceof HTMLTextAreaElement ||
+      field instanceof HTMLSelectElement
+    ) {
+      if (field.name) {
+        state["$draft:" + (field.form?.id ?? "") + ":" + field.name] =
+          field instanceof HTMLInputElement &&
+          (field.type === "checkbox" || field.type === "radio")
+            ? String(field.checked)
+            : field.value;
+        publish();
+      }
+    }
+  });
+  document.addEventListener("input", (event) => {
     const e = actionElement(event);
     if (e && actions.get(e.id)?.kind === "Filter") run(e);
   });
@@ -180,6 +200,32 @@ function runtime(
         element.value = value;
         run(element);
       }
+    }
+  }
+  document
+    .querySelectorAll<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >("input[name],textarea[name],select[name]")
+    .forEach((field) => {
+      const value =
+        state["$draft:" + (field.form?.id ?? "") + ":" + field.name];
+      if (value !== undefined) {
+        if (
+          field instanceof HTMLInputElement &&
+          (field.type === "checkbox" || field.type === "radio")
+        )
+          field.checked = value === "true";
+        else field.value = value;
+      }
+    });
+  for (const action of documentSpec.actions) {
+    if (action.kind === "Switch") {
+      const value = state[action.stateKey ?? action.id];
+      const region = byId(action.region);
+      if (value !== undefined && region)
+        [...region.children].forEach((e) => {
+          (e as HTMLElement).hidden = e.id !== value;
+        });
     }
   }
   draw();

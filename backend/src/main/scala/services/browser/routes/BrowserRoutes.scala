@@ -6,6 +6,7 @@ import services.browser.objects.apiTypes.*
 object BrowserRoutes:
   val apiMessages: List[RegisteredAPIMessage] = List(
     RegisteredAPIMessage[NavigateMessage, NavigationResponse],
+    RegisteredAPIMessage[SubmitPageActionMessage, NavigationResponse],
     RegisteredAPIMessage[GetPageMessage, PageResponse],
     RegisteredAPIMessage[RetryPageMessage, NavigationResponse],
     RegisteredAPIMessage[ListBookmarksMessage, BookmarkListResponse],

@@ -16,7 +16,9 @@ object SchemaInitializer:
     PageTableInitializer.initialize(c) *> GenerationJobTableInitializer.initialize(c) *>
       SettingsTableInitializer.initialize(c) *> CredentialsTableInitializer.initialize(
         c
-      ) *> BookmarkTableInitializer.initialize(c)
+      ) *> BookmarkTableInitializer.initialize(
+        c
+      ) *> services.browser.tables.PageActionTable.PageActionTableInitializer.initialize(c)
   def recover(c: Connection): IO[Unit] =
     GenerationJobTable
       .interrupted(c)

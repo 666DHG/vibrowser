@@ -24,6 +24,8 @@ final case class RetryPageMessage(pageId: PageId, failedJobId: JobId)
           IO.pure(NavigationResponse(page.id, page.currentJobId, page.status))
         else
           for
+            snapshot <- services.browser.tables.PageActionTable.PageActionTable
+              .forPage(connection, pageId)
             config <- SettingsTable.get(connection)
             jobId <- IO(JobId(java.util.UUID.randomUUID().toString))
             _ <- PageTable.retry(connection, pageId, failedJobId, jobId)
@@ -31,7 +33,7 @@ final case class RetryPageMessage(pageId: PageId, failedJobId: JobId)
               connection,
               jobId,
               Some(pageId),
-              JobKind.Page,
+              if snapshot.nonEmpty then JobKind.Action else JobKind.Page,
               config.revision
             )
           yield NavigationResponse(pageId, jobId, PageStatus.Generating)

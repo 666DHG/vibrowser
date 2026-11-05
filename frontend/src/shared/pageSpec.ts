@@ -1,3 +1,4 @@
+import { webDocumentSchema } from "./webDocument";
 import {
   pageEntitySchema,
   replyRangeSchema,
@@ -207,6 +208,7 @@ export const pageRecordSchema = z.object({
   prompt: z.string(),
   status: z.enum(["generating", "ready", "failed"]),
   spec: pageSpecSchema.nullable(),
+  document: webDocumentSchema.nullish(),
   currentJobId: z.string(),
   referrerId: z.string().nullable(),
   error: z.string().nullable(),
@@ -231,7 +233,7 @@ export type GenerationStep = z.infer<typeof generationStepSchema>;
 export const jobSchema = z.object({
   id: z.string(),
   pageId: z.string().nullable(),
-  kind: z.enum(["page", "connection"]),
+  kind: z.enum(["page", "connection", "action"]),
   status: z.enum(["queued", "running", "succeeded", "failed"]),
   phase: z.string(),
   error: z.string().nullable(),

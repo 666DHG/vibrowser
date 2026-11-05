@@ -4,7 +4,10 @@ import services.browser.objects.*
 import services.system.objects.AppError
 
 private[generation] object InheritedContent:
-  private def merge(known: PageEntity, generated: PageEntity): Either[AppError, PageEntity] =
+  private[generation] def merge(
+      known: PageEntity,
+      generated: PageEntity
+  ): Either[AppError, PageEntity] =
     def field[A](name: String, old: Option[A], next: Option[A]): Either[AppError, Option[A]] =
       if old.nonEmpty && next.nonEmpty && old != next then
         Left(AppError("invalid_content", s"实体 ${known.id} 的 $name 与来源事实冲突；必须原样继承", 502))

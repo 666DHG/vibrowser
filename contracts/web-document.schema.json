@@ -1,0 +1,195 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WebDocument v3",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "title",
+    "description",
+    "html",
+    "css",
+    "siteStyle",
+    "entities",
+    "bindings",
+    "actions",
+    "initialState",
+    "persistentKeys"
+  ],
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "html": {
+      "type": "string"
+    },
+    "css": {
+      "type": "string"
+    },
+    "schemaVersion": {
+      "const": 3
+    },
+    "siteStyle": {
+      "type": "object",
+      "required": [
+        "brand",
+        "typography",
+        "palette",
+        "layout"
+      ],
+      "properties": {
+        "brand": {
+          "type": "string"
+        },
+        "typography": {
+          "type": "string"
+        },
+        "palette": {
+          "type": "string"
+        },
+        "layout": {
+          "type": "string"
+        }
+      }
+    },
+    "entities": {
+      "type": "array",
+      "maxItems": 128,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "thread",
+              "article",
+              "product",
+              "page"
+            ]
+          }
+        }
+      }
+    },
+    "bindings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "elementId",
+          "entityId",
+          "field"
+        ],
+        "properties": {
+          "elementId": {
+            "type": "string"
+          },
+          "entityId": {
+            "type": "string"
+          },
+          "field": {
+            "enum": [
+              "Title",
+              "Summary",
+              "Author",
+              "PublishedAt",
+              "ReplyCount",
+              "Price",
+              "LegacyMeta"
+            ]
+          }
+        }
+      }
+    },
+    "actions": {
+      "type": "array",
+      "maxItems": 64,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "elementId"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "elementId": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "Navigate",
+              "Search",
+              "Submit",
+              "Replace",
+              "Append",
+              "Toggle",
+              "Switch",
+              "Filter",
+              "Sort",
+              "Set",
+              "Increment"
+            ]
+          },
+          "target": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "region": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "stateKey": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "value": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "field": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "initialState": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "persistentKeys": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "subjectEntityId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

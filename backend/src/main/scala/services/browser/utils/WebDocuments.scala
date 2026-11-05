@@ -98,7 +98,20 @@ private[browser] object WebDocuments:
     "rowspan",
     "scope",
     "hidden",
-    "datetime"
+    "datetime",
+    "autocomplete",
+    "minlength",
+    "readonly",
+    "spellcheck",
+    "dir",
+    "lang",
+    "start",
+    "reversed",
+    "wrap",
+    "size",
+    "inputmode",
+    "autocapitalize",
+    "autofocus"
   )
   private def requireThat(ok: Boolean, message: String): Unit =
     if !ok then throw AppError("invalid_content", message, 502)
@@ -127,7 +140,18 @@ private[browser] object WebDocuments:
               attributes(a.getKey) || a.getKey.startsWith("aria-") || a.getKey.startsWith("data-")
             )
         ),
-        "unsupported HTML attribute; put styles in css"
+        "unsupported HTML attribute: " + nodes
+          .flatMap(e =>
+            e.attributes()
+              .asList
+              .asScala
+              .filterNot(a =>
+                attributes(a.getKey) || a.getKey.startsWith("aria-") || a.getKey.startsWith("data-")
+              )
+              .map(a => e.normalName() + "[" + a.getKey + "]")
+          )
+          .distinct
+          .mkString(", ")
       )
       requireThat(
         nodes
@@ -145,7 +169,10 @@ private[browser] object WebDocuments:
       requireThat(doc.entities.map(_.id).distinct.size == doc.entities.size, "duplicate entity id")
       requireThat(
         doc.entities.forall(e => AddressRules.resolveLink(e.id, address).contains(e.id)),
-        "entity id must be canonical URL"
+        "entity id must be canonical URL: " + doc.entities
+          .filterNot(e => AddressRules.resolveLink(e.id, address).contains(e.id))
+          .map(e => e.id + " => " + AddressRules.resolveLink(e.id, address).getOrElse("invalid"))
+          .mkString(", ")
       )
       requireThat(doc.entities.forall(_.replyCount.forall(_ >= 0)), "negative reply count")
       doc.actions.foreach { a =>
@@ -176,6 +203,40 @@ private[browser] object WebDocuments:
             "link/form requires declared action: " + e.id()
           )
         )
+      requireThat(
+        doc.bindings.map(_.elementId).distinct.size == doc.bindings.size,
+        "duplicate binding element"
+      )
+      doc.actions.filter(_.kind == WebActionKind.Navigate).foreach { a =>
+        val element = parsed.getElementById(a.elementId)
+        requireThat(
+          !element.hasAttr("href") || AddressRules.resolveLink(
+            element.attr("href"),
+            address
+          ) == a.target.map(t => AddressRules.resolveLink(t, address)).getOrElse(Left("missing")),
+          "href and navigation target differ: " + a.id
+        )
+      }
+      doc.actions.filter(a => Set(WebActionKind.Set, WebActionKind.Increment)(a.kind)).foreach {
+        a =>
+          requireThat(
+            a.stateKey.exists(doc.initialState.contains),
+            "state action requires declared state key"
+          )
+          if a.kind == WebActionKind.Increment then
+            requireThat(
+              a.value.forall(v => scala.util.Try(BigDecimal(v)).isSuccess),
+              "increment value must be numeric"
+            )
+      }
+      doc.actions
+        .filter(_.kind == WebActionKind.Search)
+        .foreach(a =>
+          requireThat(
+            parsed.getElementById(a.elementId).normalName() == "form",
+            "Search must bind a form"
+          )
+        )
       doc.bindings.foreach { b =>
         requireThat(ids.contains(b.elementId), "binding element missing")
         val e = doc.entities
@@ -189,6 +250,10 @@ private[browser] object WebDocuments:
           case EntityField.ReplyCount  => e.replyCount.map(_.toString)
           case EntityField.Price       => e.price.map(p => p.amount.toString + " " + p.currency)
           case EntityField.LegacyMeta  => e.legacyMeta
+        requireThat(
+          parsed.getElementById(b.elementId).children().isEmpty,
+          "binding must use text leaf element"
+        )
         parsed.getElementById(b.elementId).text(value.getOrElse(""))
       }
       requireThat(

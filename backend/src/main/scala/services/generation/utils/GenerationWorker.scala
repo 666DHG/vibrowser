@@ -15,7 +15,8 @@ import services.settings.objects.ProviderConnection
 private[generation] final class GenerationWorker(
     database: DatabaseSession,
     client: TextGenerationClient,
-    mock: Boolean
+    mock: Boolean,
+    webDocuments: Boolean = false
 ):
   private[generation] def run: IO[Unit] =
     def tick: IO[Unit] =
@@ -31,6 +32,49 @@ private[generation] final class GenerationWorker(
       }
     (tick.handleErrorWith(_ => IO.sleep(1.second)) *> IO.defer(run))
   private[generation] def execute(job: GenerationJob): IO[Unit] =
+    if (!mock || webDocuments) && job.pageId.nonEmpty then
+      for
+        config <-
+          if mock then
+            IO.pure(
+              new ProviderConnection("https://mock.invalid", "fixture", "", job.settingsRevision)
+            )
+          else database.transaction(GetProviderConnectionMessage(job.settingsRevision).plan)
+        page <- database
+          .transaction(c => PageTable.findById(c, job.pageId.get))
+          .flatMap(IO.fromOption(_)(AppError("not_found", "页面不存在", 404)))
+        snapshot <- database.transaction(c =>
+          services.browser.tables.PageActionTable.PageActionTable.forPage(c, page.id)
+        )
+        prompt = snapshot.fold(WebDocumentPrompt.request(page)) { s =>
+          import io.circe.syntax.*
+          val region = s.action.region
+            .flatMap(id =>
+              Option(org.jsoup.Jsoup.parseBodyFragment(s.document.html).getElementById(id))
+            )
+            .map(_.outerHtml())
+            .getOrElse("")
+          WebDocumentPrompt.request(page) + "\n操作快照：" + s
+            .copy(document = s.document.copy(html = region, css = ""))
+            .asJson
+            .noSpaces +
+            (if s.action.kind == WebActionKind.Search then "\n生成完整的本站搜索结果页，保持站点风格。"
+             else
+               "\n仅返回目标区域的新内容：html 不包含区域自身，只包含新增/替换的子元素；css 为空，actions/bindings/entities 只包含新内容。返回完整 WebDocument JSON 包装，其他顶层描述沿用本站。已有 ID 不得重复，保留实体事实。")
+        }
+        document <- new WebDocumentGeneration(database, client).generate(
+          config,
+          page,
+          prompt,
+          snapshot = snapshot
+        )
+        _ <- database.transaction(UpdateGenerationPhaseMessage(job.id, GenerationPhase.Saving).plan)
+        _ <- database.transaction(
+          CompleteWebDocumentMessage(job.id, document, if mock then "mock" else "live").plan
+        )
+      yield ()
+    else executeLegacy(job)
+  private def executeLegacy(job: GenerationJob): IO[Unit] =
     for
       config <-
         if mock then

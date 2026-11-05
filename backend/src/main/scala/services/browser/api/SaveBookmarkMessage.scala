@@ -8,17 +8,31 @@ import services.system.objects.AppError
 import services.browser.objects.*
 import services.browser.tables.PageTable.PageTable
 import services.browser.tables.BookmarkTable.BookmarkTable
-final case class SaveBookmarkMessage(pageId: PageId) extends APIMessage[Bookmark]:
+final case class SaveBookmarkMessage(pageId: PageId, state: Option[Map[String, String]] = None)
+    extends APIMessage[Bookmark]:
   override def plan(connection: Connection): IO[Bookmark] =
     for
       page <- PageTable
         .findById(connection, pageId)
         .flatMap(IO.fromOption(_)(AppError("not_found", "页面不存在", 404)))
-      _ <- IO.raiseUnless(page.status == PageStatus.Ready && page.spec.nonEmpty)(
+      _ <- IO.raiseUnless(
+        page.status == PageStatus.Ready && (page.spec.nonEmpty || page.document.nonEmpty)
+      )(
         AppError("page_not_ready", "只能收藏已加载的网页")
       )
       id <- IO(BookmarkId(java.util.UUID.randomUUID().toString))
-      saved <- BookmarkTable.save(connection, id, page, page.spec.get.title)
+      saved <- BookmarkTable.save(
+        connection,
+        id,
+        page,
+        page.document.map(_.title).getOrElse(page.spec.get.title)
+      )
+      accepted = state
+        .getOrElse(Map.empty)
+        .filter((key, value) =>
+          page.document.exists(_.persistentKeys.contains(key)) && value.length <= 2000
+        )
+      _ <- BookmarkTable.saveState(connection, saved.id, accepted)
     yield saved
 object SaveBookmarkMessage:
   given Decoder[SaveBookmarkMessage] = deriveDecoder

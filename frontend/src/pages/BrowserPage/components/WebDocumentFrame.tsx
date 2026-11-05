@@ -64,7 +64,7 @@ export function WebDocumentFrame({
       ref={frame}
       title={doc.title}
       data-testid="web-document"
-      sandbox="allow-scripts"
+      sandbox="allow-scripts allow-forms"
       srcDoc={source}
       className="block h-full w-full border-0 bg-white"
     />

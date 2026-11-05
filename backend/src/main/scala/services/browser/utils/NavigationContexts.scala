@@ -28,70 +28,107 @@ private[browser] object NavigationContexts:
       blockId: Option[String],
       target: String
   ): Either[String, Option[NavigationContext]] =
-    blockId match
-      case None => Right(None)
-      case Some(id) =>
-        for
-          page <- source.toRight("来源页面不存在")
-          spec <- page.spec.toRight("来源页面尚未就绪")
-          selectedPath <- path(spec.blocks, id).toRight("来源组件不存在")
-          block = selectedPath.last
-          link <- block.target.toRight("来源组件没有链接")
-          resolved <- AddressRules.resolveLink(link, page.address)
-          _ <- Either.cond(resolved == target, (), "来源组件与目标地址不匹配")
-          local = sameSite(page.address, target)
-          bound = block.entityId.flatMap(id => spec.entities.find(_.id == id))
-          selected = NavigationItem(
-            block.id,
-            block.`type`,
+    if source.flatMap(_.document).nonEmpty && blockId.nonEmpty then
+      val page = source.get
+      val document = page.document.get
+      for
+        action <- document.actions.find(_.id == blockId.get).toRight("来源动作不存在")
+        link <- action.target.toRight("来源动作没有链接")
+        resolved <- AddressRules.resolveLink(link, page.address)
+        _ <- Either.cond(resolved == target, (), "来源动作与目标不匹配")
+        local = sameSite(page.address, target)
+        entity = document.entities.find(_.id == target)
+        context = fit(
+          NavigationContext(
             target,
-            bound.flatMap(_.title).orElse(block.title),
-            bound.flatMap(_.summary).orElse(block.text),
-            block.meta
-          )
-          inherited = (spec.entities ++ page.navigationContext.toList.flatMap(_.entities))
-            .distinctBy(_.id)
-          kind = block.`type` match
-            case BlockType.Thread  => EntityKind.Thread
-            case BlockType.Article => EntityKind.Article
-            case BlockType.Product => EntityKind.Product
-            case _                 => EntityKind.Page
-          // Legacy free-form metadata remains verbatim; it is never parsed into guessed facts.
-          legacy = Option.when(spec.schemaVersion == 1 && block.title.exists(_.nonEmpty))(
-            PageEntity(target, kind, block.title, block.text, legacyMeta = block.meta)
-          )
-          primary = inherited.find(_.id == target).orElse(legacy)
-          entities =
+            NavigationItem(
+              action.id,
+              BlockType.Button,
+              target,
+              entity.flatMap(_.title),
+              entity.flatMap(_.summary),
+              None
+            ),
+            Nil,
+            None,
+            if local then entity.toList ++ document.entities.filterNot(_.id == target) else Nil,
             if local then
-              (primary.toList ++ inherited.filter(e => sameSite(e.id, target))).distinctBy(_.id)
-            else Nil
-          appearance = Option.when(local)(
-            SiteAppearance(
-              spec.title,
-              spec.description,
-              spec.theme,
-              spec.design,
-              spec.blocks
-                .find(_.`type` == BlockType.Navbar)
-                .flatMap(_.title)
-                .orElse(page.navigationContext.flatMap(_.appearance).flatMap(_.brand))
+              (page.navigationContext.toList.flatMap(_.ancestors) :+ AncestorSummary(
+                page.address,
+                document.title,
+                document.description
+              )).takeRight(3)
+            else Nil,
+            Option.when(local)(document.siteStyle)
+          )
+        )
+        _ <- Either.cond(context.asJson.noSpaces.length <= 24000, (), "所选条目超出上下文预算")
+      yield Some(context)
+    else
+      blockId match
+        case None => Right(None)
+        case Some(id) =>
+          for
+            page <- source.toRight("来源页面不存在")
+            spec <- page.spec.toRight("来源页面尚未就绪")
+            selectedPath <- path(spec.blocks, id).toRight("来源组件不存在")
+            block = selectedPath.last
+            link <- block.target.toRight("来源组件没有链接")
+            resolved <- AddressRules.resolveLink(link, page.address)
+            _ <- Either.cond(resolved == target, (), "来源组件与目标地址不匹配")
+            local = sameSite(page.address, target)
+            bound = block.entityId.flatMap(id => spec.entities.find(_.id == id))
+            selected = NavigationItem(
+              block.id,
+              block.`type`,
+              target,
+              bound.flatMap(_.title).orElse(block.title),
+              bound.flatMap(_.summary).orElse(block.text),
+              block.meta
             )
-          )
-          containers =
-            if local then
-              selectedPath
-                .dropRight(1)
-                .map(b =>
-                  AncestorSummary(page.address, b.title.getOrElse(""), b.text.getOrElse(""))
-                )
-            else Nil
-          ancestors =
-            if local then
-              (page.navigationContext.toList.flatMap(_.ancestors) :+
-                AncestorSummary(page.address, spec.title, spec.description)).takeRight(3)
-            else Nil
-          snapshot = fit(
-            NavigationContext(target, selected, containers, appearance, entities, ancestors)
-          )
-          _ <- Either.cond(snapshot.asJson.noSpaces.length <= 24000, (), "所选条目超出上下文预算")
-        yield Some(snapshot)
+            inherited = (spec.entities ++ page.navigationContext.toList.flatMap(_.entities))
+              .distinctBy(_.id)
+            kind = block.`type` match
+              case BlockType.Thread  => EntityKind.Thread
+              case BlockType.Article => EntityKind.Article
+              case BlockType.Product => EntityKind.Product
+              case _                 => EntityKind.Page
+            // Legacy free-form metadata remains verbatim; it is never parsed into guessed facts.
+            legacy = Option.when(spec.schemaVersion == 1 && block.title.exists(_.nonEmpty))(
+              PageEntity(target, kind, block.title, block.text, legacyMeta = block.meta)
+            )
+            primary = inherited.find(_.id == target).orElse(legacy)
+            entities =
+              if local then
+                (primary.toList ++ inherited.filter(e => sameSite(e.id, target))).distinctBy(_.id)
+              else Nil
+            appearance = Option.when(local)(
+              SiteAppearance(
+                spec.title,
+                spec.description,
+                spec.theme,
+                spec.design,
+                spec.blocks
+                  .find(_.`type` == BlockType.Navbar)
+                  .flatMap(_.title)
+                  .orElse(page.navigationContext.flatMap(_.appearance).flatMap(_.brand))
+              )
+            )
+            containers =
+              if local then
+                selectedPath
+                  .dropRight(1)
+                  .map(b =>
+                    AncestorSummary(page.address, b.title.getOrElse(""), b.text.getOrElse(""))
+                  )
+              else Nil
+            ancestors =
+              if local then
+                (page.navigationContext.toList.flatMap(_.ancestors) :+
+                  AncestorSummary(page.address, spec.title, spec.description)).takeRight(3)
+              else Nil
+            snapshot = fit(
+              NavigationContext(target, selected, containers, appearance, entities, ancestors)
+            )
+            _ <- Either.cond(snapshot.asJson.noSpaces.length <= 24000, (), "所选条目超出上下文预算")
+          yield Some(snapshot)

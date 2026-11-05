@@ -13,6 +13,13 @@ object GenerationJobTableInitializer:
     "CREATE UNIQUE INDEX IF NOT EXISTS one_active_job_per_page ON generation_jobs(page_id) WHERE status IN ('queued','running')"
   private val stepsSql =
     "ALTER TABLE generation_jobs ADD COLUMN IF NOT EXISTS steps JSONB NOT NULL DEFAULT '[]'::jsonb"
+  private val actionKindSql =
+    "ALTER TABLE generation_jobs DROP CONSTRAINT IF EXISTS generation_jobs_kind_check, DROP CONSTRAINT IF EXISTS generation_jobs_check"
+  private val actionCheckSql =
+    "DO $$ BEGIN IF NOT EXISTS (SELECT 1 FROM pg_constraint WHERE conname='generation_job_kind_page' AND conrelid='generation_jobs'::regclass) THEN ALTER TABLE generation_jobs ADD CONSTRAINT generation_job_kind_page CHECK((kind IN ('page','action') AND page_id IS NOT NULL) OR (kind='connection' AND page_id IS NULL)); END IF; END $$"
   def initialize(c: Connection): IO[Unit] =
     SqlExecutor.update(c, createSql) *> SqlExecutor
-      .update(c, stepsSql) *> SqlExecutor.update(c, indexSql).void
+      .update(c, stepsSql) *> SqlExecutor.update(c, indexSql) *> SqlExecutor.update(
+      c,
+      actionKindSql
+    ) *> SqlExecutor.update(c, actionCheckSql).void

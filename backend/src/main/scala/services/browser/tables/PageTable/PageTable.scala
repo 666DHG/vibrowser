@@ -24,13 +24,14 @@ object PageTable:
     r.getString("source"),
     Option(r.getString("navigation_context")).map(s =>
       decode[NavigationContext](s).fold(throw _, identity)
-    )
+    ),
+    Option(r.getString("document")).map(s => decode[WebDocument](s).fold(throw _, identity))
   )
   private val findByIdSql = "SELECT * FROM pages WHERE id=?"
   def findById(c: Connection, id: PageId): IO[Option[PageRecord]] =
     SqlExecutor.query(c, findByIdSql, List(id.value))(row).map(_.headOption)
   private val findByAddressSql =
-    "SELECT p.* FROM pages p WHERE address=? AND (status='generating' OR EXISTS (SELECT 1 FROM bookmarks b WHERE b.page_id=p.id)) ORDER BY CASE WHEN status='ready' THEN 0 ELSE 1 END, created_at DESC LIMIT 1"
+    "SELECT p.* FROM pages p WHERE address=? AND ((status='generating' AND source != 'action') OR EXISTS (SELECT 1 FROM bookmarks b WHERE b.page_id=p.id)) ORDER BY CASE WHEN status='ready' THEN 0 ELSE 1 END, created_at DESC LIMIT 1"
   def findByAddress(c: Connection, address: String): IO[Option[PageRecord]] =
     SqlExecutor.query(c, findByAddressSql, List(address))(row).map(_.headOption)
   private val detachTemporaryParentsSql =
@@ -48,7 +49,7 @@ object PageTable:
   def lockById(c: Connection, id: PageId): IO[Option[PageRecord]] =
     SqlExecutor.query(c, lockSql, List(id.value))(row).map(_.headOption)
   private val insertSql =
-    "INSERT INTO pages(id,address,kind,prompt,status,current_job_id,referrer_id,navigation_context) VALUES(?,?,?,?,'generating',?,?,?::jsonb) ON CONFLICT(address) WHERE status='generating' DO NOTHING"
+    "INSERT INTO pages(id,address,kind,prompt,status,current_job_id,referrer_id,navigation_context) VALUES(?,?,?,?,'generating',?,?,?::jsonb) ON CONFLICT(address) WHERE status='generating' AND source != 'action' DO NOTHING"
   def insertPending(
       c: Connection,
       id: PageId,
@@ -92,3 +93,41 @@ object PageTable:
     "UPDATE pages SET status='generating',error=NULL,current_job_id=? WHERE id=? AND status='failed' AND current_job_id=?"
   def retry(c: Connection, id: PageId, oldJob: JobId, newJob: JobId): IO[Boolean] =
     SqlExecutor.update(c, retrySql, List(newJob.value, id.value, oldJob.value)).map(_ == 1)
+
+  private val saveDocumentSql =
+    "UPDATE pages SET status='ready',document=?::jsonb,spec=NULL,error=NULL,source=? WHERE id=? AND current_job_id=? AND status='generating'"
+  def saveDocument(
+      c: Connection,
+      id: PageId,
+      jobId: JobId,
+      document: WebDocument,
+      source: String
+  ): IO[Boolean] =
+    SqlExecutor
+      .update(c, saveDocumentSql, List(document.asJson.noSpaces, source, id.value, jobId.value))
+      .map(_ == 1)
+
+  private val versionSql =
+    "INSERT INTO pages(id,address,kind,prompt,status,current_job_id,referrer_id,navigation_context,source) VALUES(?,?,?,?,'generating',?,?,?::jsonb,'action')"
+  def insertVersion(
+      c: Connection,
+      id: PageId,
+      address: VirtualAddress,
+      jobId: JobId,
+      source: PageRecord
+  ): IO[Unit] =
+    SqlExecutor
+      .update(
+        c,
+        versionSql,
+        List(
+          id.value,
+          address.canonical,
+          PageKind.toString(address.kind),
+          address.prompt,
+          jobId.value,
+          source.id.value,
+          source.navigationContext.map(_.asJson.noSpaces).orNull
+        )
+      )
+      .void
