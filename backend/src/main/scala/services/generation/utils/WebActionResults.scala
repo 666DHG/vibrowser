@@ -8,6 +8,8 @@ private[generation] object WebActionResults:
       next: WebDocument,
       snapshot: Option[PageActionSnapshot]
   ): Either[AppError, WebDocument] = snapshot match
+    case Some(s) if s.action.kind != WebActionKind.Search && next.css.trim.nonEmpty =>
+      Left(AppError("invalid_content", "区域更新 css 必须为空，复用原页面样式类", 502))
     case Some(s) if s.action.kind != WebActionKind.Search =>
       val base = Jsoup.parseBodyFragment(s.document.html)
       val target = s.action.region.flatMap(id => Option(base.getElementById(id)))

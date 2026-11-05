@@ -38,6 +38,9 @@ private[browser] object NavigationContexts:
         _ <- Either.cond(resolved == target, (), "来源动作与目标不匹配")
         local = sameSite(page.address, target)
         entity = document.entities.find(_.id == target)
+        label = Option(
+          org.jsoup.Jsoup.parseBodyFragment(document.html).getElementById(action.elementId)
+        ).map(_.text()).filter(_.nonEmpty)
         context = fit(
           NavigationContext(
             target,
@@ -45,13 +48,17 @@ private[browser] object NavigationContexts:
               action.id,
               BlockType.Button,
               target,
-              entity.flatMap(_.title),
+              entity.flatMap(_.title).orElse(label),
               entity.flatMap(_.summary),
               None
             ),
             Nil,
             None,
-            if local then entity.toList ++ document.entities.filterNot(_.id == target) else Nil,
+            if local then
+              entity.toList ++ document.entities.filter(e =>
+                e.id != target && sameSite(e.id, target)
+              )
+            else Nil,
             if local then
               (page.navigationContext.toList.flatMap(_.ancestors) :+ AncestorSummary(
                 page.address,

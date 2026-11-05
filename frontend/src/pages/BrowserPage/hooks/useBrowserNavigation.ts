@@ -197,6 +197,7 @@ export function useBrowserNavigation() {
     if (!tab || tab.content.status !== "ready") return Promise.resolve();
     if (
       tab.pending?.action?.actionId === action.id &&
+      JSON.stringify(tab.pending.action.values) === JSON.stringify(values) &&
       ["loading", "generating"].includes(tab.pending.status)
     )
       return Promise.resolve();

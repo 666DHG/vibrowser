@@ -21,9 +21,40 @@ private[generation] final class MockTextGenerationClient extends TextGenerationC
                                    else if prompt.contains("文档") || prompt.contains("docs") then
                                      "docs"
                                    else "forum"
-                                 Files.readString(
-                                   Paths.get("../contracts/web-documents/" + file + ".json")
-                                 )
+                                 val document = decode[WebDocument](
+                                   Files.readString(
+                                     Paths.get("../contracts/web-documents/" + file + ".json")
+                                   )
+                                 ).toOption.get
+                                 val snapshot = prompt.linesIterator
+                                   .find(_.startsWith("操作快照："))
+                                   .flatMap(line =>
+                                     decode[PageActionSnapshot](line.stripPrefix("操作快照：")).toOption
+                                   )
+                                 snapshot match
+                                   case Some(s) if s.action.kind != WebActionKind.Search =>
+                                     document
+                                       .copy(
+                                         html =
+                                           "<article id='more-" + s.resultPageId.value + "'>新的讨论内容</article>",
+                                         css = "",
+                                         actions = Nil,
+                                         bindings = Nil,
+                                         entities = Nil,
+                                         initialState = Map.empty,
+                                         persistentKeys = Nil
+                                       )
+                                       .asJson
+                                       .noSpaces
+                                   case Some(s) =>
+                                     document
+                                       .copy(
+                                         title = s.values.getOrElse("q", "") + " · 搜索",
+                                         siteStyle = s.document.siteStyle
+                                       )
+                                       .asJson
+                                       .noSpaces
+                                   case None => document.asJson.noSpaces
                                }
                              else
                                IO.blocking {

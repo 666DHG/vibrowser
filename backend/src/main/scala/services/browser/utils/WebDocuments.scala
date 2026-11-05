@@ -9,6 +9,22 @@ import com.helger.css.ECSSVersion
 import com.helger.css.writer.CSSWriter
 private[browser] object WebDocuments:
   private val tags = Set(
+    "mark",
+    "kbd",
+    "samp",
+    "var",
+    "sub",
+    "sup",
+    "abbr",
+    "cite",
+    "q",
+    "address",
+    "wbr",
+    "bdi",
+    "bdo",
+    "dfn",
+    "del",
+    "ins",
     "body",
     "main",
     "header",
@@ -130,7 +146,14 @@ private[browser] object WebDocuments:
         "DOM exceeds node/depth budget"
       )
       requireThat(parsed.head().children().isEmpty, "head elements are not allowed")
-      requireThat(nodes.forall(e => tags(e.normalName())), "unsupported HTML element")
+      requireThat(
+        nodes.forall(e => tags(e.normalName())),
+        "unsupported HTML element: " + nodes
+          .filterNot(e => tags(e.normalName()))
+          .map(_.normalName())
+          .distinct
+          .mkString(", ")
+      )
       requireThat(
         nodes.forall(e =>
           e.attributes()

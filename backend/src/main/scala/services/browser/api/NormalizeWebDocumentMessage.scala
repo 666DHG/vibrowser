@@ -1,4 +1,5 @@
 package services.browser.api
+import scala.jdk.CollectionConverters.*
 import cats.effect.IO
 import java.sql.Connection
 import services.system.api.APIMessage
@@ -7,7 +8,6 @@ import services.browser.utils.AddressRules
 final case class NormalizeWebDocumentMessage(document: WebDocument, address: String)
     extends APIMessage[WebDocument]:
   override def plan(connection: Connection): IO[WebDocument] = IO.pure {
-    import scala.jdk.CollectionConverters.*
     val parsed = org.jsoup.Jsoup.parseBodyFragment(document.html)
     val inline = parsed
       .select("[style]")
@@ -21,14 +21,26 @@ final case class NormalizeWebDocumentMessage(document: WebDocument, address: Str
         rule
       }
       .mkString("\n")
-    val existingIds = parsed.select("[id]").asScala.map(_.id()).toSet ++ document.actions.map(_.id)
+    val actions = document.actions.map { a =>
+      val element = parsed.getElementById(a.elementId)
+      if element != null && Set(
+          WebActionKind.Search,
+          WebActionKind.Submit,
+          WebActionKind.Replace,
+          WebActionKind.Append
+        )(a.kind) && element.normalName() != "form"
+      then
+        Option(element.closest("form"))
+          .filter(_.id().nonEmpty)
+          .fold(a)(form => a.copy(elementId = form.id()))
+      else a
+    }
+    val existingIds = parsed.select("[id]").asScala.map(_.id()).toSet ++ actions.map(_.id)
     val links = parsed
       .select("a[href]")
       .asScala
       .toList
-      .filterNot(e =>
-        e.attr("href").startsWith("#") || document.actions.exists(_.elementId == e.id())
-      )
+      .filterNot(e => e.attr("href").startsWith("#") || actions.exists(_.elementId == e.id()))
       .zipWithIndex
       .map { (e, index) =>
         val id =
@@ -48,7 +60,7 @@ final case class NormalizeWebDocumentMessage(document: WebDocument, address: Str
     document.copy(
       html = parsed.body().html(),
       css = document.css + "\n" + inline,
-      actions = document.actions ++ links,
+      actions = actions ++ links,
       entities = document.entities.map(e => e.copy(id = ids(e.id))),
       bindings =
         document.bindings.map(b => b.copy(entityId = ids.getOrElse(b.entityId, b.entityId))),

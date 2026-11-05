@@ -112,7 +112,11 @@ export function TabContent({
       <div
         ref={viewport}
         tabIndex={0}
-        className="h-full overflow-y-auto overflow-x-hidden [scrollbar-gutter:stable]"
+        className={
+          content.status === "ready" && content.page.document
+            ? "h-full overflow-hidden"
+            : "h-full overflow-y-auto overflow-x-hidden [scrollbar-gutter:stable]"
+        }
         data-testid={active ? "content-viewport" : undefined}
       >
         {content.status === "idle" && !pending && (
@@ -121,6 +125,8 @@ export function TabContent({
         {content.status === "bookmarks" && bookmarks}
         {content.status === "ready" && content.page.document && (
           <WebDocumentFrame
+            key={content.page.address}
+            updateActionId={pending?.action?.actionId}
             savedState={tab.entries[tab.index]?.state}
             savedScroll={tab.entries[tab.index]?.scroll}
             onState={(state, scroll) => savePageState(tab.id, state, scroll)}

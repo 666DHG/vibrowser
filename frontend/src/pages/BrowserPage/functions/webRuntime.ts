@@ -183,52 +183,78 @@ function runtime(
     () => send("preview", { actionId: null }),
     true,
   );
-  for (const action of documentSpec.actions) {
-    const value = state[action.stateKey ?? action.id];
-    const region = byId(action.region);
-    const element = byId(action.elementId);
-    if (action.kind === "Toggle" && value !== undefined && region)
-      region.hidden = value !== "true";
-    if (
-      element instanceof HTMLInputElement ||
-      element instanceof HTMLSelectElement
-    ) {
-      if (
-        value !== undefined &&
-        ["Filter", "Sort", "Set"].includes(action.kind)
-      ) {
-        element.value = value;
-        run(element);
-      }
-    }
-  }
-  document
-    .querySelectorAll<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >("input[name],textarea[name],select[name]")
-    .forEach((field) => {
-      const value =
-        state["$draft:" + (field.form?.id ?? "") + ":" + field.name];
-      if (value !== undefined) {
-        if (
-          field instanceof HTMLInputElement &&
-          (field.type === "checkbox" || field.type === "radio")
-        )
-          field.checked = value === "true";
-        else field.value = value;
-      }
-    });
-  for (const action of documentSpec.actions) {
-    if (action.kind === "Switch") {
+  const restore = () => {
+    for (const action of documentSpec.actions) {
       const value = state[action.stateKey ?? action.id];
       const region = byId(action.region);
-      if (value !== undefined && region)
-        [...region.children].forEach((e) => {
-          (e as HTMLElement).hidden = e.id !== value;
-        });
+      const element = byId(action.elementId);
+      if (action.kind === "Toggle" && value !== undefined && region)
+        region.hidden = value !== "true";
+      if (
+        element instanceof HTMLInputElement ||
+        element instanceof HTMLSelectElement
+      ) {
+        if (
+          value !== undefined &&
+          ["Filter", "Sort", "Set"].includes(action.kind)
+        ) {
+          element.value = value;
+          run(element);
+        }
+      }
     }
-  }
-  draw();
+    document
+      .querySelectorAll<
+        HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+      >("input[name],textarea[name],select[name]")
+      .forEach((field) => {
+        const value =
+          state["$draft:" + (field.form?.id ?? "") + ":" + field.name];
+        if (value !== undefined) {
+          if (
+            field instanceof HTMLInputElement &&
+            (field.type === "checkbox" || field.type === "radio")
+          )
+            field.checked = value === "true";
+          else field.value = value;
+        }
+      });
+    for (const action of documentSpec.actions) {
+      if (action.kind === "Switch") {
+        const value = state[action.stateKey ?? action.id];
+        const region = byId(action.region);
+        if (value !== undefined && region)
+          [...region.children].forEach((e) => {
+            (e as HTMLElement).hidden = e.id !== value;
+          });
+      }
+    }
+    draw();
+  };
+  restore();
+  window.addEventListener("message", (event) => {
+    if (
+      event.source !== parent ||
+      event.data?.instance !== instance ||
+      event.data?.type !== "document-update"
+    )
+      return;
+    const next = event.data.document as WebDocument;
+    const region = byId(event.data.region);
+    const parsed = new DOMParser().parseFromString(next.html, "text/html");
+    const replacement = parsed.getElementById(event.data.region);
+    if (!region || !replacement) return;
+    const scroll = window.scrollY;
+    region.replaceChildren(...replacement.childNodes);
+    documentSpec = next;
+    actions.clear();
+    next.actions.forEach((a) => actions.set(a.elementId, a));
+    state = { ...next.initialState, ...state };
+    restore();
+    window.scrollTo(0, scroll);
+    publish();
+    send("updated", {});
+  });
   if (savedScroll) window.scrollTo(0, savedScroll);
   window.addEventListener("scroll", publish, { passive: true });
   send("ready", {});

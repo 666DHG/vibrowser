@@ -1,4 +1,5 @@
 package services.generation.utils
+import io.circe.syntax.*
 import cats.effect.IO
 import cats.syntax.all.*
 import scala.concurrent.duration.*
@@ -47,7 +48,6 @@ private[generation] final class GenerationWorker(
           services.browser.tables.PageActionTable.PageActionTable.forPage(c, page.id)
         )
         prompt = snapshot.fold(WebDocumentPrompt.request(page)) { s =>
-          import io.circe.syntax.*
           val region = s.action.region
             .flatMap(id =>
               Option(org.jsoup.Jsoup.parseBodyFragment(s.document.html).getElementById(id))
@@ -68,7 +68,14 @@ private[generation] final class GenerationWorker(
           prompt,
           snapshot = snapshot
         )
-        _ <- database.transaction(UpdateGenerationPhaseMessage(job.id, GenerationPhase.Saving).plan)
+        current <- database.transaction(c => GenerationJobTable.findById(c, job.id))
+        _ <- database.transaction(
+          UpdateGenerationPhaseMessage(
+            job.id,
+            GenerationPhase.Saving,
+            current.flatMap(_.steps.lastOption).fold(1)(_.attempt)
+          ).plan
+        )
         _ <- database.transaction(
           CompleteWebDocumentMessage(job.id, document, if mock then "mock" else "live").plan
         )

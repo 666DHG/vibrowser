@@ -5,6 +5,8 @@ for (const name of ["forum", "shop", "docs"])
     const document = JSON.parse(
       await readFile("../contracts/web-documents/" + name + ".json", "utf8"),
     );
+    let currentDocument = document;
+    let currentId = "sample";
     const errors: string[] = [];
     page.on("pageerror", (e) => errors.push(e.message));
     await page.route("**/health", (r) =>
@@ -20,13 +22,13 @@ for (const name of ["forum", "shop", "docs"])
       r.fulfill({
         json: {
           page: {
-            id: "sample",
+            id: currentId,
             address: "https://sample.example/",
             kind: "website",
             prompt: "sample.example",
             status: "ready",
             spec: null,
-            document,
+            document: currentDocument,
             currentJobId: "job",
             referrerId: null,
             error: null,
@@ -75,6 +77,31 @@ for (const name of ["forum", "shop", "docs"])
       await expect(frame.locator("#chapters")).toBeVisible();
     }
     expect(requests).toBe(0);
+    if (name === "forum") {
+      await frame.locator('input[name="q"]').fill("更新时保留的草稿");
+      const input = await frame.locator('input[name="q"]').elementHandle();
+      await page.route("**/api/submitpageaction", async (r) => {
+        expect(r.request().postDataJSON().actionId).toBe("more");
+        currentId = "patched";
+        currentDocument = {
+          ...document,
+          html: document.html.replace(
+            "</main>",
+            '<article id="new-row">选课追加回复</article></main>',
+          ),
+        };
+        await r.fulfill({
+          json: { pageId: currentId, jobId: "job", status: "ready" },
+        });
+      });
+      await frame.locator("#more").click();
+      await expect(frame.locator("#new-row")).toBeVisible();
+      expect(await input!.evaluate((e) => e.isConnected)).toBe(true);
+      await expect(frame.locator('input[name="q"]')).toHaveValue(
+        "更新时保留的草稿",
+      );
+      await page.unroute("**/api/submitpageaction");
+    }
     await page.route("**/api/submitpageaction", async (route) => {
       const data = route.request().postDataJSON();
       expect(data.actionId).toBe("search");

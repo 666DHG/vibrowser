@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import type { WebDocument, WebAction } from "../../../shared/webDocument";
 import { frameSource } from "../functions/webRuntime";
 export function WebDocumentFrame({
@@ -8,6 +8,7 @@ export function WebDocumentFrame({
   onState,
   savedState,
   savedScroll,
+  updateActionId,
 }: {
   document: WebDocument;
   onAction: (action: WebAction, values: Record<string, string>) => void;
@@ -15,14 +16,50 @@ export function WebDocumentFrame({
   onState?: (state: Record<string, string>, scroll?: number) => void;
   savedState?: Record<string, string>;
   savedScroll?: number;
+  updateActionId?: string;
 }) {
   const frame = useRef<HTMLIFrameElement>(null);
-  const instance = useMemo(() => crypto.randomUUID(), [doc]);
-  const source = useMemo(
-    () =>
-      frameSource(doc, instance, crypto.randomUUID(), savedState, savedScroll),
-    [doc, instance],
-  );
+  const createFrame = (value: WebDocument) => {
+    const instance = crypto.randomUUID();
+    return {
+      instance,
+      source: frameSource(
+        value,
+        instance,
+        crypto.randomUUID(),
+        savedState,
+        savedScroll,
+      ),
+    };
+  };
+  const [transport, setTransport] = useState(() => createFrame(doc));
+  const { instance, source } = transport;
+  const previous = useRef(doc);
+  const update = useRef<{ document: WebDocument; region: string } | null>(null);
+  const deliverUpdate = () => {
+    if (update.current)
+      frame.current?.contentWindow?.postMessage(
+        { type: "document-update", instance, ...update.current },
+        "*",
+      );
+  };
+  useEffect(() => {
+    if (previous.current === doc) return;
+    const action = previous.current.actions.find(
+      (a) => a.id === updateActionId,
+    );
+    previous.current = doc;
+    if (
+      action?.region &&
+      ["Append", "Replace", "Submit"].includes(action.kind)
+    ) {
+      update.current = { document: doc, region: action.region };
+      deliverUpdate();
+    } else {
+      update.current = null;
+      setTransport(createFrame(doc));
+    }
+  }, [doc]);
   const callbacks = useRef({ onAction, onPreview, onState });
   callbacks.current = { onAction, onPreview, onState };
   useEffect(() => {
@@ -34,6 +71,7 @@ export function WebDocumentFrame({
       )
         return;
       const message = event.data;
+      if (message.type === "ready") deliverUpdate();
       const action = doc.actions.find((a) => a.id === message.actionId);
       if (message.type === "preview")
         callbacks.current.onPreview(

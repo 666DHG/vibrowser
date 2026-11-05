@@ -18,7 +18,7 @@ export function useBookmarks() {
     request.current?.abort();
     const c = new AbortController();
     request.current = c;
-    setStatus("loading");
+    setStatus((current) => (current === "ready" ? "ready" : "loading"));
     try {
       const result = await new ListBookmarksMessage().send(c.signal);
       if (!c.signal.aborted && mounted.current) {

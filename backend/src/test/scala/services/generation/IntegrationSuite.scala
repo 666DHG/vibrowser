@@ -343,7 +343,15 @@ class IntegrationSuite extends CatsEffectSuite:
         nav <- db.transaction(NavigateMessage("forum-v3.example", None).plan)
         job <- db.transaction(ClaimGenerationJobMessage().plan).map(_.get)
         _ <- db.transaction(CompleteWebDocumentMessage(job.id, document, "mock").plan)
-        bookmark <- db.transaction(SaveBookmarkMessage(nav.pageId).plan)
+        bookmark <- db.transaction(
+          SaveBookmarkMessage(
+            nav.pageId,
+            Some(Map("cart" -> "2", "$draft:search:q" -> "private draft"))
+          ).plan
+        )
+        restored <- db.transaction(GetPageMessage(Some(nav.pageId), None).plan)
+        _ = assertEquals(restored.page.get.document.get.initialState("cart"), "2")
+        _ = assert(!restored.page.get.document.get.initialState.contains("$draft:search:q"))
         responses <- List
           .fill(4)(
             db.transaction(
@@ -383,6 +391,19 @@ class IntegrationSuite extends CatsEffectSuite:
           )
           .map(_.get)
         _ = assertEquals(snapshot.values, Map("q" -> "选课"))
+        _ <- db.transaction(ClaimGenerationJobMessage().plan)
+        _ <- db.transaction(
+          FailGenerationJobMessage(responses.head.jobId, "test interruption").plan
+        )
+        retried <- db.transaction(
+          RetryPageMessage(responses.head.pageId, responses.head.jobId).plan
+        )
+        retrySnapshot <- db.transaction(c =>
+          services.browser.tables.PageActionTable.PageActionTable.forPage(c, retried.pageId)
+        )
+        _ = assertEquals(retrySnapshot, Some(snapshot))
+        retryJob <- db.transaction(GetPageMessage(Some(retried.pageId), None).plan)
+        _ = assertEquals(retryJob.job.get.kind, JobKind.Action)
         _ <- db.transaction(PageTable.clearTemporary)
         original <- db.transaction(c => PageTable.findById(c, bookmark.pageId)).map(_.get)
         _ = assert(original.document.nonEmpty)
@@ -392,4 +413,24 @@ class IntegrationSuite extends CatsEffectSuite:
         _ = assertEquals(removed, None)
       yield ()
     }
+  }
+
+  test("v3 normalization preserves readable links and binds form actions to their form") {
+    val base = decode[WebDocument](
+      Files.readString(Paths.get("../contracts/web-documents/forum.json"))
+    ).toOption.get
+    val generated = base.copy(
+      html = base.html
+        .replace("<button type=\"submit\">", "<button id=\"search-button\" type=\"submit\">")
+        .replace("<header>", "<header style=\"color:blue\">"),
+      actions = base.actions.map(a =>
+        if a.kind == WebActionKind.Search then a.copy(elementId = "search-button") else a
+      )
+    )
+    for
+      normalized <- NormalizeWebDocumentMessage(generated, "https://sample.example/").plan(null)
+      checked <- ValidateWebDocumentMessage(normalized, "https://sample.example/").plan(null)
+      _ = assertEquals(checked.actions.find(_.kind == WebActionKind.Search).get.elementId, "search")
+      _ = assert(!checked.html.contains("style="))
+    yield ()
   }

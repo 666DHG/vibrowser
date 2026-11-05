@@ -1,7 +1,6 @@
 package services.generation.utils
 import cats.effect.IO
 import cats.syntax.all.*
-import io.circe.parser.parse
 import services.browser.objects.*
 import services.browser.api.ValidateWebDocumentMessage
 import services.system.DatabaseSession
@@ -32,6 +31,9 @@ private[generation] final class WebDocumentGeneration(
       known = (page.navigationContext.toList.flatMap(_.entities) ++ snapshot.toList.flatMap(
         _.document.entities
       )).distinctBy(_.id)
+      _ <- IO.raiseWhen(
+        known.exists(_.id == page.address) && decoded.subjectEntityId.exists(_ != page.address)
+      )(AppError("invalid_content", "subjectEntityId 必须引用所点击实体", 502))
       merged <- IO.fromEither(
         decoded.entities.traverse(e =>
           known

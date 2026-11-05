@@ -1,4 +1,5 @@
 package services.browser.api
+import scala.jdk.CollectionConverters.*
 import cats.effect.IO
 import java.sql.Connection
 import io.circe.Decoder
@@ -21,14 +22,16 @@ final case class SubmitPageActionMessage(
 ) extends APIMessage[NavigationResponse]:
   override def plan(c: Connection): IO[NavigationResponse] = for
     _ <- IO.raiseWhen(
-      requestId.length > 100 || values.size > 32 || values.values.map(_.length).sum > 12000
+      requestId.trim.isEmpty || requestId.length > 100 || values.size > 32 || values.values
+        .map(_.length)
+        .sum > 12000
     )(AppError("invalid_request", "表单内容过长"))
     _ <- PageActionTable.lockRequest(c, requestId)
     existing <- PageActionTable.find(c, requestId)
     result <- existing match
       case Some(snapshot) =>
         IO.raiseWhen(
-          snapshot.sourcePageId != pageId || snapshot.action.id != actionId || snapshot.values != values
+          snapshot.sourcePageId != pageId || snapshot.action.id != actionId || snapshot.revision != revision || snapshot.values != values
         )(AppError("request_conflict", "请求标识已用于其他操作", 409)) *> PageTable
           .findById(c, snapshot.resultPageId)
           .map(_.get)
@@ -54,7 +57,6 @@ final case class SubmitPageActionMessage(
           )(AppError("invalid_action", "该动作应在本地执行"))
           element = org.jsoup.Jsoup.parseBodyFragment(doc.html).getElementById(action.elementId)
           _ <- IO.raiseWhen(element != null && element.normalName() == "form" && {
-            import scala.jdk.CollectionConverters.*
             val fields = element.select("[name]").asScala.toList
             values.keys.exists(key => !fields.exists(_.attr("name") == key)) || fields
               .filter(_.hasAttr("required"))

@@ -26,3 +26,25 @@ class WebDocumentSuite extends FunSuite:
       base.copy(css = "x" * 120001)
     ).foreach(d => assert(WebDocuments.prepare(d, "https://sample.example/").isLeft))
   }
+
+  test("document budgets, entity references and safe typographic markup") {
+    val base = fixture("forum")
+    assert(
+      WebDocuments
+        .prepare(
+          base.copy(html = base.html + "<p><mark>搜索词</mark><kbd>Enter</kbd><sup>2</sup></p>"),
+          "https://sample.example/"
+        )
+        .isRight
+    )
+    List(
+      base.copy(html = base.html + "<span>x</span>" * 2001),
+      base.copy(actions = List.fill(65)(base.actions.head)),
+      base.copy(bindings =
+        List(WebBinding("thread", "https://sample.example/missing", EntityField.Title))
+      ),
+      base.copy(subjectEntityId = Some("https://sample.example/missing")),
+      base.copy(css = "@import 'https://example.com/a.css';"),
+      base.copy(html = base.html + "<img src='https://example.com/x'>")
+    ).foreach(d => assert(WebDocuments.prepare(d, "https://sample.example/").isLeft))
+  }

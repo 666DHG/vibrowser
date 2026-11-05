@@ -21,18 +21,18 @@ final case class SaveBookmarkMessage(pageId: PageId, state: Option[Map[String, S
         AppError("page_not_ready", "只能收藏已加载的网页")
       )
       id <- IO(BookmarkId(java.util.UUID.randomUUID().toString))
-      saved <- BookmarkTable.save(
-        connection,
-        id,
-        page,
-        page.document.map(_.title).getOrElse(page.spec.get.title)
-      )
       accepted = state
         .getOrElse(Map.empty)
         .filter((key, value) =>
           page.document.exists(_.persistentKeys.contains(key)) && value.length <= 2000
         )
-      _ <- BookmarkTable.saveState(connection, saved.id, accepted)
+      saved <- BookmarkTable.save(
+        connection,
+        id,
+        page,
+        page.document.map(_.title).getOrElse(page.spec.get.title),
+        accepted
+      )
     yield saved
 object SaveBookmarkMessage:
   given Decoder[SaveBookmarkMessage] = deriveDecoder
