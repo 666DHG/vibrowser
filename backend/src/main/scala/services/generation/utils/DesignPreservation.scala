@@ -1,29 +1,59 @@
 package services.generation.utils
 import org.jsoup.Jsoup
 import scala.jdk.CollectionConverters.*
-import services.browser.objects.WebDocument
+import services.browser.objects.{WebDocument, WebAction, WebActionKind}
 import services.generation.objects.LayoutReport
 private[generation] object DesignPreservation:
-  private def content(doc: WebDocument): Set[String] =
-    Jsoup
-      .parseBodyFragment(doc.html)
-      .body()
-      .getAllElements
-      .asScala
-      .filter(_.children().isEmpty)
-      .map(_.text().trim)
-      .filter(_.length >= 12)
-      .toSet
-  def issues(before: WebDocument, after: WebDocument): List[String] =
+  private def content(doc: WebDocument): String =
+    val body = Jsoup.parseBodyFragment(doc.html).body()
+    body.select("nav, button, form, script, style").remove()
+    body.text().filterNot(_.isWhitespace)
+
+  // Ordered character coverage is independent of inline markup and paragraph boundaries.
+  // Repeated text still counts separately; a duplicated navigation label cannot replace a paragraph.
+  private def coverage(before: String, after: String): Double =
+    if before.isEmpty then 1.0
+    else
+      var position = 0
+      var retained = 0
+      before.foreach { character =>
+        val next = after.indexOf(character, position)
+        if next >= 0 then
+          retained += 1
+          position = next + 1
+      }
+      retained.toDouble / before.length
+
+  private def validTrigger(doc: WebDocument, action: WebAction): Boolean =
+    Option(Jsoup.parseBodyFragment(doc.html).getElementById(action.elementId)).exists { element =>
+      action.kind match
+        case WebActionKind.Search | WebActionKind.Submit => element.normalName() == "form"
+        case WebActionKind.Toggle | WebActionKind.Switch => element.normalName() == "button"
+        case _                                           => false
+    }
+
+  def issues(
+      before: WebDocument,
+      after: WebDocument,
+      repairTargets: Set[String] = Set.empty
+  ): List[String] =
     val entities =
       before.entities.filterNot(e => after.entities.contains(e)).map(e => "实体事实变化: " + e.id)
     val actions =
-      before.actions.filterNot(a => after.actions.contains(a)).map(a => "动作功能变化: " + a.id)
+      before.actions
+        .filterNot { original =>
+          after.actions.exists { updated =>
+            original == updated || (
+              (repairTargets(original.id) || repairTargets(original.elementId)) &&
+                !validTrigger(before, original) && validTrigger(after, updated) &&
+                original.copy(elementId = updated.elementId) == updated
+            )
+          }
+        }
+        .map(a => "动作功能变化: " + a.id)
     val bindings =
       before.bindings.filterNot(after.bindings.contains).map(b => "实体字段绑定变化: " + b.elementId)
-    val facts = content(before)
-    val retained =
-      if facts.isEmpty then 1.0 else facts.intersect(content(after)).size.toDouble / facts.size
+    val retained = coverage(content(before), content(after))
     entities ++ actions ++ bindings ++ List(
       Option.when(retained < 0.9)("主要正文覆盖不足，保留原有文本并调整排版"),
       Option.when(before.subjectEntityId != after.subjectEntityId)("主体引用变化"),

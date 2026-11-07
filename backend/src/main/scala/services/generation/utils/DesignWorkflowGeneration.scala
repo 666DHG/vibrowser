@@ -194,7 +194,11 @@ private[generation] final class DesignWorkflowGeneration(
             accepted = validated
               .flatMap(identity)
               .flatMap(doc =>
-                val issues = DesignPreservation.issues(candidate, doc)
+                val issues = DesignPreservation.issues(
+                  candidate,
+                  doc,
+                  reviewed.review.toList.flatMap(_.issues.map(_.target)).toSet
+                )
                 Either.cond(
                   issues.isEmpty,
                   doc,
