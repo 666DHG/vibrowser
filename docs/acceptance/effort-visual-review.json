@@ -1,0 +1,19 @@
+{
+  "complete": false,
+  "method": "Inspect paired screenshots and replay actual generated controls; color alone does not count as structural improvement.",
+  "topics": [
+    {
+      "name": "academic",
+      "guidanceVerdict": "neutral",
+      "countsAsImprovement": false,
+      "observations": [
+        "Old standard uses a compact identity/contact strip followed by dense continuous biography and research sections.",
+        "New standard adds a separate top navigation and larger identity area, then emphasizes numbered research steps; both remain warm light single-column pages.",
+        "New deep uses Chinese serif headings and a research proposition as the main heading, with a narrow reading column and timeline-like research stages.",
+        "The changes are visible but this pair alone does not demonstrate a stronger, distinctive academic information architecture."
+      ],
+      "verifiedInteractions": ["new-standard: copy email and toggle publications", "new-deep: copy email and toggle earlier publications"],
+      "limitations": "Clipboard adapter was observed in an isolated browser replay; no personal clipboard was read or written."
+    }
+  ]
+}

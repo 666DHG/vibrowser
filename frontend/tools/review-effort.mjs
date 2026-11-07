@@ -3,8 +3,9 @@ import { resolve } from "node:path";
 import assert from "node:assert/strict";
 import { measureDocument } from "../dist-measure/measure.mjs";
 
-const input = resolve("../.cache/effort-acceptance");
-const output = resolve("../docs/screenshots/effort-comparison");
+const root = resolve(import.meta.dirname, "../..");
+const input = resolve(root, ".cache/effort-acceptance");
+const output = resolve(root, "docs/screenshots/effort-comparison");
 await mkdir(output, { recursive: true });
 const results = [];
 for (const file of (await readdir(input))
@@ -89,7 +90,7 @@ const groups = Object.fromEntries(
   }),
 );
 await writeFile(
-  resolve("../docs/acceptance/effort-comparison.json"),
+  resolve(root, "docs/acceptance/effort-comparison.json"),
   JSON.stringify(
     {
       evaluatedAt: new Date().toISOString(),
