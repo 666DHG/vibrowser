@@ -43,8 +43,8 @@ object EffortAcceptance extends IOApp.Simple:
       parse(Files.readString(output.resolve(name + ".json"))).fold(throw _, identity)
     )
   }
-  private def metered(http: Client[IO], records: Ref[IO, Vector[Json]]): Client[IO] = Client {
-    request =>
+  private[generation] def metered(http: Client[IO], records: Ref[IO, Vector[Json]]): Client[IO] =
+    Client { request =>
       for
         start <- Resource.eval(IO.monotonic)
         payload <- Resource.eval(request.as[Json])
@@ -82,7 +82,7 @@ object EffortAcceptance extends IOApp.Simple:
           )
         )
       yield response.withEntity(result)
-  }
+    }
   def run: IO[Unit] =
     require(
       sys.env.get("VIBROWSER_PAID_EFFORT_ACCEPTANCE").contains("true"),

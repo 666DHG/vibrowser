@@ -12,8 +12,40 @@
         "New deep uses Chinese serif headings and a research proposition as the main heading, with a narrow reading column and timeline-like research stages.",
         "The changes are visible but this pair alone does not demonstrate a stronger, distinctive academic information architecture."
       ],
-      "verifiedInteractions": ["new-standard: copy email and toggle publications", "new-deep: copy email and toggle earlier publications"],
+      "verifiedInteractions": [
+        "new-standard: copy email and toggle publications",
+        "new-deep: copy email and toggle earlier publications"
+      ],
       "limitations": "Clipboard adapter was observed in an isolated browser replay; no personal clipboard was read or written."
+    },
+    {
+      "name": "copy",
+      "guidanceVerdict": "improved",
+      "countsAsImprovement": true,
+      "observations": [
+        "Old standard is a continuous text list with a free-text tone filter.",
+        "New standard exposes clickable category choices and separates each copyable item with category, popularity and date metadata; category filtering and copy work in replay. This task-specific browsing hierarchy is more than a color change.",
+        "Deep uses a larger entry section and a two-column copy board with working length sort, but it is not counted as evidence for the standard-only guidance comparison."
+      ],
+      "verifiedInteractions": [
+        "new-standard: copy and category filter",
+        "new-deep: copy, toggle, length sort, intercepted search submission"
+      ],
+      "limitations": "Standard sort labels imply field switching that the action does not implement; recorded as a minor limitation, without forcing whole-page repair."
+    },
+    {
+      "name": "calendar",
+      "guidanceVerdict": "neutral",
+      "countsAsImprovement": false,
+      "observations": [
+        "Old standard separates a date summary and holiday list into two columns, followed by adjacent-day cards.",
+        "New standard emphasizes the date in a narrow single column with a lunar-date strip and category-labeled holiday rows. Both remain warm light reading layouts.",
+        "No clear structural improvement established; adjacent-day entries in the new standard sample are text, while the old sample has explicit previous/next links."
+      ],
+      "verifiedInteractions": [
+        "new-standard: intercepted search and holiday-detail navigation"
+      ],
+      "limitations": "Deep sample still running; date-changing child generation remains pending. No generated-content fact audit is implied."
     }
   ]
 }

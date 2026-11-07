@@ -72,6 +72,7 @@ test("entity-bound navigation submits exact source block and preserves displayed
     input: target,
     referrerPageId: "parent",
     sourceBlockId: "thread-84458",
+    effort: "standard",
     mode: "imagination",
   });
   await expect(

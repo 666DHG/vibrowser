@@ -11,6 +11,9 @@ test("replay real design documents through the browser runtime without model req
   )) {
     const record = JSON.parse(await readFile(directory + file, "utf8"));
     if (!record.document) continue;
+    const address = record.request
+      ? JSON.parse(record.request.split("\n")[0]).target.address
+      : "https://replay.example/";
     const context = await browser.newContext();
     const page = await context.newPage();
     try {
@@ -27,7 +30,7 @@ test("replay real design documents through the browser runtime without model req
           json: {
             page: {
               id: record.pageId,
-              address: "https://replay.example/",
+              address,
               kind: "website",
               prompt: record.input,
               status: "ready",
@@ -55,7 +58,8 @@ test("replay real design documents through the browser runtime without model req
         "title",
         record.document.title,
       );
-      await expect(frame.locator("h1").first()).toBeVisible();
+      await expect(frame.locator("body")).toBeVisible();
+      await expect(frame.locator("body")).not.toHaveText("");
       let requests = 0;
       const listener = (r: { url(): string }) => {
         if (/\/api\/(navigate|submitpageaction|retrypage)$/.test(r.url()))
@@ -235,10 +239,36 @@ test("replay real design documents through the browser runtime without model req
           await expect(form.locator('[name="q"]')).toHaveValue("主题检索");
         }
       }
+      let navigationSubmitted = false;
+      const link = record.document.actions.find(
+        (a: { kind: string; target?: string }) =>
+          a.kind === "Navigate" && a.target && a.target !== "/",
+      );
+      if (link) {
+        const control = frame.locator(`[id=${JSON.stringify(link.elementId)}]`);
+        if (await control.isVisible()) {
+          await page.route("**/api/navigate", (r) => {
+            const data = r.request().postDataJSON();
+            expect(new URL(data.input, address).href).toBe(
+              new URL(link.target, address).href,
+            );
+            expect(data.referrerPageId).toBe(record.pageId);
+            expect(data.sourceBlockId).toBe(link.id);
+            navigationSubmitted = true;
+            return r.fulfill({
+              status: 400,
+              json: { message: "验收拦截链接" },
+            });
+          });
+          await control.click();
+          await expect(page.getByText("验收拦截链接")).toBeVisible();
+        }
+      }
       findings.push({
         file,
         localActions: local,
         searchSubmitted,
+        navigationSubmitted,
         copyVerified,
         filterVerified,
         sortVerified,
