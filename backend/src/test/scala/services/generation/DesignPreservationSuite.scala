@@ -10,6 +10,26 @@ class DesignPreservationSuite extends FunSuite:
   private val base = decode[WebDocument](
     Files.readString(Paths.get("../contracts/web-documents/docs.json"))
   ).toOption.get
+  test("recorded academic refinement keeps prose despite edited leading navigation labels") {
+    val saved = io.circe.parser
+      .parse(Files.readString(Paths.get("../contracts/design-reflow-regression.json")))
+      .toOption
+      .get
+      .hcursor
+    val before = base.copy(html = saved.get[String]("beforeHtml").toOption.get)
+    val after = base.copy(html = saved.get[String]("afterHtml").toOption.get)
+    assertEquals(DesignPreservation.issues(before, after), Nil)
+  }
+  test("small leading edits and reordered sections do not consume later matching prose") {
+    val first = "这是一段介绍研究工作的正文，详细解释研究者如何设计实验、比较不同结果，并与团队一起复核相关材料。"
+    val second = "另一段介绍教学工作的正文，详细描述学生如何阅读文献、提出问题、组织讨论，并在课程中完成自己的项目。"
+    val before =
+      base.copy(html = s"<h1>主页研究招生</h1><section>$first</section><section>$second</section>")
+    val after =
+      before.copy(html = s"<h1>研究者的个人主页</h1><section>$second</section><section>$first</section>")
+    assertEquals(DesignPreservation.issues(before, after), Nil)
+    assert(DesignPreservation.issues(before, before.copy(html = s"<p>$first</p>")).nonEmpty)
+  }
   test("deleted prose cannot be replaced by navigation labels or a single duplicate") {
     val paragraph = "这段正文包含重要的详细介绍，必须完整保留给读者阅读。"
     val before = base.copy(html = s"<main><p>$paragraph</p><p>$paragraph</p></main>")

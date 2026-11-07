@@ -1,0 +1,50 @@
+[
+  {
+    "file": "academic-new-deep.json",
+    "localActions": [
+      "a-toggle-earlier"
+    ],
+    "searchSubmitted": false,
+    "copyVerified": true,
+    "filterVerified": false,
+    "sortVerified": false,
+    "limitations": [],
+    "extraModelCalls": 0
+  },
+  {
+    "file": "academic-new-standard.json",
+    "localActions": [
+      "toggle-2025-btn"
+    ],
+    "searchSubmitted": false,
+    "copyVerified": true,
+    "filterVerified": false,
+    "sortVerified": false,
+    "limitations": [],
+    "extraModelCalls": 0
+  },
+  {
+    "file": "copy-new-deep.json",
+    "localActions": [
+      "act-toggle-10"
+    ],
+    "searchSubmitted": true,
+    "copyVerified": true,
+    "filterVerified": false,
+    "sortVerified": true,
+    "limitations": [],
+    "extraModelCalls": 0
+  },
+  {
+    "file": "copy-new-standard.json",
+    "localActions": [],
+    "searchSubmitted": false,
+    "copyVerified": true,
+    "filterVerified": true,
+    "sortVerified": false,
+    "limitations": [
+      "Sort options hot,new do not match the declared single-field direction contract; sorting not verified."
+    ],
+    "extraModelCalls": 0
+  }
+]
