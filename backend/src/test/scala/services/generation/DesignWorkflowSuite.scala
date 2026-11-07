@@ -30,7 +30,7 @@ class DesignWorkflowSuite extends CatsEffectSuite:
   private def isolated[A](f: DatabaseSession => IO[A]): IO[A] =
     DatabaseSession
       .resource(
-        "jdbc:postgresql://127.0.0.1:55432/vibrowser?currentSchema=design_test",
+        s"jdbc:postgresql://127.0.0.1:${sys.env.getOrElse("VIBROWSER_DB_PORT", "55432")}/vibrowser?currentSchema=design_test",
         "vibrowser",
         ""
       )

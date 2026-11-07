@@ -1,4 +1,11 @@
-param([switch]$Mock, [switch]$Wait, [switch]$SkipBuild)
+param([switch]$Mock, [switch]$Wait, [switch]$SkipBuild,
+  [ValidateRange(1024,65535)][int]$UiPort = 5173,
+  [ValidateRange(1024,65535)][int]$ApiPort = 8787,
+  [ValidateRange(1024,65535)][int]$DbPort = 55432)
+if (@($UiPort,$ApiPort,$DbPort | Select-Object -Unique).Count -ne 3) { throw 'Ports must be distinct' }
+$env:VIBROWSER_UI_PORT = [string]$UiPort
+$env:VIBROWSER_API_PORT = [string]$ApiPort
+$env:VIBROWSER_DB_PORT = [string]$DbPort
 $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
 $runtimePath = Join-Path $root '.data\runtime.json'
@@ -6,7 +13,7 @@ function Test-Port([int]$Port) {
   $client = [System.Net.Sockets.TcpClient]::new()
   try { $client.Connect('127.0.0.1', $Port); return $true } catch { return $false } finally { $client.Dispose() }
 }
-if ((Test-Port 8787) -or (Test-Port 5173)) { throw 'Port 8787 or 5173 is occupied. Stop the existing Vibrowser session first; no unrelated process will be stopped.' }
+if ((Test-Port $ApiPort) -or (Test-Port $UiPort)) { throw "Port $ApiPort or $UiPort is occupied. No process will be stopped." }
 if (-not (Test-Path -LiteralPath (Join-Path $root 'frontend\node_modules'))) {
   Push-Location (Join-Path $root 'frontend')
   try { & npm.cmd ci; if ($LASTEXITCODE -ne 0) { throw 'npm ci failed' } } finally { Pop-Location }
@@ -34,18 +41,18 @@ try {
   $vitePath = Join-Path $root 'frontend\node_modules\vite\bin\vite.js'
   $frontend = Start-Process -FilePath $nodePath -ArgumentList @(('"' + $vitePath + '"'),'--host','127.0.0.1') -WorkingDirectory (Join-Path $root 'frontend') -WindowStyle Hidden -PassThru -RedirectStandardOutput (Join-Path $root '.data\frontend.log') -RedirectStandardError (Join-Path $root '.data\frontend-error.log')
   $processes = @($backend,$frontend) | ForEach-Object { @{ id=$_.Id; started=$_.StartTime.ToUniversalTime().ToString('o') } }
-  $processes | ConvertTo-Json | Set-Content -LiteralPath $runtimePath -Encoding UTF8
+  @{ root=$root; uiPort=$UiPort; apiPort=$ApiPort; dbPort=$DbPort; processes=$processes } | ConvertTo-Json -Depth 4 | Set-Content -LiteralPath $runtimePath -Encoding UTF8
   $ready=$false
   foreach ($attempt in 1..40) {
     if ($backend.HasExited -or $frontend.HasExited) { throw 'A service exited. Read .data/backend-error.log and .data/frontend-error.log.' }
     try {
-      $health=Invoke-RestMethod 'http://127.0.0.1:8787/health' -TimeoutSec 1
-      $ui=Invoke-WebRequest 'http://127.0.0.1:5173/' -TimeoutSec 1 -UseBasicParsing
+      $health=Invoke-RestMethod "http://127.0.0.1:$ApiPort/health" -TimeoutSec 1
+      $ui=Invoke-WebRequest "http://127.0.0.1:$UiPort/" -TimeoutSec 1 -UseBasicParsing
       if ($health.status -eq 'ok' -and $ui.StatusCode -eq 200) { $ready=$true; break }
     } catch { Start-Sleep -Milliseconds 500 }
   }
   if (-not $ready) { throw 'Services did not become ready. See .data logs.' }
-  Write-Output ('Vibrowser ready: http://127.0.0.1:5173/ | mode=' + $(if ($Mock) { 'MOCK (not real AI)' } else { 'LIVE (configure API in Settings)' }))
+  Write-Output ("Vibrowser ready: http://127.0.0.1:$UiPort/ | mode=" + $(if ($Mock) { 'MOCK (not real AI)' } else { 'LIVE (configure API in Settings)' }))
   if ($Wait) { Wait-Process -Id $backend.Id,$frontend.Id }
 } catch {
   if ($frontend -and -not $frontend.HasExited) { Stop-Process -Id $frontend.Id -Force -ErrorAction SilentlyContinue }

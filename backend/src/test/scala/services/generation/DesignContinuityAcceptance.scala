@@ -25,12 +25,12 @@ object DesignContinuityAcceptance extends IOApp.Simple:
     require(!Files.exists(output), "Existing continuity result retained")
     val resources = for
       live <- DatabaseSession.resource(
-        "jdbc:postgresql://127.0.0.1:55432/vibrowser?currentSchema=vibrowser_live",
+        s"jdbc:postgresql://127.0.0.1:${sys.env.getOrElse("VIBROWSER_DB_PORT", "55432")}/vibrowser?currentSchema=vibrowser_live",
         "vibrowser",
         ""
       )
       db <- DatabaseSession.resource(
-        "jdbc:postgresql://127.0.0.1:55432/vibrowser?currentSchema=design_acceptance",
+        s"jdbc:postgresql://127.0.0.1:${sys.env.getOrElse("VIBROWSER_DB_PORT", "55432")}/vibrowser?currentSchema=design_acceptance",
         "vibrowser",
         ""
       )

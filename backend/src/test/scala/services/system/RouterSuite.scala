@@ -11,14 +11,15 @@ class RouterSuite extends CatsEffectSuite:
   test("settings reject foreign origins and non-JSON cross-site requests") {
     DatabaseSession
       .resource(
-        "jdbc:postgresql://127.0.0.1:55432/vibrowser?currentSchema=smoke_test",
+        s"jdbc:postgresql://127.0.0.1:${sys.env.getOrElse("VIBROWSER_DB_PORT", "55432")}/vibrowser?currentSchema=smoke_test",
         "vibrowser",
         ""
       )
       .use { db =>
         val app = APIMessageRouter.routes(SettingsRoutes.apiMessages, db).orNotFound
         val base = Request[IO](Method.POST, uri"/api/getsettings").putHeaders(
-          Header.Raw(CIString("Host"), "127.0.0.1:8787")
+          Header
+            .Raw(CIString("Host"), s"127.0.0.1:${sys.env.getOrElse("VIBROWSER_API_PORT", "8787")}")
         )
         for
           foreign <- app.run(
@@ -27,7 +28,12 @@ class RouterSuite extends CatsEffectSuite:
           _ = assertEquals(foreign.status, Status.Forbidden)
           form <- app.run(
             base
-              .putHeaders(Header.Raw(CIString("Origin"), "http://127.0.0.1:5173"))
+              .putHeaders(
+                Header.Raw(
+                  CIString("Origin"),
+                  s"http://127.0.0.1:${sys.env.getOrElse("VIBROWSER_UI_PORT", "5173")}"
+                )
+              )
               .withEntity("{}")
           )
           _ = assertEquals(form.status, Status.UnsupportedMediaType)

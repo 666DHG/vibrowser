@@ -11,12 +11,14 @@ import services.generation.GenerationModule
 object Main extends IOApp.Simple:
   def run: IO[Unit] =
     val mock = sys.env.get("VIBROWSER_MOCK").contains("true")
+    val apiPort = sys.env.getOrElse("VIBROWSER_API_PORT", "8787").toInt
+    val dbPort = sys.env.getOrElse("VIBROWSER_DB_PORT", "55432").toInt
     val schema = if mock then "vibrowser_demo" else "vibrowser_live"
     val resource = for
       database <- DatabaseSession.resource(
         sys.env.getOrElse(
           "VIBROWSER_DB_URL",
-          s"jdbc:postgresql://127.0.0.1:55432/vibrowser?currentSchema=$schema"
+          s"jdbc:postgresql://127.0.0.1:$dbPort/vibrowser?currentSchema=$schema"
         ),
         sys.env.getOrElse("VIBROWSER_DB_USER", "vibrowser"),
         sys.env.getOrElse("VIBROWSER_DB_PASSWORD", "")
@@ -42,14 +44,19 @@ object Main extends IOApp.Simple:
       server <- EmberServerBuilder
         .default[IO]
         .withHost(host"127.0.0.1")
-        .withPort(port"8787")
+        .withPort(
+          Port.fromInt(apiPort).getOrElse(throw new IllegalArgumentException("Invalid API port"))
+        )
         .withHttpApp(
           APIMessageRouter
-            .routes(BrowserRoutes.apiMessages ++ SettingsRoutes.apiMessages, database)
+            .routes(
+              BrowserRoutes.apiMessages ++ SettingsRoutes.apiMessages,
+              database
+            )
             .orNotFound
         )
         .build
-      _ <- Resource.eval(IO.println(s"Vibrowser API: http://127.0.0.1:8787 | mode=${
+      _ <- Resource.eval(IO.println(s"Vibrowser API: http://127.0.0.1:$apiPort | mode=${
           if mock then "MOCK (not real AI)" else "DeepSeek / configured provider"
         }"))
     yield server

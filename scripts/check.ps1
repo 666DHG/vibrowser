@@ -1,6 +1,15 @@
 param([switch]$Browser)
 $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
+$runtimePath = Join-Path $root '.data/runtime.json'
+if (Test-Path -LiteralPath $runtimePath) {
+  $runtime = Get-Content -LiteralPath $runtimePath -Raw -Encoding UTF8 | ConvertFrom-Json
+  if ($runtime.root -and [IO.Path]::GetFullPath($runtime.root) -eq [IO.Path]::GetFullPath($root)) {
+    $env:VIBROWSER_DB_PORT = [string]$runtime.dbPort
+    $env:VIBROWSER_API_PORT = [string]$runtime.apiPort
+    $env:VIBROWSER_UI_PORT = [string]$runtime.uiPort
+  }
+}
 & (Join-Path $PSScriptRoot 'database.ps1') start
 & (Join-Path $PSScriptRoot 'sbt.ps1') scalafmtCheckAll test
 Push-Location (Join-Path $root 'frontend')

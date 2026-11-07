@@ -9,7 +9,7 @@ export default defineConfig({
   use: {
     channel: "chromium",
     actionTimeout: 30000,
-    baseURL: "http://127.0.0.1:5173",
+    baseURL: `http://127.0.0.1:${process.env.VIBROWSER_UI_PORT ?? 5173}`,
     viewport: { width: 1440, height: 1000 },
     trace: "off",
   },

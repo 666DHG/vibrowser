@@ -3,7 +3,16 @@ $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
 $bin = if ($env:VIBROWSER_PG_BIN) { $env:VIBROWSER_PG_BIN } else { 'D:\Installs\PostgreSQL\16\bin' }
 $data = Join-Path $root '.data\postgres'
-$port = 55432
+New-Item -ItemType Directory -Force (Join-Path $root '.data') | Out-Null
+try { $databaseLock = [IO.File]::Open((Join-Path $root '.data/database.lock'), [IO.FileMode]::OpenOrCreate, [IO.FileAccess]::ReadWrite, [IO.FileShare]::None) } catch { throw 'Another database command is running in this worktree; wait for it to finish.' }
+try {
+$port = if ($env:VIBROWSER_DB_PORT) { [int]$env:VIBROWSER_DB_PORT } else { 55432 }
+if ($port -lt 1024 -or $port -gt 65535) { throw 'Invalid database port' }
+if ((Test-Path -LiteralPath (Join-Path $data 'PG_VERSION')) -and -not (Test-Path -LiteralPath (Join-Path $data 'global/pg_control'))) { throw 'Database initialization is incomplete. Preserve this directory and initialize a fresh one before starting.' }
+if (Test-Path -LiteralPath (Join-Path $data 'PG_VERSION')) {
+  $configuredPort = Get-Content -LiteralPath (Join-Path $data 'postgresql.conf') -Encoding UTF8 | Where-Object { $_ -match '^port\s*=\s*(\d+)' } | Select-Object -Last 1
+  if ($configuredPort -and [int]([regex]::Match($configuredPort, '\d+').Value) -ne $port) { throw 'Existing database uses another port; use its original DbPort.' }
+}
 if ($Action -eq 'start') {
   if (-not (Test-Path -LiteralPath (Join-Path $data 'PG_VERSION'))) {
     New-Item -ItemType Directory -Force (Split-Path $data) | Out-Null
@@ -25,7 +34,7 @@ if ($Action -eq 'start') {
       $ErrorActionPreference = $probeErrorPreference
     }
     if ($probeExitCode -eq 0) {
-      if ([IO.Path]::GetFullPath($activeData.Trim()) -ne [IO.Path]::GetFullPath($data)) { throw 'Port 55432 belongs to another PostgreSQL data directory' }
+      if ([IO.Path]::GetFullPath($activeData.Trim()) -ne [IO.Path]::GetFullPath($data)) { throw "Port $port belongs to another PostgreSQL data directory" }
     } else {
       & (Join-Path $bin 'pg_ctl.exe') -D $data -l (Join-Path $root '.data\postgres.log') -w start
       if ($LASTEXITCODE -ne 0) { throw 'PostgreSQL start failed' }
@@ -51,3 +60,5 @@ if ($Action -eq 'start') {
 } else {
   & (Join-Path $bin 'pg_ctl.exe') -D $data status
 }
+
+} finally { $databaseLock.Dispose() }

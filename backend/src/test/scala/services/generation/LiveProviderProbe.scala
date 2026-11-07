@@ -17,7 +17,7 @@ object LiveProviderProbe extends IOApp.Simple:
       new IllegalStateException("Set VIBROWSER_LIVE_PROBE=true to authorize one live call")
     ) *> DatabaseSession
       .resource(
-        "jdbc:postgresql://127.0.0.1:55432/vibrowser?currentSchema=vibrowser_live",
+        s"jdbc:postgresql://127.0.0.1:${sys.env.getOrElse("VIBROWSER_DB_PORT", "55432")}/vibrowser?currentSchema=vibrowser_live",
         "vibrowser",
         ""
       )
