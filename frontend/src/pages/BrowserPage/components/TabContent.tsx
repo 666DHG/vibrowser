@@ -99,7 +99,9 @@ export function TabContent({
         }
         data-testid={active ? "content-viewport" : undefined}
       >
-        {content.status === "idle" && <HomePage onNavigate={onNavigate} />}
+        {content.status === "idle" && (
+          <HomePage onNavigate={onNavigate} active={active} />
+        )}
         {content.status === "bookmarks" && bookmarks}
         {content.status === "settings" && (
           <SettingsPage mock={mock} focusResearchAt={content.focusResearchAt} />

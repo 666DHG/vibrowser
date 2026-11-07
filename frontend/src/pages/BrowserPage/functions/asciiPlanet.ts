@@ -1,91 +1,128 @@
-export interface PlanetRotation {
-  yaw: number;
-  pitch: number;
-}
-export const initialPlanetRotation: PlanetRotation = { yaw: 0.35, pitch: 0.35 };
-const columns = 72;
-const rows = 30;
+import type {
+  PlanetLayout,
+  PlanetMeteor,
+  PlanetProjection,
+  PlanetRotation,
+} from "../objects/PlanetScene";
 const ramp = ".:-=+*#%@";
-// Orthographic rays intersect a sphere and its tilted ring. Depth chooses the
-// visible surface; rotating surface coordinates makes markings follow the globe.
-export function renderAsciiPlanet(rotation: PlanetRotation): string {
-  const cy = Math.cos(rotation.yaw),
-    sy = Math.sin(rotation.yaw);
-  const cp = Math.cos(rotation.pitch),
-    sp = Math.sin(rotation.pitch);
-  const roll = -0.38,
-    cr = Math.cos(roll),
-    sr = Math.sin(roll);
-  const local = (x: number, y: number, z: number) => {
-    const a = cr * x + sr * y,
-      b = -sr * x + cr * y;
-    const c = cp * b + sp * z,
-      d = -sp * b + cp * z;
-    return [cy * a - sy * d, c, sy * a + cy * d];
+export function planetLayout(
+  width: number,
+  height: number,
+  mobile: boolean,
+): PlanetLayout {
+  const fontSize = mobile ? 9 : 10;
+  return {
+    width,
+    height,
+    fontSize,
+    columns: Math.max(1, Math.min(120, Math.floor(width / (fontSize * 0.6)))),
+    rows: Math.max(1, Math.min(64, Math.floor(height / (fontSize * 1.1)))),
   };
-  const ray = local(0, 0, -1);
-  return Array.from({ length: rows }, (_, row) =>
-    Array.from({ length: columns }, (_, column) => {
-      const x = (((column + 0.5) / columns) * 2 - 1) * 2.25;
-      const y = (1 - ((row + 0.5) / rows) * 2) * 1.5625;
-      const r2 = x * x + y * y;
-      const z = Math.sqrt(Math.max(0, 1 - r2));
-      const sphereDistance = r2 <= 1 ? 4 - z : Infinity;
-      const origin = local(x, y, 4);
-      const ringDistance =
-        Math.abs(ray[1]) > 0.001 ? -origin[1] / ray[1] : Infinity;
-      const ringX = origin[0] + ray[0] * ringDistance;
-      const ringZ = origin[2] + ray[2] * ringDistance;
-      const radius = Math.hypot(ringX, ringZ);
-      if (
-        ringDistance > 0 &&
-        ringDistance < sphereDistance &&
-        radius > 1.38 &&
-        radius < 1.9 &&
-        !(radius > 1.57 && radius < 1.64)
-      ) {
-        const band = Math.sin(radius * 90) * 0.14;
-        const light = 0.48 + 0.18 * Math.cos(Math.atan2(ringZ, ringX)) + band;
-        return ramp[
-          Math.max(
-            0,
-            Math.min(ramp.length - 1, Math.floor(light * ramp.length)),
-          )
-        ];
-      }
-      if (r2 <= 1) {
-        const [a, b, c] = local(x, y, z);
-        const longitude = Math.atan2(c, a),
-          latitude = Math.asin(Math.max(-1, Math.min(1, b)));
-        const texture =
-          Math.sin(longitude * 3 + Math.sin(latitude * 5)) *
-          Math.cos(latitude * 7 + Math.sin(longitude * 2));
-        const light = Math.max(0, -0.45 * x + 0.55 * y + 0.7 * z);
-        const value = 0.12 + light * (texture > 0.05 ? 0.8 : 0.46);
-        return ramp[
-          Math.max(
-            0,
-            Math.min(ramp.length - 1, Math.floor(value * ramp.length)),
-          )
-        ];
-      }
-      return (column === 9 && row === 6) || (column === 60 && row === 24)
+}
+export function projectPlanet(layout: PlanetLayout): PlanetProjection {
+  const { width, height, columns, rows } = layout,
+    radius = height * 0.45;
+  const pixels = Array.from({ length: columns * rows }, (_, i) => {
+    const x =
+      ((((i % columns) + 0.5) / columns) * width - width * 0.78) / radius;
+    const y =
+      (height * 0.48 - ((Math.floor(i / columns) + 0.5) / rows) * height) /
+      radius;
+    const distance = x * x + y * y,
+      z = Math.sqrt(Math.max(0, 1 - distance));
+    return { x, y, z, depth: distance <= 1 ? 4 - z : Infinity };
+  });
+  return { layout, pixels };
+}
+export function createPlanetMeteor(time: number, random: number): PlanetMeteor {
+  return {
+    born: time,
+    duration: 0.7 + random * 0.4,
+    startX: 0,
+    endX: 0.45 + random * 0.15,
+    length: 4 + Math.floor(random * 4),
+  };
+}
+export function renderAsciiPlanet(
+  projection: PlanetProjection,
+  rotation: PlanetRotation,
+  time = 0,
+  meteor: PlanetMeteor | null = null,
+  reduced = false,
+): string {
+  const { columns, rows } = projection.layout;
+  const characters = Array<string>(columns * rows).fill(" ");
+  // Stable positions and staggered phases; randomness belongs to the scheduler.
+  for (let i = 0; i < 11; i++) {
+    const x = Math.floor(((i * 0.381966 + 0.07) % 1) * columns),
+      y = Math.floor(((i * 0.618034 + 0.09) % 1) * rows);
+    const glow = Math.sin((time * 2 * Math.PI) / (2 + (i % 4)) + i * 1.7);
+    characters[y * columns + x] = reduced
+      ? "."
+      : glow > 0.7
         ? "+"
-        : (column === 62 && row === 3) ||
-            (column === 15 && row === 25) ||
-            (column === 34 && row === 2)
+        : glow > -0.65
           ? "."
           : " ";
-    }).join(""),
+  }
+  if (meteor && !reduced) {
+    const progress = (time - meteor.born) / meteor.duration;
+    if (progress >= 0 && progress < 1) {
+      for (let i = meteor.length - 1; i >= 0; i--) {
+        const t = progress - i * 0.035,
+          x = Math.floor(
+            (meteor.startX + (meteor.endX - meteor.startX) * t) * columns,
+          ),
+          y = Math.floor((0.38 + t * 0.7) * rows);
+        if (t >= 0 && x >= 0 && x < columns && y >= 0 && y < rows)
+          characters[y * columns + x] =
+            i === 0 ? "*" : i < 3 ? "+" : i < 5 ? "-" : ".";
+      }
+    }
+  }
+  const cy = Math.cos(rotation.yaw),
+    sy = Math.sin(rotation.yaw),
+    cp = Math.cos(rotation.pitch),
+    sp = Math.sin(rotation.pitch),
+    cr = Math.cos(-0.38),
+    sr = Math.sin(-0.38);
+  const rayY = -sp,
+    rayZ = -cp;
+  const shade = (value: number) =>
+    ramp[
+      Math.max(0, Math.min(ramp.length - 1, Math.floor(value * ramp.length)))
+    ];
+  for (let i = 0; i < projection.pixels.length; i++) {
+    const { x, y, z, depth } = projection.pixels[i];
+    const a = cr * x + sr * y,
+      b = -sr * x + cr * y;
+    const ringDistance = -(cp * b + sp * 4) / rayY;
+    const ringZ = -sp * b + cp * 4 + rayZ * ringDistance;
+    const radius = Math.hypot(a, ringZ);
+    if (
+      ringDistance > 0 &&
+      ringDistance < depth &&
+      radius > 1.38 &&
+      radius < 1.9 &&
+      !(radius > 1.57 && radius < 1.64)
+    ) {
+      characters[i] = shade(
+        0.48 +
+          0.18 * Math.cos(Math.atan2(ringZ, a)) +
+          Math.sin(radius * 90) * 0.14,
+      );
+    } else if (depth !== Infinity) {
+      const latitude = Math.asin(Math.max(-1, Math.min(1, cp * b + sp * z)));
+      const d = -sp * b + cp * z,
+        longitude = Math.atan2(sy * a + cy * d, cy * a - sy * d);
+      const texture =
+        Math.sin(longitude * 3 + Math.sin(latitude * 5)) *
+        Math.cos(latitude * 7 + Math.sin(longitude * 2));
+      const light = Math.max(0, -0.45 * x + 0.55 * y + 0.7 * z);
+      characters[i] = shade(0.12 + light * (0.63 + texture * 0.17));
+    }
+  }
+  return Array.from({ length: rows }, (_, row) =>
+    characters.slice(row * columns, (row + 1) * columns).join(""),
   ).join("\n");
-}
-export function dragPlanet(
-  rotation: PlanetRotation,
-  dx: number,
-  dy: number,
-): PlanetRotation {
-  return {
-    yaw: rotation.yaw + dx * 0.012,
-    pitch: Math.max(-1.35, Math.min(1.35, rotation.pitch + dy * 0.009)),
-  };
 }
