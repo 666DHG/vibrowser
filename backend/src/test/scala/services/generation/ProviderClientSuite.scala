@@ -119,6 +119,8 @@ class ProviderClientSuite extends CatsEffectSuite:
       HttpApp[IO](request =>
         request.as[Json].map { body =>
           assertEquals(body.hcursor.get[Int]("max_tokens"), Right(24000))
+          assertEquals(body.hcursor.downField("thinking").get[String]("type"), Right("disabled"))
+          assert(!body.hcursor.downField("reasoning_effort").succeeded)
           Response[IO](Status.Ok).withEntity(
             Json.obj(
               "choices" -> Json.arr(

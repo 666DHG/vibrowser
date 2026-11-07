@@ -1,0 +1,167 @@
+{
+  "evaluatedAt": "2026-11-07T15:11:50.529Z",
+  "purpose": "Baseline reproduction, not a passing copy feature",
+  "samples": [
+    {
+      "pageId": "c0aacc24-0993-4635-970a-1c9d9c146173",
+      "jobId": "622dad85-61dc-4c8f-bce9-945ea8fa2c4e",
+      "input": "清华袁洋老师个人主页.dev",
+      "at": "2026-11-07T23:05:29.336536+08:00",
+      "parent": null,
+      "selection": "Improved",
+      "originalUnchanged": false,
+      "originalStyle": {
+        "brand": "袁洋 · 清华大学交叉信息研究院个人学术主页",
+        "layout": "单栏文档式纵向阅读流，最大宽度 768px；顶部为姓名、职称、邮箱与页内锚点导航；研究方向用编号递进列表，招生区用浅米色横带，经历两栏并列，代表工作逐条列出并可展开更多，学生按学位分组，教学为表格。",
+        "palette": "暖白背景 #fbfaf7，正文深灰 #26241f，次级灰 #6d675b，强调赭红 #8a3a1e，分隔线 #e2ded4 / #eee9df，米色区块 #f6f2ea。",
+        "typography": "标题采用 Georgia / Songti 衬线体强调学术姓名与论文题目；正文使用系统中文字体栈，16.5px、行高 1.85，行宽约 40 字；作者名与邮箱用等宽字体；小节标题带方形强调标记。"
+      },
+      "finalStyle": {
+        "brand": "袁洋 · 清华大学交叉信息研究院个人学术主页",
+        "layout": "单栏文档式纵向阅读流，最大宽度 768px；顶部为姓名、职称、邮箱与页内锚点导航；研究方向用编号递进列表，招生区用浅米色横带，经历两栏并列，代表工作逐条列出并可展开更多，学生按学位分组可折叠，教学为表格且窄屏转为带标签的行块。",
+        "palette": "暖白背景 #fbfaf7，正文深灰 #26241f，次级灰 #6d675b，强调赭红 #8a3a1e，分隔线 #e2ded4 / #eee9df，米色区块 #f6f2ea。",
+        "typography": "标题采用 Georgia / Songti 衬线体强调学术姓名与论文题目；正文使用系统中文字体栈，16.5px、行高 1.85，行宽约 40 字；作者名与邮箱用等宽字体；小节标题带方形强调标记。"
+      },
+      "failures": []
+    },
+    {
+      "pageId": "587960b4-a6b3-4891-a334-9ba64d07a94b",
+      "jobId": "959071a2-85b6-4669-9e57-195f72130104",
+      "input": "kfc疯狂星期四文案合集站.com",
+      "at": "2026-11-07T23:01:54.344934+08:00",
+      "parent": null,
+      "selection": "Original",
+      "originalUnchanged": true,
+      "originalStyle": {
+        "brand": "疯狂星期四文案合集站 · V50 文案库",
+        "layout": "单页长滚动：粘性顶栏（品牌 + 站内搜索 + 导航 + 提交入口），双栏首屏（标题定位 + 样本文案块），其下工具行与纵向密集文案流，再接下三栏数据来源/接口/格式规范，最后页尾与致谢",
+        "palette": "近白底 #fbfaf8、正文近黑 #17161a、KFC 红 #d92027 作唯一强调色、分隔线 #e6e2dc、次级灰 #8a857e",
+        "typography": "系统中文无衬线栈；正文 16.5px/1.78，首屏样本 20px，作者与日期 12.5px 低对比灰，数字使用 tabular-nums"
+      },
+      "finalStyle": {
+        "brand": "疯狂星期四文案合集站 · V50 文案库",
+        "layout": "单页长滚动：粘性顶栏（品牌 + 站内搜索 + 导航 + 提交入口），双栏首屏（标题定位 + 样本文案块），其下工具行与纵向密集文案流，再接下三栏数据来源/接口/格式规范，最后页尾与致谢",
+        "palette": "近白底 #fbfaf8、正文近黑 #17161a、KFC 红 #d92027 作唯一强调色、分隔线 #e6e2dc、次级灰 #8a857e",
+        "typography": "系统中文无衬线栈；正文 16.5px/1.78，首屏样本 20px，作者与日期 12.5px 低对比灰，数字使用 tabular-nums"
+      },
+      "failures": [
+        {
+          "stage": "Improve",
+          "message": "主要正文覆盖不足，保留原有文本并调整排版"
+        }
+      ]
+    },
+    {
+      "pageId": "a2c85c5c-85e2-4915-bb82-d4db605ac533",
+      "jobId": "b8ba8ee4-ed55-445d-a193-fcaf29618a26",
+      "input": "kfccrazythursdayvme50.com",
+      "at": "2026-11-07T22:57:21.594139+08:00",
+      "parent": null,
+      "selection": "Original",
+      "originalUnchanged": true,
+      "originalStyle": {
+        "brand": "kfccrazythursdayvme50.com · 互联网梗档案",
+        "layout": "单列窄版心 720px，首屏以站名与域名释义为中心，正文分 01–03 编号区块，页脚独立归属声明",
+        "palette": "米白底 #faf7f2，主文字 #1f1c18，次要文字 #6b6155，主色砖红 #c8341b，次级米黄 #f3ece0",
+        "typography": "系统中文无衬线栈；站名特大字重，正文 16px/1.85，小字号 12–14px 作次级信息；数字等宽对齐"
+      },
+      "finalStyle": {
+        "brand": "kfccrazythursdayvme50.com · 互联网梗档案",
+        "layout": "单列窄版心 720px，首屏以站名与域名释义为中心，正文分 01–03 编号区块，页脚独立归属声明",
+        "palette": "米白底 #faf7f2，主文字 #1f1c18，次要文字 #6b6155，主色砖红 #c8341b，次级米黄 #f3ece0",
+        "typography": "系统中文无衬线栈；站名特大字重，正文 16px/1.85，小字号 12–14px 作次级信息；数字等宽对齐"
+      },
+      "failures": []
+    },
+    {
+      "pageId": "3a6ef443-74c3-4c8f-af18-f3dbfe195442",
+      "jobId": "723f355a-24f3-41a1-ba6a-2522ce66ee4a",
+      "input": "https://xn--6iq3k3a177g1ucn1xzoa.com/?date=next",
+      "at": "2026-11-07T22:56:52.426683+08:00",
+      "parent": "72d22595-c732-4d39-b219-ca5fb74aa289",
+      "selection": "Original",
+      "originalUnchanged": true,
+      "originalStyle": {
+        "brand": "今天是什么日子 · 朴素的中文日期与纪念日信息站，红棕点缀、米白纸底",
+        "layout": "页头站名加搜索；主区左为日期条、主条目、可展开缘由、今日其他条目、本月日期网格，右为日期切换、常用入口、最近查询；窄屏单栏堆叠",
+        "palette": "纸底 #fbf9f4，正墨 #1c1b19，次级 #4a4742，灰 #7d7972，线 #e2ded6，点缀红棕 #9c3b2a，浅底 #f1ece1",
+        "typography": "正文系统中文黑体栈 16px/1.75；日期数字大号加粗紧凑；条目标题 15.5px 加粗，摘要与农历为次级灰"
+      },
+      "finalStyle": {
+        "brand": "今天是什么日子 · 朴素的中文日期与纪念日信息站，红棕点缀、米白纸底",
+        "layout": "页头站名加搜索；主区左为日期条、主条目、可展开缘由、今日其他条目、本月日期网格，右为日期切换、常用入口、最近查询；窄屏单栏堆叠",
+        "palette": "纸底 #fbf9f4，正墨 #1c1b19，次级 #4a4742，灰 #7d7972，线 #e2ded6，点缀红棕 #9c3b2a，浅底 #f1ece1",
+        "typography": "正文系统中文黑体栈 16px/1.75；日期数字大号加粗紧凑；条目标题 15.5px 加粗，摘要与农历为次级灰"
+      },
+      "failures": [
+        {
+          "stage": "Improve",
+          "message": "动作功能变化: goto-next-day; 动作功能变化: goto-prev-day; 动作功能变化: vib-nav-vib-link-1; 动作功能变化: vib-nav-vib-link-2; 动作功能变化: vib-nav-vib-link-4; 实体字段绑定变化: vib-link-1; 实体字段绑定变化: vib-entity-0; 实体字段绑定变化: vib-link-4; 实体字段绑定变化: vib-entity-2; 主要正文覆盖不足，保留原有文本并调整排版"
+        }
+      ]
+    },
+    {
+      "pageId": "2b07589f-74e7-44b7-a4ce-79d1d09cf8a2",
+      "jobId": "23bfe31a-20c5-489f-9eb2-1b5119be09d9",
+      "input": "今天是什么日子.com",
+      "at": "2026-11-07T22:55:38.078433+08:00",
+      "parent": null,
+      "selection": "Original",
+      "originalUnchanged": true,
+      "originalStyle": {
+        "brand": "今天是什么日子 · 日更节日日历",
+        "layout": "单栏 1000px 居中：极简顶栏+检索；首屏左侧大日期、右侧当日结论与事件列表；其下历史上的今天时间线、生日横排、按月节日目录（可过滤）、双栏近期汇总、查日子表单与周边链接。",
+        "palette": "暖白底 #fbf9f5，主墨 #23211e，朱红强调 #c1361f 用于今天与年份，次级暖灰 #8b8378 与浅米块 #f4efe5。",
+        "typography": "系统中文黑体栈，正文13.5–15px、行高1.7–1.8；日期数字82px无衬线粗体、紧字距；节日名与释义分两级；数据与年份使用表格数字。"
+      },
+      "finalStyle": {
+        "brand": "今天是什么日子 · 日更节日日历",
+        "layout": "单栏 1000px 居中：极简顶栏+检索；首屏左侧大日期、右侧当日结论与事件列表；其下历史上的今天时间线、生日横排、按月节日目录（可过滤）、双栏近期汇总、查日子表单与周边链接。",
+        "palette": "暖白底 #fbf9f5，主墨 #23211e，朱红强调 #c1361f 用于今天与年份，次级暖灰 #8b8378 与浅米块 #f4efe5。",
+        "typography": "系统中文黑体栈，正文13.5–15px、行高1.7–1.8；日期数字82px无衬线粗体、紧字距；节日名与释义分两级；数据与年份使用表格数字。"
+      },
+      "failures": [
+        {
+          "stage": "Improve",
+          "message": "动作功能变化: act-toggle-d1; 动作功能变化: act-toggle-d2; 动作功能变化: act-toggle-d3; 动作功能变化: act-toggle-d4; 动作功能变化: act-toggle-d5; 动作功能变化: act-toggle-d6; 动作功能变化: act-toggle-d7; 动作功能变化: act-toggle-d8; 动作功能变化: act-toggle-d9; 动作功能变化: act-toggle-d10; 动作功能变化: act-toggle-d11; 动作功能变化: act-toggle-d12"
+        }
+      ]
+    },
+    {
+      "pageId": "72d22595-c732-4d39-b219-ca5fb74aa289",
+      "jobId": "b1c534c6-05be-46c9-8eb0-31d9df881879",
+      "input": "今天是什么日子.com",
+      "at": "2026-11-07T22:53:06.337041+08:00",
+      "parent": null,
+      "selection": "Original",
+      "originalUnchanged": true,
+      "originalStyle": {
+        "brand": "今天是什么日子 · 朴素的中文日期与纪念日信息站，以红棕色点缀、米白纸张底色",
+        "layout": "页头站名加搜索；主区两栏，左为今日日期条、主条目、可展开缘由、今日其他条目与本月日期序列，右侧为日期选择、常用入口与最近查询；窄屏单栏堆叠",
+        "palette": "纸底 #fbf9f4，正墨 #1c1b19，次级 #4a4742，灰 #7d7972，线 #e2ded6，点缀红棕 #9c3b2a，浅底 #f1ece1",
+        "typography": "正文系统中文黑体栈，16px/1.75；日期数字大号加粗紧凑；条目标题 15.5px 加粗与说明形成两级；农历与辅助文字次级灰"
+      },
+      "finalStyle": {
+        "brand": "今天是什么日子 · 朴素的中文日期与纪念日信息站，以红棕色点缀、米白纸张底色",
+        "layout": "页头站名加搜索；主区两栏，左为今日日期条、主条目、可展开缘由、今日其他条目与本月日期序列，右侧为日期选择、常用入口与最近查询；窄屏单栏堆叠",
+        "palette": "纸底 #fbf9f4，正墨 #1c1b19，次级 #4a4742，灰 #7d7972，线 #e2ded6，点缀红棕 #9c3b2a，浅底 #f1ece1",
+        "typography": "正文系统中文黑体栈，16px/1.75；日期数字大号加粗紧凑；条目标题 15.5px 加粗与说明形成两级；农历与辅助文字次级灰"
+      },
+      "failures": [
+        {
+          "stage": "Improve",
+          "message": "动作功能变化: prev-day; 动作功能变化: next-day; 主要正文覆盖不足，保留原有文本并调整排版"
+        }
+      ]
+    }
+  ],
+  "copyEvidence": {
+    "pageId": "587960b4-a6b3-4891-a334-9ba64d07a94b",
+    "actionId": "a-sample-copy",
+    "declaredKind": "Set",
+    "displayedText": "已复制，可以直接发出去",
+    "clipboardWrites": 0,
+    "serverActions": 0
+  },
+  "modelRequests": 0
+}
