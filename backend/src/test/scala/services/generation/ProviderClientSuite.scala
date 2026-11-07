@@ -151,6 +151,7 @@ class ProviderClientSuite extends CatsEffectSuite:
     def client(testing: Boolean) = Client.fromHttpApp(
       HttpApp[IO](request =>
         request.as[Json].map { body =>
+          assertEquals(body.hcursor.get[Int]("max_tokens"), Right(if testing then 128 else 48000))
           assertEquals(
             body.hcursor.downField("thinking").get[String]("type"),
             Right(if testing then "disabled" else "enabled")

@@ -56,6 +56,7 @@ object EffortAcceptance extends IOApp.Simple:
           .getOrElse("")
         record = Json.obj(
           "model" -> payload.hcursor.get[String]("model").toOption.asJson,
+          "maxTokens" -> payload.hcursor.get[Int]("max_tokens").toOption.asJson,
           "thinking" -> payload.hcursor.downField("thinking").focus.asJson,
           "reasoningEffort" -> payload.hcursor.get[String]("reasoning_effort").toOption.asJson,
           "stage" -> (if system.startsWith("ResearchPlan:") then "researchPlanning"
@@ -74,6 +75,12 @@ object EffortAcceptance extends IOApp.Simple:
               record.deepMerge(
                 Json.obj(
                   "usage" -> result.hcursor.downField("usage").focus.asJson,
+                  "finishReason" -> result.hcursor
+                    .downField("choices")
+                    .downArray
+                    .get[String]("finish_reason")
+                    .toOption
+                    .asJson,
                   "status" -> response.status.code.asJson,
                   "milliseconds" -> (end - start).toMillis.asJson
                 )

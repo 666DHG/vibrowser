@@ -5,3 +5,4 @@ private[generation] object GenerationPolicy:
   val requestTimeout = 180.seconds
   val responseBytes = 1048576
   val officialOutputTokens = 24000
+  val deepOutputTokens = 48000

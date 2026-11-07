@@ -30,6 +30,7 @@ private[generation] final class DeepSeekCompatibleClient(
       ).asJson,
       "stream" -> false.asJson,
       "max_tokens" -> (if test then 128
+                       else if official && deep then GenerationPolicy.deepOutputTokens
                        else if official then GenerationPolicy.officialOutputTokens
                        else 12000) .asJson,
       "response_format" -> Json.obj("type" -> "json_object".asJson)
