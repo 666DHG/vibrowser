@@ -1,6 +1,5 @@
 package services.generation.utils
 import org.jsoup.Jsoup
-import scala.jdk.CollectionConverters.*
 import services.browser.objects.{WebDocument, WebAction, WebActionKind}
 import services.generation.objects.LayoutReport
 private[generation] object DesignPreservation:
@@ -14,13 +13,9 @@ private[generation] object DesignPreservation:
   private def coverage(before: String, after: String): Double =
     if before.isEmpty then 1.0
     else
-      var position = 0
-      var retained = 0
-      before.foreach { character =>
+      val (_, retained) = before.foldLeft((0, 0)) { case ((position, count), character) =>
         val next = after.indexOf(character, position)
-        if next >= 0 then
-          retained += 1
-          position = next + 1
+        if next >= 0 then (next + 1, count + 1) else (position, count)
       }
       retained.toDouble / before.length
 

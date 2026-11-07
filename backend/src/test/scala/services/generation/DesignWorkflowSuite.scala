@@ -61,7 +61,7 @@ class DesignWorkflowSuite extends CatsEffectSuite:
   test(
     "guidance resources are packaged, versioned and validation preserves required content and actions"
   ) {
-    assert(DesignGuidance.version.startsWith("1-"))
+    assert(DesignGuidance.version.startsWith("2-"))
     assert(DesignGuidance.design.nonEmpty && DesignGuidance.review.nonEmpty)
     assert(
       DesignPreservation
