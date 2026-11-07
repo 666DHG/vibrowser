@@ -138,3 +138,62 @@ class ProviderClientSuite extends CatsEffectSuite:
       .complete(config, "JSON", "test", false)
       .map(s => assertEquals(s, content))
   }
+  test(
+    "deep official calls enable high effort; connection tests remain standard and discard reasoning"
+  ) {
+    val deep = new services.settings.objects.ProviderConnection(
+      config.baseUrl,
+      config.model,
+      config.key,
+      config.revision,
+      services.generation.objects.GenerationEffort.Deep
+    )
+    def client(testing: Boolean) = Client.fromHttpApp(
+      HttpApp[IO](request =>
+        request.as[Json].map { body =>
+          assertEquals(
+            body.hcursor.downField("thinking").get[String]("type"),
+            Right(if testing then "disabled" else "enabled")
+          )
+          assertEquals(
+            body.hcursor.get[Option[String]]("reasoning_effort"),
+            Right(if testing then None else Some("high"))
+          )
+          Response[IO](Status.Ok).withEntity(
+            Json.obj(
+              "choices" -> Json.arr(
+                Json.obj(
+                  "message" -> Json.obj(
+                    "content" -> Json.fromString("{\"ok\":true}"),
+                    "reasoning_content" -> Json.fromString("private reasoning")
+                  )
+                )
+              )
+            )
+          )
+        }
+      )
+    )
+    List(false, true).traverse_(testing =>
+      new DeepSeekCompatibleClient(client(testing))
+        .complete(deep, "JSON", "test", testing)
+        .map(s => assertEquals(s, "{\"ok\":true}"))
+    )
+  }
+  test("unverified compatible endpoints reject deep effort before sending a request") {
+    val deep = new services.settings.objects.ProviderConnection(
+      "https://custom.example",
+      "model",
+      "key",
+      1,
+      services.generation.objects.GenerationEffort.Deep
+    )
+    val client = Client.fromHttpApp(HttpApp[IO](_ => IO.raiseError(new Exception("must not send"))))
+    new DeepSeekCompatibleClient(client).complete(deep, "JSON", "test", false).attempt.map {
+      result =>
+        assertEquals(
+          result.left.toOption.collect { case e: AppError => e.code },
+          Some("unsupported_effort")
+        )
+    }
+  }

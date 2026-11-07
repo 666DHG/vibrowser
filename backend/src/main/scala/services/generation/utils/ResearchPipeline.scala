@@ -80,7 +80,7 @@ private[generation] final class ResearchPipeline(
                       false
                     )
                     .timeoutTo(
-                      30.seconds,
+                      if config.effort == GenerationEffort.Deep then 600.seconds else 30.seconds,
                       IO.raiseError(AppError("search_timeout", "理解需求超时，请重试", 504))
                     )
                   plan <- IO.fromEither(
@@ -162,4 +162,7 @@ private[generation] final class ResearchPipeline(
                 yield complete
           yield result
     yield result
-    run.timeoutTo(90.seconds, IO.raiseError(AppError("search_timeout", "资料检索超时，请重试", 504)))
+    run.timeoutTo(
+      if config.effort == GenerationEffort.Deep then 660.seconds else 90.seconds,
+      IO.raiseError(AppError("search_timeout", "资料检索超时，请重试", 504))
+    )

@@ -6,7 +6,23 @@ test("bookmarks persist, synchronize windows and open cached pages without gener
   request,
 }) => {
   expect((await (await request.get("/health")).json()).mock).toBe(true);
+  await page.route("**/api/getsettings", (r) =>
+    r.fulfill({
+      json: {
+        baseUrl: "https://api.deepseek.com",
+        model: "fixture",
+        hasKey: true,
+        revision: 1,
+      },
+    }),
+  );
   await page.goto("/");
+  await expect(
+    page
+      .getByRole("combobox", { name: "思考强度" })
+      .locator('option[value="deep"]'),
+  ).toBeEnabled();
+  await page.getByRole("combobox", { name: "思考强度" }).selectOption("deep");
   const input = "bookmarks-" + Date.now() + ".example";
   await page.getByRole("textbox", { name: "网址或搜索词" }).fill(input);
   const navResponse = page.waitForResponse((r) =>
@@ -14,7 +30,11 @@ test("bookmarks persist, synchronize windows and open cached pages without gener
   );
   await page.getByRole("textbox", { name: "网址或搜索词" }).press("Enter");
   const nav = await (await navResponse).json();
-  await expect(page.getByRole("heading", { name: /离地球很远/ })).toBeVisible();
+  await expect(
+    page
+      .frameLocator("iframe:visible")
+      .getByRole("heading", { name: "月夜树洞" }),
+  ).toBeVisible();
   const other = await context.newPage();
   await other.goto("/");
   await other.getByRole("button", { name: "书签", exact: true }).click();
@@ -44,6 +64,9 @@ test("bookmarks persist, synchronize windows and open cached pages without gener
     ).toBeVisible();
     await page.getByRole("textbox", { name: "筛选书签" }).fill(input);
     let generations = 0;
+    await page
+      .getByRole("combobox", { name: "思考强度" })
+      .selectOption("standard");
     page.on("request", (r) => {
       if (/\/api\/(navigate|retrypage)$/.test(r.url())) generations++;
     });
@@ -52,7 +75,9 @@ test("bookmarks persist, synchronize windows and open cached pages without gener
       .click();
     await expect(page.getByRole("tab")).toHaveCount(count + 1);
     await expect(
-      page.getByRole("heading", { name: /离地球很远/ }),
+      page
+        .frameLocator("iframe:visible")
+        .getByRole("heading", { name: "月夜树洞" }),
     ).toBeVisible();
     const cached = await (
       await request.post("/api/getpage", {
@@ -60,6 +85,10 @@ test("bookmarks persist, synchronize windows and open cached pages without gener
       })
     ).json();
     expect(cached.page.currentJobId).toBe(nav.jobId);
+    expect(cached.page.effort).toBe("deep");
+    await expect(page.getByRole("combobox", { name: "思考强度" })).toHaveValue(
+      "deep",
+    );
     expect(generations).toBe(0);
     await page
       .getByRole("button", { name: "取消收藏当前网页", exact: true })

@@ -55,7 +55,7 @@ private[generation] final class GenerationWorker(
       yield ()
     else if (!mock || webDocuments) && job.pageId.nonEmpty then
       for
-        config <-
+        baseConfig <-
           if mock then
             IO.pure(
               new ProviderConnection("https://mock.invalid", "fixture", "", job.settingsRevision)
@@ -64,6 +64,13 @@ private[generation] final class GenerationWorker(
         page <- database
           .transaction(c => PageTable.findById(c, job.pageId.get))
           .flatMap(IO.fromOption(_)(AppError("not_found", "页面不存在", 404)))
+        config = new ProviderConnection(
+          baseConfig.baseUrl,
+          baseConfig.model,
+          baseConfig.key,
+          baseConfig.revision,
+          page.effort
+        )
         snapshot <- database.transaction(c =>
           services.browser.tables.PageActionTable.PageActionTable.forPage(c, page.id)
         )

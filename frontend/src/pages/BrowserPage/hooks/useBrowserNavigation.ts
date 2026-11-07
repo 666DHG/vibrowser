@@ -146,6 +146,7 @@ export function useBrowserNavigation() {
       mode: options.mode ?? "navigate",
       browsingMode:
         options.browsingMode ?? getTab(id)?.browsingMode ?? "imagination",
+      effort: options.effort ?? getTab(id)?.effort ?? "standard",
       status: "loading",
       startedAt: Date.now(),
       collapsed: false,
@@ -180,6 +181,7 @@ export function useBrowserNavigation() {
               pending.referrerPageId ?? null,
               pending.sourceBlockId ?? null,
               pending.browsingMode,
+              pending.effort,
             ).send(c.signal);
         pageId = result.pageId;
         if (!c.signal.aborted)
@@ -235,6 +237,7 @@ export function useBrowserNavigation() {
       {
         historyIndex: action.kind === "Search" ? undefined : tab.index,
         browsingMode: page.mode,
+        effort: page.effort,
         action: {
           pageId: page.id,
           actionId: action.id,

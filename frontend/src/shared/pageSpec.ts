@@ -1,3 +1,4 @@
+import { generationEffortSchema } from "./generationEffort";
 import { researchSummarySchema } from "./research";
 import { browsingModeSchema } from "./browsingMode";
 import { webDocumentSchema } from "./webDocument";
@@ -206,6 +207,7 @@ export function safeTarget(target: string): boolean {
 export const pageRecordSchema = z.object({
   sourceCount: z.number().default(0),
   mode: browsingModeSchema.default("imagination"),
+  effort: generationEffortSchema.default("standard"),
   id: z.string(),
   address: z.string(),
   kind: z.enum(["website", "search"]),

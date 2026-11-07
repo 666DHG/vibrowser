@@ -43,7 +43,10 @@ private[generation] final class DesignWorkflowGeneration(
     else
       for
         started <- save(page, w.copy(events = w.events :+ event(stage, DesignStageStatus.Started)))
-        response <- client.complete(config, system, prompt, false).timeout(stageTimeout).attempt
+        response <- client
+          .complete(config, system, prompt, false)
+          .timeout(if config.effort == GenerationEffort.Deep then 600.seconds else stageTimeout)
+          .attempt
         decoded = response.flatMap(text =>
           decode[A](text).left.map(identity[Throwable]).map(value => (text, value))
         )
@@ -186,7 +189,7 @@ private[generation] final class DesignWorkflowGeneration(
                 DesignPrompts.improveRequest(prompt, reviewed, candidate),
                 false
               )
-              .timeout(180.seconds)
+              .timeout(if config.effort == GenerationEffort.Deep then 600.seconds else 180.seconds)
               .attempt
             validated <- response
               .traverse(text => generator.validate(page, text, snapshot, research))

@@ -9,6 +9,7 @@ import io.circe.syntax.*
 import scala.concurrent.duration.*
 import services.settings.objects.ProviderConnection
 import services.system.objects.AppError
+import services.generation.objects.GenerationEffort
 private[generation] final class DeepSeekCompatibleClient(
     client: Client[IO],
     requestTimeout: FiniteDuration = GenerationPolicy.requestTimeout
@@ -20,6 +21,7 @@ private[generation] final class DeepSeekCompatibleClient(
       test: Boolean
   ): IO[String] =
     val official = java.net.URI.create(config.baseUrl).getHost.equalsIgnoreCase("api.deepseek.com")
+    val deep = !test && config.effort == GenerationEffort.Deep
     val payload = Json.obj(
       "model" -> config.model.asJson,
       "messages" -> List(
@@ -34,7 +36,13 @@ private[generation] final class DeepSeekCompatibleClient(
     )
     val requestPayload =
       if official then
-        payload.deepMerge(Json.obj("thinking" -> Json.obj("type" -> "disabled".asJson)))
+        payload
+          .deepMerge(
+            Json.obj(
+              "thinking" -> Json.obj("type" -> (if deep then "enabled" else "disabled").asJson)
+            )
+          )
+          .deepMerge(if deep then Json.obj("reasoning_effort" -> "high".asJson) else Json.obj())
       else payload
     val request = Request[IO](
       Method.POST,
@@ -42,7 +50,9 @@ private[generation] final class DeepSeekCompatibleClient(
     )
       .withEntity(requestPayload)
       .putHeaders(Header.Raw(CIString("Authorization"), "Bearer " + config.key))
-    client
+    IO.raiseWhen(deep && !official)(
+      AppError("unsupported_effort", "当前接口尚未支持深入思考，请选择标准或使用 DeepSeek 官方接口")
+    ) *> client
       .run(request)
       .use { response =>
         val code = response.status.code
@@ -75,7 +85,9 @@ private[generation] final class DeepSeekCompatibleClient(
           }
       }
       .timeoutTo(
-        if test then 30.seconds.min(requestTimeout) else requestTimeout,
+        if test then 30.seconds.min(requestTimeout)
+        else if deep then 600.seconds
+        else requestTimeout,
         IO.raiseError(AppError("provider_timeout", "模型响应超时，请重试", 504))
       )
       .adaptError {

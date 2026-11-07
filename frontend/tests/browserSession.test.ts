@@ -114,7 +114,11 @@ it("restores home and an unsubmitted draft while preserving that tab's history",
   expect(restored.tabs[0].content.status).toBe("idle");
   expect(restored.tabs[0].draft).toBe("下一站");
   expect(restored.tabs[0].entries).toEqual(
-    tab.entries.map((e) => ({ ...e, browsingMode: "imagination" })),
+    tab.entries.map((e) => ({
+      ...e,
+      browsingMode: "imagination",
+      effort: "standard",
+    })),
   );
   expect(
     JSON.parse(sessionStorage.getItem(SESSION_KEY)!).tabs[0],

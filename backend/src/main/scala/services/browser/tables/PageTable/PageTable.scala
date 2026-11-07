@@ -1,5 +1,5 @@
 package services.browser.tables.PageTable
-import services.generation.objects.JobId
+import services.generation.objects.{JobId, GenerationEffort}
 import cats.effect.IO
 import java.sql.{Connection, ResultSet}
 import io.circe.parser.decode
@@ -28,20 +28,28 @@ object PageTable:
     Option(r.getString("document")).map(s => decode[WebDocument](s).fold(throw _, identity)),
     BrowsingMode
       .fromString(r.getString("mode"))
+      .fold(e => throw new IllegalStateException(e), identity),
+    effort = GenerationEffort
+      .fromString(r.getString("effort"))
       .fold(e => throw new IllegalStateException(e), identity)
   )
   private val findByIdSql = "SELECT * FROM pages WHERE id=?"
   def findById(c: Connection, id: PageId): IO[Option[PageRecord]] =
     SqlExecutor.query(c, findByIdSql, List(id.value))(row).map(_.headOption)
   private val findByAddressSql =
-    "SELECT p.* FROM pages p WHERE address=? AND mode=? AND ((status='generating' AND source != 'action') OR EXISTS (SELECT 1 FROM bookmarks b WHERE b.page_id=p.id)) ORDER BY CASE WHEN status='ready' THEN 0 ELSE 1 END, created_at DESC LIMIT 1"
+    "SELECT p.* FROM pages p WHERE address=? AND mode=? AND effort=? AND ((status='generating' AND source != 'action') OR EXISTS (SELECT 1 FROM bookmarks b WHERE b.page_id=p.id)) ORDER BY CASE WHEN status='ready' THEN 0 ELSE 1 END, created_at DESC LIMIT 1"
   def findByAddress(
       c: Connection,
       address: String,
-      mode: BrowsingMode = BrowsingMode.Imagination
+      mode: BrowsingMode = BrowsingMode.Imagination,
+      effort: GenerationEffort = GenerationEffort.Standard
   ): IO[Option[PageRecord]] =
     SqlExecutor
-      .query(c, findByAddressSql, List(address, BrowsingMode.toString(mode)))(row)
+      .query(
+        c,
+        findByAddressSql,
+        List(address, BrowsingMode.toString(mode), GenerationEffort.toString(effort))
+      )(row)
       .map(_.headOption)
   private val detachTemporaryParentsSql =
     "UPDATE pages SET referrer_id=NULL WHERE referrer_id IN (SELECT id FROM pages WHERE id NOT IN (SELECT page_id FROM bookmarks))"
@@ -58,7 +66,7 @@ object PageTable:
   def lockById(c: Connection, id: PageId): IO[Option[PageRecord]] =
     SqlExecutor.query(c, lockSql, List(id.value))(row).map(_.headOption)
   private val insertSql =
-    "INSERT INTO pages(id,address,kind,prompt,status,current_job_id,referrer_id,navigation_context,mode) VALUES(?,?,?,?,'generating',?,?,?::jsonb,?) ON CONFLICT(mode,address) WHERE status='generating' AND source != 'action' DO NOTHING"
+    "INSERT INTO pages(id,address,kind,prompt,status,current_job_id,referrer_id,navigation_context,mode,effort) VALUES(?,?,?,?,'generating',?,?,?::jsonb,?,?) ON CONFLICT(mode,effort,address) WHERE status='generating' AND source != 'action' DO NOTHING"
   def insertPending(
       c: Connection,
       id: PageId,
@@ -66,7 +74,8 @@ object PageTable:
       jobId: JobId,
       referrer: Option[PageId],
       context: Option[NavigationContext] = None,
-      mode: BrowsingMode = BrowsingMode.Imagination
+      mode: BrowsingMode = BrowsingMode.Imagination,
+      effort: GenerationEffort = GenerationEffort.Standard
   ): IO[Boolean] =
     SqlExecutor
       .update(
@@ -80,7 +89,8 @@ object PageTable:
           jobId.value,
           referrer.map(_.value).orNull,
           context.map(_.asJson.noSpaces).orNull,
-          BrowsingMode.toString(mode)
+          BrowsingMode.toString(mode),
+          GenerationEffort.toString(effort)
         )
       )
       .map(_ == 1)
@@ -119,7 +129,7 @@ object PageTable:
       .map(_ == 1)
 
   private val versionSql =
-    "INSERT INTO pages(id,address,kind,prompt,status,current_job_id,referrer_id,navigation_context,source,mode) VALUES(?,?,?,?,'generating',?,?,?::jsonb,'action',?)"
+    "INSERT INTO pages(id,address,kind,prompt,status,current_job_id,referrer_id,navigation_context,source,mode,effort) VALUES(?,?,?,?,'generating',?,?,?::jsonb,'action',?,?)"
   def insertVersion(
       c: Connection,
       id: PageId,
@@ -139,7 +149,8 @@ object PageTable:
           jobId.value,
           source.id.value,
           source.navigationContext.map(_.asJson.noSpaces).orNull,
-          BrowsingMode.toString(source.mode)
+          BrowsingMode.toString(source.mode),
+          GenerationEffort.toString(source.effort)
         )
       )
       .void

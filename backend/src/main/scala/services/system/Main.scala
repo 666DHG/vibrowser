@@ -35,8 +35,8 @@ object Main extends IOApp.Simple:
       )
       client <- EmberClientBuilder
         .default[IO]
-        .withTimeout(190.seconds)
-        .withIdleConnectionTime(200.seconds)
+        .withTimeout(610.seconds)
+        .withIdleConnectionTime(620.seconds)
         .build
       _ <- GenerationModule.resource(database, client, mock)
       server <- EmberServerBuilder

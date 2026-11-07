@@ -1,7 +1,9 @@
 import type { ResearchCandidate } from "../../../shared/research";
+import type { GenerationEffort } from "../../../shared/generationEffort";
 import type { BrowsingMode } from "../../../shared/browsingMode";
 import type { PageRecord, Job } from "../../../shared/pageSpec";
 export interface HistoryEntry {
+  effort?: GenerationEffort;
   browsingMode?: BrowsingMode;
   state?: Record<string, string>;
   scroll?: number;
@@ -15,6 +17,7 @@ export type ContentState =
   | { status: "settings"; focusResearchAt?: number }
   | { status: "ready"; page: PageRecord };
 export interface PendingNavigation {
+  effort?: GenerationEffort;
   researchCandidates?: ResearchCandidate[];
   browsingMode?: BrowsingMode;
   requestId: string;
@@ -42,6 +45,7 @@ export interface PendingNavigation {
   };
 }
 export interface BrowserTab {
+  effort?: GenerationEffort;
   browsingMode?: BrowsingMode;
   id: string;
   title: string;

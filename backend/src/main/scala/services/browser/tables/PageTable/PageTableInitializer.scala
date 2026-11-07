@@ -14,7 +14,7 @@ object PageTableInitializer:
   private val contextSql = "ALTER TABLE pages ADD COLUMN IF NOT EXISTS navigation_context JSONB"
   private val cachePolicySql = "ALTER TABLE pages DROP CONSTRAINT IF EXISTS pages_address_key"
   private val activeIndexSql =
-    "CREATE UNIQUE INDEX IF NOT EXISTS one_pending_page_per_address ON pages(mode,address) WHERE status='generating' AND source != 'action'"
+    "CREATE UNIQUE INDEX IF NOT EXISTS one_pending_page_per_address ON pages(mode,effort,address) WHERE status='generating' AND source != 'action'"
   private val documentSql = "ALTER TABLE pages ADD COLUMN IF NOT EXISTS document JSONB"
   private val readyConstraintSql = "ALTER TABLE pages DROP CONSTRAINT IF EXISTS pages_check"
   private val documentConstraintSql =
@@ -22,11 +22,16 @@ object PageTableInitializer:
   private val modeSql =
     "ALTER TABLE pages ADD COLUMN IF NOT EXISTS mode TEXT NOT NULL DEFAULT 'imagination' CHECK(mode IN ('imagination','research'))"
   private val dropIndexSql = "DROP INDEX IF EXISTS one_pending_page_per_address"
+  private val effortSql =
+    "ALTER TABLE pages ADD COLUMN IF NOT EXISTS effort TEXT NOT NULL DEFAULT 'standard' CHECK(effort IN ('standard','deep'))"
   def initialize(c: Connection): IO[Unit] =
     SqlExecutor.update(c, createSql) *> SqlExecutor
       .update(c, sourceSql) *> SqlExecutor.update(c, contextSql) *> SqlExecutor.update(
       c,
       cachePolicySql
-    ) *> SqlExecutor.update(c, modeSql) *> SqlExecutor.update(c, dropIndexSql) *> SqlExecutor
+    ) *> SqlExecutor.update(c, modeSql) *> SqlExecutor.update(c, effortSql) *> SqlExecutor.update(
+      c,
+      dropIndexSql
+    ) *> SqlExecutor
       .update(c, activeIndexSql) *> SqlExecutor.update(c, documentSql) *> SqlExecutor
       .update(c, readyConstraintSql) *> SqlExecutor.update(c, documentConstraintSql).void

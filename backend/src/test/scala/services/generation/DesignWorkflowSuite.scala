@@ -48,6 +48,65 @@ class DesignWorkflowSuite extends CatsEffectSuite:
       }
   private def meter(result: LayoutReport = report): LayoutMeasurer = new LayoutMeasurer:
     def measure(doc: WebDocument): IO[LayoutReport] = IO.pure(result)
+  test("worker supplies the persisted page effort to generation") {
+    isolated { db =>
+      val client = new TextGenerationClient:
+        def complete(
+            c: ProviderConnection,
+            system: String,
+            prompt: String,
+            test: Boolean
+        ): IO[String] = IO {
+          assertEquals(c.effort, GenerationEffort.Deep)
+          fixture.asJson.noSpaces
+        }
+      for
+        nav <- db.transaction(
+          NavigateMessage("worker-effort.example", None, effort = Some(GenerationEffort.Deep)).plan
+        )
+        job <- db.transaction(ClaimGenerationJobMessage().plan).map(_.get)
+        _ <- new GenerationWorker(db, client, mock = true, webDocuments = true).execute(job)
+        page <- db.transaction(c => PageTable.findById(c, nav.pageId)).map(_.get)
+        _ = assertEquals(page.status, PageStatus.Ready)
+      yield ()
+    }
+  }
+  test(
+    "effort isolates queued pages, survives migration and is inherited by temporary versions and retry"
+  ) {
+    isolated { db =>
+      for
+        standard <- db.transaction(NavigateMessage("effort.example", None).plan)
+        deep <- db.transaction(
+          NavigateMessage("effort.example", None, effort = Some(GenerationEffort.Deep)).plan
+        )
+        duplicate <- db.transaction(
+          NavigateMessage("effort.example", None, effort = Some(GenerationEffort.Deep)).plan
+        )
+        _ = assertNotEquals(standard.pageId, deep.pageId)
+        _ = assertEquals(deep.pageId, duplicate.pageId)
+        _ <- db.transaction(SchemaInitializer.initialize)
+        saved <- db.transaction(c => PageTable.findById(c, deep.pageId)).map(_.get)
+        _ = assertEquals(saved.effort, GenerationEffort.Deep)
+        versionId = PageId(java.util.UUID.randomUUID().toString)
+        _ <- db.transaction(c =>
+          PageTable.insertVersion(
+            c,
+            versionId,
+            VirtualAddress(saved.address, saved.kind, saved.prompt),
+            JobId(java.util.UUID.randomUUID().toString),
+            saved
+          )
+        )
+        version <- db.transaction(c => PageTable.findById(c, versionId)).map(_.get)
+        _ = assertEquals(version.effort, GenerationEffort.Deep)
+        _ <- db.transaction(FailGenerationJobMessage(deep.jobId, "retry").plan)
+        retry <- db.transaction(RetryPageMessage(deep.pageId, deep.jobId).plan)
+        retried <- db.transaction(c => PageTable.findById(c, retry.pageId)).map(_.get)
+        _ = assertEquals(retried.effort, GenerationEffort.Deep)
+      yield ()
+    }
+  }
   private def provider(
       outputs: List[Either[Throwable, String]],
       count: Ref[IO, Int]

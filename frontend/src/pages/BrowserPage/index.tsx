@@ -1,4 +1,5 @@
 import { SourcesPanel } from "./components/SourcesPanel";
+import { GetSettingsMessage } from "../../apis/settings/GetSettingsMessage";
 import { useEffect, useRef, useState } from "react";
 import {
   ArrowLeft,
@@ -18,6 +19,7 @@ import {
   openBookmarks,
   openSettings,
   setBrowsingMode,
+  setGenerationEffort,
 } from "./stores/browserStore";
 import { useBrowserNavigation } from "./hooks/useBrowserNavigation";
 import { BrowserTabs } from "./components/BrowserTabs";
@@ -39,6 +41,28 @@ export default function BrowserPage() {
   const [sourcesOpen, setSourcesOpen] = useState(false);
   useEffect(() => setSourcesOpen(false), [activeTabId, visiblePage?.id]);
   const [mock, setMock] = useState(false);
+  const [deepSupported, setDeepSupported] = useState(false);
+  useEffect(() => {
+    let current = true;
+    const refresh = () =>
+      new GetSettingsMessage()
+        .send()
+        .then((settings) => {
+          if (current)
+            setDeepSupported(
+              new URL(settings.baseUrl).hostname === "api.deepseek.com",
+            );
+        })
+        .catch(() => {
+          if (current) setDeepSupported(false);
+        });
+    void refresh();
+    window.addEventListener("focus", refresh);
+    return () => {
+      current = false;
+      window.removeEventListener("focus", refresh);
+    };
+  }, [activeTabId]);
   useEffect(() => {
     fetch("/health")
       .then((r) => r.json())
@@ -46,7 +70,7 @@ export default function BrowserPage() {
       .catch(() => {});
   }, []);
   const iconButton =
-    "cursor-pointer rounded-lg p-2 text-[#a4ac99] transition-colors hover:bg-white/5 hover:text-white disabled:cursor-default disabled:opacity-25";
+    "cursor-pointer rounded-lg p-1.5 sm:p-2 text-[#a4ac99] transition-colors hover:bg-white/5 hover:text-white disabled:cursor-default disabled:opacity-25";
   const showBookmarks = () => {
     openBookmarks();
     void bookmarks.refresh();
@@ -105,7 +129,7 @@ export default function BrowserPage() {
               event.preventDefault();
               void navigation.navigate(draft);
             }}
-            className="mx-1 flex min-w-0 flex-1 items-center gap-3 rounded-xl border border-white/8 bg-[#1d211a] px-3 focus-within:border-[#a1bb84]/50 md:px-4"
+            className="mx-1 flex min-w-0 flex-1 items-center gap-1 rounded-xl border border-white/8 bg-[#1d211a] px-1 focus-within:border-[#a1bb84]/50 md:gap-3 md:px-4"
           >
             <Search
               size={14}
@@ -120,10 +144,53 @@ export default function BrowserPage() {
                   e.target.value as "imagination" | "research",
                 )
               }
-              className="max-w-20 shrink-0 rounded-md bg-[#303829] py-1 text-xs text-[#c1d5ad]"
+              className="hidden max-w-20 shrink-0 rounded-md bg-[#303829] py-1 text-xs text-[#c1d5ad] sm:block"
             >
               <option value="imagination">幻觉</option>
               <option value="research">认真</option>
+            </select>
+            <select
+              aria-label="思考强度"
+              value={tab.effort ?? "standard"}
+              title={
+                deepSupported
+                  ? "下一次导航使用此档位"
+                  : "深入思考需要 DeepSeek 官方生成接口"
+              }
+              onChange={(e) =>
+                setGenerationEffort(
+                  activeTabId,
+                  e.target.value as "standard" | "deep",
+                )
+              }
+              className="hidden max-w-16 shrink-0 rounded-md bg-[#303829] py-1 text-xs text-[#c1d5ad] sm:block"
+            >
+              <option value="standard">标准</option>
+              <option value="deep" disabled={!deepSupported}>
+                深入
+              </option>
+            </select>
+            <select
+              aria-label="浏览模式与思考强度"
+              value={`${tab.browsingMode ?? "imagination"}:${tab.effort ?? "standard"}`}
+              onChange={(e) => {
+                const [mode, effort] = e.target.value.split(":");
+                setBrowsingMode(
+                  activeTabId,
+                  mode as "imagination" | "research",
+                );
+                setGenerationEffort(activeTabId, effort as "standard" | "deep");
+              }}
+              className="w-20 shrink-0 rounded-md bg-[#303829] py-1 text-xs text-[#c1d5ad] sm:hidden"
+            >
+              <option value="imagination:standard">幻觉·标准</option>
+              <option value="imagination:deep" disabled={!deepSupported}>
+                幻觉·深入
+              </option>
+              <option value="research:standard">认真·标准</option>
+              <option value="research:deep" disabled={!deepSupported}>
+                认真·深入
+              </option>
             </select>
             <input
               ref={address}
@@ -159,7 +226,7 @@ export default function BrowserPage() {
             </button>
             <button
               aria-label="前往"
-              className="cursor-pointer p-1 text-[#a5bf8c]"
+              className="hidden cursor-pointer p-1 text-[#a5bf8c] sm:block"
             >
               <ArrowRight size={16} />
             </button>

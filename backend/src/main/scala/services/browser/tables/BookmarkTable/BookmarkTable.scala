@@ -4,6 +4,7 @@ import cats.effect.IO
 import java.sql.{Connection, ResultSet}
 import services.system.SqlExecutor
 import services.browser.objects.*
+import services.generation.objects.GenerationEffort
 object BookmarkTable:
   private def row(r: ResultSet): Bookmark = Bookmark(
     BookmarkId(r.getString("id")),
@@ -16,10 +17,13 @@ object BookmarkTable:
     r.getTimestamp("saved_at").toInstant.toString,
     BrowsingMode
       .fromString(r.getString("mode"))
+      .fold(e => throw new IllegalStateException(e), identity),
+    GenerationEffort
+      .fromString(r.getString("effort"))
       .fold(e => throw new IllegalStateException(e), identity)
   )
   private val listSql =
-    "SELECT b.*, p.mode FROM bookmarks b JOIN pages p ON p.id=b.page_id ORDER BY b.saved_at DESC,b.id"
+    "SELECT b.*, p.mode, p.effort FROM bookmarks b JOIN pages p ON p.id=b.page_id ORDER BY b.saved_at DESC,b.id"
   def list(c: Connection): IO[List[Bookmark]] = SqlExecutor.query(c, listSql)(row)
   private val saveSql =
     """INSERT INTO bookmarks(id,page_id,title,address,kind,state) VALUES(?,?,?,?,?,?::jsonb)
@@ -51,7 +55,8 @@ object BookmarkTable:
           page.address,
           page.kind,
           r.getTimestamp("saved_at").toInstant.toString,
-          page.mode
+          page.mode,
+          page.effort
         )
       )
       .map(_.head)

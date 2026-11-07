@@ -1,4 +1,5 @@
 import { browsingModeSchema } from "../../../shared/browsingMode";
+import { generationEffortSchema } from "../../../shared/generationEffort";
 import { z } from "zod";
 import type {
   BrowserTab,
@@ -7,6 +8,7 @@ import type {
 } from "../objects/BrowserState";
 export const SESSION_KEY = "vibrowser.tabs.v2";
 const entrySchema = z.object({
+  effort: generationEffortSchema.default("standard"),
   browsingMode: browsingModeSchema.default("imagination"),
   state: z.record(z.string(), z.string()).optional(),
   scroll: z.number().optional(),
@@ -19,6 +21,7 @@ const historySchema = z.object({
   index: z.number().int(),
 });
 const pendingSchema = z.object({
+  effort: generationEffortSchema.default("standard"),
   browsingMode: browsingModeSchema.default("imagination"),
   action: z
     .object({
@@ -41,6 +44,7 @@ const sessionSchema = z.object({
   tabs: z
     .array(
       historySchema.extend({
+        effort: generationEffortSchema.default("standard"),
         browsingMode: browsingModeSchema.default("imagination"),
         id: z.string(),
         title: z.string(),
@@ -55,6 +59,7 @@ const sessionSchema = z.object({
 export function emptyTab(): BrowserTab {
   return {
     browsingMode: "imagination",
+    effort: "standard",
     id: crypto.randomUUID(),
     title: "新标签页",
     draft: "",
@@ -157,6 +162,7 @@ function savedSession(session: BrowserSession) {
     tabs: session.tabs.map((tab) => ({
       id: tab.id,
       browsingMode: tab.browsingMode ?? "imagination",
+      effort: tab.effort ?? "standard",
       title: tab.title,
       draft: tab.draft,
       entries: tab.entries,
@@ -167,6 +173,7 @@ function savedSession(session: BrowserSession) {
           ? {
               action: tab.pending.action,
               browsingMode: tab.pending.browsingMode,
+              effort: tab.pending.effort,
               input: tab.pending.input,
               mode: tab.pending.mode,
               pageId: tab.pending.pageId,

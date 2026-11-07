@@ -1,4 +1,5 @@
 import type { BrowsingMode } from "../../../shared/browsingMode";
+import type { GenerationEffort } from "../../../shared/generationEffort";
 import { displayAddress } from "../functions/displayAddress";
 import { create } from "zustand";
 import type {
@@ -67,6 +68,7 @@ export function completeNavigation(
     const pending = tab.pending;
     if (!pending || pending.requestId !== requestId) return tab;
     const entry = {
+      effort: page.effort,
       browsingMode: page.mode,
       state:
         pending.historyIndex !== undefined &&
@@ -99,6 +101,7 @@ export function completeNavigation(
           : entries,
       index,
       browsingMode: pending.mode === "cached" ? page.mode : tab.browsingMode,
+      effort: pending.mode === "cached" ? page.effort : tab.effort,
       title: page.document?.title ?? page.spec?.title ?? page.address,
       draft:
         tab.draft === displayAddress(pending.input)
@@ -140,6 +143,7 @@ export function showHome(id: string) {
 export function addTab() {
   const tab = {
     ...emptyTab(),
+    effort: getTab(store.getState().activeTabId)?.effort ?? "standard",
     browsingMode:
       getTab(store.getState().activeTabId)?.browsingMode ??
       ("imagination" as BrowsingMode),
@@ -202,6 +206,8 @@ export function savePageState(
 
 export const setBrowsingMode = (id: string, browsingMode: BrowsingMode) =>
   updateTab(id, (tab) => ({ ...tab, browsingMode }));
+export const setGenerationEffort = (id: string, effort: GenerationEffort) =>
+  updateTab(id, (tab) => ({ ...tab, effort }));
 export function openSettings(focusResearch = false) {
   const existing = store
     .getState()

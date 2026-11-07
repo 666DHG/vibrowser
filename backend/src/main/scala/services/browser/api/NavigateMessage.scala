@@ -16,7 +16,8 @@ final case class NavigateMessage(
     input: String,
     referrerPageId: Option[PageId],
     sourceBlockId: Option[String] = None,
-    mode: Option[BrowsingMode] = None
+    mode: Option[BrowsingMode] = None,
+    effort: Option[GenerationEffort] = None
 ) extends APIMessage[NavigationResponse]:
   override def plan(connection: Connection): IO[NavigationResponse] =
     for
@@ -24,6 +25,7 @@ final case class NavigateMessage(
         PageTable.findById(connection, _)
       )
       selectedMode = mode.getOrElse(BrowsingMode.Imagination)
+      selectedEffort = effort.getOrElse(GenerationEffort.Standard)
       matchingSource = source.filter(_.mode == selectedMode)
       address <- IO.fromEither(
         AddressRules
@@ -31,7 +33,12 @@ final case class NavigateMessage(
           .left
           .map(m => AppError("invalid_address", m))
       )
-      existing <- PageTable.findByAddress(connection, address.canonical, selectedMode)
+      existing <- PageTable.findByAddress(
+        connection,
+        address.canonical,
+        selectedMode,
+        selectedEffort
+      )
       result <- existing match
         case Some(page) => IO.pure(NavigationResponse(page.id, page.currentJobId, page.status))
         case None =>
@@ -56,7 +63,8 @@ final case class NavigateMessage(
               jobId,
               matchingSource.map(_.id),
               context,
-              selectedMode
+              selectedMode,
+              selectedEffort
             )
             _ <-
               if inserted then
@@ -69,7 +77,7 @@ final case class NavigateMessage(
                 )
               else IO.unit
             page <- PageTable
-              .findByAddress(connection, address.canonical, selectedMode)
+              .findByAddress(connection, address.canonical, selectedMode, selectedEffort)
               .flatMap(IO.fromOption(_)(AppError("internal_error", "页面创建失败", 500)))
           yield NavigationResponse(page.id, page.currentJobId, page.status)
     yield result
