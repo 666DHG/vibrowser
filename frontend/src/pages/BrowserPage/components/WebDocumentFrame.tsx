@@ -73,6 +73,36 @@ export function WebDocumentFrame({
       const message = event.data;
       if (message.type === "ready") deliverUpdate();
       const action = doc.actions.find((a) => a.id === message.actionId);
+      if (
+        message.type === "copy" &&
+        action?.kind === "Copy" &&
+        action.region &&
+        typeof message.requestId === "string" &&
+        typeof message.text === "string" &&
+        message.text.length <= 120000
+      ) {
+        const destination = frame.current?.contentWindow;
+        void (async () => {
+          let success = false;
+          try {
+            await navigator.clipboard.writeText(message.text);
+            success = true;
+          } catch {
+            /* The runtime shows a retry message; do not report success. */
+          }
+          if (destination === frame.current?.contentWindow)
+            destination?.postMessage(
+              {
+                type: "copy-result",
+                instance,
+                actionId: action.id,
+                requestId: message.requestId,
+                success,
+              },
+              "*",
+            );
+        })();
+      }
       if (message.type === "preview")
         callbacks.current.onPreview(
           action?.kind === "Navigate" ? (action.target ?? "") : "",

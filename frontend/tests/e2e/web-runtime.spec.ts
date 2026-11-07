@@ -6,6 +6,16 @@ for (const name of ["forum", "shop", "docs"])
       await readFile("../contracts/web-documents/" + name + ".json", "utf8"),
     );
     document.html +=
+      '<p id="copy-text">中文复制内容与标点。</p><button id="copy-button">复制文字</button><output id="copy-feedback" data-state="copy-feedback"></output>';
+    document.initialState["copy-feedback"] = "";
+    document.actions.push({
+      id: "copy",
+      kind: "Copy",
+      elementId: "copy-button",
+      region: "copy-text",
+      stateKey: "copy-feedback",
+    });
+    document.html +=
       '<a id="local-anchor" href="#anchor-target">页内目录</a><div id="anchor-target">本页章节</div>';
     document.actions.push({
       id: "local-anchor-action",
@@ -62,11 +72,42 @@ for (const name of ["forum", "shop", "docs"])
     await page.getByRole("textbox", { name: "网址或搜索词" }).press("Enter");
     const frame = page.frameLocator("iframe");
     await expect(frame.locator("h1")).toBeVisible();
+    await page.evaluate(() => {
+      const audit = { writes: [] as string[], reject: true };
+      Object.assign(window, { clipboardAudit: audit });
+      Object.defineProperty(navigator, "clipboard", {
+        configurable: true,
+        value: {
+          writeText: async (text: string) => {
+            if (audit.reject) throw new Error("permission denied");
+            audit.writes.push(text);
+          },
+        },
+      });
+    });
     let requests = 0;
     page.on("request", (r) => {
       if (/\/api\/(navigate|submitpageaction|retrypage)$/.test(r.url()))
         requests++;
     });
+    await frame.locator("#copy-button").click();
+    await expect(frame.locator("#copy-feedback")).toHaveText(
+      "复制失败，请重试或选择文字复制",
+    );
+    await page.evaluate(() => {
+      (
+        window as unknown as { clipboardAudit: { reject: boolean } }
+      ).clipboardAudit.reject = false;
+    });
+    await frame.locator("#copy-button").click();
+    await expect(frame.locator("#copy-feedback")).toHaveText("已复制");
+    expect(
+      await page.evaluate(
+        () =>
+          (window as unknown as { clipboardAudit: { writes: string[] } })
+            .clipboardAudit.writes,
+      ),
+    ).toEqual(["中文复制内容与标点。"]);
     await frame.locator("#local-anchor").click();
     if (name === "forum") {
       await frame.locator("#toggle").click();
@@ -76,10 +117,10 @@ for (const name of ["forum", "shop", "docs"])
     }
     if (name === "shop") {
       await frame.locator("#add").click();
-      await expect(frame.locator("output")).toHaveText("1");
+      await expect(frame.locator('output[data-state="cart"]')).toHaveText("1");
       await frame.locator("#spec").selectOption("大号");
       await frame.locator("#remove").click();
-      await expect(frame.locator("output")).toHaveText("0");
+      await expect(frame.locator('output[data-state="cart"]')).toHaveText("0");
     }
     if (name === "docs") {
       await frame.locator("#toggle").click();

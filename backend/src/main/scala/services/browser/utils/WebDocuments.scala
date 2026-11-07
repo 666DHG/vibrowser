@@ -209,6 +209,26 @@ private[browser] object WebDocuments:
       doc.actions.foreach { a =>
         requireThat(ids.contains(a.elementId), "action element missing: " + a.elementId)
         requireThat(a.region.forall(ids.contains), "action region missing")
+        if a.kind == WebActionKind.Copy then
+          requireThat(a.region.nonEmpty, "Copy requires text region")
+          requireThat(
+            parsed.getElementById(a.elementId).normalName() == "button",
+            "Copy must bind a button"
+          )
+          requireThat(
+            a.stateKey.exists(doc.initialState.contains),
+            "Copy requires declared feedback state key"
+          )
+          requireThat(
+            !a.stateKey.exists(doc.persistentKeys.contains),
+            "Copy feedback must not persist"
+          )
+        if a.kind == WebActionKind.Set then
+          val label = parsed.getElementById(a.elementId).text()
+          requireThat(
+            !(label + a.value.getOrElse("")).matches("(?is).*(复制|\\bcopy\\b|\\bcopied\\b).*"),
+            "Copy controls must use Copy with a text region, not Set success feedback"
+          )
         if a.kind == WebActionKind.Navigate then
           requireThat(
             a.target.exists(t => AddressRules.resolveLink(t, address).isRight),

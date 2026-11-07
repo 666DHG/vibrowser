@@ -14,6 +14,7 @@ export const webActionSchema = z.object({
     "Sort",
     "Set",
     "Increment",
+    "Copy",
   ]),
   elementId: z.string(),
   target: z.string().nullish(),

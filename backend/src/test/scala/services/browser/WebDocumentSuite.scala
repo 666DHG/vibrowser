@@ -13,6 +13,45 @@ class WebDocumentSuite extends FunSuite:
       assert(WebDocuments.prepare(fixture(name), "https://sample.example/").isRight)
     }
   }
+  test(
+    "Copy requires a real text region and transient feedback; Set cannot promise clipboard success"
+  ) {
+    val base = fixture("docs")
+    val copy = WebAction(
+      "copy",
+      WebActionKind.Copy,
+      "copy-button",
+      region = Some("copy-text"),
+      stateKey = Some("copy-status")
+    )
+    val doc = base.copy(
+      html =
+        base.html + "<p id='copy-text'>可以复制的内容</p><button id='copy-button'>复制</button><output data-state='copy-status'></output>",
+      actions = base.actions :+ copy,
+      initialState = base.initialState + ("copy-status" -> "")
+    )
+    assert(WebDocuments.prepare(doc, "https://sample.example/").isRight)
+    List(
+      copy.copy(region = None),
+      copy.copy(region = Some("missing")),
+      copy.copy(stateKey = None),
+      copy.copy(kind = WebActionKind.Set, value = Some("已复制"))
+    ).foreach { invalid =>
+      assert(
+        WebDocuments
+          .prepare(doc.copy(actions = base.actions :+ invalid), "https://sample.example/")
+          .isLeft
+      )
+    }
+    assert(
+      WebDocuments
+        .prepare(
+          doc.copy(persistentKeys = doc.persistentKeys :+ "copy-status"),
+          "https://sample.example/"
+        )
+        .isLeft
+    )
+  }
   test("reject executable content, resource CSS, duplicated IDs and missing action targets") {
     val base = fixture("forum")
     List(

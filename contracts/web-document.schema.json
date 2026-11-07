@@ -192,7 +192,8 @@
               "Filter",
               "Sort",
               "Set",
-              "Increment"
+              "Increment",
+              "Copy"
             ]
           },
           "target": {

@@ -8,6 +8,7 @@ function runtime(
 ) {
   let state = { ...documentSpec.initialState, ...savedState };
   const actions = new Map(documentSpec.actions.map((a) => [a.elementId, a]));
+  const pendingCopies = new Map<string, string>();
   const byId = (id?: string | null) =>
     id ? document.getElementById(id) : null;
   const send = (type: string, payload: object) =>
@@ -48,7 +49,15 @@ function runtime(
       publish();
       return;
     }
-    if (action.kind === "Toggle") {
+    if (action.kind === "Copy") {
+      if (!region || pendingCopies.has(action.id)) return;
+      const requestId = crypto.randomUUID();
+      pendingCopies.set(action.id, requestId);
+      state[key] = "正在复制…";
+      draw();
+      send("copy", { actionId: action.id, requestId, text: region.innerText });
+      return;
+    } else if (action.kind === "Toggle") {
       if (region) {
         region.hidden = !region.hidden;
         state[key] = String(!region.hidden);
@@ -238,6 +247,25 @@ function runtime(
   };
   restore();
   window.addEventListener("message", (event) => {
+    if (
+      event.source === parent &&
+      event.data?.instance === instance &&
+      event.data?.type === "copy-result"
+    ) {
+      const { actionId, requestId, success } = event.data;
+      if (pendingCopies.get(actionId) !== requestId) return;
+      pendingCopies.delete(actionId);
+      const action = documentSpec.actions.find(
+        (a) => a.id === actionId && a.kind === "Copy",
+      );
+      if (action?.stateKey) {
+        state[action.stateKey] =
+          success === true ? "已复制" : "复制失败，请重试或选择文字复制";
+        draw();
+        publish();
+      }
+      return;
+    }
     if (
       event.source !== parent ||
       event.data?.instance !== instance ||
