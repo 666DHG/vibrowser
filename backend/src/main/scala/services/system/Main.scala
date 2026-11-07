@@ -8,6 +8,8 @@ import services.system.routes.APIMessageRouter
 import services.browser.routes.BrowserRoutes
 import services.settings.routes.SettingsRoutes
 import services.generation.GenerationModule
+import services.companion.CompanionModule
+import services.companion.routes.CompanionRoutes
 object Main extends IOApp.Simple:
   def run: IO[Unit] =
     val mock = sys.env.get("VIBROWSER_MOCK").contains("true")
@@ -41,6 +43,7 @@ object Main extends IOApp.Simple:
         .withIdleConnectionTime(620.seconds)
         .build
       _ <- GenerationModule.resource(database, client, mock)
+      _ <- CompanionModule.resource(database, client, mock)
       server <- EmberServerBuilder
         .default[IO]
         .withHost(host"127.0.0.1")
@@ -50,7 +53,7 @@ object Main extends IOApp.Simple:
         .withHttpApp(
           APIMessageRouter
             .routes(
-              BrowserRoutes.apiMessages ++ SettingsRoutes.apiMessages,
+              BrowserRoutes.apiMessages ++ SettingsRoutes.apiMessages ++ CompanionRoutes.apiMessages,
               database
             )
             .orNotFound

@@ -24,7 +24,8 @@ object SchemaInitializer:
         c
       ) *> BookmarkTableInitializer.initialize(
         c
-      ) *> services.browser.tables.PageActionTable.PageActionTableInitializer.initialize(c)
+      ) *> services.browser.tables.PageActionTable.PageActionTableInitializer.initialize(c) *>
+      services.companion.tables.CompanionTaskTable.CompanionTaskTableInitializer.initialize(c)
   def recover(c: Connection): IO[Unit] =
     GenerationJobTable
       .interrupted(c)
