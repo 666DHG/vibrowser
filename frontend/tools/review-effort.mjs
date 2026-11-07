@@ -1,6 +1,7 @@
 import { readFile, readdir, mkdir, writeFile, access } from "node:fs/promises";
 import { resolve } from "node:path";
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { measureDocument } from "../dist-measure/measure.mjs";
 
 const root = resolve(import.meta.dirname, "../..");
@@ -31,6 +32,12 @@ for (const file of (await readdir(input))
     input: record.input,
     mode: record.mode,
     effort: record.effort,
+    requestHash: createHash("sha256").update(record.request).digest("hex"),
+    actualEffortMatches: record.modelCalls.every((call) =>
+      record.effort === "deep"
+        ? call.thinking?.type === "enabled" && call.reasoningEffort === "high"
+        : call.thinking?.type === "disabled" && call.reasoningEffort == null,
+    ),
     pageId: record.pageId,
     jobId: record.jobId,
     guidance: record.guidance,
@@ -84,10 +91,47 @@ const groups = Object.fromEntries(
             ),
           0,
         ),
+        recordedCompletionTokens: rows.reduce(
+          (n, r) =>
+            n +
+            r.modelCalls.reduce(
+              (sum, c) => sum + (c.usage?.completion_tokens ?? 0),
+              0,
+            ),
+          0,
+        ),
+        recordedReasoningTokens: rows.reduce(
+          (n, r) =>
+            n +
+            r.modelCalls.reduce(
+              (sum, c) =>
+                sum +
+                (c.usage?.completion_tokens_details?.reasoning_tokens ?? 0),
+              0,
+            ),
+          0,
+        ),
         seconds: rows.reduce((n, r) => n + r.seconds, 0),
       },
     ];
   }),
+);
+const comparability = [...new Set(results.map((r) => r.input))].map((input) => {
+  const rows = results.filter((r) => r.input === input);
+  return {
+    input,
+    samples: rows.length,
+    allThreePresent: rows.length === 3,
+    identicalGenerationRequest:
+      new Set(rows.map((r) => r.requestHash)).size === 1,
+    actualEffortMatches: rows.every((r) => r.actualEffortMatches),
+  };
+});
+assert(
+  comparability.every(
+    (row) => row.identicalGenerationRequest && row.actualEffortMatches,
+  ),
+  "Comparison inputs or actual effort parameters differ from the declared experiment",
 );
 await writeFile(
   resolve(root, "docs/acceptance/effort-comparison.json"),
@@ -97,6 +141,7 @@ await writeFile(
       expectedSamples: 18,
       complete: results.length === 18,
       groups,
+      comparability,
       samples: results,
     },
     null,

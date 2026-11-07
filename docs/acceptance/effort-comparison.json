@@ -1,5 +1,5 @@
 {
-  "evaluatedAt": "2026-11-07T15:53:21.247Z",
+  "evaluatedAt": "2026-11-07T15:57:26.362Z",
   "expectedSamples": 18,
   "complete": false,
   "groups": {
@@ -10,6 +10,8 @@
       "modelCalls": 17,
       "generationModelCalls": 16,
       "recordedTokens": 254755,
+      "recordedCompletionTokens": 68244,
+      "recordedReasoningTokens": 0,
       "seconds": 297
     },
     "new-standard": {
@@ -19,6 +21,8 @@
       "modelCalls": 15,
       "generationModelCalls": 15,
       "recordedTokens": 227466,
+      "recordedCompletionTokens": 54149,
+      "recordedReasoningTokens": 0,
       "seconds": 228
     },
     "new-deep": {
@@ -28,15 +32,42 @@
       "modelCalls": 7,
       "generationModelCalls": 7,
       "recordedTokens": 185712,
+      "recordedCompletionTokens": 89820,
+      "recordedReasoningTokens": 64532,
       "seconds": 499
     }
   },
+  "comparability": [
+    {
+      "input": "清华教师袁洋的个人学术主页.com",
+      "samples": 3,
+      "allThreePresent": true,
+      "identicalGenerationRequest": true,
+      "actualEffortMatches": true
+    },
+    {
+      "input": "今天是什么日子.com",
+      "samples": 2,
+      "allThreePresent": false,
+      "identicalGenerationRequest": true,
+      "actualEffortMatches": true
+    },
+    {
+      "input": "kfc疯狂星期四文案合集站.com",
+      "samples": 3,
+      "allThreePresent": true,
+      "identicalGenerationRequest": true,
+      "actualEffortMatches": true
+    }
+  ],
   "samples": [
     {
       "name": "academic-new-deep",
       "input": "清华教师袁洋的个人学术主页.com",
       "mode": "research",
       "effort": "deep",
+      "requestHash": "f20a29e023377512d50a9fa832ce076c0ee634258695b8abcf8e4459287dbc7f",
+      "actualEffortMatches": true,
       "pageId": "eb2e1469-9053-4259-84a2-58193b520845",
       "jobId": "76a64da4-59bc-4935-aa4f-9fcf89e6bae2",
       "guidance": "2-5fc17c54ff3efd04494df031447a34fd7187103e7927a266800e0b6242f1e996",
@@ -1229,6 +1260,8 @@
       "input": "清华教师袁洋的个人学术主页.com",
       "mode": "research",
       "effort": "standard",
+      "requestHash": "f20a29e023377512d50a9fa832ce076c0ee634258695b8abcf8e4459287dbc7f",
+      "actualEffortMatches": true,
       "pageId": "edf175f0-0cb6-4d9c-a296-e3aeb87a3ff1",
       "jobId": "68f8e4a7-d667-4865-8ade-7c60dc6972f9",
       "guidance": "2-5fc17c54ff3efd04494df031447a34fd7187103e7927a266800e0b6242f1e996",
@@ -2924,6 +2957,8 @@
       "input": "清华教师袁洋的个人学术主页.com",
       "mode": "research",
       "effort": "standard",
+      "requestHash": "f20a29e023377512d50a9fa832ce076c0ee634258695b8abcf8e4459287dbc7f",
+      "actualEffortMatches": true,
       "pageId": "b6d8b5b1-c929-446b-a448-8a3febbd9119",
       "jobId": "2c1e1e1a-2fe9-4247-ad0f-b54b23397df3",
       "guidance": "baseline-6ad0a7c",
@@ -4178,6 +4213,8 @@
       "input": "今天是什么日子.com",
       "mode": "imagination",
       "effort": "standard",
+      "requestHash": "2c2ef68b6d3f4f7d79d7dee51964c589125d9ab94e99ebc4d103649ba22cae40",
+      "actualEffortMatches": true,
       "pageId": "3dbbde0a-3b21-4206-8617-987a6e51c06b",
       "jobId": "1bbacbf7-16c6-4590-ac64-45a92681e186",
       "guidance": "2-5fc17c54ff3efd04494df031447a34fd7187103e7927a266800e0b6242f1e996",
@@ -4791,6 +4828,8 @@
       "input": "今天是什么日子.com",
       "mode": "imagination",
       "effort": "standard",
+      "requestHash": "2c2ef68b6d3f4f7d79d7dee51964c589125d9ab94e99ebc4d103649ba22cae40",
+      "actualEffortMatches": true,
       "pageId": "f7883fa0-af33-4bb0-ade9-e5faacd278c4",
       "jobId": "834c3435-9841-49dd-acd8-eecb3fbf68a9",
       "guidance": "baseline-6ad0a7c",
@@ -6420,6 +6459,8 @@
       "input": "kfc疯狂星期四文案合集站.com",
       "mode": "imagination",
       "effort": "deep",
+      "requestHash": "72eb7ab0d5c4ab6da441dc0abf7b7575da3a910aed14f30d32bcf4d158356660",
+      "actualEffortMatches": true,
       "pageId": "b648ff98-4314-44ad-96d3-8f7c26da9b8b",
       "jobId": "e3f3820c-99e0-4a4a-b954-f905f2af32f4",
       "guidance": "2-5fc17c54ff3efd04494df031447a34fd7187103e7927a266800e0b6242f1e996",
@@ -7795,6 +7836,8 @@
       "input": "kfc疯狂星期四文案合集站.com",
       "mode": "imagination",
       "effort": "standard",
+      "requestHash": "72eb7ab0d5c4ab6da441dc0abf7b7575da3a910aed14f30d32bcf4d158356660",
+      "actualEffortMatches": true,
       "pageId": "8efbf0bf-1455-4952-8ec2-da464b01d9e2",
       "jobId": "2215795a-0eec-4a46-a049-a05d679495cd",
       "guidance": "2-5fc17c54ff3efd04494df031447a34fd7187103e7927a266800e0b6242f1e996",
@@ -9072,6 +9115,8 @@
       "input": "kfc疯狂星期四文案合集站.com",
       "mode": "imagination",
       "effort": "standard",
+      "requestHash": "72eb7ab0d5c4ab6da441dc0abf7b7575da3a910aed14f30d32bcf4d158356660",
+      "actualEffortMatches": true,
       "pageId": "ecccb2a0-e61b-40c4-a32d-898f1a60e7ab",
       "jobId": "1fe372c0-c07d-48a0-a206-989b734c4e30",
       "guidance": "baseline-6ad0a7c",
