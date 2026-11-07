@@ -1,6 +1,77 @@
 import { test, expect } from "@playwright/test";
 import { readFile } from "node:fs/promises";
 
+for (const selected of ["standard", "deep"] as const) {
+  test(`${selected} waiting budget follows submitted effort after the selector changes`, async ({
+    page,
+  }) => {
+    const start = new Date("2026-11-08T00:00:00Z");
+    await page.clock.setFixedTime(start);
+    let polls = 0;
+    await page.route("**/api/getsettings", (r) =>
+      r.fulfill({
+        json: {
+          baseUrl: "https://api.deepseek.com",
+          model: "fixture",
+          hasKey: true,
+          revision: 1,
+        },
+      }),
+    );
+    await page.route("**/api/listbookmarks", (r) =>
+      r.fulfill({ json: { bookmarks: [] } }),
+    );
+    await page.route("**/api/navigate", (r) => {
+      expect(r.request().postDataJSON().effort).toBe(selected);
+      return r.fulfill({
+        json: { pageId: "slow", jobId: "slow", status: "generating" },
+      });
+    });
+    await page.route("**/api/getpage", (r) => {
+      polls++;
+      return r.fulfill({
+        json: {
+          page: {
+            id: "slow",
+            address: "https://slow.example/",
+            kind: "website",
+            prompt: "slow.example",
+            status: "generating",
+            spec: null,
+            currentJobId: "slow",
+            referrerId: null,
+            error: null,
+            source: "mock",
+            mode: "imagination",
+            effort: selected,
+          },
+          job: null,
+        },
+      });
+    });
+    await page.goto("/");
+    const effort = page.getByRole("combobox", { name: "思考强度" });
+    await effort.selectOption(selected);
+    await page
+      .getByRole("textbox", { name: "网址或搜索词" })
+      .fill("slow.example");
+    await page.getByRole("textbox", { name: "网址或搜索词" }).press("Enter");
+    await expect.poll(() => polls).toBeGreaterThan(0);
+    await effort.selectOption(selected === "deep" ? "standard" : "deep");
+    const before = polls;
+    await page.clock.setFixedTime(new Date(start.getTime() + 31 * 60000));
+    const timeout = page.getByText("等待时间较长，请重试查看任务状态");
+    if (selected === "standard") {
+      await expect(timeout).toBeVisible();
+    } else {
+      await expect.poll(() => polls).toBeGreaterThan(before + 1);
+      await expect(timeout).not.toBeVisible();
+      await page.clock.setFixedTime(new Date(start.getTime() + 91 * 60000));
+      await expect(timeout).toBeVisible();
+    }
+  });
+}
+
 test("effort is snapshotted per navigation, inherited by tabs, restored by history and session", async ({
   page,
 }) => {
