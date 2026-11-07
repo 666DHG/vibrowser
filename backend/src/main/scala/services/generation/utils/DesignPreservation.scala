@@ -8,16 +8,25 @@ private[generation] object DesignPreservation:
     body.select("nav, button, form, script, style").remove()
     body.text().filterNot(_.isWhitespace)
 
-  // Ordered character coverage is independent of inline markup and paragraph boundaries.
-  // Repeated text still counts separately; a duplicated navigation label cannot replace a paragraph.
+  // Local ordered text fragments survive markup, section moves and small editorial changes.
+  // Multiset counts retain repeated prose; unrelated text cannot stand in for missing paragraphs.
   private def coverage(before: String, after: String): Double =
     if before.isEmpty then 1.0
     else
-      val (_, retained) = before.foldLeft((0, 0)) { case ((position, count), character) =>
-        val next = after.indexOf(character, position)
-        if next >= 0 then (next + 1, count + 1) else (position, count)
-      }
-      retained.toDouble / before.length
+      val width = math.min(8, before.length)
+      def fragments(text: String): Map[String, Int] =
+        text.sliding(width).filter(_.length == width).toList.groupMapReduce(identity)(_ => 1)(_ + _)
+      val (_, covered) = before
+        .sliding(width)
+        .zipWithIndex
+        .foldLeft(
+          (fragments(after), scala.collection.immutable.BitSet.empty)
+        ) { case ((remaining, positions), (text, start)) =>
+          val count = remaining.getOrElse(text, 0)
+          if count == 0 then (remaining, positions)
+          else (remaining.updated(text, count - 1), positions ++ (start until start + width))
+        }
+      covered.size.toDouble / before.length
 
   private def validTrigger(doc: WebDocument, action: WebAction): Boolean =
     Option(Jsoup.parseBodyFragment(doc.html).getElementById(action.elementId)).exists { element =>
