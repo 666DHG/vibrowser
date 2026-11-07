@@ -114,16 +114,14 @@ export function NavigationProgress({
         <span className="shrink-0 text-xs tabular-nums text-[#a5b49a]">
           {elapsed} 秒
         </span>
-        {
-          <button
-            aria-label={!details ? "展开加载进度" : "折叠加载进度"}
-            aria-expanded={details}
-            onClick={onCollapse}
-            className="cursor-pointer rounded p-1 hover:bg-white/10"
-          >
-            {!details ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-          </button>
-        }
+        <button
+          aria-label={!details ? "展开加载进度" : "折叠加载进度"}
+          aria-expanded={details}
+          onClick={onCollapse}
+          className="cursor-pointer rounded p-1 hover:bg-white/10"
+        >
+          {!details ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+        </button>
       </div>
       <div className="min-h-0 overflow-y-auto overscroll-contain">
         {(details || error) && (

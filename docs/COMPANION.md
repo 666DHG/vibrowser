@@ -23,7 +23,7 @@
 
 ## 独立工作树运行
 
-工作树：`../Vibrowser-companion`；分支：`feat/browser-companion`。首次从已提交的 `29a445f` 创建，原目录未提交工作不迁移。
+工作树：`../Vibrowser-companion`；分支：`feat/browser-companion`。首次从已提交的 `29a445f` 创建，原目录未提交工作不迁移。后续已合入设计分支截至 `e6c174d` 的提交。
 
 ```powershell
 .\scripts\start.ps1 -Mock -UiPort 5174 -ApiPort 8788 -DbPort 55433
@@ -50,9 +50,9 @@ $env:VIBROWSER_API_PORT = '8788'
 
 ## 验收证据
 
-- Scala 102 项通过，包括并发队列上限、过期清理、8 秒超时无重试、等待模型时四个数据库连接仍可同时取得、Mock 完成和过大响应拒绝。
+- 合并后 Scala 105 项通过，包括并发队列上限、过期清理、8 秒超时无重试、等待模型时四个数据库连接仍可同时取得、Mock 完成和过大响应拒绝。
 - 前端 46 项单元测试通过；格式、类型与生产构建通过。
-- 气泡／进度／候选选择／多标签 17 项浏览器测试通过；另一次桌宠及 v3 交互 10 项通过（有重叠，不相加）。
+- 气泡／进度／候选选择／多标签 17 项浏览器测试通过；另一次桌宠及 v3 交互 10 项通过（有重叠，不相加）。合并及旧代码清理后，桌宠／进度 11 项回归再次通过。
 - `docs/acceptance/companion-isolation.json`：双实例健康、不同数据库目录、独立生成收藏、停止后原实例健康、重启后新实例书签保留。
 - `docs/acceptance/companion-scroll.json`：桌面与窄屏长步骤滚动稳定；`docs/screenshots/companion/` 保留布局截图。
 - 未使用真实付费模型验证台词质量；真实请求的失败、限时与输出边界通过可控客户端测试。
