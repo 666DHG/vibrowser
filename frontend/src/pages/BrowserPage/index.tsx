@@ -283,7 +283,6 @@ export default function BrowserPage() {
               onRemove={(id) => void bookmarks.remove(id)}
             />
           }
-          onSettings={() => openSettings(true)}
         />
       ))}
       <BrowserCompanion

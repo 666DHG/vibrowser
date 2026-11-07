@@ -17,7 +17,6 @@ type Props = {
     sourceBlockId?: string,
   ) => void;
   onAction: (action: WebAction, values: Record<string, string>) => void;
-  onSettings: () => void;
   bookmarks?: ReactNode;
   mock?: boolean;
 };
@@ -26,7 +25,6 @@ export function TabContent({
   active,
   onNavigate,
   onAction,
-  onSettings,
   bookmarks,
   mock = false,
 }: Props) {
@@ -101,9 +99,7 @@ export function TabContent({
         }
         data-testid={active ? "content-viewport" : undefined}
       >
-        {content.status === "idle" && (
-          <HomePage onNavigate={onNavigate} onSettings={onSettings} />
-        )}
+        {content.status === "idle" && <HomePage onNavigate={onNavigate} />}
         {content.status === "bookmarks" && bookmarks}
         {content.status === "settings" && (
           <SettingsPage mock={mock} focusResearchAt={content.focusResearchAt} />
