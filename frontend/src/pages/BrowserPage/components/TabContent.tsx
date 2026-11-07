@@ -2,24 +2,12 @@ import { SettingsPage } from "./SettingsPage";
 import type { WebAction } from "../../../shared/webDocument";
 import { WebDocumentFrame } from "./WebDocumentFrame";
 import { displayAddress } from "../functions/displayAddress";
-import { useProgressPresence } from "../hooks/useProgressPresence";
 import { navigationTarget } from "../functions/navigationTarget";
-import {
-  useEffect,
-  useRef,
-  useCallback,
-  useState,
-  type ReactNode,
-} from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import type { BrowserTab } from "../objects/BrowserState";
 import { HomePage } from "./HomePage";
 import { PageRenderer } from "./PageRenderer";
-import { NavigationProgress } from "./NavigationProgress";
-import {
-  updatePending,
-  dismissPending,
-  savePageState,
-} from "../stores/browserStore";
+import { savePageState } from "../stores/browserStore";
 type Props = {
   tab: BrowserTab;
   active: boolean;
@@ -29,9 +17,6 @@ type Props = {
     sourceBlockId?: string,
   ) => void;
   onAction: (action: WebAction, values: Record<string, string>) => void;
-  onRetry: () => void;
-  onSelectCandidate?: (id: string) => void;
-  onCancel: () => void;
   onSettings: () => void;
   bookmarks?: ReactNode;
   mock?: boolean;
@@ -41,9 +26,6 @@ export function TabContent({
   active,
   onNavigate,
   onAction,
-  onRetry,
-  onSelectCandidate,
-  onCancel,
   onSettings,
   bookmarks,
   mock = false,
@@ -61,11 +43,6 @@ export function TabContent({
     return () => clearTimeout(timer);
   }, [pageId]);
   useEffect(() => setArriving(false), [active]);
-  const dismiss = useCallback(() => {
-    if (pending) dismissPending(tab.id, pending.requestId);
-  }, [tab.id, pending?.requestId]);
-  const fullscreen = content.status === "idle" && !!pending;
-  const { shown, exiting } = useProgressPresence(pending, fullscreen, dismiss);
   const [preview, setPreview] = useState("");
   const hovered = useRef<Element | null>(null);
   const clearPreview = () => {
@@ -124,7 +101,7 @@ export function TabContent({
         }
         data-testid={active ? "content-viewport" : undefined}
       >
-        {content.status === "idle" && !pending && (
+        {content.status === "idle" && (
           <HomePage onNavigate={onNavigate} onSettings={onSettings} />
         )}
         {content.status === "bookmarks" && bookmarks}
@@ -172,37 +149,7 @@ export function TabContent({
             />
           </div>
         )}
-        {fullscreen && shown && (
-          <NavigationProgress
-            pending={shown}
-            exiting={exiting}
-            fullscreen
-            onRetry={onRetry}
-            onSettings={onSettings}
-            onSelectCandidate={onSelectCandidate}
-            onCancel={onCancel}
-            onDismiss={dismiss}
-            onCollapse={() => {}}
-          />
-        )}
       </div>
-      {!fullscreen && shown && (
-        <NavigationProgress
-          pending={shown}
-          exiting={exiting}
-          fullscreen={false}
-          onRetry={onRetry}
-          onSettings={onSettings}
-          onSelectCandidate={onSelectCandidate}
-          onCancel={onCancel}
-          onDismiss={dismiss}
-          onCollapse={() =>
-            updatePending(tab.id, shown.requestId, {
-              collapsed: !shown.collapsed,
-            })
-          }
-        />
-      )}
       {active && preview && (
         <div
           data-testid="link-preview"

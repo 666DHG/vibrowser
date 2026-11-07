@@ -1,0 +1,13 @@
+{
+  "originalHealthyAfterCompanionStop": true,
+  "generatedPageAbsentFromOriginal": true,
+  "ports": [
+    5174,
+    8788,
+    55433
+  ],
+  "companionBookmarkSurvivesRestart": true,
+  "companionMode": "mock",
+  "separateDataDirectories": true,
+  "originalMode": "live"
+}
