@@ -26,6 +26,19 @@
     "extraModelCalls": 0
   },
   {
+    "file": "calendar-new-deep.json",
+    "localActions": [
+      "toggle-lidong"
+    ],
+    "searchSubmitted": true,
+    "navigationSubmitted": true,
+    "copyVerified": true,
+    "filterVerified": true,
+    "sortVerified": false,
+    "limitations": [],
+    "extraModelCalls": 0
+  },
+  {
     "file": "calendar-new-standard.json",
     "localActions": [],
     "searchSubmitted": true,
@@ -37,6 +50,17 @@
     "extraModelCalls": 0
   },
   {
+    "file": "comparison-new-standard.json",
+    "localActions": [],
+    "searchSubmitted": true,
+    "navigationSubmitted": true,
+    "copyVerified": false,
+    "filterVerified": true,
+    "sortVerified": true,
+    "limitations": [],
+    "extraModelCalls": 0
+  },
+  {
     "file": "copy-new-deep.json",
     "localActions": [
       "act-toggle-10"
@@ -44,7 +68,7 @@
     "searchSubmitted": true,
     "navigationSubmitted": false,
     "copyVerified": true,
-    "filterVerified": false,
+    "filterVerified": true,
     "sortVerified": true,
     "limitations": [],
     "extraModelCalls": 0

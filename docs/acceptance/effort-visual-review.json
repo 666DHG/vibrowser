@@ -40,12 +40,28 @@
       "observations": [
         "Old standard separates a date summary and holiday list into two columns, followed by adjacent-day cards.",
         "New standard emphasizes the date in a narrow single column with a lunar-date strip and category-labeled holiday rows. Both remain warm light reading layouts.",
-        "No clear structural improvement established; adjacent-day entries in the new standard sample are text, while the old sample has explicit previous/next links."
+        "No clear structural improvement established; adjacent-day entries in the new standard sample are text, while the old sample has explicit previous/next links.",
+        "Deep separates a large numerical date from a serif headline explaining the day, followed by paired event panels; it still uses a warm light palette. This is a separate effort comparison, not evidence for standard guidance improvement."
       ],
       "verifiedInteractions": [
-        "new-standard: intercepted search and holiday-detail navigation"
+        "new-standard: intercepted search and holiday-detail navigation",
+        "new-deep: copy, toggle, input filter, intercepted search and previous-day link"
       ],
-      "limitations": "Deep sample still running; date-changing child generation remains pending. No generated-content fact audit is implied."
+      "limitations": "Date-changing child generation remains pending. No generated-content fact audit is implied."
+    },
+    {
+      "name": "comparison",
+      "guidanceVerdict": "improved",
+      "countsAsImprovement": true,
+      "observations": [
+        "Old standard leads with travel-scene tabs and recommendation prose before the specification table.",
+        "New standard moves comparison data and category/weight summaries forward, adds a distinct side column, and exposes weight/price sort choices next to the table. This changes information priority and decision controls, beyond the darker header color.",
+        "The improvement is modest; both are primarily reading-and-table pages. Deep sample has not completed."
+      ],
+      "verifiedInteractions": [
+        "new-standard: keyword filter, weight sort, intercepted search and detail navigation"
+      ],
+      "limitations": "The side column counts candidates but does not compute a shopping list or total weight/price. This secondary affordance is not counted as an implemented comparison calculator."
     }
   ]
 }

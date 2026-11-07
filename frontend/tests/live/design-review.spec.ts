@@ -122,9 +122,14 @@ test("replay real design documents through the browser runtime without model req
         }
       }
       expect(requests).toBe(0);
-      const filter = record.document.actions.find(
-        (a: { kind: string; value?: string }) => a.kind === "Filter" && a.value,
-      );
+      const filter =
+        record.document.actions.find(
+          (a: { kind: string; value?: string }) =>
+            a.kind === "Filter" && a.value,
+        ) ??
+        record.document.actions.find(
+          (a: { kind: string }) => a.kind === "Filter",
+        );
       let filterVerified = false;
       if (filter) {
         const control = frame.locator(
@@ -133,7 +138,9 @@ test("replay real design documents through the browser runtime without model req
         const region = frame.locator(`[id=${JSON.stringify(filter.region)}]`);
         if (
           (await control.isVisible()) &&
-          (await control.evaluate((e) => e.tagName === "BUTTON"))
+          (await control.evaluate((e) =>
+            ["BUTTON", "INPUT"].includes(e.tagName),
+          ))
         ) {
           const values = await region.evaluate(
             (e, field) =>
@@ -145,9 +152,17 @@ test("replay real design documents through the browser runtime without model req
               ),
             filter.field ?? "filter",
           );
-          await control.click();
+          const isInput = await control.evaluate((e) => e.tagName === "INPUT");
+          const query = isInput
+            ? (values
+                .find((v) => v.trim())
+                ?.trim()
+                .split(/\s+/)[0] ?? "")
+            : (filter.value ?? "");
+          if (isInput) await control.fill(query);
+          else await control.click();
           const expected = values.map((text) =>
-            text.toLocaleLowerCase().includes(filter.value.toLocaleLowerCase()),
+            text.toLocaleLowerCase().includes(query.toLocaleLowerCase()),
           );
           expect(
             await region.evaluate((e) =>
@@ -159,7 +174,8 @@ test("replay real design documents through the browser runtime without model req
             (a: { kind: string; region?: string; value?: string }) =>
               a.kind === "Filter" && a.region === filter.region && !a.value,
           );
-          if (all)
+          if (isInput) await control.fill("");
+          else if (all)
             await frame
               .locator(`[id=${JSON.stringify(all.elementId)}]`)
               .click();
@@ -175,7 +191,9 @@ test("replay real design documents through the browser runtime without model req
         const region = frame.locator(`[id=${JSON.stringify(sort.region)}]`);
         if (
           (await control.isVisible()) &&
-          (await control.evaluate((e) => e.tagName === "SELECT"))
+          (await control.evaluate((e) =>
+            ["SELECT", "BUTTON"].includes(e.tagName),
+          ))
         ) {
           const values = await region.evaluate(
             (e, field) =>
@@ -187,17 +205,27 @@ test("replay real design documents through the browser runtime without model req
               ),
             sort.field ?? "sort",
           );
-          const options = await control
-            .locator("option:not([disabled])")
-            .evaluateAll((options) =>
-              options.map((o) => (o as HTMLOptionElement).value),
-            );
-          if (!options.includes("desc")) {
+          const isSelect = await control.evaluate(
+            (e) => e.tagName === "SELECT",
+          );
+          const direction = isSelect ? "desc" : (sort.value ?? "asc");
+          const options = isSelect
+            ? await control
+                .locator("option:not([disabled])")
+                .evaluateAll((options) =>
+                  options.map((o) => (o as HTMLOptionElement).value),
+                )
+            : [direction];
+          if (
+            !options.includes(direction) ||
+            !["asc", "desc"].includes(direction)
+          ) {
             limitations.push(
               `Sort options ${options.join(",")} do not match the declared single-field direction contract; sorting not verified.`,
             );
           } else {
-            await control.selectOption("desc");
+            if (isSelect) await control.selectOption(direction);
+            else await control.click();
             expect(
               await region.evaluate(
                 (e, field) =>
@@ -211,7 +239,9 @@ test("replay real design documents through the browser runtime without model req
               ),
             ).toEqual(
               [...values].sort(
-                (a, b) => -a.localeCompare(b, undefined, { numeric: true }),
+                (a, b) =>
+                  (direction === "desc" ? -1 : 1) *
+                  a.localeCompare(b, undefined, { numeric: true }),
               ),
             );
             sortVerified = values.length > 1;
