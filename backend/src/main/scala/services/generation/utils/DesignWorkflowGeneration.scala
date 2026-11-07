@@ -16,7 +16,8 @@ private[generation] final class DesignWorkflowGeneration(
     database: DatabaseSession,
     client: TextGenerationClient,
     meter: LayoutMeasurer,
-    stageTimeout: FiniteDuration = 60.seconds
+    stageTimeout: FiniteDuration = 60.seconds,
+    guidance: DesignGuidanceText = DesignGuidance.current
 ):
   private def done(w: DesignWorkflow, stage: DesignStage): Boolean =
     w.events.exists(_.stage == stage)
@@ -127,7 +128,7 @@ private[generation] final class DesignWorkflowGeneration(
     val generator = new WebDocumentGeneration(database, client)
     for
       previous <- database.transaction(c => GenerationJobTable.designWorkflow(c, page.currentJobId))
-      initial = previous.getOrElse(DesignWorkflow(DesignGuidance.version))
+      initial = previous.getOrElse(DesignWorkflow(guidance.version))
       _ <-
         if done(initial, DesignStage.Brief) then IO.unit else phase(page, GenerationPhase.Designing)
       planned <- call[DesignBrief](
@@ -135,7 +136,7 @@ private[generation] final class DesignWorkflowGeneration(
         page,
         initial,
         DesignStage.Brief,
-        DesignPrompts.briefSystem,
+        DesignPrompts.briefSystem(guidance),
         prompt
       ) { (w, b) =>
         require(
@@ -145,7 +146,7 @@ private[generation] final class DesignWorkflowGeneration(
         w.copy(brief = Some(b))
       }
       fullPrompt =
-        prompt + "\n设计指导：\n" + DesignGuidance.design + "\n交互能力：\n" + WebDocumentPrompt.actionContract + "\n设计说明：" + planned.brief.asJson.noSpaces
+        prompt + "\n设计指导：\n" + guidance.design + "\n交互能力：\n" + WebDocumentPrompt.actionContract + "\n设计说明：" + planned.brief.asJson.noSpaces
       candidate <- planned.candidate match
         case Some(doc) => generator.validate(page, doc.asJson.noSpaces, snapshot, research)
         case None      => generator.generate(config, page, fullPrompt, snapshot, research)
@@ -161,7 +162,7 @@ private[generation] final class DesignWorkflowGeneration(
         page,
         measured,
         DesignStage.Review,
-        DesignPrompts.reviewSystem,
+        DesignPrompts.reviewSystem(guidance),
         DesignPrompts.reviewRequest(prompt, measured, candidate)
       ) { (w, r) =>
         require(

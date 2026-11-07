@@ -48,6 +48,44 @@ class DesignWorkflowSuite extends CatsEffectSuite:
       }
   private def meter(result: LayoutReport = report): LayoutMeasurer = new LayoutMeasurer:
     def measure(doc: WebDocument): IO[LayoutReport] = IO.pure(result)
+  test("comparison guidance is used in planning, generation and review and its version is saved") {
+    isolated { db =>
+      for
+        calls <- Ref.of[IO, Int](0)
+        nav <- db.transaction(NavigateMessage("guidance-comparison.example", None).plan)
+        _ <- db.transaction(ClaimGenerationJobMessage().plan)
+        page <- db.transaction(c => PageTable.findById(c, nav.pageId)).map(_.get)
+        client = new TextGenerationClient:
+          def complete(
+              c: ProviderConnection,
+              system: String,
+              prompt: String,
+              test: Boolean
+          ): IO[String] =
+            calls.getAndUpdate(_ + 1).map {
+              case 0 =>
+                assert(system.contains("test-design-marker"))
+                brief.asJson.noSpaces
+              case 1 =>
+                assert(prompt.contains("test-design-marker"))
+                fixture.asJson.noSpaces
+              case 2 =>
+                assert(system.contains("test-review-marker"))
+                DesignReview(Nil).asJson.noSpaces
+              case _ => fail("unexpected extra model call")
+            }
+        _ <- new DesignWorkflowGeneration(
+          db,
+          client,
+          meter(),
+          guidance = DesignGuidanceText("test-version", "test-design-marker", "test-review-marker")
+        )
+          .generate(config, page, "input", None, None)
+        saved <- db.transaction(c => GenerationJobTable.designWorkflow(c, nav.jobId)).map(_.get)
+        _ = assertEquals(saved.guidanceVersion, "test-version")
+      yield ()
+    }
+  }
   test("worker supplies the persisted page effort to generation") {
     isolated { db =>
       val client = new TextGenerationClient:

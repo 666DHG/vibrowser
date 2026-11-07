@@ -98,3 +98,7 @@ node --test tools/measure.test.mjs
 验证：Scala 全量 98 项通过；前端 42 项单测、格式/类型/生产构建通过；模式与运行时 7 项、进度/多标签 10 项通过；Mock 实际数据库书签回归通过（保存深入页面、跨窗口同步、新标签零生成打开并恢复档位）。旧书签用例原先要求 v1 文本，现改为 v3 可见 iframe。窄屏截图见 screenshots/tabs/mobile.png。真实模型成功率、token 用量、六主题新旧指导与标准/深入对照尚未验收，不能将 Mock 当作真实效果。
 
 真实验收补充：旧指导学术主页的改进稿只改少量导航文字并增加联系说明，顺序贪心匹配仍误拒。已改为带重复次数约束的连续文本片段匹配，统计被匹配片段覆盖的原文字符；允许段落移动和少量前置编辑，同时仍拒绝删除与导航文字替代。真实输出 HTML 固化在 contracts/design-reflow-regression.json，相关 5 项回归通过。固定对照批次使用启动时的构建快照继续运行，以保持比较条件一致；此修复单独回放验证，不改写已生成缓存或重抽样。
+
+真实对照运行器：EffortAcceptance 在 effort_acceptance schema 顺序执行六主题，每题旧指导/标准、新指导/标准、新指导/深入三组，共 18 样本。旧指导来自提交 6ad0a7c 的 skill references，所有组使用相同当前交互契约；同主题复用检索资料和请求日期。输出与启动标识存于 .cache/effort-acceptance，中断后的未完成标识会阻止自动重发。modelCalls 保存阶段、模型、实际思考参数、usage 与响应耗时；只提取元数据，不保存 reasoning_content 或鉴权头。调用失败或被取消也保留请求开始记录。
+
+编译及 DesignWorkflowSuite 9 项通过（包括自定义指导确实进入简报/生成/评审并保存版本）。review-effort.mjs 已在首两个真实样本生成桌面/手机截图和部分报告，complete=false；design-review 浏览器回放已验证新标准学术页复制与折叠，额外模型请求为零。记录仍在累积，不能将当前部分结果称为最终验收。

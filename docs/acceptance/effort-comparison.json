@@ -1,0 +1,2985 @@
+{
+  "evaluatedAt": "2026-11-07T15:39:09.281Z",
+  "expectedSamples": 18,
+  "complete": false,
+  "groups": {
+    "old-standard": {
+      "samples": 1,
+      "ready": 1,
+      "initialGenerationAccepted": 1,
+      "modelCalls": 5,
+      "generationModelCalls": 4,
+      "recordedTokens": 86974,
+      "seconds": 82
+    },
+    "new-standard": {
+      "samples": 1,
+      "ready": 1,
+      "initialGenerationAccepted": 0,
+      "modelCalls": 5,
+      "generationModelCalls": 5,
+      "recordedTokens": 117869,
+      "seconds": 96
+    },
+    "new-deep": {
+      "samples": 0,
+      "ready": 0,
+      "initialGenerationAccepted": 0,
+      "modelCalls": 0,
+      "generationModelCalls": 0,
+      "recordedTokens": 0,
+      "seconds": 0
+    }
+  },
+  "samples": [
+    {
+      "name": "academic-new-standard",
+      "input": "清华教师袁洋的个人学术主页.com",
+      "mode": "research",
+      "effort": "standard",
+      "pageId": "edf175f0-0cb6-4d9c-a296-e3aeb87a3ff1",
+      "jobId": "68f8e4a7-d667-4865-8ade-7c60dc6972f9",
+      "guidance": "2-5fc17c54ff3efd04494df031447a34fd7187103e7927a266800e0b6242f1e996",
+      "seconds": 96,
+      "error": null,
+      "initialGenerationAccepted": false,
+      "generationAttempts": [
+        {
+          "attempt": 1,
+          "outcome": "InvalidContent",
+          "errorCode": "invalid_content",
+          "message": "unsupported HTML attribute: a[target], a[rel]",
+          "at": "2026-11-07T15:36:38.641984800Z"
+        },
+        {
+          "attempt": 2,
+          "outcome": "Accepted",
+          "errorCode": null,
+          "message": null,
+          "at": "2026-11-07T15:36:59.863047300Z"
+        }
+      ],
+      "modelCalls": [
+        {
+          "usage": {
+            "prompt_tokens": 7484,
+            "completion_tokens": 916,
+            "total_tokens": 8400,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 7484
+          },
+          "status": 200,
+          "milliseconds": 8994,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "brief"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 9438,
+            "completion_tokens": 6869,
+            "total_tokens": 16307,
+            "prompt_tokens_details": {
+              "cached_tokens": 7296
+            },
+            "prompt_cache_hit_tokens": 7296,
+            "prompt_cache_miss_tokens": 2142
+          },
+          "status": 200,
+          "milliseconds": 25586,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 16400,
+            "completion_tokens": 6769,
+            "total_tokens": 23169,
+            "prompt_tokens_details": {
+              "cached_tokens": 9344
+            },
+            "prompt_cache_hit_tokens": 9344,
+            "prompt_cache_miss_tokens": 7056
+          },
+          "status": 200,
+          "milliseconds": 21199,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 29702,
+            "completion_tokens": 690,
+            "total_tokens": 30392,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 29702
+          },
+          "status": 200,
+          "milliseconds": 6430,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "review"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 30975,
+            "completion_tokens": 8626,
+            "total_tokens": 39601,
+            "prompt_tokens_details": {
+              "cached_tokens": 7552
+            },
+            "prompt_cache_hit_tokens": 7552,
+            "prompt_cache_miss_tokens": 23423
+          },
+          "status": 200,
+          "milliseconds": 27467,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "document"
+        }
+      ],
+      "selection": "Original",
+      "events": [
+        {
+          "stage": "Brief",
+          "status": "Started",
+          "at": "2026-11-07T15:36:04.045553600Z",
+          "message": null
+        },
+        {
+          "stage": "Brief",
+          "status": "Completed",
+          "at": "2026-11-07T15:36:13.043695400Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Started",
+          "at": "2026-11-07T15:36:59.868583500Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Completed",
+          "at": "2026-11-07T15:37:06.157243500Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Started",
+          "at": "2026-11-07T15:37:06.163753300Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Completed",
+          "at": "2026-11-07T15:37:12.601828700Z",
+          "message": null
+        },
+        {
+          "stage": "Improve",
+          "status": "Started",
+          "at": "2026-11-07T15:37:12.608484500Z",
+          "message": null
+        },
+        {
+          "stage": "Improve",
+          "status": "Failed",
+          "at": "2026-11-07T15:37:40.185838100Z",
+          "message": "动作功能变化: copy-email-btn-2; 动作功能变化: vib-nav-vib-link-7"
+        },
+        {
+          "stage": "Selection",
+          "status": "Completed",
+          "at": "2026-11-07T15:37:40.192857200Z",
+          "message": "采用已校验原页面"
+        }
+      ],
+      "sources": [
+        {
+          "id": "source-1",
+          "url": "https://people.iiis.tsinghua.edu.cn/~yuanyang/index.html",
+          "title": "袁洋",
+          "retrievedAt": "2026-11-07T15:34:42.982846400Z"
+        },
+        {
+          "id": "source-2",
+          "url": "http://people.iiis.tsinghua.edu.cn/~yuanyang/index.html",
+          "title": "袁洋",
+          "retrievedAt": "2026-11-07T15:34:42.983490200Z"
+        },
+        {
+          "id": "source-3",
+          "url": "https://www.sqz.ac.cn/artificial-1",
+          "title": "袁洋-人工智能-上海期智研究院",
+          "retrievedAt": "2026-11-07T15:34:42.983490200Z"
+        },
+        {
+          "id": "source-4",
+          "url": "https://www.sqz.ac.cn/jushen-1",
+          "title": "袁洋-具身智能与智能制造-上海期智研究院",
+          "retrievedAt": "2026-11-07T15:34:42.983490200Z"
+        },
+        {
+          "id": "source-5",
+          "url": "https://baike.baidu.com/item/%E8%A2%81%E6%B4%8B/68477227?bst=1791367531.faf4e3422d575025#1",
+          "title": "袁洋 - 清华大学交叉信息研究院院长助理、副教授",
+          "retrievedAt": "2026-11-07T15:34:42.983490200Z"
+        }
+      ],
+      "researchReused": true,
+      "siteStyle": {
+        "brand": "袁洋个人学术主页：以范畴论式的结构关系为视觉线索，米白底、单一赭石强调色、等宽编号序列",
+        "typography": "系统无衬线字体栈，标题粗字重、正文 1.8 行高、中文行宽约 38 字；等宽字体承担编号与出处信息；引文用衬线体作旁注",
+        "palette": "米白 #faf7f1 底，深墨 #1c2024 文字，次级灰 #4a5158，赭石强调色 #8a4b2a 与浅赭 #f0e6dc",
+        "layout": "单列长页面，首屏窄栏；三层推进为带编号的纵向序列；转折段与招生区为不对称双栏；成果按年份折叠分组"
+      },
+      "actions": [
+        {
+          "id": "copy-email-btn",
+          "kind": "Copy",
+          "elementId": "copy-email",
+          "target": null,
+          "region": "email-text",
+          "stateKey": "copyFeedback",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "copy-email-btn-2",
+          "kind": "Copy",
+          "elementId": "copy-email-2",
+          "target": null,
+          "region": "email-text",
+          "stateKey": "copyFeedback2",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "toggle-2025-btn",
+          "kind": "Toggle",
+          "elementId": "toggle-2025",
+          "target": null,
+          "region": "region-2025",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "toggle-2024-btn",
+          "kind": "Toggle",
+          "elementId": "toggle-2024",
+          "target": null,
+          "region": "region-2024",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-0",
+          "kind": "Navigate",
+          "elementId": "vib-link-0",
+          "target": "/",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-1",
+          "kind": "Navigate",
+          "elementId": "vib-link-1",
+          "target": "https://arxiv.org/abs/2305.17326",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-2",
+          "kind": "Navigate",
+          "elementId": "vib-link-2",
+          "target": "https://arxiv.org/pdf/2501.06425",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-3",
+          "kind": "Navigate",
+          "elementId": "vib-link-3",
+          "target": "https://aclanthology.org/2025.findings-acl.216.pdf",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-4",
+          "kind": "Navigate",
+          "elementId": "vib-link-4",
+          "target": "https://arxiv.org/pdf/2504.19188",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-5",
+          "kind": "Navigate",
+          "elementId": "vib-link-5",
+          "target": "https://arxiv.org/pdf/2305.17326",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-6",
+          "kind": "Navigate",
+          "elementId": "vib-link-6",
+          "target": "https://people.iiis.tsinghua.edu.cn/~yuanyang/index.html",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-7",
+          "kind": "Navigate",
+          "elementId": "vib-link-7",
+          "target": "https://scholar.google.com/",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-8",
+          "kind": "Navigate",
+          "elementId": "vib-link-8",
+          "target": "https://www.sqz.ac.cn/artificial-1",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-9",
+          "kind": "Navigate",
+          "elementId": "vib-link-9",
+          "target": "https://www.sqz.ac.cn/jushen-1",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        }
+      ],
+      "layout": {
+        "viewports": [
+          {
+            "width": 1440,
+            "height": 900,
+            "scrollWidth": 1425,
+            "scrollHeight": 3952,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "",
+                "tag": "h1",
+                "text": "袁洋",
+                "x": 250.5,
+                "y": 168.59375,
+                "width": 720,
+                "height": 71.390625,
+                "fontSize": "68px",
+                "lineHeight": "71.4px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "01我主要研究 AI + 中医",
+                "x": 250.5,
+                "y": 581.75,
+                "width": 924,
+                "height": 39.59375,
+                "fontSize": "22px",
+                "lineHeight": "39.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "刻画医疗过程",
+                "x": 306.5,
+                "y": 721.140625,
+                "width": 465,
+                "height": 30.59375,
+                "fontSize": "17px",
+                "lineHeight": "30.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "辅助临床诊疗",
+                "x": 306.5,
+                "y": 829.734375,
+                "width": 465,
+                "height": 30.59375,
+                "fontSize": "17px",
+                "lineHeight": "30.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "形式化中医理论",
+                "x": 306.5,
+                "y": 938.328125,
+                "width": 570,
+                "height": 30.59375,
+                "fontSize": "17px",
+                "lineHeight": "30.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "02从医疗到范畴论，再到 AI 理论",
+                "x": 250.5,
+                "y": 1243.109375,
+                "width": 923.984375,
+                "height": 39.59375,
+                "fontSize": "22px",
+                "lineHeight": "39.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "03代表工作",
+                "x": 250.5,
+                "y": 1764.515625,
+                "width": 924,
+                "height": 39.59375,
+                "fontSize": "22px",
+                "lineHeight": "39.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "On the power of foundation models",
+                "x": 250.5,
+                "y": 1847.109375,
+                "width": 780,
+                "height": 25.5,
+                "fontSize": "17px",
+                "lineHeight": "25.5px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Contrastive learning is spectral clustering on similarity graph",
+                "x": 250.5,
+                "y": 1998.6875,
+                "width": 780,
+                "height": 25.5,
+                "fontSize": "17px",
+                "lineHeight": "25.5px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Trade-off between efficiency and consistency for removal-based explanations",
+                "x": 250.5,
+                "y": 2150.265625,
+                "width": 780,
+                "height": 25.5,
+                "fontSize": "17px",
+                "lineHeight": "25.5px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "04亮点成果",
+                "x": 250.5,
+                "y": 2337.84375,
+                "width": 924,
+                "height": 39.59375,
+                "fontSize": "22px",
+                "lineHeight": "39.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "2025",
+                "x": 250.5,
+                "y": 2416.4375,
+                "width": 48.796875,
+                "height": 36,
+                "fontSize": "20px",
+                "lineHeight": "36px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "",
+                "tag": "h4",
+                "text": "你需要的只是张量积注意力",
+                "x": 250.5,
+                "y": 2480.4375,
+                "width": 800,
+                "height": 28.796875,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h4",
+                "text": "针对数学文本的零样本生成分类器自主数据选择方法",
+                "x": 250.5,
+                "y": 2709.984375,
+                "width": 800,
+                "height": 28.796875,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h4",
+                "text": "层次化注意力生成更优证明",
+                "x": 250.5,
+                "y": 2939.53125,
+                "width": 800,
+                "height": 28.796875,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "2024",
+                "x": 250.5,
+                "y": 3197.078125,
+                "width": 48.796875,
+                "height": 36,
+                "fontSize": "20px",
+                "lineHeight": "36px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "05招生与团队",
+                "x": 250.5,
+                "y": 3289.078125,
+                "width": 924,
+                "height": 39.59375,
+                "fontSize": "22px",
+                "lineHeight": "39.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "相关背景",
+                "x": 809.5,
+                "y": 3350.671875,
+                "width": 365,
+                "height": 23.390625,
+                "fontSize": "13px",
+                "lineHeight": "23.4px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "06更多",
+                "x": 250.5,
+                "y": 3676.09375,
+                "width": 924,
+                "height": 39.59375,
+                "fontSize": "22px",
+                "lineHeight": "39.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              }
+            ],
+            "controls": [
+              {
+                "id": "vib-link-0",
+                "tag": "a",
+                "text": "袁洋Yang Yuan",
+                "x": 250.5,
+                "y": 14,
+                "width": 131.140625,
+                "height": 36,
+                "fontSize": "20px",
+                "lineHeight": "36px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "研究纲领",
+                "x": 813.296875,
+                "y": 18.796875,
+                "width": 53.5625,
+                "height": 26.390625,
+                "fontSize": "13px",
+                "lineHeight": "23.4px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "研究方向",
+                "x": 886.859375,
+                "y": 18.796875,
+                "width": 53.5625,
+                "height": 26.390625,
+                "fontSize": "13px",
+                "lineHeight": "23.4px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "代表工作",
+                "x": 960.421875,
+                "y": 18.796875,
+                "width": 53.5625,
+                "height": 26.390625,
+                "fontSize": "13px",
+                "lineHeight": "23.4px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "亮点成果",
+                "x": 1033.984375,
+                "y": 18.796875,
+                "width": 53.5625,
+                "height": 26.390625,
+                "fontSize": "13px",
+                "lineHeight": "23.4px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "招生与团队",
+                "x": 1107.546875,
+                "y": 18.796875,
+                "width": 66.953125,
+                "height": 26.390625,
+                "fontSize": "13px",
+                "lineHeight": "23.4px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "copy-email",
+                "tag": "button",
+                "text": "复制邮箱",
+                "x": 504.765625,
+                "y": 404.96875,
+                "width": 76.890625,
+                "height": 31.59375,
+                "fontSize": "12px",
+                "lineHeight": "21.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "vib-link-1",
+                "tag": "a",
+                "text": "Contrastive learning is spectral clustering on similarity graph",
+                "x": 250.5,
+                "y": 1999.6875,
+                "width": 477.453125,
+                "height": 22,
+                "fontSize": "17px",
+                "lineHeight": "25.5px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "toggle-2025",
+                "tag": "button",
+                "text": "收起",
+                "x": 315.296875,
+                "y": 2418.640625,
+                "width": 51.453125,
+                "height": 31.59375,
+                "fontSize": "12px",
+                "lineHeight": "21.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "vib-link-2",
+                "tag": "a",
+                "text": "arXiv:2501.06425",
+                "x": 449.8125,
+                "y": 2654.734375,
+                "width": 109.96875,
+                "height": 15,
+                "fontSize": "12.5px",
+                "lineHeight": "21.25px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-3",
+                "tag": "a",
+                "text": "ACL Anthology",
+                "x": 614.75,
+                "y": 2884.28125,
+                "width": 89.34375,
+                "height": 15,
+                "fontSize": "12.5px",
+                "lineHeight": "21.25px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-4",
+                "tag": "a",
+                "text": "arXiv:2504.19188",
+                "x": 250.5,
+                "y": 3113.828125,
+                "width": 109.96875,
+                "height": 15,
+                "fontSize": "12.5px",
+                "lineHeight": "21.25px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "toggle-2024",
+                "tag": "button",
+                "text": "展开",
+                "x": 315.296875,
+                "y": 3199.28125,
+                "width": 51.453125,
+                "height": 31.59375,
+                "fontSize": "12px",
+                "lineHeight": "21.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "copy-email-2",
+                "tag": "button",
+                "text": "复制邮箱",
+                "x": 504.765625,
+                "y": 3587.703125,
+                "width": 76.890625,
+                "height": 31.59375,
+                "fontSize": "12px",
+                "lineHeight": "21.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "vib-link-6",
+                "tag": "a",
+                "text": "清华大学交叉信息研究院个人主页",
+                "x": 250.5,
+                "y": 3746.6875,
+                "width": 210,
+                "height": 20,
+                "fontSize": "14px",
+                "lineHeight": "25.2px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "vib-link-7",
+                "tag": "a",
+                "text": "Google Scholar 主页",
+                "x": 728.5,
+                "y": 3746.6875,
+                "width": 126.0625,
+                "height": 20,
+                "fontSize": "14px",
+                "lineHeight": "25.2px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "vib-link-8",
+                "tag": "a",
+                "text": "上海期智研究院 · 人工智能方向",
+                "x": 250.5,
+                "y": 3794.875,
+                "width": 192.71875,
+                "height": 20,
+                "fontSize": "14px",
+                "lineHeight": "25.2px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "vib-link-9",
+                "tag": "a",
+                "text": "上海期智研究院 · 具身智能与智能制造",
+                "x": 728.5,
+                "y": 3794.875,
+                "width": 234.71875,
+                "height": 20,
+                "fontSize": "14px",
+                "lineHeight": "25.2px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "研究纲领",
+                "x": 976,
+                "y": 3889.0625,
+                "width": 50,
+                "height": 22.5,
+                "fontSize": "12.5px",
+                "lineHeight": "22.5px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "代表工作",
+                "x": 1044,
+                "y": 3889.0625,
+                "width": 50,
+                "height": 22.5,
+                "fontSize": "12.5px",
+                "lineHeight": "22.5px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "招生与团队",
+                "x": 1112,
+                "y": 3889.0625,
+                "width": 62.5,
+                "height": 22.5,
+                "fontSize": "12.5px",
+                "lineHeight": "22.5px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              }
+            ],
+            "regions": [
+              {
+                "id": "",
+                "tag": "header",
+                "text": "袁洋Yang Yuan\n  \n   研究纲领研究方向代表工作亮点成果招生与团队",
+                "x": 0,
+                "y": 0,
+                "width": 1425,
+                "height": 65,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "nav",
+                "text": "研究纲领研究方向代表工作亮点成果招生与团队",
+                "x": 813.296875,
+                "y": 18.796875,
+                "width": 361.203125,
+                "height": 26.390625,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "main",
+                "text": "清华大学交叉信息研究院 · 副教授 · 院长助理\n  袁洋\n  我希望推动的方向，是建立一种以中医为基础、由范畴论支撑的新医疗。医理、病症、病机、治法、方药与人体状态可以被统一刻画，并通过其中的结构关系相互对应、组合和推演。\n  \n   智能医疗\n   AI 基础理论\n   应用范畴论\n   AI 自动证明\n  \n  \n   邮箱 yuanyang@tsin",
+                "x": 222.5,
+                "y": 65,
+                "width": 980,
+                "height": 3759.0625,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "top",
+                "tag": "section",
+                "text": "清华大学交叉信息研究院 · 副教授 · 院长助理\n  袁洋\n  我希望推动的方向，是建立一种以中医为基础、由范畴论支撑的新医疗。医理、病症、病机、治法、方药与人体状态可以被统一刻画，并通过其中的结构关系相互对应、组合和推演。\n  \n   智能医疗\n   AI 基础理论\n   应用范畴论\n   AI 自动证明\n  \n  \n   邮箱 yuanyang@tsin",
+                "x": 250.5,
+                "y": 65,
+                "width": 720,
+                "height": 460.75,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "program",
+                "tag": "section",
+                "text": "01我主要研究 AI + 中医\n  具体来说，我希望从三个层面推进这件事。\n  \n   1\n    \n     刻画医疗过程\n     记录并描绘医生在日常诊疗中与患者的交互、判断、推理和思考过程。\n    \n   2\n    \n     辅助临床诊疗\n     结合人工智能算法与医疗设备，分析患者信息，辅助医生辨证、开方。\n    \n   3\n    \n ",
+                "x": 250.5,
+                "y": 581.75,
+                "width": 924,
+                "height": 597.359375,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "directions",
+                "tag": "section",
+                "text": "02从医疗到范畴论，再到 AI 理论\n  \n   在实践过程中，我逐渐意识到，仅靠数据驱动是不够的。医疗知识需要自洽，辅助诊疗需要可解释性。为此，我们需要将医疗过程形式化为一种代数系统。\n   我因此对范畴论产生了浓厚的兴趣。范畴论不仅可以帮助我们分析和理解复杂系统，也可以为人工智能提供一种新的组织方式：刻画大模型的能力边界，设计新的算法，并将许多局部能力组",
+                "x": 250.5,
+                "y": 1179.109375,
+                "width": 924,
+                "height": 529.40625,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "works",
+                "tag": "section",
+                "text": "03代表工作\n  \n   \n    On the power of foundation models\n    Yang Yuan\n    ICML 2023\n    《孟子·告子下》：有诸内，必形诸外。《黄帝内经·灵枢·外揣》：司外揣内，司内揣外。\n   \n    Contrastive learning is spectral clustering on",
+                "x": 250.5,
+                "y": 1764.515625,
+                "width": 924,
+                "height": 517.328125,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "highlights",
+                "tag": "section",
+                "text": "04亮点成果\n  \n   \n    2025\n    收起\n   \n   \n    \n     你需要的只是张量积注意力\n     姚期智、袁洋团队与 UCLA 顾全全老师团队合作，提出了 TPA 注意力架构，改进了 Deepseek V3 的注意力架构 MLA。MLA 对注意力模块进行了低秩分解，使得需要的空间更少，可以处理更长的语言序列，但无法与位置编码",
+                "x": 250.5,
+                "y": 2337.84375,
+                "width": 924,
+                "height": 895.234375,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "你需要的只是张量积注意力\n     姚期智、袁洋团队与 UCLA 顾全全老师团队合作，提出了 TPA 注意力架构，改进了 Deepseek V3 的注意力架构 MLA。MLA 对注意力模块进行了低秩分解，使得需要的空间更少，可以处理更长的语言序列，但无法与位置编码 RoPE 融合。TPA 从张量分解的角度把整个注意力模块看做一个三维张量进行低秩分解，可以与 ",
+                "x": 250.5,
+                "y": 2468.4375,
+                "width": 800,
+                "height": 229.546875,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "针对数学文本的零样本生成分类器自主数据选择方法\n     姚期智、袁洋团队提出使用模型内生能力筛选高质量数学数据用于后训练，与基线相比有 2.36 倍效率提升，方法简单，可扩展到不同领域。论文被 Mammoth2、OLMo2、Opencoder、YuLan-Mini 等大语言模型工作引用或采用，被引 33 次；开源的 200GB+ AutoMathText ",
+                "x": 250.5,
+                "y": 2697.984375,
+                "width": 800,
+                "height": 229.546875,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "层次化注意力生成更优证明\n     姚期智、袁洋团队提出“层次化注意力”正则化方法，应对大语言模型处理形式化定理证明时的结构理解难题。现有 LLM 因线性分词方式难以捕捉数学证明的层次结构，可能导致推理过程不够简洁或出现偏差。该方法通过建立五级层次，从基础语境到最终目标，引导注意力机制对齐数学推理的自然结构，限制信息反向流动以增强逻辑连贯性。在 miniF2",
+                "x": 250.5,
+                "y": 2927.53125,
+                "width": 800,
+                "height": 228.546875,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "join",
+                "tag": "section",
+                "text": "05招生与团队\n  \n   \n    由于在学校培养 AI 中医方向的人才极为困难，我目前主要招收对 AI 数学、软件生成、大规模复杂系统构建感兴趣的学生。\n    此外，我也在组建一支全职工程团队，方向聚焦于 AI 数学。\n   \n   \n    相关背景\n    \n     博士毕业于美国康奈尔大学，师从 Robert Kleinberg 教授\n    ",
+                "x": 250.5,
+                "y": 3289.078125,
+                "width": 924,
+                "height": 331.015625,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "links",
+                "tag": "section",
+                "text": "06更多\n  \n   清华大学交叉信息研究院个人主页\n   Google Scholar 主页\n   上海期智研究院 · 人工智能方向\n   上海期智研究院 · 具身智能与智能制造",
+                "x": 250.5,
+                "y": 3676.09375,
+                "width": 924,
+                "height": 147.96875,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "footer",
+                "text": "袁洋 · 清华大学交叉信息研究院\n  研究纲领代表工作招生与团队",
+                "x": 0,
+                "y": 3864.0625,
+                "width": 1425,
+                "height": 87.5,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              }
+            ]
+          },
+          {
+            "width": 390,
+            "height": 844,
+            "scrollWidth": 375,
+            "scrollHeight": 5606,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "",
+                "tag": "h1",
+                "text": "袁洋",
+                "x": 20,
+                "y": 193.1875,
+                "width": 335,
+                "height": 46.1875,
+                "fontSize": "44px",
+                "lineHeight": "46.2px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "01我主要研究 AI + 中医",
+                "x": 20,
+                "y": 707.421875,
+                "width": 335,
+                "height": 39.59375,
+                "fontSize": "22px",
+                "lineHeight": "39.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "刻画医疗过程",
+                "x": 68,
+                "y": 846.8125,
+                "width": 287,
+                "height": 30.59375,
+                "fontSize": "17px",
+                "lineHeight": "30.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "辅助临床诊疗",
+                "x": 68,
+                "y": 982.40625,
+                "width": 287,
+                "height": 30.59375,
+                "fontSize": "17px",
+                "lineHeight": "30.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "形式化中医理论",
+                "x": 68,
+                "y": 1118,
+                "width": 287,
+                "height": 30.59375,
+                "fontSize": "17px",
+                "lineHeight": "30.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "02从医疗到范畴论，再到 AI 理论",
+                "x": 20,
+                "y": 1460.78125,
+                "width": 335,
+                "height": 79.1875,
+                "fontSize": "22px",
+                "lineHeight": "39.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "03代表工作",
+                "x": 20,
+                "y": 2445.296875,
+                "width": 335,
+                "height": 39.59375,
+                "fontSize": "22px",
+                "lineHeight": "39.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "On the power of foundation models",
+                "x": 20,
+                "y": 2527.890625,
+                "width": 335,
+                "height": 25.5,
+                "fontSize": "17px",
+                "lineHeight": "25.5px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Contrastive learning is spectral clustering on similarity graph",
+                "x": 20,
+                "y": 2704.65625,
+                "width": 335,
+                "height": 51,
+                "fontSize": "17px",
+                "lineHeight": "25.5px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Trade-off between efficiency and consistency for removal-based explanations",
+                "x": 20,
+                "y": 2881.734375,
+                "width": 335,
+                "height": 76.5,
+                "fontSize": "17px",
+                "lineHeight": "25.5px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "04亮点成果",
+                "x": 20,
+                "y": 3104.3125,
+                "width": 335,
+                "height": 39.59375,
+                "fontSize": "22px",
+                "lineHeight": "39.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "2025",
+                "x": 20,
+                "y": 3182.90625,
+                "width": 48.796875,
+                "height": 36,
+                "fontSize": "20px",
+                "lineHeight": "36px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "",
+                "tag": "h4",
+                "text": "你需要的只是张量积注意力",
+                "x": 20,
+                "y": 3246.90625,
+                "width": 335,
+                "height": 28.796875,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h4",
+                "text": "针对数学文本的零样本生成分类器自主数据选择方法",
+                "x": 20,
+                "y": 3653.015625,
+                "width": 335,
+                "height": 57.59375,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h4",
+                "text": "层次化注意力生成更优证明",
+                "x": 20,
+                "y": 4114.734375,
+                "width": 335,
+                "height": 28.796875,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "2024",
+                "x": 20,
+                "y": 4527.59375,
+                "width": 48.796875,
+                "height": 36,
+                "fontSize": "20px",
+                "lineHeight": "36px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "05招生与团队",
+                "x": 20,
+                "y": 4603.59375,
+                "width": 335,
+                "height": 39.59375,
+                "fontSize": "22px",
+                "lineHeight": "39.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "相关背景",
+                "x": 20,
+                "y": 4858.4375,
+                "width": 335,
+                "height": 23.390625,
+                "fontSize": "13px",
+                "lineHeight": "23.4px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "06更多",
+                "x": 20,
+                "y": 5191.90625,
+                "width": 335,
+                "height": 39.59375,
+                "fontSize": "22px",
+                "lineHeight": "39.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              }
+            ],
+            "controls": [
+              {
+                "id": "vib-link-0",
+                "tag": "a",
+                "text": "袁洋Yang Yuan",
+                "x": 20,
+                "y": 14,
+                "width": 131.140625,
+                "height": 36,
+                "fontSize": "20px",
+                "lineHeight": "36px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "研究纲领",
+                "x": 20,
+                "y": 74,
+                "width": 49.453125,
+                "height": 24.59375,
+                "fontSize": "12px",
+                "lineHeight": "21.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "研究方向",
+                "x": 81.453125,
+                "y": 74,
+                "width": 49.453125,
+                "height": 24.59375,
+                "fontSize": "12px",
+                "lineHeight": "21.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "代表工作",
+                "x": 142.90625,
+                "y": 74,
+                "width": 49.453125,
+                "height": 24.59375,
+                "fontSize": "12px",
+                "lineHeight": "21.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "亮点成果",
+                "x": 204.359375,
+                "y": 74,
+                "width": 49.453125,
+                "height": 24.59375,
+                "fontSize": "12px",
+                "lineHeight": "21.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "招生与团队",
+                "x": 265.8125,
+                "y": 74,
+                "width": 61.8125,
+                "height": 24.59375,
+                "fontSize": "12px",
+                "lineHeight": "21.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "copy-email",
+                "tag": "button",
+                "text": "复制邮箱",
+                "x": 254.484375,
+                "y": 536.046875,
+                "width": 76.890625,
+                "height": 31.59375,
+                "fontSize": "12px",
+                "lineHeight": "21.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "vib-link-1",
+                "tag": "a",
+                "text": "Contrastive learning is spectral clustering on similarity graph",
+                "x": 20,
+                "y": 2705.65625,
+                "width": 324.3125,
+                "height": 47.5,
+                "fontSize": "17px",
+                "lineHeight": "25.5px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "toggle-2025",
+                "tag": "button",
+                "text": "收起",
+                "x": 84.796875,
+                "y": 3185.109375,
+                "width": 51.453125,
+                "height": 31.59375,
+                "fontSize": "12px",
+                "lineHeight": "21.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "vib-link-2",
+                "tag": "a",
+                "text": "arXiv:2501.06425",
+                "x": 61.25,
+                "y": 3597.765625,
+                "width": 109.96875,
+                "height": 15,
+                "fontSize": "12.5px",
+                "lineHeight": "21.25px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-3",
+                "tag": "a",
+                "text": "ACL Anthology",
+                "x": 253.671875,
+                "y": 4059.484375,
+                "width": 89.34375,
+                "height": 15,
+                "fontSize": "12.5px",
+                "lineHeight": "21.25px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-4",
+                "tag": "a",
+                "text": "arXiv:2504.19188",
+                "x": 164.328125,
+                "y": 4444.34375,
+                "width": 109.96875,
+                "height": 15,
+                "fontSize": "12.5px",
+                "lineHeight": "21.25px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "toggle-2024",
+                "tag": "button",
+                "text": "展开",
+                "x": 84.796875,
+                "y": 4529.796875,
+                "width": 51.453125,
+                "height": 31.59375,
+                "fontSize": "12px",
+                "lineHeight": "21.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "copy-email-2",
+                "tag": "button",
+                "text": "复制邮箱",
+                "x": 254.484375,
+                "y": 5120.3125,
+                "width": 76.890625,
+                "height": 31.59375,
+                "fontSize": "12px",
+                "lineHeight": "21.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "vib-link-6",
+                "tag": "a",
+                "text": "清华大学交叉信息研究院个人主页",
+                "x": 20,
+                "y": 5262.5,
+                "width": 210,
+                "height": 20,
+                "fontSize": "14px",
+                "lineHeight": "25.2px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "vib-link-7",
+                "tag": "a",
+                "text": "Google Scholar 主页",
+                "x": 20,
+                "y": 5310.6875,
+                "width": 126.0625,
+                "height": 20,
+                "fontSize": "14px",
+                "lineHeight": "25.2px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "vib-link-8",
+                "tag": "a",
+                "text": "上海期智研究院 · 人工智能方向",
+                "x": 20,
+                "y": 5358.875,
+                "width": 192.71875,
+                "height": 20,
+                "fontSize": "14px",
+                "lineHeight": "25.2px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "vib-link-9",
+                "tag": "a",
+                "text": "上海期智研究院 · 具身智能与智能制造",
+                "x": 20,
+                "y": 5407.0625,
+                "width": 234.71875,
+                "height": 20,
+                "fontSize": "14px",
+                "lineHeight": "25.2px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "研究纲领",
+                "x": 20,
+                "y": 5543.75,
+                "width": 50,
+                "height": 22.5,
+                "fontSize": "12.5px",
+                "lineHeight": "22.5px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "代表工作",
+                "x": 88,
+                "y": 5543.75,
+                "width": 50,
+                "height": 22.5,
+                "fontSize": "12.5px",
+                "lineHeight": "22.5px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "招生与团队",
+                "x": 156,
+                "y": 5543.75,
+                "width": 62.5,
+                "height": 22.5,
+                "fontSize": "12.5px",
+                "lineHeight": "22.5px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              }
+            ],
+            "regions": [
+              {
+                "id": "",
+                "tag": "header",
+                "text": "袁洋Yang Yuan\n  \n   研究纲领研究方向代表工作亮点成果招生与团队",
+                "x": 0,
+                "y": 0,
+                "width": 375,
+                "height": 113.59375,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "nav",
+                "text": "研究纲领研究方向代表工作亮点成果招生与团队",
+                "x": 20,
+                "y": 74,
+                "width": 307.625,
+                "height": 24.59375,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "main",
+                "text": "清华大学交叉信息研究院 · 副教授 · 院长助理\n  袁洋\n  我希望推动的方向，是建立一种以中医为基础、由范畴论支撑的新医疗。医理、病症、病机、治法、方药与人体状态可以被统一刻画，并通过其中的结构关系相互对应、组合和推演。\n  \n   智能医疗\n   AI 基础理论\n   应用范畴论\n   AI 自动证明\n  \n  \n   邮箱 yuanyang@tsin",
+                "x": 0,
+                "y": 113.59375,
+                "width": 375,
+                "height": 5322.65625,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "top",
+                "tag": "section",
+                "text": "清华大学交叉信息研究院 · 副教授 · 院长助理\n  袁洋\n  我希望推动的方向，是建立一种以中医为基础、由范畴论支撑的新医疗。医理、病症、病机、治法、方药与人体状态可以被统一刻画，并通过其中的结构关系相互对应、组合和推演。\n  \n   智能医疗\n   AI 基础理论\n   应用范畴论\n   AI 自动证明\n  \n  \n   邮箱 yuanyang@tsin",
+                "x": 20,
+                "y": 113.59375,
+                "width": 335,
+                "height": 553.828125,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "program",
+                "tag": "section",
+                "text": "01我主要研究 AI + 中医\n  具体来说，我希望从三个层面推进这件事。\n  \n   1\n    \n     刻画医疗过程\n     记录并描绘医生在日常诊疗中与患者的交互、判断、推理和思考过程。\n    \n   2\n    \n     辅助临床诊疗\n     结合人工智能算法与医疗设备，分析患者信息，辅助医生辨证、开方。\n    \n   3\n    \n ",
+                "x": 20,
+                "y": 707.421875,
+                "width": 335,
+                "height": 705.359375,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "directions",
+                "tag": "section",
+                "text": "02从医疗到范畴论，再到 AI 理论\n  \n   在实践过程中，我逐渐意识到，仅靠数据驱动是不够的。医疗知识需要自洽，辅助诊疗需要可解释性。为此，我们需要将医疗过程形式化为一种代数系统。\n   我因此对范畴论产生了浓厚的兴趣。范畴论不仅可以帮助我们分析和理解复杂系统，也可以为人工智能提供一种新的组织方式：刻画大模型的能力边界，设计新的算法，并将许多局部能力组",
+                "x": 20,
+                "y": 1412.78125,
+                "width": 335,
+                "height": 992.515625,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "works",
+                "tag": "section",
+                "text": "03代表工作\n  \n   \n    On the power of foundation models\n    Yang Yuan\n    ICML 2023\n    《孟子·告子下》：有诸内，必形诸外。《黄帝内经·灵枢·外揣》：司外揣内，司内揣外。\n   \n    Contrastive learning is spectral clustering on",
+                "x": 20,
+                "y": 2445.296875,
+                "width": 335,
+                "height": 619.015625,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "highlights",
+                "tag": "section",
+                "text": "04亮点成果\n  \n   \n    2025\n    收起\n   \n   \n    \n     你需要的只是张量积注意力\n     姚期智、袁洋团队与 UCLA 顾全全老师团队合作，提出了 TPA 注意力架构，改进了 Deepseek V3 的注意力架构 MLA。MLA 对注意力模块进行了低秩分解，使得需要的空间更少，可以处理更长的语言序列，但无法与位置编码",
+                "x": 20,
+                "y": 3104.3125,
+                "width": 335,
+                "height": 1459.28125,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "你需要的只是张量积注意力\n     姚期智、袁洋团队与 UCLA 顾全全老师团队合作，提出了 TPA 注意力架构，改进了 Deepseek V3 的注意力架构 MLA。MLA 对注意力模块进行了低秩分解，使得需要的空间更少，可以处理更长的语言序列，但无法与位置编码 RoPE 融合。TPA 从张量分解的角度把整个注意力模块看做一个三维张量进行低秩分解，可以与 ",
+                "x": 20,
+                "y": 3234.90625,
+                "width": 335,
+                "height": 406.109375,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "针对数学文本的零样本生成分类器自主数据选择方法\n     姚期智、袁洋团队提出使用模型内生能力筛选高质量数学数据用于后训练，与基线相比有 2.36 倍效率提升，方法简单，可扩展到不同领域。论文被 Mammoth2、OLMo2、Opencoder、YuLan-Mini 等大语言模型工作引用或采用，被引 33 次；开源的 200GB+ AutoMathText ",
+                "x": 20,
+                "y": 3641.015625,
+                "width": 335,
+                "height": 461.71875,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "层次化注意力生成更优证明\n     姚期智、袁洋团队提出“层次化注意力”正则化方法，应对大语言模型处理形式化定理证明时的结构理解难题。现有 LLM 因线性分词方式难以捕捉数学证明的层次结构，可能导致推理过程不够简洁或出现偏差。该方法通过建立五级层次，从基础语境到最终目标，引导注意力机制对齐数学推理的自然结构，限制信息反向流动以增强逻辑连贯性。在 miniF2",
+                "x": 20,
+                "y": 4102.734375,
+                "width": 335,
+                "height": 383.859375,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "join",
+                "tag": "section",
+                "text": "05招生与团队\n  \n   \n    由于在学校培养 AI 中医方向的人才极为困难，我目前主要招收对 AI 数学、软件生成、大规模复杂系统构建感兴趣的学生。\n    此外，我也在组建一支全职工程团队，方向聚焦于 AI 数学。\n   \n   \n    相关背景\n    \n     博士毕业于美国康奈尔大学，师从 Robert Kleinberg 教授\n    ",
+                "x": 20,
+                "y": 4603.59375,
+                "width": 335,
+                "height": 548.3125,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "links",
+                "tag": "section",
+                "text": "06更多\n  \n   清华大学交叉信息研究院个人主页\n   Google Scholar 主页\n   上海期智研究院 · 人工智能方向\n   上海期智研究院 · 具身智能与智能制造",
+                "x": 20,
+                "y": 5191.90625,
+                "width": 335,
+                "height": 244.34375,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "footer",
+                "text": "袁洋 · 清华大学交叉信息研究院\n  研究纲领代表工作招生与团队",
+                "x": 0,
+                "y": 5476.25,
+                "width": 375,
+                "height": 130,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Source Han Sans SC\", \"Microsoft YaHei\", sans-serif"
+              }
+            ]
+          }
+        ],
+        "error": null
+      }
+    },
+    {
+      "name": "academic-old-standard",
+      "input": "清华教师袁洋的个人学术主页.com",
+      "mode": "research",
+      "effort": "standard",
+      "pageId": "b6d8b5b1-c929-446b-a448-8a3febbd9119",
+      "jobId": "2c1e1e1a-2fe9-4247-ad0f-b54b23397df3",
+      "guidance": "baseline-6ad0a7c",
+      "seconds": 82,
+      "error": null,
+      "initialGenerationAccepted": true,
+      "generationAttempts": [
+        {
+          "attempt": 1,
+          "outcome": "Accepted",
+          "errorCode": null,
+          "message": null,
+          "at": "2026-11-07T15:35:28.382767900Z"
+        }
+      ],
+      "modelCalls": [
+        {
+          "usage": {
+            "prompt_tokens": 4490,
+            "completion_tokens": 47,
+            "total_tokens": 4537,
+            "prompt_tokens_details": {
+              "cached_tokens": 128
+            },
+            "prompt_cache_hit_tokens": 128,
+            "prompt_cache_miss_tokens": 4362
+          },
+          "status": 200,
+          "milliseconds": 1246,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "researchPlanning"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 7342,
+            "completion_tokens": 841,
+            "total_tokens": 8183,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 7342
+          },
+          "status": 200,
+          "milliseconds": 7967,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "brief"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 9222,
+            "completion_tokens": 6291,
+            "total_tokens": 15513,
+            "prompt_tokens_details": {
+              "cached_tokens": 128
+            },
+            "prompt_cache_hit_tokens": 128,
+            "prompt_cache_miss_tokens": 9094
+          },
+          "status": 200,
+          "milliseconds": 24971,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 24859,
+            "completion_tokens": 800,
+            "total_tokens": 25659,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 24859
+          },
+          "status": 200,
+          "milliseconds": 6929,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "review"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 26365,
+            "completion_tokens": 6717,
+            "total_tokens": 33082,
+            "prompt_tokens_details": {
+              "cached_tokens": 896
+            },
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 25469
+          },
+          "status": 200,
+          "milliseconds": 22185,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "document"
+        }
+      ],
+      "selection": "Original",
+      "events": [
+        {
+          "stage": "Brief",
+          "status": "Started",
+          "at": "2026-11-07T15:34:55.206772800Z",
+          "message": null
+        },
+        {
+          "stage": "Brief",
+          "status": "Completed",
+          "at": "2026-11-07T15:35:03.183337200Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Started",
+          "at": "2026-11-07T15:35:28.394510900Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Completed",
+          "at": "2026-11-07T15:35:34.789132600Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Started",
+          "at": "2026-11-07T15:35:34.798736400Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Completed",
+          "at": "2026-11-07T15:35:41.741494500Z",
+          "message": null
+        },
+        {
+          "stage": "Improve",
+          "status": "Started",
+          "at": "2026-11-07T15:35:41.746510500Z",
+          "message": null
+        },
+        {
+          "stage": "Improve",
+          "status": "Failed",
+          "at": "2026-11-07T15:36:03.982812200Z",
+          "message": "主要正文覆盖不足，保留原有文本并调整排版"
+        },
+        {
+          "stage": "Selection",
+          "status": "Completed",
+          "at": "2026-11-07T15:36:03.987839300Z",
+          "message": "采用已校验原页面"
+        }
+      ],
+      "sources": [
+        {
+          "id": "source-1",
+          "url": "https://people.iiis.tsinghua.edu.cn/~yuanyang/index.html",
+          "title": "袁洋",
+          "retrievedAt": "2026-11-07T15:34:42.982846400Z"
+        },
+        {
+          "id": "source-2",
+          "url": "http://people.iiis.tsinghua.edu.cn/~yuanyang/index.html",
+          "title": "袁洋",
+          "retrievedAt": "2026-11-07T15:34:42.983490200Z"
+        },
+        {
+          "id": "source-3",
+          "url": "https://www.sqz.ac.cn/artificial-1",
+          "title": "袁洋-人工智能-上海期智研究院",
+          "retrievedAt": "2026-11-07T15:34:42.983490200Z"
+        },
+        {
+          "id": "source-4",
+          "url": "https://www.sqz.ac.cn/jushen-1",
+          "title": "袁洋-具身智能与智能制造-上海期智研究院",
+          "retrievedAt": "2026-11-07T15:34:42.983490200Z"
+        },
+        {
+          "id": "source-5",
+          "url": "https://baike.baidu.com/item/%E8%A2%81%E6%B4%8B/68477227?bst=1791367531.faf4e3422d575025#1",
+          "title": "袁洋 - 清华大学交叉信息研究院院长助理、副教授",
+          "retrievedAt": "2026-11-07T15:34:42.983490200Z"
+        }
+      ],
+      "researchReused": false,
+      "siteStyle": {
+        "brand": "袁洋 · 学术主页",
+        "typography": "中文系统无衬线正文，Georgia 衬线用于论文标题，等宽用于邮箱与年份标签；正文行宽约 32–34 字",
+        "palette": "纸白 #f7f6f2、墨黑 #1c1c1a、灰褐 #8a8678、暗金 #6b6338、淡米 #eeecdf",
+        "layout": "单列居中阅读版式，无全局导航；身份—自述—研究方向—代表工作—招生与团队—履历—页脚，方向区与招生区局部双栏"
+      },
+      "actions": [
+        {
+          "id": "copy-mail-btn",
+          "kind": "Copy",
+          "elementId": "copy-mail",
+          "target": null,
+          "region": "mail-text",
+          "stateKey": "copyFeedback",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "toggle-theory-btn",
+          "kind": "Toggle",
+          "elementId": "toggle-theory",
+          "target": null,
+          "region": "theory-detail",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "toggle-proof-btn",
+          "kind": "Toggle",
+          "elementId": "toggle-proof",
+          "target": null,
+          "region": "proof-detail",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "show-all-works-btn",
+          "kind": "Toggle",
+          "elementId": "show-all-works",
+          "target": null,
+          "region": "work-list",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-0",
+          "kind": "Navigate",
+          "elementId": "vib-link-0",
+          "target": "https://people.iiis.tsinghua.edu.cn/~yuanyang/index.html",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-1",
+          "kind": "Navigate",
+          "elementId": "vib-link-1",
+          "target": "https://scholar.google.com/",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-2",
+          "kind": "Navigate",
+          "elementId": "vib-link-2",
+          "target": "https://arxiv.org/pdf/2501.06425",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-3",
+          "kind": "Navigate",
+          "elementId": "vib-link-3",
+          "target": "https://aclanthology.org/2025.findings-acl.216.pdf",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-4",
+          "kind": "Navigate",
+          "elementId": "vib-link-4",
+          "target": "https://arxiv.org/pdf/2504.19188",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        }
+      ],
+      "layout": {
+        "viewports": [
+          {
+            "width": 1440,
+            "height": 900,
+            "scrollWidth": 1425,
+            "scrollHeight": 2863,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "",
+                "tag": "h1",
+                "text": "袁洋",
+                "x": 330.5,
+                "y": 56,
+                "width": 95.6875,
+                "height": 52.890625,
+                "fontSize": "46px",
+                "lineHeight": "52.9px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "研究自述",
+                "x": 330.5,
+                "y": 353.359375,
+                "width": 1,
+                "height": 1,
+                "fontSize": "20px",
+                "lineHeight": "28px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "研究方向",
+                "x": 330.5,
+                "y": 663.953125,
+                "width": 764,
+                "height": 21,
+                "fontSize": "15px",
+                "lineHeight": "21px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "刻画医疗过程",
+                "x": 362.359375,
+                "y": 751.703125,
+                "width": 465,
+                "height": 29.75,
+                "fontSize": "17px",
+                "lineHeight": "29.75px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "辅助临床诊疗",
+                "x": 362.359375,
+                "y": 838.703125,
+                "width": 465,
+                "height": 29.75,
+                "fontSize": "17px",
+                "lineHeight": "29.75px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "形式化中医理论",
+                "x": 362.359375,
+                "y": 925.703125,
+                "width": 407.40625,
+                "height": 29.75,
+                "fontSize": "17px",
+                "lineHeight": "29.75px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "AI 基础理论",
+                "x": 348.5,
+                "y": 1031.703125,
+                "width": 347,
+                "height": 28.875,
+                "fontSize": "16.5px",
+                "lineHeight": "28.875px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "AI 自动证明",
+                "x": 747.5,
+                "y": 1031.703125,
+                "width": 347,
+                "height": 28.875,
+                "fontSize": "16.5px",
+                "lineHeight": "28.875px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "应用范畴论与智能医疗",
+                "x": 348.5,
+                "y": 1267.046875,
+                "width": 526,
+                "height": 28.875,
+                "fontSize": "16.5px",
+                "lineHeight": "28.875px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "代表工作",
+                "x": 330.5,
+                "y": 1465.203125,
+                "width": 764,
+                "height": 21,
+                "fontSize": "15px",
+                "lineHeight": "21px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "On the power of foundation models",
+                "x": 442.5,
+                "y": 1555.953125,
+                "width": 652,
+                "height": 24.75,
+                "fontSize": "16.5px",
+                "lineHeight": "24.75px",
+                "fontFamily": "Georgia, \"Times New Roman\", \"Songti SC\", serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Contrastive learning is spectral clustering on similarity graph",
+                "x": 442.5,
+                "y": 1695.953125,
+                "width": 652,
+                "height": 24.75,
+                "fontSize": "16.5px",
+                "lineHeight": "24.75px",
+                "fontFamily": "Georgia, \"Times New Roman\", \"Songti SC\", serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Trade-off between efficiency and consistency for removal-based explanations",
+                "x": 442.5,
+                "y": 1810.765625,
+                "width": 652,
+                "height": 49.5,
+                "fontSize": "16.5px",
+                "lineHeight": "24.75px",
+                "fontFamily": "Georgia, \"Times New Roman\", \"Songti SC\", serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "招生与团队",
+                "x": 330.5,
+                "y": 2027.328125,
+                "width": 468,
+                "height": 28,
+                "fontSize": "20px",
+                "lineHeight": "28px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "荣誉",
+                "x": 852.5,
+                "y": 2043.328125,
+                "width": 224,
+                "height": 21,
+                "fontSize": "12px",
+                "lineHeight": "21px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "学术履历",
+                "x": 330.5,
+                "y": 2336.828125,
+                "width": 764,
+                "height": 28,
+                "fontSize": "20px",
+                "lineHeight": "28px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              }
+            ],
+            "controls": [
+              {
+                "id": "copy-mail",
+                "tag": "button",
+                "text": "复制邮箱",
+                "x": 595.875,
+                "y": 217.671875,
+                "width": 77,
+                "height": 29.875,
+                "fontSize": "12.5px",
+                "lineHeight": "21.875px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "vib-link-0",
+                "tag": "a",
+                "text": "简历",
+                "x": 330.5,
+                "y": 267.734375,
+                "width": 27,
+                "height": 24.625,
+                "fontSize": "13.5px",
+                "lineHeight": "23.625px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "vib-link-1",
+                "tag": "a",
+                "text": "Google Scholar 主页",
+                "x": 377.5,
+                "y": 267.734375,
+                "width": 129.75,
+                "height": 24.625,
+                "fontSize": "13.5px",
+                "lineHeight": "23.625px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "研究方向",
+                "x": 527.25,
+                "y": 267.734375,
+                "width": 54,
+                "height": 24.625,
+                "fontSize": "13.5px",
+                "lineHeight": "23.625px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "代表工作",
+                "x": 601.25,
+                "y": 267.734375,
+                "width": 54,
+                "height": 24.625,
+                "fontSize": "13.5px",
+                "lineHeight": "23.625px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "招生与团队",
+                "x": 675.25,
+                "y": 267.734375,
+                "width": 67.5,
+                "height": 24.625,
+                "fontSize": "13.5px",
+                "lineHeight": "23.625px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "toggle-theory",
+                "tag": "button",
+                "text": "展开细节",
+                "x": 348.5,
+                "y": 1218.046875,
+                "width": 54,
+                "height": 22.875,
+                "fontSize": "12.5px",
+                "lineHeight": "21.875px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "toggle-proof",
+                "tag": "button",
+                "text": "展开细节",
+                "x": 747.5,
+                "y": 1191.953125,
+                "width": 54,
+                "height": 22.875,
+                "fontSize": "12.5px",
+                "lineHeight": "21.875px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "show-all-works",
+                "tag": "button",
+                "text": "展开近年成果",
+                "x": 330.5,
+                "y": 1952.328125,
+                "width": 81,
+                "height": 22.875,
+                "fontSize": "12.5px",
+                "lineHeight": "21.875px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "回到顶部",
+                "x": 1044.5,
+                "y": 2800.703125,
+                "width": 50,
+                "height": 22,
+                "fontSize": "12px",
+                "lineHeight": "21px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              }
+            ],
+            "regions": [
+              {
+                "id": "",
+                "tag": "main",
+                "text": "袁洋\n   清华大学交叉信息研究院 副教授／院长助理／上海期智研究院 PI\n  \n  研究 AI+中医、AI 基础理论与应用范畴论，目标是建立一种以中医为基础、由范畴论支撑的新医疗。\n  \n   邮箱 yuanyang@tsinghua.edu.cn\n   复制邮箱\n  \n  \n   简历 Google Scholar 主页 研究方向 代表工作 招生与团队\n",
+                "x": 302.5,
+                "y": 0,
+                "width": 820,
+                "height": 2723.703125,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "top",
+                "tag": "header",
+                "text": "袁洋\n   清华大学交叉信息研究院 副教授／院长助理／上海期智研究院 PI\n  \n  研究 AI+中医、AI 基础理论与应用范畴论，目标是建立一种以中医为基础、由范畴论支撑的新医疗。\n  \n   邮箱 yuanyang@tsinghua.edu.cn\n   复制邮箱\n  \n  \n   简历 Google Scholar 主页 研究方向 代表工作 招生与团队",
+                "x": 330.5,
+                "y": 56,
+                "width": 764,
+                "height": 263.359375,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "statement",
+                "tag": "section",
+                "text": "研究自述\n  我主要研究 AI+中医。具体来说，我希望从三个层面推进这件事。仅靠数据驱动是不够的：医疗知识需要自洽，辅助诊疗需要可解释性。为此，我们需要将医疗过程形式化为一种代数系统，也就是把中医变成一种数学。\n  我希望推动的方向，是建立一种以中医为基础、由范畴论支撑的新医疗。其中，医理、病症、病机、治法、方药与人体状态可以被统一刻画，并通过其中的结构关系",
+                "x": 330.5,
+                "y": 353.359375,
+                "width": 544,
+                "height": 241.59375,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "research",
+                "tag": "section",
+                "text": "研究方向\n   三条线索，一条主线：把医疗与智能都写成可推演的结构。\n  \n  \n   01\n    \n     刻画医疗过程\n     记录并描绘医生在日常诊疗中与患者的交互、判断、推理和思考过程。\n    \n   02\n    \n     辅助临床诊疗\n     结合人工智能算法与医疗设备，分析患者信息，辅助医生辨证、开方。\n    \n   03\n   ",
+                "x": 330.5,
+                "y": 646.953125,
+                "width": 764,
+                "height": 749.25,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "AI 基础理论\n    范畴论 · 拓扑斯理论\n    基于范畴论、拓扑斯理论，为人工智能构建基础理论，指导算法设计，探索大模型能力边界。我们正在尝试使用拓扑斯理论来构建软件生成系统和数学自动证明系统。\n    展开细节\n    \n     随着模型能力不断提升，未来真正重要的问题将不只是“单个模型能做什么”，而是如何把复杂任务拆解成许多简单任务，分别解决之",
+                "x": 330.5,
+                "y": 1031.703125,
+                "width": 365,
+                "height": 209.34375,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "AI 自动证明\n    形式化推理 · 数学证明\n    构建能够自动做数学证明的大模型。相关工作关注大语言模型对证明层次结构的理解，尝试让注意力机制对齐数学推理的自然结构。\n    展开细节\n    \n     层次化注意力方法建立五级层次，从基础语境到最终目标，限制信息反向流动以增强逻辑连贯性；实验显示证明成功率与复杂度均有改善。",
+                "x": 729.5,
+                "y": 1031.703125,
+                "width": 365,
+                "height": 209.34375,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "应用范畴论与智能医疗\n    范畴论 · 中医 · 辅助诊断\n    以范畴论支撑的新医疗为长期目标，研究包括中医辅助诊断系统、脉诊仪与新药研发；用结构关系刻画医理、病症与方药之间的对应与推演。",
+                "x": 330.5,
+                "y": 1267.046875,
+                "width": 544,
+                "height": 129.15625,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "works",
+                "tag": "section",
+                "text": "代表工作\n   三条线索各自的代表条目，附一句话定位与原文引语。\n  \n  \n   \n    \n     ICML 2023\n    \n    On the power of foundation models\n    Yang Yuan\n    基础模型能力的理论刻画。〈孟子·告子下〉：有诸内，必形诸外。〈黄帝内经·灵枢·外揣〉：司外揣内，司内揣外。\n  ",
+                "x": 330.5,
+                "y": 1448.203125,
+                "width": 764,
+                "height": 527.125,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "students",
+                "tag": "section",
+                "text": "招生与团队\n   由于在学校培养 AI 中医方向的人才极为困难，我目前主要招收对以下方向感兴趣的学生：\n   \n    AI 数学\n    软件生成\n    大规模复杂系统构建\n   \n   此外，我也在组建一支全职工程团队，方向聚焦于 AI 数学。\n  \n  \n   荣誉\n   \n    北京智源青年科学家（2020）\n    福布斯中国 30 位 30 ",
+                "x": 330.5,
+                "y": 2027.328125,
+                "width": 764,
+                "height": 257.5,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "荣誉\n   \n    北京智源青年科学家（2020）\n    福布斯中国 30 位 30 岁以下精英（科学榜，2019）\n    清华大学先进工作者（2024）\n    清华大学优秀班主任（二等奖，2021）",
+                "x": 834.5,
+                "y": 2027.328125,
+                "width": 260,
+                "height": 244.625,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "bio",
+                "tag": "section",
+                "text": "学术履历\n  \n   \n    \n     本科\n    \n    \n     北京大学计算机系（2008–2012），指导老师郭耀教授\n    \n   \n   \n    \n     博士\n    \n    \n     美国康奈尔大学计算机系（2012–2018），师从 Robert Kleinberg 教授\n    \n   \n   \n    \n     访",
+                "x": 330.5,
+                "y": 2336.828125,
+                "width": 764,
+                "height": 354.875,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "footer",
+                "text": "袁洋 清华大学交叉信息研究院 yuanyang@tsinghua.edu.cn 回到顶部",
+                "x": 302.5,
+                "y": 2779.703125,
+                "width": 820,
+                "height": 83.75,
+                "fontSize": "12.5px",
+                "lineHeight": "21.875px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              }
+            ]
+          },
+          {
+            "width": 390,
+            "height": 844,
+            "scrollWidth": 375,
+            "scrollHeight": 4183,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "",
+                "tag": "h1",
+                "text": "袁洋",
+                "x": 18,
+                "y": 36,
+                "width": 70.734375,
+                "height": 39.09375,
+                "fontSize": "34px",
+                "lineHeight": "39.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "研究自述",
+                "x": 18,
+                "y": 465.78125,
+                "width": 1,
+                "height": 1,
+                "fontSize": "20px",
+                "lineHeight": "28px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "研究方向",
+                "x": 18,
+                "y": 916.375,
+                "width": 339,
+                "height": 21,
+                "fontSize": "15px",
+                "lineHeight": "21px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "刻画医疗过程",
+                "x": 49.859375,
+                "y": 1026.875,
+                "width": 307.140625,
+                "height": 29.75,
+                "fontSize": "17px",
+                "lineHeight": "29.75px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "辅助临床诊疗",
+                "x": 49.859375,
+                "y": 1140.125,
+                "width": 307.140625,
+                "height": 29.75,
+                "fontSize": "17px",
+                "lineHeight": "29.75px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "形式化中医理论",
+                "x": 49.859375,
+                "y": 1253.375,
+                "width": 307.140625,
+                "height": 29.75,
+                "fontSize": "17px",
+                "lineHeight": "29.75px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "AI 基础理论",
+                "x": 36,
+                "y": 1385.625,
+                "width": 321,
+                "height": 28.875,
+                "fontSize": "16.5px",
+                "lineHeight": "28.875px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "AI 自动证明",
+                "x": 36,
+                "y": 1618.96875,
+                "width": 321,
+                "height": 28.875,
+                "fontSize": "16.5px",
+                "lineHeight": "28.875px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "应用范畴论与智能医疗",
+                "x": 36,
+                "y": 1826.21875,
+                "width": 321,
+                "height": 28.875,
+                "fontSize": "16.5px",
+                "lineHeight": "28.875px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "代表工作",
+                "x": 18,
+                "y": 2050.46875,
+                "width": 339,
+                "height": 21,
+                "fontSize": "15px",
+                "lineHeight": "21px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "On the power of foundation models",
+                "x": 18,
+                "y": 2173.21875,
+                "width": 339,
+                "height": 24.75,
+                "fontSize": "16.5px",
+                "lineHeight": "24.75px",
+                "fontFamily": "Georgia, \"Times New Roman\", \"Songti SC\", serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Contrastive learning is spectral clustering on similarity graph",
+                "x": 18,
+                "y": 2378.40625,
+                "width": 339,
+                "height": 49.5,
+                "fontSize": "16.5px",
+                "lineHeight": "24.75px",
+                "fontFamily": "Georgia, \"Times New Roman\", \"Songti SC\", serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Trade-off between efficiency and consistency for removal-based explanations",
+                "x": 18,
+                "y": 2557.96875,
+                "width": 339,
+                "height": 74.25,
+                "fontSize": "16.5px",
+                "lineHeight": "24.75px",
+                "fontFamily": "Georgia, \"Times New Roman\", \"Songti SC\", serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "招生与团队",
+                "x": 18,
+                "y": 2807.28125,
+                "width": 339,
+                "height": 28,
+                "fontSize": "20px",
+                "lineHeight": "28px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "荣誉",
+                "x": 36,
+                "y": 3133.03125,
+                "width": 303,
+                "height": 21,
+                "fontSize": "12px",
+                "lineHeight": "21px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "学术履历",
+                "x": 18,
+                "y": 3390.71875,
+                "width": 339,
+                "height": 28,
+                "fontSize": "20px",
+                "lineHeight": "28px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              }
+            ],
+            "controls": [
+              {
+                "id": "copy-mail",
+                "tag": "button",
+                "text": "复制邮箱",
+                "x": 18,
+                "y": 299.65625,
+                "width": 77,
+                "height": 29.875,
+                "fontSize": "12.5px",
+                "lineHeight": "21.875px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "vib-link-0",
+                "tag": "a",
+                "text": "简历",
+                "x": 18,
+                "y": 349.53125,
+                "width": 27,
+                "height": 24.625,
+                "fontSize": "13.5px",
+                "lineHeight": "23.625px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "vib-link-1",
+                "tag": "a",
+                "text": "Google Scholar 主页",
+                "x": 65,
+                "y": 349.53125,
+                "width": 129.75,
+                "height": 24.625,
+                "fontSize": "13.5px",
+                "lineHeight": "23.625px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "研究方向",
+                "x": 214.75,
+                "y": 349.53125,
+                "width": 54,
+                "height": 24.625,
+                "fontSize": "13.5px",
+                "lineHeight": "23.625px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "代表工作",
+                "x": 18,
+                "y": 380.15625,
+                "width": 54,
+                "height": 24.625,
+                "fontSize": "13.5px",
+                "lineHeight": "23.625px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "招生与团队",
+                "x": 92,
+                "y": 380.15625,
+                "width": 67.5,
+                "height": 24.625,
+                "fontSize": "13.5px",
+                "lineHeight": "23.625px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "toggle-theory",
+                "tag": "button",
+                "text": "展开细节",
+                "x": 36,
+                "y": 1571.96875,
+                "width": 54,
+                "height": 22.875,
+                "fontSize": "12.5px",
+                "lineHeight": "21.875px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "toggle-proof",
+                "tag": "button",
+                "text": "展开细节",
+                "x": 36,
+                "y": 1779.21875,
+                "width": 54,
+                "height": 22.875,
+                "fontSize": "12.5px",
+                "lineHeight": "21.875px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "show-all-works",
+                "tag": "button",
+                "text": "展开近年成果",
+                "x": 18,
+                "y": 2732.28125,
+                "width": 81,
+                "height": 22.875,
+                "fontSize": "12.5px",
+                "lineHeight": "21.875px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "回到顶部",
+                "x": 210.671875,
+                "y": 4128.59375,
+                "width": 50,
+                "height": 22,
+                "fontSize": "12px",
+                "lineHeight": "21px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              }
+            ],
+            "regions": [
+              {
+                "id": "",
+                "tag": "main",
+                "text": "袁洋\n   清华大学交叉信息研究院 副教授／院长助理／上海期智研究院 PI\n  \n  研究 AI+中医、AI 基础理论与应用范畴论，目标是建立一种以中医为基础、由范畴论支撑的新医疗。\n  \n   邮箱 yuanyang@tsinghua.edu.cn\n   复制邮箱\n  \n  \n   简历 Google Scholar 主页 研究方向 代表工作 招生与团队\n",
+                "x": 0,
+                "y": 0,
+                "width": 375,
+                "height": 4027.71875,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "top",
+                "tag": "header",
+                "text": "袁洋\n   清华大学交叉信息研究院 副教授／院长助理／上海期智研究院 PI\n  \n  研究 AI+中医、AI 基础理论与应用范畴论，目标是建立一种以中医为基础、由范畴论支撑的新医疗。\n  \n   邮箱 yuanyang@tsinghua.edu.cn\n   复制邮箱\n  \n  \n   简历 Google Scholar 主页 研究方向 代表工作 招生与团队",
+                "x": 18,
+                "y": 36,
+                "width": 339,
+                "height": 395.78125,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "statement",
+                "tag": "section",
+                "text": "研究自述\n  我主要研究 AI+中医。具体来说，我希望从三个层面推进这件事。仅靠数据驱动是不够的：医疗知识需要自洽，辅助诊疗需要可解释性。为此，我们需要将医疗过程形式化为一种代数系统，也就是把中医变成一种数学。\n  我希望推动的方向，是建立一种以中医为基础、由范畴论支撑的新医疗。其中，医理、病症、病机、治法、方药与人体状态可以被统一刻画，并通过其中的结构关系",
+                "x": 18,
+                "y": 465.78125,
+                "width": 339,
+                "height": 381.59375,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "research",
+                "tag": "section",
+                "text": "研究方向\n   三条线索，一条主线：把医疗与智能都写成可推演的结构。\n  \n  \n   01\n    \n     刻画医疗过程\n     记录并描绘医生在日常诊疗中与患者的交互、判断、推理和思考过程。\n    \n   02\n    \n     辅助临床诊疗\n     结合人工智能算法与医疗设备，分析患者信息，辅助医生辨证、开方。\n    \n   03\n   ",
+                "x": 18,
+                "y": 899.375,
+                "width": 339,
+                "height": 1082.09375,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "AI 基础理论\n    范畴论 · 拓扑斯理论\n    基于范畴论、拓扑斯理论，为人工智能构建基础理论，指导算法设计，探索大模型能力边界。我们正在尝试使用拓扑斯理论来构建软件生成系统和数学自动证明系统。\n    展开细节\n    \n     随着模型能力不断提升，未来真正重要的问题将不只是“单个模型能做什么”，而是如何把复杂任务拆解成许多简单任务，分别解决之",
+                "x": 18,
+                "y": 1385.625,
+                "width": 339,
+                "height": 209.34375,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "AI 自动证明\n    形式化推理 · 数学证明\n    构建能够自动做数学证明的大模型。相关工作关注大语言模型对证明层次结构的理解，尝试让注意力机制对齐数学推理的自然结构。\n    展开细节\n    \n     层次化注意力方法建立五级层次，从基础语境到最终目标，限制信息反向流动以增强逻辑连贯性；实验显示证明成功率与复杂度均有改善。",
+                "x": 18,
+                "y": 1618.96875,
+                "width": 339,
+                "height": 183.25,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "应用范畴论与智能医疗\n    范畴论 · 中医 · 辅助诊断\n    以范畴论支撑的新医疗为长期目标，研究包括中医辅助诊断系统、脉诊仪与新药研发；用结构关系刻画医理、病症与方药之间的对应与推演。",
+                "x": 18,
+                "y": 1826.21875,
+                "width": 339,
+                "height": 155.25,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "works",
+                "tag": "section",
+                "text": "代表工作\n   三条线索各自的代表条目，附一句话定位与原文引语。\n  \n  \n   \n    \n     ICML 2023\n    \n    On the power of foundation models\n    Yang Yuan\n    基础模型能力的理论刻画。〈孟子·告子下〉：有诸内，必形诸外。〈黄帝内经·灵枢·外揣〉：司外揣内，司内揣外。\n  ",
+                "x": 18,
+                "y": 2033.46875,
+                "width": 339,
+                "height": 721.8125,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "students",
+                "tag": "section",
+                "text": "招生与团队\n   由于在学校培养 AI 中医方向的人才极为困难，我目前主要招收对以下方向感兴趣的学生：\n   \n    AI 数学\n    软件生成\n    大规模复杂系统构建\n   \n   此外，我也在组建一支全职工程团队，方向聚焦于 AI 数学。\n  \n  \n   荣誉\n   \n    北京智源青年科学家（2020）\n    福布斯中国 30 位 30 ",
+                "x": 18,
+                "y": 2807.28125,
+                "width": 339,
+                "height": 531.4375,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "荣誉\n   \n    北京智源青年科学家（2020）\n    福布斯中国 30 位 30 岁以下精英（科学榜，2019）\n    清华大学先进工作者（2024）\n    清华大学优秀班主任（二等奖，2021）",
+                "x": 18,
+                "y": 3117.03125,
+                "width": 339,
+                "height": 221.6875,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "bio",
+                "tag": "section",
+                "text": "学术履历\n  \n   \n    \n     本科\n    \n    \n     北京大学计算机系（2008–2012），指导老师郭耀教授\n    \n   \n   \n    \n     博士\n    \n    \n     美国康奈尔大学计算机系（2012–2018），师从 Robert Kleinberg 教授\n    \n   \n   \n    \n     访",
+                "x": 18,
+                "y": 3390.71875,
+                "width": 339,
+                "height": 613,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "footer",
+                "text": "袁洋 清华大学交叉信息研究院 yuanyang@tsinghua.edu.cn 回到顶部",
+                "x": 0,
+                "y": 4083.71875,
+                "width": 375,
+                "height": 99.625,
+                "fontSize": "12.5px",
+                "lineHeight": "21.875px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", system-ui, sans-serif"
+              }
+            ]
+          }
+        ],
+        "error": null
+      }
+    }
+  ]
+}

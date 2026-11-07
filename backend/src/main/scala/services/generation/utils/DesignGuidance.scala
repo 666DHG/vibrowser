@@ -1,6 +1,7 @@
 package services.generation.utils
 import java.nio.charset.StandardCharsets.UTF_8
 import java.security.MessageDigest
+import services.generation.objects.DesignGuidanceText
 private[generation] object DesignGuidance:
   private def resource(name: String): String =
     val stream = Option(getClass.getResourceAsStream("/design-guidance/" + name))
@@ -14,3 +15,4 @@ private[generation] object DesignGuidance:
     .digest((design + review).getBytes(UTF_8))
     .map(b => f"${b & 0xff}%02x")
     .mkString
+  lazy val current: DesignGuidanceText = DesignGuidanceText(version, design, review)

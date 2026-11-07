@@ -1,0 +1,11 @@
+[
+  {
+    "file": "academic-new-standard.json",
+    "localActions": [
+      "toggle-2025-btn"
+    ],
+    "searchSubmitted": false,
+    "copyVerified": true,
+    "extraModelCalls": 0
+  }
+]

@@ -3,10 +3,11 @@ import { readFile, readdir, writeFile } from "node:fs/promises";
 test("replay real design documents through the browser runtime without model requests", async ({
   browser,
 }) => {
-  const directory = "../.cache/design-acceptance/";
+  const directory =
+    process.env.VIBROWSER_DESIGN_REPLAY_DIR ?? "../.cache/design-acceptance/";
   const findings: object[] = [];
   for (const file of (await readdir(directory)).filter((f) =>
-    f.endsWith("-new.json"),
+    /-new(?:-standard|-deep)?\.json$/.test(f),
   )) {
     const record = JSON.parse(await readFile(directory + file, "utf8"));
     if (!record.document) continue;
@@ -36,6 +37,7 @@ test("replay real design documents through the browser runtime without model req
             error: null,
             source: "live",
             mode: record.mode,
+            effort: record.effort ?? "standard",
           },
           job: null,
         },
@@ -74,6 +76,44 @@ test("replay real design documents through the browser runtime without model req
       break;
     }
     expect(requests).toBe(0);
+    const copy = record.document.actions.find(
+      (a: { kind: string }) => a.kind === "Copy",
+    );
+    let copyVerified = false;
+    if (copy) {
+      const button = frame.locator(`[id=${JSON.stringify(copy.elementId)}]`);
+      if (await button.isVisible()) {
+        const expectedText = await frame
+          .locator(`[id=${JSON.stringify(copy.region)}]`)
+          .innerText();
+        await page.evaluate(() => {
+          Object.assign(window, { copiedTexts: [] as string[] });
+          Object.defineProperty(navigator, "clipboard", {
+            configurable: true,
+            value: {
+              writeText: async (text: string) => {
+                (
+                  window as unknown as { copiedTexts: string[] }
+                ).copiedTexts.push(text);
+              },
+            },
+          });
+        });
+        await button.click();
+        await expect(
+          frame
+            .locator(`[data-state=${JSON.stringify(copy.stateKey)}]`)
+            .first(),
+        ).toHaveText("已复制");
+        expect(
+          await page.evaluate(
+            () => (window as unknown as { copiedTexts: string[] }).copiedTexts,
+          ),
+        ).toEqual([expectedText]);
+        copyVerified = true;
+      }
+    }
+    expect(requests).toBe(0);
     const search = record.document.actions.find(
       (a: { kind: string }) => a.kind === "Search",
     );
@@ -98,13 +138,15 @@ test("replay real design documents through the browser runtime without model req
       file,
       localActions: local,
       searchSubmitted,
+      copyVerified,
       extraModelCalls: 0,
     });
     page.off("request", listener);
     await context.close();
   }
   await writeFile(
-    "../docs/screenshots/design-workflow/interaction-replay.json",
+    process.env.VIBROWSER_DESIGN_REPLAY_REPORT ??
+      "../docs/screenshots/design-workflow/interaction-replay.json",
     JSON.stringify(findings, null, 2),
   );
 });
