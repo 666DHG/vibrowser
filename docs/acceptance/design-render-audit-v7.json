@@ -1,0 +1,305 @@
+{
+  "method": "Preserved v7 outputs in the same frameSource HTML/CSS, offline Chromium; computed style and actual platform fonts on first h1/p. No model calls or source edits.",
+  "samples": [
+    {
+      "name": "academic",
+      "elements": [
+        {
+          "selector": "h1",
+          "computed": {
+            "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans SC\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+            "size": "54.4px",
+            "color": "rgb(24, 33, 43)",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          "fonts": [
+            {
+              "familyName": "Segoe UI Semibold",
+              "postScriptName": "SegoeUI-Semibold",
+              "isCustomFont": false,
+              "glyphCount": 9
+            },
+            {
+              "familyName": "Noto Sans SC",
+              "postScriptName": "Noto-Sans-SC-Black",
+              "isCustomFont": false,
+              "glyphCount": 2
+            }
+          ]
+        },
+        {
+          "selector": "p",
+          "computed": {
+            "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans SC\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+            "size": "13.76px",
+            "color": "rgb(13, 92, 99)",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          "fonts": [
+            {
+              "familyName": "Segoe UI Semibold",
+              "postScriptName": "SegoeUI-Semibold",
+              "isCustomFont": false,
+              "glyphCount": 3
+            },
+            {
+              "familyName": "Noto Sans SC",
+              "postScriptName": "Noto-Sans-SC-Bold",
+              "isCustomFont": false,
+              "glyphCount": 14
+            }
+          ]
+        }
+      ],
+      "cssUnchangedByReview": true,
+      "briefCharacters": 1178
+    },
+    {
+      "name": "copy",
+      "elements": [
+        {
+          "selector": "h1",
+          "computed": {
+            "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+            "size": "38px",
+            "color": "rgb(38, 24, 15)",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          "fonts": [
+            {
+              "familyName": "Microsoft YaHei",
+              "postScriptName": "MicrosoftYaHei-Bold",
+              "isCustomFont": false,
+              "glyphCount": 11
+            },
+            {
+              "familyName": "Segoe UI",
+              "postScriptName": "SegoeUI-Bold",
+              "isCustomFont": false,
+              "glyphCount": 3
+            }
+          ]
+        },
+        {
+          "selector": "p",
+          "computed": {
+            "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+            "size": "12.5px",
+            "color": "rgb(255, 255, 255)",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          "fonts": [
+            {
+              "familyName": "Segoe UI",
+              "postScriptName": "SegoeUI",
+              "isCustomFont": false,
+              "glyphCount": 6
+            },
+            {
+              "familyName": "Microsoft YaHei",
+              "postScriptName": "MicrosoftYaHei",
+              "isCustomFont": false,
+              "glyphCount": 15
+            }
+          ]
+        }
+      ],
+      "cssUnchangedByReview": false,
+      "briefCharacters": 669
+    },
+    {
+      "name": "calendar",
+      "elements": [
+        {
+          "selector": "h1",
+          "computed": {
+            "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+            "size": "54px",
+            "color": "rgb(34, 32, 28)",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          "fonts": [
+            {
+              "familyName": "Segoe UI Semibold",
+              "postScriptName": "SegoeUI-Semibold",
+              "isCustomFont": false,
+              "glyphCount": 4
+            },
+            {
+              "familyName": "Segoe UI Black",
+              "postScriptName": "SegoeUIBlack",
+              "isCustomFont": false,
+              "glyphCount": 3
+            },
+            {
+              "familyName": "Microsoft YaHei",
+              "postScriptName": "MicrosoftYaHei-Bold",
+              "isCustomFont": false,
+              "glyphCount": 3
+            }
+          ]
+        },
+        {
+          "selector": "p",
+          "computed": {
+            "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+            "size": "12px",
+            "color": "rgb(138, 42, 32)",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          "fonts": [
+            {
+              "familyName": "Microsoft YaHei",
+              "postScriptName": "MicrosoftYaHei",
+              "isCustomFont": false,
+              "glyphCount": 7
+            }
+          ]
+        }
+      ],
+      "cssUnchangedByReview": true,
+      "briefCharacters": 690
+    },
+    {
+      "name": "comparison",
+      "elements": [
+        {
+          "selector": "h1",
+          "computed": {
+            "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+            "size": "50px",
+            "color": "rgb(34, 32, 28)",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          "fonts": [
+            {
+              "familyName": "Microsoft YaHei",
+              "postScriptName": "MicrosoftYaHei-Bold",
+              "isCustomFont": false,
+              "glyphCount": 12
+            }
+          ]
+        },
+        {
+          "selector": "p",
+          "computed": {
+            "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+            "size": "13px",
+            "color": "rgb(179, 100, 46)",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          "fonts": [
+            {
+              "familyName": "Segoe UI",
+              "postScriptName": "SegoeUI-Bold",
+              "isCustomFont": false,
+              "glyphCount": 3
+            },
+            {
+              "familyName": "Microsoft YaHei",
+              "postScriptName": "MicrosoftYaHei-Bold",
+              "isCustomFont": false,
+              "glyphCount": 8
+            }
+          ]
+        }
+      ],
+      "cssUnchangedByReview": true,
+      "briefCharacters": 580
+    },
+    {
+      "name": "docs",
+      "elements": [
+        {
+          "selector": "h1",
+          "computed": {
+            "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans SC\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+            "size": "52px",
+            "color": "rgb(18, 33, 46)",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          "fonts": [
+            {
+              "familyName": "Noto Sans SC",
+              "postScriptName": "Noto-Sans-SC-Black",
+              "isCustomFont": false,
+              "glyphCount": 10
+            },
+            {
+              "familyName": "Segoe UI Black",
+              "postScriptName": "SegoeUIBlack",
+              "isCustomFont": false,
+              "glyphCount": 11
+            }
+          ]
+        },
+        {
+          "selector": "p",
+          "computed": {
+            "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans SC\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+            "size": "16px",
+            "color": "rgb(232, 241, 242)",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          "fonts": [
+            {
+              "familyName": "Noto Sans SC",
+              "postScriptName": "Noto-Sans-SC-Bold",
+              "isCustomFont": false,
+              "glyphCount": 8
+            }
+          ]
+        }
+      ],
+      "cssUnchangedByReview": true,
+      "briefCharacters": 1404
+    },
+    {
+      "name": "essay",
+      "elements": [
+        {
+          "selector": "h1",
+          "computed": {
+            "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+            "size": "54.4px",
+            "color": "rgb(34, 48, 44)",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          "fonts": [
+            {
+              "familyName": "Microsoft YaHei",
+              "postScriptName": "MicrosoftYaHei-Bold",
+              "isCustomFont": false,
+              "glyphCount": 15
+            }
+          ]
+        },
+        {
+          "selector": "p",
+          "computed": {
+            "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+            "size": "13px",
+            "color": "rgb(184, 69, 44)",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          "fonts": [
+            {
+              "familyName": "Segoe UI",
+              "postScriptName": "SegoeUI",
+              "isCustomFont": false,
+              "glyphCount": 3
+            },
+            {
+              "familyName": "Microsoft YaHei",
+              "postScriptName": "MicrosoftYaHei",
+              "isCustomFont": false,
+              "glyphCount": 10
+            }
+          ]
+        }
+      ],
+      "cssUnchangedByReview": true,
+      "briefCharacters": 605
+    }
+  ]
+}

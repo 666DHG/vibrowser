@@ -190,3 +190,9 @@ v2 至 v5 的固定对照仍未跨过四组改善门槛。下一步不再为某�
 20 项 Scala 流程/保护测试与 4 项 Chromium 测量测试通过，含模式隔离、同域去重、最终改进稿选择、同站跳过、恢复与重试不重新取摘要、旧记录兼容，以及摘要不携带页面文字/链接/元素ID。shared skill 校验通过。真实效果尚未验证，LIVE 默认仍关闭设计实验。
 
 v6 完整检查通过：Scala 格式/编译与 108 项测试、前端格式、42 项单测、类型与生产构建。接下来固定六题标准档实验使用独立 effort_guidance_v6 schema，原输入与检索资料不变；记录每题的实际视觉参照数量和字符预算。冷启动的前两个模式入口可能没有参照，不能将其效果归因于跨站上下文。
+
+### 标准档采样隔离实验
+
+v7 渲染复查确认六页中五页 CSS 未被评审改变，实际系统字体不同，未发现宿主统一覆盖。仅在测试运行器增加一次固定六题的 temperature=1.3 对照：沿用 v7 指导和原始资料，只调整官方、非思考模式的页面生成／修复／改进请求。规划、检索、评审、连接测试、深入档和自定义接口不受影响；生产默认不变，不添加提示词。独立 schema/output 为 effort_sampling_v1 / .cache/effort-sampling-v1，所有实际采样值进入调用摘要。
+
+依据：DeepSeek 官方 temperature 参数范围 0–2；思考模式忽略该参数（https://api-docs.deepseek.com/guides/thinking_mode/ ，2026-11-08 核验）。1.3 是待测值，不是官方针对网页生成的推荐，也不保证布局改善。两项隔离／非法值测试通过。运行前须显式设置 VIBROWSER_DESIGN_SAMPLING_RETEST=true、VIBROWSER_EFFORT_GUIDANCE_RETEST=true、VIBROWSER_EFFORT_GUIDANCE_VERSION=7 及既有付费验收开关。仍按原六题和四组门槛判定，不重抽样。

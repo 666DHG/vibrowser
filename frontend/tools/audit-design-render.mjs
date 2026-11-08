@@ -5,6 +5,7 @@ import { frameSource } from "../dist-measure/webRuntime.mjs";
 process.env.PLAYWRIGHT_BROWSERS_PATH ??= resolve("../.cache/playwright");
 const { chromium } = await import("playwright");
 const browser = await chromium.launch({ channel: "chromium" });
+const revision = process.argv.includes("--guidance-v7") ? "v7" : "v3";
 const samples = [];
 try {
   for (const name of [
@@ -17,7 +18,7 @@ try {
   ]) {
     const record = JSON.parse(
       await readFile(
-        `../.cache/effort-guidance-v3/${name}-new-standard.json`,
+        `../.cache/effort-guidance-${revision}/${name}-new-standard.json`,
         "utf8",
       ),
     );
@@ -66,11 +67,12 @@ try {
   await browser.close();
 }
 await writeFile(
-  "../docs/acceptance/design-render-audit.json",
+  revision === "v3"
+    ? "../docs/acceptance/design-render-audit.json"
+    : `../docs/acceptance/design-render-audit-${revision}.json`,
   JSON.stringify(
     {
-      method:
-        "Preserved v3 outputs in the same frameSource HTML/CSS, offline Chromium; computed style and actual platform fonts on first h1/p. No model calls or source edits.",
+      method: `Preserved ${revision} outputs in the same frameSource HTML/CSS, offline Chromium; computed style and actual platform fonts on first h1/p. No model calls or source edits.`,
       samples,
     },
     null,

@@ -26,10 +26,14 @@ import services.generation.utils.*
 object EffortAcceptance extends IOApp.Simple:
   private val guidanceRetest = sys.env.get("VIBROWSER_EFFORT_GUIDANCE_RETEST").contains("true")
   private val guidanceRevision = sys.env.getOrElse("VIBROWSER_EFFORT_GUIDANCE_VERSION", "3")
+  private val samplingRetest = sys.env.get("VIBROWSER_DESIGN_SAMPLING_RETEST").contains("true")
   private val schema =
-    if guidanceRetest then "effort_guidance_v" + guidanceRevision else "effort_acceptance"
+    if samplingRetest then "effort_sampling_v1"
+    else if guidanceRetest then "effort_guidance_v" + guidanceRevision
+    else "effort_acceptance"
   private val output = Paths.get(
-    if guidanceRetest then "../.cache/effort-guidance-v" + guidanceRevision
+    if samplingRetest then "../.cache/effort-sampling-v1"
+    else if guidanceRetest then "../.cache/effort-guidance-v" + guidanceRevision
     else "../.cache/effort-acceptance"
   )
   private val samples = List(
@@ -50,11 +54,20 @@ object EffortAcceptance extends IOApp.Simple:
       parse(Files.readString(output.resolve(name + ".json"))).fold(throw _, identity)
     )
   }
-  private[generation] def metered(http: Client[IO], records: Ref[IO, Vector[Json]]): Client[IO] =
+  private[generation] def metered(
+      http: Client[IO],
+      records: Ref[IO, Vector[Json]],
+      temperature: Option[Double] = None
+  ): Client[IO] =
     Client { request =>
       for
         start <- Resource.eval(IO.monotonic)
-        payload <- Resource.eval(request.as[Json])
+        original <- Resource.eval(request.as[Json])
+        payload = DesignSamplingExperiment.payload(
+          original,
+          request.uri.host.exists(_.value == "api.deepseek.com"),
+          temperature
+        )
         system = payload.hcursor
           .downField("messages")
           .downArray
@@ -63,6 +76,7 @@ object EffortAcceptance extends IOApp.Simple:
           .getOrElse("")
         record = Json.obj(
           "model" -> payload.hcursor.get[String]("model").toOption.asJson,
+          "temperature" -> payload.hcursor.get[Double]("temperature").toOption.asJson,
           "maxTokens" -> payload.hcursor.get[Int]("max_tokens").toOption.asJson,
           "thinking" -> payload.hcursor.downField("thinking").focus.asJson,
           "reasoningEffort" -> payload.hcursor.get[String]("reasoning_effort").toOption.asJson,
@@ -98,6 +112,10 @@ object EffortAcceptance extends IOApp.Simple:
       yield response.withEntity(result)
     }
   def run: IO[Unit] =
+    require(
+      !samplingRetest || (guidanceRetest && guidanceRevision == "7"),
+      "Sampling test requires the unchanged v7 guidance"
+    )
     require(Set("3", "4", "5", "6", "7")(guidanceRevision), "Unsupported fixed experiment revision")
     require(
       !guidanceRetest || DesignGuidance.version.startsWith(guidanceRevision + "-"),
@@ -226,7 +244,9 @@ object EffortAcceptance extends IOApp.Simple:
                     )
                     page <- db.transaction(c => PageTable.findById(c, nav.pageId)).map(_.get)
                     records <- Ref.of[IO, Vector[Json]](Vector.empty)
-                    client = new DeepSeekCompatibleClient(metered(http, records))
+                    client = new DeepSeekCompatibleClient(
+                      metered(http, records, Option.when(samplingRetest)(1.3))
+                    )
                     config = new ProviderConnection(
                       base.baseUrl,
                       base.model,

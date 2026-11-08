@@ -8,16 +8,20 @@ const root = resolve(import.meta.dirname, "../..");
 const revision = ["v7", "v6", "v5", "v4", "v3"].find((v) =>
   process.argv.includes(`--guidance-${v}`),
 );
-const retest = revision !== undefined;
+const sampling = process.argv.includes("--sampling-v1");
+const retest = revision !== undefined || sampling;
+const experiment = sampling
+  ? "effort-sampling-v1"
+  : "effort-guidance-" + revision;
 const expectedSamples = retest ? 6 : 18;
 const input = resolve(
   root,
-  retest ? ".cache/effort-guidance-" + revision : ".cache/effort-acceptance",
+  retest ? ".cache/" + experiment : ".cache/effort-acceptance",
 );
 const output = resolve(
   root,
   retest
-    ? "docs/screenshots/effort-guidance-" + revision
+    ? "docs/screenshots/" + experiment
     : "docs/screenshots/effort-comparison",
 );
 await mkdir(output, { recursive: true });
@@ -36,6 +40,17 @@ for (const file of (await readdir(input))
       "Guidance retest must preserve the original input and research context",
     );
     assert.equal(record.effort, "standard");
+    if (sampling) {
+      assert(record.guidance.startsWith("7-"));
+      assert(record.modelCalls.some((call) => call.temperature === 1.3));
+      assert(
+        record.modelCalls.every((call) =>
+          call.stage === "document"
+            ? call.temperature === 1.3
+            : call.temperature == null,
+        ),
+      );
+    }
   }
   const name = file.slice(0, -5);
   const measurePath = resolve(output, name + "-measurement.json");
@@ -191,7 +206,7 @@ await writeFile(
   resolve(
     root,
     retest
-      ? "docs/acceptance/effort-guidance-" + revision + ".json"
+      ? "docs/acceptance/" + experiment + ".json"
       : "docs/acceptance/effort-comparison.json",
   ),
   JSON.stringify(
