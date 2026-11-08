@@ -9,7 +9,8 @@ final case class LayoutViewport(
     overflowIds: List[String],
     headings: List[LayoutElement],
     controls: List[LayoutElement],
-    regions: List[LayoutElement]
+    regions: List[LayoutElement],
+    visualProfile: Option[VisualProfile] = None
 )
 object LayoutViewport:
   given Encoder[LayoutViewport] = deriveEncoder

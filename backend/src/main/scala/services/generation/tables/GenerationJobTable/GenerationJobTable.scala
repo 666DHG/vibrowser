@@ -1,6 +1,6 @@
 package services.generation.tables.GenerationJobTable
 import io.circe.syntax.*
-import services.browser.objects.PageId
+import services.browser.objects.{PageId, BrowsingMode}
 import cats.effect.IO
 import java.sql.{Connection, ResultSet}
 import services.system.SqlExecutor
@@ -94,6 +94,27 @@ object GenerationJobTable:
       .map(_.headOption.getOrElse(Nil))
 
   private val workflowReadSql = "SELECT design_workflow::text FROM generation_jobs WHERE id=?"
+  private val recentVisualsSql = """SELECT profile::text FROM (
+    SELECT DISTINCT ON (split_part(lower(p.address),'/',3))
+      viewport->'visualProfile' AS profile, j.created_at, j.id
+    FROM generation_jobs j JOIN pages p ON p.id=j.page_id AND p.current_job_id=j.id
+    CROSS JOIN LATERAL jsonb_array_elements(coalesce(
+      CASE WHEN j.design_workflow->>'selection'='Improved'
+        THEN j.design_workflow->'improvedLayout'->'viewports'
+        ELSE j.design_workflow->'originalLayout'->'viewports' END, '[]'::jsonb)) viewport
+    WHERE j.status='succeeded' AND p.status='ready' AND p.mode=?
+      AND split_part(lower(p.address),'/',3)<>?
+      AND viewport->>'width'='1440' AND jsonb_typeof(viewport->'visualProfile')='object'
+    ORDER BY split_part(lower(p.address),'/',3),j.created_at DESC,j.id DESC
+  ) recent ORDER BY created_at DESC,id DESC LIMIT 3"""
+  def recentVisualProfiles(
+      c: Connection,
+      mode: BrowsingMode,
+      authority: String
+  ): IO[List[VisualProfile]] =
+    SqlExecutor.query(c, recentVisualsSql, List(BrowsingMode.toString(mode), authority))(r =>
+      io.circe.parser.decode[VisualProfile](r.getString(1)).fold(throw _, identity)
+    )
   def designWorkflow(c: Connection, id: JobId): IO[Option[DesignWorkflow]] =
     SqlExecutor
       .query(c, workflowReadSql, List(id.value))(r =>

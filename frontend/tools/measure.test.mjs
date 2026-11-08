@@ -79,3 +79,27 @@ test("offscreen navigation distinguishes local scrolling from document overflow"
     assert(viewport.overflowIds.includes("outside"));
   }
 });
+test("visual profiles describe rendering without copying page text, links or element identifiers", async () => {
+  const result = await measureDocument({
+    ...fixture,
+    html: '<main id="secret-identity"><h1>Private person and facts</h1><section><p>Sensitive biography</p><p>Another fact</p></section></main>',
+    css: "body{background:rgb(12,34,56);font-family:serif}h1{font-size:40px}section{display:grid;grid-template-columns:1fr 1fr}",
+    entities: [],
+    actions: [],
+    bindings: [],
+  });
+  for (const viewport of result.viewports) {
+    const profile = viewport.visualProfile;
+    assert(profile.backgrounds.includes("rgb(12, 34, 56)"));
+    assert(profile.headingSizes.includes(40));
+    assert(
+      profile.regions.some((r) => r.display === "grid" && r.columns === 2),
+    );
+    assert(profile.regions.length <= 4);
+    assert(
+      !/secret|Private|Sensitive|biography|https:/.test(
+        JSON.stringify(profile),
+      ),
+    );
+  }
+});

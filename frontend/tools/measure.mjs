@@ -142,6 +142,51 @@ export async function measureDocument(document, options = {}) {
             .filter(visible)
             .slice(0, limit)
             .map(describe);
+        const profileRegions = [
+          ...document.querySelectorAll("header,nav,main,section,article,aside"),
+        ]
+          .filter(visible)
+          .slice(0, 4);
+        const distinct = (values, limit) =>
+          [...new Set(values)].slice(0, limit);
+        const visualProfile = {
+          backgrounds: distinct(
+            [document.body, ...profileRegions]
+              .map((e) => getComputedStyle(e).backgroundColor)
+              .filter(
+                (color) =>
+                  color !== "rgba(0, 0, 0, 0)" && color !== "transparent",
+              ),
+            3,
+          ),
+          fonts: distinct(
+            [document.body, ...document.querySelectorAll("h1,h2")]
+              .filter(visible)
+              .map((e) => getComputedStyle(e).fontFamily.slice(0, 128)),
+            2,
+          ),
+          headingSizes: distinct(
+            [...document.querySelectorAll("h1,h2,h3")]
+              .filter(visible)
+              .map((e) => parseFloat(getComputedStyle(e).fontSize)),
+            3,
+          ),
+          regions: profileRegions.map((e) => {
+            const children = [...e.children]
+              .filter(visible)
+              .map((c) => c.getBoundingClientRect());
+            const first = children[0];
+            return {
+              display: getComputedStyle(e).display,
+              columns: first
+                ? children.filter((c) => Math.abs(c.top - first.top) < 3).length
+                : 0,
+              widthRatio:
+                Math.round((e.getBoundingClientRect().width / width) * 100) /
+                100,
+            };
+          }),
+        };
         return {
           width,
           height,
@@ -159,6 +204,7 @@ export async function measureDocument(document, options = {}) {
           headings: select("h1,h2,h3,h4,h5,h6", 40),
           controls: select("a,button,input,select,textarea,summary", 64),
           regions: select("main,article,section,aside,nav,header,footer", 30),
+          visualProfile,
         };
       }, viewport);
       reports.push(report);

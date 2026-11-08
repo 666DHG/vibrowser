@@ -78,6 +78,105 @@ class DesignWorkflowSuite extends CatsEffectSuite:
       }
   private def meter(result: LayoutReport = report): LayoutMeasurer = new LayoutMeasurer:
     def measure(doc: WebDocument): IO[LayoutReport] = IO.pure(result)
+  private def seedVisual(
+      db: DatabaseSession,
+      address: String,
+      profile: VisualProfile,
+      mode: BrowsingMode = BrowsingMode.Imagination,
+      improved: Boolean = false
+  ): IO[PageId] =
+    val layout =
+      report.copy(viewports = report.viewports.map(_.copy(visualProfile = Some(profile))))
+    for
+      nav <- db.transaction(NavigateMessage(address, None, mode = Some(mode)).plan)
+      _ <- db.transaction(ClaimGenerationJobMessage().plan)
+      _ <- db.transaction(
+        SaveDesignWorkflowMessage(
+          nav.jobId,
+          DesignWorkflow(
+            "6-fixture",
+            originalLayout = Some(if improved then report else layout),
+            improvedLayout = Option.when(improved)(layout),
+            selection = if improved then DesignSelection.Improved else DesignSelection.Original
+          )
+        ).plan
+      )
+      _ <- db.transaction(CompleteWebDocumentMessage(nav.jobId, fixture, "mock").plan)
+    yield nav.pageId
+  test(
+    "visual references are recent distinct sites, mode isolated, and absent for same-site navigation"
+  ) {
+    isolated { db =>
+      def profile(name: String) =
+        VisualProfile(List(name), List("serif"), List(32), List(VisualRegion("grid", 2, 0.8)))
+      for
+        _ <- seedVisual(db, "first.example/a", profile("first-old"))
+        _ <- seedVisual(db, "first.example/b", profile("first-latest"), improved = true)
+        _ <- seedVisual(db, "second.example", profile("second"))
+        _ <- seedVisual(db, "research.example", profile("research"), BrowsingMode.Research)
+        _ <- seedVisual(db, "third.example", profile("third"))
+        parent <- seedVisual(db, "current.example", profile("same-site"))
+        nav <- db.transaction(NavigateMessage("current.example/new", None).plan)
+        refs <- db.transaction(GetRecentVisualProfilesMessage(nav.pageId).plan)
+        _ = assertEquals(refs.map(_.backgrounds.head), List("third", "second", "first-latest"))
+        child <- db.transaction(NavigateMessage("/child", Some(parent)).plan)
+        inherited <- db.transaction(GetRecentVisualProfilesMessage(child.pageId).plan)
+        _ = assertEquals(inherited, Nil)
+        _ = assert(!refs.asJson.noSpaces.contains(fixture.title))
+      yield ()
+    }
+  }
+  test(
+    "visual references are snapshotted and enter generation without leaking into planning or review"
+  ) {
+    isolated { db =>
+      val profile = VisualProfile(List("rgb(1, 2, 3)"), List("serif"), List(32), Nil)
+      for
+        _ <- seedVisual(db, "prior.example", profile)
+        count <- Ref.of[IO, Int](0)
+        nav <- db.transaction(NavigateMessage("new-identity.example", None).plan)
+        _ <- db.transaction(ClaimGenerationJobMessage().plan)
+        page <- db.transaction(c => PageTable.findById(c, nav.pageId)).map(_.get)
+        client = new TextGenerationClient:
+          def complete(
+              c: ProviderConnection,
+              system: String,
+              prompt: String,
+              test: Boolean
+          ): IO[String] =
+            count.getAndUpdate(_ + 1).map {
+              case 0 =>
+                assert(!prompt.contains("recentVisualReferences"))
+                brief.asJson.noSpaces
+              case 1 =>
+                assert(prompt.contains(profile.asJson.noSpaces))
+                fixture.asJson.noSpaces
+              case 2 =>
+                assert(!prompt.contains("recentVisualReferences"))
+                DesignReview(Nil).asJson.noSpaces
+              case _ => fail("resume must not make another model request")
+            }
+        workflow = new DesignWorkflowGeneration(db, client, meter())
+        _ <- workflow.generate(config, page, "current-content-only", None, None)
+        _ <- seedVisual(db, "later.example", profile.copy(backgrounds = List("later")))
+        _ <- workflow.generate(config, page, "current-content-only", None, None)
+        saved <- db.transaction(c => GenerationJobTable.designWorkflow(c, nav.jobId)).map(_.get)
+        _ = assertEquals(saved.visualReferences, Some(List(profile)))
+        _ <- db.transaction(FailGenerationJobMessage(nav.jobId, "interrupted after candidate").plan)
+        retry <- db.transaction(RetryPageMessage(page.id, nav.jobId).plan)
+        _ <- db.transaction(ClaimGenerationJobMessage().plan)
+        retryPage <- db.transaction(c => PageTable.findById(c, retry.pageId)).map(_.get)
+        _ <- workflow.generate(config, retryPage, "current-content-only", None, None)
+        retryWorkflow <- db
+          .transaction(c => GenerationJobTable.designWorkflow(c, retry.jobId))
+          .map(_.get)
+        _ = assertEquals(retryWorkflow.visualReferences, saved.visualReferences)
+        old = saved.asJson.mapObject(_.remove("visualReferences"))
+        _ = assertEquals(old.as[DesignWorkflow].toOption.get.visualReferences, None)
+        _ <- count.get.map(n => assertEquals(n, 3))
+      yield ()
+    }
+  }
   test("comparison guidance is used in planning, generation and review and its version is saved") {
     isolated { db =>
       for
@@ -284,7 +383,7 @@ class DesignWorkflowSuite extends CatsEffectSuite:
   test(
     "guidance resources are packaged, versioned and validation preserves required content and actions"
   ) {
-    assert(DesignGuidance.version.startsWith("5-"))
+    assert(DesignGuidance.version.startsWith("6-"))
     assert(
       DesignGuidance.design.nonEmpty && DesignGuidance.review.nonEmpty && DesignGuidance.intent.nonEmpty
     )

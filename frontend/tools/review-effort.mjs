@@ -5,7 +5,7 @@ import { createHash } from "node:crypto";
 import { measureDocument } from "../dist-measure/measure.mjs";
 
 const root = resolve(import.meta.dirname, "../..");
-const revision = ["v5", "v4", "v3"].find((v) =>
+const revision = ["v6", "v5", "v4", "v3"].find((v) =>
   process.argv.includes(`--guidance-${v}`),
 );
 const retest = revision !== undefined;
@@ -56,6 +56,10 @@ for (const file of (await readdir(input))
     input: record.input,
     mode: record.mode,
     effort: record.effort,
+    visualReferenceCount: record.workflow?.visualReferences?.length ?? 0,
+    visualReferenceCharacters: record.workflow?.visualReferences
+      ? JSON.stringify(record.workflow.visualReferences).length
+      : 0,
     requestHash: createHash("sha256").update(record.request).digest("hex"),
     actualEffortMatches:
       record.modelCalls.length === 0

@@ -128,7 +128,25 @@ private[generation] final class DesignWorkflowGeneration(
     val generator = new WebDocumentGeneration(database, client)
     for
       previous <- database.transaction(c => GenerationJobTable.designWorkflow(c, page.currentJobId))
-      initial = previous.getOrElse(DesignWorkflow(guidance.version))
+      initial <- previous match
+        case Some(saved) => IO.pure(saved)
+        case None =>
+          for
+            references <-
+              if guidance.visualContext then
+                database.transaction(GetRecentVisualProfilesMessage(page.id).plan)
+              else IO.pure(List.empty[VisualProfile])
+            bounded = references.foldLeft(List.empty[VisualProfile])((kept, next) =>
+              if (kept :+ next).asJson.noSpaces.length <= 3000 then kept :+ next else kept
+            )
+            saved <- save(
+              page,
+              DesignWorkflow(
+                guidance.version,
+                visualReferences = Option.when(guidance.visualContext)(bounded)
+              )
+            )
+          yield saved
       _ <-
         if done(initial, DesignStage.Brief) then IO.unit else phase(page, GenerationPhase.Designing)
       planned <- call[DesignBrief](
@@ -148,7 +166,10 @@ private[generation] final class DesignWorkflowGeneration(
         )
       }
       fullPrompt =
-        prompt + "\n设计指导：\n" + guidance.design + "\n设计说明：" + planned.brief.asJson.noSpaces
+        prompt + "\n设计指导：\n" + guidance.design + "\n设计说明：" + planned.brief.asJson.noSpaces +
+          planned.visualReferences
+            .filter(_.nonEmpty)
+            .fold("")(refs => "\nrecentVisualReferences:" + refs.asJson.noSpaces)
       candidate <- planned.candidate match
         case Some(doc) => generator.validate(page, doc.asJson.noSpaces, snapshot, research)
         case None =>

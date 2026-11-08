@@ -11,7 +11,8 @@ final case class DesignWorkflow(
     improved: Option[WebDocument] = None,
     improvedLayout: Option[LayoutReport] = None,
     selection: DesignSelection = DesignSelection.Original,
-    events: List[DesignEvent] = Nil
+    events: List[DesignEvent] = Nil,
+    visualReferences: Option[List[VisualProfile]] = None
 )
 object DesignWorkflow:
   given Encoder[DesignWorkflow] = deriveEncoder
