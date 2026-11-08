@@ -22,7 +22,7 @@ export function HomePlanet({ active }: { active: boolean }) {
       <pre
         aria-hidden="true"
         data-testid="planet-characters"
-        className="pointer-events-none m-0 select-none text-[#b8cf9d] [font-variant-ligatures:none] [mask-image:linear-gradient(to_right,transparent,black_22%)]"
+        className="pointer-events-none m-0 select-none text-[#b8cf9d] [font-variant-ligatures:none] [mask-image:linear-gradient(to_right,transparent_10%,black_32%)]"
         style={{
           fontFamily: '"Courier New", monospace',
           fontSize: frame.fontSize,

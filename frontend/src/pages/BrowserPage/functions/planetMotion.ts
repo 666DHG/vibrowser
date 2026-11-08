@@ -5,7 +5,7 @@ import type {
 } from "../objects/PlanetScene";
 export const pitchMin = (12 * Math.PI) / 180;
 export const pitchMax = (32 * Math.PI) / 180;
-export const idleSpeed = (2 * Math.PI) / 30;
+export const idleSpeed = (2 * Math.PI) / 18;
 export const initialPlanetRotation: PlanetRotation = {
   yaw: 0.35,
   pitch: (20 * Math.PI) / 180,

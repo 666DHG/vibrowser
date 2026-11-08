@@ -29,7 +29,7 @@ export function usePlanetAnimation(active: boolean) {
     running = useRef(false),
     time = useRef(0);
   const meteor = useRef<PlanetMeteor | null>(null),
-    nextMeteor = useRef(2.5);
+    nextMeteor = useRef(1.2);
   const pointer = useRef<{
     id: number;
     x: number;
@@ -95,7 +95,7 @@ export function usePlanetAnimation(active: boolean) {
       if (!meteor.current && time.current >= nextMeteor.current) {
         if (motion.current.mode === "idle") {
           meteor.current = createPlanetMeteor(time.current, Math.random());
-          nextMeteor.current = time.current + 4 + Math.random() * 3;
+          nextMeteor.current = time.current + 2 + Math.random() * 1.5;
         } else nextMeteor.current = time.current + 0.5;
       }
       if (now - lastDraw >= 1000 / 30) {

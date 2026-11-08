@@ -14,7 +14,8 @@ test("idle spin, bounded drag, inertia, reset and active tab lifecycle", async (
   await expect.poll(() => characters.textContent()).not.toBe(initial);
   const box = (await planet.boundingBox())!;
   expect(box.x + box.width).toBeGreaterThan(1400);
-  expect(box.width).toBeGreaterThan(700);
+  expect(box.width).toBeGreaterThan(900);
+  expect(box.height).toBeGreaterThan(750);
   const x = box.x + box.width * 0.3,
     y = box.y + box.height * 0.5;
   await page.mouse.move(x, y);
@@ -241,7 +242,7 @@ test("seeded idle scene includes a transient background meteor", async ({
   await page.setViewportSize({ width: 1440, height: 960 });
   await page.goto("/");
   await expect(page.getByTestId("planet-characters")).not.toBeEmpty();
-  await page.clock.runFor(2800);
+  await page.clock.runFor(1700);
   await page.screenshot({
     path: "../docs/screenshots/ascii-planet/idle-meteor.png",
     animations: "disabled",

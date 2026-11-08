@@ -14,8 +14,8 @@ export function HomePage({
   active: boolean;
 }) {
   return (
-    <div className="min-h-full overflow-x-clip pb-12">
-      <div className="relative lg:h-[clamp(420px,58vh,680px)]">
+    <div className="relative isolate min-h-full overflow-x-clip pb-12 lg:min-h-[calc(100vh-112px)]">
+      <div className="lg:h-[clamp(420px,58vh,680px)]">
         <div className="relative z-10 mx-auto max-w-6xl px-6 pt-10 sm:px-8 md:px-14 lg:flex lg:h-full lg:items-center lg:pt-0 pointer-events-none">
           <div className="pointer-events-auto lg:max-w-[48%]">
             <h1 className="text-[clamp(2.25rem,7vw,3.875rem)] font-medium leading-[1.2] tracking-tight text-[#f0f0e6]">
@@ -28,11 +28,11 @@ export function HomePage({
             </p>
           </div>
         </div>
-        <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-[55%]">
+        <div className="lg:absolute lg:bottom-0 lg:top-8 lg:right-0 lg:w-[64%]">
           <HomePlanet active={active} />
         </div>
       </div>
-      <div className="mx-auto max-w-6xl px-6 sm:px-8 md:px-14">
+      <div className="pointer-events-none relative z-10 mx-auto max-w-6xl px-6 sm:px-8 md:px-14">
         <h2 className="mb-5 mt-6 text-base font-medium text-[#d1d8c7] lg:mt-0">
           从好奇开始
         </h2>
@@ -69,7 +69,7 @@ export function HomePage({
                 "https://" + x.url + (x.url.includes("/") ? "" : "/")
               }
               onClick={() => onNavigate(new URL("https://" + x.url).href)}
-              className="group cursor-pointer rounded-2xl border border-white/8 bg-[#1e211c] p-5 text-left transition-colors hover:border-[#b8d69a]/40 hover:bg-[#252b22] sm:p-6"
+              className="pointer-events-auto group cursor-pointer rounded-2xl border border-white/8 bg-[#1e211c] p-5 text-left transition-colors hover:border-[#b8d69a]/40 hover:bg-[#252b22] sm:p-6"
             >
               <div className="mb-6 flex justify-between text-[#94ad7e]">
                 <x.icon size={21} strokeWidth={1.3} />
