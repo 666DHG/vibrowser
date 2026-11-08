@@ -1,0 +1,753 @@
+{
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 900,
+      "scrollWidth": 1425,
+      "scrollHeight": 1698,
+      "overflowIds": [],
+      "headings": [
+        {
+          "id": "today-title",
+          "tag": "h1",
+          "text": "2026 年 11 月 7 日",
+          "x": 292.5,
+          "y": 129.84375,
+          "width": 840,
+          "height": 58.234375,
+          "fontSize": "52px",
+          "lineHeight": "58.24px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "list-title",
+          "tag": "h2",
+          "text": "今天的日子",
+          "x": 313.5,
+          "y": 473.46875,
+          "width": 95.953125,
+          "height": 31.34375,
+          "fontSize": "19px",
+          "lineHeight": "31.35px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "h3",
+          "text": "立冬",
+          "x": 351.5,
+          "y": 686.328125,
+          "width": 760,
+          "height": 25.5,
+          "fontSize": "17.5px",
+          "lineHeight": "24.5px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "h3",
+          "text": "中国记者节",
+          "x": 351.5,
+          "y": 813.0625,
+          "width": 760,
+          "height": 25.5,
+          "fontSize": "17.5px",
+          "lineHeight": "24.5px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "h3",
+          "text": "十月社会主义革命纪念日",
+          "x": 351.5,
+          "y": 964.890625,
+          "width": 760,
+          "height": 25.5,
+          "fontSize": "17.5px",
+          "lineHeight": "24.5px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "h3",
+          "text": "世界放射学日",
+          "x": 351.5,
+          "y": 1091.625,
+          "width": 760,
+          "height": 25.5,
+          "fontSize": "17.5px",
+          "lineHeight": "24.5px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "compare-title",
+          "tag": "h2",
+          "text": "相邻日子的对照",
+          "x": 313.5,
+          "y": 1277.359375,
+          "width": 798,
+          "height": 31.34375,
+          "fontSize": "19px",
+          "lineHeight": "31.35px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        }
+      ],
+      "controls": [
+        {
+          "id": "q",
+          "tag": "input",
+          "text": "",
+          "x": 313.5,
+          "y": 563.609375,
+          "width": 317,
+          "height": 45.09375,
+          "fontSize": "14px",
+          "lineHeight": "23.1px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "search-submit",
+          "tag": "button",
+          "text": "搜索",
+          "x": 638.5,
+          "y": 563.609375,
+          "width": 65,
+          "height": 45.09375,
+          "fontSize": "13.5px",
+          "lineHeight": "22.275px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "filter-input",
+          "tag": "input",
+          "text": "",
+          "x": 721.5,
+          "y": 563.609375,
+          "width": 185,
+          "height": 45.09375,
+          "fontSize": "14px",
+          "lineHeight": "23.1px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "chip-season",
+          "tag": "button",
+          "text": "节气",
+          "x": 721.5,
+          "y": 617.703125,
+          "width": 51,
+          "height": 32.625,
+          "fontSize": "12.5px",
+          "lineHeight": "20.625px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "chip-work",
+          "tag": "button",
+          "text": "行业",
+          "x": 779.5,
+          "y": 617.703125,
+          "width": 51,
+          "height": 32.625,
+          "fontSize": "12.5px",
+          "lineHeight": "20.625px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "chip-memorial",
+          "tag": "button",
+          "text": "纪念",
+          "x": 837.5,
+          "y": 617.703125,
+          "width": 51,
+          "height": 32.625,
+          "fontSize": "12.5px",
+          "lineHeight": "20.625px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "chip-all",
+          "tag": "button",
+          "text": "全部",
+          "x": 895.5,
+          "y": 617.703125,
+          "width": 51,
+          "height": 32.625,
+          "fontSize": "12.5px",
+          "lineHeight": "20.625px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "d1-btn",
+          "tag": "button",
+          "text": "立冬",
+          "x": 351.5,
+          "y": 686.328125,
+          "width": 50.3125,
+          "height": 25.5,
+          "fontSize": "17.5px",
+          "lineHeight": "24.5px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "d2-btn",
+          "tag": "button",
+          "text": "中国记者节",
+          "x": 351.5,
+          "y": 813.0625,
+          "width": 102.8125,
+          "height": 25.5,
+          "fontSize": "17.5px",
+          "lineHeight": "24.5px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "d3-btn",
+          "tag": "button",
+          "text": "十月社会主义革命纪念日",
+          "x": 351.5,
+          "y": 964.890625,
+          "width": 207.8125,
+          "height": 25.5,
+          "fontSize": "17.5px",
+          "lineHeight": "24.5px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "d4-btn",
+          "tag": "button",
+          "text": "世界放射学日",
+          "x": 351.5,
+          "y": 1091.625,
+          "width": 120.3125,
+          "height": 25.5,
+          "fontSize": "17.5px",
+          "lineHeight": "24.5px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "copy-today",
+          "tag": "button",
+          "text": "复制今天的日期摘要",
+          "x": 313.5,
+          "y": 1493.125,
+          "width": 159.5,
+          "height": 44.265625,
+          "fontSize": "13.5px",
+          "lineHeight": "22.275px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        }
+      ],
+      "regions": [
+        {
+          "id": "",
+          "tag": "header",
+          "text": "今今天是什么日子\n  每日一页，看清今天的名字",
+          "x": 0,
+          "y": 0,
+          "width": 1425,
+          "height": 62.046875,
+          "fontSize": "16px",
+          "lineHeight": "26.4px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "main",
+          "text": "北京时间 · Asia/Shanghai\n  2026 年 11 月 7 日\n  星期六 · 立冬\n  \n   \n    农历丙午年 九月廿九\n   \n   \n    今年第311 天\n   \n   \n    距年末54 天\n   \n  \n  今天没有全国性法定节日，但有 4 个与今天相关的日子，其中 1 个是当天交节的节气。\n \n \n  \n   今天的日子",
+          "x": 272.5,
+          "y": 62.046875,
+          "width": 880,
+          "height": 1595.9375,
+          "fontSize": "16px",
+          "lineHeight": "26.4px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "section",
+          "text": "北京时间 · Asia/Shanghai\n  2026 年 11 月 7 日\n  星期六 · 立冬\n  \n   \n    农历丙午年 九月廿九\n   \n   \n    今年第311 天\n   \n   \n    距年末54 天\n   \n  \n  今天没有全国性法定节日，但有 4 个与今天相关的日子，其中 1 个是当天交节的节气。",
+          "x": 292.5,
+          "y": 62.046875,
+          "width": 840,
+          "height": 352.421875,
+          "fontSize": "16px",
+          "lineHeight": "26.4px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "section",
+          "text": "今天的日子\n   共 4 条 · 点击条目标题展开含义说明\n  \n  \n   \n    在站内查找某个日子\n    \n     \n     搜索\n    \n   \n   \n    按分类筛选（节气 / 行业 / 纪念） \n    \n     节气\n     行业\n     纪念\n     全部\n    \n   \n  \n  \n   \n    \n     01\n",
+          "x": 292.5,
+          "y": 448.46875,
+          "width": 840,
+          "height": 773.890625,
+          "fontSize": "16px",
+          "lineHeight": "26.4px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "section",
+          "text": "相邻日子的对照\n  把握“今天”在时间轴上的位置，避免把前后一天的日子算到头上。\n  \n   \n    11 月 6 日星期五\n    秋末 · 昨日\n   \n   \n    11 月 7 日星期六\n    立冬 · 十月革命纪念日 · 今天\n   \n   \n    11 月 8 日星期日\n    中国记者节 · 世界放射学日 · 明日\n   \n  \n  提",
+          "x": 292.5,
+          "y": 1252.359375,
+          "width": 840,
+          "height": 310.03125,
+          "fontSize": "16px",
+          "lineHeight": "26.4px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "footer",
+          "text": "日期按北京时间（UTC+8）计算 · 数据以每年实际交节与官方公告为准\n  今天是什么日子 · 每日更新",
+          "x": 292.5,
+          "y": 1598.390625,
+          "width": 840,
+          "height": 59.59375,
+          "fontSize": "12px",
+          "lineHeight": "19.8px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        }
+      ],
+      "visualProfile": {
+        "backgrounds": [
+          "rgb(244, 239, 230)",
+          "rgb(251, 248, 242)"
+        ],
+        "fonts": [
+          "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif"
+        ],
+        "headingSizes": [
+          52,
+          19,
+          17.5
+        ],
+        "regions": [
+          {
+            "display": "block",
+            "columns": 1,
+            "widthRatio": 0.99
+          },
+          {
+            "display": "block",
+            "columns": 1,
+            "widthRatio": 0.61
+          },
+          {
+            "display": "block",
+            "columns": 1,
+            "widthRatio": 0.58
+          },
+          {
+            "display": "block",
+            "columns": 1,
+            "widthRatio": 0.58
+          }
+        ]
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 375,
+      "scrollHeight": 2276,
+      "overflowIds": [],
+      "headings": [
+        {
+          "id": "today-title",
+          "tag": "h1",
+          "text": "2026 年 11 月 7 日",
+          "x": 20,
+          "y": 160.46875,
+          "width": 335,
+          "height": 33.59375,
+          "fontSize": "30px",
+          "lineHeight": "33.6px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "list-title",
+          "tag": "h2",
+          "text": "今天的日子",
+          "x": 36,
+          "y": 539.734375,
+          "width": 95.953125,
+          "height": 31.34375,
+          "fontSize": "19px",
+          "lineHeight": "31.35px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "h3",
+          "text": "立冬",
+          "x": 36,
+          "y": 920.375,
+          "width": 303,
+          "height": 25.5,
+          "fontSize": "17.5px",
+          "lineHeight": "24.5px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "h3",
+          "text": "中国记者节",
+          "x": 36,
+          "y": 1070.203125,
+          "width": 303,
+          "height": 25.5,
+          "fontSize": "17.5px",
+          "lineHeight": "24.5px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "h3",
+          "text": "十月社会主义革命纪念日",
+          "x": 36,
+          "y": 1245.125,
+          "width": 303,
+          "height": 25.5,
+          "fontSize": "17.5px",
+          "lineHeight": "24.5px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "h3",
+          "text": "世界放射学日",
+          "x": 36,
+          "y": 1394.953125,
+          "width": 303,
+          "height": 25.5,
+          "fontSize": "17.5px",
+          "lineHeight": "24.5px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "compare-title",
+          "tag": "h2",
+          "text": "相邻日子的对照",
+          "x": 36,
+          "y": 1591.78125,
+          "width": 303,
+          "height": 31.34375,
+          "fontSize": "19px",
+          "lineHeight": "31.35px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        }
+      ],
+      "controls": [
+        {
+          "id": "q",
+          "tag": "input",
+          "text": "",
+          "x": 36,
+          "y": 656.5,
+          "width": 303,
+          "height": 45.09375,
+          "fontSize": "14px",
+          "lineHeight": "23.1px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "search-submit",
+          "tag": "button",
+          "text": "搜索",
+          "x": 36,
+          "y": 709.59375,
+          "width": 303,
+          "height": 44.265625,
+          "fontSize": "13.5px",
+          "lineHeight": "22.275px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "filter-input",
+          "tag": "input",
+          "text": "",
+          "x": 36,
+          "y": 797.65625,
+          "width": 185,
+          "height": 45.09375,
+          "fontSize": "14px",
+          "lineHeight": "23.1px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "chip-season",
+          "tag": "button",
+          "text": "节气",
+          "x": 36,
+          "y": 851.75,
+          "width": 51,
+          "height": 32.625,
+          "fontSize": "12.5px",
+          "lineHeight": "20.625px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "chip-work",
+          "tag": "button",
+          "text": "行业",
+          "x": 94,
+          "y": 851.75,
+          "width": 51,
+          "height": 32.625,
+          "fontSize": "12.5px",
+          "lineHeight": "20.625px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "chip-memorial",
+          "tag": "button",
+          "text": "纪念",
+          "x": 152,
+          "y": 851.75,
+          "width": 51,
+          "height": 32.625,
+          "fontSize": "12.5px",
+          "lineHeight": "20.625px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "chip-all",
+          "tag": "button",
+          "text": "全部",
+          "x": 210,
+          "y": 851.75,
+          "width": 51,
+          "height": 32.625,
+          "fontSize": "12.5px",
+          "lineHeight": "20.625px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "d1-btn",
+          "tag": "button",
+          "text": "立冬",
+          "x": 36,
+          "y": 920.375,
+          "width": 50.3125,
+          "height": 25.5,
+          "fontSize": "17.5px",
+          "lineHeight": "24.5px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "d2-btn",
+          "tag": "button",
+          "text": "中国记者节",
+          "x": 36,
+          "y": 1070.203125,
+          "width": 102.8125,
+          "height": 25.5,
+          "fontSize": "17.5px",
+          "lineHeight": "24.5px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "d3-btn",
+          "tag": "button",
+          "text": "十月社会主义革命纪念日",
+          "x": 36,
+          "y": 1245.125,
+          "width": 207.8125,
+          "height": 25.5,
+          "fontSize": "17.5px",
+          "lineHeight": "24.5px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "d4-btn",
+          "tag": "button",
+          "text": "世界放射学日",
+          "x": 36,
+          "y": 1394.953125,
+          "width": 120.3125,
+          "height": 25.5,
+          "fontSize": "17.5px",
+          "lineHeight": "24.5px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "copy-today",
+          "tag": "button",
+          "text": "复制今天的日期摘要",
+          "x": 36,
+          "y": 2032.953125,
+          "width": 303,
+          "height": 44.265625,
+          "fontSize": "13.5px",
+          "lineHeight": "22.275px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        }
+      ],
+      "regions": [
+        {
+          "id": "",
+          "tag": "header",
+          "text": "今今天是什么日子\n  每日一页，看清今天的名字",
+          "x": 0,
+          "y": 0,
+          "width": 375,
+          "height": 92.671875,
+          "fontSize": "16px",
+          "lineHeight": "26.4px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "main",
+          "text": "北京时间 · Asia/Shanghai\n  2026 年 11 月 7 日\n  星期六 · 立冬\n  \n   \n    农历丙午年 九月廿九\n   \n   \n    今年第311 天\n   \n   \n    距年末54 天\n   \n  \n  今天没有全国性法定节日，但有 4 个与今天相关的日子，其中 1 个是当天交节的节气。\n \n \n  \n   今天的日子",
+          "x": 0,
+          "y": 92.671875,
+          "width": 375,
+          "height": 2143.4375,
+          "fontSize": "16px",
+          "lineHeight": "26.4px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "section",
+          "text": "北京时间 · Asia/Shanghai\n  2026 年 11 月 7 日\n  星期六 · 立冬\n  \n   \n    农历丙午年 九月廿九\n   \n   \n    今年第311 天\n   \n   \n    距年末54 天\n   \n  \n  今天没有全国性法定节日，但有 4 个与今天相关的日子，其中 1 个是当天交节的节气。",
+          "x": 20,
+          "y": 92.671875,
+          "width": 335,
+          "height": 394.0625,
+          "fontSize": "16px",
+          "lineHeight": "26.4px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "section",
+          "text": "今天的日子\n   共 4 条 · 点击条目标题展开含义说明\n  \n  \n   \n    在站内查找某个日子\n    \n     \n     搜索\n    \n   \n   \n    按分类筛选（节气 / 行业 / 纪念） \n    \n     节气\n     行业\n     纪念\n     全部\n    \n   \n  \n  \n   \n    \n     01\n",
+          "x": 20,
+          "y": 520.734375,
+          "width": 335,
+          "height": 1022.046875,
+          "fontSize": "16px",
+          "lineHeight": "26.4px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "section",
+          "text": "相邻日子的对照\n  把握“今天”在时间轴上的位置，避免把前后一天的日子算到头上。\n  \n   \n    11 月 6 日星期五\n    秋末 · 昨日\n   \n   \n    11 月 7 日星期六\n    立冬 · 十月革命纪念日 · 今天\n   \n   \n    11 月 8 日星期日\n    中国记者节 · 世界放射学日 · 明日\n   \n  \n  提",
+          "x": 20,
+          "y": 1572.78125,
+          "width": 335,
+          "height": 547.9375,
+          "fontSize": "16px",
+          "lineHeight": "26.4px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "footer",
+          "text": "日期按北京时间（UTC+8）计算 · 数据以每年实际交节与官方公告为准\n  今天是什么日子 · 每日更新",
+          "x": 20,
+          "y": 2156.71875,
+          "width": 335,
+          "height": 79.390625,
+          "fontSize": "12px",
+          "lineHeight": "19.8px",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+          "horizontalScroll": null
+        }
+      ],
+      "visualProfile": {
+        "backgrounds": [
+          "rgb(244, 239, 230)",
+          "rgb(251, 248, 242)"
+        ],
+        "fonts": [
+          "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif"
+        ],
+        "headingSizes": [
+          30,
+          19,
+          17.5
+        ],
+        "regions": [
+          {
+            "display": "block",
+            "columns": 1,
+            "widthRatio": 0.96
+          },
+          {
+            "display": "block",
+            "columns": 1,
+            "widthRatio": 0.96
+          },
+          {
+            "display": "block",
+            "columns": 1,
+            "widthRatio": 0.86
+          },
+          {
+            "display": "block",
+            "columns": 1,
+            "widthRatio": 0.86
+          }
+        ]
+      }
+    }
+  ],
+  "error": null
+}

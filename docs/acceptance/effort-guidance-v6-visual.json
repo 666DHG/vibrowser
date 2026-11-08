@@ -1,0 +1,46 @@
+{
+  "complete": true,
+  "method": "Compare the fixed v6 desktop/mobile pages with preserved old-standard screenshots. Count task-related structure and typography, not color changes or additional sections. No rerolls. Interactions replayed separately after the nested-filter runtime fix.",
+  "topics": [
+    {
+      "name": "academic",
+      "verdict": "improved",
+      "observation": "Research statement, research-coordinate sidebar and parallel research directions make relationships easier to locate than the old continuous biography. Mobile stacks the sections. No recent visual references existed for this first research page, so this result cannot demonstrate their effect."
+    },
+    {
+      "name": "copy",
+      "verdict": "improved",
+      "observation": "Search/categories and independent copy cards expose reusable entries before the archive; mobile stacks readable entries. Copy and category filtering passed. This first imagination page also had no recent visual references."
+    },
+    {
+      "name": "calendar",
+      "verdict": "neutral",
+      "observation": "Large date, metadata boxes and a filterable event list are usable but do not clearly improve on the old compact date/event overview. Warm background and brick accent remain despite an earlier-site reference."
+    },
+    {
+      "name": "comparison",
+      "verdict": "neutral",
+      "observation": "Parallel item cards group each item well, but five dimension explanations delay actual comparison on mobile. The old scenario selector and matrix offer a different useful route; no clear overall structural improvement established. Filter, sort and navigation submission passed."
+    },
+    {
+      "name": "docs",
+      "verdict": "improved",
+      "observation": "Symptom-to-chapter index and keyword filtering provide a task-oriented entry into the long reference document, rather than only a chapter sidebar. The initial filter hid its own input; a generic runtime fix now preserves controls and filters tagged nested items. Same saved document passes replay without a model regeneration."
+    },
+    {
+      "name": "essay",
+      "verdict": "neutral",
+      "observation": "The introduction, narrow chronological archive and local filtering remain close to the old journal reading pattern. No clear structural improvement established."
+    }
+  ],
+  "improvedTopics": 3,
+  "requiredForDefaultEnable": 4,
+  "defaultEnableGatePassed": false,
+  "sameSiteV6Retested": false,
+  "decision": "Keep experimental workflow opt-in. Dynamic visual references alone have not met the breadth gate. Do not add per-sample prompt rules or claim the first two cold-reference pages prove a reference benefit.",
+  "interactionNotes": {
+    "initial": "effort-guidance-v6-interactions-initial.json",
+    "afterRuntimeFix": "effort-guidance-v6-interactions.json",
+    "calendarCopyDifference": "Accepted initial text and final improved text differ: final wording explicitly separates today from tomorrow and adds the historical date. No entity binding or host text loss involved; clipboard dispatch matches the displayed final content. Retain the literal comparison failure as evidence, not a product defect."
+  }
+}
