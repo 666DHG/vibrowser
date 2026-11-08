@@ -8,6 +8,8 @@
 
 ![浏览器首页](docs/screenshots/home.png)
 
+新页面默认使用内容驱动设计流程：整理用途、生成自由布局、检查实际可用性，并至多改进一次。轻微排版或可选交互不足不强制重写；保留 `VIBROWSER_DESIGN_WORKFLOW=false` 作为回退开关。交付范围、测试与已知限制见 [本轮交付记录](docs/DESIGN_DELIVERY.md)。
+
 ## 启动
 
 已验证环境：Windows、Node.js 22.19、Java 25、PostgreSQL 16。Scala 3.3.7 / sbt 1.11.7 由项目脚本管理；前端依赖由 package-lock.json 固定。需要 java、node、npm 可从 PATH 调用。

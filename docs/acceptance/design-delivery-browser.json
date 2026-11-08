@@ -1,0 +1,276 @@
+{
+  "uniquePassed": 39,
+  "runs": [
+    {
+      "mode": "legacy",
+      "stats": {
+        "startTime": "2026-11-08T07:10:51.803Z",
+        "duration": 72800.803,
+        "expected": 36,
+        "skipped": 2,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "tests": [
+        {
+          "file": "browser.spec.ts",
+          "title": "home, website, link, history, refresh and fictional search",
+          "status": "expected"
+        },
+        {
+          "file": "browser.spec.ts",
+          "title": "settings save, mask, test, reload and clear fake credential",
+          "status": "expected"
+        },
+        {
+          "file": "browser.spec.ts",
+          "title": "invalid protocol and rapid navigation never replace newer content",
+          "status": "expected"
+        },
+        {
+          "file": "browser.spec.ts",
+          "title": "mobile layout stays within viewport",
+          "status": "expected"
+        },
+        {
+          "file": "cache-policy.spec.ts",
+          "title": "Chinese display and bookmark-only address reuse",
+          "status": "expected"
+        },
+        {
+          "file": "effort.spec.ts",
+          "title": "standard waiting budget follows submitted effort after the selector changes",
+          "status": "expected"
+        },
+        {
+          "file": "effort.spec.ts",
+          "title": "deep waiting budget follows submitted effort after the selector changes",
+          "status": "expected"
+        },
+        {
+          "file": "effort.spec.ts",
+          "title": "effort is snapshotted per navigation, inherited by tabs, restored by history and session",
+          "status": "expected"
+        },
+        {
+          "file": "effort.spec.ts",
+          "title": "custom interfaces show deep as unavailable",
+          "status": "expected"
+        },
+        {
+          "file": "entities.spec.ts",
+          "title": "entity-bound navigation submits exact source block and preserves displayed facts",
+          "status": "expected"
+        },
+        {
+          "file": "entities.spec.ts",
+          "title": "bookmark URLs preview without navigating including cached search pages",
+          "status": "expected"
+        },
+        {
+          "file": "layouts.spec.ts",
+          "title": "editorial layout, typography, responsive flow and navigation",
+          "status": "expected"
+        },
+        {
+          "file": "layouts.spec.ts",
+          "title": "storefront layout, typography, responsive flow and navigation",
+          "status": "expected"
+        },
+        {
+          "file": "layouts.spec.ts",
+          "title": "documentation layout, typography, responsive flow and navigation",
+          "status": "expected"
+        },
+        {
+          "file": "layouts.spec.ts",
+          "title": "community layout, typography, responsive flow and navigation",
+          "status": "expected"
+        },
+        {
+          "file": "layouts.spec.ts",
+          "title": "dashboard layout, typography, responsive flow and navigation",
+          "status": "expected"
+        },
+        {
+          "file": "layouts.spec.ts",
+          "title": "studio layout, typography, responsive flow and navigation",
+          "status": "expected"
+        },
+        {
+          "file": "layouts.spec.ts",
+          "title": "directory layout, typography, responsive flow and navigation",
+          "status": "expected"
+        },
+        {
+          "file": "modes.spec.ts",
+          "title": "mode choice is tab scoped and settings is a persistent internal tab",
+          "status": "expected"
+        },
+        {
+          "file": "progress.spec.ts",
+          "title": "retained page, fixed step panel, failure, retry and history commit",
+          "status": "expected"
+        },
+        {
+          "file": "progress.spec.ts",
+          "title": "pending navigation restores over the old page, cancel and replacement stay isolated",
+          "status": "expected"
+        },
+        {
+          "file": "progress.spec.ts",
+          "title": "home uses fullscreen progress and both toolbars remain equal on desktop and mobile",
+          "status": "expected"
+        },
+        {
+          "file": "progress.spec.ts",
+          "title": "progress scroll geometry stays stable through spinner frames and long retry history",
+          "status": "expected"
+        },
+        {
+          "file": "progress.spec.ts",
+          "title": "link previews resolve the click target, handle nested icons/focus and clear on navigation",
+          "status": "expected"
+        },
+        {
+          "file": "progress.spec.ts",
+          "title": "design stages keep the previous page visible and render translated progress",
+          "status": "expected"
+        },
+        {
+          "file": "research-ui.spec.ts",
+          "title": "missing search configuration reopens the existing settings tab at search controls",
+          "status": "expected"
+        },
+        {
+          "file": "research-ui.spec.ts",
+          "title": "candidate choice keeps submitted mode after the tab mode changes",
+          "status": "expected"
+        },
+        {
+          "file": "research-ui.spec.ts",
+          "title": "independent search key drafts stay in the settings tab and are discarded on close",
+          "status": "expected"
+        },
+        {
+          "file": "research.spec.ts",
+          "title": "research sources, bookmarked mode and local actions survive navigation",
+          "status": "skipped"
+        },
+        {
+          "file": "tabs.spec.ts",
+          "title": "tabs keep independent history, drafts, scroll and restore without new generation",
+          "status": "expected"
+        },
+        {
+          "file": "tabs.spec.ts",
+          "title": "background generation stays with its tab and closing stops polling and late navigation",
+          "status": "expected"
+        },
+        {
+          "file": "tabs.spec.ts",
+          "title": "new application windows have separate sessions",
+          "status": "expected"
+        },
+        {
+          "file": "tabs.spec.ts",
+          "title": "many tabs stay reachable on mobile and support keyboard switching",
+          "status": "expected"
+        },
+        {
+          "file": "web-runtime.spec.ts",
+          "title": "isolated v3 runtime: forum",
+          "status": "expected"
+        },
+        {
+          "file": "web-runtime.spec.ts",
+          "title": "isolated v3 runtime: shop",
+          "status": "expected"
+        },
+        {
+          "file": "web-runtime.spec.ts",
+          "title": "isolated v3 runtime: docs",
+          "status": "expected"
+        },
+        {
+          "file": "web-runtime.spec.ts",
+          "title": "v3 IME and consecutive searches accept only the newest response",
+          "status": "expected"
+        },
+        {
+          "file": "web-worker.spec.ts",
+          "title": "v3 worker persists search and append as immutable versions",
+          "status": "skipped"
+        }
+      ]
+    },
+    {
+      "mode": "v3",
+      "stats": {
+        "startTime": "2026-11-08T07:14:51.749Z",
+        "duration": 25022.388000000003,
+        "expected": 11,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "tests": [
+        {
+          "file": "bookmarks.spec.ts",
+          "title": "bookmarks persist, synchronize windows and open cached pages without generation",
+          "status": "expected"
+        },
+        {
+          "file": "modes.spec.ts",
+          "title": "mode choice is tab scoped and settings is a persistent internal tab",
+          "status": "expected"
+        },
+        {
+          "file": "research-ui.spec.ts",
+          "title": "missing search configuration reopens the existing settings tab at search controls",
+          "status": "expected"
+        },
+        {
+          "file": "research-ui.spec.ts",
+          "title": "candidate choice keeps submitted mode after the tab mode changes",
+          "status": "expected"
+        },
+        {
+          "file": "research-ui.spec.ts",
+          "title": "independent search key drafts stay in the settings tab and are discarded on close",
+          "status": "expected"
+        },
+        {
+          "file": "research.spec.ts",
+          "title": "research sources, bookmarked mode and local actions survive navigation",
+          "status": "expected"
+        },
+        {
+          "file": "web-runtime.spec.ts",
+          "title": "isolated v3 runtime: forum",
+          "status": "expected"
+        },
+        {
+          "file": "web-runtime.spec.ts",
+          "title": "isolated v3 runtime: shop",
+          "status": "expected"
+        },
+        {
+          "file": "web-runtime.spec.ts",
+          "title": "isolated v3 runtime: docs",
+          "status": "expected"
+        },
+        {
+          "file": "web-runtime.spec.ts",
+          "title": "v3 IME and consecutive searches accept only the newest response",
+          "status": "expected"
+        },
+        {
+          "file": "web-worker.spec.ts",
+          "title": "v3 worker persists search and append as immutable versions",
+          "status": "expected"
+        }
+      ]
+    }
+  ]
+}

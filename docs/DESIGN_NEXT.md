@@ -1,5 +1,7 @@
 # 下一步计划与目标
 
+当前交付（2026-11-08）：交互与评审修复、标准／深入两挡、v8 内容驱动设计已完成，本分支默认启用。完整结果、原批次失败及修复后验收见 [收尾报告](DESIGN_DELIVERY.md)。下文保留各阶段历史，不代表当前开关状态。
+
 随笔修复后真实重试完成：首轮正文通过，3 次调用、159 秒，交互回放通过，独立报告 product-failed-retry.json。原六题仍为 5/6，不覆盖失败。正式 low／48k 的器具详情连续性任务已启动，源 schema 为 effort_guidance_v8_product、源动作 vib-nav-vib-link-0、label comparison-detail-product，日志 `.cache/product-continuity-live.log`；不要重新发起。待该任务结束，进行最终视觉判定与 Mock 浏览器回归，再恢复并核对 LIVE。
 
 最新状态（2026-11-08）：六题原批次已终止，最终 5/6、首轮 3/6；随笔因旧构建的元数据类型检查失败。修复后原第二份（最早有效）离线完整校验与浏览器回放通过。仅失败随笔的真实任务重试正在运行，日志 `.cache/product-failed-retry.log`，独立结果 `.cache/product-failed-retry/essay-new-standard.json`；不得重跑原六题或覆盖原失败。

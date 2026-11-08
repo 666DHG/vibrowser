@@ -1,0 +1,19 @@
+[
+  {
+    "file": "comparison-detail-product-new-standard.json",
+    "localActions": [
+      "toggle-notes"
+    ],
+    "searchSubmitted": true,
+    "navigationSubmitted": true,
+    "anchorVerified": true,
+    "copyVerified": true,
+    "copyContentPreserved": true,
+    "copyRawSource": "improvement",
+    "filterVerified": true,
+    "sortVerified": false,
+    "sortLocale": null,
+    "limitations": [],
+    "extraModelCalls": 0
+  }
+]

@@ -1,5 +1,7 @@
 # 设计评审与两挡思考验收
 
+当前交付（2026-11-08）：交互与评审修复、标准／深入两挡、v8 内容驱动设计已完成，本分支默认启用。完整结果、原批次失败及修复后验收见 [收尾报告](DESIGN_DELIVERY.md)。下文保留各阶段历史，不代表当前开关状态。
+
 修复后随笔真实重试已完成（2026-11-08）：通过 RetryPageMessage 保持 pageId，创建新 job 并继承原简报／构想；首轮正文通过，随后采用一次改进，3 次实际 low／48k 请求、159 秒。五个已成功题目未重跑。复制、筛选、排序、展开、搜索／导航等实际存在动作的浏览器回放通过，原 5/6 批次统计未覆盖。[真实重试](acceptance/product-failed-retry.json)、[交互](acceptance/product-failed-retry-interactions.json)、[截图](screenshots/product-failed-retry)。
 
 产品 low／48k 固定六题已结束（2026-11-08）：原构建最终 5/6、首轮 3/6，共 27 次请求、1235 秒。一次评审超时未返回 usage；603776 total_tokens 仅是已记录量。技术文档首轮正文成功，风险诊断区以九个现象入口组合监控 SQL、参数和展开路径；桌面三列、窄屏单列，完整页面五份成功文档的交互回放通过。[完整原批次](acceptance/effort-guidance-v8-product.json)、[配对](acceptance/effort-guidance-v8-product-paired.json)、[文档内部截图](screenshots/effort-guidance-v8-product/docs-risk-1440.png)。
