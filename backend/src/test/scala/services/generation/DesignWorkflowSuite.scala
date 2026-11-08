@@ -291,6 +291,119 @@ class DesignWorkflowSuite extends CatsEffectSuite:
       yield ()
     }
   }
+  test("model-created direction is selected once and survives retry without another call") {
+    isolated { db =>
+      val directions = List("alpha", "beta", "gamma").map(n =>
+        DesignDirection(n, n + " structure", n + " type", n + " reason")
+      )
+      val plan = brief.copy(informationStructure = "", visualDirections = directions)
+      for
+        calls <- Ref.of[IO, Int](0)
+        nav <- db.transaction(NavigateMessage("direction.example", None).plan)
+        _ <- db.transaction(ClaimGenerationJobMessage().plan)
+        page <- db.transaction(c => PageTable.findById(c, nav.pageId)).map(_.get)
+        selected = DesignDirections.select(page.address, directions).get
+        client = new TextGenerationClient:
+          def complete(
+              c: ProviderConnection,
+              system: String,
+              prompt: String,
+              test: Boolean
+          ): IO[String] =
+            calls.getAndUpdate(_ + 1).map {
+              case 0 =>
+                assert(system.contains("visualDirections"))
+                plan.asJson.noSpaces
+              case 1 =>
+                assert(prompt.contains(selected.asJson.noSpaces))
+                assert(prompt.contains("source-facts"))
+                assert(!prompt.contains("visualDirections"))
+                directions
+                  .filterNot(_ == selected)
+                  .foreach(d => assert(!prompt.contains(d.structure)))
+                fixture.asJson.noSpaces
+              case 2 =>
+                assert(!prompt.contains(selected.asJson.noSpaces))
+                DesignReview(Nil).asJson.noSpaces
+              case _ => fail("retries must reuse the selected direction and completed stages")
+            }
+        generator = new DesignWorkflowGeneration(
+          db,
+          client,
+          meter(),
+          guidance = DesignGuidanceText(
+            "8-test",
+            "design",
+            "review",
+            Some("intent"),
+            contentFocusOnly = true,
+            exploreLayouts = true
+          )
+        )
+        _ <- generator.generate(config, page, "source-facts", None, None)
+        saved <- db.transaction(c => GenerationJobTable.designWorkflow(c, nav.jobId)).map(_.get)
+        _ = assertEquals(saved.designDirection, Some(selected))
+        _ = assertEquals(saved.layoutExploration, Some(true))
+        _ <- db.transaction(FailGenerationJobMessage(nav.jobId, "interrupted after candidate").plan)
+        retry <- db.transaction(RetryPageMessage(page.id, nav.jobId).plan)
+        _ <- db.transaction(ClaimGenerationJobMessage().plan)
+        retryPage <- db.transaction(c => PageTable.findById(c, retry.pageId)).map(_.get)
+        _ <- new DesignWorkflowGeneration(
+          db,
+          client,
+          meter(),
+          guidance = DesignGuidanceText("disabled", "design", "review")
+        ).generate(config, retryPage, "source-facts", None, None)
+        resumed <- db.transaction(c => GenerationJobTable.designWorkflow(c, retry.jobId)).map(_.get)
+        _ = assertEquals(resumed.designDirection, saved.designDirection)
+        _ <- calls.get.map(n => assertEquals(n, 3))
+      yield ()
+    }
+  }
+  test("same-site pages use existing identity instead of selecting new directions") {
+    isolated { db =>
+      for
+        parent <- seedVisual(db, "established.example", VisualProfile(Nil, Nil, Nil, Nil))
+        nav <- db.transaction(NavigateMessage("/guide/start", Some(parent), Some("chapter")).plan)
+        _ <- db.transaction(ClaimGenerationJobMessage().plan)
+        page <- db.transaction(c => PageTable.findById(c, nav.pageId)).map(_.get)
+        _ = assert(page.navigationContext.exists(_.siteStyle.nonEmpty))
+        calls <- Ref.of[IO, Int](0)
+        client = new TextGenerationClient:
+          def complete(
+              c: ProviderConnection,
+              system: String,
+              prompt: String,
+              test: Boolean
+          ): IO[String] =
+            calls.getAndUpdate(_ + 1).map {
+              case 0 =>
+                assert(!system.contains("visualDirections"))
+                brief
+                  .copy(visualDirections =
+                    List(DesignDirection("ignored", "new layout", "new font", "reason"))
+                  )
+                  .asJson
+                  .noSpaces
+              case 1 =>
+                assert(!prompt.contains("本页选定构想"))
+                fixture.asJson.noSpaces
+              case 2 => DesignReview(Nil).asJson.noSpaces
+              case _ => fail("unexpected model call")
+            }
+        _ <- new DesignWorkflowGeneration(db, client, meter()).generate(
+          config,
+          page,
+          "source",
+          None,
+          None
+        )
+        saved <- db.transaction(c => GenerationJobTable.designWorkflow(c, nav.jobId)).map(_.get)
+        _ = assertEquals(saved.layoutExploration, Some(false))
+        _ = assertEquals(saved.designDirection, None)
+      yield ()
+    }
+  }
   test(
     "generation, repair and refinement send one complete action contract without user duplication"
   ) {
@@ -412,7 +525,7 @@ class DesignWorkflowSuite extends CatsEffectSuite:
   test(
     "guidance resources are packaged, versioned and validation preserves required content and actions"
   ) {
-    assert(DesignGuidance.version.startsWith("7-"))
+    assert(DesignGuidance.version.startsWith("8-"))
     assert(
       DesignGuidance.design.nonEmpty && DesignGuidance.review.nonEmpty && DesignGuidance.intent.nonEmpty
     )

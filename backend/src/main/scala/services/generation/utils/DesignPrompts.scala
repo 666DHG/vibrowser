@@ -12,15 +12,20 @@ private[generation] object DesignPrompts:
         .map(b => DesignContentFocus(b.purpose, b.visitorTask, b.contentPriorities))
         .asJson
     else workflow.brief.asJson
-  def briefSystem(guidance: DesignGuidanceText) =
-    guidance.intent match
-      case Some(intent) =>
-        intent + """
+  def briefSystem(guidance: DesignGuidanceText, exploreLayouts: Boolean = false) =
+    if exploreLayouts then
+      """识别当前页面用途、访问者任务及关键内容，提出三个都适合这些内容、但空间组织和字体表达明显不同的版面构想。每个构想说明内容为何适合这种组织方式，选择会在构想之间分散，不默认采用第一项。构想由本页材料产生，不套用预设网站模板；不写 HTML/CSS，不增加业务事实。
+只返回 JSON：{purpose:string,visitorTask:string,contentPriorities:string[],visualDirections:[{concept:string,structure:string,typography:string,contentReason:string}]}。contentPriorities 最多12项，构想最多3项，每个构想控制在300字内。这是简短设计说明，具体实现留给页面生成阶段。
+"""
+    else
+      guidance.intent match
+        case Some(intent) =>
+          intent + """
 只返回 JSON：{purpose:string,visitorTask:string,contentPriorities:string[],informationStructure:string,interactions:string[],rationale:string}。
 这是简短设计说明中的内容计划，不是网页，不输出 HTML、CSS 或视觉规格。说明不超过1200字，数组各最多12项。保留输入资料的事实；已有站点的视觉上下文会直接传给页面生成阶段。
 """
-      case None =>
-        guidance.design + "\n可用交互契约：\n" + WebDocumentPrompt.actionContract + """
+        case None =>
+          guidance.design + "\n可用交互契约：\n" + WebDocumentPrompt.actionContract + """
 只返回 JSON：{purpose:string,visitorTask:string,contentPriorities:string[],informationStructure:string,typography:string,interactions:string[],continuity:string,rationale:string}。
 这是简短设计说明，不是网页，不输出 HTML。说明不超过6000字，数组各最多12项，不填写模板分类。遵守输入资料的事实和既有站点风格。
 """

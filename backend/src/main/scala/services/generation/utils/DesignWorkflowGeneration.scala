@@ -144,7 +144,12 @@ private[generation] final class DesignWorkflowGeneration(
               DesignWorkflow(
                 guidance.version,
                 visualReferences = Option.when(guidance.visualContext)(bounded),
-                contentFocusOnly = Some(guidance.contentFocusOnly)
+                contentFocusOnly = Some(guidance.contentFocusOnly),
+                layoutExploration = Some(
+                  guidance.exploreLayouts && !page.navigationContext.exists(c =>
+                    c.siteStyle.nonEmpty || c.appearance.nonEmpty
+                  )
+                )
               )
             )
           yield saved
@@ -155,21 +160,30 @@ private[generation] final class DesignWorkflowGeneration(
         page,
         initial,
         DesignStage.Brief,
-        DesignPrompts.briefSystem(guidance),
+        DesignPrompts.briefSystem(guidance, initial.layoutExploration.contains(true)),
         prompt
       ) { (w, b) =>
         require(
-          b.asJson.noSpaces.length <= 16000 && b.purpose.trim.nonEmpty && b.visitorTask.trim.nonEmpty && b.informationStructure.trim.nonEmpty && b.contentPriorities.size <= 12 && b.interactions.size <= 12,
+          b.asJson.noSpaces.length <= 16000 && b.purpose.trim.nonEmpty && b.visitorTask.trim.nonEmpty && (initial.layoutExploration
+            .contains(
+              true
+            ) || b.informationStructure.trim.nonEmpty) && b.contentPriorities.size <= 12 && b.interactions.size <= 12,
           "设计说明字段无效或超出预算"
         )
-        w.copy(brief =
-          Some(if guidance.intent.nonEmpty then b.copy(typography = "", continuity = "") else b)
+        w.copy(
+          brief =
+            Some(if guidance.intent.nonEmpty then b.copy(typography = "", continuity = "") else b),
+          designDirection =
+            if initial.layoutExploration.contains(true) then
+              DesignDirections.select(page.address, b.visualDirections)
+            else None
         )
       }
       fullPrompt =
         prompt + "\n设计指导：\n" + guidance.design + "\n设计说明：" + DesignPrompts
           .contentBrief(planned)
           .noSpaces +
+          planned.designDirection.fold("")(direction => "\n本页选定构想：" + direction.asJson.noSpaces) +
           planned.visualReferences
             .filter(_.nonEmpty)
             .fold("")(refs => "\nrecentVisualReferences:" + refs.asJson.noSpaces)
