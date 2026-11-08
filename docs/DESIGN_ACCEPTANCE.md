@@ -1,5 +1,11 @@
 # 设计评审与两挡思考验收
 
+产品 low／48k 固定六题已结束（2026-11-08）：原构建最终 5/6、首轮 3/6，共 27 次请求、1235 秒。一次评审超时未返回 usage；603776 total_tokens 仅是已记录量。技术文档首轮正文成功，风险诊断区以九个现象入口组合监控 SQL、参数和展开路径；桌面三列、窄屏单列，完整页面五份成功文档的交互回放通过。[完整原批次](acceptance/effort-guidance-v8-product.json)、[配对](acceptance/effort-guidance-v8-product-paired.json)、[文档内部截图](screenshots/effort-guidance-v8-product/docs-risk-1440.png)。
+
+随笔原批次因四个 siteStyle 字段逐次类型误拒失败。按原顺序离线完整校验，第一份品牌对象仍不符合契约；第二至四份在现有通用元数据兼容下通过，固定采用最早有效的第二份，未按外观选择。第二份的复制、筛选、排序、展开及搜索／导航等实际存在动作按报告验证，无额外模型调用；不改原失败统计。[逐次校验](acceptance/style-metadata-replay-essay.json)、[交互](acceptance/style-metadata-essay-interactions.json)、[截图](screenshots/style-metadata-essay)。随后仅针对失败的随笔通过 RetryPageMessage 发起一次真实修复后重试，复用旧设计快照、保留旧 job，输出独立 product-failed-retry；结果尚待完成，成功五题不重跑。
+
+产品标准档检索规划单次真实回放通过：保存的五份来源、12409 字符请求，6670ms 内返回正确人物主题、reuseSources=true、无多余候选；实际 low／48000，原 30 秒限制不变。不调用 Search/Fetch，不生成页面，不写数据库。[规划证据](acceptance/product-research-planning.json)。
+
 最新完整自动检查（2026-11-08，含结构化设计元数据兼容）：Scala 格式及 130 项测试、前端格式、42 项测试、类型检查与生产构建全部通过，日志 `.cache/style-metadata-full.log`。这不替代尚未完成的完整浏览器／真实批次验收。
 
 产品批次第四题完成：器具对比首轮正文通过，最终采用一次改进，299 秒、4 次请求。首次生成 completion_tokens=35092，reasoning_tokens=20895，超出旧 24k 限额但在当前 48k 内正常结束。评审针对表格所承诺的器具锚点缺失和 9px 参数标签，保持原选购手册结构；最终 Copy、Toggle、Filter、Sort、锚点、搜索／导航提交回放通过。[四题阶段报告](acceptance/effort-guidance-v8-product.json)。目前 4/6 最终完成，首轮成功 2，18 次请求、849 秒；一次可选评审 usage 未返回，总 token 仅为已记录部分。技术文档仍在运行，随笔未开始。

@@ -1,0 +1,19 @@
+[
+  {
+    "file": "essay-new-standard.json",
+    "localActions": [
+      "a-toggle-long"
+    ],
+    "searchSubmitted": true,
+    "navigationSubmitted": true,
+    "anchorVerified": false,
+    "copyVerified": true,
+    "copyContentPreserved": true,
+    "copyRawSource": "generation",
+    "filterVerified": true,
+    "sortVerified": false,
+    "sortLocale": null,
+    "limitations": [],
+    "extraModelCalls": 0
+  }
+]

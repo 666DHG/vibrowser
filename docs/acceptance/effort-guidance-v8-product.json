@@ -1,7 +1,7 @@
 {
-  "evaluatedAt": "2026-11-08T06:49:20.483Z",
+  "evaluatedAt": "2026-11-08T06:56:33.120Z",
   "expectedSamples": 6,
-  "complete": false,
+  "complete": true,
   "groups": {
     "old-standard": {
       "samples": 0,
@@ -18,18 +18,18 @@
       "seconds": 0
     },
     "new-standard": {
-      "samples": 4,
-      "ready": 4,
+      "samples": 6,
+      "ready": 5,
       "interrupted": 0,
       "unknownUsageSamples": 1,
       "unknownDurationSamples": 0,
-      "initialGenerationAccepted": 2,
-      "modelCalls": 18,
-      "generationModelCalls": 18,
-      "recordedTokens": 385118,
-      "recordedCompletionTokens": 167013,
-      "recordedReasoningTokens": 80138,
-      "seconds": 849
+      "initialGenerationAccepted": 3,
+      "modelCalls": 27,
+      "generationModelCalls": 27,
+      "recordedTokens": 603776,
+      "recordedCompletionTokens": 256085,
+      "recordedReasoningTokens": 111081,
+      "seconds": 1235
     },
     "new-deep": {
       "samples": 0,
@@ -73,6 +73,22 @@
     },
     {
       "input": "kfc疯狂星期四文案合集站.com",
+      "samples": 1,
+      "allThreePresent": false,
+      "identicalGenerationRequest": true,
+      "actualEffortMatches": true,
+      "unobservedEffortSamples": 0
+    },
+    {
+      "input": "PostgreSQL事务隔离与并发控制学习笔记.com",
+      "samples": 1,
+      "allThreePresent": false,
+      "identicalGenerationRequest": true,
+      "actualEffortMatches": true,
+      "unobservedEffortSamples": 0
+    },
+    {
+      "input": "一个沿海小城居民的散步随笔.com",
       "samples": 1,
       "allThreePresent": false,
       "identicalGenerationRequest": true,
@@ -6897,6 +6913,2247 @@
         ],
         "error": null
       }
+    },
+    {
+      "name": "docs-new-standard",
+      "input": "PostgreSQL事务隔离与并发控制学习笔记.com",
+      "mode": "research",
+      "effort": "standard",
+      "effortPolicy": "product-low-48k",
+      "contentFocusOnly": true,
+      "draftPlanning": false,
+      "draftCharacters": 0,
+      "layoutExploration": true,
+      "designDirection": {
+        "concept": "风险诊断卡片墙",
+        "structure": "以长事务、XID 回卷、WAL 暴涨、死锁、序列化失败等生产风险为入口，每个入口纵向展开现象、监控查询、相关参数、处理路径；卡片按风险类别成组，形成从症状到诊断的短路径。",
+        "typography": "风险名用粗黑大字，解释正文用可读衬线，监控 SQL 与错误码用等宽小号；标题与正文的字体对比强化风险扫描，而不是均匀的技术文档语调。",
+        "contentReason": "资料反复强调大量生产故障来自隔离级别误解、长事务、WAL 参数、死锁和 XID 回卷，并给出监控视图与处理顺序；按风险入口组织更贴近 DBA 运维的查找任务，能快速从症状跳到查询和参数。"
+      },
+      "proposedDirectionCount": 3,
+      "visualReferenceCount": 1,
+      "visualReferenceCharacters": 391,
+      "requestHash": "81c4ef5402af0f79113a9b1d0fe23a78f8d4600beb4e4de07001ab64b90df49f",
+      "actualEffortMatches": true,
+      "pageId": "65950e5a-c1e5-4986-b6f8-4f354ed21e4d",
+      "jobId": "b671d9d7-d82c-4664-b3d1-289bde0aa18a",
+      "guidance": "8-c1e0823385b34590f0bf7bd797de93208836a202c8c5d1055843268e0d7bb5bd",
+      "briefCharacters": 1740,
+      "earlyVisualPlanCharacters": 0,
+      "cssChangedByReview": true,
+      "seconds": 219,
+      "interrupted": false,
+      "usageComplete": true,
+      "error": null,
+      "initialGenerationAccepted": true,
+      "generationAttempts": [
+        {
+          "attempt": 1,
+          "outcome": "Accepted",
+          "errorCode": null,
+          "message": null,
+          "at": "2026-11-08T06:50:53.374921200Z"
+        }
+      ],
+      "modelCalls": [
+        {
+          "usage": {
+            "prompt_tokens": 8838,
+            "completion_tokens": 4246,
+            "total_tokens": 13084,
+            "prompt_tokens_details": {
+              "cached_tokens": 8704
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 3356
+            },
+            "prompt_cache_hit_tokens": 8704,
+            "prompt_cache_miss_tokens": 134
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 27794,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 48000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "brief"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 10671,
+            "completion_tokens": 26926,
+            "total_tokens": 37597,
+            "prompt_tokens_details": {
+              "cached_tokens": 9856
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 16505
+            },
+            "prompt_cache_hit_tokens": 9856,
+            "prompt_cache_miss_tokens": 815
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 115095,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 48000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 37024,
+            "completion_tokens": 1188,
+            "total_tokens": 38212,
+            "prompt_tokens_details": {
+              "cached_tokens": 768
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 949
+            },
+            "prompt_cache_hit_tokens": 768,
+            "prompt_cache_miss_tokens": 36256
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 9766,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 48000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "review"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 37569,
+            "completion_tokens": 14563,
+            "total_tokens": 52132,
+            "prompt_tokens_details": {
+              "cached_tokens": 896
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 3049
+            },
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 36673
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 53713,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 48000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "document"
+        }
+      ],
+      "selection": "Improved",
+      "events": [
+        {
+          "stage": "Brief",
+          "status": "Started",
+          "at": "2026-11-08T06:48:30.457112500Z",
+          "message": null
+        },
+        {
+          "stage": "Brief",
+          "status": "Completed",
+          "at": "2026-11-08T06:48:58.253825400Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Started",
+          "at": "2026-11-08T06:50:53.380928400Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Completed",
+          "at": "2026-11-08T06:50:59.432868100Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Started",
+          "at": "2026-11-08T06:50:59.437867600Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Completed",
+          "at": "2026-11-08T06:51:09.210356500Z",
+          "message": null
+        },
+        {
+          "stage": "Improve",
+          "status": "Started",
+          "at": "2026-11-08T06:51:09.214948400Z",
+          "message": null
+        },
+        {
+          "stage": "Improve",
+          "status": "Completed",
+          "at": "2026-11-08T06:52:02.979451700Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureImproved",
+          "status": "Started",
+          "at": "2026-11-08T06:52:02.986915500Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureImproved",
+          "status": "Completed",
+          "at": "2026-11-08T06:52:09.404997600Z",
+          "message": null
+        },
+        {
+          "stage": "Selection",
+          "status": "Completed",
+          "at": "2026-11-08T06:52:09.413998900Z",
+          "message": "采用改进页面"
+        }
+      ],
+      "sources": [
+        {
+          "id": "source-1",
+          "url": "https://browse.dgit.debian.org/cl-postmodern.git/tree/doc/isolation-notes.org?pow_referer=#2",
+          "title": "isolation-notes.org « doc - cl-postmodern - The [[https://www",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        },
+        {
+          "id": "source-2",
+          "url": "https://cloud.tencent.com.cn/developer/article/2744614#3",
+          "title": "数据库教程FGMT53‑PostgreSQL事务处理与并发控制 - 自动换行",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        },
+        {
+          "id": "source-3",
+          "url": "https://learn.microsoft.com/zh-tw/training/modules/understand-concurrency-postgresql/2-understand-multi-version-concurrency-control-snapshots",
+          "title": "了解多版本並行控制 (MVCC) 與快照集 - Training",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        },
+        {
+          "id": "source-4",
+          "url": "https://cloud.tencent.com.cn/developer/article/2449747?from=15425&policyId=undefined&traceId=&frompage=seopage#1",
+          "title": "从零开始学PostgreSQL (十一)：并发控制 - DBA实战",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        },
+        {
+          "id": "source-5",
+          "url": "http://www.yisu.com/ask/47402750.html#1",
+          "title": "centos postgresql并发控制方法 - centos postgresql并发控制方法",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        },
+        {
+          "id": "source-6",
+          "url": "https://www.postgresql.org/docs/19/transaction-iso.html",
+          "title": "13.2. Transaction Isolation",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        }
+      ],
+      "researchReused": true,
+      "siteStyle": {
+        "brand": "PG 并发笔记 — 冷静的运维诊断口吻，深色顶栏配浅灰蓝底，风险卡片墙为视觉主体",
+        "typography": "标题使用 system-ui / PingFang SC 800 字重与收紧字距；正文使用 Georgia + Songti SC 衬线，1.72 行高；监控 SQL 与错误码使用 ui-monospace 小号，字号对比强化风险扫描",
+        "palette": "背景 #eef1f4 · 卡片 #ffffff · 文字 #131a22 · 次要 #5a6775 · 分隔 #d5dce4 · 主强调 #0f4c75 · 分类色 事务隔离 #b45309 / MVCC #0e7490 / WAL #6d28d9 / 锁 #be123c",
+        "layout": "单列通栏阅读区；风险诊断区用自适应卡片网格（约 3 列），每张卡片纵向承载现象、监控查询、参数、可展开处理路径；窄屏回落为单列"
+      },
+      "actions": [
+        {
+          "id": "a-filter-risk",
+          "kind": "Filter",
+          "elementId": "riskFilter",
+          "target": null,
+          "region": "riskGrid",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "a-tg1",
+          "kind": "Toggle",
+          "elementId": "tg1",
+          "target": null,
+          "region": "pt1",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "a-tg2",
+          "kind": "Toggle",
+          "elementId": "tg2",
+          "target": null,
+          "region": "pt2",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "a-tg3",
+          "kind": "Toggle",
+          "elementId": "tg3",
+          "target": null,
+          "region": "pt3",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "a-tg4",
+          "kind": "Toggle",
+          "elementId": "tg4",
+          "target": null,
+          "region": "pt4",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "a-tg5",
+          "kind": "Toggle",
+          "elementId": "tg5",
+          "target": null,
+          "region": "pt5",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "a-tg6",
+          "kind": "Toggle",
+          "elementId": "tg6",
+          "target": null,
+          "region": "pt6",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "a-tg7",
+          "kind": "Toggle",
+          "elementId": "tg7",
+          "target": null,
+          "region": "pt7",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "a-tg8",
+          "kind": "Toggle",
+          "elementId": "tg8",
+          "target": null,
+          "region": "pt8",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "a-tg9",
+          "kind": "Toggle",
+          "elementId": "tg9",
+          "target": null,
+          "region": "pt9",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        }
+      ],
+      "layout": {
+        "viewports": [
+          {
+            "width": 1440,
+            "height": 900,
+            "scrollWidth": 1425,
+            "scrollHeight": 5294,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "",
+                "tag": "h1",
+                "text": "从隔离级别到 XID 回卷：按风险查找 PostgreSQL 并发问题",
+                "x": 122.5,
+                "y": 153.96875,
+                "width": 782.453125,
+                "height": 114.15625,
+                "fontSize": "48.8px",
+                "lineHeight": "57.096px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "隔离级别：标准定义四种，PostgreSQL 内部实现三种",
+                "x": 122.5,
+                "y": 533.5625,
+                "width": 1180,
+                "height": 40.125,
+                "fontSize": "30.4px",
+                "lineHeight": "40.128px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "事务边界",
+                "x": 122.5,
+                "y": 1068.71875,
+                "width": 578,
+                "height": 23.15625,
+                "fontSize": "16.32px",
+                "lineHeight": "23.1744px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "设置隔离级别",
+                "x": 724.5,
+                "y": 1068.71875,
+                "width": 578,
+                "height": 23.15625,
+                "fontSize": "16.32px",
+                "lineHeight": "23.1744px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "三个必须先建立的心智模型",
+                "x": 122.5,
+                "y": 1387.5,
+                "width": 1180,
+                "height": 40.125,
+                "fontSize": "30.4px",
+                "lineHeight": "40.128px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "MVCC 行版本与快照",
+                "x": 141.5,
+                "y": 1474.625,
+                "width": 343.328125,
+                "height": 23.15625,
+                "fontSize": "16.32px",
+                "lineHeight": "23.1744px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "WAL 与提交时序",
+                "x": 540.828125,
+                "y": 1474.625,
+                "width": 343.328125,
+                "height": 23.15625,
+                "fontSize": "16.32px",
+                "lineHeight": "23.1744px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "锁体系分类",
+                "x": 940.15625,
+                "y": 1474.625,
+                "width": 343.34375,
+                "height": 23.15625,
+                "fontSize": "16.32px",
+                "lineHeight": "23.1744px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "风险诊断卡片墙",
+                "x": 122.5,
+                "y": 1812.734375,
+                "width": 1180,
+                "height": 40.125,
+                "fontSize": "30.4px",
+                "lineHeight": "40.128px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "隔离级别选择偏差",
+                "x": 146.5,
+                "y": 2111.265625,
+                "width": 336.328125,
+                "height": 24.796875,
+                "fontSize": "18.24px",
+                "lineHeight": "24.8064px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "序列化失败 40001",
+                "x": 545.828125,
+                "y": 2111.265625,
+                "width": 336.328125,
+                "height": 24.796875,
+                "fontSize": "18.24px",
+                "lineHeight": "24.8064px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "长事务阻塞 VACUUM",
+                "x": 945.15625,
+                "y": 2111.265625,
+                "width": 336.34375,
+                "height": 24.796875,
+                "fontSize": "18.24px",
+                "lineHeight": "24.8064px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "事务 ID 回卷与冻结",
+                "x": 146.5,
+                "y": 2615.359375,
+                "width": 336.328125,
+                "height": 24.796875,
+                "fontSize": "18.24px",
+                "lineHeight": "24.8064px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "WAL 暴涨与归档失败",
+                "x": 545.828125,
+                "y": 2615.359375,
+                "width": 336.328125,
+                "height": 24.796875,
+                "fontSize": "18.24px",
+                "lineHeight": "24.8064px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Checkpoint 过于频繁",
+                "x": 945.15625,
+                "y": 2615.359375,
+                "width": 336.34375,
+                "height": 24.796875,
+                "fontSize": "18.24px",
+                "lineHeight": "24.8064px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "死锁 40P01",
+                "x": 146.5,
+                "y": 3192.46875,
+                "width": 336.328125,
+                "height": 24.796875,
+                "fontSize": "18.24px",
+                "lineHeight": "24.8064px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "锁粒度过大与 DDL 阻塞",
+                "x": 545.828125,
+                "y": 3192.46875,
+                "width": 336.328125,
+                "height": 24.796875,
+                "fontSize": "18.24px",
+                "lineHeight": "24.8064px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "咨询锁与跨会话互斥",
+                "x": 945.15625,
+                "y": 3192.46875,
+                "width": 336.34375,
+                "height": 24.796875,
+                "fontSize": "18.24px",
+                "lineHeight": "24.8064px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "实验清单：从复现到故障模拟",
+                "x": 122.5,
+                "y": 3791.15625,
+                "width": 1180,
+                "height": 40.125,
+                "fontSize": "30.4px",
+                "lineHeight": "40.128px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "生产参数起点",
+                "x": 122.5,
+                "y": 4264.90625,
+                "width": 1180,
+                "height": 40.125,
+                "fontSize": "30.4px",
+                "lineHeight": "40.128px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "速查：视图与错误码",
+                "x": 122.5,
+                "y": 4907,
+                "width": 1180,
+                "height": 40.125,
+                "fontSize": "30.4px",
+                "lineHeight": "40.128px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "controls": [
+              {
+                "id": "",
+                "tag": "a",
+                "text": "PG 并发笔记",
+                "x": 122.5,
+                "y": 11,
+                "width": 97.59375,
+                "height": 28.609375,
+                "fontSize": "16.64px",
+                "lineHeight": "28.6208px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "隔离级别",
+                "x": 879,
+                "y": 13.75,
+                "width": 57,
+                "height": 23.109375,
+                "fontSize": "13.44px",
+                "lineHeight": "23.1168px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "原理要点",
+                "x": 958,
+                "y": 13.75,
+                "width": 57,
+                "height": 23.109375,
+                "fontSize": "13.44px",
+                "lineHeight": "23.1168px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "风险诊断",
+                "x": 1037,
+                "y": 13.75,
+                "width": 57,
+                "height": 23.109375,
+                "fontSize": "13.44px",
+                "lineHeight": "23.1168px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "实验清单",
+                "x": 1116,
+                "y": 13.75,
+                "width": 57,
+                "height": 23.109375,
+                "fontSize": "13.44px",
+                "lineHeight": "23.1168px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "参数模板",
+                "x": 1195,
+                "y": 13.75,
+                "width": 57,
+                "height": 23.109375,
+                "fontSize": "13.44px",
+                "lineHeight": "23.1168px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "速查",
+                "x": 1274,
+                "y": 13.75,
+                "width": 28.5,
+                "height": 23.109375,
+                "fontSize": "13.44px",
+                "lineHeight": "23.1168px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "riskFilter",
+                "tag": "input",
+                "text": "",
+                "x": 122.5,
+                "y": 1977.703125,
+                "width": 540,
+                "height": 52.40625,
+                "fontSize": "15.36px",
+                "lineHeight": "26.4192px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "tg1",
+                "tag": "button",
+                "text": "处理路径",
+                "x": 146.5,
+                "y": 2466.90625,
+                "width": 85.09375,
+                "height": 37.734375,
+                "fontSize": "12.64px",
+                "lineHeight": "21.7408px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "tg2",
+                "tag": "button",
+                "text": "处理路径",
+                "x": 545.828125,
+                "y": 2426.46875,
+                "width": 85.09375,
+                "height": 37.734375,
+                "fontSize": "12.64px",
+                "lineHeight": "21.7408px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "tg3",
+                "tag": "button",
+                "text": "处理路径",
+                "x": 945.15625,
+                "y": 2481.46875,
+                "width": 85.09375,
+                "height": 37.734375,
+                "fontSize": "12.64px",
+                "lineHeight": "21.7408px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "tg4",
+                "tag": "button",
+                "text": "处理路径",
+                "x": 146.5,
+                "y": 3058.578125,
+                "width": 85.09375,
+                "height": 37.734375,
+                "fontSize": "12.64px",
+                "lineHeight": "21.7408px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "tg5",
+                "tag": "button",
+                "text": "处理路径",
+                "x": 545.828125,
+                "y": 2963.765625,
+                "width": 85.09375,
+                "height": 37.734375,
+                "fontSize": "12.64px",
+                "lineHeight": "21.7408px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "tg6",
+                "tag": "button",
+                "text": "处理路径",
+                "x": 945.15625,
+                "y": 2932.953125,
+                "width": 85.09375,
+                "height": 37.734375,
+                "fontSize": "12.64px",
+                "lineHeight": "21.7408px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "tg7",
+                "tag": "button",
+                "text": "处理路径",
+                "x": 146.5,
+                "y": 3616.421875,
+                "width": 85.09375,
+                "height": 37.734375,
+                "fontSize": "12.64px",
+                "lineHeight": "21.7408px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "tg8",
+                "tag": "button",
+                "text": "处理路径",
+                "x": 545.828125,
+                "y": 3596.203125,
+                "width": 85.09375,
+                "height": 37.734375,
+                "fontSize": "12.64px",
+                "lineHeight": "21.7408px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "tg9",
+                "tag": "button",
+                "text": "处理路径",
+                "x": 945.15625,
+                "y": 3483.796875,
+                "width": 85.09375,
+                "height": 37.734375,
+                "fontSize": "12.64px",
+                "lineHeight": "21.7408px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "regions": [
+              {
+                "id": "",
+                "tag": "header",
+                "text": "PG 并发笔记\n  \n   隔离级别 原理要点 风险诊断 实验清单 参数模板 速查",
+                "x": 0,
+                "y": 0,
+                "width": 1425,
+                "height": 51.609375,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "nav",
+                "text": "隔离级别 原理要点 风险诊断 实验清单 参数模板 速查",
+                "x": 879,
+                "y": 13.75,
+                "width": 423.5,
+                "height": 23.109375,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "top",
+                "tag": "main",
+                "text": "Transaction & Concurrency Notes\n   从隔离级别到 XID 回卷：按风险查找 PostgreSQL 并发问题\n   PostgreSQL 依靠 MVCC 多版本并发控制实现事务隔离，WAL 预写日志保障崩溃安全，事务 ID 冻结与回卷机制维持 32 位事务 ID 的循环复用，锁子系统管理并发访问冲突。\n   大量生产故障并非来",
+                "x": 0,
+                "y": 51.609375,
+                "width": 1425,
+                "height": 5242.578125,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "Transaction & Concurrency Notes\n   从隔离级别到 XID 回卷：按风险查找 PostgreSQL 并发问题\n   PostgreSQL 依靠 MVCC 多版本并发控制实现事务隔离，WAL 预写日志保障崩溃安全，事务 ID 冻结与回卷机制维持 32 位事务 ID 的循环复用，锁子系统管理并发访问冲突。\n   大量生产故障并非来",
+                "x": 0,
+                "y": 51.609375,
+                "width": 1425,
+                "height": 423.953125,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "isolation",
+                "tag": "section",
+                "text": "隔离级别：标准定义四种，PostgreSQL 内部实现三种\n   标准定义的四种隔离级别按必须禁止的并发现象排列。PostgreSQL 可以请求全部四种级别，但内部只实现三种不同的隔离级别——Read Uncommitted 的行为与 Read Committed 相同，这是把标准映射到 MVCC 架构上唯一合理的方式。\n   \n    \n     \n   ",
+                "x": 0,
+                "y": 475.5625,
+                "width": 1425,
+                "height": 852.9375,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "principles",
+                "tag": "section",
+                "text": "三个必须先建立的心智模型\n   \n    \n     MVCC 行版本与快照\n     数据行存在多个元组版本，元组头部保存 xmin（创建该行版本的事务 ID）与 xmax（删除或更新该行版本的事务 ID，0 代表未删除）。每个会话按自身快照的可见性规则判断版本是否可见，因此读不阻塞写、写不阻塞读。旧版本成为死元组 dead tuple，交由 VACUUM",
+                "x": 0,
+                "y": 1328.5,
+                "width": 1425,
+                "height": 426.234375,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "MVCC 行版本与快照\n     数据行存在多个元组版本，元组头部保存 xmin（创建该行版本的事务 ID）与 xmax（删除或更新该行版本的事务 ID，0 代表未删除）。每个会话按自身快照的可见性规则判断版本是否可见，因此读不阻塞写、写不阻塞读。旧版本成为死元组 dead tuple，交由 VACUUM 清理。",
+                "x": 122.5,
+                "y": 1453.625,
+                "width": 381.328125,
+                "height": 242.109375,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "WAL 与提交时序\n     修改数据页之前，先把变更写入 WAL 日志。事务提交时变更进入 WAL 缓冲区，fsync 把 WAL 刷到磁盘之后才向客户端返回提交成功；脏数据页由后台 bgwriter / checkpoint 慢慢落盘。LSN 是 WAL 内全局唯一的偏移位置；WAL 段文件默认 16MB，存放在 pg_wal 目录，写满自动切换。",
+                "x": 521.828125,
+                "y": 1453.625,
+                "width": 381.328125,
+                "height": 242.109375,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "锁体系分类\n     表级锁模式：ACCESS SHARE、ROW SHARE、ROW EXCLUSIVE、SHARE、SHARE ROW EXCLUSIVE、EXCLUSIVE、ACCESS EXCLUSIVE。行级锁通过 SELECT FOR UPDATE / FOR SHARE 获取，PostgreSQL 不存在 InnoDB 的 next-key 间",
+                "x": 921.15625,
+                "y": 1453.625,
+                "width": 381.34375,
+                "height": 242.109375,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "risks",
+                "tag": "section",
+                "text": "风险诊断卡片墙\n   按症状进入，卡片给出可执行的现象判断、监控查询、相关参数与处理路径。输入关键词可快速缩小范围。\n   \n    按关键词筛选 \n   \n   \n    \n     \n      事务隔离\n      隔离级别选择偏差\n     \n     应用使用默认的 Read Committed，却假设整个事务看到同一份快照。该级别下每条 SQL ",
+                "x": 0,
+                "y": 1754.734375,
+                "width": 1425,
+                "height": 1978.421875,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "事务隔离\n      隔离级别选择偏差\n     \n     应用使用默认的 Read Committed，却假设整个事务看到同一份快照。该级别下每条 SQL 语句获取新快照，同一事务内的连续命令可能因其他事务的提交而看到不同数据状态。\n     \n      监控\n      SHOW default_transaction_isolation;\n\nSEL",
+                "x": 122.5,
+                "y": 2054.109375,
+                "width": 381.328125,
+                "height": 486.09375,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "事务隔离\n      序列化失败 40001\n     \n     Serializable 下事务之间存在潜在的读写依赖，这类依赖在串行执行中不允许出现，冲突事务直接报 40001 序列化失败。预测哪些事务会冲突非常困难，因此必须有通用处理机制。\n     \n      监控\n      -- 应用日志中捕获 SQLSTATE 40001\n-- 谓词锁内存",
+                "x": 521.828125,
+                "y": 2054.109375,
+                "width": 381.328125,
+                "height": 486.09375,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "MVCC\n      长事务阻塞 VACUUM\n     \n     长事务持有的旧快照会阻止 vacuum 清理旧元组，死元组在表内堆积，造成表膨胀。处于 idle in transaction 的空闲事务危害相同。\n     \n      监控\n      SELECT pid, usename, state,\n       now() - xact_s",
+                "x": 921.15625,
+                "y": 2054.109375,
+                "width": 381.34375,
+                "height": 486.09375,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "MVCC\n      事务 ID 回卷与冻结\n     \n     事务 ID 是 32 位无符号整数，最大值约 42 亿，会循环复用，即 wraparound。为防止 ID 循环之后数据不可见，VACUUM 执行冻结 freeze，把很老的元组 xmin 设置为特殊 Frozen 事务 ID，永远对所有会话可见。XID 接近回卷点时会拒绝分配新事务 ID，",
+                "x": 122.5,
+                "y": 2558.203125,
+                "width": 381.328125,
+                "height": 559.109375,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "WAL\n      WAL 暴涨与归档失败\n     \n     WAL 段默认单文件 16MB，写满自动切换。归档失败时已完成的段无法移出 pg_wal 目录，目录持续增长。WAL 同时也是物理流复制的数据源，堆积会连带影响复制延迟。\n     \n      监控\n      -- 观测 WAL 目录增长与段文件数量\n-- 解析 WAL 内容，确认切换位置",
+                "x": 521.828125,
+                "y": 2558.203125,
+                "width": 381.328125,
+                "height": 559.109375,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "WAL\n      Checkpoint 过于频繁\n     \n     Checkpoint 触发时把内存中所有脏数据页刷入数据文件，推进 redo 恢复起点。检查点过于频繁会造成 I/O 抖动，直接影响业务响应时间。\n     \n      监控\n      -- 观测检查点触发频率与 WAL 切换节奏\n-- 结合 pg_waldump 对齐 LSN 与",
+                "x": 921.15625,
+                "y": 2558.203125,
+                "width": 381.34375,
+                "height": 559.109375,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "锁\n      死锁 40P01\n     \n     两个或多个会话互相持有对方需要的锁，形成循环等待。PostgreSQL 后台死锁检测器自动检测，随机回滚其中一个事务并抛出 40P01 deadlock_detected。根本原因通常是更新行的顺序不一致。\n     \n      监控\n      SELECT pid, locktype, relat",
+                "x": 122.5,
+                "y": 3135.3125,
+                "width": 381.328125,
+                "height": 539.84375,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "锁\n      锁粒度过大与 DDL 阻塞\n     \n     ALTER、DROP、TRUNCATE、REINDEX、CLUSTER、VACUUM FULL 获取 ACCESS EXCLUSIVE 排他锁，阻塞该表全部读写。普通 SELECT 只取 ACCESS SHARE，仅与 ACCESS EXCLUSIVE 冲突。\n     \n      监控\n ",
+                "x": 521.828125,
+                "y": 3135.3125,
+                "width": 381.328125,
+                "height": 539.84375,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "锁\n      咨询锁与跨会话互斥\n     \n     应用进程之间需要协调比行锁更复杂的互斥需求时，行级锁无法覆盖，容易演化成隐式的表级串行化。\n     \n      监控\n      SELECT pid, locktype, classid, objid, mode, granted\n  FROM pg_locks\n WHERE locktype ",
+                "x": 921.15625,
+                "y": 3135.3125,
+                "width": 381.34375,
+                "height": 539.84375,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "labs",
+                "tag": "section",
+                "text": "实验清单：从复现到故障模拟\n   以下实验按依赖顺序排列，建议在独立测试实例上逐项完成，确认每个现象都可以稳定复现。\n   \n    四种事务隔离级别实操复现，Read Committed、Repeatable Read、Serializable 行为对比。\n    MVCC 快照机制实操，长事务阻碍 vacuum 的故障模拟。\n    事务 ID 冻结与事",
+                "x": 0,
+                "y": 3733.15625,
+                "width": 1425,
+                "height": 472.75,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "params",
+                "tag": "section",
+                "text": "生产参数起点\n   下表来自一台 64G 内存、8 颗 CPU 的实验主机模板。所有数值都是起点估计，需结合实际负载压测微调。\n   \n    \n     \n      \n       参数\n       64G / 8CPU 模板\n       取值思路\n      \n     \n     \n      \n       shared_buffers\n   ",
+                "x": 0,
+                "y": 4205.90625,
+                "width": 1425,
+                "height": 643.09375,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "drill",
+                "tag": "section",
+                "text": "速查：视图与错误码\n   \n    \n     \n      pg_locks\n     \n     \n      锁详情：锁类型、对象、模式、是否已授予。定位阻塞会话与锁模式的第一入口。\n     \n    \n    \n     \n      pg_stat_activity\n     \n     \n      会话与等待事件。结合 xact_start、",
+                "x": 0,
+                "y": 4849,
+                "width": 1425,
+                "height": 445.1875,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              }
+            ],
+            "visualProfile": {
+              "backgrounds": [
+                "rgb(238, 241, 244)",
+                "rgb(16, 23, 31)"
+              ],
+              "fonts": [
+                "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif"
+              ],
+              "headingSizes": [
+                48.8,
+                30.4,
+                16.32
+              ],
+              "regions": [
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.99
+                },
+                {
+                  "display": "flex",
+                  "columns": 6,
+                  "widthRatio": 0.29
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.99
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.99
+                }
+              ]
+            }
+          },
+          {
+            "width": 390,
+            "height": 844,
+            "scrollWidth": 375,
+            "scrollHeight": 10287,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "",
+                "tag": "h1",
+                "text": "从隔离级别到 XID 回卷：按风险查找 PostgreSQL 并发问题",
+                "x": 14,
+                "y": 210.1875,
+                "width": 347,
+                "height": 101.0625,
+                "fontSize": "28.8px",
+                "lineHeight": "33.696px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "隔离级别：标准定义四种，PostgreSQL 内部实现三种",
+                "x": 14,
+                "y": 657.125,
+                "width": 347,
+                "height": 55.75,
+                "fontSize": "21.12px",
+                "lineHeight": "27.8784px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "事务边界",
+                "x": 14,
+                "y": 1476.125,
+                "width": 347,
+                "height": 23.15625,
+                "fontSize": "16.32px",
+                "lineHeight": "23.1744px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "设置隔离级别",
+                "x": 14,
+                "y": 1722.125,
+                "width": 347,
+                "height": 23.15625,
+                "fontSize": "16.32px",
+                "lineHeight": "23.1744px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "三个必须先建立的心智模型",
+                "x": 14,
+                "y": 2034.78125,
+                "width": 347,
+                "height": 27.875,
+                "fontSize": "21.12px",
+                "lineHeight": "27.8784px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "MVCC 行版本与快照",
+                "x": 33,
+                "y": 2109.65625,
+                "width": 309,
+                "height": 23.15625,
+                "fontSize": "16.32px",
+                "lineHeight": "23.1744px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "WAL 与提交时序",
+                "x": 33,
+                "y": 2345.34375,
+                "width": 309,
+                "height": 23.15625,
+                "fontSize": "16.32px",
+                "lineHeight": "23.1744px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "锁体系分类",
+                "x": 33,
+                "y": 2605.453125,
+                "width": 309,
+                "height": 23.15625,
+                "fontSize": "16.32px",
+                "lineHeight": "23.1744px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "风险诊断卡片墙",
+                "x": 14,
+                "y": 2935.984375,
+                "width": 347,
+                "height": 27.875,
+                "fontSize": "21.12px",
+                "lineHeight": "27.8784px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "隔离级别选择偏差",
+                "x": 35,
+                "y": 3247.640625,
+                "width": 308,
+                "height": 24.796875,
+                "fontSize": "18.24px",
+                "lineHeight": "24.8064px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "序列化失败 40001",
+                "x": 35,
+                "y": 3731.171875,
+                "width": 308,
+                "height": 24.796875,
+                "fontSize": "18.24px",
+                "lineHeight": "24.8064px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "长事务阻塞 VACUUM",
+                "x": 35,
+                "y": 4174.265625,
+                "width": 308,
+                "height": 24.796875,
+                "fontSize": "18.24px",
+                "lineHeight": "24.8064px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "事务 ID 回卷与冻结",
+                "x": 35,
+                "y": 4672.359375,
+                "width": 308,
+                "height": 24.796875,
+                "fontSize": "18.24px",
+                "lineHeight": "24.8064px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "WAL 暴涨与归档失败",
+                "x": 35,
+                "y": 5301.171875,
+                "width": 308,
+                "height": 24.796875,
+                "fontSize": "18.24px",
+                "lineHeight": "24.8064px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Checkpoint 过于频繁",
+                "x": 35,
+                "y": 5777.46875,
+                "width": 308,
+                "height": 24.796875,
+                "fontSize": "18.24px",
+                "lineHeight": "24.8064px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "死锁 40P01",
+                "x": 35,
+                "y": 6247.15625,
+                "width": 308,
+                "height": 24.796875,
+                "fontSize": "18.24px",
+                "lineHeight": "24.8064px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "锁粒度过大与 DDL 阻塞",
+                "x": 35,
+                "y": 6799,
+                "width": 308,
+                "height": 24.796875,
+                "fontSize": "18.24px",
+                "lineHeight": "24.8064px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "咨询锁与跨会话互斥",
+                "x": 35,
+                "y": 7330.625,
+                "width": 308,
+                "height": 24.796875,
+                "fontSize": "18.24px",
+                "lineHeight": "24.8064px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "实验清单：从复现到故障模拟",
+                "x": 14,
+                "y": 7761.6875,
+                "width": 347,
+                "height": 27.875,
+                "fontSize": "21.12px",
+                "lineHeight": "27.8784px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "生产参数起点",
+                "x": 14,
+                "y": 8770.3125,
+                "width": 347,
+                "height": 27.875,
+                "fontSize": "21.12px",
+                "lineHeight": "27.8784px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "速查：视图与错误码",
+                "x": 14,
+                "y": 9505.875,
+                "width": 347,
+                "height": 27.875,
+                "fontSize": "21.12px",
+                "lineHeight": "27.8784px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "controls": [
+              {
+                "id": "",
+                "tag": "a",
+                "text": "PG 并发笔记",
+                "x": 14,
+                "y": 11,
+                "width": 97.59375,
+                "height": 28.609375,
+                "fontSize": "16.64px",
+                "lineHeight": "28.6208px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "隔离级别",
+                "x": 14,
+                "y": 57.609375,
+                "width": 57,
+                "height": 23.109375,
+                "fontSize": "13.44px",
+                "lineHeight": "23.1168px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "原理要点",
+                "x": 85,
+                "y": 57.609375,
+                "width": 57,
+                "height": 23.109375,
+                "fontSize": "13.44px",
+                "lineHeight": "23.1168px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "风险诊断",
+                "x": 156,
+                "y": 57.609375,
+                "width": 57,
+                "height": 23.109375,
+                "fontSize": "13.44px",
+                "lineHeight": "23.1168px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "实验清单",
+                "x": 227,
+                "y": 57.609375,
+                "width": 57,
+                "height": 23.109375,
+                "fontSize": "13.44px",
+                "lineHeight": "23.1168px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "参数模板",
+                "x": 298,
+                "y": 57.609375,
+                "width": 57,
+                "height": 23.109375,
+                "fontSize": "13.44px",
+                "lineHeight": "23.1168px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "速查",
+                "x": 14,
+                "y": 94.71875,
+                "width": 28.5,
+                "height": 23.109375,
+                "fontSize": "13.44px",
+                "lineHeight": "23.1168px",
+                "fontFamily": "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "riskFilter",
+                "tag": "input",
+                "text": "",
+                "x": 14,
+                "y": 3117.078125,
+                "width": 347,
+                "height": 52.40625,
+                "fontSize": "15.36px",
+                "lineHeight": "26.4192px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "tg1",
+                "tag": "button",
+                "text": "处理路径",
+                "x": 35,
+                "y": 3603.28125,
+                "width": 85.09375,
+                "height": 37.734375,
+                "fontSize": "12.64px",
+                "lineHeight": "21.7408px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "tg2",
+                "tag": "button",
+                "text": "处理路径",
+                "x": 35,
+                "y": 4046.375,
+                "width": 85.09375,
+                "height": 37.734375,
+                "fontSize": "12.64px",
+                "lineHeight": "21.7408px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "tg3",
+                "tag": "button",
+                "text": "处理路径",
+                "x": 35,
+                "y": 4544.46875,
+                "width": 85.09375,
+                "height": 37.734375,
+                "fontSize": "12.64px",
+                "lineHeight": "21.7408px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "tg4",
+                "tag": "button",
+                "text": "处理路径",
+                "x": 35,
+                "y": 5173.28125,
+                "width": 85.09375,
+                "height": 37.734375,
+                "fontSize": "12.64px",
+                "lineHeight": "21.7408px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "tg5",
+                "tag": "button",
+                "text": "处理路径",
+                "x": 35,
+                "y": 5649.578125,
+                "width": 85.09375,
+                "height": 37.734375,
+                "fontSize": "12.64px",
+                "lineHeight": "21.7408px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "tg6",
+                "tag": "button",
+                "text": "处理路径",
+                "x": 35,
+                "y": 6119.265625,
+                "width": 85.09375,
+                "height": 37.734375,
+                "fontSize": "12.64px",
+                "lineHeight": "21.7408px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "tg7",
+                "tag": "button",
+                "text": "处理路径",
+                "x": 35,
+                "y": 6671.109375,
+                "width": 85.09375,
+                "height": 37.734375,
+                "fontSize": "12.64px",
+                "lineHeight": "21.7408px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "tg8",
+                "tag": "button",
+                "text": "处理路径",
+                "x": 35,
+                "y": 7202.734375,
+                "width": 85.09375,
+                "height": 37.734375,
+                "fontSize": "12.64px",
+                "lineHeight": "21.7408px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "tg9",
+                "tag": "button",
+                "text": "处理路径",
+                "x": 35,
+                "y": 7621.953125,
+                "width": 85.09375,
+                "height": 37.734375,
+                "fontSize": "12.64px",
+                "lineHeight": "21.7408px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "regions": [
+              {
+                "id": "",
+                "tag": "header",
+                "text": "PG 并发笔记\n  \n   隔离级别 原理要点 风险诊断 实验清单 参数模板 速查",
+                "x": 0,
+                "y": 0,
+                "width": 375,
+                "height": 129.828125,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "nav",
+                "text": "隔离级别 原理要点 风险诊断 实验清单 参数模板 速查",
+                "x": 14,
+                "y": 57.609375,
+                "width": 347,
+                "height": 60.21875,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "top",
+                "tag": "main",
+                "text": "Transaction & Concurrency Notes\n   从隔离级别到 XID 回卷：按风险查找 PostgreSQL 并发问题\n   PostgreSQL 依靠 MVCC 多版本并发控制实现事务隔离，WAL 预写日志保障崩溃安全，事务 ID 冻结与回卷机制维持 32 位事务 ID 的循环复用，锁子系统管理并发访问冲突。\n   大量生产故障并非来",
+                "x": 0,
+                "y": 129.828125,
+                "width": 375,
+                "height": 10157.390625,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "Transaction & Concurrency Notes\n   从隔离级别到 XID 回卷：按风险查找 PostgreSQL 并发问题\n   PostgreSQL 依靠 MVCC 多版本并发控制实现事务隔离，WAL 预写日志保障崩溃安全，事务 ID 冻结与回卷机制维持 32 位事务 ID 的循环复用，锁子系统管理并发访问冲突。\n   大量生产故障并非来",
+                "x": 0,
+                "y": 129.828125,
+                "width": 375,
+                "height": 485.296875,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "isolation",
+                "tag": "section",
+                "text": "隔离级别：标准定义四种，PostgreSQL 内部实现三种\n   标准定义的四种隔离级别按必须禁止的并发现象排列。PostgreSQL 可以请求全部四种级别，但内部只实现三种不同的隔离级别——Read Uncommitted 的行为与 Read Committed 相同，这是把标准映射到 MVCC 架构上唯一合理的方式。\n   \n    \n     \n   ",
+                "x": 0,
+                "y": 615.125,
+                "width": 375,
+                "height": 1376.65625,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "principles",
+                "tag": "section",
+                "text": "三个必须先建立的心智模型\n   \n    \n     MVCC 行版本与快照\n     数据行存在多个元组版本，元组头部保存 xmin（创建该行版本的事务 ID）与 xmax（删除或更新该行版本的事务 ID，0 代表未删除）。每个会话按自身快照的可见性规则判断版本是否可见，因此读不阻塞写、写不阻塞读。旧版本成为死元组 dead tuple，交由 VACUUM",
+                "x": 0,
+                "y": 1991.78125,
+                "width": 375,
+                "height": 902.203125,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "MVCC 行版本与快照\n     数据行存在多个元组版本，元组头部保存 xmin（创建该行版本的事务 ID）与 xmax（删除或更新该行版本的事务 ID，0 代表未删除）。每个会话按自身快照的可见性规则判断版本是否可见，因此读不阻塞写、写不阻塞读。旧版本成为死元组 dead tuple，交由 VACUUM 清理。",
+                "x": 14,
+                "y": 2088.65625,
+                "width": 347,
+                "height": 217.6875,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "WAL 与提交时序\n     修改数据页之前，先把变更写入 WAL 日志。事务提交时变更进入 WAL 缓冲区，fsync 把 WAL 刷到磁盘之后才向客户端返回提交成功；脏数据页由后台 bgwriter / checkpoint 慢慢落盘。LSN 是 WAL 内全局唯一的偏移位置；WAL 段文件默认 16MB，存放在 pg_wal 目录，写满自动切换。",
+                "x": 14,
+                "y": 2324.34375,
+                "width": 347,
+                "height": 242.109375,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "锁体系分类\n     表级锁模式：ACCESS SHARE、ROW SHARE、ROW EXCLUSIVE、SHARE、SHARE ROW EXCLUSIVE、EXCLUSIVE、ACCESS EXCLUSIVE。行级锁通过 SELECT FOR UPDATE / FOR SHARE 获取，PostgreSQL 不存在 InnoDB 的 next-key 间",
+                "x": 14,
+                "y": 2584.453125,
+                "width": 347,
+                "height": 266.53125,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "risks",
+                "tag": "section",
+                "text": "风险诊断卡片墙\n   按症状进入，卡片给出可执行的现象判断、监控查询、相关参数与处理路径。输入关键词可快速缩小范围。\n   \n    按关键词筛选 \n   \n   \n    \n     \n      事务隔离\n      隔离级别选择偏差\n     \n     应用使用默认的 Read Committed，却假设整个事务看到同一份快照。该级别下每条 SQL ",
+                "x": 0,
+                "y": 2893.984375,
+                "width": 375,
+                "height": 4825.703125,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "事务隔离\n      隔离级别选择偏差\n     \n     应用使用默认的 Read Committed，却假设整个事务看到同一份快照。该级别下每条 SQL 语句获取新快照，同一事务内的连续命令可能因其他事务的提交而看到不同数据状态。\n     \n      监控\n      SHOW default_transaction_isolation;\n\nSEL",
+                "x": 14,
+                "y": 3193.484375,
+                "width": 347,
+                "height": 465.53125,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "事务隔离\n      序列化失败 40001\n     \n     Serializable 下事务之间存在潜在的读写依赖，这类依赖在串行执行中不允许出现，冲突事务直接报 40001 序列化失败。预测哪些事务会冲突非常困难，因此必须有通用处理机制。\n     \n      监控\n      -- 应用日志中捕获 SQLSTATE 40001\n-- 谓词锁内存",
+                "x": 14,
+                "y": 3677.015625,
+                "width": 347,
+                "height": 425.09375,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "MVCC\n      长事务阻塞 VACUUM\n     \n     长事务持有的旧快照会阻止 vacuum 清理旧元组，死元组在表内堆积，造成表膨胀。处于 idle in transaction 的空闲事务危害相同。\n     \n      监控\n      SELECT pid, usename, state,\n       now() - xact_s",
+                "x": 14,
+                "y": 4120.109375,
+                "width": 347,
+                "height": 480.09375,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "MVCC\n      事务 ID 回卷与冻结\n     \n     事务 ID 是 32 位无符号整数，最大值约 42 亿，会循环复用，即 wraparound。为防止 ID 循环之后数据不可见，VACUUM 执行冻结 freeze，把很老的元组 xmin 设置为特殊 Frozen 事务 ID，永远对所有会话可见。XID 接近回卷点时会拒绝分配新事务 ID，",
+                "x": 14,
+                "y": 4618.203125,
+                "width": 347,
+                "height": 610.8125,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "WAL\n      WAL 暴涨与归档失败\n     \n     WAL 段默认单文件 16MB，写满自动切换。归档失败时已完成的段无法移出 pg_wal 目录，目录持续增长。WAL 同时也是物理流复制的数据源，堆积会连带影响复制延迟。\n     \n      监控\n      -- 观测 WAL 目录增长与段文件数量\n-- 解析 WAL 内容，确认切换位置",
+                "x": 14,
+                "y": 5247.015625,
+                "width": 347,
+                "height": 458.296875,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "WAL\n      Checkpoint 过于频繁\n     \n     Checkpoint 触发时把内存中所有脏数据页刷入数据文件，推进 redo 恢复起点。检查点过于频繁会造成 I/O 抖动，直接影响业务响应时间。\n     \n      监控\n      -- 观测检查点触发频率与 WAL 切换节奏\n-- 结合 pg_waldump 对齐 LSN 与",
+                "x": 14,
+                "y": 5723.3125,
+                "width": 347,
+                "height": 451.6875,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "锁\n      死锁 40P01\n     \n     两个或多个会话互相持有对方需要的锁，形成循环等待。PostgreSQL 后台死锁检测器自动检测，随机回滚其中一个事务并抛出 40P01 deadlock_detected。根本原因通常是更新行的顺序不一致。\n     \n      监控\n      SELECT pid, locktype, relat",
+                "x": 14,
+                "y": 6193,
+                "width": 347,
+                "height": 533.84375,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "锁\n      锁粒度过大与 DDL 阻塞\n     \n     ALTER、DROP、TRUNCATE、REINDEX、CLUSTER、VACUUM FULL 获取 ACCESS EXCLUSIVE 排他锁，阻塞该表全部读写。普通 SELECT 只取 ACCESS SHARE，仅与 ACCESS EXCLUSIVE 冲突。\n     \n      监控\n ",
+                "x": 14,
+                "y": 6744.84375,
+                "width": 347,
+                "height": 513.625,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "锁\n      咨询锁与跨会话互斥\n     \n     应用进程之间需要协调比行锁更复杂的互斥需求时，行级锁无法覆盖，容易演化成隐式的表级串行化。\n     \n      监控\n      SELECT pid, locktype, classid, objid, mode, granted\n  FROM pg_locks\n WHERE locktype ",
+                "x": 14,
+                "y": 7276.46875,
+                "width": 347,
+                "height": 401.21875,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "labs",
+                "tag": "section",
+                "text": "实验清单：从复现到故障模拟\n   以下实验按依赖顺序排列，建议在独立测试实例上逐项完成，确认每个现象都可以稳定复现。\n   \n    四种事务隔离级别实操复现，Read Committed、Repeatable Read、Serializable 行为对比。\n    MVCC 快照机制实操，长事务阻碍 vacuum 的故障模拟。\n    事务 ID 冻结与事",
+                "x": 0,
+                "y": 7719.6875,
+                "width": 375,
+                "height": 1007.625,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "params",
+                "tag": "section",
+                "text": "生产参数起点\n   下表来自一台 64G 内存、8 颗 CPU 的实验主机模板。所有数值都是起点估计，需结合实际负载压测微调。\n   \n    \n     \n      \n       参数\n       64G / 8CPU 模板\n       取值思路\n      \n     \n     \n      \n       shared_buffers\n   ",
+                "x": 0,
+                "y": 8727.3125,
+                "width": 375,
+                "height": 736.5625,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "drill",
+                "tag": "section",
+                "text": "速查：视图与错误码\n   \n    \n     \n      pg_locks\n     \n     \n      锁详情：锁类型、对象、模式、是否已授予。定位阻塞会话与锁模式的第一入口。\n     \n    \n    \n     \n      pg_stat_activity\n     \n     \n      会话与等待事件。结合 xact_start、",
+                "x": 0,
+                "y": 9463.875,
+                "width": 375,
+                "height": 823.34375,
+                "fontSize": "16.5px",
+                "lineHeight": "28.38px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "horizontalScroll": null
+              }
+            ],
+            "visualProfile": {
+              "backgrounds": [
+                "rgb(238, 241, 244)",
+                "rgb(16, 23, 31)"
+              ],
+              "fonts": [
+                "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif",
+                "system-ui, -apple-system, \"Segoe UI\", \"PingFang SC\", sans-serif"
+              ],
+              "headingSizes": [
+                28.8,
+                21.12,
+                16.32
+              ],
+              "regions": [
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.96
+                },
+                {
+                  "display": "flex",
+                  "columns": 5,
+                  "widthRatio": 0.89
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.96
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.96
+                }
+              ]
+            }
+          }
+        ],
+        "error": null
+      }
+    },
+    {
+      "name": "essay-new-standard",
+      "input": "一个沿海小城居民的散步随笔.com",
+      "mode": "imagination",
+      "effort": "standard",
+      "effortPolicy": "product-low-48k",
+      "contentFocusOnly": true,
+      "draftPlanning": false,
+      "draftCharacters": 0,
+      "layoutExploration": true,
+      "designDirection": {
+        "concept": "纸页拼贴的连续阅读流",
+        "structure": "首页像摊开的随笔本：宽度受控的正文栏内，短文整篇呈现，长文只露开头并留出继续读的入口；篇与篇之间以横线或空白分隔，日期作为边注放在栏外侧。导航退为页首一行细字。",
+        "typography": "正文采用衬线字体，行长偏窄，适合连续阅读；日期和天气类附注用手写感或斜体小字放在边注位，与正文形成旁注与被注的关系。",
+        "contentReason": "站点主体是短篇随笔，直接给出整篇比只给标题列表更贴近阅读行为；边注方式保留了散步中随手记下天气与时刻的习惯。"
+      },
+      "proposedDirectionCount": 3,
+      "visualReferenceCount": 3,
+      "visualReferenceCharacters": 1262,
+      "requestHash": "71d5157ecb8fece704d54fa6419571cacf313b80432f1d29cbf79626454669f2",
+      "actualEffortMatches": true,
+      "pageId": "e63ab585-2ccd-43a7-a0ef-26d73786db89",
+      "jobId": "efd11815-8c19-479f-908f-645de817712c",
+      "guidance": "8-c1e0823385b34590f0bf7bd797de93208836a202c8c5d1055843268e0d7bb5bd",
+      "briefCharacters": 1355,
+      "earlyVisualPlanCharacters": 0,
+      "cssChangedByReview": null,
+      "seconds": 167,
+      "interrupted": false,
+      "usageComplete": true,
+      "error": "DecodingFailure at .siteStyle.layout: Got value '{\"shell\":\"宽度受控的单栏阅读流，篇间以细横线分隔\",\"marginNotes\":\"宽屏左侧 7.5rem 边注栏，窄屏收为正文上方一行\",\"nav\":\"页首一行细字，夹在两条细线之间\"}' with wrong type, expecting string",
+      "initialGenerationAccepted": false,
+      "generationAttempts": [
+        {
+          "attempt": 1,
+          "outcome": "InvalidContent",
+          "errorCode": "invalid_content",
+          "message": "DecodingFailure at .siteStyle.brand: Got value '{\"name\":\"一个沿海小城居民的散步随笔\",\"voice\":\"居民口吻，克制、具体，只记录走路看到的事；天气与潮汐作为页边旁注。\"}' with wrong type, expecting string",
+          "at": "2026-11-08T06:53:32.371017800Z"
+        },
+        {
+          "attempt": 2,
+          "outcome": "InvalidContent",
+          "errorCode": "invalid_content",
+          "message": "DecodingFailure at .siteStyle.typography: Got value '{\"body\":\"Georgia, \\\"Songti SC\\\", \\\"Noto Serif CJK SC\\\", serif\",\"measure\":\"正文行长约 34rem，行高 1.95\",\"notes\":\"日期与天气为斜体小字，置于栏外边注\",\"headings\":\"页首标题 clamp(2rem–3.35rem)，字重 500，结尾不加句号\"}' with wrong type, expecting string",
+          "at": "2026-11-08T06:54:01.329560400Z"
+        },
+        {
+          "attempt": 3,
+          "outcome": "InvalidContent",
+          "errorCode": "invalid_content",
+          "message": "DecodingFailure at .siteStyle.palette: Got value '{\"paper\":\"#f5f0e6\",\"ink\":\"#2c2a26\",\"muted\":\"#8a7f70\",\"rule\":\"#d8cfbf\",\"accent\":\"#7a5c3e\",\"tide\":\"#efe7d8\"}' with wrong type, expecting string",
+          "at": "2026-11-08T06:54:29.401604800Z"
+        },
+        {
+          "attempt": 4,
+          "outcome": "InvalidContent",
+          "errorCode": "invalid_content",
+          "message": "DecodingFailure at .siteStyle.layout: Got value '{\"shell\":\"宽度受控的单栏阅读流，篇间以细横线分隔\",\"marginNotes\":\"宽屏左侧 7.5rem 边注栏，窄屏收为正文上方一行\",\"nav\":\"页首一行细字，夹在两条细线之间\"}' with wrong type, expecting string",
+          "at": "2026-11-08T06:54:56.692467200Z"
+        }
+      ],
+      "modelCalls": [
+        {
+          "usage": {
+            "prompt_tokens": 314,
+            "completion_tokens": 978,
+            "total_tokens": 1292,
+            "prompt_tokens_details": {
+              "cached_tokens": 128
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 254
+            },
+            "prompt_cache_hit_tokens": 128,
+            "prompt_cache_miss_tokens": 186
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 9404,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 48000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "brief"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 2239,
+            "completion_tokens": 14940,
+            "total_tokens": 17179,
+            "prompt_tokens_details": {
+              "cached_tokens": 1152
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 6366
+            },
+            "prompt_cache_hit_tokens": 1152,
+            "prompt_cache_miss_tokens": 1087
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 73483,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 48000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 10951,
+            "completion_tokens": 8906,
+            "total_tokens": 19857,
+            "prompt_tokens_details": {
+              "cached_tokens": 2176
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 336
+            },
+            "prompt_cache_hit_tokens": 2176,
+            "prompt_cache_miss_tokens": 8775
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 28950,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 48000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 10991,
+            "completion_tokens": 8689,
+            "total_tokens": 19680,
+            "prompt_tokens_details": {
+              "cached_tokens": 2176
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 99
+            },
+            "prompt_cache_hit_tokens": 2176,
+            "prompt_cache_miss_tokens": 8815
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 28065,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 48000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 10989,
+            "completion_tokens": 8636,
+            "total_tokens": 19625,
+            "prompt_tokens_details": {
+              "cached_tokens": 2176
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 29
+            },
+            "prompt_cache_hit_tokens": 2176,
+            "prompt_cache_miss_tokens": 8813
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 27283,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 48000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "document"
+        }
+      ],
+      "selection": "Original",
+      "events": [
+        {
+          "stage": "Brief",
+          "status": "Started",
+          "at": "2026-11-08T06:52:09.469868200Z",
+          "message": null
+        },
+        {
+          "stage": "Brief",
+          "status": "Completed",
+          "at": "2026-11-08T06:52:18.877978700Z",
+          "message": null
+        }
+      ],
+      "researchReused": false,
+      "layout": null
     }
   ]
 }

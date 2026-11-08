@@ -1,7 +1,7 @@
 {
-  "complete": false,
+  "complete": true,
   "plannedPairs": 6,
-  "recordedPairs": 4,
+  "recordedPairs": 6,
   "scope": "Same fixed input, date, retrieval sources and guidance. Effort applies to the entire pipeline, including generated briefs and subsequent visual-reference history; this is not a generation-only causal experiment. No visual quality conclusion is inferred from success counts.",
   "additionalChanges": "Uses the subsequent host CSS math compatibility fix. Separate normalization repairs from design differences; this is not an otherwise-identical binary comparison.",
   "pairs": [
@@ -196,7 +196,7 @@
     {
       "topic": "docs",
       "requestHash": "81c4ef5402af0f79113a9b1d0fe23a78f8d4600beb4e4de07001ab64b90df49f",
-      "paired": false,
+      "paired": true,
       "standard": {
         "pageId": "96254eed-c990-4275-b49c-196e2ecd7a3c",
         "jobId": "239db47c-063e-42ea-b68f-fc10f9510e64",
@@ -218,12 +218,32 @@
         "htmlUnchangedByReview": true,
         "cssUnchangedByReview": true
       },
-      "product": null
+      "product": {
+        "pageId": "65950e5a-c1e5-4986-b6f8-4f354ed21e4d",
+        "jobId": "b671d9d7-d82c-4664-b3d1-289bde0aa18a",
+        "ready": true,
+        "error": null,
+        "firstGenerationAccepted": true,
+        "seconds": 219,
+        "calls": 4,
+        "usageComplete": true,
+        "totalTokens": 141025,
+        "recordedReasoningTokens": 23859,
+        "selection": "Improved",
+        "selectedDirection": {
+          "concept": "风险诊断卡片墙",
+          "structure": "以长事务、XID 回卷、WAL 暴涨、死锁、序列化失败等生产风险为入口，每个入口纵向展开现象、监控查询、相关参数、处理路径；卡片按风险类别成组，形成从症状到诊断的短路径。",
+          "typography": "风险名用粗黑大字，解释正文用可读衬线，监控 SQL 与错误码用等宽小号；标题与正文的字体对比强化风险扫描，而不是均匀的技术文档语调。",
+          "contentReason": "资料反复强调大量生产故障来自隔离级别误解、长事务、WAL 参数、死锁和 XID 回卷，并给出监控视图与处理顺序；按风险入口组织更贴近 DBA 运维的查找任务，能快速从症状跳到查询和参数。"
+        },
+        "htmlUnchangedByReview": true,
+        "cssUnchangedByReview": false
+      }
     },
     {
       "topic": "essay",
       "requestHash": "71d5157ecb8fece704d54fa6419571cacf313b80432f1d29cbf79626454669f2",
-      "paired": false,
+      "paired": true,
       "standard": {
         "pageId": "efcdbc2f-1a53-45b5-b616-2f36094a167a",
         "jobId": "8796ea1a-fa21-42cd-94ba-24d3f46b6f8e",
@@ -245,7 +265,27 @@
         "htmlUnchangedByReview": true,
         "cssUnchangedByReview": true
       },
-      "product": null
+      "product": {
+        "pageId": "e63ab585-2ccd-43a7-a0ef-26d73786db89",
+        "jobId": "efd11815-8c19-479f-908f-645de817712c",
+        "ready": false,
+        "error": "DecodingFailure at .siteStyle.layout: Got value '{\"shell\":\"宽度受控的单栏阅读流，篇间以细横线分隔\",\"marginNotes\":\"宽屏左侧 7.5rem 边注栏，窄屏收为正文上方一行\",\"nav\":\"页首一行细字，夹在两条细线之间\"}' with wrong type, expecting string",
+        "firstGenerationAccepted": false,
+        "seconds": 167,
+        "calls": 5,
+        "usageComplete": true,
+        "totalTokens": 77633,
+        "recordedReasoningTokens": 7084,
+        "selection": "Original",
+        "selectedDirection": {
+          "concept": "纸页拼贴的连续阅读流",
+          "structure": "首页像摊开的随笔本：宽度受控的正文栏内，短文整篇呈现，长文只露开头并留出继续读的入口；篇与篇之间以横线或空白分隔，日期作为边注放在栏外侧。导航退为页首一行细字。",
+          "typography": "正文采用衬线字体，行长偏窄，适合连续阅读；日期和天气类附注用手写感或斜体小字放在边注位，与正文形成旁注与被注的关系。",
+          "contentReason": "站点主体是短篇随笔，直接给出整篇比只给标题列表更贴近阅读行为；边注方式保留了散步中随手记下天气与时刻的习惯。"
+        },
+        "htmlUnchangedByReview": null,
+        "cssUnchangedByReview": null
+      }
     }
   ]
 }

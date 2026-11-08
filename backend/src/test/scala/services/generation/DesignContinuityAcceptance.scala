@@ -31,6 +31,7 @@ object DesignContinuityAcceptance extends IOApp.Simple:
         "effort_guidance_v6",
         "effort_guidance_v8",
         "effort_guidance_v8_deep",
+        "effort_guidance_v8_product",
         "effort_guidance_v8_low"
       )(schema),
       "Isolated acceptance schema required"
@@ -70,6 +71,10 @@ object DesignContinuityAcceptance extends IOApp.Simple:
             .get
         )
         policy = record.hcursor.get[String]("effortPolicy").getOrElse("product")
+        _ <- IO.raiseUnless(
+          (schema != "effort_guidance_v8_product" || policy == "product-low-48k") &&
+            (policy != "experimental-low" || GenerationPolicy.officialOutputTokens == 24000)
+        )(new IllegalArgumentException("Parent request policy differs from this build"))
         lowThinking = policy == "experimental-low"
         _ <- IO.raiseUnless(lowThinking == schema.endsWith("_low"))(
           new IllegalArgumentException("Parent effort policy does not match the isolated schema")
