@@ -27,13 +27,16 @@ object EffortAcceptance extends IOApp.Simple:
   private val guidanceRetest = sys.env.get("VIBROWSER_EFFORT_GUIDANCE_RETEST").contains("true")
   private val guidanceRevision = sys.env.getOrElse("VIBROWSER_EFFORT_GUIDANCE_VERSION", "3")
   private val samplingRetest = sys.env.get("VIBROWSER_DESIGN_SAMPLING_RETEST").contains("true")
+  private val deepRetest = sys.env.get("VIBROWSER_DESIGN_DEEP_RETEST").contains("true")
+  private val effortSuffix = if deepRetest then "_deep" else ""
   private val schema =
     if samplingRetest then "effort_sampling_v1"
-    else if guidanceRetest then "effort_guidance_v" + guidanceRevision
+    else if guidanceRetest then "effort_guidance_v" + guidanceRevision + effortSuffix
     else "effort_acceptance"
   private val output = Paths.get(
     if samplingRetest then "../.cache/effort-sampling-v1"
-    else if guidanceRetest then "../.cache/effort-guidance-v" + guidanceRevision
+    else if guidanceRetest then
+      "../.cache/effort-guidance-v" + guidanceRevision + effortSuffix.replace('_', '-')
     else "../.cache/effort-acceptance"
   )
   private val samples = List(
@@ -112,6 +115,10 @@ object EffortAcceptance extends IOApp.Simple:
       yield response.withEntity(result)
     }
   def run: IO[Unit] =
+    require(
+      !deepRetest || (guidanceRetest && guidanceRevision == "8" && !samplingRetest),
+      "Deep comparison requires isolated v8 guidance without sampling changes"
+    )
     require(
       !samplingRetest || (guidanceRetest && guidanceRevision == "7"),
       "Sampling test requires the unchanged v7 guidance"
@@ -208,7 +215,8 @@ object EffortAcceptance extends IOApp.Simple:
             )
             variants =
               if guidanceRetest then
-                List(("new-standard", DesignGuidance.current, GenerationEffort.Standard))
+                if deepRetest then List(("new-deep", DesignGuidance.current, GenerationEffort.Deep))
+                else List(("new-standard", DesignGuidance.current, GenerationEffort.Standard))
               else
                 List(
                   ("old-standard", old, GenerationEffort.Standard),

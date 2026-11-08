@@ -5,7 +5,8 @@ import { frameSource } from "../dist-measure/webRuntime.mjs";
 process.env.PLAYWRIGHT_BROWSERS_PATH ??= resolve("../.cache/playwright");
 const { chromium } = await import("playwright");
 const browser = await chromium.launch({ channel: "chromium" });
-const revision = process.argv.includes("--guidance-v7") ? "v7" : "v3";
+const revision =
+  ["v8", "v7"].find((v) => process.argv.includes(`--guidance-${v}`)) ?? "v3";
 const samples = [];
 try {
   for (const name of [
@@ -59,6 +60,15 @@ try {
       elements,
       cssUnchangedByReview:
         record.workflow?.candidate?.css === record.document.css,
+      htmlUnchangedByReview:
+        record.workflow?.candidate?.html === record.document.html,
+      selectedDirection: record.workflow?.designDirection ?? null,
+      actualSiteStyle: record.document.siteStyle,
+      selection: record.workflow?.selection,
+      bodyStyle: await page.locator("body").evaluate((e) => {
+        const s = getComputedStyle(e);
+        return { background: s.backgroundColor, font: s.fontFamily };
+      }),
       briefCharacters: JSON.stringify(record.workflow?.brief).length,
     });
     await page.close();

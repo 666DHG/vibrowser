@@ -9,10 +9,15 @@ const revision = ["v8", "v7", "v6", "v5", "v4", "v3"].find((v) =>
   process.argv.includes(`--guidance-${v}`),
 );
 const sampling = process.argv.includes("--sampling-v1");
+const deep = process.argv.includes("--deep");
+assert(
+  !deep || (revision === "v8" && !sampling),
+  "Deep comparison requires v8",
+);
 const retest = revision !== undefined || sampling;
 const experiment = sampling
   ? "effort-sampling-v1"
-  : "effort-guidance-" + revision;
+  : "effort-guidance-" + revision + (deep ? "-deep" : "");
 const expectedSamples = retest ? 6 : 18;
 const input = resolve(
   root,
@@ -32,14 +37,21 @@ for (const file of (await readdir(input))
   const record = JSON.parse(await readFile(resolve(input, file), "utf8"));
   if (retest) {
     const baseline = JSON.parse(
-      await readFile(resolve(root, ".cache/effort-acceptance", file), "utf8"),
+      await readFile(
+        resolve(
+          root,
+          ".cache/effort-acceptance",
+          file.replace("-new-deep", "-new-standard"),
+        ),
+        "utf8",
+      ),
     );
     assert.equal(
       record.request,
       baseline.request,
       "Guidance retest must preserve the original input and research context",
     );
-    assert.equal(record.effort, "standard");
+    assert.equal(record.effort, deep ? "deep" : "standard");
     if (sampling) {
       assert(record.guidance.startsWith("7-"));
       assert(record.modelCalls.some((call) => call.temperature === 1.3));
