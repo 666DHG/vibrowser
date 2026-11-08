@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
-import { readFile, readdir, writeFile } from "node:fs/promises";
+import { readdir, writeFile } from "node:fs/promises";
+import { readFile } from "../../tools/local-evidence.mjs";
 test("replay real design documents through the browser runtime without model requests", async ({
   browser,
 }) => {
@@ -442,7 +443,7 @@ test("replay real design documents through the browser runtime without model req
   }
   await writeFile(
     process.env.VIBROWSER_DESIGN_REPLAY_REPORT ??
-      "../docs/screenshots/design-workflow/interaction-replay.json",
+      "../.data/release-archive/docs/screenshots/design-workflow/interaction-replay.json",
     JSON.stringify(findings, null, 2),
   );
   expect(findings.filter((row) => "error" in row)).toEqual([]);

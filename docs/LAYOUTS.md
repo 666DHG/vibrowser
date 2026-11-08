@@ -26,18 +26,18 @@
 
 | 地址 | 布局 / 字体 | 组件数（全树） | 耗时 | 截图 |
 | --- | --- | --- | --- | --- |
-| fieldnotes-journal.example | editorial / serif | 35 | 15.8 秒 | [桌面](screenshots/layouts-live/editorial.png) · [手机](screenshots/layouts-live/editorial-mobile.png) |
-| stationery-shop.example | storefront / sans | 39 | 14.7 秒 | [桌面](screenshots/layouts-live/storefront.png) · [手机](screenshots/layouts-live/storefront-mobile.png) |
-| docs.tidb-lab.example/quickstart | documentation / sans | 41 | 13.1 秒 | [桌面](screenshots/layouts-live/documentation.png) · [手机](screenshots/layouts-live/documentation-mobile.png) |
-| forum.city-cycling.example | community / sans | 37 | 13.9 秒 | [桌面](screenshots/layouts-live/community.png) · [手机](screenshots/layouts-live/community-mobile.png) |
+| fieldnotes-journal.example | editorial / serif | 35 | 15.8 秒 | [桌面（原始证据已本地归档）](RELEASE.md#历史验收汇总) · [手机（原始证据已本地归档）](RELEASE.md#历史验收汇总) |
+| stationery-shop.example | storefront / sans | 39 | 14.7 秒 | [桌面（原始证据已本地归档）](RELEASE.md#历史验收汇总) · [手机（原始证据已本地归档）](RELEASE.md#历史验收汇总) |
+| docs.tidb-lab.example/quickstart | documentation / sans | 41 | 13.1 秒 | [桌面（原始证据已本地归档）](RELEASE.md#历史验收汇总) · [手机（原始证据已本地归档）](RELEASE.md#历史验收汇总) |
+| forum.city-cycling.example | community / sans | 37 | 13.9 秒 | [桌面（原始证据已本地归档）](RELEASE.md#历史验收汇总) · [手机（原始证据已本地归档）](RELEASE.md#历史验收汇总) |
 
-页面/任务 ID、主题、组件类型与毫秒耗时见 [原始验收数据](acceptance/layout-generation-2026-11-03.json)。修复长正文分栏后重新打开这四个缓存页，核对页面与任务 ID 未变化，重新截图并检查手机无整体横向溢出；原始生成耗时未被缓存读取耗时覆盖。提示中的最后文案与来源摘要调整由编译检查覆盖，本轮四页生成发生在这些微调之前。
+页面/任务 ID、主题、组件类型与毫秒耗时见 [原始验收数据（原始证据已本地归档）](RELEASE.md#历史验收汇总)。修复长正文分栏后重新打开这四个缓存页，核对页面与任务 ID 未变化，重新截图并检查手机无整体横向溢出；原始生成耗时未被缓存读取耗时覆盖。提示中的最后文案与来源摘要调整由编译检查覆盖，本轮四页生成发生在这些微调之前。
 
 ## 自动检查
 
 - Scala 编译及 35 项测试通过：共同 fixtures、地址处理、生成归一化、三个 Prompt 示例、模型失败/修复预算、PG 事务/去重/重试、DPAPI 与设置边界。
 - 前端 22 项单测通过：18 个共享 fixtures、链接/路由规则、长文档分栏连续性和通栏分区保序；类型检查、生产构建与格式检查通过。
-- Mock 浏览器回归 11 项：原有四项交互，加七类页面的桌面/手机渲染、字体、主侧栏几何关系和链接导航。截图在 [layouts](screenshots/layouts/)。
+- Mock 浏览器回归 11 项：原有四项交互，加七类页面的桌面/手机渲染、字体、主侧栏几何关系和链接导航。截图在 [layouts（原始证据已本地归档）](RELEASE.md#历史验收汇总)。
 - 独立真实浏览器布局用例通过，含上述四次生成和移动端溢出检查；它与 Mock 测试分开。
 
 复验命令：

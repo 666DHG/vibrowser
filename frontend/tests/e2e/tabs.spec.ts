@@ -140,8 +140,12 @@ test("tabs keep independent history, drafts, scroll and restore without new gene
     Math.abs(brand.y + brand.height / 2 - tab.y - tab.height / 2),
   ).toBeLessThan(1);
   expect((await page.getByTestId("content-viewport").boundingBox())!.x).toBe(0);
-  await mkdir("../docs/screenshots/tabs", { recursive: true });
-  await page.screenshot({ path: "../docs/screenshots/tabs/desktop.png" });
+  await mkdir("../.data/release-archive/docs/screenshots/tabs", {
+    recursive: true,
+  });
+  await page.screenshot({
+    path: "../.data/release-archive/docs/screenshots/tabs/desktop.png",
+  });
   await page
     .getByRole("button", {
       name: "关闭标签页：alpha-next.example",
@@ -276,5 +280,7 @@ test("many tabs stay reachable on mobile and support keyboard switching", async 
       () => document.documentElement.scrollWidth <= innerWidth,
     ),
   ).toBe(true);
-  await page.screenshot({ path: "../docs/screenshots/tabs/mobile.png" });
+  await page.screenshot({
+    path: "../.data/release-archive/docs/screenshots/tabs/mobile.png",
+  });
 });

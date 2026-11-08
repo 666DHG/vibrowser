@@ -1,9 +1,0 @@
-{
-  "source" : "effort-sampling-v1/essay-new-standard.json",
-  "pageId" : "d3c31d03-5634-4450-802f-48354d2520c0",
-  "jobId" : "eb9316b9-5d58-447b-bb74-350f2b7f8424",
-  "originalFailureRetained" : true,
-  "extraModelCalls" : 0,
-  "validated" : false,
-  "remainingError" : "unsupported HTML attribute: form[action], form[method]"
-}

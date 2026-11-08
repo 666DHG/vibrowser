@@ -1,4 +1,5 @@
-import { readFile, readdir, mkdir, writeFile } from "node:fs/promises";
+import { readdir, mkdir, writeFile } from "node:fs/promises";
+import { readFile } from "./local-evidence.mjs";
 import { resolve } from "node:path";
 import { createHash } from "node:crypto";
 import { frameSource } from "../dist-measure/webRuntime.mjs";
@@ -6,7 +7,7 @@ import { frameSource } from "../dist-measure/webRuntime.mjs";
 process.env.PLAYWRIGHT_BROWSERS_PATH ??= resolve("../.cache/playwright");
 const { chromium } = await import("playwright");
 const directory = "../.cache/design-stages-v9";
-const output = "../docs/screenshots/design-stages-v9";
+const output = "../.data/release-archive/docs/screenshots/design-stages-v9";
 await mkdir(output, { recursive: true });
 const browser = await chromium.launch({ channel: "chromium" });
 const results = [];
@@ -78,7 +79,7 @@ try {
   await browser.close();
 }
 await writeFile(
-  "../docs/acceptance/design-stages-v9.json",
+  "../.data/release-archive/docs/acceptance/design-stages-v9.json",
   JSON.stringify(
     {
       method:

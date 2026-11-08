@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, writeFile } from "node:fs/promises";
+import { readFile } from "../../tools/local-evidence.mjs";
 import { responseSchema } from "../../src/shared/pageSpec";
 
 test("Chinese domain intent and cross-site search survive URL normalization", async ({
@@ -11,7 +12,8 @@ test("Chinese domain intent and cross-site search survive URL normalization", as
     "Explicit live opt-in",
   );
   expect((await (await request.get("/health")).json()).mock).toBe(false);
-  const file = "../docs/acceptance/address-intent-2026-11-03.json";
+  const file =
+    "../.data/release-archive/docs/acceptance/address-intent-2026-11-03.json";
   const previous = await readFile(file, "utf8")
     .then(JSON.parse)
     .catch(() => []);
@@ -21,7 +23,9 @@ test("Chinese domain intent and cross-site search survive URL normalization", as
   };
   const save = () =>
     writeFile(file, JSON.stringify([...previous, run], null, 2));
-  await mkdir("../docs/screenshots/address-intent", { recursive: true });
+  await mkdir("../.data/release-archive/docs/screenshots/address-intent", {
+    recursive: true,
+  });
   await page.goto("/");
   const cases = [
     {
@@ -99,7 +103,7 @@ test("Chinese domain intent and cross-site search survive URL normalization", as
     );
     await expect(page.getByTestId("navigation-progress")).toHaveCount(0);
     await page.screenshot({
-      path: `../docs/screenshots/address-intent/${item.name}.png`,
+      path: `../.data/release-archive/docs/screenshots/address-intent/${item.name}.png`,
     });
   }
 });

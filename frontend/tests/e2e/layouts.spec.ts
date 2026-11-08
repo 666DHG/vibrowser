@@ -78,9 +78,14 @@ for (const [fixture, layout, typography] of cases) {
         const m = (await main.first().boundingBox())!;
         expect(Math.abs(a.x - m.x)).toBeGreaterThan(100);
       }
-      await mkdir("../docs/screenshots/layouts", { recursive: true });
+      await mkdir("../.data/release-archive/docs/screenshots/layouts", {
+        recursive: true,
+      });
       await page.screenshot({
-        path: "../docs/screenshots/layouts/" + fixture + ".png",
+        path:
+          "../.data/release-archive/docs/screenshots/layouts/" +
+          fixture +
+          ".png",
       });
       await rendered.getByRole("button").first().click();
       await expect.poll(() => requests.length).toBe(2);
@@ -102,7 +107,10 @@ for (const [fixture, layout, typography] of cases) {
         expect(Math.abs(a.x - m.x)).toBeLessThan(2);
       }
       await page.screenshot({
-        path: "../docs/screenshots/layouts/" + fixture + "-mobile.png",
+        path:
+          "../.data/release-archive/docs/screenshots/layouts/" +
+          fixture +
+          "-mobile.png",
       });
       expect(errors).toEqual([]);
     },

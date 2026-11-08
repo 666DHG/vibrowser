@@ -1,6 +1,12 @@
+import { mkdirSync } from "node:fs";
 import { defineConfig } from "@playwright/test";
 import { resolve } from "node:path";
 process.env.PLAYWRIGHT_BROWSERS_PATH = resolve("../.cache/playwright");
+for (const directory of ["acceptance", "screenshots"]) {
+  mkdirSync(resolve("../.data/release-archive/docs", directory), {
+    recursive: true,
+  });
+}
 export default defineConfig({
   testDir: "tests/e2e",
   workers: 1,

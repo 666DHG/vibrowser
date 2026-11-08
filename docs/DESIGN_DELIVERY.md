@@ -14,14 +14,14 @@
 
 固定六题涵盖教师主页、文案工具、日历、咖啡器具比较、技术文档、旅行随笔。原产品参数批次最终 **5/6**、首轮 **3/6**，27 次请求、1235 秒。随笔因风格元数据类型不匹配失败；修复解码后仅对该失败页显式重试，首轮正文通过，3 次请求、159 秒。没有重跑其他五题寻找更好的样本，也没有把原批次改写为 6/6。
 
-- [原批次及任务 ID](acceptance/effort-guidance-v8-product.json)、[配对结果](acceptance/effort-guidance-v8-product-paired.json)
-- [失败页真实重试](acceptance/product-failed-retry.json)、[重试交互](acceptance/product-failed-retry-interactions.json)
-- [认真模式规划](acceptance/product-research-planning.json)：复用五份已保存来源，一次实际请求 6.67 秒，正确识别袁洋主题；本项不冒充新 Search/Fetch 验收。
-- [同站详情](acceptance/effort-guidance-v8-product-continuity.json)：实际点击器具详情，184 秒，事实及品牌继承通过；[浏览器交互](acceptance/effort-guidance-v8-product-continuity-interactions.json) 不额外调用模型。
+- [原批次及任务 ID（原始证据已本地归档）](RELEASE.md#历史验收汇总)、[配对结果（原始证据已本地归档）](RELEASE.md#历史验收汇总)
+- [失败页真实重试（原始证据已本地归档）](RELEASE.md#历史验收汇总)、[重试交互（原始证据已本地归档）](RELEASE.md#历史验收汇总)
+- [认真模式规划（原始证据已本地归档）](RELEASE.md#历史验收汇总)：复用五份已保存来源，一次实际请求 6.67 秒，正确识别袁洋主题；本项不冒充新 Search/Fetch 验收。
+- [同站详情（原始证据已本地归档）](RELEASE.md#历史验收汇总)：实际点击器具详情，184 秒，事实及品牌继承通过；[浏览器交互（原始证据已本地归档）](RELEASE.md#历史验收汇总) 不额外调用模型。
 
 视觉对照中，文案工具加入分类索引与编号条目；日历形成日期主卡与当日信息层级；比较页组织为选择手册、场景章节及参数附录；技术文档改为风险诊断网格与展开路径。变化涉及信息组织和导航，超过单纯换色。教师主页和随笔仍接近长文阅读版式；衬线大标题、纸色背景等偏好仍会重复，本轮接受这一限制，不承诺每次都得到完全不同的风格。
 
-截图：[产品六题中的五个成功页面](screenshots/effort-guidance-v8-product)、[修复后随笔](screenshots/product-failed-retry)、[同站详情](screenshots/effort-guidance-v8-product-continuity)。同站详情保持了父页的手册式章节轨道、衬线标题和参数表，桌面与窄屏回放通过。
+截图：[产品六题中的五个成功页面（原始证据已本地归档）](RELEASE.md#历史验收汇总)、[修复后随笔（原始证据已本地归档）](RELEASE.md#历史验收汇总)、[同站详情（原始证据已本地归档）](RELEASE.md#历史验收汇总)。同站详情保持了父页的手册式章节轨道、衬线标题和参数表，桌面与窄屏回放通过。
 
 ## 自动检查
 
@@ -35,7 +35,7 @@
 
 ## 最终回归与运行状态
 
-最终浏览器回归：旧格式 36 通过、2 个 v3 专用用例跳过；开启 v3 集成开关后 11 通过、0 跳过；合计 39 个不同用例，无失败、无 flaky。覆盖标签、模式、设置、书签、来源、局部更新和运行时。见 [逐项结果](acceptance/design-delivery-browser.json)。最初 v3 检查未设置集成开关的 9 通过／2 跳过不计为最终完整结果，已补跑上述完整 11 项。
+最终浏览器回归：旧格式 36 通过、2 个 v3 专用用例跳过；开启 v3 集成开关后 11 通过、0 跳过；合计 39 个不同用例，无失败、无 flaky。覆盖标签、模式、设置、书签、来源、局部更新和运行时。见 [逐项结果（原始证据已本地归档）](RELEASE.md#历史验收汇总)。最初 v3 检查未设置集成开关的 9 通过／2 跳过不计为最终完整结果，已补跑上述完整 11 项。
 
 最终已恢复 LIVE：`http://127.0.0.1:5173/` 返回 200，后端 `/health` 返回 `status=ok, mock=false`。未启用临时数据保留或实验数据库覆盖；正常启动继续执行原有未收藏临时数据清理。工作保留在 `feat/content-driven-design`，未合并主分支、未推送远程。
 

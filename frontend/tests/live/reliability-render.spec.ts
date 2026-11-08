@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { readFile } from "node:fs/promises";
+import { readFile } from "../../tools/local-evidence.mjs";
 
 test("render reliability acceptance pages without regeneration", async ({
   browser,
@@ -8,7 +8,7 @@ test("render reliability acceptance pages without regeneration", async ({
   test.skip(process.env.VIBROWSER_LIVE_SMOKE !== "true");
   const rows = JSON.parse(
     await readFile(
-      "../docs/acceptance/reliability-retest-2026-11-05.json",
+      "../.data/release-archive/docs/acceptance/reliability-retest-2026-11-05.json",
       "utf8",
     ),
   );
@@ -60,7 +60,7 @@ test("render reliability acceptance pages without regeneration", async ({
     await page.waitForTimeout(500);
     await page.screenshot({
       path:
-        "../docs/screenshots/reliability/" +
+        "../.data/release-archive/docs/screenshots/reliability/" +
         (row.label === "fresh-person-after-fix"
           ? "person-after-fix"
           : row.label) +

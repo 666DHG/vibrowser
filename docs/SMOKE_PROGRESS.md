@@ -64,11 +64,11 @@
 
 ## 界面截图
 
-- [首页](screenshots/home.png)
-- [生成页面（文本插画）](screenshots/generated-page.png)
-- [虚构搜索](screenshots/search.png)
-- [设置面板](screenshots/settings.png)
-- [移动布局](screenshots/mobile.png)
+- [首页（原始证据已本地归档）](RELEASE.md#历史验收汇总)
+- [生成页面（文本插画）（原始证据已本地归档）](RELEASE.md#历史验收汇总)
+- [虚构搜索（原始证据已本地归档）](RELEASE.md#历史验收汇总)
+- [设置面板（原始证据已本地归档）](RELEASE.md#历史验收汇总)
+- [移动布局（原始证据已本地归档）](RELEASE.md#历史验收汇总)
 
 截图由 Playwright 生成，并检查了桌面内容、设置面板和窄屏布局。生成网站没有图片资源；交付截图属于测试证据。
 
@@ -82,7 +82,7 @@
 | 57a3559 | 任务/缓存恢复、强类型 ID、协议与 Smoke 测试 |
 | 最终交付提交 | 启停/检查脚本、接口细节修复、截图、运行说明、roadmap 与本记录；具体 hash 见 git log |
 
-Git 身份为 666DHG / 47705871+666DHG@users.noreply.github.com。未新建远程仓库、推送或发布网站。
+此段为历史验收记录，当前发布状态见 [发布检查](RELEASE.md)。
 
 ## 实际限制
 

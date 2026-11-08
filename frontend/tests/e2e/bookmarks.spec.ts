@@ -54,9 +54,12 @@ test("bookmarks persist, synchronize windows and open cached pages without gener
     await expect(page.getByRole("tab")).toHaveCount(count);
     await page.getByRole("textbox", { name: "筛选书签" }).fill(input);
     await expect(page.getByText(saved.address, { exact: true })).toBeVisible();
-    await mkdir("../docs/screenshots/bookmarks-progress", { recursive: true });
+    await mkdir(
+      "../.data/release-archive/docs/screenshots/bookmarks-progress",
+      { recursive: true },
+    );
     await page.screenshot({
-      path: "../docs/screenshots/bookmarks-progress/bookmarks.png",
+      path: "../.data/release-archive/docs/screenshots/bookmarks-progress/bookmarks.png",
     });
     await page.reload();
     await expect(

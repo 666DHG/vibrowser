@@ -73,7 +73,7 @@ object EffortReviewReplay extends IOApp.Simple:
           }
           _ <- IO.blocking(
             Files.writeString(
-              Paths.get("../docs/acceptance/effort-review-replay.json"),
+              Paths.get("../.data/release-archive/docs/acceptance/effort-review-replay.json"),
               Json
                 .obj(
                   "modelRequests" -> 0.asJson,

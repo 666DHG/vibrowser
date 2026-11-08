@@ -9,7 +9,9 @@ test("reported academic homepage retries and generates afresh in LIVE", async ({
   expect((await (await request.get("/health")).json()).mock).toBe(false);
   const input = "清华教师袁洋的个人学术主页.com";
   const evidence: any[] = [];
-  await mkdir("../docs/screenshots/academic-fragments", { recursive: true });
+  await mkdir("../.data/release-archive/docs/screenshots/academic-fragments", {
+    recursive: true,
+  });
   async function verify(pageId: string, label: string) {
     const started = Date.now();
     let result: any;
@@ -32,7 +34,7 @@ test("reported academic homepage retries and generates afresh in LIVE", async ({
       entityIds: result.page?.document?.entities.map((e: any) => e.id),
     });
     await writeFile(
-      "../docs/acceptance/academic-fragments-live-2026-11-05.json",
+      "../.data/release-archive/docs/acceptance/academic-fragments-live-2026-11-05.json",
       JSON.stringify(evidence, null, 2),
     );
     expect
@@ -89,7 +91,10 @@ test("reported academic homepage retries and generates afresh in LIVE", async ({
     }
     await page.waitForTimeout(300);
     await page.screenshot({
-      path: "../docs/screenshots/academic-fragments/" + label + ".png",
+      path:
+        "../.data/release-archive/docs/screenshots/academic-fragments/" +
+        label +
+        ".png",
     });
     expect(requests).toBe(0);
     await page.close();

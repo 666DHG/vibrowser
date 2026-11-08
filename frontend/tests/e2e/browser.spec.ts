@@ -16,9 +16,9 @@ test("home, website, link, history, refresh and fictional search", async ({
   await expect(
     page.getByRole("heading", { name: /世界还没写好/ }),
   ).toBeVisible();
-  await mkdir("../docs/screenshots", { recursive: true });
+  await mkdir("../.data/release-archive/docs/screenshots", { recursive: true });
   await page.screenshot({
-    path: "../docs/screenshots/home.png",
+    path: "../.data/release-archive/docs/screenshots/home.png",
     fullPage: true,
   });
   const address = page.getByRole("textbox", { name: "网址或搜索词" });
@@ -28,7 +28,7 @@ test("home, website, link, history, refresh and fictional search", async ({
     page.getByRole("heading", { name: "离地球很远， 离一杯好咖啡很近。" }),
   ).toBeVisible();
   await page.screenshot({
-    path: "../docs/screenshots/generated-page.png",
+    path: "../.data/release-archive/docs/screenshots/generated-page.png",
     fullPage: true,
   });
   const committed = async (target: string) => {
@@ -68,7 +68,7 @@ test("home, website, link, history, refresh and fictional search", async ({
   ).toBeVisible();
   await expect(page.getByText("为你找到 3 个相关结果")).toBeVisible();
   await page.screenshot({
-    path: "../docs/screenshots/search.png",
+    path: "../.data/release-archive/docs/screenshots/search.png",
     fullPage: true,
   });
   await page.getByRole("button", { name: "Moon Coffee · 静海咖啡馆" }).click();
@@ -108,7 +108,7 @@ test("settings save, mask, test, reload and clear fake credential", async ({
     await page.getByRole("button", { name: "设置", exact: true }).click();
     await expect(page.getByText("已配置 · 留空保留")).toBeVisible();
     await page.screenshot({
-      path: "../docs/screenshots/settings.png",
+      path: "../.data/release-archive/docs/screenshots/settings.png",
       fullPage: true,
     });
     await page
@@ -167,7 +167,7 @@ test("mobile layout stays within viewport", async ({ page }) => {
     ),
   ).toBe(true);
   await page.screenshot({
-    path: "../docs/screenshots/mobile.png",
+    path: "../.data/release-archive/docs/screenshots/mobile.png",
     fullPage: true,
   });
 });

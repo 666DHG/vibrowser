@@ -40,10 +40,12 @@ test("retained page, fixed step panel, failure, retry and history commit", async
   await expect(panel.getByRole("list", { name: "加载步骤" })).toContainText(
     "准备页面",
   );
-  await mkdir("../docs/screenshots/companion", { recursive: true });
+  await mkdir("../.data/release-archive/docs/screenshots/companion", {
+    recursive: true,
+  });
   await page.screenshot({
     animations: "disabled",
-    path: "../docs/screenshots/companion/loading.png",
+    path: "../.data/release-archive/docs/screenshots/companion/loading.png",
   });
   await panel.getByRole("button", { name: "折叠加载进度" }).click();
   await expect(panel.getByRole("list")).toHaveCount(0);
@@ -147,7 +149,7 @@ test("home uses cat bubble progress and both toolbars remain equal on desktop an
   }
   await page.screenshot({
     animations: "disabled",
-    path: "../docs/screenshots/companion/mobile-loading.png",
+    path: "../.data/release-archive/docs/screenshots/companion/mobile-loading.png",
   });
 });
 
@@ -176,7 +178,9 @@ test("progress scroll geometry stays stable through spinner frames and long retr
   await panel.getByRole("button", { name: "展开加载进度" }).click();
   await page.waitForTimeout(250);
   const observations: unknown[] = [];
-  await mkdir("../docs/screenshots/companion", { recursive: true });
+  await mkdir("../.data/release-archive/docs/screenshots/companion", {
+    recursive: true,
+  });
   for (const viewport of [
     { width: 1440, height: 1000 },
     { width: 390, height: 844 },
@@ -226,11 +230,11 @@ test("progress scroll geometry stays stable through spinner frames and long retr
     });
     await page.screenshot({
       animations: "disabled",
-      path: `../docs/screenshots/companion/progress-${viewport.width}-${viewport.height}.png`,
+      path: `../.data/release-archive/docs/screenshots/companion/progress-${viewport.width}-${viewport.height}.png`,
     });
   }
   await writeFile(
-    "../docs/acceptance/companion-scroll.json",
+    "../.data/release-archive/docs/acceptance/companion-scroll.json",
     JSON.stringify(observations, null, 2),
   );
   await page.emulateMedia({ reducedMotion: "reduce" });

@@ -1,4 +1,5 @@
-import { readFile, readdir, mkdir, writeFile, access } from "node:fs/promises";
+import { readdir, mkdir, writeFile, access } from "node:fs/promises";
+import { readFile } from "./local-evidence.mjs";
 import { resolve } from "node:path";
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
@@ -38,8 +39,8 @@ const input = resolve(
 const output = resolve(
   root,
   retest
-    ? "docs/screenshots/" + experiment
-    : "docs/screenshots/effort-comparison",
+    ? ".data/release-archive/docs/screenshots/" + experiment
+    : ".data/release-archive/docs/screenshots/effort-comparison",
 );
 await mkdir(output, { recursive: true });
 const results = [];
@@ -249,8 +250,8 @@ await writeFile(
   resolve(
     root,
     retest
-      ? "docs/acceptance/" + experiment + ".json"
-      : "docs/acceptance/effort-comparison.json",
+      ? ".data/release-archive/docs/acceptance/" + experiment + ".json"
+      : ".data/release-archive/docs/acceptance/effort-comparison.json",
   ),
   JSON.stringify(
     {

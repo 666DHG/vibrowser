@@ -1,9 +1,12 @@
-import { readFile, readdir, mkdir, writeFile } from "node:fs/promises";
+import { readdir, mkdir, writeFile } from "node:fs/promises";
+import { readFile } from "./local-evidence.mjs";
 import { resolve } from "node:path";
 import { measureDocument } from "../dist-measure/measure.mjs";
 
 const input = resolve("../.cache/design-acceptance");
-const output = resolve("../docs/screenshots/design-workflow");
+const output = resolve(
+  "../.data/release-archive/docs/screenshots/design-workflow",
+);
 await mkdir(output, { recursive: true });
 const results = [];
 for (const file of (await readdir(input)).filter((f) => f.endsWith(".json"))) {

@@ -57,7 +57,7 @@ object DesignDraftReplay extends IOApp.Simple:
             )
           )
         Files.writeString(
-          Paths.get(s"../docs/acceptance/design-draft-replay$suffix.json"),
+          Paths.get(s"../.data/release-archive/docs/acceptance/design-draft-replay$suffix.json"),
           Json
             .obj(
               "source" -> s"effort-guidance-v9/$topic-new-standard.json".asJson,

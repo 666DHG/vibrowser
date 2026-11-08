@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
-import { readFile, writeFile } from "node:fs/promises";
+import { writeFile } from "node:fs/promises";
+import { readFile } from "../../tools/local-evidence.mjs";
 import { createHash } from "node:crypto";
 import { responseSchema, settingsSchema } from "../../src/shared/pageSpec";
 import { SESSION_KEY } from "../../src/pages/BrowserPage/functions/browserSession";
@@ -91,7 +92,9 @@ test.describe("restore", () => {
     await page.getByRole("button", { name: "设置", exact: true }).click();
     await expect(page.getByText("已配置 · 留空保留")).toBeVisible();
     await page.getByRole("button", { name: "关闭设置", exact: true }).click();
-    await page.screenshot({ path: "../docs/screenshots/live/restarted.png" });
+    await page.screenshot({
+      path: "../.data/release-archive/docs/screenshots/live/restarted.png",
+    });
     evidence.restart = {
       verifiedAt: new Date().toISOString(),
       preservedPageCount: evidence.pages.length,

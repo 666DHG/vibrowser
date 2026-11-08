@@ -3,8 +3,10 @@ import { mkdir, writeFile } from "node:fs/promises";
 test("six v3 live documents", async ({ page, request }) => {
   test.skip(process.env.VIBROWSER_LIVE_SMOKE !== "true");
   expect((await (await request.get("/health")).json()).mock).toBe(false);
-  await mkdir("../docs/acceptance", { recursive: true });
-  await mkdir("../docs/screenshots/web-documents", { recursive: true });
+  await mkdir("../.data/release-archive/docs/acceptance", { recursive: true });
+  await mkdir("../.data/release-archive/docs/screenshots/web-documents", {
+    recursive: true,
+  });
   const records: any[] = [];
   for (const kind of ["forum", "shop", "docs"] as const) {
     for (let variant = 1; variant <= 2; variant++) {
@@ -41,7 +43,7 @@ test("six v3 live documents", async ({ page, request }) => {
         steps: result.job?.steps,
       });
       await writeFile(
-        "../docs/acceptance/web-documents-2026-11-05.json",
+        "../.data/release-archive/docs/acceptance/web-documents-2026-11-05.json",
         JSON.stringify(records, null, 2),
       );
       expect
@@ -81,7 +83,7 @@ test("six v3 live documents", async ({ page, request }) => {
           .toBeGreaterThan(100);
         await page.screenshot({
           path:
-            "../docs/screenshots/web-documents/" +
+            "../.data/release-archive/docs/screenshots/web-documents/" +
             kind +
             "-" +
             variant +

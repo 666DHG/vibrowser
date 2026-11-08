@@ -1,12 +1,16 @@
 import { test, expect } from "@playwright/test";
-import { readFile, writeFile } from "node:fs/promises";
+import { writeFile } from "node:fs/promises";
+import { readFile } from "../../tools/local-evidence.mjs";
 test("research bookmark retains original page, mode and sources after normal restart", async ({
   page,
   request,
 }) => {
   test.skip(process.env.VIBROWSER_LIVE_SMOKE !== "true");
   const evidence = JSON.parse(
-    await readFile("../docs/acceptance/research-2026-11-05.json", "utf8"),
+    await readFile(
+      "../.data/release-archive/docs/acceptance/research-2026-11-05.json",
+      "utf8",
+    ),
   );
   const saved = evidence.find((r: any) => r.label === "restart-bookmark");
   expect((await (await request.get("/health")).json()).mock).toBe(false);
@@ -45,7 +49,7 @@ test("research bookmark retains original page, mode and sources after normal res
   ).toBeVisible();
   expect(generated).toBe(0);
   await writeFile(
-    "../docs/acceptance/research-restart-2026-11-05.json",
+    "../.data/release-archive/docs/acceptance/research-restart-2026-11-05.json",
     JSON.stringify(
       {
         pageId: saved.pageId,

@@ -10,7 +10,7 @@ class DesignPreservationSuite extends FunSuite:
   private val base = decode[WebDocument](
     Files.readString(Paths.get("../contracts/web-documents/docs.json"))
   ).toOption.get
-  test("recorded academic refinement keeps prose despite edited leading navigation labels") {
+  test("synthetic academic refinement keeps prose despite edited leading navigation labels") {
     val saved = io.circe.parser
       .parse(Files.readString(Paths.get("../contracts/design-reflow-regression.json")))
       .toOption

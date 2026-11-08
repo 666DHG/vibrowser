@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
-import { readFile, writeFile } from "node:fs/promises";
+import { writeFile } from "node:fs/promises";
+import { readFile } from "./local-evidence.mjs";
 import { createHash } from "node:crypto";
 import { resolve } from "node:path";
 
@@ -144,7 +145,7 @@ const report = {
 await writeFile(
   resolve(
     root,
-    `docs/acceptance/effort-guidance-v8${variant === "deep" ? "" : "-" + variant}-paired.json`,
+    `.data/release-archive/docs/acceptance/effort-guidance-v8${variant === "deep" ? "" : "-" + variant}-paired.json`,
   ),
   JSON.stringify(report, null, 2),
 );

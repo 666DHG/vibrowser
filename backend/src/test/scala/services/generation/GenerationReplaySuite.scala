@@ -57,7 +57,7 @@ class GenerationReplaySuite extends CatsEffectSuite:
             Paths.get(
               sys.env.getOrElse(
                 "VIBROWSER_REPLAY_REPORT",
-                "../docs/acceptance/reliability-replay-2026-11-05.json"
+                "../.data/release-archive/docs/acceptance/reliability-replay-2026-11-05.json"
               )
             ),
             results.asJson.spaces2

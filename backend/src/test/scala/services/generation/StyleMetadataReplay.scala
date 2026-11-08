@@ -65,7 +65,9 @@ object StyleMetadataReplay extends IOApp.Simple:
         )
       )
       Files.writeString(
-        Paths.get("../docs/acceptance/style-metadata-replay" + suffix + ".json"),
+        Paths.get(
+          "../.data/release-archive/docs/acceptance/style-metadata-replay" + suffix + ".json"
+        ),
         Json
           .obj(
             "source" -> s"effort-guidance-v8-product/$topic-new-standard.json".asJson,

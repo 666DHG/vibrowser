@@ -28,7 +28,7 @@ https://people.iiis.tsinghua.edu.cn/~yuanyang/index.html#efficiency
 - 任务 `757e12dd-1919-4f8c-9d0f-1aebce5699df` 的四个输出：重复 ID 错误消失，但暴露出 `act-join` 的 Submit 动作没有声明结果区域。仍按协议拒绝，报告明确记录这四个未通过的输出；不能算作八个页面全部通过。
 - 回放套件同时验证四个接受结果和四个明确拒绝结果。它没有调用模型，不代表一次真实生成。
 
-证据：[逐输出回放](acceptance/academic-fragments-replay-2026-11-05.json)、[原失败及修复后的任务诊断](acceptance/academic-fragments-attempts-2026-11-05.json)。提交的记录不含密钥或完整模型原文。
+证据：[逐输出回放（原始证据已本地归档）](RELEASE.md#历史验收汇总)、[原失败及修复后的任务诊断（原始证据已本地归档）](RELEASE.md#历史验收汇总)。提交的记录不含密钥或完整模型原文。
 
 ## 自动验证
 
@@ -59,11 +59,11 @@ $env:VIBROWSER_REPLAY_REPORT = '../docs/acceptance/academic-fragments-replay-202
 
 两次真实验收 **首轮 1/2，最终 2/2**。第二次失败属于模型主体引用不一致，没有将它包装为首轮成功。这个定向样本证明所报告地址恢复加载，不用来推断所有输入的成功率。
 
-浏览器读取两页后检查 h1 可见、所有 Title 绑定对应的文本等于各自实体标题，保存截图；读取与展示期间没有 Navigate/Retry/Submit 请求。证据：[真实结果](acceptance/academic-fragments-live-2026-11-05.json)。
+浏览器读取两页后检查 h1 可见、所有 Title 绑定对应的文本等于各自实体标题，保存截图；读取与展示期间没有 Navigate/Retry/Submit 请求。证据：[真实结果（原始证据已本地归档）](RELEASE.md#历史验收汇总)。
 
-![原失败页面恢复](screenshots/academic-fragments/reported-page-retry.png)
+[原失败页面恢复（原始证据已本地归档）](RELEASE.md#历史验收汇总)
 
-![同一输入新生成](screenshots/academic-fragments/same-input-fresh.png)
+[同一输入新生成（原始证据已本地归档）](RELEASE.md#历史验收汇总)
 
 ## 交付状态
 

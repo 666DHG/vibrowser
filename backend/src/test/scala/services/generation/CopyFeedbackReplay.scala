@@ -47,7 +47,7 @@ object CopyFeedbackReplay extends IOApp.Simple:
         )
         val raw = parse(output).toOption.get
         Files.writeString(
-          Paths.get("../docs/acceptance/copy-feedback-replay.json"),
+          Paths.get("../.data/release-archive/docs/acceptance/copy-feedback-replay.json"),
           Json
             .obj(
               "source" -> "effort-sampling-v1/copy-new-standard.json".asJson,

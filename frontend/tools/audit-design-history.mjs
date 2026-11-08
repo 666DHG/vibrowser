@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
-import { readFile, writeFile, mkdir } from "node:fs/promises";
+import { writeFile, mkdir } from "node:fs/promises";
+import { readFile } from "./local-evidence.mjs";
 import { resolve } from "node:path";
 import { frameSource } from "../dist-measure/webRuntime.mjs";
 process.env.PLAYWRIGHT_BROWSERS_PATH = resolve("../.cache/playwright");
@@ -104,9 +105,9 @@ try {
 } finally {
   await browser.close();
 }
-await mkdir("../docs/acceptance", { recursive: true });
+await mkdir("../.data/release-archive/docs/acceptance", { recursive: true });
 await writeFile(
-  "../docs/acceptance/design-baseline-2026-11-07.json",
+  "../.data/release-archive/docs/acceptance/design-baseline-2026-11-07.json",
   JSON.stringify(
     {
       evaluatedAt: new Date().toISOString(),

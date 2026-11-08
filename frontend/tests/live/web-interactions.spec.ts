@@ -1,8 +1,9 @@
 import { test, expect, APIRequestContext, Page } from "@playwright/test";
-import { readFile, writeFile } from "node:fs/promises";
+import { writeFile } from "node:fs/promises";
+import { readFile } from "../../tools/local-evidence.mjs";
 const evidence: any[] = JSON.parse(
   await readFile(
-    "../docs/acceptance/web-interactions-2026-11-05.json",
+    "../.data/release-archive/docs/acceptance/web-interactions-2026-11-05.json",
     "utf8",
   ).catch(() => "[]"),
 );
@@ -25,7 +26,7 @@ async function wait(request: APIRequestContext, id: string) {
     title: result.page.document?.title,
   });
   await writeFile(
-    "../docs/acceptance/web-interactions-2026-11-05.json",
+    "../.data/release-archive/docs/acceptance/web-interactions-2026-11-05.json",
     JSON.stringify(evidence, null, 2),
   );
   expect(result.page.status, result.page.error ?? "generation").toBe("ready");
@@ -105,7 +106,10 @@ async function clickAction(
 test("real v3 interaction chains", async ({ page, request }) => {
   test.skip(process.env.VIBROWSER_LIVE_SMOKE !== "true");
   const records = JSON.parse(
-    await readFile("../docs/acceptance/web-documents-2026-11-05.json", "utf8"),
+    await readFile(
+      "../.data/release-archive/docs/acceptance/web-documents-2026-11-05.json",
+      "utf8",
+    ),
   );
   for (const kind of (
     process.env.VIBROWSER_CHAIN_KINDS ?? "forum,shop,docs"
@@ -240,7 +244,10 @@ test("real v3 interaction chains", async ({ page, request }) => {
         .click();
     }
     await page.screenshot({
-      path: "../docs/screenshots/web-documents/" + kind + "-interaction.png",
+      path:
+        "../.data/release-archive/docs/screenshots/web-documents/" +
+        kind +
+        "-interaction.png",
     });
   }
 });

@@ -1,11 +1,13 @@
 import { test, expect } from "@playwright/test";
-import { readFile, writeFile } from "node:fs/promises";
+import { writeFile } from "node:fs/promises";
+import { readFile } from "../../tools/local-evidence.mjs";
 test("retry failed v3 acceptance cases after fixes", async ({
   request,
   page,
 }) => {
   test.skip(process.env.VIBROWSER_LIVE_SMOKE !== "true");
-  const path = "../docs/acceptance/web-documents-2026-11-05.json";
+  const path =
+    "../.data/release-archive/docs/acceptance/web-documents-2026-11-05.json";
   const records = JSON.parse(await readFile(path, "utf8"));
   for (const record of records) {
     let result = await (
@@ -77,7 +79,7 @@ test("retry failed v3 acceptance cases after fixes", async ({
         .toBeGreaterThan(100);
       await page.screenshot({
         path:
-          "../docs/screenshots/web-documents/" +
+          "../.data/release-archive/docs/screenshots/web-documents/" +
           record.kind +
           "-" +
           record.variant +

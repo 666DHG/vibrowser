@@ -8,10 +8,12 @@ test("fresh generation reliability and entity-bound exploration", async ({
   test.skip(process.env.VIBROWSER_LIVE_SMOKE !== "true");
   expect((await (await request.get("/health")).json()).mock).toBe(false);
   const evidence: any[] = [];
-  await mkdir("../docs/screenshots/reliability", { recursive: true });
+  await mkdir("../.data/release-archive/docs/screenshots/reliability", {
+    recursive: true,
+  });
   const save = () =>
     writeFile(
-      "../docs/acceptance/reliability-2026-11-05.json",
+      "../.data/release-archive/docs/acceptance/reliability-2026-11-05.json",
       JSON.stringify(evidence, null, 2),
     );
   async function wait(
@@ -112,7 +114,10 @@ test("fresh generation reliability and entity-bound exploration", async ({
       .toBeGreaterThan(100);
     await page.waitForTimeout(2000);
     await page.screenshot({
-      path: "../docs/screenshots/reliability/" + c.label + ".png",
+      path:
+        "../.data/release-archive/docs/screenshots/reliability/" +
+        c.label +
+        ".png",
     });
     await page.close();
   }

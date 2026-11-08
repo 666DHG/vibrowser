@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
-import { readFile, writeFile } from "node:fs/promises";
+import { writeFile } from "node:fs/promises";
+import { readFile } from "../../tools/local-evidence.mjs";
 test("real cached product local actions and bookmark snapshot", async ({
   page,
   request,
@@ -7,7 +8,7 @@ test("real cached product local actions and bookmark snapshot", async ({
   test.skip(process.env.VIBROWSER_LIVE_SMOKE !== "true");
   const records = JSON.parse(
     await readFile(
-      "../docs/acceptance/web-interactions-2026-11-05.json",
+      "../.data/release-archive/docs/acceptance/web-interactions-2026-11-05.json",
       "utf8",
     ),
   );
@@ -67,7 +68,7 @@ test("real cached product local actions and bookmark snapshot", async ({
   expect(reopened.page.document.initialState[increment.stateKey]).toBe("1");
   expect(generates).toBe(0);
   await writeFile(
-    "../docs/acceptance/web-bookmark-2026-11-05.json",
+    "../.data/release-archive/docs/acceptance/web-bookmark-2026-11-05.json",
     JSON.stringify(
       {
         pageId: record.pageId,
@@ -82,6 +83,6 @@ test("real cached product local actions and bookmark snapshot", async ({
     ),
   );
   await page.screenshot({
-    path: "../docs/screenshots/web-documents/shop-interaction.png",
+    path: "../.data/release-archive/docs/screenshots/web-documents/shop-interaction.png",
   });
 });

@@ -1,4 +1,5 @@
-import { readFile, mkdir, writeFile } from "node:fs/promises";
+import { mkdir, writeFile } from "node:fs/promises";
+import { readFile } from "./local-evidence.mjs";
 import { resolve } from "node:path";
 import { measureDocument } from "../dist-measure/measure.mjs";
 
@@ -15,7 +16,10 @@ const original = JSON.parse(
 const raw = JSON.parse(
   original.attempts.find((a) => a.outcome === "Accepted").output,
 );
-const screenshots = resolve(root, "docs/screenshots/summary-binding-repair");
+const screenshots = resolve(
+  root,
+  ".data/release-archive/docs/screenshots/summary-binding-repair",
+);
 const replay = resolve(root, ".cache/summary-binding-browser");
 await mkdir(screenshots, { recursive: true });
 await mkdir(replay, { recursive: true });
@@ -49,7 +53,10 @@ const report = {
   layout,
 };
 await writeFile(
-  resolve(root, "docs/acceptance/summary-binding-repair.json"),
+  resolve(
+    root,
+    ".data/release-archive/docs/acceptance/summary-binding-repair.json",
+  ),
   JSON.stringify(report, null, 2),
 );
 console.log({

@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
-import { readFile, writeFile, mkdir } from "node:fs/promises";
+import { writeFile, mkdir } from "node:fs/promises";
+import { readFile } from "../../tools/local-evidence.mjs";
 import { createHash } from "node:crypto";
 const temporary = "../.data/bookmarks-live-evidence.json";
 const hash = (spec: unknown) =>
@@ -17,7 +18,7 @@ test("prepare a real cached bookmark before restart", async ({
 }) => {
   const sample = JSON.parse(
     await readFile(
-      "../docs/acceptance/layout-generation-2026-11-03.json",
+      "../.data/release-archive/docs/acceptance/layout-generation-2026-11-03.json",
       "utf8",
     ),
   )[0];
@@ -63,9 +64,11 @@ test("prepare a real cached bookmark before restart", async ({
   ).toHaveAttribute("aria-pressed", "true");
   await page.getByRole("button", { name: "书签", exact: true }).click();
   await expect(page.getByText(record.address, { exact: true })).toBeVisible();
-  await mkdir("../docs/screenshots/bookmarks-progress", { recursive: true });
+  await mkdir("../.data/release-archive/docs/screenshots/bookmarks-progress", {
+    recursive: true,
+  });
   await page.screenshot({
-    path: "../docs/screenshots/bookmarks-progress/live-bookmark.png",
+    path: "../.data/release-archive/docs/screenshots/bookmarks-progress/live-bookmark.png",
   });
   await writeFile(
     temporary,
@@ -124,7 +127,7 @@ test("restore the bookmark after restart and reopen without generation", async (
   expect(hash(record.spec)).toBe(evidence.hash);
   expect(generationRequests).toBe(0);
   await page.screenshot({
-    path: "../docs/screenshots/bookmarks-progress/live-reopened.png",
+    path: "../.data/release-archive/docs/screenshots/bookmarks-progress/live-reopened.png",
   });
   if (evidence.createdByTest) {
     await page
@@ -134,9 +137,9 @@ test("restore the bookmark after restart and reopen without generation", async (
       page.getByRole("button", { name: "收藏当前网页", exact: true }),
     ).toHaveAttribute("aria-pressed", "false");
   }
-  await mkdir("../docs/acceptance", { recursive: true });
+  await mkdir("../.data/release-archive/docs/acceptance", { recursive: true });
   await writeFile(
-    "../docs/acceptance/bookmarks-progress-2026-11-03.json",
+    "../.data/release-archive/docs/acceptance/bookmarks-progress-2026-11-03.json",
     JSON.stringify(
       {
         ...evidence,

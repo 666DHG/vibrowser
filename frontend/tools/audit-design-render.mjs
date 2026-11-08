@@ -1,4 +1,5 @@
-import { readFile, writeFile } from "node:fs/promises";
+import { writeFile } from "node:fs/promises";
+import { readFile } from "./local-evidence.mjs";
 import { resolve } from "node:path";
 import { frameSource } from "../dist-measure/webRuntime.mjs";
 
@@ -78,8 +79,8 @@ try {
 }
 await writeFile(
   revision === "v3"
-    ? "../docs/acceptance/design-render-audit.json"
-    : `../docs/acceptance/design-render-audit-${revision}.json`,
+    ? "../.data/release-archive/docs/acceptance/design-render-audit.json"
+    : `../.data/release-archive/docs/acceptance/design-render-audit-${revision}.json`,
   JSON.stringify(
     {
       method: `Preserved ${revision} outputs in the same frameSource HTML/CSS, offline Chromium; computed style and actual platform fonts on first h1/p. No model calls or source edits.`,

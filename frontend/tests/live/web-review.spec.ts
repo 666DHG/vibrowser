@@ -1,8 +1,11 @@
 import { test, expect } from "@playwright/test";
-import { readFile } from "node:fs/promises";
+import { readFile } from "../../tools/local-evidence.mjs";
 test("review saved v3 pages without generation", async ({ page }) => {
   const records = JSON.parse(
-    await readFile("../docs/acceptance/web-documents-2026-11-05.json", "utf8"),
+    await readFile(
+      "../.data/release-archive/docs/acceptance/web-documents-2026-11-05.json",
+      "utf8",
+    ),
   );
   for (const record of records.filter(
     (r: any) => (r.retests?.at(-1)?.status ?? r.status) === "ready",
@@ -50,7 +53,7 @@ test("review saved v3 pages without generation", async ({ page }) => {
     await expect(page.getByTestId("navigation-progress")).toHaveCount(0);
     await page.screenshot({
       path:
-        "../docs/screenshots/web-documents/" +
+        "../.data/release-archive/docs/screenshots/web-documents/" +
         record.kind +
         "-" +
         record.variant +

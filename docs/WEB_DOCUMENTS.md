@@ -56,11 +56,11 @@
 
 ## 证据
 
-- [初始六案例与重试](acceptance/web-documents-2026-11-05.json)
-- [更早的协议诊断失败](acceptance/web-documents-initial-failures-2026-11-05.json)
-- [真实交互任务](acceptance/web-interactions-2026-11-05.json)
-- [收藏与重启结果](acceptance/web-bookmark-2026-11-05.json)
-- [论坛截图](screenshots/web-documents/forum-1.png)、[商店截图](screenshots/web-documents/shop-1.png)、[文档截图](screenshots/web-documents/docs-2.png)、[重启书签截图](screenshots/web-documents/bookmark-restart.png)
+- [初始六案例与重试（原始证据已本地归档）](RELEASE.md#历史验收汇总)
+- [更早的协议诊断失败（原始证据已本地归档）](RELEASE.md#历史验收汇总)
+- [真实交互任务（原始证据已本地归档）](RELEASE.md#历史验收汇总)
+- [收藏与重启结果（原始证据已本地归档）](RELEASE.md#历史验收汇总)
+- [论坛截图（原始证据已本地归档）](RELEASE.md#历史验收汇总)、[商店截图（原始证据已本地归档）](RELEASE.md#历史验收汇总)、[文档截图（原始证据已本地归档）](RELEASE.md#历史验收汇总)、[重启书签截图（原始证据已本地归档）](RELEASE.md#历史验收汇总)
 
 ## 复验
 

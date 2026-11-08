@@ -29,8 +29,8 @@
 - **15 项 Playwright 测试通过**：原有 11 项全量回归，加 4 项多标签/多窗口用例。覆盖独立历史、草稿与滚动、刷新恢复不触发生成、后台完成、关闭停止轮询、迟到导航响应、新窗口隔离、最后一页关闭、窄屏与键盘切换。
 - 格式检查、TypeScript 类型检查和生产构建通过。本轮未修改后端，未新增模型计费调用。
 - 自动几何断言确认品牌与选中标签中心线差小于 1px，内容区域从 x=0 开始，窄屏没有文档级横向溢出。
-- LIVE 模式下打开三个已有真实页面，核对 pageId/jobId 均未改变；导出并在新浏览器上下文中恢复同一窗口会话，三个标签恢复成功，过程中 Navigate/Retry 请求为零。证据见 [缓存多标签验收数据](acceptance/browser-tabs-2026-11-03.json)。真实重启测试已同步显式保存/恢复 sessionStorage，避免 Playwright storageState 不包含它而漏掉标签会话。
+- LIVE 模式下打开三个已有真实页面，核对 pageId/jobId 均未改变；导出并在新浏览器上下文中恢复同一窗口会话，三个标签恢复成功，过程中 Navigate/Retry 请求为零。证据见 [缓存多标签验收数据（原始证据已本地归档）](RELEASE.md#历史验收汇总)。真实重启测试已同步显式保存/恢复 sessionStorage，避免 Playwright storageState 不包含它而漏掉标签会话。
 
-截图：[桌面标签](screenshots/tabs/desktop.png) · [窄屏标签](screenshots/tabs/mobile.png)。截图中的 alpha/beta 页面为确定性测试数据；真实缓存演示见 [真实页面多标签](screenshots/tabs/live-desktop.png)。
+截图：[桌面标签（原始证据已本地归档）](RELEASE.md#历史验收汇总) · [窄屏标签（原始证据已本地归档）](RELEASE.md#历史验收汇总)。截图中的 alpha/beta 页面为确定性测试数据；真实缓存演示见 [真实页面多标签（原始证据已本地归档）](RELEASE.md#历史验收汇总)。
 
 复验：先 `scripts/start.ps1 -Mock`，再运行 `scripts/check.ps1 -Browser`。多标签专项可单独在 frontend 下运行 `npx playwright test tests/e2e/tabs.spec.ts`，其页面接口由测试拦截，不调用模型。

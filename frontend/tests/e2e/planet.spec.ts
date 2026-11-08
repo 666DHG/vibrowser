@@ -108,7 +108,9 @@ test("fixed scene screenshots, responsive sizing and render performance", async 
   });
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");
-  await mkdir("../docs/screenshots/ascii-planet", { recursive: true });
+  await mkdir("../.data/release-archive/docs/screenshots/ascii-planet", {
+    recursive: true,
+  });
   for (const [name, width, height] of [
     ["desktop", 1440, 960],
     ["mobile", 390, 844],
@@ -117,7 +119,7 @@ test("fixed scene screenshots, responsive sizing and render performance", async 
     await expect(page.getByTestId("planet-characters")).not.toBeEmpty();
     await page.waitForTimeout(100);
     await page.screenshot({
-      path: `../docs/screenshots/ascii-planet/${name}.png`,
+      path: `../.data/release-archive/docs/screenshots/ascii-planet/${name}.png`,
       animations: "disabled",
     });
     expect(
@@ -149,7 +151,7 @@ test("fixed scene screenshots, responsive sizing and render performance", async 
   });
   expect(performanceResult.p95).toBeLessThan(33.3);
   await writeFile(
-    "../docs/acceptance/planet-performance.json",
+    "../.data/release-archive/docs/acceptance/planet-performance.json",
     JSON.stringify(performanceResult, null, 2),
   );
 });
@@ -227,7 +229,7 @@ test("visibility, offscreen pause, resize continuity and frame pacing", async ({
   expect(pacing.fps).toBeLessThan(32);
   expect(pacing.longTasks).toHaveLength(0);
   await writeFile(
-    "../docs/acceptance/planet-frame-pacing.json",
+    "../.data/release-archive/docs/acceptance/planet-frame-pacing.json",
     JSON.stringify(pacing, null, 2),
   );
 });
@@ -244,7 +246,7 @@ test("seeded idle scene includes a transient background meteor", async ({
   await expect(page.getByTestId("planet-characters")).not.toBeEmpty();
   await page.clock.runFor(1700);
   await page.screenshot({
-    path: "../docs/screenshots/ascii-planet/idle-meteor.png",
+    path: "../.data/release-archive/docs/screenshots/ascii-planet/idle-meteor.png",
     animations: "disabled",
   });
   const first = await page.getByTestId("planet-characters").textContent();

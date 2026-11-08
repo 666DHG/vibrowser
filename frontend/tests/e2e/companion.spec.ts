@@ -47,10 +47,12 @@ test("compact progress owns the bubble, changes tabs safely, hidden cat retains 
   await expect(panel.getByRole("list")).toHaveCount(0);
   await page.getByTestId("companion-cat").click();
   await expect(panel.getByRole("list")).toBeVisible();
-  await mkdir("../docs/screenshots/companion", { recursive: true });
+  await mkdir("../.data/release-archive/docs/screenshots/companion", {
+    recursive: true,
+  });
   await page.screenshot({
     animations: "disabled",
-    path: "../docs/screenshots/companion/desktop.png",
+    path: "../.data/release-archive/docs/screenshots/companion/desktop.png",
   });
   await page.getByRole("button", { name: "新建标签页", exact: true }).click();
   await expect(panel).toHaveCount(0);
@@ -134,7 +136,7 @@ test("small viewport keeps long errors and task controls reachable", async ({
   expect(box.y + box.height).toBeLessThanOrEqual(cat.y);
   await page.screenshot({
     animations: "disabled",
-    path: "../docs/screenshots/companion/mobile-error.png",
+    path: "../.data/release-archive/docs/screenshots/companion/mobile-error.png",
   });
   await panel.getByRole("button", { name: "取消本次打开" }).click();
   await expect(panel).toHaveCount(0);

@@ -1,4 +1,5 @@
-import { readFile, writeFile, mkdir } from "node:fs/promises";
+import { writeFile, mkdir } from "node:fs/promises";
+import { readFile } from "./local-evidence.mjs";
 import { resolve } from "node:path";
 import assert from "node:assert/strict";
 import { measureDocument } from "../dist-measure/measure.mjs";
@@ -27,7 +28,10 @@ const call = record.modelCalls[0];
 assert.equal(call.maxTokens, 48000);
 assert.equal(call.thinking.type, "enabled");
 assert.equal(call.reasoningEffort, "low");
-const output = resolve(root, "docs/screenshots/effort-low-capacity");
+const output = resolve(
+  root,
+  ".data/release-archive/docs/screenshots/effort-low-capacity",
+);
 await mkdir(output, { recursive: true });
 const layout = record.document
   ? await measureDocument(record.document, {
@@ -35,7 +39,10 @@ const layout = record.document
     })
   : null;
 await writeFile(
-  resolve(root, "docs/acceptance/effort-low-capacity.json"),
+  resolve(
+    root,
+    ".data/release-archive/docs/acceptance/effort-low-capacity.json",
+  ),
   JSON.stringify(
     {
       method:

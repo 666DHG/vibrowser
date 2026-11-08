@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
-import { readFile, writeFile } from "node:fs/promises";
+import { writeFile } from "node:fs/promises";
+import { readFile } from "../../tools/local-evidence.mjs";
 
 test("targeted live retest after producer normalization fixes", async ({
   request,
@@ -29,14 +30,17 @@ test("targeted live retest after producer normalization fixes", async ({
       title: r.page?.document?.title,
     });
     await writeFile(
-      "../docs/acceptance/reliability-retest-2026-11-05.json",
+      "../.data/release-archive/docs/acceptance/reliability-retest-2026-11-05.json",
       JSON.stringify(evidence, null, 2),
     );
     expect.soft(r.page?.status, label + ": " + r.page?.error).toBe("ready");
     return r.page?.status === "ready" ? r.page : null;
   }
   const original = JSON.parse(
-    await readFile("../docs/acceptance/reliability-2026-11-05.json", "utf8"),
+    await readFile(
+      "../.data/release-archive/docs/acceptance/reliability-2026-11-05.json",
+      "utf8",
+    ),
   );
   const failed = original.find((r: any) => r.status === "failed");
   expect(failed).toBeTruthy();
@@ -91,7 +95,7 @@ test("targeted live retest after producer normalization fixes", async ({
       )
       .toBeGreaterThan(100);
     await page.screenshot({
-      path: "../docs/screenshots/reliability/person-after-fix.png",
+      path: "../.data/release-archive/docs/screenshots/reliability/person-after-fix.png",
     });
     await page.close();
   }

@@ -66,7 +66,7 @@ Remove-Item Env:VIBROWSER_GENERATION_REPLAY
 
 这一组 **首轮 2/5，最终 4/5**。最后一个测试原本命名为 detail，但它选中了首页路径，因此只作为链接导航失败记录，不算详情页验收。已修改后续脚本的链接选择条件。
 
-证据：[原始结果](acceptance/reliability-2026-11-05.json)、[逐次诊断](acceptance/reliability-attempts-2026-11-05.json)。
+证据：[原始结果（原始证据已本地归档）](RELEASE.md#历史验收汇总)、[逐次诊断（原始证据已本地归档）](RELEASE.md#历史验收汇总)。
 
 ### 完成修复后定向复测
 
@@ -78,9 +78,9 @@ Remove-Item Env:VIBROWSER_GENERATION_REPLAY
 
 这一组 **首轮 2/3，最终 3/3**；三项分别等待约 20.5、77.6、48.1 秒，包含相关检索与轮询。新主页仍出现必需字段遗漏，有限修复已恢复。这是定向小样本，不作为整体成功率估计。
 
-证据：[修复后结果](acceptance/reliability-retest-2026-11-05.json)、[失败首轮原文的本地回放](acceptance/reliability-replay-2026-11-05.json)。原失败任务 `8e3e8d6b-8e1e-4f9c-a260-2ffe1c4fd702` 保留在报告中，新的成功任务是 `905ff10c-c6a2-429f-8eb5-1404fbedeb7e`，没有覆盖失败结果。
+证据：[修复后结果（原始证据已本地归档）](RELEASE.md#历史验收汇总)、[失败首轮原文的本地回放（原始证据已本地归档）](RELEASE.md#历史验收汇总)。原失败任务 `8e3e8d6b-8e1e-4f9c-a260-2ffe1c4fd702` 保留在报告中，新的成功任务是 `905ff10c-c6a2-429f-8eb5-1404fbedeb7e`，没有覆盖失败结果。
 
-![修复后的新人物主页](screenshots/reliability/person-after-fix.png)
+[修复后的新人物主页（原始证据已本地归档）](RELEASE.md#历史验收汇总)
 
 ## 后续优先级
 

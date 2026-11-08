@@ -1,11 +1,15 @@
-import { readFile, readdir, mkdir, writeFile } from "node:fs/promises";
+import { readdir, mkdir, writeFile } from "node:fs/promises";
+import { readFile } from "./local-evidence.mjs";
 import { resolve } from "node:path";
 import { measureDocument } from "../dist-measure/measure.mjs";
 
 const root = resolve(import.meta.dirname, "../..");
 const input = resolve(root, ".cache/effort-budget-replay");
 const replay = resolve(root, ".cache/effort-budget-browser");
-const screenshots = resolve(root, "docs/screenshots/effort-budget-replay");
+const screenshots = resolve(
+  root,
+  ".data/release-archive/docs/screenshots/effort-budget-replay",
+);
 await mkdir(replay, { recursive: true });
 await mkdir(screenshots, { recursive: true });
 const rows = [];
@@ -44,7 +48,10 @@ for (const file of (await readdir(input))
   });
 }
 await writeFile(
-  resolve(root, "docs/acceptance/effort-budget-replay.json"),
+  resolve(
+    root,
+    ".data/release-archive/docs/acceptance/effort-budget-replay.json",
+  ),
   JSON.stringify(
     {
       method:

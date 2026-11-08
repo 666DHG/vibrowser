@@ -24,4 +24,4 @@
 - 浏览器复查已缓存的“作业解答大全”页面；检查当前 14 个真实页面的文本，未发现本次清理的声明标记。
 - 应用已恢复真实接口模式，用户凭据未更改。
 
-当前截图：[首页](screenshots/immersive/home.png) · [网站](screenshots/immersive/website.png) · [搜索](screenshots/immersive/search.png) · [已有页面](screenshots/immersive/cached.png)。
+当前截图：[首页（原始证据已本地归档）](RELEASE.md#历史验收汇总) · [网站（原始证据已本地归档）](RELEASE.md#历史验收汇总) · [搜索（原始证据已本地归档）](RELEASE.md#历史验收汇总) · [已有页面（原始证据已本地归档）](RELEASE.md#历史验收汇总)。

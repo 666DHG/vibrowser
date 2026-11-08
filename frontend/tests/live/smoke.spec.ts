@@ -28,7 +28,9 @@ test("live DeepSeek connection, repaired pages, search, links and cache", async 
     pages: [],
     checks: [],
   };
-  await mkdir("../docs/screenshots/live", { recursive: true });
+  await mkdir("../.data/release-archive/docs/screenshots/live", {
+    recursive: true,
+  });
   const save = () =>
     writeFile(
       "../.data/live-smoke-evidence.json",
@@ -108,17 +110,23 @@ test("live DeepSeek connection, repaired pages, search, links and cache", async 
   await expect(page.getByText("连接成功，模型已返回响应")).toBeVisible({
     timeout: 75000,
   });
-  await page.screenshot({ path: "../docs/screenshots/live/connection.png" });
+  await page.screenshot({
+    path: "../.data/release-archive/docs/screenshots/live/connection.png",
+  });
   await page.getByRole("button", { name: "关闭设置", exact: true }).click();
   await navigate("moon-coffee.example");
-  await page.screenshot({ path: "../docs/screenshots/live/website.png" });
+  await page.screenshot({
+    path: "../.data/release-archive/docs/screenshots/live/website.png",
+  });
   const search = await navigate("月球旅行");
   expect(search.kind).toBe("search");
   const result = flatten(search.spec!.blocks).find(
     (b) => b.type === "card" && b.target?.startsWith("https://"),
   );
   expect(result).toBeDefined();
-  await page.screenshot({ path: "../docs/screenshots/live/search.png" });
+  await page.screenshot({
+    path: "../.data/release-archive/docs/screenshots/live/search.png",
+  });
   const next = page.waitForResponse((r) => r.url().endsWith("/api/navigate"));
   await page
     .getByTestId("content-viewport")
@@ -136,7 +144,9 @@ test("live DeepSeek connection, repaired pages, search, links and cache", async 
     sha256: digest(clicked),
   });
   await save();
-  await page.screenshot({ path: "../docs/screenshots/live/linked-page.png" });
+  await page.screenshot({
+    path: "../.data/release-archive/docs/screenshots/live/linked-page.png",
+  });
   let newGenerations = 0;
   page.on("request", (r) => {
     if (/\/api\/(navigate|retrypage)$/.test(r.url())) newGenerations++;

@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, writeFile } from "node:fs/promises";
+import { readFile } from "../../tools/local-evidence.mjs";
 import {
   responseSchema,
   type PageBlock,
@@ -16,8 +17,9 @@ test("real forum listing, thread and onward link retain canonical facts along th
     "Explicit opt-in for model calls",
   );
   expect((await (await request.get("/health")).json()).mock).toBe(false);
-  const evidencePath = "../docs/acceptance/continuity-2026-11-03.json";
-  const screenshotDir = "../docs/screenshots/continuity";
+  const evidencePath =
+    "../.data/release-archive/docs/acceptance/continuity-2026-11-03.json";
+  const screenshotDir = "../.data/release-archive/docs/screenshots/continuity";
   await mkdir(screenshotDir, { recursive: true });
   const earlier = await readFile(evidencePath, "utf8")
     .then(JSON.parse)

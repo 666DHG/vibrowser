@@ -44,7 +44,7 @@
 | 猫窝（原失败搜索） | ready / live | 4.4 秒 |
 | future-botany.example（原失败页） | ready / live | 5.0 秒 |
 
-连接测试任务 `9ddf2b4b-08cc-430c-ad51-54fb98079e05` 为 succeeded。完整页面 ID、任务 ID、内容 SHA-256 和重启证据见 [机器可读验收记录](acceptance/live-smoke-2026-11-03.json)。
+连接测试任务 `9ddf2b4b-08cc-430c-ad51-54fb98079e05` 为 succeeded。完整页面 ID、任务 ID、内容 SHA-256 和重启证据见 [机器可读验收记录（原始证据已本地归档）](RELEASE.md#历史验收汇总)。
 
 6/6 是本组任务最终成功率，包含应用内部允许的一次修复；未单独记录每次模型请求，因此不宣称首轮请求 100% 成功，也不代表任意输入的成功率。未采集 usage/账单，不推算费用。
 
@@ -84,8 +84,8 @@ test:live 会产生可能计费的请求，复用已有 ready 页面、显式重
 
 ## 真实界面证据
 
-[连接成功](screenshots/live/connection.png) · [网页](screenshots/live/website.png) · [搜索](screenshots/live/search.png) · [点击后的页面](screenshots/live/linked-page.png) · [重启恢复](screenshots/live/restarted.png)
+[连接成功（原始证据已本地归档）](RELEASE.md#历史验收汇总) · [网页（原始证据已本地归档）](RELEASE.md#历史验收汇总) · [搜索（原始证据已本地归档）](RELEASE.md#历史验收汇总) · [点击后的页面（原始证据已本地归档）](RELEASE.md#历史验收汇总) · [重启恢复（原始证据已本地归档）](RELEASE.md#历史验收汇总)
 
-![真实生成的月咖啡网站](screenshots/live/website.png)
+[真实生成的月咖啡网站（原始证据已本地归档）](RELEASE.md#历史验收汇总)
 
 修复提交：`508b3cd`。验收脚本、截图与本记录在后续验收提交中保存。下一阶段可以推进站点一致性；本轮未新增虚构文件、生图或多标签能力。

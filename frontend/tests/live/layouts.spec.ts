@@ -19,11 +19,13 @@ test("real websites choose distinct layouts and variable content structures", as
   const evidence: Record<string, unknown>[] = [];
   const flatten = (blocks: PageBlock[]): PageBlock[] =>
     blocks.flatMap((b) => [b, ...flatten(b.items)]);
-  await mkdir("../docs/screenshots/layouts-live", { recursive: true });
-  await mkdir("../docs/acceptance", { recursive: true });
+  await mkdir("../.data/release-archive/docs/screenshots/layouts-live", {
+    recursive: true,
+  });
+  await mkdir("../.data/release-archive/docs/acceptance", { recursive: true });
   const save = () =>
     writeFile(
-      "../docs/acceptance/layout-generation-2026-11-03.json",
+      "../.data/release-archive/docs/acceptance/layout-generation-2026-11-03.json",
       JSON.stringify(evidence, null, 2),
       "utf8",
     );
@@ -78,7 +80,10 @@ test("real websites choose distinct layouts and variable content structures", as
     );
     await expect(page.locator("footer")).toHaveCount(0);
     await page.screenshot({
-      path: "../docs/screenshots/layouts-live/" + expectedLayout + ".png",
+      path:
+        "../.data/release-archive/docs/screenshots/layouts-live/" +
+        expectedLayout +
+        ".png",
     });
     await page.setViewportSize({ width: 390, height: 844 });
     expect(
@@ -88,7 +93,9 @@ test("real websites choose distinct layouts and variable content structures", as
     ).toBe(false);
     await page.screenshot({
       path:
-        "../docs/screenshots/layouts-live/" + expectedLayout + "-mobile.png",
+        "../.data/release-archive/docs/screenshots/layouts-live/" +
+        expectedLayout +
+        "-mobile.png",
     });
     await page.setViewportSize({ width: 1440, height: 1000 });
   }

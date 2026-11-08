@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
-import { mkdir, writeFile, readFile } from "node:fs/promises";
+import { mkdir, writeFile } from "node:fs/promises";
+import { readFile } from "../../tools/local-evidence.mjs";
 
 test("live research topics, exploration, site search and mode isolation", async ({
   browser,
@@ -7,16 +8,21 @@ test("live research topics, exploration, site search and mode isolation", async 
 }) => {
   test.skip(process.env.VIBROWSER_LIVE_SMOKE !== "true");
   expect((await (await request.get("/health")).json()).mock).toBe(false);
-  await mkdir("../docs/screenshots/research", { recursive: true });
+  await mkdir("../.data/release-archive/docs/screenshots/research", {
+    recursive: true,
+  });
   const evidence: any[] =
     process.env.VIBROWSER_RESEARCH_RESUME === "true"
       ? JSON.parse(
-          await readFile("../docs/acceptance/research-2026-11-05.json", "utf8"),
+          await readFile(
+            "../.data/release-archive/docs/acceptance/research-2026-11-05.json",
+            "utf8",
+          ),
         )
       : [];
   const save = () =>
     writeFile(
-      "../docs/acceptance/research-2026-11-05.json",
+      "../.data/release-archive/docs/acceptance/research-2026-11-05.json",
       JSON.stringify(evidence, null, 2),
     );
   async function wait(id: string, label: string) {
@@ -133,7 +139,7 @@ test("live research topics, exploration, site search and mode isolation", async 
     expect(record.sourceCount).toBeGreaterThan(0);
     const page = await open(record);
     await page.screenshot({
-      path: `../docs/screenshots/research/${label}.png`,
+      path: `../.data/release-archive/docs/screenshots/research/${label}.png`,
     });
     await page
       .getByRole("button", { name: `来源 ${record.sourceCount}`, exact: true })
@@ -145,7 +151,7 @@ test("live research topics, exploration, site search and mode isolation", async 
       page.getByRole("link", { name: "查看原文" }).first(),
     ).toHaveAttribute("href", /^https?:\/\//);
     await page.screenshot({
-      path: `../docs/screenshots/research/${label}-sources.png`,
+      path: `../.data/release-archive/docs/screenshots/research/${label}-sources.png`,
     });
     await page.close();
   }
@@ -171,7 +177,7 @@ test("live research topics, exploration, site search and mode isolation", async 
     searched.document.title,
   );
   await page.screenshot({
-    path: "../docs/screenshots/research/person-search.png",
+    path: "../.data/release-archive/docs/screenshots/research/person-search.png",
   });
   const action = searched.document.actions.find(
     (a: any) =>
@@ -195,7 +201,7 @@ test("live research topics, exploration, site search and mode isolation", async 
     detail.document.title,
   );
   await page.screenshot({
-    path: "../docs/screenshots/research/person-detail.png",
+    path: "../.data/release-archive/docs/screenshots/research/person-detail.png",
   });
   await page.close();
   const nav = await (
@@ -213,7 +219,7 @@ test("live research topics, exploration, site search and mode isolation", async 
   expect(imagination.id).not.toBe(person.id);
   page = await open(imagination);
   await page.screenshot({
-    path: "../docs/screenshots/research/imagination-control.png",
+    path: "../.data/release-archive/docs/screenshots/research/imagination-control.png",
   });
   await page.close();
   const bookmark = await (

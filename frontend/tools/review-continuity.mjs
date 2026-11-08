@@ -1,4 +1,5 @@
-import { readFile, readdir, mkdir, writeFile } from "node:fs/promises";
+import { readdir, mkdir, writeFile } from "node:fs/promises";
+import { readFile } from "./local-evidence.mjs";
 import { resolve } from "node:path";
 import assert from "node:assert/strict";
 import { measureDocument } from "../dist-measure/measure.mjs";
@@ -26,7 +27,10 @@ const input = resolve(
       ? ".cache/effort-guidance-v6"
       : ".cache/effort-acceptance",
 );
-const screenshots = resolve(root, "docs/screenshots/" + reportName);
+const screenshots = resolve(
+  root,
+  ".data/release-archive/docs/screenshots/" + reportName,
+);
 const replay = resolve(root, ".cache/" + reportName + "-browser");
 await mkdir(screenshots, { recursive: true });
 await mkdir(replay, { recursive: true });
@@ -102,7 +106,10 @@ for (const file of (await readdir(input)).filter((f) =>
   });
 }
 await writeFile(
-  resolve(root, "docs/acceptance/" + reportName + ".json"),
+  resolve(
+    root,
+    ".data/release-archive/docs/acceptance/" + reportName + ".json",
+  ),
   JSON.stringify(
     {
       method:

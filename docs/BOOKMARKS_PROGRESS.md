@@ -35,7 +35,7 @@
 - 浏览器 **19 项回归**：原有 15 项加旧页保留/固定进度/失败重试/历史提交、待完成任务恢复与取消、首页全屏与等高布局、书签持久化/窗口同步/缓存打开。所有模型生成均使用 Mock 或拦截数据。
 - LIVE 缓存验收分 prepare/restore 两阶段，中间实际重启应用和项目数据库。检查书签仍存在，页面与任务 ID、内容 SHA-256 不变；书签打开过程中 Navigate/Retry 请求为零，不产生新的模型调用。只清理由验收创建的书签，已有书签不改动。
 
-证据：[真实缓存验收数据](acceptance/bookmarks-progress-2026-11-03.json)；[旧页与进度](screenshots/bookmarks-progress/loading.png)、[手机加载](screenshots/bookmarks-progress/mobile-loading.png)、[书签列表](screenshots/bookmarks-progress/bookmarks.png)、[真实书签](screenshots/bookmarks-progress/live-bookmark.png)、[重启后打开](screenshots/bookmarks-progress/live-reopened.png)。模拟截图只证明交互，真实缓存验收不等于新增 DeepSeek 生成验收。
+证据：[真实缓存验收数据（原始证据已本地归档）](RELEASE.md#历史验收汇总)；[旧页与进度（原始证据已本地归档）](RELEASE.md#历史验收汇总)、[手机加载（原始证据已本地归档）](RELEASE.md#历史验收汇总)、[书签列表（原始证据已本地归档）](RELEASE.md#历史验收汇总)、[真实书签（原始证据已本地归档）](RELEASE.md#历史验收汇总)、[重启后打开（原始证据已本地归档）](RELEASE.md#历史验收汇总)。模拟截图只证明交互，真实缓存验收不等于新增 DeepSeek 生成验收。
 
 ## 复验
 

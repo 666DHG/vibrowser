@@ -1,4 +1,5 @@
-import { readFile, writeFile, mkdir } from "node:fs/promises";
+import { writeFile, mkdir } from "node:fs/promises";
+import { readFile } from "./local-evidence.mjs";
 import { resolve } from "node:path";
 import assert from "node:assert/strict";
 import { frameSource } from "../dist-measure/webRuntime.mjs";
@@ -18,7 +19,7 @@ const after = JSON.parse(
   ),
 );
 const browser = await chromium.launch({ channel: "chromium" });
-const output = "../docs/screenshots/css-math-replay";
+const output = "../.data/release-archive/docs/screenshots/css-math-replay";
 await mkdir(output, { recursive: true });
 const measurements = [];
 try {
@@ -60,7 +61,7 @@ try {
   await browser.close();
 }
 await writeFile(
-  "../docs/acceptance/css-math-replay-layout.json",
+  "../.data/release-archive/docs/acceptance/css-math-replay-layout.json",
   JSON.stringify(
     {
       method:

@@ -6,7 +6,7 @@
 
 地址栏另有“标准／深入”思考强度，和幻觉／认真模式独立。默认标准；DeepSeek 官方接口分别使用 low／high 思考，两挡均预留 48k 输出预算（包含推理与正文）。新标签继承选择，中途切换只影响下一次导航，页面内动作沿用原页面档位；历史和书签恢复保存的档位。TokenHub／自定义接口保持原标准调用，尚未启用深入。连接测试关闭思考。固定主题对照及容量复测见[验收记录](docs/DESIGN_ACCEPTANCE.md)；当前证据不支持所有页面默认深入。
 
-![浏览器首页](docs/screenshots/home.png)
+![浏览器首页](docs/public/home.png)
 
 新页面默认使用内容驱动设计流程：整理用途、生成自由布局、检查实际可用性，并至多改进一次。轻微排版或可选交互不足不强制重写；保留 `VIBROWSER_DESIGN_WORKFLOW=false` 作为回退开关。交付范围、测试与已知限制见 [本轮交付记录](docs/DESIGN_DELIVERY.md)。
 
@@ -17,8 +17,9 @@
 在项目目录运行 PowerShell：
 
 ```powershell
-# PostgreSQL 默认使用这套已安装程序；其他机器需修改此环境变量
-$env:VIBROWSER_PG_BIN = 'D:\Installs\PostgreSQL\16\bin'
+# 自动探测 PATH 和 Windows 标准 PostgreSQL 安装目录。
+# 自定义安装时显式指定，例如：
+# $env:VIBROWSER_PG_BIN = 'C:\Program Files\PostgreSQL\16\bin'
 .\scripts\start.ps1
 ```
 
@@ -39,7 +40,7 @@ Windows PowerShell 5.1 与 PowerShell 7 均可启动。若旧版本脚本在 `da
 
 1. 点击右上角“设置”，选择 DeepSeek 官方、TokenHub 或自定义兼容接口。
 2. 确认 Base URL 与模型名，填写 API Key，点击“保存设置”，再“测试生成连接”。
-3. 在“联网检索”选择复用官方生成凭据或单独填写官方 Key，保存后“测试联网搜索”。地址栏切换“认真”后可输入“清华大学袁洋老师的个人主页.com”。
+3. 在“联网检索”选择复用官方生成凭据或单独填写官方 Key，保存后“测试联网搜索”。地址栏切换“认真”后可输入“PostgreSQL 官方文档”。
 4. 在幻觉模式输入 `moon-coffee.example`，等待网站生成。
 5. 输入“月球旅行”，点击一个虚构搜索结果，再后退和刷新。
 6. 停止并重新启动应用，确认配置和已收藏网页仍可读取。
@@ -50,11 +51,11 @@ Windows PowerShell 5.1 与 PowerShell 7 均可启动。若旧版本脚本在 `da
 
 Mock 的测试连接与生成均为模拟，连接测试结果在设置中说明；真实模式不会读取 Mock 缓存。没有有效 Key 时，真实模式给出可重试错误，不回退到假生成。
 
-实验分支支持可选的内容驱动设计流程：设计说明、浏览器测量、文本评审和一次改进；通过 `VIBROWSER_DESIGN_WORKFLOW=true` 启用。实现、开关与真实对照问题见 [设计实验](docs/DESIGN_WORKFLOW.md)。
+内容驱动设计流程默认开启；如需回退，设置 `VIBROWSER_DESIGN_WORKFLOW=false` 并重启。详见 [设计流程](docs/DESIGN_WORKFLOW.md)。
 
 ## 小猫陪伴
 
-右下角像素小猫以气泡呈现真实加载进度，空闲时可点击互动。设置中可以关闭显示、主动发言或 AI 反馈。独立工作树运行与验证见 [小猫陪伴](docs/COMPANION.md)。
+右下角像素小猫以气泡呈现真实加载进度，空闲时可点击互动。桌面尺寸 104px、手机 72px，支持鼠标及触摸拖拽，气泡随行并限制在窗口内。首页右侧为可拖动的纯文字 ASCII 星球，包含自转、星环流动、闪烁星点和流星，支持减少动态效果。设置中可以关闭显示、主动发言或 AI 反馈。独立工作树运行与验证见 [小猫陪伴](docs/COMPANION.md)。
 
 ## 本版能力与限制
 
@@ -104,6 +105,8 @@ Mock 的测试连接与生成均为模拟，连接测试结果在设置中说明
 - [架构与接口](docs/ARCHITECTURE.md)
 - [课程规范与实现证据](docs/COURSE_STANDARDS.md)
 - [资料与 API 核验](docs/SOURCES.md)
-- [生成页面](docs/screenshots/generated-page.png) · [搜索](docs/screenshots/search.png) · [设置](docs/screenshots/settings.png) · [移动布局](docs/screenshots/mobile.png)
+- [生成页面（原始证据已本地归档）](docs/RELEASE.md#历史验收汇总) · [搜索（原始证据已本地归档）](docs/RELEASE.md#历史验收汇总) · [设置（原始证据已本地归档）](docs/RELEASE.md#历史验收汇总) · [移动布局（原始证据已本地归档）](docs/RELEASE.md#历史验收汇总)
 
-源码与中文文档为 UTF-8。本地 Git 用户为 666DHG / 47705871+666DHG@users.noreply.github.com；未创建远程仓库或发布网站。
+源码与中文文档为 UTF-8。发布范围与历史材料说明见 [发布检查](docs/RELEASE.md)。
+
+公开演示截图（固定 Mock，不含真实凭据）：[桌宠进度](docs/public/progress.png) · [设置](docs/public/settings.png) · [移动端](docs/public/mobile.png)。

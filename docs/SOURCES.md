@@ -4,9 +4,9 @@
 
 ## 原始对话
 
-[Vibe Browser方案](chatgpt-conversation://6ae9b79c-1078-83ea-8bcf-216a24897bcf)，已读取全部三轮及随附的 `tokenhub_student_quickstart.txt`。未将完整聊天、临时附件路径或凭据复制进仓库。
+Vibe Browser方案（本地资料，不随源码发布），已读取全部三轮及随附的 `tokenhub_student_quickstart.txt`。未将完整聊天、临时附件路径或凭据复制进仓库。
 
-用户明确表达：三天开发窗口；期中作品；从原游戏方向转为 Vibe Browser；实时生成网页和不存在的本地文件；持有 DeepSeek 与腾讯 API；需要梳理前端交互与后端 AI 的架构。
+用户明确表达：三天开发窗口；期中作品；从原游戏方向转为 Vibe Browser；实时生成网页和不存在的本地文件；采用兼容模型接口；需要梳理前端交互与后端 AI 的架构。
 
 原对话建议：React/TypeScript、Scala 3/Cats Effect/http4s、PostgreSQL；PageSpec 优先；声明式 Action；缓存与网站设定；有限校验修复；图片异步；不开发通用 Agent。后续已查阅本地课程规范与讲义，对代码结构作出修订；尚未取得独立期中评分细则，不宣称已覆盖全部评分项。
 
@@ -16,7 +16,7 @@
 
 用户进一步要求：不按 Day 分工，细化 roadmap，重点关注课程代码规范与类的实现。因此路线改为依赖阶段 S0–S7，每阶段列出类、职责、具体工作和退出条件。
 
-已读取 `D:/Vault/大二秋/无代码/rules.txt`（1–60 条），课程笔记总览及相关专题，并核对 lec3/lec4 的对象、函数式与逻辑微服务原文。抽查 `sample.zip` 中 APIMessage.scala、GetBookAPIMessage.scala、BookTable.scala、APIMessageRouter.scala；没有运行或整体复制示例工程。
+已读取 本地课程规范 `rules.txt`（1–60 条），课程笔记总览及相关专题，并核对 lec3/lec4 的对象、函数式与逻辑微服务原文。抽查 `sample.zip` 中 APIMessage.scala、GetBookAPIMessage.scala、BookTable.scala、APIMessageRouter.scala；没有运行或整体复制示例工程。
 
 据此将通用 service/infrastructure 分层替换为 services 下的 api/objects/routes/tables/utils；采用 final case class、伴生编解码、独立 Message.plan(connection)、封装 Table 和对应前端 API 类。统一消息路由替代旧 REST 草案。具体规则编号、原文链接和模板差异见 [COURSE_STANDARDS.md](COURSE_STANDARDS.md)。
 

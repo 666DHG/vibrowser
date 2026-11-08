@@ -45,7 +45,7 @@ object TextFigureReplay extends IOApp.Simple:
           )
         )
         Files.writeString(
-          Paths.get("../docs/acceptance/text-figure-replay.json"),
+          Paths.get("../.data/release-archive/docs/acceptance/text-figure-replay.json"),
           Json
             .obj(
               "source" -> "effort-sampling-v1/essay-new-standard.json".asJson,

@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
-import { readFile, writeFile } from "node:fs/promises";
+import { writeFile } from "node:fs/promises";
+import { readFile } from "../../tools/local-evidence.mjs";
 
 test("review saved research pages and responsive settings without generation", async ({
   browser,
@@ -7,7 +8,10 @@ test("review saved research pages and responsive settings without generation", a
 }) => {
   test.skip(process.env.VIBROWSER_LIVE_SMOKE !== "true");
   const evidence = JSON.parse(
-    await readFile("../docs/acceptance/research-2026-11-05.json", "utf8"),
+    await readFile(
+      "../.data/release-archive/docs/acceptance/research-2026-11-05.json",
+      "utf8",
+    ),
   );
   const results: any[] = [];
   for (const label of [
@@ -65,7 +69,7 @@ test("review saved research pages and responsive settings without generation", a
       .toBeGreaterThan(80);
     await page.waitForTimeout(2100);
     await page.screenshot({
-      path: `../docs/screenshots/research/${label}.png`,
+      path: `../.data/release-archive/docs/screenshots/research/${label}.png`,
     });
     const text = await body.innerText();
     expect(text).not.toMatch(/不保证|仅供参考|只能作为参考/);
@@ -92,7 +96,7 @@ test("review saved research pages and responsive settings without generation", a
       await expect(original.locator("body")).toContainText("袁洋");
       await original.close();
       await page.screenshot({
-        path: "../docs/screenshots/research/person-sources.png",
+        path: "../.data/release-archive/docs/screenshots/research/person-sources.png",
       });
       await page.setViewportSize({ width: 390, height: 600 });
       expect(
@@ -101,7 +105,7 @@ test("review saved research pages and responsive settings without generation", a
         ),
       ).toBe(true);
       await page.screenshot({
-        path: "../docs/screenshots/research/mobile-sources.png",
+        path: "../.data/release-archive/docs/screenshots/research/mobile-sources.png",
       });
     }
     expect(generated).toBe(0);
@@ -120,9 +124,13 @@ test("review saved research pages and responsive settings without generation", a
   await expect(
     page.getByRole("button", { name: "测试联网搜索", exact: true }),
   ).toBeEnabled();
-  await page.screenshot({ path: "../docs/screenshots/research/settings.png" });
+  await page.screenshot({
+    path: "../.data/release-archive/docs/screenshots/research/settings.png",
+  });
   await page.getByRole("button", { name: "项目说明", exact: true }).click();
-  await page.screenshot({ path: "../docs/screenshots/research/about.png" });
+  await page.screenshot({
+    path: "../.data/release-archive/docs/screenshots/research/about.png",
+  });
   await page.setViewportSize({ width: 390, height: 600 });
   await page.getByRole("button", { name: "API 配置", exact: true }).click();
   expect(
@@ -131,11 +139,11 @@ test("review saved research pages and responsive settings without generation", a
     ),
   ).toBe(true);
   await page.screenshot({
-    path: "../docs/screenshots/research/mobile-settings.png",
+    path: "../.data/release-archive/docs/screenshots/research/mobile-settings.png",
   });
   await page.close();
   await writeFile(
-    "../docs/acceptance/research-review-2026-11-05.json",
+    "../.data/release-archive/docs/acceptance/research-review-2026-11-05.json",
     JSON.stringify(results, null, 2),
   );
 });
