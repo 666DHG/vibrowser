@@ -1,5 +1,5 @@
 {
-  "evaluatedAt": "2026-11-08T04:51:08.997Z",
+  "evaluatedAt": "2026-11-08T04:55:54.506Z",
   "expectedSamples": 6,
   "complete": false,
   "groups": {
@@ -32,23 +32,31 @@
       "seconds": 0
     },
     "new-deep": {
-      "samples": 2,
-      "ready": 2,
+      "samples": 3,
+      "ready": 3,
       "interrupted": 0,
       "unknownUsageSamples": 0,
       "unknownDurationSamples": 0,
-      "initialGenerationAccepted": 2,
-      "modelCalls": 7,
-      "generationModelCalls": 7,
-      "recordedTokens": 170239,
-      "recordedCompletionTokens": 80908,
-      "recordedReasoningTokens": 54854,
-      "seconds": 414
+      "initialGenerationAccepted": 3,
+      "modelCalls": 11,
+      "generationModelCalls": 11,
+      "recordedTokens": 265016,
+      "recordedCompletionTokens": 132249,
+      "recordedReasoningTokens": 88462,
+      "seconds": 674
     }
   },
   "comparability": [
     {
       "input": "清华教师袁洋的个人学术主页.com",
+      "samples": 1,
+      "allThreePresent": false,
+      "identicalGenerationRequest": true,
+      "actualEffortMatches": true,
+      "unobservedEffortSamples": 0
+    },
+    {
+      "input": "今天是什么日子.com",
       "samples": 1,
       "allThreePresent": false,
       "identicalGenerationRequest": true,
@@ -1323,6 +1331,1300 @@
                   "display": "block",
                   "columns": 1,
                   "widthRatio": 0.84
+                }
+              ]
+            }
+          }
+        ],
+        "error": null
+      }
+    },
+    {
+      "name": "calendar-new-deep",
+      "input": "今天是什么日子.com",
+      "mode": "imagination",
+      "effort": "deep",
+      "contentFocusOnly": true,
+      "layoutExploration": true,
+      "designDirection": {
+        "concept": "时间轴上的日子流",
+        "structure": "横向时间轴贯穿页面，今日居中并放大，前后日期作为节点向两侧延伸；每个节点下挂节日/节气/倒计时，向下滚动切换为“历史上的今天”的纵向条目流，形成横纵两种阅读方向。",
+        "typography": "节点日期用大号数字，节点说明用小号标签式字体，字距拉开以适配横向排布；纵向事件条目改用紧凑正文样式，题注与年份用细体，形成节奏对比。",
+        "contentReason": "“今天”本质是时间上的一个点，临近节日与历史事件都依附于时间先后；时间轴把倒计时和前后日子组织成连续关系，比并列卡片更能表达“将至”与“已过”。"
+      },
+      "proposedDirectionCount": 3,
+      "visualReferenceCount": 1,
+      "visualReferenceCharacters": 365,
+      "requestHash": "2c2ef68b6d3f4f7d79d7dee51964c589125d9ab94e99ebc4d103649ba22cae40",
+      "actualEffortMatches": true,
+      "pageId": "841f2942-b99d-419a-8396-63e6216f8361",
+      "jobId": "bfde0a48-ebbc-4cee-bd68-db15ce6a422d",
+      "guidance": "8-c1e0823385b34590f0bf7bd797de93208836a202c8c5d1055843268e0d7bb5bd",
+      "briefCharacters": 1367,
+      "earlyVisualPlanCharacters": 0,
+      "cssChangedByReview": true,
+      "seconds": 260,
+      "interrupted": false,
+      "usageComplete": true,
+      "error": null,
+      "initialGenerationAccepted": true,
+      "generationAttempts": [
+        {
+          "attempt": 1,
+          "outcome": "Accepted",
+          "errorCode": null,
+          "message": null,
+          "at": "2026-11-08T04:53:03.191297Z"
+        }
+      ],
+      "modelCalls": [
+        {
+          "usage": {
+            "prompt_tokens": 290,
+            "completion_tokens": 1070,
+            "total_tokens": 1360,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 365
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 290
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 9496,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 48000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "high",
+          "stage": "brief"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 1886,
+            "completion_tokens": 32200,
+            "total_tokens": 34086,
+            "prompt_tokens_details": {
+              "cached_tokens": 896
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 24720
+            },
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 990
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 152086,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 48000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "high",
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 20303,
+            "completion_tokens": 7264,
+            "total_tokens": 27567,
+            "prompt_tokens_details": {
+              "cached_tokens": 768
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 6917
+            },
+            "prompt_cache_hit_tokens": 768,
+            "prompt_cache_miss_tokens": 19535
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 48755,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 48000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "high",
+          "stage": "review"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 20957,
+            "completion_tokens": 10807,
+            "total_tokens": 31764,
+            "prompt_tokens_details": {
+              "cached_tokens": 896
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1606
+            },
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 20061
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 37383,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 48000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "high",
+          "stage": "document"
+        }
+      ],
+      "selection": "Improved",
+      "events": [
+        {
+          "stage": "Brief",
+          "status": "Started",
+          "at": "2026-11-08T04:50:21.583695300Z",
+          "message": null
+        },
+        {
+          "stage": "Brief",
+          "status": "Completed",
+          "at": "2026-11-08T04:50:31.083032100Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Started",
+          "at": "2026-11-08T04:53:03.199298300Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Completed",
+          "at": "2026-11-08T04:53:09.578143200Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Started",
+          "at": "2026-11-08T04:53:09.582144300Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Completed",
+          "at": "2026-11-08T04:53:58.341674200Z",
+          "message": null
+        },
+        {
+          "stage": "Improve",
+          "status": "Started",
+          "at": "2026-11-08T04:53:58.345873900Z",
+          "message": null
+        },
+        {
+          "stage": "Improve",
+          "status": "Completed",
+          "at": "2026-11-08T04:54:35.759499700Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureImproved",
+          "status": "Started",
+          "at": "2026-11-08T04:54:35.767500800Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureImproved",
+          "status": "Completed",
+          "at": "2026-11-08T04:54:42.090466Z",
+          "message": null
+        },
+        {
+          "stage": "Selection",
+          "status": "Completed",
+          "at": "2026-11-08T04:54:42.095465600Z",
+          "message": "采用改进页面"
+        }
+      ],
+      "researchReused": false,
+      "siteStyle": {
+        "brand": "今天是什么日子 —— 冷调日历纸面：浅灰蓝底、墨黑字、朱红作今日标记，横向日子流与纵向条目流构成双重阅读方向",
+        "typography": "中文无衬线系统字体撑起标题，字距收紧至 -.02em；日期数字、年份、时区、倒计时统一使用等宽字体与 tabular-nums；分区小标题与分类标签用 10–12px 大写式字距 .2em 的微标签，和正文形成疏密对比",
+        "palette": "纸面 #e9edf0、卡片 #f8f9f9、墨 #15191c、次要文字 #5f6b73、分割线 #c6d0d6、朱红 #c33a2c（今日与年份进度）、青 #1f6f6b（节气与分类）；刻意避开暖米色加衬线的常见日历样式",
+        "layout": "单列 1120px 居中，顶部为品牌、锚点导航与日期查询条；今日区用 3×2 事实网格加年份进度条，下方是可复制的速览行；日子流为横向滚动轨道，今日节点放大反白并带朱红顶线，过去日子仅淡化日期数字；今日详解为双列卡片，倒计时为自动网格，临近日子与历史条目均为以年份/日期对齐的清单（历史条目自早至晚排列），窄屏全部降为单列"
+      },
+      "actions": [
+        {
+          "id": "act-search-date",
+          "kind": "Search",
+          "elementId": "date-search",
+          "target": null,
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-filter-upcoming",
+          "kind": "Filter",
+          "elementId": "up-filter",
+          "target": null,
+          "region": "up-list",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-filter-history",
+          "kind": "Filter",
+          "elementId": "hist-filter",
+          "target": null,
+          "region": "hist-list",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-copy-glance",
+          "kind": "Copy",
+          "elementId": "copy-btn",
+          "target": null,
+          "region": "glance",
+          "stateKey": "copyState",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-toggle-about",
+          "kind": "Toggle",
+          "elementId": "about-toggle",
+          "target": null,
+          "region": "about-panel",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-0",
+          "kind": "Navigate",
+          "elementId": "vib-link-0",
+          "target": "/",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        }
+      ],
+      "layout": {
+        "viewports": [
+          {
+            "width": 1440,
+            "height": 900,
+            "scrollWidth": 1425,
+            "scrollHeight": 3182,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "vib-entity-0",
+                "tag": "h1",
+                "text": "2026年11月7日 星期六 · 立冬",
+                "x": 174.5,
+                "y": 156.9375,
+                "width": 1076,
+                "height": 63.796875,
+                "fontSize": "58px",
+                "lineHeight": "63.8px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "日子流",
+                "x": 174.5,
+                "y": 713.84375,
+                "width": 43.921875,
+                "height": 20.390625,
+                "fontSize": "12px",
+                "lineHeight": "20.4px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "今日的来历",
+                "x": 174.5,
+                "y": 949.8125,
+                "width": 73.203125,
+                "height": 20.390625,
+                "fontSize": "12px",
+                "lineHeight": "20.4px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "节气释义",
+                "x": 195.5,
+                "y": 1020.203125,
+                "width": 488,
+                "height": 22.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "三候",
+                "x": 741.5,
+                "y": 1020.203125,
+                "width": 488,
+                "height": 22.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "今日风俗",
+                "x": 195.5,
+                "y": 1249.5,
+                "width": 488,
+                "height": 22.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "今日宜忌 · 民俗参考",
+                "x": 741.5,
+                "y": 1249.5,
+                "width": 488,
+                "height": 22.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "还在路上",
+                "x": 174.5,
+                "y": 1471.15625,
+                "width": 58.5625,
+                "height": 20.390625,
+                "fontSize": "12px",
+                "lineHeight": "20.4px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "接下来的日子",
+                "x": 174.5,
+                "y": 1710.828125,
+                "width": 87.84375,
+                "height": 20.390625,
+                "fontSize": "12px",
+                "lineHeight": "20.4px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "历史上的今天 · 11月7日",
+                "x": 174.5,
+                "y": 2354.96875,
+                "width": 167.59375,
+                "height": 20.390625,
+                "fontSize": "12px",
+                "lineHeight": "20.4px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "controls": [
+              {
+                "id": "vib-link-0",
+                "tag": "a",
+                "text": "今天是什么日子·",
+                "x": 174.5,
+                "y": 19.171875,
+                "width": 129.859375,
+                "height": 28.890625,
+                "fontSize": "17px",
+                "lineHeight": "28.9px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "今日",
+                "x": 322.359375,
+                "y": 22.578125,
+                "width": 26,
+                "height": 22.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "日子流",
+                "x": 364.359375,
+                "y": 22.578125,
+                "width": 39,
+                "height": 22.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "历史上的今天",
+                "x": 419.359375,
+                "y": 22.578125,
+                "width": 78,
+                "height": 22.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "说明",
+                "x": 513.359375,
+                "y": 22.578125,
+                "width": 26,
+                "height": 22.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "q",
+                "tag": "input",
+                "text": "",
+                "x": 1046.75,
+                "y": 15,
+                "width": 126,
+                "height": 37.25,
+                "fontSize": "12.5px",
+                "lineHeight": "21.25px",
+                "fontFamily": "ui-monospace, \"SF Mono\", Menlo, Consolas, \"Courier New\", monospace",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "button",
+                "text": "查日子",
+                "x": 1180.75,
+                "y": 14,
+                "width": 69.75,
+                "height": 39.25,
+                "fontSize": "12.5px",
+                "lineHeight": "21.25px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-btn",
+                "tag": "button",
+                "text": "复制今日速览",
+                "x": 1131,
+                "y": 568.46875,
+                "width": 109.5,
+                "height": 39.25,
+                "fontSize": "12.5px",
+                "lineHeight": "21.25px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "up-filter",
+                "tag": "input",
+                "text": "",
+                "x": 1060.5,
+                "y": 1704.125,
+                "width": 190,
+                "height": 36.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "hist-filter",
+                "tag": "input",
+                "text": "",
+                "x": 1060.5,
+                "y": 2348.265625,
+                "width": 190,
+                "height": 36.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "about-toggle",
+                "tag": "button",
+                "text": "历法与口径说明",
+                "x": 174.5,
+                "y": 3051.359375,
+                "width": 122.75,
+                "height": 39.25,
+                "fontSize": "12.5px",
+                "lineHeight": "21.25px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "regions": [
+              {
+                "id": "top",
+                "tag": "header",
+                "text": "今天是什么日子·\n  \n   今日日子流历史上的今天说明\n  \n  \n   查任意一天\n   查日子",
+                "x": 0,
+                "y": 0,
+                "width": 1425,
+                "height": 68.25,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "nav",
+                "text": "今日日子流历史上的今天说明",
+                "x": 322.359375,
+                "y": 22.578125,
+                "width": 217,
+                "height": 22.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "main",
+                "text": "今日 · 北京时间 UTC+8 · 2026 年第 311 天\n  2026年11月7日 星期六 · 立冬\n  农历九月廿八，丙午年己亥月乙酉日。今日交立冬，二十四节气行至第十九个，冬从此开始；今年已走过 311 天，距年末还有 54 天。\n  \n   \n    \n     公历\n    \n    \n     2026年11月7日\n    \n   \n   \n",
+                "x": 0,
+                "y": 68.25,
+                "width": 1425,
+                "height": 2910.109375,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "today",
+                "tag": "section",
+                "text": "今日 · 北京时间 UTC+8 · 2026 年第 311 天\n  2026年11月7日 星期六 · 立冬\n  农历九月廿八，丙午年己亥月乙酉日。今日交立冬，二十四节气行至第十九个，冬从此开始；今年已走过 311 天，距年末还有 54 天。\n  \n   \n    \n     公历\n    \n    \n     2026年11月7日\n    \n   \n   \n",
+                "x": 152.5,
+                "y": 68.25,
+                "width": 1120,
+                "height": 601.59375,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "flow",
+                "tag": "section",
+                "text": "日子流\n   11月1日 — 11月15日 · 今日居中，左右滑动看前后日子\n  \n  \n   周日01平日\n   周一02平日\n   周二03平日\n   周三04平日\n   周四05平日\n   周五06平日\n   周六07今天 · 立冬\n   周日08中国记者节 +1\n   周一09全国消防日 +2\n   周二10平日 +3\n   周三11光棍节·双十一 ",
+                "x": 152.5,
+                "y": 669.84375,
+                "width": 1120,
+                "height": 235.96875,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "detail",
+                "tag": "section",
+                "text": "今日的来历\n   立冬 · 太阳到达黄经 225°\n  \n  \n   \n    节气释义\n    太阳到达黄经 225° 时为立冬，通常在公历 11 月 7 日至 8 日之间交节，2026 年落在 11 月 7 日。\n    《月令七十二候集解》说：“立，建始也；冬，终也，万物收藏也。”秋收的余绪收进仓廪，北方多地陆续入冬，黄河中下游开始见霜。\n    在干",
+                "x": 152.5,
+                "y": 905.8125,
+                "width": 1120,
+                "height": 521.34375,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "节气释义\n    太阳到达黄经 225° 时为立冬，通常在公历 11 月 7 日至 8 日之间交节，2026 年落在 11 月 7 日。\n    《月令七十二候集解》说：“立，建始也；冬，终也，万物收藏也。”秋收的余绪收进仓廪，北方多地陆续入冬，黄河中下游开始见霜。\n    在干支历中，立冬是亥月的起点，也是四季里“冬”的第一天。",
+                "x": 174.5,
+                "y": 1001.203125,
+                "width": 530,
+                "height": 213.296875,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "三候\n    \n     一候 水始冰：水面开始结出薄冰。\n     二候 地始冻：土地表层渐渐凝结。\n     三候 雉入大水为蜃：野鸡少见，海边出现与雉羽色相近的蜃。",
+                "x": 720.5,
+                "y": 1001.203125,
+                "width": 530,
+                "height": 213.296875,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "今日风俗\n    北方讲“立冬补冬，补嘴空”，家家包饺子；南方以鸡鸭鱼肉进补；绍兴一带从这天起开酿黄酒；潮汕有“立冬食蔗齿不痛”的说法。\n    旧时这天还要“贺冬”，走访尊长、更换新衣，与今天换季收衣的节奏颇为相似。",
+                "x": 174.5,
+                "y": 1230.5,
+                "width": 530,
+                "height": 188.65625,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "今日宜忌 · 民俗参考\n    宜 早睡晚起、温补饮食、晒被褥、腌菜储冬\n    忌 大汗淋漓、贪食生冷、深夜久坐不动\n    宜忌因流派与地域而异，此处按节气起居整理，仅作民俗参考，不构成健康建议。",
+                "x": 720.5,
+                "y": 1230.5,
+                "width": 530,
+                "height": 188.65625,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "countdown",
+                "tag": "section",
+                "text": "还在路上\n   从今天 11月7日 算起的倒计时\n  \n  \n   小雪11月22日 周日15天后节气\n   感恩节11月26日 周四19天后节日\n   冬至12月22日 周二45天后节气\n   元旦2027年1月1日 周五55天后法定假日\n   春节2027年2月6日 丁未年91天后节日",
+                "x": 152.5,
+                "y": 1427.15625,
+                "width": 1120,
+                "height": 232.96875,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "upcoming",
+                "tag": "section",
+                "text": "接下来的日子\n   分类写在右侧，可直接筛选\n   \n    筛选\n   \n  \n  \n   11月8日 周日中国记者节节日+1天\n   11月9日 周一全国消防日（119）纪念日+2天\n   11月11日 周三光棍节 · 双十一购物节节日+4天\n   11月11日 周三中国人民解放军空军成立纪念日（1949）纪念日+4天\n   11月14日 周六世界糖尿病",
+                "x": 152.5,
+                "y": 1660.125,
+                "width": 1120,
+                "height": 644.140625,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "hist",
+                "tag": "section",
+                "text": "历史上的今天 · 11月7日\n   按年份或关键词筛选 · 条目自早至晚排列\n   \n    筛选\n   \n  \n  \n   1867\n    玛丽·居里出生于波兰华沙，后来成为唯一两获不同领域诺贝尔奖的女科学家。\n   1901\n    李鸿章病逝于北京贤良寺，清末洋务运动的重要主持者落幕。\n   1913\n    阿尔贝·加缪出生于阿尔及利亚蒙多维，19",
+                "x": 152.5,
+                "y": 2304.265625,
+                "width": 1120,
+                "height": 674.09375,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "about",
+                "tag": "footer",
+                "text": "历法与口径说明\n \n  关于这一页\n  日期基准：本页以北京时间（UTC+8）2026 年 11 月 7 日为准，农历与节气均按东八区时刻计算。\n  农历：九月廿八，丙午年（马年）。干支日柱按连续甲子循环推算，个别历书在日界（子时或零时）处理上可能相差一日。\n  节气：立冬为二十四节气第十九个，太阳黄经 225°；下一个节气小雪在 11 月 22 日。\n  ",
+                "x": 152.5,
+                "y": 3024.359375,
+                "width": 1120,
+                "height": 157.796875,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "visualProfile": {
+              "backgrounds": [
+                "rgb(233, 237, 240)"
+              ],
+              "fonts": [
+                "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif"
+              ],
+              "headingSizes": [
+                58,
+                12,
+                13
+              ],
+              "regions": [
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.99
+                },
+                {
+                  "display": "flex",
+                  "columns": 4,
+                  "widthRatio": 0.15
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.99
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.78
+                }
+              ]
+            }
+          },
+          {
+            "width": 390,
+            "height": 844,
+            "scrollWidth": 375,
+            "scrollHeight": 5278,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "vib-entity-0",
+                "tag": "h1",
+                "text": "2026年11月7日 星期六 · 立冬",
+                "x": 22,
+                "y": 225.921875,
+                "width": 331,
+                "height": 61.59375,
+                "fontSize": "28px",
+                "lineHeight": "30.8px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "日子流",
+                "x": 22,
+                "y": 985.40625,
+                "width": 43.921875,
+                "height": 20.390625,
+                "fontSize": "12px",
+                "lineHeight": "20.4px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "今日的来历",
+                "x": 22,
+                "y": 1246.5625,
+                "width": 73.203125,
+                "height": 20.390625,
+                "fontSize": "12px",
+                "lineHeight": "20.4px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "节气释义",
+                "x": 43,
+                "y": 1316.953125,
+                "width": 289,
+                "height": 22.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "三候",
+                "x": 43,
+                "y": 1644.8125,
+                "width": 289,
+                "height": 22.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "今日风俗",
+                "x": 43,
+                "y": 1841.46875,
+                "width": 289,
+                "height": 22.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "今日宜忌 · 民俗参考",
+                "x": 43,
+                "y": 2085.40625,
+                "width": 289,
+                "height": 22.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "还在路上",
+                "x": 22,
+                "y": 2307.0625,
+                "width": 58.5625,
+                "height": 20.390625,
+                "fontSize": "12px",
+                "lineHeight": "20.4px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "接下来的日子",
+                "x": 22,
+                "y": 3054.34375,
+                "width": 87.84375,
+                "height": 20.390625,
+                "fontSize": "12px",
+                "lineHeight": "20.4px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "历史上的今天 · 11月7日",
+                "x": 22,
+                "y": 3855.6875,
+                "width": 167.59375,
+                "height": 20.390625,
+                "fontSize": "12px",
+                "lineHeight": "20.4px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "controls": [
+              {
+                "id": "vib-link-0",
+                "tag": "a",
+                "text": "今天是什么日子·",
+                "x": 22,
+                "y": 14,
+                "width": 129.859375,
+                "height": 28.890625,
+                "fontSize": "17px",
+                "lineHeight": "28.9px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "今日",
+                "x": 22,
+                "y": 60.890625,
+                "width": 26,
+                "height": 22.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "日子流",
+                "x": 64,
+                "y": 60.890625,
+                "width": 39,
+                "height": 22.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "历史上的今天",
+                "x": 119,
+                "y": 60.890625,
+                "width": 78,
+                "height": 22.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "说明",
+                "x": 213,
+                "y": 60.890625,
+                "width": 26,
+                "height": 22.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "q",
+                "tag": "input",
+                "text": "",
+                "x": 91.953125,
+                "y": 101.984375,
+                "width": 183.296875,
+                "height": 37.25,
+                "fontSize": "12.5px",
+                "lineHeight": "21.25px",
+                "fontFamily": "ui-monospace, \"SF Mono\", Menlo, Consolas, \"Courier New\", monospace",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "button",
+                "text": "查日子",
+                "x": 283.25,
+                "y": 100.984375,
+                "width": 69.75,
+                "height": 39.25,
+                "fontSize": "12.5px",
+                "lineHeight": "21.25px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-btn",
+                "tag": "button",
+                "text": "复制今日速览",
+                "x": 41,
+                "y": 844.15625,
+                "width": 109.5,
+                "height": 39.25,
+                "fontSize": "12.5px",
+                "lineHeight": "21.25px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "up-filter",
+                "tag": "input",
+                "text": "",
+                "x": 52,
+                "y": 3088.734375,
+                "width": 301,
+                "height": 36.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "hist-filter",
+                "tag": "input",
+                "text": "",
+                "x": 52,
+                "y": 3924.46875,
+                "width": 301,
+                "height": 36.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "about-toggle",
+                "tag": "button",
+                "text": "历法与口径说明",
+                "x": 22,
+                "y": 5147.5625,
+                "width": 122.75,
+                "height": 39.25,
+                "fontSize": "12.5px",
+                "lineHeight": "21.25px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "regions": [
+              {
+                "id": "top",
+                "tag": "header",
+                "text": "今天是什么日子·\n  \n   今日日子流历史上的今天说明\n  \n  \n   查任意一天\n   查日子",
+                "x": 0,
+                "y": 0,
+                "width": 375,
+                "height": 155.234375,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "nav",
+                "text": "今日日子流历史上的今天说明",
+                "x": 22,
+                "y": 60.890625,
+                "width": 217,
+                "height": 22.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "main",
+                "text": "今日 · 北京时间 UTC+8 · 2026 年第 311 天\n  2026年11月7日 星期六 · 立冬\n  农历九月廿八，丙午年己亥月乙酉日。今日交立冬，二十四节气行至第十九个，冬从此开始；今年已走过 311 天，距年末还有 54 天。\n  \n   \n    \n     公历\n    \n    \n     2026年11月7日\n    \n   \n   \n",
+                "x": 0,
+                "y": 155.234375,
+                "width": 375,
+                "height": 4919.328125,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "today",
+                "tag": "section",
+                "text": "今日 · 北京时间 UTC+8 · 2026 年第 311 天\n  2026年11月7日 星期六 · 立冬\n  农历九月廿八，丙午年己亥月乙酉日。今日交立冬，二十四节气行至第十九个，冬从此开始；今年已走过 311 天，距年末还有 54 天。\n  \n   \n    \n     公历\n    \n    \n     2026年11月7日\n    \n   \n   \n",
+                "x": 0,
+                "y": 155.234375,
+                "width": 375,
+                "height": 786.171875,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "flow",
+                "tag": "section",
+                "text": "日子流\n   11月1日 — 11月15日 · 今日居中，左右滑动看前后日子\n  \n  \n   周日01平日\n   周一02平日\n   周二03平日\n   周三04平日\n   周四05平日\n   周五06平日\n   周六07今天 · 立冬\n   周日08中国记者节 +1\n   周一09全国消防日 +2\n   周二10平日 +3\n   周三11光棍节·双十一 ",
+                "x": 0,
+                "y": 941.40625,
+                "width": 375,
+                "height": 261.15625,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "detail",
+                "tag": "section",
+                "text": "今日的来历\n   立冬 · 太阳到达黄经 225°\n  \n  \n   \n    节气释义\n    太阳到达黄经 225° 时为立冬，通常在公历 11 月 7 日至 8 日之间交节，2026 年落在 11 月 7 日。\n    《月令七十二候集解》说：“立，建始也；冬，终也，万物收藏也。”秋收的余绪收进仓廪，北方多地陆续入冬，黄河中下游开始见霜。\n    在干",
+                "x": 0,
+                "y": 1202.5625,
+                "width": 375,
+                "height": 1060.5,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "节气释义\n    太阳到达黄经 225° 时为立冬，通常在公历 11 月 7 日至 8 日之间交节，2026 年落在 11 月 7 日。\n    《月令七十二候集解》说：“立，建始也；冬，终也，万物收藏也。”秋收的余绪收进仓廪，北方多地陆续入冬，黄河中下游开始见霜。\n    在干支历中，立冬是亥月的起点，也是四季里“冬”的第一天。",
+                "x": 22,
+                "y": 1297.953125,
+                "width": 331,
+                "height": 311.859375,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "三候\n    \n     一候 水始冰：水面开始结出薄冰。\n     二候 地始冻：土地表层渐渐凝结。\n     三候 雉入大水为蜃：野鸡少见，海边出现与雉羽色相近的蜃。",
+                "x": 22,
+                "y": 1625.8125,
+                "width": 331,
+                "height": 180.65625,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "今日风俗\n    北方讲“立冬补冬，补嘴空”，家家包饺子；南方以鸡鸭鱼肉进补；绍兴一带从这天起开酿黄酒；潮汕有“立冬食蔗齿不痛”的说法。\n    旧时这天还要“贺冬”，走访尊长、更换新衣，与今天换季收衣的节奏颇为相似。",
+                "x": 22,
+                "y": 1822.46875,
+                "width": 331,
+                "height": 227.9375,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "今日宜忌 · 民俗参考\n    宜 早睡晚起、温补饮食、晒被褥、腌菜储冬\n    忌 大汗淋漓、贪食生冷、深夜久坐不动\n    宜忌因流派与地域而异，此处按节气起居整理，仅作民俗参考，不构成健康建议。",
+                "x": 22,
+                "y": 2066.40625,
+                "width": 331,
+                "height": 188.65625,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "countdown",
+                "tag": "section",
+                "text": "还在路上\n   从今天 11月7日 算起的倒计时\n  \n  \n   小雪11月22日 周日15天后节气\n   感恩节11月26日 周四19天后节日\n   冬至12月22日 周二45天后节气\n   元旦2027年1月1日 周五55天后法定假日\n   春节2027年2月6日 丁未年91天后节日",
+                "x": 0,
+                "y": 2263.0625,
+                "width": 375,
+                "height": 747.28125,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "upcoming",
+                "tag": "section",
+                "text": "接下来的日子\n   分类写在右侧，可直接筛选\n   \n    筛选\n   \n  \n  \n   11月8日 周日中国记者节节日+1天\n   11月9日 周一全国消防日（119）纪念日+2天\n   11月11日 周三光棍节 · 双十一购物节节日+4天\n   11月11日 周三中国人民解放军空军成立纪念日（1949）纪念日+4天\n   11月14日 周六世界糖尿病",
+                "x": 0,
+                "y": 3010.34375,
+                "width": 375,
+                "height": 801.34375,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "hist",
+                "tag": "section",
+                "text": "历史上的今天 · 11月7日\n   按年份或关键词筛选 · 条目自早至晚排列\n   \n    筛选\n   \n  \n  \n   1867\n    玛丽·居里出生于波兰华沙，后来成为唯一两获不同领域诺贝尔奖的女科学家。\n   1901\n    李鸿章病逝于北京贤良寺，清末洋务运动的重要主持者落幕。\n   1913\n    阿尔贝·加缪出生于阿尔及利亚蒙多维，19",
+                "x": 0,
+                "y": 3811.6875,
+                "width": 375,
+                "height": 1262.875,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "about",
+                "tag": "footer",
+                "text": "历法与口径说明\n \n  关于这一页\n  日期基准：本页以北京时间（UTC+8）2026 年 11 月 7 日为准，农历与节气均按东八区时刻计算。\n  农历：九月廿八，丙午年（马年）。干支日柱按连续甲子循环推算，个别历书在日界（子时或零时）处理上可能相差一日。\n  节气：立冬为二十四节气第十九个，太阳黄经 225°；下一个节气小雪在 11 月 22 日。\n  ",
+                "x": 0,
+                "y": 5120.5625,
+                "width": 375,
+                "height": 157.796875,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "visualProfile": {
+              "backgrounds": [
+                "rgb(233, 237, 240)"
+              ],
+              "fonts": [
+                "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif"
+              ],
+              "headingSizes": [
+                28,
+                12,
+                13
+              ],
+              "regions": [
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.96
+                },
+                {
+                  "display": "flex",
+                  "columns": 4,
+                  "widthRatio": 0.56
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.96
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.96
                 }
               ]
             }
