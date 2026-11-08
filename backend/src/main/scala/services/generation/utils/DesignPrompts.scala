@@ -6,6 +6,12 @@ import scala.jdk.CollectionConverters.*
 import services.browser.objects.WebDocument
 import services.generation.objects.*
 private[generation] object DesignPrompts:
+  def contentBrief(workflow: DesignWorkflow): Json =
+    if workflow.contentFocusOnly.contains(true) then
+      workflow.brief
+        .map(b => DesignContentFocus(b.purpose, b.visitorTask, b.contentPriorities))
+        .asJson
+    else workflow.brief.asJson
   def briefSystem(guidance: DesignGuidanceText) =
     guidance.intent match
       case Some(intent) =>
@@ -51,7 +57,7 @@ private[generation] object DesignPrompts:
     Json
       .obj(
         "request" -> prompt.asJson,
-        "brief" -> workflow.brief.asJson,
+        "brief" -> contentBrief(workflow),
         "document" -> content,
         "layout" -> workflow.originalLayout.asJson
       )
@@ -60,7 +66,7 @@ private[generation] object DesignPrompts:
     Json
       .obj(
         "request" -> prompt.asJson,
-        "brief" -> workflow.brief.asJson,
+        "brief" -> contentBrief(workflow),
         "review" -> workflow.review.asJson,
         "layout" -> workflow.originalLayout.asJson,
         "document" -> doc.asJson

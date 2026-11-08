@@ -12,7 +12,8 @@ final case class DesignWorkflow(
     improvedLayout: Option[LayoutReport] = None,
     selection: DesignSelection = DesignSelection.Original,
     events: List[DesignEvent] = Nil,
-    visualReferences: Option[List[VisualProfile]] = None
+    visualReferences: Option[List[VisualProfile]] = None,
+    contentFocusOnly: Option[Boolean] = None
 )
 object DesignWorkflow:
   given Encoder[DesignWorkflow] = deriveEncoder

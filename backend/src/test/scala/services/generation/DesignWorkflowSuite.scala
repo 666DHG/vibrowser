@@ -57,6 +57,28 @@ class DesignWorkflowSuite extends CatsEffectSuite:
       None
     )
   }
+  test("content focus removes generated layout instructions while old snapshots remain unchanged") {
+    val original = DesignWorkflow("6-old", brief = Some(brief))
+    val focused = original.copy(contentFocusOnly = Some(true))
+    val focus = DesignPrompts.contentBrief(focused)
+    assertEquals(
+      focus.as[DesignContentFocus],
+      Right(DesignContentFocus(brief.purpose, brief.visitorTask, brief.contentPriorities))
+    )
+    assertEquals(DesignPrompts.contentBrief(original), brief.asJson)
+    val oldJson = focused.asJson.mapObject(_.remove("contentFocusOnly"))
+    assertEquals(oldJson.as[DesignWorkflow].toOption.get.contentFocusOnly, None)
+    assertEquals(focused.asJson.as[DesignWorkflow], Right(focused))
+    assertEquals(DesignPrompts.contentBrief(focused.copy(brief = None)), io.circe.Json.Null)
+    assert(
+      !DesignPrompts
+        .reviewRequest("original-facts", focused, fixture)
+        .contains(brief.informationStructure)
+    )
+    assert(
+      !DesignPrompts.improveRequest("original-facts", focused, fixture).contains(brief.rationale)
+    )
+  }
   private def isolated[A](f: DatabaseSession => IO[A]): IO[A] =
     DatabaseSession
       .resource(
@@ -240,8 +262,13 @@ class DesignWorkflowSuite extends CatsEffectSuite:
                 assert(prompt.contains("visual-design-marker"))
                 assert(prompt.contains("inherited-context-marker"))
                 assert(!prompt.contains("中文排版"))
+                assert(!prompt.contains(brief.informationStructure))
+                assert(!prompt.contains(brief.rationale))
+                assert(prompt.contains(brief.visitorTask))
                 fixture.asJson.noSpaces
-              case 2 => DesignReview(Nil).asJson.noSpaces
+              case 2 =>
+                assert(!prompt.contains(brief.informationStructure))
+                DesignReview(Nil).asJson.noSpaces
               case _ => fail("unexpected extra model call")
             }
         _ <- new DesignWorkflowGeneration(
@@ -249,15 +276,17 @@ class DesignWorkflowSuite extends CatsEffectSuite:
           client,
           meter(),
           guidance = DesignGuidanceText(
-            "4-test",
+            "7-test",
             "visual-design-marker",
             "review-marker",
-            Some("content-intent-marker")
+            Some("content-intent-marker"),
+            contentFocusOnly = true
           )
         )
           .generate(config, page, "inherited-context-marker", None, None)
         saved <- db.transaction(c => GenerationJobTable.designWorkflow(c, nav.jobId)).map(_.get)
         _ = assertEquals(saved.brief.map(_.typography), Some(""))
+        _ = assertEquals(saved.contentFocusOnly, Some(true))
         _ <- calls.get.map(n => assertEquals(n, 3))
       yield ()
     }
@@ -383,7 +412,7 @@ class DesignWorkflowSuite extends CatsEffectSuite:
   test(
     "guidance resources are packaged, versioned and validation preserves required content and actions"
   ) {
-    assert(DesignGuidance.version.startsWith("6-"))
+    assert(DesignGuidance.version.startsWith("7-"))
     assert(
       DesignGuidance.design.nonEmpty && DesignGuidance.review.nonEmpty && DesignGuidance.intent.nonEmpty
     )

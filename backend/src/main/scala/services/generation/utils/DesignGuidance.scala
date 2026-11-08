@@ -11,10 +11,17 @@ private[generation] object DesignGuidance:
   lazy val design: String = resource("design.md")
   lazy val review: String = resource("review.md")
   lazy val intent: String = resource("intent.md")
-  lazy val version: String = "6-" + MessageDigest
+  lazy val version: String = "7-" + MessageDigest
     .getInstance("SHA-256")
     .digest((intent + design + review).getBytes(UTF_8))
     .map(b => f"${b & 0xff}%02x")
     .mkString
   lazy val current: DesignGuidanceText =
-    DesignGuidanceText(version, design, review, Some(intent), visualContext = true)
+    DesignGuidanceText(
+      version,
+      design,
+      review,
+      Some(intent),
+      visualContext = true,
+      contentFocusOnly = true
+    )

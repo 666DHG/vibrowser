@@ -143,7 +143,8 @@ private[generation] final class DesignWorkflowGeneration(
               page,
               DesignWorkflow(
                 guidance.version,
-                visualReferences = Option.when(guidance.visualContext)(bounded)
+                visualReferences = Option.when(guidance.visualContext)(bounded),
+                contentFocusOnly = Some(guidance.contentFocusOnly)
               )
             )
           yield saved
@@ -166,7 +167,9 @@ private[generation] final class DesignWorkflowGeneration(
         )
       }
       fullPrompt =
-        prompt + "\n设计指导：\n" + guidance.design + "\n设计说明：" + planned.brief.asJson.noSpaces +
+        prompt + "\n设计指导：\n" + guidance.design + "\n设计说明：" + DesignPrompts
+          .contentBrief(planned)
+          .noSpaces +
           planned.visualReferences
             .filter(_.nonEmpty)
             .fold("")(refs => "\nrecentVisualReferences:" + refs.asJson.noSpaces)
