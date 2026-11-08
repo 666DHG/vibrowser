@@ -41,7 +41,7 @@ for (const file of (await readdir(input)).filter((f) =>
     error: record.error,
     inheritedEntityCount: record.inheritedEntityCount,
     factsPreserved: record.factsPreserved,
-    brandPreserved: record.brandPreserved,
+    brandDescriptionExactMatch: record.brandPreserved,
     siteStyle: record.document?.siteStyle,
     modelCalls: record.modelCalls,
     selection: record.workflow?.selection,
@@ -53,7 +53,7 @@ await writeFile(
   JSON.stringify(
     {
       method:
-        "Real NavigateMessage from preserved calendar actions, inherited mode and effort, one bounded generation workflow per direction. Browser replay is separately isolated and does not issue further model calls.",
+        "Real NavigateMessage from preserved calendar actions, inherited mode and effort, one bounded generation workflow per direction. Brand comparison is exact descriptive-string equality, not a visual identity verdict. Browser replay is separately isolated and does not issue further model calls.",
       expectedSamples: 2,
       complete: results.length === 2,
       samples: results,
@@ -63,10 +63,12 @@ await writeFile(
   ),
 );
 console.log(
-  results.map(({ name, error, factsPreserved, brandPreserved }) => ({
-    name,
-    error,
-    factsPreserved,
-    brandPreserved,
-  })),
+  results.map(
+    ({ name, error, factsPreserved, brandDescriptionExactMatch }) => ({
+      name,
+      error,
+      factsPreserved,
+      brandDescriptionExactMatch,
+    }),
+  ),
 );
