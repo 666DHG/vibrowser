@@ -1,5 +1,5 @@
 {
-  "complete": false,
+  "complete": true,
   "method": "Inspect paired screenshots and replay actual generated controls; color alone does not count as structural improvement.",
   "topics": [
     {
@@ -76,6 +76,23 @@
         "new-standard: browser replay of declared local controls and navigation, recorded in effort-interaction-replay.json"
       ],
       "limitations": "Deep sample interrupted before any candidate was persisted; no deep visual comparison is available."
+    },
+    {
+      "name": "essay",
+      "guidanceVerdict": "improved",
+      "countsAsImprovement": true,
+      "observations": [
+        "Old standard presents a narrow continuous diary with the introduction, navigation and article in one column.",
+        "New standard starts directly with the current essay, separates archive navigation into the site header, and places weather/tide/walk context in a side note. The prose and walking context have distinct reading roles.",
+        "The palette remains similar, so color is not credited; the task-related separation of narrative and field notes is the improvement."
+      ],
+      "verifiedInteractions": [
+        "new-standard: successful saved-document browser replay; action details in effort-interaction-replay.json"
+      ],
+      "limitations": "Deep original exhausted its request budget with truncated outputs; no deep visual comparison is available."
     }
-  ]
+  ],
+  "improvements": 3,
+  "requiredImprovements": 4,
+  "defaultEnableGatePassed": false
 }

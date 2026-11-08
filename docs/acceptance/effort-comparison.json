@@ -1,7 +1,7 @@
 {
-  "evaluatedAt": "2026-11-08T02:04:48.527Z",
+  "evaluatedAt": "2026-11-08T02:15:04.451Z",
   "expectedSamples": 18,
-  "complete": false,
+  "complete": true,
   "groups": {
     "old-standard": {
       "samples": 6,
@@ -32,18 +32,18 @@
       "seconds": 601
     },
     "new-deep": {
-      "samples": 5,
+      "samples": 6,
       "ready": 3,
       "interrupted": 1,
       "unknownUsageSamples": 1,
       "unknownDurationSamples": 1,
       "initialGenerationAccepted": 2,
-      "modelCalls": 18,
-      "generationModelCalls": 18,
-      "recordedTokens": 463441,
-      "recordedCompletionTokens": 283571,
-      "recordedReasoningTokens": 217848,
-      "seconds": 1504
+      "modelCalls": 23,
+      "generationModelCalls": 23,
+      "recordedTokens": 582766,
+      "recordedCompletionTokens": 388943,
+      "recordedReasoningTokens": 297299,
+      "seconds": 2131
     }
   },
   "comparability": [
@@ -89,8 +89,8 @@
     },
     {
       "input": "一个沿海小城居民的散步随笔.com",
-      "samples": 2,
-      "allThreePresent": false,
+      "samples": 3,
+      "allThreePresent": true,
       "identicalGenerationRequest": true,
       "actualEffortMatches": true,
       "unobservedEffortSamples": 0
@@ -19214,6 +19214,186 @@
         ],
         "error": null
       }
+    },
+    {
+      "name": "essay-new-deep",
+      "input": "一个沿海小城居民的散步随笔.com",
+      "mode": "imagination",
+      "effort": "deep",
+      "requestHash": "71d5157ecb8fece704d54fa6419571cacf313b80432f1d29cbf79626454669f2",
+      "actualEffortMatches": true,
+      "pageId": "4f5b872e-93db-40e3-9f04-85a770493907",
+      "jobId": "4d303eeb-c92f-42ee-ac70-d76b5199850f",
+      "guidance": "2-5fc17c54ff3efd04494df031447a34fd7187103e7927a266800e0b6242f1e996",
+      "seconds": 627,
+      "interrupted": false,
+      "usageComplete": true,
+      "error": "模型输出为空或被截断，请重试",
+      "initialGenerationAccepted": false,
+      "generationAttempts": [
+        {
+          "attempt": 1,
+          "outcome": "ProviderFailure",
+          "errorCode": "provider_content",
+          "message": "模型输出为空或被截断，请重试",
+          "at": "2026-11-08T02:07:55.652545600Z"
+        },
+        {
+          "attempt": 2,
+          "outcome": "ProviderFailure",
+          "errorCode": "provider_content",
+          "message": "模型输出为空或被截断，请重试",
+          "at": "2026-11-08T02:10:14.684157600Z"
+        },
+        {
+          "attempt": 3,
+          "outcome": "ProviderFailure",
+          "errorCode": "provider_content",
+          "message": "模型输出为空或被截断，请重试",
+          "at": "2026-11-08T02:12:25.143569Z"
+        },
+        {
+          "attempt": 4,
+          "outcome": "ProviderFailure",
+          "errorCode": "provider_content",
+          "message": "模型输出为空或被截断，请重试",
+          "at": "2026-11-08T02:14:47.230809900Z"
+        }
+      ],
+      "modelCalls": [
+        {
+          "usage": {
+            "prompt_tokens": 1265,
+            "completion_tokens": 9372,
+            "total_tokens": 10637,
+            "prompt_tokens_details": {
+              "cached_tokens": 1024
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 8432
+            },
+            "prompt_cache_hit_tokens": 1024,
+            "prompt_cache_miss_tokens": 241
+          },
+          "status": 200,
+          "milliseconds": 80214,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "high",
+          "stage": "brief"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 3172,
+            "completion_tokens": 24000,
+            "total_tokens": 27172,
+            "prompt_tokens_details": {
+              "cached_tokens": 896
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 18209
+            },
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 2276
+          },
+          "status": 200,
+          "milliseconds": 135349,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "high",
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 3172,
+            "completion_tokens": 24000,
+            "total_tokens": 27172,
+            "prompt_tokens_details": {
+              "cached_tokens": 2944
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 18019
+            },
+            "prompt_cache_hit_tokens": 2944,
+            "prompt_cache_miss_tokens": 228
+          },
+          "status": 200,
+          "milliseconds": 138757,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "high",
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 3172,
+            "completion_tokens": 24000,
+            "total_tokens": 27172,
+            "prompt_tokens_details": {
+              "cached_tokens": 2944
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 15328
+            },
+            "prompt_cache_hit_tokens": 2944,
+            "prompt_cache_miss_tokens": 228
+          },
+          "status": 200,
+          "milliseconds": 129933,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "high",
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 3172,
+            "completion_tokens": 24000,
+            "total_tokens": 27172,
+            "prompt_tokens_details": {
+              "cached_tokens": 2944
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 19463
+            },
+            "prompt_cache_hit_tokens": 2944,
+            "prompt_cache_miss_tokens": 228
+          },
+          "status": 200,
+          "milliseconds": 141316,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "high",
+          "stage": "document"
+        }
+      ],
+      "selection": "Original",
+      "events": [
+        {
+          "stage": "Brief",
+          "status": "Started",
+          "at": "2026-11-08T02:04:20.075602800Z",
+          "message": null
+        },
+        {
+          "stage": "Brief",
+          "status": "Completed",
+          "at": "2026-11-08T02:05:40.294066400Z",
+          "message": null
+        }
+      ],
+      "researchReused": false,
+      "layout": null
     },
     {
       "name": "essay-new-standard",
