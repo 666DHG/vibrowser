@@ -1,0 +1,42 @@
+{
+  "complete": true,
+  "method": "Inspect the fixed six v7 desktop/mobile screenshots against preserved old-standard pages; count substantive task-related structure/typography. Color changes alone do not count. No sample rerolls.",
+  "topics": [
+    {
+      "name": "academic",
+      "verdict": "improved",
+      "observation": "Parallel identity/research introduction and affiliation facts, anchored research sections and separate research tracks are more navigable than the old continuous biography. Mobile stacks readably but postpones the main directory. Cold-reference page: this is not evidence of dynamic-reference benefit."
+    },
+    {
+      "name": "copy",
+      "verdict": "improved",
+      "observation": "Independent copy cards, category controls and keyword filtering expose reusable entries instead of the old continuous text list. Featured copy is directly usable. Mobile introduction remains long; replay verifies actual copy and filter behavior."
+    },
+    {
+      "name": "calendar",
+      "verdict": "neutral",
+      "observation": "Prominent date followed by a single sequence of holiday explanations is clear but offers no established structural improvement over the old compact date/event overview. Warm paper styling remains."
+    },
+    {
+      "name": "comparison",
+      "verdict": "neutral",
+      "observation": "Large introduction, CSS illustration and six type explanations precede the comparison. Direct anchors help, but do not establish an improvement over the old scenario selector and comparison table, particularly on mobile."
+    },
+    {
+      "name": "docs",
+      "verdict": "neutral",
+      "observation": "Numbered reference sections and a wide isolation-level table are readable. However, introductory text and three summary cards postpone the actual reference content on mobile; no clear overall improvement over the old chapter sidebar/reference layout."
+    },
+    {
+      "name": "essay",
+      "verdict": "neutral",
+      "observation": "A large introduction precedes dated excerpts and archive filtering. This remains a familiar landing-page/list structure rather than a clear improvement to the old journal reading flow."
+    }
+  ],
+  "improvedTopics": 2,
+  "requiredForDefaultEnable": 4,
+  "defaultEnableGatePassed": false,
+  "sameSiteV7Retested": false,
+  "decision": "Keep workflow opt-in. Removing generated layout prescriptions reduces duplicated constraints but has not met the visual breadth gate. Do not label changed colors or more sections as success. The same-site v6 result remains separate evidence, not a v7 result.",
+  "interactionEvidence": "effort-guidance-v7-interactions.json"
+}
