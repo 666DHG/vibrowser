@@ -1,11 +1,12 @@
 // One-time copy maintenance for pages generated with the original prompt.
 // Only reviewed boilerplate phrases are edited; page IDs, jobs and links are preserved.
+import { resolvePostgresBin } from "./postgres-bin.mjs";
 import { execFileSync } from "node:child_process";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { resolve, dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const psql = join(process.env.VIBROWSER_PG_BIN ?? "D:/Installs/PostgreSQL/16/bin", "psql.exe");
+const psql = join(resolvePostgresBin(), "psql.exe");
 const query = (sql) => execFileSync(psql, ["-w", "-h", "127.0.0.1", "-p", "55432", "-U", "vibrowser", "-d", "vibrowser", "-tA", "-v", "ON_ERROR_STOP=1"], { input: sql, encoding: "utf8", windowsHide: true });
 const removals = [
   "以下结果均为演示性虚构站点，请结合课程要求独立完成作业。",

@@ -9,6 +9,8 @@ $env:VIBROWSER_DB_PORT = [string]$DbPort
 $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
 $runtimePath = Join-Path $root '.data\runtime.json'
+& node (Join-Path $PSScriptRoot 'postgres-bin.mjs') | Out-Null
+if ($LASTEXITCODE -ne 0) { throw 'PostgreSQL tool discovery failed; check VIBROWSER_PG_BIN.' }
 function Test-Port([int]$Port) {
   $client = [System.Net.Sockets.TcpClient]::new()
   try { $client.Connect('127.0.0.1', $Port); return $true } catch { return $false } finally { $client.Dispose() }

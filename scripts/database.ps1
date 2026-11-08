@@ -1,7 +1,9 @@
 param([ValidateSet('start','stop','status')][string]$Action = 'start')
 $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
-$bin = if ($env:VIBROWSER_PG_BIN) { $env:VIBROWSER_PG_BIN } else { 'D:\Installs\PostgreSQL\16\bin' }
+$bin = & node (Join-Path $PSScriptRoot 'postgres-bin.mjs')
+if ($LASTEXITCODE -ne 0) { throw 'PostgreSQL tool discovery failed; check VIBROWSER_PG_BIN.' }
+$bin = $bin.Trim()
 $data = Join-Path $root '.data\postgres'
 New-Item -ItemType Directory -Force (Join-Path $root '.data') | Out-Null
 try { $databaseLock = [IO.File]::Open((Join-Path $root '.data/database.lock'), [IO.FileMode]::OpenOrCreate, [IO.FileAccess]::ReadWrite, [IO.FileShare]::None) } catch { throw 'Another database command is running in this worktree; wait for it to finish.' }
