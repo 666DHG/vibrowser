@@ -40,10 +40,13 @@ private[generation] final class DeepSeekCompatibleClient(
         payload
           .deepMerge(
             Json.obj(
-              "thinking" -> Json.obj("type" -> (if deep then "enabled" else "disabled").asJson)
+              "thinking" -> Json.obj("type" -> (if test then "disabled" else "enabled").asJson)
             )
           )
-          .deepMerge(if deep then Json.obj("reasoning_effort" -> "high".asJson) else Json.obj())
+          .deepMerge(
+            if test then Json.obj()
+            else Json.obj("reasoning_effort" -> (if deep then "high" else "low").asJson)
+          )
       else payload
     val request = Request[IO](
       Method.POST,

@@ -11,6 +11,11 @@ const revision = ["v9", "v8", "v7", "v6", "v5", "v4", "v3"].find((v) =>
 const sampling = process.argv.includes("--sampling-v1");
 const deep = process.argv.includes("--deep");
 const low = process.argv.includes("--low");
+const product = process.argv.includes("--product");
+assert(
+  !product || (revision === "v8" && !deep && !sampling && !low),
+  "Product comparison requires isolated v8",
+);
 assert(
   !low || (revision === "v8" && !deep && !sampling),
   "Low comparison requires isolated v8",
@@ -22,7 +27,9 @@ assert(
 const retest = revision !== undefined || sampling;
 const experiment = sampling
   ? "effort-sampling-v1"
-  : "effort-guidance-" + revision + (deep ? "-deep" : low ? "-low" : "");
+  : "effort-guidance-" +
+    revision +
+    (product ? "-product" : deep ? "-deep" : low ? "-low" : "");
 const expectedSamples = retest ? 6 : 18;
 const input = resolve(
   root,
@@ -58,6 +65,10 @@ for (const file of (await readdir(input))
     );
     assert.equal(record.effort, deep ? "deep" : "standard");
     if (low) assert.equal(record.effortPolicy, "experimental-low");
+    if (product) {
+      assert.equal(record.effortPolicy, "product-low-48k");
+      assert(record.modelCalls.every((call) => call.maxTokens === 48000));
+    }
     if (sampling) {
       assert(record.guidance.startsWith("7-"));
       assert(record.modelCalls.some((call) => call.temperature === 1.3));
@@ -108,7 +119,7 @@ for (const file of (await readdir(input))
       record.modelCalls.length === 0
         ? null
         : record.modelCalls.every((call) =>
-            low
+            low || product
               ? call.thinking?.type === "enabled" &&
                 call.reasoningEffort === "low"
               : record.effort === "deep"

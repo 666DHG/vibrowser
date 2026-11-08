@@ -5,7 +5,15 @@ import { resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "../..");
 const topics = ["academic", "copy", "calendar", "comparison", "docs", "essay"];
-const variant = process.argv.includes("--low") ? "low" : "deep";
+assert(
+  !(process.argv.includes("--low") && process.argv.includes("--product")),
+  "Select one comparison",
+);
+const variant = process.argv.includes("--product")
+  ? "product"
+  : process.argv.includes("--low")
+    ? "low"
+    : "deep";
 const hash = (value) => createHash("sha256").update(value).digest("hex");
 async function read(topic, effort) {
   const directory = `effort-guidance-v8${effort === "standard" ? "" : "-" + effort}`;
@@ -14,7 +22,7 @@ async function read(topic, effort) {
       await readFile(
         resolve(
           root,
-          `.cache/${directory}/${topic}-new-${effort === "low" ? "standard" : effort}.json`,
+          `.cache/${directory}/${topic}-new-${effort === "low" || effort === "product" ? "standard" : effort}.json`,
         ),
         "utf8",
       ),
@@ -26,8 +34,13 @@ async function read(topic, effort) {
 }
 function summary(record, effort) {
   if (!record) return null;
-  assert.equal(record.effort, effort === "low" ? "standard" : effort);
+  assert.equal(
+    record.effort,
+    effort === "low" || effort === "product" ? "standard" : effort,
+  );
   if (effort === "low") assert.equal(record.effortPolicy, "experimental-low");
+  if (effort === "product")
+    assert.equal(record.effortPolicy, "product-low-48k");
   assert(record.guidance.startsWith("8-"));
   assert(record.modelCalls.length > 0);
   for (const call of record.modelCalls) {
@@ -37,10 +50,17 @@ function summary(record, effort) {
     );
     assert.equal(
       call.reasoningEffort ?? null,
-      effort === "deep" ? "high" : effort === "low" ? "low" : null,
+      effort === "deep"
+        ? "high"
+        : effort === "low" || effort === "product"
+          ? "low"
+          : null,
     );
     assert.equal(call.temperature ?? null, null);
-    assert.equal(call.maxTokens, effort === "deep" ? 48000 : 24000);
+    assert.equal(
+      call.maxTokens,
+      effort === "deep" || effort === "product" ? 48000 : 24000,
+    );
   }
   const usageComplete = record.modelCalls.every(
     (call) => call.usage?.total_tokens != null,
@@ -116,7 +136,7 @@ const report = {
   scope:
     "Same fixed input, date, retrieval sources and guidance. Effort applies to the entire pipeline, including generated briefs and subsequent visual-reference history; this is not a generation-only causal experiment. No visual quality conclusion is inferred from success counts.",
   additionalChanges:
-    variant === "low"
+    variant === "low" || variant === "product"
       ? "Uses the subsequent host CSS math compatibility fix. Separate normalization repairs from design differences; this is not an otherwise-identical binary comparison."
       : null,
   pairs,
@@ -124,7 +144,7 @@ const report = {
 await writeFile(
   resolve(
     root,
-    `docs/acceptance/effort-guidance-v8${variant === "low" ? "-low" : ""}-paired.json`,
+    `docs/acceptance/effort-guidance-v8${variant === "deep" ? "" : "-" + variant}-paired.json`,
   ),
   JSON.stringify(report, null, 2),
 );

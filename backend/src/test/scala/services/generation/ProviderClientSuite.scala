@@ -113,14 +113,14 @@ class ProviderClientSuite extends CatsEffectSuite:
     yield ()
   }
 
-  test("normal official generation allows larger UTF-8 documents and 24000 output tokens") {
+  test("standard official generation uses low thinking and leaves capacity for the document") {
     val content = "中" * 100000
     val client = Client.fromHttpApp(
       HttpApp[IO](request =>
         request.as[Json].map { body =>
-          assertEquals(body.hcursor.get[Int]("max_tokens"), Right(24000))
-          assertEquals(body.hcursor.downField("thinking").get[String]("type"), Right("disabled"))
-          assert(!body.hcursor.downField("reasoning_effort").succeeded)
+          assertEquals(body.hcursor.get[Int]("max_tokens"), Right(48000))
+          assertEquals(body.hcursor.downField("thinking").get[String]("type"), Right("enabled"))
+          assertEquals(body.hcursor.get[String]("reasoning_effort"), Right("low"))
           Response[IO](Status.Ok).withEntity(
             Json.obj(
               "choices" -> Json.arr(
@@ -137,6 +137,30 @@ class ProviderClientSuite extends CatsEffectSuite:
     new DeepSeekCompatibleClient(client)
       .complete(config, "JSON", "test", false)
       .map(s => assertEquals(s, content))
+  }
+  test("custom standard generation does not receive official thinking options") {
+    val custom = new ProviderConnection("https://custom.example", "model", "fake-test-key", 1)
+    val client = Client.fromHttpApp(
+      HttpApp[IO](request =>
+        request.as[Json].map { body =>
+          assertEquals(body.hcursor.get[Int]("max_tokens"), Right(12000))
+          assert(!body.hcursor.downField("thinking").succeeded)
+          assert(!body.hcursor.downField("reasoning_effort").succeeded)
+          Response[IO](Status.Ok).withEntity(
+            Json.obj(
+              "choices" -> Json.arr(
+                Json.obj(
+                  "message" -> Json.obj("content" -> Json.fromString("{}"))
+                )
+              )
+            )
+          )
+        }
+      )
+    )
+    new DeepSeekCompatibleClient(client)
+      .complete(custom, "JSON", "test", false)
+      .map(value => assertEquals(value, "{}"))
   }
   test(
     "deep official calls enable high effort; connection tests remain standard and discard reasoning"

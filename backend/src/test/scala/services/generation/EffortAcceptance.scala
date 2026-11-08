@@ -29,7 +29,12 @@ object EffortAcceptance extends IOApp.Simple:
   private val samplingRetest = sys.env.get("VIBROWSER_DESIGN_SAMPLING_RETEST").contains("true")
   private val deepRetest = sys.env.get("VIBROWSER_DESIGN_DEEP_RETEST").contains("true")
   private val lowRetest = sys.env.get("VIBROWSER_DESIGN_LOW_RETEST").contains("true")
-  private val effortSuffix = if deepRetest then "_deep" else if lowRetest then "_low" else ""
+  private val productRetest = sys.env.get("VIBROWSER_PRODUCT_STANDARD_RETEST").contains("true")
+  private val effortSuffix =
+    if productRetest then "_product"
+    else if deepRetest then "_deep"
+    else if lowRetest then "_low"
+    else ""
   private val experimentGuidance =
     if guidanceRetest && guidanceRevision == "9" then DesignGuidance.draftExperiment
     else DesignGuidance.current
@@ -128,6 +133,14 @@ object EffortAcceptance extends IOApp.Simple:
       yield response.withEntity(result)
     }
   def run: IO[Unit] =
+    require(
+      productRetest || deepRetest,
+      "Historical disabled/24k experiments require their original build; use the isolated product retest"
+    )
+    require(
+      !productRetest || (guidanceRetest && guidanceRevision == "8" && !deepRetest && !lowRetest && !samplingRetest),
+      "Product retest uses unchanged v8 guidance and unmodified production requests"
+    )
     require(
       !lowRetest || (guidanceRetest && guidanceRevision == "8" && !deepRetest && !samplingRetest),
       "Low thinking comparison requires isolated v8 guidance without other parameter experiments"
@@ -335,8 +348,9 @@ object EffortAcceptance extends IOApp.Simple:
                         "input" -> input.asJson,
                         "mode" -> mode.asJson,
                         "effort" -> effort.asJson,
-                        "effortPolicy" -> (if lowRetest then "experimental-low"
-                                           else "product").asJson,
+                        "effortPolicy" -> (if productRetest then "product-low-48k"
+                                           else if lowRetest then "experimental-low"
+                                           else "product") .asJson,
                         "guidance" -> guidance.version.asJson,
                         "pageId" -> page.id.asJson,
                         "jobId" -> job.id.asJson,

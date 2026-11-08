@@ -1,5 +1,9 @@
 # 下一步计划与目标
 
+当前源码候选（2026-11-08）：官方标准改为 enabled／low，输出预算 48000；深入仍为 enabled／high、48000。连接测试保持 disabled／128，兼容接口标准不携带官方参数。没有新增 prompt 或模型阶段；129 项 Scala、42 项前端及格式／类型／生产构建通过。运行中 LIVE 仍是此前构建，尚未重启部署候选。
+
+完整候选验收使用 `VIBROWSER_PRODUCT_STANDARD_RETEST=true`，同时设置 `VIBROWSER_EFFORT_GUIDANCE_RETEST=true` 与 `VIBROWSER_EFFORT_GUIDANCE_VERSION=8`。隔离 schema／目录为 `effort_guidance_v8_product`／`.cache/effort-guidance-v8-product`，保留六题原请求、日期和资料，模型请求不由测试工具修改。历史 disabled／24k 运行器在新构建中禁止启动，避免混写参数。报告命令为 `review-effort.mjs --guidance-v8 --product --complete`、`compare-effort-v8.mjs --product --complete`；原失败与容量复测不改写。设计工作流仍默认关闭，等待完整结果和回归后决定启用。
+
 最新连续性核对（2026-11-08）：low 器具榜单→商品详情真实任务成功，实体和品牌继承、桌面／窄屏视觉延续及详情浏览器交互通过；四项两挡 UI 回归通过。运行说明已更新为当前 v8，区分生产参数和 low 验收参数。本轮无新增 prompt，默认配置未改变，所有付费请求已结束。
 
 剩余实施决策：将已验证的 low 思考与足够正文容量结合，才能作为标准档的候选；仅有测试运行器覆盖不算产品完成。仍需验证候选的完整生成链与回归后再决定是否启用设计流程。原 24k 六题失败、48k 单独修复和同站结果分别保留，不合并为虚构的六题全通过。
