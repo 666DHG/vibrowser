@@ -1,7 +1,7 @@
 {
   "complete": false,
   "plannedPairs": 6,
-  "recordedPairs": 3,
+  "recordedPairs": 4,
   "scope": "Same fixed input, date, retrieval sources and guidance. Effort applies to the entire pipeline, including generated briefs and subsequent visual-reference history; this is not a generation-only causal experiment. No visual quality conclusion is inferred from success counts.",
   "pairs": [
     {
@@ -148,7 +148,7 @@
     {
       "topic": "comparison",
       "requestHash": "a609dacb1ed6e2d12f8b498ce91f2cf62e3d1bf82815f9f6ec43592ede8a43c9",
-      "paired": false,
+      "paired": true,
       "standard": {
         "pageId": "4347d739-8322-4932-b561-615076a56ad7",
         "jobId": "c542bac8-3001-47fd-bc72-fdbd2e6c3638",
@@ -170,7 +170,27 @@
         "htmlUnchangedByReview": true,
         "cssUnchangedByReview": true
       },
-      "deep": null
+      "deep": {
+        "pageId": "3cd0c330-6e05-4791-afea-5715c20f023f",
+        "jobId": "15b43288-17bb-4be9-b0b8-44fc27806e5e",
+        "ready": true,
+        "error": null,
+        "firstGenerationAccepted": true,
+        "seconds": 332,
+        "calls": 4,
+        "usageComplete": true,
+        "totalTokens": 143227,
+        "recordedReasoningTokens": 43355,
+        "selection": "Improved",
+        "selectedDirection": {
+          "concept": "卡片式器材目录",
+          "structure": "以可扫描的器具卡片目录为主，卡片承载名称、类型、关键标签和对比入口，支持按条件收拢与展开细节。",
+          "typography": "粗体展示型标签搭配小号元信息，卡片标题短而醒目，辅助信息层级弱化，增强快速浏览。",
+          "contentReason": "器具类型和对比维度较多，卡片目录便于先建立整体印象，再进入单类器具或具体条件比较。"
+        },
+        "htmlUnchangedByReview": false,
+        "cssUnchangedByReview": false
+      }
     },
     {
       "topic": "docs",
