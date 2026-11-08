@@ -1,0 +1,31 @@
+{
+  "branch": "feat/browser-companion",
+  "integratedDesignCommit": "e6c174d",
+  "scala": {
+    "passed": 105,
+    "failed": 0
+  },
+  "frontendUnit": {
+    "passed": 46,
+    "failed": 0
+  },
+  "browserRuns": [
+    {
+      "scope": "companion, progress, research-ui, tabs",
+      "passed": 17
+    },
+    {
+      "scope": "companion, web-runtime, web-worker",
+      "passed": 10
+    },
+    {
+      "scope": "final merged companion and progress",
+      "passed": 11
+    }
+  ],
+  "browserRunsOverlap": true,
+  "format": "passed",
+  "typescriptAndBuild": "passed",
+  "livePaidProviderTested": false,
+  "runtimeIsolationEvidence": "companion-isolation.json"
+}

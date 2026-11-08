@@ -1,3 +1,4 @@
+import { CompanionSettings } from "./CompanionSettings";
 import { ResearchSettingsPanel } from "./ResearchSettingsPanel";
 import { useState, useEffect, useRef } from "react";
 import { SettingsPanel } from "./SettingsPanel";
@@ -27,6 +28,7 @@ export function SettingsPage({
         <h1 className="mr-4 text-2xl font-semibold md:mb-6">设置</h1>
         {[
           ["api", "API 配置"],
+          ["companion", "小猫陪伴"],
           ["about", "项目说明"],
         ].map(([id, label]) => (
           <button
@@ -48,6 +50,9 @@ export function SettingsPage({
           <div ref={research}>
             <ResearchSettingsPanel mock={mock} />
           </div>
+        </div>
+        <div hidden={section !== "companion"}>
+          <CompanionSettings />
         </div>
         <article
           hidden={section !== "about"}

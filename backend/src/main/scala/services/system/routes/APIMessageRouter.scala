@@ -9,6 +9,8 @@ import services.system.DatabaseSession
 import services.system.objects.*
 object APIMessageRouter:
   def routes(messages: List[RegisteredAPIMessage], database: DatabaseSession): HttpRoutes[IO] =
+    val uiPort = sys.env.getOrElse("VIBROWSER_UI_PORT", "5173").toInt
+    val apiPort = sys.env.getOrElse("VIBROWSER_API_PORT", "8787").toInt
     val registry = messages.map(m => m.name -> m).toMap
     HttpRoutes.of[IO] {
       case GET -> Root / "health" =>
@@ -20,13 +22,22 @@ object APIMessageRouter:
         )
       case request @ POST -> Root / "api" / name =>
         val allowedOrigins =
-          Set("http://127.0.0.1:5173", "http://localhost:5173", "http://127.0.0.1:8787")
+          Set(
+            s"http://127.0.0.1:$uiPort",
+            s"http://localhost:$uiPort",
+            s"http://127.0.0.1:$apiPort"
+          )
         val origin =
           request.headers.headers.find(_.name.toString.equalsIgnoreCase("Origin")).map(_.value)
         val host =
           request.headers.headers.find(_.name.toString.equalsIgnoreCase("Host")).map(_.value)
         val allowedHosts =
-          Set("127.0.0.1:8787", "localhost:8787", "127.0.0.1:5173", "localhost:5173")
+          Set(
+            s"127.0.0.1:$apiPort",
+            s"localhost:$apiPort",
+            s"127.0.0.1:$uiPort",
+            s"localhost:$uiPort"
+          )
         val action = for
           _ <- IO.raiseWhen(origin.exists(o => !allowedOrigins(o)) || !host.exists(allowedHosts))(
             AppError("origin_denied", "请求来源不允许", 403)

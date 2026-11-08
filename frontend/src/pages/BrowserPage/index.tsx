@@ -1,3 +1,4 @@
+import { BrowserCompanion } from "./components/BrowserCompanion";
 import { SourcesPanel } from "./components/SourcesPanel";
 import { GetSettingsMessage } from "../../apis/settings/GetSettingsMessage";
 import { useEffect, useRef, useState } from "react";
@@ -267,9 +268,6 @@ export default function BrowserPage() {
           onAction={(action, values) =>
             void navigation.submitAction(item.id, action, values)
           }
-          onSelectCandidate={(id) => void navigation.selectSubject(item.id, id)}
-          onRetry={() => void navigation.retry(item.id)}
-          onCancel={() => navigation.cancel(item.id)}
           bookmarks={
             <BookmarksPage
               {...bookmarks}
@@ -285,9 +283,17 @@ export default function BrowserPage() {
               onRemove={(id) => void bookmarks.remove(id)}
             />
           }
-          onSettings={() => openSettings(true)}
         />
       ))}
+      <BrowserCompanion
+        tab={tab}
+        saved={saved}
+        mock={mock}
+        onRetry={() => void navigation.retry(tab.id)}
+        onCancel={() => navigation.cancel(tab.id)}
+        onSettings={() => openSettings(true)}
+        onSelectCandidate={(id) => void navigation.selectSubject(tab.id, id)}
+      />
       {sourcesOpen && visiblePage && (
         <SourcesPanel
           pageId={visiblePage.id}

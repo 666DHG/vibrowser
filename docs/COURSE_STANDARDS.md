@@ -142,3 +142,10 @@ buildPageResponse 是 browser 的私有纯工具；数据库行到 PageRecord �
 每次交付记录“规则编号 → 实现文件/类型 → 验证方式 → 结果”。检查目录、类职责、可见性、IO 边界及前后端一致性，再运行相关功能测试。
 
 不制定无来源的类数量、文件行数、继承层数或覆盖率评分门槛。静态扫描用于发现 var、unsafeRun、SQL 暴露和越界 import 等候选问题，人工确认语境；测试行为正确也不能替代规范检查。
+
+## 小猫陪伴增量证据
+
+- 页面专用组件、偏好 store、effect hook、纯状态映射就近归属 BrowserPage；移除旧全屏进度 hook，任务状态不复制。
+- companion 使用独立消息、单对象文件、final case class、封闭事件／状态／表情及编解码；Table 私有 SQL，公开 IO 方法；worker 网络请求不持有事务。
+- 跨服务凭据通过 settings 公开 Message 获取，未引用其他服务私有 utils。CompanionModule 根文件是资源装配入口，与 GenerationModule 一致。
+- 功能及测试证据见 [小猫陪伴](COMPANION.md)，不声称新增功能覆盖未提供的独立评分表。

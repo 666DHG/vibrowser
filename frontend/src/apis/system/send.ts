@@ -1,5 +1,7 @@
 import { z } from "zod";
 const messageNames = [
+  "RequestCompanionReplyMessage",
+  "GetCompanionReplyMessage",
   "GetResearchSettingsMessage",
   "SaveResearchSettingsMessage",
   "ClearResearchCredentialsMessage",

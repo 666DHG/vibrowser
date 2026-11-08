@@ -5,11 +5,11 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
     host: "127.0.0.1",
-    port: 5173,
+    port: Number(process.env.VIBROWSER_UI_PORT ?? 5173),
     strictPort: true,
     proxy: {
-      "/api": "http://127.0.0.1:8787",
-      "/health": "http://127.0.0.1:8787",
+      "/api": `http://127.0.0.1:${process.env.VIBROWSER_API_PORT ?? 8787}`,
+      "/health": `http://127.0.0.1:${process.env.VIBROWSER_API_PORT ?? 8787}`,
     },
   },
 });

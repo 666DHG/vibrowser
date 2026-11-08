@@ -44,12 +44,12 @@ object DesignContinuityAcceptance extends IOApp.Simple:
     require(!Files.exists(marker), "Unfinished continuity request requires explicit review")
     val resources = for
       live <- DatabaseSession.resource(
-        "jdbc:postgresql://127.0.0.1:55432/vibrowser?currentSchema=vibrowser_live",
+        s"jdbc:postgresql://127.0.0.1:${sys.env.getOrElse("VIBROWSER_DB_PORT", "55432")}/vibrowser?currentSchema=vibrowser_live",
         "vibrowser",
         ""
       )
       db <- DatabaseSession.resource(
-        "jdbc:postgresql://127.0.0.1:55432/vibrowser?currentSchema=" + schema,
+        s"jdbc:postgresql://127.0.0.1:${sys.env.getOrElse("VIBROWSER_DB_PORT", "55432")}/vibrowser?currentSchema=$schema",
         "vibrowser",
         ""
       )
