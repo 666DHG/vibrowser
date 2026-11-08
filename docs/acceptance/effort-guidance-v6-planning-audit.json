@@ -1,0 +1,122 @@
+{
+  "method": "Read actual saved briefs and final siteStyle; no model calls or document changes. Textual observations are hypotheses about influence, not causal proof.",
+  "observation": "The actual informationStructure fields still prescribe first-screen, top-to-bottom or end-of-page placement despite the intent instruction. The copy brief also invents a disclaimer/footer requirement and sharing functionality. No explicit warm palette default or temperature override was found in the v3 generation path.",
+  "nextExperiment": "Test removing the duplicated generated outline from the generation input, preserving original request, facts and actual site context. Do not add another instruction against each observed pattern. Keep existing baseline and all six fixed topics.",
+  "samples": [
+    {
+      "sample": "academic-new-standard",
+      "pageId": "98f50968-af51-44b3-a94f-6b56d80a74f6",
+      "jobId": "20238c87-d0c0-4bca-ac8e-6c7d40aa5e9b",
+      "informationStructure": "单页分层结构：首屏为姓名、职务、邮箱与一句话研究方向；紧接着以“AI+中医”三层推进（刻画医疗过程→辅助临床诊疗→形式化中医理论）作为叙事主线，并由此引出范畴论与AI基础理论主张；随后并列呈现研究方向三条主线（智能医疗/AI基础理论/应用范畴论）与代表工作、近年亮点成果，每条成果可展开论文信息；再往下是履历与荣誉时间线（北大→康奈尔→MIT→清华），支撑可信度；末尾设招生与团队招募、教学经历、简历与Google Scholar外链及邮箱联系。导航锚点对应各层，从研究主张自然过渡到成果与加入方式。",
+      "interactions": [
+        "通过锚点导航在各板块间跳转（研究主张、研究方向、代表工作、履历、招生、联系）",
+        "点击代表工作与亮点成果条目展开或跳转论文链接（arXiv、ACL Anthology等外部学术页面）",
+        "点击简历与Google Scholar入口跳转外部页面",
+        "点击邮箱发起邮件联系",
+        "浏览招生信息后阅读学生/工程团队招募条件",
+        "切换或筛选成果列表查看不同年份（2023–2025）的论文与成果"
+      ],
+      "siteStyle": {
+        "brand": "袁洋 · 学术主页",
+        "typography": "标题用系统无衬线（PingFang/微软雅黑），正文用宋体/Georgia 衬线，形成学术书卷感；小标签与元信息使用系统无衬线小字号、宽字距。",
+        "palette": "暖纸色底 #f8f6f1，深墨蓝 #22303a 作主色块与标题，朱红 #8c2f2f 作强调与年份标签，金褐 #b08a3e 作导语与点缀，边线 #e3e0d8。",
+        "layout": "单页自上而下：吸顶简明导航＋左文右栏首屏（右侧为 AI+中医三层步骤卡）→ 深色引用带阐述范畴论主张 → 三栏研究方向 → 代表工作逐条展开 → 可筛选的年份成果列表 → 履历时间线与荣誉侧栏 → 招生团队与教学双栏 → 联系方式与页脚。窄屏全部单列。"
+      }
+    },
+    {
+      "sample": "calendar-new-standard",
+      "pageId": "10dd71bc-4462-476c-bc66-1e53e5597d6c",
+      "jobId": "58eda8fd-d0aa-4483-b810-44fd5f0674f3",
+      "informationStructure": "以站点根地址为入口，首屏围绕“今天”这一核心问题组织：先呈现京时间下的当前日期，再列出与该日期关联的日子条目。条目以名称为主，含义说明为辅，形成从日期到条目的直接访问路径；若同日存在多个日子，则并列呈现，便于逐条浏览。",
+      "interactions": [
+        "查看今天日期及星期",
+        "浏览今天相关的日子条目列表",
+        "展开或查看某一条目的详细说明",
+        "在不同日子条目之间切换或对比"
+      ],
+      "siteStyle": {
+        "brand": "今天是什么日子 · 极简日报气质，墨黑字 + 米白纸色 + 砖红强调，日期为主角",
+        "typography": "系统无衬线；超大日期标题 clamp 30–52px 800 字重，正文 13–15px，标签 11–12px 带字距",
+        "palette": "background:#f4efe6; surface:#fbf8f2; ink:#1c1a17; muted:#8a8275; accent:#9c2b1e; line:#ddd3c2; soft:#efe7d9",
+        "layout": "单列 880px 居中，首屏日期块与条目列表面板，两栏工具区在宽屏展开，窄屏全部堆叠"
+      }
+    },
+    {
+      "sample": "comparison-new-standard",
+      "pageId": "afd5439d-9638-40ea-80f4-5089cf7ddf6c",
+      "jobId": "a319de28-5bac-498a-8d4c-986c4c9c1f4b",
+      "informationStructure": "以器具为对比主体，先给出对比维度作为阅读入口，再按每个维度并列铺陈各款器具的事实；器具详情页回链到对比维度；场景作为第二层索引，将器具按适用性重新归类；选购要点汇总作为对比后的结论层，指向具体器具。",
+      "interactions": [
+        "按对比维度筛选或排序器具",
+        "在器具之间进行并排横向对比",
+        "按使用场景筛选适用器具",
+        "查看单个器具的详情",
+        "切换到选购结论或要点汇总"
+      ],
+      "siteStyle": {
+        "brand": "便携冲煮选购对照台",
+        "typography": "正文 16px 系统无衬线，标题紧凑，说明文字略小且偏灰色。",
+        "palette": "米白纸面背景 #f6f3ec，卡片 #fffdf8，墨色文字 #231f1a，赭橙点缀 #9a4b23，松绿次点缀 #3d5a4c，五种维度色带。",
+        "layout": "居中单栏，内容区宽 1080px；顶部品牌条，正文以维度条、双列器具卡片、场景筛选与结论卡顺序展开，窄屏全部单列。"
+      }
+    },
+    {
+      "sample": "copy-new-standard",
+      "pageId": "3b3e27b7-748b-4098-9f21-5c12a2cf9832",
+      "jobId": "cc34cbf4-5fb1-4b1d-bd84-3bbefb98126b",
+      "informationStructure": "首页以文案合集为主体：顶部给出站点标题与一句话定位（疯狂星期四文案合集），并提供分类入口（如搞笑玩梗、朋友圈、群聊、打工人、情侣/朋友互撩等）。主体按分类分段罗列文案卡片，卡片内含文案原文与复制/分享操作；另设精选/热门区优先展示少量高传播度文案。底部放置站点说明（非官方、文案仅供娱乐、来源与更新说明）及简单导航。",
+      "interactions": [
+        "点击复制单条文案",
+        "分享单条文案到社交平台",
+        "按分类筛选/切换文案列表",
+        "搜索或关键词过滤文案",
+        "浏览精选/热门文案",
+        "查看站点说明与非官方声明"
+      ],
+      "siteStyle": {
+        "brand": "疯狂星期四文案合集站 · 红白暖色非官方粉丝站",
+        "typography": "系统无衬线字体，正文 15–16px，行高 1.8，标题加粗红色",
+        "palette": "主色 #b8181f 深红，强调 #e8a020 橙黄，底色 #fdf8f1 米白，文字 #221a16",
+        "layout": "单列内容流 + 顶部搜索与分类胶囊导航，卡片自适应网格，窄屏单列"
+      }
+    },
+    {
+      "sample": "docs-new-standard",
+      "pageId": "fee64db6-1977-489e-b459-a80c10390ce0",
+      "jobId": "80b15e5c-e965-4fc1-b76f-8e55f781ff34",
+      "informationStructure": "以单一学习笔记首页承载，按认知顺序自顶向下：隔离级别总览表 → 设置与使用方式 → MVCC快照机制（xmin/xmax、可见性） → 深挖各级别行为（读已提交、可重复读、串行化/SSI与重试） → 底层保障（事务ID回卷与冻结、WAL与检查点） → 并发冲突处理（锁体系、死锁与监控诊断） → 生产参数与风险清单。总览表作为索引，各小节标题与其行内链接形成页内导航；同一术语（如快照、VACUUM、错误码）在不同小节交叉引用，命令、错误码、参数以紧凑列表/表格并置，便于对照。",
+      "interactions": [
+        "在隔离级别对照表中点击级别名称跳转至对应详解小节",
+        "复制SQL示例（BEGIN…COMMIT、SET TRANSACTION ISOLATION LEVEL、SET default_transaction_isolation、LOCK TABLE … NOWAIT）",
+        "按错误码（40001、40P01）快速定位重试与死锁处理说明",
+        "按症状检索：幻读/不可重复读、表膨胀、XID年龄过高、锁等待、WAL暴涨，跳转到相应排查路径",
+        "展开或收起配置参数模板列表，核对生产取值示例",
+        "页内目录定位到当前小节，支持长文档阅读"
+      ],
+      "siteStyle": {
+        "brand": "PostgreSQL 事务隔离与并发控制学习笔记 · 青绿印章 + 米色纸面",
+        "typography": "标题用 Songti/Noto Serif SC 衬线体，正文与界面用 PingFang/系统无衬线，SQL 与参数名用等宽字体",
+        "palette": "纸面米色 #f5f3ee、面板奶白 #fffdf9、墨绿主色 #0d7a6f、浅青强调 #e2f0ec、深墨 #1d2422",
+        "layout": "单页长文档：吸顶页眉含品牌与站内检索，二级页内目录横向滚动；正文按认知顺序分区，表格与代码卡并置，风险清单用卡片网格收尾"
+      }
+    },
+    {
+      "sample": "essay-new-standard",
+      "pageId": "31cb8253-4f32-4e61-994c-e9f0eb9093ac",
+      "jobId": "b79a2b7e-b818-4444-a16e-5f437549232b",
+      "informationStructure": "首页自上而下以站点名称和一句话自述建立身份，随后进入随笔清单：清单按日期倒序，每条含标题、日期、地点线索和短摘要，点击进入单篇正文。作者简介与写作说明作为从属材料放在散文入口附近，归档与订阅作为次要路径从清单旁进入；所有路径以“读一则散步”为核心。",
+      "interactions": [
+        "点击随笔标题或摘要进入完整文章",
+        "按日期、路线或季节筛选浏览随笔",
+        "通过订阅入口获取新文章更新",
+        "在关于页了解作者与写作缘由"
+      ],
+      "siteStyle": {
+        "brand": "沿海小城个人散步随笔 · 安静、纸感、偏旧的米色与海绿",
+        "typography": "系统无衬线；标题 40px/600 大字标题，正文 15.5–17px，行高 1.65；日期与小注为 12.5px 等宽感小字",
+        "palette": "背景 #f6f3ec，表面 #fffdf8，正文 #22201c，次要文字 #6d6455，强调海绿 #1c4a52，暖橙 #c07a4a，分隔线 #ddd5c4",
+        "layout": "单列 760px 阅读宽度；大标题区 → 随笔清单 → 路线归档（卡片网格）→ 关于（左右两栏）→ 深色订阅带；窄屏全部折为单列"
+      }
+    }
+  ]
+}

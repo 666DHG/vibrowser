@@ -3,14 +3,21 @@ import { resolve } from "node:path";
 import { measureDocument } from "../dist-measure/measure.mjs";
 
 const root = resolve(import.meta.dirname, "../..");
-const input = resolve(root, ".cache/effort-acceptance");
-const screenshots = resolve(root, "docs/screenshots/effort-continuity");
-const replay = resolve(root, ".cache/effort-continuity-browser");
+const v6 = process.argv.includes("--guidance-v6");
+const reportName = v6 ? "effort-guidance-v6-continuity" : "effort-continuity";
+const input = resolve(
+  root,
+  v6 ? ".cache/effort-guidance-v6" : ".cache/effort-acceptance",
+);
+const screenshots = resolve(root, "docs/screenshots/" + reportName);
+const replay = resolve(root, ".cache/" + reportName + "-browser");
 await mkdir(screenshots, { recursive: true });
 await mkdir(replay, { recursive: true });
 const results = [];
 for (const file of (await readdir(input)).filter((f) =>
-  /^calendar-(next|previous)-continuity\.json$/.test(f),
+  v6
+    ? f === "comparison-detail.json"
+    : /^calendar-(next|previous)-continuity\.json$/.test(f),
 )) {
   const record = JSON.parse(await readFile(resolve(input, file), "utf8"));
   const name = file.slice(0, -5);
@@ -45,17 +52,18 @@ for (const file of (await readdir(input)).filter((f) =>
     siteStyle: record.document?.siteStyle,
     modelCalls: record.modelCalls,
     selection: record.workflow?.selection,
+    visualReferences: record.workflow?.visualReferences ?? null,
     layout,
   });
 }
 await writeFile(
-  resolve(root, "docs/acceptance/effort-continuity.json"),
+  resolve(root, "docs/acceptance/" + reportName + ".json"),
   JSON.stringify(
     {
       method:
-        "Real NavigateMessage from preserved calendar actions, inherited mode and effort, one bounded generation workflow per direction. Brand comparison is exact descriptive-string equality, not a visual identity verdict. Browser replay is separately isolated and does not issue further model calls.",
-      expectedSamples: 2,
-      complete: results.length === 2,
+        "Real NavigateMessage from preserved page actions, inherited mode and effort, one bounded workflow per selected target. Brand comparison is exact descriptive-string equality, not a visual identity verdict. Browser replay is separately isolated and does not issue further model calls.",
+      expectedSamples: v6 ? 1 : 2,
+      complete: results.length === (v6 ? 1 : 2),
       samples: results,
     },
     null,

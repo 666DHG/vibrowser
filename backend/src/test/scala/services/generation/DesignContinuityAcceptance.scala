@@ -25,7 +25,7 @@ object DesignContinuityAcceptance extends IOApp.Simple:
     val source = sys.env.getOrElse("VIBROWSER_CONTINUITY_SOURCE", "discussion-new")
     val label = sys.env.getOrElse("VIBROWSER_CONTINUITY_LABEL", "discussion-detail")
     require(
-      Set("design_acceptance", "effort_acceptance")(schema),
+      Set("design_acceptance", "effort_acceptance", "effort_guidance_v6")(schema),
       "Isolated acceptance schema required"
     )
     require(List(source, label).forall(_.matches("[a-z0-9-]+")), "Invalid sample name")

@@ -36,11 +36,12 @@
   "improvedTopics": 3,
   "requiredForDefaultEnable": 4,
   "defaultEnableGatePassed": false,
-  "sameSiteV6Retested": false,
+  "sameSiteV6Retested": true,
   "decision": "Keep experimental workflow opt-in. Dynamic visual references alone have not met the breadth gate. Do not add per-sample prompt rules or claim the first two cold-reference pages prove a reference benefit.",
   "interactionNotes": {
     "initial": "effort-guidance-v6-interactions-initial.json",
     "afterRuntimeFix": "effort-guidance-v6-interactions.json",
     "calendarCopyDifference": "Accepted initial text and final improved text differ: final wording explicitly separates today from tomorrow and adds the historical date. No entity binding or host text loss involved; clipboard dispatch matches the displayed final content. Retain the literal comparison failure as evidence, not a product defect."
-  }
+  },
+  "sameSiteEvidence": "effort-guidance-v6-continuity.json"
 }

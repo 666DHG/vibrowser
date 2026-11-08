@@ -110,10 +110,16 @@ v4 将内容规划与视觉设计分离。固定六题均有终态，6/6 ready�
 
 [真实生成报告](acceptance/effort-guidance-v6.json)：六题最终均成功，首轮成功 1/6，28 次模型请求，任务耗时合计约 515 秒。动态视觉参照不增加模型调用阶段，但此次结果尚不能证明其提升了多样性；学术与文案两页生成时没有历史参照。
 
-[视觉结论](acceptance/effort-guidance-v6-visual.json)：学术、文案、文档三组改善；日历、器具对比、随笔中性。桌面与手机截图保存在 `screenshots/effort-guidance-v6/`。未达到四组门槛，设计实验继续默认关闭；本版本同站真实连续性尚未复测。
+[视觉结论](acceptance/effort-guidance-v6-visual.json)：学术、文案、文档三组改善；日历、器具对比、随笔中性。桌面与手机截图保存在 `screenshots/effort-guidance-v6/`。未达到四组门槛，设计实验继续默认关闭；本版本同站真实连续性已补测，见下方记录。
 
 [首次交互回放](acceptance/effort-guidance-v6-interactions-initial.json) 保留文档筛选失败。原因是筛选区域包含控件和嵌套列表，运行时按直接子节点过滤时隐藏了输入框。修复优先选择带声明字段的条目，保留筛选控件，兼容没有字段的直接子条目。未修改生成 prompt，也未重新生成样本。
 
 [修复后六题回放](acceptance/effort-guidance-v6-interactions.json) 无执行错误；四项运行时浏览器测试、42 项前端单测、格式、类型与构建通过。日历 `copyContentPreserved=false` 是初稿与改进稿文本措辞变化，已核对并非宿主丢失正文；不以这个差异触发额外修复。复制行为仍严格核对当前可见原文。
 
-轻微排版与次要交互缺口只记录；不为每个样本扩充 prompt。尚未完成的目标是跨主题风格改善门槛及最终当前版本连续性验收，不能把此次六页成功生成视为整个目标完成。
+轻微排版与次要交互缺口只记录；不为每个样本扩充 prompt。尚未完成的目标是跨主题风格改善门槛及最终整体验收，不能把此次六页成功生成视为整个目标完成。
+
+## v6 同站详情与规划审计
+
+从已保存器具对比页进入 `/tool/slim-dripper`，真实任务 `c46e7c51-2603-48fa-8d0e-17d2f872c83c` 成功，57 秒、4 次模型请求。已知实体完整继承，品牌描述一致，任务的其他站点视觉参照为空。桌面与窄屏检查确认原站配色、字体和内容宽度延续；详情改用单品结构。见[详情报告](acceptance/effort-guidance-v6-continuity.json)及[交互回放](acceptance/effort-guidance-v6-continuity-interactions.json)，回放验证搜索和导航提交，不额外调用模型。
+
+[实际规划审计](acceptance/effort-guidance-v6-planning-audit.json)发现，简报仍在 `informationStructure` 中预排首屏、列表和页脚，文案题还自行增加免责声明与分享要求。未在当前 v3 生成路径找到强制米色默认值或采样温度覆盖。这是规划约束可能造成趋同的证据，不是因果结论。下一轮应对照减少生成输入中的重复规划材料，保留原始请求、资料和同站上下文；不继续添加逐样本提示规则。

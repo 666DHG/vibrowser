@@ -1,0 +1,1327 @@
+{
+  "method": "Real NavigateMessage from preserved page actions, inherited mode and effort, one bounded workflow per selected target. Brand comparison is exact descriptive-string equality, not a visual identity verdict. Browser replay is separately isolated and does not issue further model calls.",
+  "expectedSamples": 1,
+  "complete": true,
+  "samples": [
+    {
+      "name": "comparison-detail",
+      "pageId": "789c3bbc-a31d-4725-9c31-0d189e513262",
+      "jobId": "c46e7c51-2603-48fa-8d0e-17d2f872c83c",
+      "parentPageId": "afd5439d-9638-40ea-80f4-5089cf7ddf6c",
+      "target": "https://xn--wtqt5bbfr3i92ad8bb7sxvmjheh1xc17f7fh.com/tool/slim-dripper",
+      "sourceAction": {
+        "id": "vib-nav-vib-link-1",
+        "kind": "Navigate",
+        "elementId": "vib-link-1",
+        "target": "/tool/slim-dripper",
+        "region": null,
+        "stateKey": null,
+        "value": null,
+        "field": null
+      },
+      "mode": "imagination",
+      "effort": "standard",
+      "seconds": 57,
+      "error": null,
+      "inheritedEntityCount": 1,
+      "factsPreserved": true,
+      "brandDescriptionExactMatch": true,
+      "siteStyle": {
+        "brand": "便携冲煮选购对照台",
+        "typography": "正文 16px 系统无衬线，标题 1.2 行高紧凑，说明文字 13-14px 偏灰",
+        "palette": "米白纸面背景 #f6f3ec，卡片 #fffdf8，墨色文字 #231f1a，赭橙点缀 #9a4b23，松绿次点缀 #3d5a4c，五种维度色带",
+        "layout": "居中单栏最大 1080px；顶部品牌条与导航，正文以产品主区（左事实右结论）、四维度要点、规格表、同类卡片、选择建议与站内搜索顺序展开，窄屏全部单列"
+      },
+      "modelCalls": [
+        {
+          "usage": {
+            "prompt_tokens": 1256,
+            "completion_tokens": 427,
+            "total_tokens": 1683,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 1256
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 4567,
+          "model": "deepseek-flash",
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "brief"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 2768,
+            "completion_tokens": 5612,
+            "total_tokens": 8380,
+            "prompt_tokens_details": {
+              "cached_tokens": 896
+            },
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 1872
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 25138,
+          "model": "deepseek-flash",
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 8473,
+            "completion_tokens": 5575,
+            "total_tokens": 14048,
+            "prompt_tokens_details": {
+              "cached_tokens": 2688
+            },
+            "prompt_cache_hit_tokens": 2688,
+            "prompt_cache_miss_tokens": 5785
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 20067,
+          "model": "deepseek-flash",
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 21994,
+            "completion_tokens": 5,
+            "total_tokens": 21999,
+            "prompt_tokens_details": {
+              "cached_tokens": 768
+            },
+            "prompt_cache_hit_tokens": 768,
+            "prompt_cache_miss_tokens": 21226
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 825,
+          "model": "deepseek-flash",
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "review"
+        }
+      ],
+      "selection": "Original",
+      "visualReferences": [],
+      "layout": {
+        "viewports": [
+          {
+            "width": 1440,
+            "height": 900,
+            "scrollWidth": 1425,
+            "scrollHeight": 1888,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "p-title",
+                "tag": "h1",
+                "text": "超轻锥形滤杯 Slim Dripper",
+                "x": 192.5,
+                "y": 160.234375,
+                "width": 615.125,
+                "height": 45.59375,
+                "fontSize": "38px",
+                "lineHeight": "45.6px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "一句话结论",
+                "x": 854.625,
+                "y": 153.4375,
+                "width": 358.875,
+                "height": 23.09375,
+                "fontSize": "14px",
+                "lineHeight": "23.1px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "points-title",
+                "tag": "h2",
+                "text": "四个维度看这款滤杯",
+                "x": 192.5,
+                "y": 438.3125,
+                "width": 1040,
+                "height": 41.25,
+                "fontSize": "25px",
+                "lineHeight": "41.25px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "重量与携带",
+                "x": 209.5,
+                "y": 546.65625,
+                "width": 215.5,
+                "height": 25.5625,
+                "fontSize": "15.5px",
+                "lineHeight": "25.575px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "冲煮方式",
+                "x": 473,
+                "y": 546.65625,
+                "width": 215.5,
+                "height": 25.5625,
+                "fontSize": "15.5px",
+                "lineHeight": "25.575px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "耗材需求",
+                "x": 736.5,
+                "y": 546.65625,
+                "width": 215.5,
+                "height": 25.5625,
+                "fontSize": "15.5px",
+                "lineHeight": "25.575px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "适用场景",
+                "x": 1000,
+                "y": 546.65625,
+                "width": 215.5,
+                "height": 25.5625,
+                "fontSize": "15.5px",
+                "lineHeight": "25.575px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "spec-title",
+                "tag": "h2",
+                "text": "规格摘要",
+                "x": 192.5,
+                "y": 719.5,
+                "width": 1040,
+                "height": 41.25,
+                "fontSize": "25px",
+                "lineHeight": "41.25px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "peers-title",
+                "tag": "h2",
+                "text": "同层级对比：其余四款",
+                "x": 192.5,
+                "y": 1114.28125,
+                "width": 1040,
+                "height": 41.25,
+                "fontSize": "25px",
+                "lineHeight": "41.25px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "浸压两用杯 Press Cup",
+                "x": 209.5,
+                "y": 1252.71875,
+                "width": 215.5,
+                "height": 22.9375,
+                "fontSize": "17px",
+                "lineHeight": "22.95px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "口袋压力萃取器 Pocket Press",
+                "x": 473,
+                "y": 1252.71875,
+                "width": 215.5,
+                "height": 45.875,
+                "fontSize": "17px",
+                "lineHeight": "22.95px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "挂耳滤袋组合 Drip Bag Kit",
+                "x": 736.5,
+                "y": 1252.71875,
+                "width": 215.5,
+                "height": 22.9375,
+                "fontSize": "17px",
+                "lineHeight": "22.95px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "钛合金户外滤泡壶 Titan Pour",
+                "x": 1000,
+                "y": 1252.71875,
+                "width": 215.5,
+                "height": 45.875,
+                "fontSize": "17px",
+                "lineHeight": "22.95px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "concl-title",
+                "tag": "h2",
+                "text": "怎么选",
+                "x": 192.5,
+                "y": 1512.75,
+                "width": 1040,
+                "height": 41.25,
+                "fontSize": "25px",
+                "lineHeight": "41.25px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "controls": [
+              {
+                "id": "vib-link-0",
+                "tag": "a",
+                "text": "对便携手冲咖啡器具对比选购便携冲煮选购对照台",
+                "x": 192.5,
+                "y": 18,
+                "width": 224,
+                "height": 34,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-1",
+                "tag": "a",
+                "text": "对比总览",
+                "x": 1081.65625,
+                "y": 21.953125,
+                "width": 56,
+                "height": 26.09375,
+                "fontSize": "14px",
+                "lineHeight": "23.1px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-2",
+                "tag": "a",
+                "text": "Slim Dripper",
+                "x": 1155.65625,
+                "y": 21.953125,
+                "width": 76.84375,
+                "height": 26.09375,
+                "fontSize": "14px",
+                "lineHeight": "23.1px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-3",
+                "tag": "a",
+                "text": "首页",
+                "x": 192.5,
+                "y": 85,
+                "width": 26,
+                "height": 21.4375,
+                "fontSize": "13px",
+                "lineHeight": "21.45px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-4",
+                "tag": "a",
+                "text": "器具对比",
+                "x": 235.578125,
+                "y": 85,
+                "width": 52,
+                "height": 21.4375,
+                "fontSize": "13px",
+                "lineHeight": "21.45px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-5",
+                "tag": "a",
+                "text": "返回对比总览",
+                "x": 854.625,
+                "y": 319.21875,
+                "width": 118,
+                "height": 43.09375,
+                "fontSize": "14px",
+                "lineHeight": "23.1px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-6",
+                "tag": "a",
+                "text": "浸压两用杯 Press Cup",
+                "x": 209.5,
+                "y": 1252.71875,
+                "width": 167.125,
+                "height": 22,
+                "fontSize": "17px",
+                "lineHeight": "22.95px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-7",
+                "tag": "a",
+                "text": "口袋压力萃取器 Pocket Press",
+                "x": 473,
+                "y": 1252.71875,
+                "width": 177.265625,
+                "height": 44.9375,
+                "fontSize": "17px",
+                "lineHeight": "22.95px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-8",
+                "tag": "a",
+                "text": "挂耳滤袋组合 Drip Bag Kit",
+                "x": 736.5,
+                "y": 1252.71875,
+                "width": 203.859375,
+                "height": 22,
+                "fontSize": "17px",
+                "lineHeight": "22.95px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-9",
+                "tag": "a",
+                "text": "钛合金户外滤泡壶 Titan Pour",
+                "x": 1000,
+                "y": 1252.71875,
+                "width": 181.53125,
+                "height": 44.9375,
+                "fontSize": "17px",
+                "lineHeight": "22.95px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "q",
+                "tag": "input",
+                "text": "",
+                "x": 209.5,
+                "y": 1680.046875,
+                "width": 934,
+                "height": 47.09375,
+                "fontSize": "14.5px",
+                "lineHeight": "23.925px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "button",
+                "text": "搜索",
+                "x": 1153.5,
+                "y": 1684.046875,
+                "width": 62,
+                "height": 43.09375,
+                "fontSize": "14px",
+                "lineHeight": "23.1px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-10",
+                "tag": "a",
+                "text": "对比总览",
+                "x": 192.5,
+                "y": 1842.578125,
+                "width": 52,
+                "height": 17,
+                "fontSize": "13px",
+                "lineHeight": "21.45px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "regions": [
+              {
+                "id": "",
+                "tag": "header",
+                "text": "对便携手冲咖啡器具对比选购便携冲煮选购对照台\n \n  对比总览Slim Dripper",
+                "x": 172.5,
+                "y": 0,
+                "width": 1080,
+                "height": 67,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "nav",
+                "text": "对比总览Slim Dripper",
+                "x": 1081.65625,
+                "y": 21.953125,
+                "width": 150.84375,
+                "height": 26.09375,
+                "fontSize": "14px",
+                "lineHeight": "23.1px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "main",
+                "text": "首页/器具对比/超轻锥形滤杯\n \n \n  \n   便携器具 · 手冲滤杯\n   超轻锥形滤杯 Slim Dripper\n   可折叠硅胶锥形滤杯，重约 196g，需搭配 1-2 人份滤纸，适合通勤与办公室。\n   \n    \n     \n      评测作者\n     \n     \n      器具评测组\n     \n    \n    \n     \n    ",
+                "x": 172.5,
+                "y": 85,
+                "width": 1080,
+                "height": 1707.140625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "nav",
+                "text": "首页/器具对比/超轻锥形滤杯",
+                "x": 192.5,
+                "y": 85,
+                "width": 1040,
+                "height": 21.4375,
+                "fontSize": "13px",
+                "lineHeight": "21.45px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "便携器具 · 手冲滤杯\n   超轻锥形滤杯 Slim Dripper\n   可折叠硅胶锥形滤杯，重约 196g，需搭配 1-2 人份滤纸，适合通勤与办公室。\n   \n    \n     \n      评测作者\n     \n     \n      器具评测组\n     \n    \n    \n     \n      发布日期\n     \n     \n      ",
+                "x": 192.5,
+                "y": 112.4375,
+                "width": 1040,
+                "height": 297.875,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "一句话结论\n   如果你愿意随身带几张滤纸，它用最小体积换来了最接近家用 V60 的稳定风味；若你完全不想管耗材，请看同层级的其他方案。\n   适合场景：通勤、办公室返回对比总览",
+                "x": 835.625,
+                "y": 134.4375,
+                "width": 396.875,
+                "height": 248.875,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "四个维度看这款滤杯\n   把决定性事实拆成可比较的四条，方便与下方其他器具逐条对照。\n  \n  \n   \n    重量与携带\n    约 196g，硅胶杯体可折叠压扁，塞进随身包侧袋即可，不占通勤包主仓空间。\n   \n    冲煮方式\n    锥形淌滤路线，注水节奏与家用锥形滤杯接近，风味层次保留得住，非浸泡亦非浓缩。\n   \n    耗材需求\n    必须",
+                "x": 192.5,
+                "y": 410.3125,
+                "width": 1040,
+                "height": 281.1875,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "规格摘要\n  \n   \n    \n     品类\n     可折叠硅胶锥形滤杯\n    \n    \n     整备重量\n     约 196g\n    \n    \n     滤纸规格\n     1-2 人份锥形滤纸（耗材需自备）\n    \n    \n     推荐场景\n     通勤、办公室\n    \n    \n     清洗\n     杯体可翻面冲洗，无复",
+                "x": 192.5,
+                "y": 691.5,
+                "width": 1040,
+                "height": 394.78125,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "同层级对比：其余四款\n   同为便携手冲器具，差别集中在“是否需要滤纸”和“冲煮路线”。\n  \n  \n   \n    浸泡式 · 免滤纸\n    浸压两用杯 Press Cup\n    杯型浸泡式，内置滤压装置，不需滤纸，适合酒店与户外。\n    对比：省下滤纸，但少了锥形淌滤的层次感。\n   \n   \n    手压浓缩\n    口袋压力萃取器 Pocket",
+                "x": 192.5,
+                "y": 1086.28125,
+                "width": 1040,
+                "height": 398.46875,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "浸泡式 · 免滤纸\n    浸压两用杯 Press Cup\n    杯型浸泡式，内置滤压装置，不需滤纸，适合酒店与户外。\n    对比：省下滤纸，但少了锥形淌滤的层次感。",
+                "x": 192.5,
+                "y": 1202.625,
+                "width": 249.5,
+                "height": 253.125,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "手压浓缩\n    口袋压力萃取器 Pocket Press\n    手压式浓缩器具，可出 40ml 浓咖啡，需细研磨与热水，适合酒店与办公室。\n    对比：走浓缩路线，对研磨要求更高。",
+                "x": 456,
+                "y": 1202.625,
+                "width": 249.5,
+                "height": 253.125,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "一次性 · 高耗材\n    挂耳滤袋组合 Drip Bag Kit\n    一次性挂耳滤袋加轻量支架，重约 248g，携带方便但需持续补耗材。\n    对比：更省操作，但要持续补耗材。",
+                "x": 719.5,
+                "y": 1202.625,
+                "width": 249.5,
+                "height": 253.125,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "钛制 · 户外耐用\n    钛合金户外滤泡壶 Titan Pour\n    钛制滤泡壶，滤网可拆，适合明火环境，适合户外与长时间旅行。\n    对比：耐明火更耐用，体积与清洁成本更高。",
+                "x": 983,
+                "y": 1202.625,
+                "width": 249.5,
+                "height": 253.125,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "怎么选\n  只想要“最接近家里手冲的味道”，且能接受随身带滤纸 —— 选 Slim Dripper。完全不想买耗材，就转看 Press Cup；想要浓缩就用 Pocket Press；户外明火场景再考虑 Titan Pour。\n  \n   在站内搜索器具名称或场景（如“免滤纸”“办公室”）\n   \n    \n    搜索",
+                "x": 192.5,
+                "y": 1484.75,
+                "width": 1040,
+                "height": 267.390625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "footer",
+                "text": "便携手冲咖啡器具对比选购 · 资料整理：器具评测组 · 更新至 2026-09-12\n 对比总览",
+                "x": 172.5,
+                "y": 1792.140625,
+                "width": 1080,
+                "height": 95.875,
+                "fontSize": "13px",
+                "lineHeight": "21.45px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "visualProfile": {
+              "backgrounds": [
+                "rgb(246, 243, 236)"
+              ],
+              "fonts": [
+                "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif"
+              ],
+              "headingSizes": [
+                38,
+                14,
+                25
+              ],
+              "regions": [
+                {
+                  "display": "flex",
+                  "columns": 1,
+                  "widthRatio": 0.75
+                },
+                {
+                  "display": "flex",
+                  "columns": 2,
+                  "widthRatio": 0.1
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.75
+                },
+                {
+                  "display": "flex",
+                  "columns": 5,
+                  "widthRatio": 0.72
+                }
+              ]
+            }
+          },
+          {
+            "width": 390,
+            "height": 844,
+            "scrollWidth": 375,
+            "scrollHeight": 3254,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "p-title",
+                "tag": "h1",
+                "text": "超轻锥形滤杯 Slim Dripper",
+                "x": 16,
+                "y": 194.328125,
+                "width": 343,
+                "height": 31.1875,
+                "fontSize": "26px",
+                "lineHeight": "31.2px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "一句话结论",
+                "x": 35,
+                "y": 479.390625,
+                "width": 305,
+                "height": 23.09375,
+                "fontSize": "14px",
+                "lineHeight": "23.1px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "points-title",
+                "tag": "h2",
+                "text": "四个维度看这款滤杯",
+                "x": 16,
+                "y": 764.265625,
+                "width": 343,
+                "height": 33,
+                "fontSize": "20px",
+                "lineHeight": "33px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "重量与携带",
+                "x": 33,
+                "y": 887.453125,
+                "width": 309,
+                "height": 25.5625,
+                "fontSize": "15.5px",
+                "lineHeight": "25.575px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "冲煮方式",
+                "x": 33,
+                "y": 1014.203125,
+                "width": 309,
+                "height": 25.5625,
+                "fontSize": "15.5px",
+                "lineHeight": "25.575px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "耗材需求",
+                "x": 33,
+                "y": 1140.953125,
+                "width": 309,
+                "height": 25.5625,
+                "fontSize": "15.5px",
+                "lineHeight": "25.575px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "适用场景",
+                "x": 33,
+                "y": 1267.703125,
+                "width": 309,
+                "height": 25.5625,
+                "fontSize": "15.5px",
+                "lineHeight": "25.575px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "spec-title",
+                "tag": "h2",
+                "text": "规格摘要",
+                "x": 16,
+                "y": 1417.453125,
+                "width": 343,
+                "height": 33,
+                "fontSize": "20px",
+                "lineHeight": "33px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "peers-title",
+                "tag": "h2",
+                "text": "同层级对比：其余四款",
+                "x": 16,
+                "y": 1875.75,
+                "width": 343,
+                "height": 33,
+                "fontSize": "20px",
+                "lineHeight": "33px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "浸压两用杯 Press Cup",
+                "x": 33,
+                "y": 2029.03125,
+                "width": 309,
+                "height": 22.9375,
+                "fontSize": "17px",
+                "lineHeight": "22.95px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "口袋压力萃取器 Pocket Press",
+                "x": 33,
+                "y": 2228.6875,
+                "width": 309,
+                "height": 22.9375,
+                "fontSize": "17px",
+                "lineHeight": "22.95px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "挂耳滤袋组合 Drip Bag Kit",
+                "x": 33,
+                "y": 2428.34375,
+                "width": 309,
+                "height": 22.9375,
+                "fontSize": "17px",
+                "lineHeight": "22.95px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "钛合金户外滤泡壶 Titan Pour",
+                "x": 33,
+                "y": 2628,
+                "width": 309,
+                "height": 22.9375,
+                "fontSize": "17px",
+                "lineHeight": "22.95px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "concl-title",
+                "tag": "h2",
+                "text": "怎么选",
+                "x": 16,
+                "y": 2820.5625,
+                "width": 343,
+                "height": 33,
+                "fontSize": "20px",
+                "lineHeight": "33px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "controls": [
+              {
+                "id": "vib-link-0",
+                "tag": "a",
+                "text": "对便携手冲咖啡器具对比选购便携冲煮选购对照台",
+                "x": 16,
+                "y": 14,
+                "width": 224,
+                "height": 34,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-1",
+                "tag": "a",
+                "text": "对比总览",
+                "x": 16,
+                "y": 60,
+                "width": 56,
+                "height": 26.09375,
+                "fontSize": "14px",
+                "lineHeight": "23.1px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-2",
+                "tag": "a",
+                "text": "Slim Dripper",
+                "x": 90,
+                "y": 60,
+                "width": 76.84375,
+                "height": 26.09375,
+                "fontSize": "14px",
+                "lineHeight": "23.1px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-3",
+                "tag": "a",
+                "text": "首页",
+                "x": 16,
+                "y": 119.09375,
+                "width": 26,
+                "height": 21.4375,
+                "fontSize": "13px",
+                "lineHeight": "21.45px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-4",
+                "tag": "a",
+                "text": "器具对比",
+                "x": 59.078125,
+                "y": 119.09375,
+                "width": 52,
+                "height": 21.4375,
+                "fontSize": "13px",
+                "lineHeight": "21.45px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-5",
+                "tag": "a",
+                "text": "返回对比总览",
+                "x": 35,
+                "y": 645.171875,
+                "width": 118,
+                "height": 43.09375,
+                "fontSize": "14px",
+                "lineHeight": "23.1px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-6",
+                "tag": "a",
+                "text": "浸压两用杯 Press Cup",
+                "x": 33,
+                "y": 2029.03125,
+                "width": 167.125,
+                "height": 22,
+                "fontSize": "17px",
+                "lineHeight": "22.95px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-7",
+                "tag": "a",
+                "text": "口袋压力萃取器 Pocket Press",
+                "x": 33,
+                "y": 2228.6875,
+                "width": 223.25,
+                "height": 22,
+                "fontSize": "17px",
+                "lineHeight": "22.95px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-8",
+                "tag": "a",
+                "text": "挂耳滤袋组合 Drip Bag Kit",
+                "x": 33,
+                "y": 2428.34375,
+                "width": 203.859375,
+                "height": 22,
+                "fontSize": "17px",
+                "lineHeight": "22.95px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-9",
+                "tag": "a",
+                "text": "钛合金户外滤泡壶 Titan Pour",
+                "x": 33,
+                "y": 2628,
+                "width": 223.609375,
+                "height": 22,
+                "fontSize": "17px",
+                "lineHeight": "22.95px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "q",
+                "tag": "input",
+                "text": "",
+                "x": 33,
+                "y": 3032.390625,
+                "width": 237,
+                "height": 47.09375,
+                "fontSize": "14.5px",
+                "lineHeight": "23.925px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "button",
+                "text": "搜索",
+                "x": 280,
+                "y": 3036.390625,
+                "width": 62,
+                "height": 43.09375,
+                "fontSize": "14px",
+                "lineHeight": "23.1px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-10",
+                "tag": "a",
+                "text": "对比总览",
+                "x": 20,
+                "y": 3208.359375,
+                "width": 52,
+                "height": 17,
+                "fontSize": "13px",
+                "lineHeight": "21.45px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "regions": [
+              {
+                "id": "",
+                "tag": "header",
+                "text": "对便携手冲咖啡器具对比选购便携冲煮选购对照台\n \n  对比总览Slim Dripper",
+                "x": 0,
+                "y": 0,
+                "width": 375,
+                "height": 101.09375,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "nav",
+                "text": "对比总览Slim Dripper",
+                "x": 16,
+                "y": 60,
+                "width": 150.84375,
+                "height": 26.09375,
+                "fontSize": "14px",
+                "lineHeight": "23.1px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "main",
+                "text": "首页/器具对比/超轻锥形滤杯\n \n \n  \n   便携器具 · 手冲滤杯\n   超轻锥形滤杯 Slim Dripper\n   可折叠硅胶锥形滤杯，重约 196g，需搭配 1-2 人份滤纸，适合通勤与办公室。\n   \n    \n     \n      评测作者\n     \n     \n      器具评测组\n     \n    \n    \n     \n    ",
+                "x": 0,
+                "y": 119.09375,
+                "width": 375,
+                "height": 3017.390625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "nav",
+                "text": "首页/器具对比/超轻锥形滤杯",
+                "x": 16,
+                "y": 119.09375,
+                "width": 343,
+                "height": 21.4375,
+                "fontSize": "13px",
+                "lineHeight": "21.45px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "便携器具 · 手冲滤杯\n   超轻锥形滤杯 Slim Dripper\n   可折叠硅胶锥形滤杯，重约 196g，需搭配 1-2 人份滤纸，适合通勤与办公室。\n   \n    \n     \n      评测作者\n     \n     \n      器具评测组\n     \n    \n    \n     \n      发布日期\n     \n     \n      ",
+                "x": 16,
+                "y": 146.53125,
+                "width": 343,
+                "height": 589.734375,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "一句话结论\n   如果你愿意随身带几张滤纸，它用最小体积换来了最接近家用 V60 的稳定风味；若你完全不想管耗材，请看同层级的其他方案。\n   适合场景：通勤、办公室返回对比总览",
+                "x": 16,
+                "y": 460.390625,
+                "width": 343,
+                "height": 248.875,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "四个维度看这款滤杯\n   把决定性事实拆成可比较的四条，方便与下方其他器具逐条对照。\n  \n  \n   \n    重量与携带\n    约 196g，硅胶杯体可折叠压扁，塞进随身包侧袋即可，不占通勤包主仓空间。\n   \n    冲煮方式\n    锥形淌滤路线，注水节奏与家用锥形滤杯接近，风味层次保留得住，非浸泡亦非浓缩。\n   \n    耗材需求\n    必须",
+                "x": 16,
+                "y": 736.265625,
+                "width": 343,
+                "height": 653.1875,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "规格摘要\n  \n   \n    \n     品类\n     可折叠硅胶锥形滤杯\n    \n    \n     整备重量\n     约 196g\n    \n    \n     滤纸规格\n     1-2 人份锥形滤纸（耗材需自备）\n    \n    \n     推荐场景\n     通勤、办公室\n    \n    \n     清洗\n     杯体可翻面冲洗，无复",
+                "x": 16,
+                "y": 1389.453125,
+                "width": 343,
+                "height": 458.296875,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "同层级对比：其余四款\n   同为便携手冲器具，差别集中在“是否需要滤纸”和“冲煮路线”。\n  \n  \n   \n    浸泡式 · 免滤纸\n    浸压两用杯 Press Cup\n    杯型浸泡式，内置滤压装置，不需滤纸，适合酒店与户外。\n    对比：省下滤纸，但少了锥形淌滤的层次感。\n   \n   \n    手压浓缩\n    口袋压力萃取器 Pocket",
+                "x": 16,
+                "y": 1847.75,
+                "width": 343,
+                "height": 944.8125,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "浸泡式 · 免滤纸\n    浸压两用杯 Press Cup\n    杯型浸泡式，内置滤压装置，不需滤纸，适合酒店与户外。\n    对比：省下滤纸，但少了锥形淌滤的层次感。",
+                "x": 16,
+                "y": 1978.9375,
+                "width": 343,
+                "height": 185.65625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "手压浓缩\n    口袋压力萃取器 Pocket Press\n    手压式浓缩器具，可出 40ml 浓咖啡，需细研磨与热水，适合酒店与办公室。\n    对比：走浓缩路线，对研磨要求更高。",
+                "x": 16,
+                "y": 2178.59375,
+                "width": 343,
+                "height": 185.65625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "一次性 · 高耗材\n    挂耳滤袋组合 Drip Bag Kit\n    一次性挂耳滤袋加轻量支架，重约 248g，携带方便但需持续补耗材。\n    对比：更省操作，但要持续补耗材。",
+                "x": 16,
+                "y": 2378.25,
+                "width": 343,
+                "height": 185.65625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "钛制 · 户外耐用\n    钛合金户外滤泡壶 Titan Pour\n    钛制滤泡壶，滤网可拆，适合明火环境，适合户外与长时间旅行。\n    对比：耐明火更耐用，体积与清洁成本更高。",
+                "x": 16,
+                "y": 2577.90625,
+                "width": 343,
+                "height": 185.65625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "怎么选\n  只想要“最接近家里手冲的味道”，且能接受随身带滤纸 —— 选 Slim Dripper。完全不想买耗材，就转看 Press Cup；想要浓缩就用 Pocket Press；户外明火场景再考虑 Titan Pour。\n  \n   在站内搜索器具名称或场景（如“免滤纸”“办公室”）\n   \n    \n    搜索",
+                "x": 16,
+                "y": 2792.5625,
+                "width": 343,
+                "height": 311.921875,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "footer",
+                "text": "便携手冲咖啡器具对比选购 · 资料整理：器具评测组 · 更新至 2026-09-12\n 对比总览",
+                "x": 0,
+                "y": 3136.484375,
+                "width": 375,
+                "height": 117.3125,
+                "fontSize": "13px",
+                "lineHeight": "21.45px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "visualProfile": {
+              "backgrounds": [
+                "rgb(246, 243, 236)"
+              ],
+              "fonts": [
+                "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif"
+              ],
+              "headingSizes": [
+                26,
+                14,
+                20
+              ],
+              "regions": [
+                {
+                  "display": "flex",
+                  "columns": 1,
+                  "widthRatio": 0.96
+                },
+                {
+                  "display": "flex",
+                  "columns": 2,
+                  "widthRatio": 0.39
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.96
+                },
+                {
+                  "display": "flex",
+                  "columns": 5,
+                  "widthRatio": 0.88
+                }
+              ]
+            }
+          }
+        ],
+        "error": null
+      }
+    }
+  ],
+  "visualVerdict": {
+    "passed": true,
+    "observation": "Desktop and mobile retain the warm surface, orange/green accents, system sans typography, centered content width and comparison dimensions. The child reorganizes into item summary/specifications without copying the complete parent layout. Title, author, summary and published date bind to the inherited entity. Header adds a small mark but retains site identity.",
+    "scope": "One fixed product detail path; not evidence for every possible site or interaction."
+  }
+}
