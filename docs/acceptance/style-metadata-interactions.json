@@ -1,0 +1,17 @@
+[
+  {
+    "file": "copy-new-standard.json",
+    "localActions": [],
+    "searchSubmitted": true,
+    "navigationSubmitted": false,
+    "anchorVerified": true,
+    "copyVerified": true,
+    "copyContentPreserved": true,
+    "copyRawSource": "generation",
+    "filterVerified": false,
+    "sortVerified": false,
+    "sortLocale": null,
+    "limitations": [],
+    "extraModelCalls": 0
+  }
+]

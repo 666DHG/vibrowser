@@ -1,7 +1,7 @@
 {
   "complete": false,
   "plannedPairs": 6,
-  "recordedPairs": 1,
+  "recordedPairs": 2,
   "scope": "Same fixed input, date, retrieval sources and guidance. Effort applies to the entire pipeline, including generated briefs and subsequent visual-reference history; this is not a generation-only causal experiment. No visual quality conclusion is inferred from success counts.",
   "additionalChanges": "Uses the subsequent host CSS math compatibility fix. Separate normalization repairs from design differences; this is not an otherwise-identical binary comparison.",
   "pairs": [
@@ -55,7 +55,7 @@
     {
       "topic": "copy",
       "requestHash": "72eb7ab0d5c4ab6da441dc0abf7b7575da3a910aed14f30d32bcf4d158356660",
-      "paired": false,
+      "paired": true,
       "standard": {
         "pageId": "cfa2b1de-f0d6-4879-ac0c-f6b124a7d107",
         "jobId": "0e60ee47-f473-4712-a37f-4c11e51e52bd",
@@ -77,7 +77,27 @@
         "htmlUnchangedByReview": true,
         "cssUnchangedByReview": true
       },
-      "product": null
+      "product": {
+        "pageId": "da6a6f52-b5a9-4df2-80f4-31490e7ffa47",
+        "jobId": "678f920b-d5db-4931-8532-4f27054cabad",
+        "ready": true,
+        "error": null,
+        "firstGenerationAccepted": false,
+        "seconds": 194,
+        "calls": 5,
+        "usageComplete": true,
+        "totalTokens": 84205,
+        "recordedReasoningTokens": 18052,
+        "selection": "Improved",
+        "selectedDirection": {
+          "concept": "编辑部清单",
+          "structure": "采用单列长文式清单，左侧窄栏放分类索引，右侧按编号排列文案；每条文案占据较宽阅读行，复制动作置于条目末端。",
+          "typography": "标题和编号用大字距无衬线，正文用偏书刊感的衬线字体，分类索引用小号大写风格，强调阅读节奏而非卡片感。",
+          "contentReason": "文案本身具有短句、段子和可读文本属性，单列清单让访客像翻阅合集一样逐条阅读，适合比较语气和挑选长文案。"
+        },
+        "htmlUnchangedByReview": false,
+        "cssUnchangedByReview": false
+      }
     },
     {
       "topic": "calendar",

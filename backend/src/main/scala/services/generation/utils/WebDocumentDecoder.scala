@@ -8,6 +8,8 @@ private[generation] object WebDocumentDecoder:
     if v.isNumber || v.isBoolean then Json.fromString(v.noSpaces) else v
   private def named(v: Json, names: List[String]): Json =
     v.asString.flatMap(s => names.find(_.equalsIgnoreCase(s))).fold(v)(Json.fromString)
+  private def styleDescription(v: Json): Json =
+    if v.isObject || v.isArray then Json.fromString(v.noSpaces) else v
   def decode(text: String): Either[AppError, WebDocument] =
     val trimmed = text.trim.stripPrefix("\ufeff")
     val body =
@@ -22,6 +24,15 @@ private[generation] object WebDocumentDecoder:
           (o, k) => if o(k).forall(_.isNull) then o.add(k, Json.arr()) else o
         )
         o.add(
+          "siteStyle",
+          o("siteStyle")
+            .getOrElse(Json.Null)
+            .mapObject(style =>
+              List("typography", "palette", "layout").foldLeft(style)((current, key) =>
+                current(key).fold(current)(value => current.add(key, styleDescription(value)))
+              )
+            )
+        ).add(
           "initialState",
           o("initialState").filterNot(_.isNull).getOrElse(Json.obj()).mapObject(_.mapValues(scalar))
         ).add(

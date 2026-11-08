@@ -1,5 +1,5 @@
 {
-  "evaluatedAt": "2026-11-08T06:38:10.354Z",
+  "evaluatedAt": "2026-11-08T06:40:43.792Z",
   "expectedSamples": 6,
   "complete": false,
   "groups": {
@@ -18,18 +18,18 @@
       "seconds": 0
     },
     "new-standard": {
-      "samples": 1,
-      "ready": 1,
+      "samples": 2,
+      "ready": 2,
       "interrupted": 0,
       "unknownUsageSamples": 0,
       "unknownDurationSamples": 0,
       "initialGenerationAccepted": 1,
-      "modelCalls": 4,
-      "generationModelCalls": 4,
-      "recordedTokens": 106795,
-      "recordedCompletionTokens": 32137,
-      "recordedReasoningTokens": 18136,
-      "seconds": 162
+      "modelCalls": 9,
+      "generationModelCalls": 9,
+      "recordedTokens": 191000,
+      "recordedCompletionTokens": 71772,
+      "recordedReasoningTokens": 36188,
+      "seconds": 356
     },
     "new-deep": {
       "samples": 0,
@@ -49,6 +49,14 @@
   "comparability": [
     {
       "input": "清华教师袁洋的个人学术主页.com",
+      "samples": 1,
+      "allThreePresent": false,
+      "identicalGenerationRequest": true,
+      "actualEffortMatches": true,
+      "unobservedEffortSamples": 0
+    },
+    {
+      "input": "kfc疯狂星期四文案合集站.com",
       "samples": 1,
       "allThreePresent": false,
       "identicalGenerationRequest": true,
@@ -1794,6 +1802,1424 @@
                   "display": "block",
                   "columns": 1,
                   "widthRatio": 0.87
+                }
+              ]
+            }
+          }
+        ],
+        "error": null
+      }
+    },
+    {
+      "name": "copy-new-standard",
+      "input": "kfc疯狂星期四文案合集站.com",
+      "mode": "imagination",
+      "effort": "standard",
+      "effortPolicy": "product-low-48k",
+      "contentFocusOnly": true,
+      "draftPlanning": false,
+      "draftCharacters": 0,
+      "layoutExploration": true,
+      "designDirection": {
+        "concept": "编辑部清单",
+        "structure": "采用单列长文式清单，左侧窄栏放分类索引，右侧按编号排列文案；每条文案占据较宽阅读行，复制动作置于条目末端。",
+        "typography": "标题和编号用大字距无衬线，正文用偏书刊感的衬线字体，分类索引用小号大写风格，强调阅读节奏而非卡片感。",
+        "contentReason": "文案本身具有短句、段子和可读文本属性，单列清单让访客像翻阅合集一样逐条阅读，适合比较语气和挑选长文案。"
+      },
+      "proposedDirectionCount": 3,
+      "visualReferenceCount": 0,
+      "visualReferenceCharacters": 2,
+      "requestHash": "72eb7ab0d5c4ab6da441dc0abf7b7575da3a910aed14f30d32bcf4d158356660",
+      "actualEffortMatches": true,
+      "pageId": "da6a6f52-b5a9-4df2-80f4-31490e7ffa47",
+      "jobId": "678f920b-d5db-4931-8532-4f27054cabad",
+      "guidance": "8-c1e0823385b34590f0bf7bd797de93208836a202c8c5d1055843268e0d7bb5bd",
+      "briefCharacters": 1045,
+      "earlyVisualPlanCharacters": 0,
+      "cssChangedByReview": true,
+      "seconds": 194,
+      "interrupted": false,
+      "usageComplete": true,
+      "error": null,
+      "initialGenerationAccepted": false,
+      "generationAttempts": [
+        {
+          "attempt": 1,
+          "outcome": "InvalidContent",
+          "errorCode": "invalid_content",
+          "message": "DecodingFailure at .siteStyle.palette: Got value '{\"background\":\"#fbf8f4\",\"text\":\"#1c1a17\",\"accent\":\"#c8102e\",\"muted\":\"#6a625a\",\"rule\":\"#e4dcd1\"}' with wrong type, expecting string",
+          "at": "2026-11-08T06:38:31.466110500Z"
+        },
+        {
+          "attempt": 2,
+          "outcome": "Accepted",
+          "errorCode": null,
+          "message": null,
+          "at": "2026-11-08T06:38:52.990552700Z"
+        }
+      ],
+      "modelCalls": [
+        {
+          "usage": {
+            "prompt_tokens": 311,
+            "completion_tokens": 1387,
+            "total_tokens": 1698,
+            "prompt_tokens_details": {
+              "cached_tokens": 128
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 890
+            },
+            "prompt_cache_hit_tokens": 128,
+            "prompt_cache_miss_tokens": 183
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 11195,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 48000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "brief"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 1659,
+            "completion_tokens": 16461,
+            "total_tokens": 18120,
+            "prompt_tokens_details": {
+              "cached_tokens": 1152
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 10084
+            },
+            "prompt_cache_hit_tokens": 1152,
+            "prompt_cache_miss_tokens": 507
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 77674,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 48000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 8183,
+            "completion_tokens": 6555,
+            "total_tokens": 14738,
+            "prompt_tokens_details": {
+              "cached_tokens": 1536
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 180
+            },
+            "prompt_cache_hit_tokens": 1536,
+            "prompt_cache_miss_tokens": 6647
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 21470,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 48000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 16856,
+            "completion_tokens": 5244,
+            "total_tokens": 22100,
+            "prompt_tokens_details": {
+              "cached_tokens": 896
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 4846
+            },
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 15960
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 34610,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 48000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "review"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 17561,
+            "completion_tokens": 9988,
+            "total_tokens": 27549,
+            "prompt_tokens_details": {
+              "cached_tokens": 896
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 2052
+            },
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 16665
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 37013,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 48000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "document"
+        }
+      ],
+      "selection": "Improved",
+      "events": [
+        {
+          "stage": "Brief",
+          "status": "Started",
+          "at": "2026-11-08T06:37:02.580261900Z",
+          "message": null
+        },
+        {
+          "stage": "Brief",
+          "status": "Completed",
+          "at": "2026-11-08T06:37:13.777880800Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Started",
+          "at": "2026-11-08T06:38:52.996071200Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Completed",
+          "at": "2026-11-08T06:38:59.077545900Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Started",
+          "at": "2026-11-08T06:38:59.082713Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Completed",
+          "at": "2026-11-08T06:39:33.697710100Z",
+          "message": null
+        },
+        {
+          "stage": "Improve",
+          "status": "Started",
+          "at": "2026-11-08T06:39:33.702719300Z",
+          "message": null
+        },
+        {
+          "stage": "Improve",
+          "status": "Completed",
+          "at": "2026-11-08T06:40:10.746200500Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureImproved",
+          "status": "Started",
+          "at": "2026-11-08T06:40:10.752300700Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureImproved",
+          "status": "Completed",
+          "at": "2026-11-08T06:40:16.935800Z",
+          "message": null
+        },
+        {
+          "stage": "Selection",
+          "status": "Completed",
+          "at": "2026-11-08T06:40:16.940800800Z",
+          "message": "采用改进页面"
+        }
+      ],
+      "researchReused": false,
+      "siteStyle": {
+        "brand": "疯狂星期四文案合集",
+        "typography": "标题使用紧缩字距的无衬线粗体，编号与分类小标签使用宽字距大写风格，文案正文使用书刊感衬线体并放大行高，形成清单的阅读节奏",
+        "palette": "背景 #fbf8f4 · 正文 #1c1a17 · 强调 #c8102e · 弱化 #6a625a · 分隔线 #e4dcd1",
+        "layout": "左上窄栏粘性分类索引 + 右侧单列编号长清单，条目按分类连续区块排列，复制动作位于条目末端，索引锚点对应各分类区块起点；窄屏下索引折叠为横向标签行，页头收紧，清单堆叠为单列"
+      },
+      "actions": [
+        {
+          "id": "search",
+          "kind": "Search",
+          "elementId": "search-form",
+          "target": null,
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "copy-1",
+          "kind": "Copy",
+          "elementId": "btn-copy-1",
+          "target": null,
+          "region": "body-1",
+          "stateKey": "c1",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "copy-2",
+          "kind": "Copy",
+          "elementId": "btn-copy-2",
+          "target": null,
+          "region": "body-2",
+          "stateKey": "c2",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "copy-3",
+          "kind": "Copy",
+          "elementId": "btn-copy-3",
+          "target": null,
+          "region": "body-3",
+          "stateKey": "c3",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "copy-4",
+          "kind": "Copy",
+          "elementId": "btn-copy-4",
+          "target": null,
+          "region": "body-4",
+          "stateKey": "c4",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "copy-5",
+          "kind": "Copy",
+          "elementId": "btn-copy-5",
+          "target": null,
+          "region": "body-5",
+          "stateKey": "c5",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "copy-6",
+          "kind": "Copy",
+          "elementId": "btn-copy-6",
+          "target": null,
+          "region": "body-6",
+          "stateKey": "c6",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "copy-7",
+          "kind": "Copy",
+          "elementId": "btn-copy-7",
+          "target": null,
+          "region": "body-7",
+          "stateKey": "c7",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "copy-8",
+          "kind": "Copy",
+          "elementId": "btn-copy-8",
+          "target": null,
+          "region": "body-8",
+          "stateKey": "c8",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "copy-9",
+          "kind": "Copy",
+          "elementId": "btn-copy-9",
+          "target": null,
+          "region": "body-9",
+          "stateKey": "c9",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "copy-10",
+          "kind": "Copy",
+          "elementId": "btn-copy-10",
+          "target": null,
+          "region": "body-10",
+          "stateKey": "c10",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "copy-11",
+          "kind": "Copy",
+          "elementId": "btn-copy-11",
+          "target": null,
+          "region": "body-11",
+          "stateKey": "c11",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "copy-12",
+          "kind": "Copy",
+          "elementId": "btn-copy-12",
+          "target": null,
+          "region": "body-12",
+          "stateKey": "c12",
+          "value": null,
+          "field": null
+        }
+      ],
+      "layout": {
+        "viewports": [
+          {
+            "width": 1440,
+            "height": 900,
+            "scrollWidth": 1425,
+            "scrollHeight": 3993,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "",
+                "tag": "h1",
+                "text": "疯狂星期四文案合集",
+                "x": 192.5,
+                "y": 102.1875,
+                "width": 1040,
+                "height": 150.9375,
+                "fontSize": "74px",
+                "lineHeight": "75.48px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "分类索引",
+                "x": 192.5,
+                "y": 504.46875,
+                "width": 200,
+                "height": 20.34375,
+                "fontSize": "11px",
+                "lineHeight": "20.35px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-entity-0",
+                "tag": "h3",
+                "text": "周报第五版",
+                "x": 532.5,
+                "y": 537.90625,
+                "width": 700,
+                "height": 29.390625,
+                "fontSize": "21px",
+                "lineHeight": "29.4px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-entity-2",
+                "tag": "h3",
+                "text": "明天开始减肥",
+                "x": 532.5,
+                "y": 810.109375,
+                "width": 700,
+                "height": 29.390625,
+                "fontSize": "21px",
+                "lineHeight": "29.4px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-entity-4",
+                "tag": "h3",
+                "text": "引言第七版",
+                "x": 532.5,
+                "y": 1082.3125,
+                "width": 700,
+                "height": 29.390625,
+                "fontSize": "21px",
+                "lineHeight": "29.4px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-entity-7",
+                "tag": "h3",
+                "text": "等一个愿意 V 我 50 的人",
+                "x": 532.5,
+                "y": 1354.515625,
+                "width": 700,
+                "height": 29.390625,
+                "fontSize": "21px",
+                "lineHeight": "29.4px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-entity-1",
+                "tag": "h3",
+                "text": "不合适的是炸鸡和周五",
+                "x": 532.5,
+                "y": 1626.71875,
+                "width": 700,
+                "height": 29.390625,
+                "fontSize": "21px",
+                "lineHeight": "29.4px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-entity-8",
+                "tag": "h3",
+                "text": "第四个季度",
+                "x": 532.5,
+                "y": 1898.921875,
+                "width": 700,
+                "height": 29.390625,
+                "fontSize": "21px",
+                "lineHeight": "29.4px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-entity-11",
+                "tag": "h3",
+                "text": "我只说一次",
+                "x": 532.5,
+                "y": 2171.125,
+                "width": 700,
+                "height": 29.390625,
+                "fontSize": "21px",
+                "lineHeight": "29.4px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-entity-3",
+                "tag": "h3",
+                "text": "你借我的那 50 块",
+                "x": 532.5,
+                "y": 2443.328125,
+                "width": 700,
+                "height": 29.390625,
+                "fontSize": "21px",
+                "lineHeight": "29.4px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-entity-5",
+                "tag": "h3",
+                "text": "今日运势",
+                "x": 532.5,
+                "y": 2715.53125,
+                "width": 700,
+                "height": 29.390625,
+                "fontSize": "21px",
+                "lineHeight": "29.4px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-entity-6",
+                "tag": "h3",
+                "text": "凌晨两点的短信",
+                "x": 532.5,
+                "y": 2987.734375,
+                "width": 700,
+                "height": 29.390625,
+                "fontSize": "21px",
+                "lineHeight": "29.4px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-entity-9",
+                "tag": "h3",
+                "text": "别的先不说",
+                "x": 532.5,
+                "y": 3259.9375,
+                "width": 700,
+                "height": 29.390625,
+                "fontSize": "21px",
+                "lineHeight": "29.4px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-entity-10",
+                "tag": "h3",
+                "text": "秋天短，鸡腿脆",
+                "x": 532.5,
+                "y": 3497.046875,
+                "width": 700,
+                "height": 29.390625,
+                "fontSize": "21px",
+                "lineHeight": "29.4px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "controls": [
+              {
+                "id": "q",
+                "tag": "input",
+                "text": "",
+                "x": 261.140625,
+                "y": 363.71875,
+                "width": 883.1875,
+                "height": 51.75,
+                "fontSize": "15px",
+                "lineHeight": "27.75px",
+                "fontFamily": "\"Noto Serif CJK SC\", \"Songti SC\", STSong, Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "button",
+                "text": "查找",
+                "x": 1156.328125,
+                "y": 364.5625,
+                "width": 76.171875,
+                "height": 50.046875,
+                "fontSize": "13px",
+                "lineHeight": "24.05px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "打工日常04",
+                "x": 192.5,
+                "y": 542.8125,
+                "width": 200,
+                "height": 49.75,
+                "fontSize": "15px",
+                "lineHeight": "27.75px",
+                "fontFamily": "\"Noto Serif CJK SC\", \"Songti SC\", STSong, Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "情感现场03",
+                "x": 192.5,
+                "y": 593.5625,
+                "width": 200,
+                "height": 49.75,
+                "fontSize": "15px",
+                "lineHeight": "27.75px",
+                "fontFamily": "\"Noto Serif CJK SC\", \"Songti SC\", STSong, Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "荒诞脑洞03",
+                "x": 192.5,
+                "y": 644.3125,
+                "width": 200,
+                "height": 49.75,
+                "fontSize": "15px",
+                "lineHeight": "27.75px",
+                "fontFamily": "\"Noto Serif CJK SC\", \"Songti SC\", STSong, Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "文艺与极简02",
+                "x": 192.5,
+                "y": 695.0625,
+                "width": 200,
+                "height": 49.75,
+                "fontSize": "15px",
+                "lineHeight": "27.75px",
+                "fontFamily": "\"Noto Serif CJK SC\", \"Songti SC\", STSong, Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "btn-copy-1",
+                "tag": "button",
+                "text": "复制文案",
+                "x": 532.5,
+                "y": 667.484375,
+                "width": 89.6875,
+                "height": 40.1875,
+                "fontSize": "12px",
+                "lineHeight": "22.2px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "btn-copy-3",
+                "tag": "button",
+                "text": "复制文案",
+                "x": 532.5,
+                "y": 939.6875,
+                "width": 89.6875,
+                "height": 40.1875,
+                "fontSize": "12px",
+                "lineHeight": "22.2px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "btn-copy-5",
+                "tag": "button",
+                "text": "复制文案",
+                "x": 532.5,
+                "y": 1211.890625,
+                "width": 89.6875,
+                "height": 40.1875,
+                "fontSize": "12px",
+                "lineHeight": "22.2px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "btn-copy-8",
+                "tag": "button",
+                "text": "复制文案",
+                "x": 532.5,
+                "y": 1484.09375,
+                "width": 89.6875,
+                "height": 40.1875,
+                "fontSize": "12px",
+                "lineHeight": "22.2px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "btn-copy-2",
+                "tag": "button",
+                "text": "复制文案",
+                "x": 532.5,
+                "y": 1756.296875,
+                "width": 89.6875,
+                "height": 40.1875,
+                "fontSize": "12px",
+                "lineHeight": "22.2px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "btn-copy-9",
+                "tag": "button",
+                "text": "复制文案",
+                "x": 532.5,
+                "y": 2028.5,
+                "width": 89.6875,
+                "height": 40.1875,
+                "fontSize": "12px",
+                "lineHeight": "22.2px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "btn-copy-12",
+                "tag": "button",
+                "text": "复制文案",
+                "x": 532.5,
+                "y": 2300.703125,
+                "width": 89.6875,
+                "height": 40.1875,
+                "fontSize": "12px",
+                "lineHeight": "22.2px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "btn-copy-4",
+                "tag": "button",
+                "text": "复制文案",
+                "x": 532.5,
+                "y": 2572.90625,
+                "width": 89.6875,
+                "height": 40.1875,
+                "fontSize": "12px",
+                "lineHeight": "22.2px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "btn-copy-6",
+                "tag": "button",
+                "text": "复制文案",
+                "x": 532.5,
+                "y": 2845.109375,
+                "width": 89.6875,
+                "height": 40.1875,
+                "fontSize": "12px",
+                "lineHeight": "22.2px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "btn-copy-7",
+                "tag": "button",
+                "text": "复制文案",
+                "x": 532.5,
+                "y": 3117.3125,
+                "width": 89.6875,
+                "height": 40.1875,
+                "fontSize": "12px",
+                "lineHeight": "22.2px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "btn-copy-10",
+                "tag": "button",
+                "text": "复制文案",
+                "x": 532.5,
+                "y": 3354.421875,
+                "width": 89.6875,
+                "height": 40.1875,
+                "fontSize": "12px",
+                "lineHeight": "22.2px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "btn-copy-11",
+                "tag": "button",
+                "text": "复制文案",
+                "x": 532.5,
+                "y": 3626.625,
+                "width": 89.6875,
+                "height": 40.1875,
+                "fontSize": "12px",
+                "lineHeight": "22.2px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "regions": [
+              {
+                "id": "",
+                "tag": "header",
+                "text": "每周四 · 编辑部整理 · 第 12 期\n 疯狂星期四文案合集\n 五十块钱的快乐，值得一句像样的开场白。挑一条合适的，复制，发出去。\n \n  站内搜索\n  查找",
+                "x": 152.5,
+                "y": 0,
+                "width": 1120,
+                "height": 452.46875,
+                "fontSize": "17px",
+                "lineHeight": "31.45px",
+                "fontFamily": "\"Noto Serif CJK SC\", \"Songti SC\", STSong, Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "分类索引\n  \n   打工日常04\n   情感现场03\n   荒诞脑洞03\n   文艺与极简02",
+                "x": 192.5,
+                "y": 452.46875,
+                "width": 200,
+                "height": 293.34375,
+                "fontSize": "17px",
+                "lineHeight": "31.45px",
+                "fontFamily": "\"Noto Serif CJK SC\", \"Songti SC\", STSong, Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "main",
+                "text": "01\n    \n    \n     打工日常\n     周报第五版\n     「周报写到第五版，老板说再改改。我改不动了，除非有人在周四的下午 V 我 50，让我在疯狂星期四重新找回一点对人生的掌控感。」\n     \n      复制文案\n     \n    \n   \n    \n     02\n    \n    \n     打工日常\n     明天开始减肥\n",
+                "x": 448.5,
+                "y": 452.46875,
+                "width": 784,
+                "height": 3291.09375,
+                "fontSize": "17px",
+                "lineHeight": "31.45px",
+                "fontFamily": "\"Noto Serif CJK SC\", \"Songti SC\", STSong, Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "footer",
+                "text": "本站文案由网友与编辑部共同撰写，仅用于周四的自嘲与玩笑，不构成任何真实的借款或募资请求，请勿用于收付款场景。\n 最后整理于 2026 年 11 月 7 日 · 共收录 12 条 · 每周四更新",
+                "x": 152.5,
+                "y": 3791.5625,
+                "width": 1120,
+                "height": 201.125,
+                "fontSize": "14px",
+                "lineHeight": "25.9px",
+                "fontFamily": "\"Noto Serif CJK SC\", \"Songti SC\", STSong, Georgia, serif",
+                "horizontalScroll": null
+              }
+            ],
+            "visualProfile": {
+              "backgrounds": [
+                "rgb(251, 248, 244)"
+              ],
+              "fonts": [
+                "\"Noto Serif CJK SC\", \"Songti SC\", STSong, Georgia, serif",
+                "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif"
+              ],
+              "headingSizes": [
+                74,
+                11,
+                21
+              ],
+              "regions": [
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.78
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.14
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.54
+                }
+              ]
+            }
+          },
+          {
+            "width": 390,
+            "height": 844,
+            "scrollWidth": 375,
+            "scrollHeight": 3881,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "",
+                "tag": "h1",
+                "text": "疯狂星期四文案合集",
+                "x": 20,
+                "y": 53.796875,
+                "width": 335,
+                "height": 75.5625,
+                "fontSize": "37.05px",
+                "lineHeight": "37.791px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "分类索引",
+                "x": 20,
+                "y": 298.734375,
+                "width": 335,
+                "height": 18,
+                "fontSize": "10px",
+                "lineHeight": "18px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-entity-0",
+                "tag": "h3",
+                "text": "周报第五版",
+                "x": 66,
+                "y": 437.90625,
+                "width": 289,
+                "height": 25.1875,
+                "fontSize": "18px",
+                "lineHeight": "25.2px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-entity-2",
+                "tag": "h3",
+                "text": "明天开始减肥",
+                "x": 66,
+                "y": 716.859375,
+                "width": 289,
+                "height": 25.1875,
+                "fontSize": "18px",
+                "lineHeight": "25.2px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-entity-4",
+                "tag": "h3",
+                "text": "引言第七版",
+                "x": 66,
+                "y": 995.8125,
+                "width": 289,
+                "height": 25.1875,
+                "fontSize": "18px",
+                "lineHeight": "25.2px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-entity-7",
+                "tag": "h3",
+                "text": "等一个愿意 V 我 50 的人",
+                "x": 66,
+                "y": 1274.765625,
+                "width": 289,
+                "height": 25.1875,
+                "fontSize": "18px",
+                "lineHeight": "25.2px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-entity-1",
+                "tag": "h3",
+                "text": "不合适的是炸鸡和周五",
+                "x": 66,
+                "y": 1553.71875,
+                "width": 289,
+                "height": 25.1875,
+                "fontSize": "18px",
+                "lineHeight": "25.2px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-entity-8",
+                "tag": "h3",
+                "text": "第四个季度",
+                "x": 66,
+                "y": 1832.671875,
+                "width": 289,
+                "height": 25.1875,
+                "fontSize": "18px",
+                "lineHeight": "25.2px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-entity-11",
+                "tag": "h3",
+                "text": "我只说一次",
+                "x": 66,
+                "y": 2111.625,
+                "width": 289,
+                "height": 25.1875,
+                "fontSize": "18px",
+                "lineHeight": "25.2px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-entity-3",
+                "tag": "h3",
+                "text": "你借我的那 50 块",
+                "x": 66,
+                "y": 2360.984375,
+                "width": 289,
+                "height": 25.1875,
+                "fontSize": "18px",
+                "lineHeight": "25.2px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-entity-5",
+                "tag": "h3",
+                "text": "今日运势",
+                "x": 66,
+                "y": 2639.9375,
+                "width": 289,
+                "height": 25.1875,
+                "fontSize": "18px",
+                "lineHeight": "25.2px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-entity-6",
+                "tag": "h3",
+                "text": "凌晨两点的短信",
+                "x": 66,
+                "y": 2918.890625,
+                "width": 289,
+                "height": 25.1875,
+                "fontSize": "18px",
+                "lineHeight": "25.2px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-entity-9",
+                "tag": "h3",
+                "text": "别的先不说",
+                "x": 66,
+                "y": 3197.84375,
+                "width": 289,
+                "height": 25.1875,
+                "fontSize": "18px",
+                "lineHeight": "25.2px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-entity-10",
+                "tag": "h3",
+                "text": "秋天短，鸡腿脆",
+                "x": 66,
+                "y": 3388.015625,
+                "width": 289,
+                "height": 25.1875,
+                "fontSize": "18px",
+                "lineHeight": "25.2px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "controls": [
+              {
+                "id": "q",
+                "tag": "input",
+                "text": "",
+                "x": 79.921875,
+                "y": 211.734375,
+                "width": 202.90625,
+                "height": 47,
+                "fontSize": "15px",
+                "lineHeight": "27px",
+                "fontFamily": "\"Noto Serif CJK SC\", \"Songti SC\", STSong, Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "button",
+                "text": "查找",
+                "x": 290.828125,
+                "y": 212.53125,
+                "width": 64.171875,
+                "height": 45.390625,
+                "fontSize": "13px",
+                "lineHeight": "23.4px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "打工日常04",
+                "x": 20,
+                "y": 324.734375,
+                "width": 76.953125,
+                "height": 33.1875,
+                "fontSize": "14px",
+                "lineHeight": "25.2px",
+                "fontFamily": "\"Noto Serif CJK SC\", \"Songti SC\", STSong, Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "情感现场03",
+                "x": 114.953125,
+                "y": 324.734375,
+                "width": 76.953125,
+                "height": 33.1875,
+                "fontSize": "14px",
+                "lineHeight": "25.2px",
+                "fontFamily": "\"Noto Serif CJK SC\", \"Songti SC\", STSong, Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "荒诞脑洞03",
+                "x": 209.90625,
+                "y": 324.734375,
+                "width": 76.953125,
+                "height": 33.1875,
+                "fontSize": "14px",
+                "lineHeight": "25.2px",
+                "fontFamily": "\"Noto Serif CJK SC\", \"Songti SC\", STSong, Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "文艺与极简02",
+                "x": 20,
+                "y": 357.921875,
+                "width": 90.953125,
+                "height": 33.1875,
+                "fontSize": "14px",
+                "lineHeight": "25.2px",
+                "fontFamily": "\"Noto Serif CJK SC\", \"Songti SC\", STSong, Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "btn-copy-1",
+                "tag": "button",
+                "text": "复制文案",
+                "x": 66,
+                "y": 601.46875,
+                "width": 83.6875,
+                "height": 37.59375,
+                "fontSize": "12px",
+                "lineHeight": "21.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "btn-copy-3",
+                "tag": "button",
+                "text": "复制文案",
+                "x": 66,
+                "y": 880.421875,
+                "width": 83.6875,
+                "height": 37.59375,
+                "fontSize": "12px",
+                "lineHeight": "21.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "btn-copy-5",
+                "tag": "button",
+                "text": "复制文案",
+                "x": 66,
+                "y": 1159.375,
+                "width": 83.6875,
+                "height": 37.59375,
+                "fontSize": "12px",
+                "lineHeight": "21.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "btn-copy-8",
+                "tag": "button",
+                "text": "复制文案",
+                "x": 66,
+                "y": 1438.328125,
+                "width": 83.6875,
+                "height": 37.59375,
+                "fontSize": "12px",
+                "lineHeight": "21.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "btn-copy-2",
+                "tag": "button",
+                "text": "复制文案",
+                "x": 66,
+                "y": 1717.28125,
+                "width": 83.6875,
+                "height": 37.59375,
+                "fontSize": "12px",
+                "lineHeight": "21.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "btn-copy-9",
+                "tag": "button",
+                "text": "复制文案",
+                "x": 66,
+                "y": 1996.234375,
+                "width": 83.6875,
+                "height": 37.59375,
+                "fontSize": "12px",
+                "lineHeight": "21.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "btn-copy-12",
+                "tag": "button",
+                "text": "复制文案",
+                "x": 66,
+                "y": 2245.59375,
+                "width": 83.6875,
+                "height": 37.59375,
+                "fontSize": "12px",
+                "lineHeight": "21.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "btn-copy-4",
+                "tag": "button",
+                "text": "复制文案",
+                "x": 66,
+                "y": 2524.546875,
+                "width": 83.6875,
+                "height": 37.59375,
+                "fontSize": "12px",
+                "lineHeight": "21.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "btn-copy-6",
+                "tag": "button",
+                "text": "复制文案",
+                "x": 66,
+                "y": 2803.5,
+                "width": 83.6875,
+                "height": 37.59375,
+                "fontSize": "12px",
+                "lineHeight": "21.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "btn-copy-7",
+                "tag": "button",
+                "text": "复制文案",
+                "x": 66,
+                "y": 3082.453125,
+                "width": 83.6875,
+                "height": 37.59375,
+                "fontSize": "12px",
+                "lineHeight": "21.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "btn-copy-10",
+                "tag": "button",
+                "text": "复制文案",
+                "x": 66,
+                "y": 3272.625,
+                "width": 83.6875,
+                "height": 37.59375,
+                "fontSize": "12px",
+                "lineHeight": "21.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "btn-copy-11",
+                "tag": "button",
+                "text": "复制文案",
+                "x": 66,
+                "y": 3521.984375,
+                "width": 83.6875,
+                "height": 37.59375,
+                "fontSize": "12px",
+                "lineHeight": "21.6px",
+                "fontFamily": "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "regions": [
+              {
+                "id": "",
+                "tag": "header",
+                "text": "每周四 · 编辑部整理 · 第 12 期\n 疯狂星期四文案合集\n 五十块钱的快乐，值得一句像样的开场白。挑一条合适的，复制，发出去。\n \n  站内搜索\n  查找",
+                "x": 0,
+                "y": 0,
+                "width": 375,
+                "height": 279.734375,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "\"Noto Serif CJK SC\", \"Songti SC\", STSong, Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "分类索引\n  \n   打工日常04\n   情感现场03\n   荒诞脑洞03\n   文艺与极简02",
+                "x": 20,
+                "y": 279.734375,
+                "width": 335,
+                "height": 111.375,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "\"Noto Serif CJK SC\", \"Songti SC\", STSong, Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "main",
+                "text": "01\n    \n    \n     打工日常\n     周报第五版\n     「周报写到第五版，老板说再改改。我改不动了，除非有人在周四的下午 V 我 50，让我在疯狂星期四重新找回一点对人生的掌控感。」\n     \n      复制文案\n     \n    \n   \n    \n     02\n    \n    \n     打工日常\n     明天开始减肥\n",
+                "x": 20,
+                "y": 391.109375,
+                "width": 335,
+                "height": 3248.0625,
+                "fontSize": "16px",
+                "lineHeight": "28.8px",
+                "fontFamily": "\"Noto Serif CJK SC\", \"Songti SC\", STSong, Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "footer",
+                "text": "本站文案由网友与编辑部共同撰写，仅用于周四的自嘲与玩笑，不构成任何真实的借款或募资请求，请勿用于收付款场景。\n 最后整理于 2026 年 11 月 7 日 · 共收录 12 条 · 每周四更新",
+                "x": 0,
+                "y": 3667.171875,
+                "width": 375,
+                "height": 213.828125,
+                "fontSize": "13px",
+                "lineHeight": "24.05px",
+                "fontFamily": "\"Noto Serif CJK SC\", \"Songti SC\", STSong, Georgia, serif",
+                "horizontalScroll": null
+              }
+            ],
+            "visualProfile": {
+              "backgrounds": [
+                "rgb(251, 248, 244)"
+              ],
+              "fonts": [
+                "\"Noto Serif CJK SC\", \"Songti SC\", STSong, Georgia, serif",
+                "-apple-system, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif"
+              ],
+              "headingSizes": [
+                37.05,
+                10,
+                18
+              ],
+              "regions": [
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.96
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.86
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.86
                 }
               ]
             }

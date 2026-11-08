@@ -7,6 +7,37 @@ import services.generation.utils.WebDocumentDecoder
 import services.browser.objects.*
 import services.browser.api.ValidateWebDocumentMessage
 class WebDocumentDecoderSuite extends CatsEffectSuite:
+  test("structured style descriptions are lossless metadata, not a reason to regenerate content") {
+    val base = io.circe.parser
+      .decode[WebDocument](Files.readString(Paths.get("../contracts/web-documents/docs.json")))
+      .toOption
+      .get
+    val palette = io.circe.Json.obj("background" -> "#fbf8f4".asJson, "accent" -> "#c8102e".asJson)
+    val typography = List("中文衬线", "等宽代码").asJson
+    val structured = base.asJson.mapObject(
+      _.add(
+        "siteStyle",
+        base.siteStyle.asJson.mapObject(
+          _.add("palette", palette).add("typography", typography)
+        )
+      )
+    )
+    val result = WebDocumentDecoder.decode(structured.noSpaces).toOption.get
+    assertEquals(parse(result.siteStyle.palette), Right(palette))
+    assertEquals(parse(result.siteStyle.typography), Right(typography))
+    assertEquals(result.copy(siteStyle = base.siteStyle), base)
+    assertEquals(WebDocumentDecoder.decode(result.asJson.noSpaces), Right(result))
+    val invalidBrand = structured.mapObject(
+      _.add(
+        "siteStyle",
+        structured.hcursor.downField("siteStyle").focus.get.mapObject(_.add("brand", palette))
+      )
+    )
+    assert(WebDocumentDecoder.decode(invalidBrand.noSpaces).isLeft)
+    ValidateWebDocumentMessage(result, "https://sample.example/")
+      .plan(null)
+      .map(valid => assertEquals(valid.siteStyle, result.siteStyle))
+  }
   test("missing copy feedback initializes transient state without altering page content") {
     val base = io.circe.parser
       .decode[WebDocument](Files.readString(Paths.get("../contracts/web-documents/docs.json")))

@@ -1,5 +1,11 @@
 # 设计评审与两挡思考验收
 
+产品批次第二题与兼容修复（2026-11-08）：文案页 194 秒、5 次请求后成功；第一份响应仅因 `siteStyle.palette` 是对象而非字符串被拒，第二份通过，随后采用一次评审改进。新解码器仅将 typography／palette／layout 的对象或数组无损序列化为描述字符串；品牌身份、业务状态、HTML/CSS 和动作仍按原类型校验。没有新增 prompt，不根据配色名称或单个样本定规则。
+
+37 项解码／文档／设计流程测试通过；原第一份响应离线解码、规范化、完整校验通过，HTML／CSS 未变、配色 JSON 可完整恢复；复制、锚点及搜索／导航提交浏览器回放通过，零模型请求。[离线记录](acceptance/style-metadata-replay.json)、[交互](acceptance/style-metadata-interactions.json)。原批次仍使用启动时构建，文案首轮失败保留，不改写为首轮成功。
+
+产品批次已完成两题的最终页面交互回放，累计 9 次请求、356 秒；本次文案为左侧分类索引和右侧编号条目，黑红粗体标题与学术页的衬线研究路径有差别，但完整六题尚未结束，不提前判定视觉门槛。文案没有声明 Filter，本轮验证的是分类锚点而非实时筛选。[阶段报告](acceptance/effort-guidance-v8-product.json)。
+
 产品 low／48k 批次进行中（2026-11-08）：已完成学术主页一题，首轮正文通过，最终采用一次改进，162 秒、4 次实际产品请求；保存输入／日期／资料与原基线一致。浏览器复制、原生锚点、导航提交回放通过；该页没有 Search，不因此要求补控件。截图仍是学术长文／研究路径，不把字体变化单独算成结构改善。当前仅 1/6，不能宣称批次完成。[阶段记录](acceptance/effort-guidance-v8-product.json)、[配对](acceptance/effort-guidance-v8-product-paired.json)、[交互](acceptance/effort-guidance-v8-product-interactions.json)。
 
 认真模式的规划调用尚未由本批覆盖，因为六题复用了历史检索资料。已将规划 system/request 原样抽为 ResearchPlanPrompt，供产品和一次真实规划回放共用；17 项集成／检索客户端测试通过。ResearchPlanningAcceptance 需显式 VIBROWSER_PAID_PLANNING_ACCEPTANCE=true，仅在六题批次结束后运行，使用保存来源、实际产品参数和原 30 秒规划预算；不调用 Search/Fetch，不生成页面，不写数据库，不把它当作新联网检索验收。
