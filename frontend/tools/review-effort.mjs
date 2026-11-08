@@ -5,16 +5,19 @@ import { createHash } from "node:crypto";
 import { measureDocument } from "../dist-measure/measure.mjs";
 
 const root = resolve(import.meta.dirname, "../..");
-const retest = process.argv.includes("--guidance-v3");
+const revision = process.argv.includes("--guidance-v4") ? "v4" : "v3";
+const retest =
+  process.argv.includes("--guidance-v3") ||
+  process.argv.includes("--guidance-v4");
 const expectedSamples = retest ? 6 : 18;
 const input = resolve(
   root,
-  retest ? ".cache/effort-guidance-v3" : ".cache/effort-acceptance",
+  retest ? ".cache/effort-guidance-" + revision : ".cache/effort-acceptance",
 );
 const output = resolve(
   root,
   retest
-    ? "docs/screenshots/effort-guidance-v3"
+    ? "docs/screenshots/effort-guidance-" + revision
     : "docs/screenshots/effort-comparison",
 );
 await mkdir(output, { recursive: true });
@@ -172,7 +175,7 @@ await writeFile(
   resolve(
     root,
     retest
-      ? "docs/acceptance/effort-guidance-v3.json"
+      ? "docs/acceptance/effort-guidance-" + revision + ".json"
       : "docs/acceptance/effort-comparison.json",
   ),
   JSON.stringify(

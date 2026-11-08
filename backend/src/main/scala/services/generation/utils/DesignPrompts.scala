@@ -7,7 +7,14 @@ import services.browser.objects.WebDocument
 import services.generation.objects.*
 private[generation] object DesignPrompts:
   def briefSystem(guidance: DesignGuidanceText) =
-    guidance.design + "\n可用交互契约：\n" + WebDocumentPrompt.actionContract + """
+    guidance.intent match
+      case Some(intent) =>
+        intent + """
+只返回 JSON：{purpose:string,visitorTask:string,contentPriorities:string[],informationStructure:string,interactions:string[],rationale:string}。
+这是简短设计说明中的内容计划，不是网页，不输出 HTML、CSS 或视觉规格。说明不超过1200字，数组各最多12项。保留输入资料的事实；已有站点的视觉上下文会直接传给页面生成阶段。
+"""
+      case None =>
+        guidance.design + "\n可用交互契约：\n" + WebDocumentPrompt.actionContract + """
 只返回 JSON：{purpose:string,visitorTask:string,contentPriorities:string[],informationStructure:string,typography:string,interactions:string[],continuity:string,rationale:string}。
 这是简短设计说明，不是网页，不输出 HTML。说明不超过6000字，数组各最多12项，不填写模板分类。遵守输入资料的事实和既有站点风格。
 """

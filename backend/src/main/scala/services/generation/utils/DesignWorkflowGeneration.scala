@@ -143,7 +143,9 @@ private[generation] final class DesignWorkflowGeneration(
           b.asJson.noSpaces.length <= 16000 && b.purpose.trim.nonEmpty && b.visitorTask.trim.nonEmpty && b.informationStructure.trim.nonEmpty && b.contentPriorities.size <= 12 && b.interactions.size <= 12,
           "设计说明字段无效或超出预算"
         )
-        w.copy(brief = Some(b))
+        w.copy(brief =
+          Some(if guidance.intent.nonEmpty then b.copy(typography = "", continuity = "") else b)
+        )
       }
       fullPrompt =
         prompt + "\n设计指导：\n" + guidance.design + "\n交互能力：\n" + WebDocumentPrompt.actionContract + "\n设计说明：" + planned.brief.asJson.noSpaces

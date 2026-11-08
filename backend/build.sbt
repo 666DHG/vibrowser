@@ -6,7 +6,7 @@ lazy val root = (project in file(".")).settings(
   name := "vibrowser",
   Compile / resourceGenerators += Def.task {
     val source = baseDirectory.value.getParentFile / ".agents" / "skills" / "vibrowser-web-design" / "references"
-    Seq("design.md", "review.md").map { name =>
+    Seq("intent.md", "design.md", "review.md").map { name =>
       val target = (Compile / resourceManaged).value / "design-guidance" / name
       IO.copyFile(source / name, target)
       target

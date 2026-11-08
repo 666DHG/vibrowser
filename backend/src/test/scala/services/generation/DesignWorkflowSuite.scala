@@ -27,6 +27,18 @@ class DesignWorkflowSuite extends CatsEffectSuite:
     List(390, 1440).map(w => LayoutViewport(w, 844, w, 900, Nil, Nil, Nil, Nil))
   )
   private val config = new ProviderConnection("https://mock.invalid", "test", "secret", 1)
+  test("compact intent and saved visual briefs both decode without losing old fields") {
+    val compact = brief.asJson.mapObject(_.remove("typography").remove("continuity"))
+    assertEquals(compact.as[DesignBrief].toOption.get.typography, "")
+    assertEquals(compact.as[DesignBrief].toOption.get.continuity, "")
+    assertEquals(brief.asJson.as[DesignBrief], Right(brief))
+    assertEquals(
+      decode[DesignGuidanceText](
+        """{"version":"3-old","design":"d","review":"r"}"""
+      ).toOption.get.intent,
+      None
+    )
+  }
   private def isolated[A](f: DatabaseSession => IO[A]): IO[A] =
     DatabaseSession
       .resource(
@@ -83,6 +95,53 @@ class DesignWorkflowSuite extends CatsEffectSuite:
           .generate(config, page, "input", None, None)
         saved <- db.transaction(c => GenerationJobTable.designWorkflow(c, nav.jobId)).map(_.get)
         _ = assertEquals(saved.guidanceVersion, "test-version")
+      yield ()
+    }
+  }
+  test("content planning leaves visual decisions to generation and preserves source context") {
+    isolated { db =>
+      for
+        calls <- Ref.of[IO, Int](0)
+        nav <- db.transaction(NavigateMessage("intent-only.example", None).plan)
+        _ <- db.transaction(ClaimGenerationJobMessage().plan)
+        page <- db.transaction(c => PageTable.findById(c, nav.pageId)).map(_.get)
+        client = new TextGenerationClient:
+          def complete(
+              c: ProviderConnection,
+              system: String,
+              prompt: String,
+              test: Boolean
+          ): IO[String] =
+            calls.getAndUpdate(_ + 1).map {
+              case 0 =>
+                assert(system.contains("content-intent-marker"))
+                assert(!system.contains("visual-design-marker"))
+                assert(!system.contains(WebDocumentPrompt.actionContract))
+                assert(prompt.contains("inherited-context-marker"))
+                brief.asJson.noSpaces
+              case 1 =>
+                assert(prompt.contains("visual-design-marker"))
+                assert(prompt.contains("inherited-context-marker"))
+                assert(!prompt.contains("中文排版"))
+                fixture.asJson.noSpaces
+              case 2 => DesignReview(Nil).asJson.noSpaces
+              case _ => fail("unexpected extra model call")
+            }
+        _ <- new DesignWorkflowGeneration(
+          db,
+          client,
+          meter(),
+          guidance = DesignGuidanceText(
+            "4-test",
+            "visual-design-marker",
+            "review-marker",
+            Some("content-intent-marker")
+          )
+        )
+          .generate(config, page, "inherited-context-marker", None, None)
+        saved <- db.transaction(c => GenerationJobTable.designWorkflow(c, nav.jobId)).map(_.get)
+        _ = assertEquals(saved.brief.map(_.typography), Some(""))
+        _ <- calls.get.map(n => assertEquals(n, 3))
       yield ()
     }
   }
@@ -158,8 +217,10 @@ class DesignWorkflowSuite extends CatsEffectSuite:
   test(
     "guidance resources are packaged, versioned and validation preserves required content and actions"
   ) {
-    assert(DesignGuidance.version.startsWith("3-"))
-    assert(DesignGuidance.design.nonEmpty && DesignGuidance.review.nonEmpty)
+    assert(DesignGuidance.version.startsWith("4-"))
+    assert(
+      DesignGuidance.design.nonEmpty && DesignGuidance.review.nonEmpty && DesignGuidance.intent.nonEmpty
+    )
     assert(
       DesignPreservation
         .issues(fixture, fixture.copy(css = fixture.css + "\nmain{max-width:70rem}"))

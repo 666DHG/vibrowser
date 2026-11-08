@@ -25,9 +25,12 @@ import services.generation.utils.*
 /** Fixed paid experiment: no sample selection, automatic rerolls, or LIVE mutations. */
 object EffortAcceptance extends IOApp.Simple:
   private val guidanceRetest = sys.env.get("VIBROWSER_EFFORT_GUIDANCE_RETEST").contains("true")
-  private val schema = if guidanceRetest then "effort_guidance_v3" else "effort_acceptance"
+  private val guidanceRevision = sys.env.getOrElse("VIBROWSER_EFFORT_GUIDANCE_VERSION", "3")
+  private val schema =
+    if guidanceRetest then "effort_guidance_v" + guidanceRevision else "effort_acceptance"
   private val output = Paths.get(
-    if guidanceRetest then "../.cache/effort-guidance-v3" else "../.cache/effort-acceptance"
+    if guidanceRetest then "../.cache/effort-guidance-v" + guidanceRevision
+    else "../.cache/effort-acceptance"
   )
   private val samples = List(
     ("academic", "清华教师袁洋的个人学术主页.com", BrowsingMode.Research),
@@ -95,6 +98,11 @@ object EffortAcceptance extends IOApp.Simple:
       yield response.withEntity(result)
     }
   def run: IO[Unit] =
+    require(Set("3", "4")(guidanceRevision), "Unsupported fixed experiment revision")
+    require(
+      !guidanceRetest || DesignGuidance.version.startsWith(guidanceRevision + "-"),
+      "Guidance build must match the isolated experiment directory"
+    )
     require(
       sys.env.get("VIBROWSER_PAID_EFFORT_ACCEPTANCE").contains("true"),
       "Paid experiment opt-in required"
