@@ -1,0 +1,36 @@
+[
+  {
+    "file": "academic-new-standard.json",
+    "localActions": [
+      "toggle-quotes"
+    ],
+    "searchSubmitted": false,
+    "navigationSubmitted": false,
+    "anchorVerified": true,
+    "copyVerified": true,
+    "copyContentPreserved": true,
+    "copyRawSource": "generation",
+    "filterVerified": false,
+    "sortVerified": false,
+    "sortLocale": null,
+    "limitations": [],
+    "extraModelCalls": 0
+  },
+  {
+    "file": "copy-new-standard.json",
+    "localActions": [
+      "toggle-about"
+    ],
+    "searchSubmitted": true,
+    "navigationSubmitted": false,
+    "anchorVerified": true,
+    "copyVerified": true,
+    "copyContentPreserved": true,
+    "copyRawSource": "generation",
+    "filterVerified": true,
+    "sortVerified": true,
+    "sortLocale": "en-US",
+    "limitations": [],
+    "extraModelCalls": 0
+  }
+]

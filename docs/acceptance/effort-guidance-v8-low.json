@@ -1,0 +1,3135 @@
+{
+  "evaluatedAt": "2026-11-08T05:59:49.555Z",
+  "expectedSamples": 6,
+  "complete": false,
+  "groups": {
+    "old-standard": {
+      "samples": 0,
+      "ready": 0,
+      "interrupted": 0,
+      "unknownUsageSamples": 0,
+      "unknownDurationSamples": 0,
+      "initialGenerationAccepted": 0,
+      "modelCalls": 0,
+      "generationModelCalls": 0,
+      "recordedTokens": 0,
+      "recordedCompletionTokens": 0,
+      "recordedReasoningTokens": 0,
+      "seconds": 0
+    },
+    "new-standard": {
+      "samples": 2,
+      "ready": 2,
+      "interrupted": 0,
+      "unknownUsageSamples": 2,
+      "unknownDurationSamples": 0,
+      "initialGenerationAccepted": 2,
+      "modelCalls": 6,
+      "generationModelCalls": 6,
+      "recordedTokens": 61296,
+      "recordedCompletionTokens": 44649,
+      "recordedReasoningTokens": 30304,
+      "seconds": 350
+    },
+    "new-deep": {
+      "samples": 0,
+      "ready": 0,
+      "interrupted": 0,
+      "unknownUsageSamples": 0,
+      "unknownDurationSamples": 0,
+      "initialGenerationAccepted": 0,
+      "modelCalls": 0,
+      "generationModelCalls": 0,
+      "recordedTokens": 0,
+      "recordedCompletionTokens": 0,
+      "recordedReasoningTokens": 0,
+      "seconds": 0
+    }
+  },
+  "comparability": [
+    {
+      "input": "清华教师袁洋的个人学术主页.com",
+      "samples": 1,
+      "allThreePresent": false,
+      "identicalGenerationRequest": true,
+      "actualEffortMatches": true,
+      "unobservedEffortSamples": 0
+    },
+    {
+      "input": "kfc疯狂星期四文案合集站.com",
+      "samples": 1,
+      "allThreePresent": false,
+      "identicalGenerationRequest": true,
+      "actualEffortMatches": true,
+      "unobservedEffortSamples": 0
+    }
+  ],
+  "samples": [
+    {
+      "name": "academic-new-standard",
+      "input": "清华教师袁洋的个人学术主页.com",
+      "mode": "research",
+      "effort": "standard",
+      "effortPolicy": "experimental-low",
+      "contentFocusOnly": true,
+      "draftPlanning": false,
+      "draftCharacters": 0,
+      "layoutExploration": true,
+      "designDirection": {
+        "concept": "三层递进长卷",
+        "structure": "单列纵向叙事：顶部姓名、身份与邮箱，紧接研究主旨，按1—2—3展开医疗过程刻画、临床辅助、理论形式化，再过渡到范畴论与AI基础理论；代表工作与招生在文末形成两个清晰区块，全页依靠连续阅读而非多栏导航。",
+        "typography": "中文正文用学术宋体，标题用高对比宋体；英文机构名与论文题用小型大写字距拉开，编号用衬线数字；段落宽度收窄，注释式小字承载论文出处与荣誉。",
+        "contentReason": "材料本身是从临床到数学的三层论证，单列递进最能让读者沿作者思路理解AI+中医如何通向范畴论，避免把研究拆成互不相关的卡片。"
+      },
+      "proposedDirectionCount": 3,
+      "visualReferenceCount": 0,
+      "visualReferenceCharacters": 2,
+      "requestHash": "f20a29e023377512d50a9fa832ce076c0ee634258695b8abcf8e4459287dbc7f",
+      "actualEffortMatches": true,
+      "pageId": "c217b962-03e8-4f09-bc7a-9d79a9cbd091",
+      "jobId": "cb65dcfe-1fc7-4d2f-9793-3ea7906b2598",
+      "guidance": "8-c1e0823385b34590f0bf7bd797de93208836a202c8c5d1055843268e0d7bb5bd",
+      "briefCharacters": 1453,
+      "earlyVisualPlanCharacters": 0,
+      "cssChangedByReview": false,
+      "seconds": 169,
+      "interrupted": false,
+      "usageComplete": false,
+      "error": null,
+      "initialGenerationAccepted": true,
+      "generationAttempts": [
+        {
+          "attempt": 1,
+          "outcome": "Accepted",
+          "errorCode": null,
+          "message": null,
+          "at": "2026-11-08T05:55:13.412137400Z"
+        }
+      ],
+      "modelCalls": [
+        {
+          "usage": {
+            "prompt_tokens": 6558,
+            "completion_tokens": 2224,
+            "total_tokens": 8782,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1484
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 6558
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 17622,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "brief"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 8131,
+            "completion_tokens": 17958,
+            "total_tokens": 26089,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 13924
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 8131
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 85382,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "document"
+        },
+        {
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "review"
+        }
+      ],
+      "selection": "Original",
+      "events": [
+        {
+          "stage": "Brief",
+          "status": "Started",
+          "at": "2026-11-08T05:53:29.942754500Z",
+          "message": null
+        },
+        {
+          "stage": "Brief",
+          "status": "Completed",
+          "at": "2026-11-08T05:53:47.810654100Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Started",
+          "at": "2026-11-08T05:55:13.424527900Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Completed",
+          "at": "2026-11-08T05:55:19.634084900Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Started",
+          "at": "2026-11-08T05:55:19.643080800Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Failed",
+          "at": "2026-11-08T05:56:19.656313300Z",
+          "message": "60 seconds"
+        },
+        {
+          "stage": "Selection",
+          "status": "Completed",
+          "at": "2026-11-08T05:56:19.661316100Z",
+          "message": "采用已校验原页面"
+        }
+      ],
+      "sources": [
+        {
+          "id": "source-1",
+          "url": "https://people.iiis.tsinghua.edu.cn/~yuanyang/index.html",
+          "title": "袁洋",
+          "retrievedAt": "2026-11-07T15:34:42.982846400Z"
+        },
+        {
+          "id": "source-2",
+          "url": "http://people.iiis.tsinghua.edu.cn/~yuanyang/index.html",
+          "title": "袁洋",
+          "retrievedAt": "2026-11-07T15:34:42.983490200Z"
+        },
+        {
+          "id": "source-3",
+          "url": "https://www.sqz.ac.cn/artificial-1",
+          "title": "袁洋-人工智能-上海期智研究院",
+          "retrievedAt": "2026-11-07T15:34:42.983490200Z"
+        },
+        {
+          "id": "source-4",
+          "url": "https://www.sqz.ac.cn/jushen-1",
+          "title": "袁洋-具身智能与智能制造-上海期智研究院",
+          "retrievedAt": "2026-11-07T15:34:42.983490200Z"
+        },
+        {
+          "id": "source-5",
+          "url": "https://baike.baidu.com/item/%E8%A2%81%E6%B4%8B/68477227?bst=1791367531.faf4e3422d575025#1",
+          "title": "袁洋 - 清华大学交叉信息研究院院长助理、副教授",
+          "retrievedAt": "2026-11-07T15:34:42.983490200Z"
+        }
+      ],
+      "researchReused": true,
+      "siteStyle": {
+        "brand": "袁洋学术主页",
+        "typography": "中文宋体正文与高对比宋体标题，英文小型大写与衬线数字。",
+        "palette": "纸色 #f5f1e8、墨色 #1e1c18、赭红 #8a3b2b、暖灰 #6b655b",
+        "layout": "单列纵向长卷，最大宽度 860px，章节编号与左侧强调线。"
+      },
+      "actions": [
+        {
+          "id": "copy-email",
+          "kind": "Copy",
+          "elementId": "btn-copy-email",
+          "target": null,
+          "region": "email-text",
+          "stateKey": "copyStatus",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "toggle-quotes",
+          "kind": "Toggle",
+          "elementId": "btn-quotes",
+          "target": null,
+          "region": "quotes-region",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "toggle-recruit",
+          "kind": "Toggle",
+          "elementId": "btn-recruit",
+          "target": null,
+          "region": "recruit-details",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        }
+      ],
+      "layout": {
+        "viewports": [
+          {
+            "width": 1440,
+            "height": 900,
+            "scrollWidth": 1425,
+            "scrollHeight": 3672,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "",
+                "tag": "h1",
+                "text": "袁洋",
+                "x": 310.5,
+                "y": 112.1875,
+                "width": 804,
+                "height": 96,
+                "fontSize": "96px",
+                "lineHeight": "96px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "从医疗过程到数学",
+                "x": 392.5,
+                "y": 553.453125,
+                "width": 722,
+                "height": 42.5,
+                "fontSize": "34px",
+                "lineHeight": "42.5px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "刻画医疗过程",
+                "x": 402.5,
+                "y": 705.09375,
+                "width": 712,
+                "height": 37,
+                "fontSize": "20px",
+                "lineHeight": "37px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "辅助临床诊疗",
+                "x": 402.5,
+                "y": 820.53125,
+                "width": 712,
+                "height": 37,
+                "fontSize": "20px",
+                "lineHeight": "37px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "形式化中医理论",
+                "x": 402.5,
+                "y": 935.96875,
+                "width": 712,
+                "height": 37,
+                "fontSize": "20px",
+                "lineHeight": "37px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "范畴论与 AI 基础理论",
+                "x": 392.5,
+                "y": 1289.53125,
+                "width": 722,
+                "height": 42.5,
+                "fontSize": "34px",
+                "lineHeight": "42.5px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "代表工作",
+                "x": 392.5,
+                "y": 1824.71875,
+                "width": 722,
+                "height": 42.5,
+                "fontSize": "34px",
+                "lineHeight": "42.5px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "On the power of foundation models",
+                "x": 310.5,
+                "y": 1969.65625,
+                "width": 804,
+                "height": 37,
+                "fontSize": "20px",
+                "lineHeight": "37px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Contrastive learning is spectral clustering on similarity graph",
+                "x": 310.5,
+                "y": 2075.84375,
+                "width": 804,
+                "height": 37,
+                "fontSize": "20px",
+                "lineHeight": "37px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Trade-off between efficiency and consistency for removal-based explanations",
+                "x": 310.5,
+                "y": 2182.03125,
+                "width": 804,
+                "height": 37,
+                "fontSize": "20px",
+                "lineHeight": "37px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "近期成果",
+                "x": 392.5,
+                "y": 2345.21875,
+                "width": 722,
+                "height": 42.5,
+                "fontSize": "34px",
+                "lineHeight": "42.5px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "招生与团队",
+                "x": 392.5,
+                "y": 2936.21875,
+                "width": 722,
+                "height": 42.5,
+                "fontSize": "34px",
+                "lineHeight": "42.5px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "经历与荣誉",
+                "x": 392.5,
+                "y": 3209.71875,
+                "width": 722,
+                "height": 42.5,
+                "fontSize": "34px",
+                "lineHeight": "42.5px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              }
+            ],
+            "controls": [
+              {
+                "id": "btn-copy-email",
+                "tag": "button",
+                "text": "复制邮箱",
+                "x": 529.796875,
+                "y": 365.515625,
+                "width": 82,
+                "height": 37.890625,
+                "fontSize": "14px",
+                "lineHeight": "25.9px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "研究路径",
+                "x": 310.5,
+                "y": 438.40625,
+                "width": 55.125,
+                "height": 27.046875,
+                "fontSize": "13px",
+                "lineHeight": "24.05px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "代表工作",
+                "x": 383.625,
+                "y": 438.40625,
+                "width": 55.125,
+                "height": 27.046875,
+                "fontSize": "13px",
+                "lineHeight": "24.05px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "近期成果",
+                "x": 456.75,
+                "y": 438.40625,
+                "width": 55.125,
+                "height": 27.046875,
+                "fontSize": "13px",
+                "lineHeight": "24.05px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "招生与团队",
+                "x": 529.875,
+                "y": 438.40625,
+                "width": 68.90625,
+                "height": 27.046875,
+                "fontSize": "13px",
+                "lineHeight": "24.05px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "经历",
+                "x": 616.78125,
+                "y": 438.40625,
+                "width": 27.5625,
+                "height": 27.046875,
+                "fontSize": "13px",
+                "lineHeight": "24.05px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "btn-quotes",
+                "tag": "button",
+                "text": "展开原典引文",
+                "x": 310.5,
+                "y": 1895.21875,
+                "width": 128,
+                "height": 43.4375,
+                "fontSize": "17px",
+                "lineHeight": "31.45px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "btn-recruit",
+                "tag": "button",
+                "text": "展开招生说明",
+                "x": 310.5,
+                "y": 3088.28125,
+                "width": 128,
+                "height": 43.4375,
+                "fontSize": "17px",
+                "lineHeight": "31.45px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              }
+            ],
+            "regions": [
+              {
+                "id": "top",
+                "tag": "header",
+                "text": "TSINGHUA IIIS · ASSOCIATE PROFESSOR\n \n 袁洋\n 清华大学交叉信息研究院副教授，研究智能医疗、AI 基础理论与应用范畴论，目标是以范畴论支撑新的医疗。\n 清华大学交叉信息研究院副教授 · 上海期智研究院 PI\n \n  邮箱 yuanyang@tsinghua.edu.cn\n  复制邮箱\n \n \n  研究路径代表工作近期成果",
+                "x": 282.5,
+                "y": 0,
+                "width": 860,
+                "height": 498.453125,
+                "fontSize": "17px",
+                "lineHeight": "31.45px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "nav",
+                "text": "研究路径代表工作近期成果招生与团队经历",
+                "x": 310.5,
+                "y": 438.40625,
+                "width": 804,
+                "height": 27.046875,
+                "fontSize": "13px",
+                "lineHeight": "24.05px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "main",
+                "tag": "main",
+                "text": "01\n   从医疗过程到数学\n  \n  我主要研究 AI+中医。具体来说，我希望从三个层面推进这件事。\n  \n   \n    1\n    \n     刻画医疗过程\n     记录并描绘医生在日常诊疗中与患者的交互、判断、推理和思考过程。\n    \n   \n   \n    2\n    \n     辅助临床诊疗\n     结合人工智能算法与医疗设备，分析患者信息",
+                "x": 282.5,
+                "y": 498.453125,
+                "width": 860,
+                "height": 3173.078125,
+                "fontSize": "17px",
+                "lineHeight": "31.45px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "path",
+                "tag": "section",
+                "text": "01\n   从医疗过程到数学\n  \n  我主要研究 AI+中医。具体来说，我希望从三个层面推进这件事。\n  \n   \n    1\n    \n     刻画医疗过程\n     记录并描绘医生在日常诊疗中与患者的交互、判断、推理和思考过程。\n    \n   \n   \n    2\n    \n     辅助临床诊疗\n     结合人工智能算法与医疗设备，分析患者信息",
+                "x": 310.5,
+                "y": 498.453125,
+                "width": 804,
+                "height": 736.078125,
+                "fontSize": "17px",
+                "lineHeight": "31.45px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "1\n    \n     刻画医疗过程\n     记录并描绘医生在日常诊疗中与患者的交互、判断、推理和思考过程。",
+                "x": 312.5,
+                "y": 685.09375,
+                "width": 802,
+                "height": 115.4375,
+                "fontSize": "17px",
+                "lineHeight": "31.45px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "2\n    \n     辅助临床诊疗\n     结合人工智能算法与医疗设备，分析患者信息，辅助医生辨证、开方。",
+                "x": 312.5,
+                "y": 800.53125,
+                "width": 802,
+                "height": 115.4375,
+                "fontSize": "17px",
+                "lineHeight": "31.45px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "3\n    \n     形式化中医理论\n     在实践过程中逐渐意识到，仅靠数据驱动是不够的。医疗知识需要自洽，辅助诊疗需要可解释性。为此，需要将医疗过程形式化为一种代数系统，也就是把中医变成一种数学。",
+                "x": 312.5,
+                "y": 915.96875,
+                "width": 802,
+                "height": 145.875,
+                "fontSize": "17px",
+                "lineHeight": "31.45px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "category",
+                "tag": "section",
+                "text": "02\n   范畴论与 AI 基础理论\n  \n  我因此对范畴论产生了浓厚的兴趣。范畴论不仅可以帮助我们分析和理解复杂系统，也可以为人工智能提供一种新的组织方式：刻画大模型的能力边界，设计新的算法，并将许多局部能力组合成可验证、可扩展的大规模系统。\n  具体来说，我们正在尝试使用拓扑斯理论来构建软件生成系统和数学自动证明系统。我认为，随着模型能力不断提升，未来",
+                "x": 310.5,
+                "y": 1234.53125,
+                "width": 804,
+                "height": 535.1875,
+                "fontSize": "17px",
+                "lineHeight": "31.45px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "“如何把复杂任务拆解成许多简单任务，分别解决之后，再将它们组织成完整的复杂系统。”",
+                "x": 310.5,
+                "y": 1597.34375,
+                "width": 720,
+                "height": 119.375,
+                "fontSize": "21px",
+                "lineHeight": "35.7px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "works",
+                "tag": "section",
+                "text": "03\n   代表工作\n  \n  \n   展开原典引文\n  \n  \n   \n    《孟子·告子下》：有诸内，必形诸外。 \n    \n     《黄帝内经·灵枢·外揣》：司外揣内，司内揣外。\n   \n   \n    Contrastive learning is spectral clustering on similarity graph：AI 范畴论的一维",
+                "x": 310.5,
+                "y": 1769.71875,
+                "width": 804,
+                "height": 520.5,
+                "fontSize": "17px",
+                "lineHeight": "31.45px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "recent",
+                "tag": "section",
+                "text": "04\n   近期成果\n  \n  \n   张量积注意力（TPA）姚期智、袁洋团队与 UCLA 顾全全团队合作，提出 TPA 注意力架构，改进 Deepseek V3 的 MLA；使低秩分解能与位置编码 RoPE 融合，并加快推理。NeurIPS 2025。\n   AutoDS 数学数据选择针对数学文本的零样本生成分类器自主数据选择方法，在相同条件下相较基线取得",
+                "x": 310.5,
+                "y": 2290.21875,
+                "width": 804,
+                "height": 591,
+                "fontSize": "17px",
+                "lineHeight": "31.45px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "join",
+                "tag": "section",
+                "text": "05\n   招生与团队\n  \n  由于在学校培养 AI 中医方向的人才极为困难，我目前主要招收对 AI 数学、软件生成、大规模复杂系统构建感兴趣的学生。此外，我也在组建一支全职工程团队，方向聚焦于 AI 数学。\n  展开招生说明\n  \n   学生方向：AI 数学、软件生成、大规模复杂系统构建。\n   全职工程团队：方向聚焦于 AI 数学。\n   如果你对上述",
+                "x": 310.5,
+                "y": 2881.21875,
+                "width": 804,
+                "height": 273.5,
+                "fontSize": "17px",
+                "lineHeight": "31.45px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "bio",
+                "tag": "section",
+                "text": "06\n   经历与荣誉\n  \n  我博士毕业于美国康奈尔大学，师从 Robert Kleinberg 教授。博士毕业之后，我在 MIT 大数据基础研究院（MIFODS）做了一年博士后研究员。我本科毕业于北京大学，出生于常州。\n  现任清华大学交叉信息研究院副教授、院长助理，上海期智研究院 PI。\n  \n   \n    \n     荣誉\n    \n    \n ",
+                "x": 310.5,
+                "y": 3154.71875,
+                "width": 804,
+                "height": 428.8125,
+                "fontSize": "17px",
+                "lineHeight": "31.45px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              }
+            ],
+            "visualProfile": {
+              "backgrounds": [
+                "rgb(245, 241, 232)"
+              ],
+              "fonts": [
+                "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif"
+              ],
+              "headingSizes": [
+                96,
+                34,
+                20
+              ],
+              "regions": [
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.6
+                },
+                {
+                  "display": "flex",
+                  "columns": 5,
+                  "widthRatio": 0.56
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.6
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.56
+                }
+              ]
+            }
+          },
+          {
+            "width": 390,
+            "height": 844,
+            "scrollWidth": 375,
+            "scrollHeight": 4680,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "",
+                "tag": "h1",
+                "text": "袁洋",
+                "x": 20,
+                "y": 84.1875,
+                "width": 335,
+                "height": 52,
+                "fontSize": "52px",
+                "lineHeight": "52px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "从医疗过程到数学",
+                "x": 76,
+                "y": 511.59375,
+                "width": 279,
+                "height": 30,
+                "fontSize": "24px",
+                "lineHeight": "30px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "刻画医疗过程",
+                "x": 84,
+                "y": 685.875,
+                "width": 271,
+                "height": 37,
+                "fontSize": "20px",
+                "lineHeight": "37px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "辅助临床诊疗",
+                "x": 84,
+                "y": 829.0625,
+                "width": 271,
+                "height": 37,
+                "fontSize": "20px",
+                "lineHeight": "37px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "形式化中医理论",
+                "x": 84,
+                "y": 972.25,
+                "width": 271,
+                "height": 37,
+                "fontSize": "20px",
+                "lineHeight": "37px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "范畴论与 AI 基础理论",
+                "x": 76,
+                "y": 1480.5,
+                "width": 279,
+                "height": 30,
+                "fontSize": "24px",
+                "lineHeight": "30px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "代表工作",
+                "x": 76,
+                "y": 2150.40625,
+                "width": 279,
+                "height": 30,
+                "fontSize": "24px",
+                "lineHeight": "30px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "On the power of foundation models",
+                "x": 20,
+                "y": 2281,
+                "width": 335,
+                "height": 74,
+                "fontSize": "20px",
+                "lineHeight": "37px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Contrastive learning is spectral clustering on similarity graph",
+                "x": 20,
+                "y": 2424.1875,
+                "width": 335,
+                "height": 74,
+                "fontSize": "20px",
+                "lineHeight": "37px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Trade-off between efficiency and consistency for removal-based explanations",
+                "x": 20,
+                "y": 2589.5625,
+                "width": 335,
+                "height": 111,
+                "fontSize": "20px",
+                "lineHeight": "37px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "近期成果",
+                "x": 76,
+                "y": 2851.9375,
+                "width": 279,
+                "height": 30,
+                "fontSize": "24px",
+                "lineHeight": "30px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "招生与团队",
+                "x": 76,
+                "y": 3720.15625,
+                "width": 279,
+                "height": 30,
+                "fontSize": "24px",
+                "lineHeight": "30px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "经历与荣誉",
+                "x": 76,
+                "y": 4036.71875,
+                "width": 279,
+                "height": 30,
+                "fontSize": "24px",
+                "lineHeight": "30px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              }
+            ],
+            "controls": [
+              {
+                "id": "btn-copy-email",
+                "tag": "button",
+                "text": "复制邮箱",
+                "x": 235.296875,
+                "y": 328.65625,
+                "width": 82,
+                "height": 37.890625,
+                "fontSize": "14px",
+                "lineHeight": "25.9px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "研究路径",
+                "x": 20,
+                "y": 401.546875,
+                "width": 55.125,
+                "height": 27.046875,
+                "fontSize": "13px",
+                "lineHeight": "24.05px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "代表工作",
+                "x": 89.125,
+                "y": 401.546875,
+                "width": 55.125,
+                "height": 27.046875,
+                "fontSize": "13px",
+                "lineHeight": "24.05px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "近期成果",
+                "x": 158.25,
+                "y": 401.546875,
+                "width": 55.125,
+                "height": 27.046875,
+                "fontSize": "13px",
+                "lineHeight": "24.05px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "招生与团队",
+                "x": 227.375,
+                "y": 401.546875,
+                "width": 68.90625,
+                "height": 27.046875,
+                "fontSize": "13px",
+                "lineHeight": "24.05px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "经历",
+                "x": 310.28125,
+                "y": 401.546875,
+                "width": 27.5625,
+                "height": 27.046875,
+                "fontSize": "13px",
+                "lineHeight": "24.05px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "btn-quotes",
+                "tag": "button",
+                "text": "展开原典引文",
+                "x": 20,
+                "y": 2208.40625,
+                "width": 122,
+                "height": 41.59375,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "btn-recruit",
+                "tag": "button",
+                "text": "展开招生说明",
+                "x": 20,
+                "y": 3914.125,
+                "width": 122,
+                "height": 41.59375,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              }
+            ],
+            "regions": [
+              {
+                "id": "top",
+                "tag": "header",
+                "text": "TSINGHUA IIIS · ASSOCIATE PROFESSOR\n \n 袁洋\n 清华大学交叉信息研究院副教授，研究智能医疗、AI 基础理论与应用范畴论，目标是以范畴论支撑新的医疗。\n 清华大学交叉信息研究院副教授 · 上海期智研究院 PI\n \n  邮箱 yuanyang@tsinghua.edu.cn\n  复制邮箱\n \n \n  研究路径代表工作近期成果",
+                "x": 0,
+                "y": 0,
+                "width": 375,
+                "height": 453.59375,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "nav",
+                "text": "研究路径代表工作近期成果招生与团队经历",
+                "x": 20,
+                "y": 401.546875,
+                "width": 335,
+                "height": 27.046875,
+                "fontSize": "13px",
+                "lineHeight": "24.05px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "main",
+                "tag": "main",
+                "text": "01\n   从医疗过程到数学\n  \n  我主要研究 AI+中医。具体来说，我希望从三个层面推进这件事。\n  \n   \n    1\n    \n     刻画医疗过程\n     记录并描绘医生在日常诊疗中与患者的交互、判断、推理和思考过程。\n    \n   \n   \n    2\n    \n     辅助临床诊疗\n     结合人工智能算法与医疗设备，分析患者信息",
+                "x": 0,
+                "y": 453.59375,
+                "width": 375,
+                "height": 4226.21875,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "path",
+                "tag": "section",
+                "text": "01\n   从医疗过程到数学\n  \n  我主要研究 AI+中医。具体来说，我希望从三个层面推进这件事。\n  \n   \n    1\n    \n     刻画医疗过程\n     记录并描绘医生在日常诊疗中与患者的交互、判断、推理和思考过程。\n    \n   \n   \n    2\n    \n     辅助临床诊疗\n     结合人工智能算法与医疗设备，分析患者信息",
+                "x": 20,
+                "y": 453.59375,
+                "width": 335,
+                "height": 968.90625,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "1\n    \n     刻画医疗过程\n     记录并描绘医生在日常诊疗中与患者的交互、判断、推理和思考过程。",
+                "x": 22,
+                "y": 665.875,
+                "width": 333,
+                "height": 143.1875,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "2\n    \n     辅助临床诊疗\n     结合人工智能算法与医疗设备，分析患者信息，辅助医生辨证、开方。",
+                "x": 22,
+                "y": 809.0625,
+                "width": 333,
+                "height": 143.1875,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "3\n    \n     形式化中医理论\n     在实践过程中逐渐意识到，仅靠数据驱动是不够的。医疗知识需要自洽，辅助诊疗需要可解释性。为此，需要将医疗过程形式化为一种代数系统，也就是把中医变成一种数学。",
+                "x": 22,
+                "y": 952.25,
+                "width": 333,
+                "height": 230.96875,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "category",
+                "tag": "section",
+                "text": "02\n   范畴论与 AI 基础理论\n  \n  我因此对范畴论产生了浓厚的兴趣。范畴论不仅可以帮助我们分析和理解复杂系统，也可以为人工智能提供一种新的组织方式：刻画大模型的能力边界，设计新的算法，并将许多局部能力组合成可验证、可扩展的大规模系统。\n  具体来说，我们正在尝试使用拓扑斯理论来构建软件生成系统和数学自动证明系统。我认为，随着模型能力不断提升，未来",
+                "x": 20,
+                "y": 1422.5,
+                "width": 335,
+                "height": 669.90625,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "“如何把复杂任务拆解成许多简单任务，分别解决之后，再将它们组织成完整的复杂系统。”",
+                "x": 20,
+                "y": 1911.625,
+                "width": 335,
+                "height": 127.78125,
+                "fontSize": "18px",
+                "lineHeight": "30.6px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "works",
+                "tag": "section",
+                "text": "03\n   代表工作\n  \n  \n   展开原典引文\n  \n  \n   \n    《孟子·告子下》：有诸内，必形诸外。 \n    \n     《黄帝内经·灵枢·外揣》：司外揣内，司内揣外。\n   \n   \n    Contrastive learning is spectral clustering on similarity graph：AI 范畴论的一维",
+                "x": 20,
+                "y": 2092.40625,
+                "width": 335,
+                "height": 701.53125,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "recent",
+                "tag": "section",
+                "text": "04\n   近期成果\n  \n  \n   张量积注意力（TPA）姚期智、袁洋团队与 UCLA 顾全全团队合作，提出 TPA 注意力架构，改进 Deepseek V3 的 MLA；使低秩分解能与位置编码 RoPE 融合，并加快推理。NeurIPS 2025。\n   AutoDS 数学数据选择针对数学文本的零样本生成分类器自主数据选择方法，在相同条件下相较基线取得",
+                "x": 20,
+                "y": 2793.9375,
+                "width": 335,
+                "height": 868.21875,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "join",
+                "tag": "section",
+                "text": "05\n   招生与团队\n  \n  由于在学校培养 AI 中医方向的人才极为困难，我目前主要招收对 AI 数学、软件生成、大规模复杂系统构建感兴趣的学生。此外，我也在组建一支全职工程团队，方向聚焦于 AI 数学。\n  展开招生说明\n  \n   学生方向：AI 数学、软件生成、大规模复杂系统构建。\n   全职工程团队：方向聚焦于 AI 数学。\n   如果你对上述",
+                "x": 20,
+                "y": 3662.15625,
+                "width": 335,
+                "height": 316.5625,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "bio",
+                "tag": "section",
+                "text": "06\n   经历与荣誉\n  \n  我博士毕业于美国康奈尔大学，师从 Robert Kleinberg 教授。博士毕业之后，我在 MIT 大数据基础研究院（MIFODS）做了一年博士后研究员。我本科毕业于北京大学，出生于常州。\n  现任清华大学交叉信息研究院副教授、院长助理，上海期智研究院 PI。\n  \n   \n    \n     荣誉\n    \n    \n ",
+                "x": 20,
+                "y": 3978.71875,
+                "width": 335,
+                "height": 641.09375,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif",
+                "horizontalScroll": null
+              }
+            ],
+            "visualProfile": {
+              "backgrounds": [
+                "rgb(245, 241, 232)"
+              ],
+              "fonts": [
+                "\"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", Georgia, serif"
+              ],
+              "headingSizes": [
+                52,
+                24,
+                20
+              ],
+              "regions": [
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.96
+                },
+                {
+                  "display": "flex",
+                  "columns": 5,
+                  "widthRatio": 0.86
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.96
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.86
+                }
+              ]
+            }
+          }
+        ],
+        "error": null
+      }
+    },
+    {
+      "name": "copy-new-standard",
+      "input": "kfc疯狂星期四文案合集站.com",
+      "mode": "imagination",
+      "effort": "standard",
+      "effortPolicy": "experimental-low",
+      "contentFocusOnly": true,
+      "draftPlanning": false,
+      "draftCharacters": 0,
+      "layoutExploration": true,
+      "designDirection": {
+        "concept": "文案副刊墙",
+        "structure": "采用多栏紧凑版面，把文案按场景或主题排成可扫读的短栏，栏间以细线和标签分隔；精选内容可占更宽栏位，搜索与分类作为页眉索引。",
+        "typography": "标题用宋体或仿宋建立副刊感，正文用较小字号宋体，标签用黑体小字；整体以阅读节奏和栏宽变化区分层级，而非大按钮。",
+        "contentReason": "“合集站”强调大量文案的浏览与比较，多栏副刊式组织适合按主题快速扫读，并让密集文本保持可读性。"
+      },
+      "proposedDirectionCount": 3,
+      "visualReferenceCount": 0,
+      "visualReferenceCharacters": 2,
+      "requestHash": "72eb7ab0d5c4ab6da441dc0abf7b7575da3a910aed14f30d32bcf4d158356660",
+      "actualEffortMatches": true,
+      "pageId": "b5fb4392-a122-4e90-a7cb-6c606d59b2c0",
+      "jobId": "ed11209f-c63b-4f83-83af-b843ca1b0498",
+      "guidance": "8-c1e0823385b34590f0bf7bd797de93208836a202c8c5d1055843268e0d7bb5bd",
+      "briefCharacters": 1033,
+      "earlyVisualPlanCharacters": 0,
+      "cssChangedByReview": false,
+      "seconds": 181,
+      "interrupted": false,
+      "usageComplete": false,
+      "error": null,
+      "initialGenerationAccepted": true,
+      "generationAttempts": [
+        {
+          "attempt": 1,
+          "outcome": "Accepted",
+          "errorCode": null,
+          "message": null,
+          "at": "2026-11-08T05:58:15.320614Z"
+        }
+      ],
+      "modelCalls": [
+        {
+          "usage": {
+            "prompt_tokens": 311,
+            "completion_tokens": 1038,
+            "total_tokens": 1349,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 536
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 311
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 8944,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "brief"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 1647,
+            "completion_tokens": 23429,
+            "total_tokens": 25076,
+            "prompt_tokens_details": {
+              "cached_tokens": 896
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 14360
+            },
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 751
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 106590,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "document"
+        },
+        {
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "review"
+        }
+      ],
+      "selection": "Original",
+      "events": [
+        {
+          "stage": "Brief",
+          "status": "Started",
+          "at": "2026-11-08T05:56:19.730973400Z",
+          "message": null
+        },
+        {
+          "stage": "Brief",
+          "status": "Completed",
+          "at": "2026-11-08T05:56:28.678233900Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Started",
+          "at": "2026-11-08T05:58:15.325615900Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Completed",
+          "at": "2026-11-08T05:58:21.448767500Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Started",
+          "at": "2026-11-08T05:58:21.456780900Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Failed",
+          "at": "2026-11-08T05:59:21.484826600Z",
+          "message": "60 seconds"
+        },
+        {
+          "stage": "Selection",
+          "status": "Completed",
+          "at": "2026-11-08T05:59:21.490831200Z",
+          "message": "采用已校验原页面"
+        }
+      ],
+      "researchReused": false,
+      "siteStyle": {
+        "brand": "疯狂星期四文案副刊：把网络热梗整理成可翻阅、可复制的报纸副刊。",
+        "typography": "标题用宋体/仿宋建立副刊感，正文宋体，标签与工具使用黑体小字。",
+        "palette": "米白纸色、墨黑正文、暗红点缀、灰绿反馈与分隔线。",
+        "layout": "报头索引 + 精选与侧栏双栏 + 全部文案多栏网格，窄屏转为单栏。"
+      },
+      "actions": [
+        {
+          "id": "search-site",
+          "kind": "Search",
+          "elementId": "site-search",
+          "target": null,
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "filter-copy-action",
+          "kind": "Filter",
+          "elementId": "filter-copy",
+          "target": null,
+          "region": "copy-grid",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "sort-title-asc",
+          "kind": "Sort",
+          "elementId": "sort-asc",
+          "target": null,
+          "region": "copy-grid",
+          "stateKey": null,
+          "value": "asc",
+          "field": "title"
+        },
+        {
+          "id": "sort-title-desc",
+          "kind": "Sort",
+          "elementId": "sort-desc",
+          "target": null,
+          "region": "copy-grid",
+          "stateKey": null,
+          "value": "desc",
+          "field": "title"
+        },
+        {
+          "id": "toggle-about",
+          "kind": "Toggle",
+          "elementId": "about-toggle",
+          "target": null,
+          "region": "about-panel",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-copy-feature",
+          "kind": "Copy",
+          "elementId": "copy-feature-btn",
+          "target": null,
+          "region": "text-feature",
+          "stateKey": "copyFeature",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-copy-2",
+          "kind": "Copy",
+          "elementId": "copy-2-btn",
+          "target": null,
+          "region": "text-2",
+          "stateKey": "copy2",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-copy-3",
+          "kind": "Copy",
+          "elementId": "copy-3-btn",
+          "target": null,
+          "region": "text-3",
+          "stateKey": "copy3",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-copy-4",
+          "kind": "Copy",
+          "elementId": "copy-4-btn",
+          "target": null,
+          "region": "text-4",
+          "stateKey": "copy4",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-copy-5",
+          "kind": "Copy",
+          "elementId": "copy-5-btn",
+          "target": null,
+          "region": "text-5",
+          "stateKey": "copy5",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-copy-6",
+          "kind": "Copy",
+          "elementId": "copy-6-btn",
+          "target": null,
+          "region": "text-6",
+          "stateKey": "copy6",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-copy-7",
+          "kind": "Copy",
+          "elementId": "copy-7-btn",
+          "target": null,
+          "region": "text-7",
+          "stateKey": "copy7",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-copy-8",
+          "kind": "Copy",
+          "elementId": "copy-8-btn",
+          "target": null,
+          "region": "text-8",
+          "stateKey": "copy8",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-copy-usage",
+          "kind": "Copy",
+          "elementId": "copy-usage-btn",
+          "target": null,
+          "region": "usage-text",
+          "stateKey": "copyUsage",
+          "value": null,
+          "field": null
+        }
+      ],
+      "layout": {
+        "viewports": [
+          {
+            "width": 1440,
+            "height": 900,
+            "scrollWidth": 1425,
+            "scrollHeight": 1918,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "",
+                "tag": "h1",
+                "text": "疯狂星期四\n   文案副刊",
+                "x": 144.5,
+                "y": 54.84375,
+                "width": 1136,
+                "height": 143.625,
+                "fontSize": "70.4px",
+                "lineHeight": "71.808px",
+                "fontFamily": "FangSong, STFangsong, SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "周四的 KPI 是快乐",
+                "x": 144.5,
+                "y": 500.71875,
+                "width": 716.859375,
+                "height": 45.3125,
+                "fontSize": "38.4px",
+                "lineHeight": "45.312px",
+                "fontFamily": "FangSong, STFangsong, SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "编辑桌边",
+                "x": 887.359375,
+                "y": 445.03125,
+                "width": 393.125,
+                "height": 19.828125,
+                "fontSize": "12.8px",
+                "lineHeight": "19.84px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "热门索引",
+                "x": 887.359375,
+                "y": 581.84375,
+                "width": 393.125,
+                "height": 19.828125,
+                "fontSize": "12.8px",
+                "lineHeight": "19.84px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "时效提示",
+                "x": 896.359375,
+                "y": 737.65625,
+                "width": 375.125,
+                "height": 19.828125,
+                "fontSize": "12.8px",
+                "lineHeight": "19.84px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "全部文案",
+                "x": 144.5,
+                "y": 892.984375,
+                "width": 118.65625,
+                "height": 44.625,
+                "fontSize": "28.8px",
+                "lineHeight": "44.64px",
+                "fontFamily": "FangSong, STFangsong, SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "在等一句 V我50",
+                "x": 155.5,
+                "y": 1007.796875,
+                "width": 357.328125,
+                "height": 22.453125,
+                "fontSize": "17.28px",
+                "lineHeight": "22.464px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "食堂与疯四之间",
+                "x": 533.828125,
+                "y": 1007.796875,
+                "width": 357.328125,
+                "height": 22.453125,
+                "fontSize": "17.28px",
+                "lineHeight": "22.464px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "群公告：请保持安静",
+                "x": 912.15625,
+                "y": 1007.796875,
+                "width": 357.328125,
+                "height": 22.453125,
+                "fontSize": "17.28px",
+                "lineHeight": "22.464px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "我的财运在周四",
+                "x": 155.5,
+                "y": 1191.90625,
+                "width": 357.328125,
+                "height": 22.453125,
+                "fontSize": "17.28px",
+                "lineHeight": "22.464px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "最后一局",
+                "x": 533.828125,
+                "y": 1191.90625,
+                "width": 357.328125,
+                "height": 22.453125,
+                "fontSize": "17.28px",
+                "lineHeight": "22.464px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "三点半的会议",
+                "x": 912.15625,
+                "y": 1191.90625,
+                "width": 357.328125,
+                "height": 22.453125,
+                "fontSize": "17.28px",
+                "lineHeight": "22.464px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "疯狂星期四文学",
+                "x": 155.5,
+                "y": 1376.015625,
+                "width": 357.328125,
+                "height": 22.453125,
+                "fontSize": "17.28px",
+                "lineHeight": "22.464px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "先复制，再发群",
+                "x": 144.5,
+                "y": 1596.125,
+                "width": 1135.984375,
+                "height": 44.625,
+                "fontSize": "28.8px",
+                "lineHeight": "44.64px",
+                "fontFamily": "FangSong, STFangsong, SimSun, serif",
+                "horizontalScroll": null
+              }
+            ],
+            "controls": [
+              {
+                "id": "q",
+                "tag": "input",
+                "text": "",
+                "x": 203.703125,
+                "y": 317.890625,
+                "width": 999.421875,
+                "height": 38.796875,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "button",
+                "text": "搜文案",
+                "x": 1211.125,
+                "y": 320.109375,
+                "width": 69.375,
+                "height": 34.34375,
+                "fontSize": "13.12px",
+                "lineHeight": "20.336px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "本周精选",
+                "x": 144.5,
+                "y": 378.6875,
+                "width": 52.484375,
+                "height": 22.34375,
+                "fontSize": "13.12px",
+                "lineHeight": "20.336px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "全部文案",
+                "x": 212.984375,
+                "y": 378.6875,
+                "width": 52.484375,
+                "height": 22.34375,
+                "fontSize": "13.12px",
+                "lineHeight": "20.336px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "转发示例",
+                "x": 281.46875,
+                "y": 378.6875,
+                "width": 52.484375,
+                "height": 22.34375,
+                "fontSize": "13.12px",
+                "lineHeight": "20.336px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "来源说明",
+                "x": 349.953125,
+                "y": 378.6875,
+                "width": 52.484375,
+                "height": 22.34375,
+                "fontSize": "13.12px",
+                "lineHeight": "20.336px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-feature-btn",
+                "tag": "button",
+                "text": "复制这条",
+                "x": 144.5,
+                "y": 653.96875,
+                "width": 71.921875,
+                "height": 27.34375,
+                "fontSize": "12.48px",
+                "lineHeight": "19.344px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "群公告：请保持安静",
+                "x": 887.359375,
+                "y": 613.671875,
+                "width": 126,
+                "height": 22.328125,
+                "fontSize": "14.4px",
+                "lineHeight": "22.32px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "疯狂星期四文学",
+                "x": 887.359375,
+                "y": 647,
+                "width": 98,
+                "height": 22.328125,
+                "fontSize": "14.4px",
+                "lineHeight": "22.32px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "在等一句 V我50",
+                "x": 887.359375,
+                "y": 680.328125,
+                "width": 98,
+                "height": 22.328125,
+                "fontSize": "14.4px",
+                "lineHeight": "22.32px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "filter-copy",
+                "tag": "input",
+                "text": "",
+                "x": 986.9375,
+                "y": 907.265625,
+                "width": 150,
+                "height": 30.34375,
+                "fontSize": "13.12px",
+                "lineHeight": "20.336px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "sort-asc",
+                "tag": "button",
+                "text": "标题 ↑",
+                "x": 1175.265625,
+                "y": 909.265625,
+                "width": 49.109375,
+                "height": 26.34375,
+                "fontSize": "11.84px",
+                "lineHeight": "18.352px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "sort-desc",
+                "tag": "button",
+                "text": "标题 ↓",
+                "x": 1231.375,
+                "y": 909.265625,
+                "width": 49.109375,
+                "height": 26.34375,
+                "fontSize": "11.84px",
+                "lineHeight": "18.352px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-2-btn",
+                "tag": "button",
+                "text": "复制",
+                "x": 155.5,
+                "y": 1116.71875,
+                "width": 46.96875,
+                "height": 27.34375,
+                "fontSize": "12.48px",
+                "lineHeight": "19.344px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-3-btn",
+                "tag": "button",
+                "text": "复制",
+                "x": 533.828125,
+                "y": 1116.71875,
+                "width": 46.96875,
+                "height": 27.34375,
+                "fontSize": "12.48px",
+                "lineHeight": "19.344px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-4-btn",
+                "tag": "button",
+                "text": "复制",
+                "x": 912.15625,
+                "y": 1116.71875,
+                "width": 46.96875,
+                "height": 27.34375,
+                "fontSize": "12.48px",
+                "lineHeight": "19.344px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-5-btn",
+                "tag": "button",
+                "text": "复制",
+                "x": 155.5,
+                "y": 1300.828125,
+                "width": 46.96875,
+                "height": 27.34375,
+                "fontSize": "12.48px",
+                "lineHeight": "19.344px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-6-btn",
+                "tag": "button",
+                "text": "复制",
+                "x": 533.828125,
+                "y": 1300.828125,
+                "width": 46.96875,
+                "height": 27.34375,
+                "fontSize": "12.48px",
+                "lineHeight": "19.344px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-7-btn",
+                "tag": "button",
+                "text": "复制",
+                "x": 912.15625,
+                "y": 1300.828125,
+                "width": 46.96875,
+                "height": 27.34375,
+                "fontSize": "12.48px",
+                "lineHeight": "19.344px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-8-btn",
+                "tag": "button",
+                "text": "复制",
+                "x": 155.5,
+                "y": 1484.9375,
+                "width": 46.96875,
+                "height": 27.34375,
+                "fontSize": "12.48px",
+                "lineHeight": "19.344px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-usage-btn",
+                "tag": "button",
+                "text": "复制示例",
+                "x": 144.5,
+                "y": 1703.84375,
+                "width": 71.921875,
+                "height": 27.34375,
+                "fontSize": "12.48px",
+                "lineHeight": "19.344px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "about-toggle",
+                "tag": "button",
+                "text": "来源与免责声明",
+                "x": 144.5,
+                "y": 1801.53125,
+                "width": 89.609375,
+                "height": 19.828125,
+                "fontSize": "12.8px",
+                "lineHeight": "19.84px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "regions": [
+              {
+                "id": "",
+                "tag": "header",
+                "text": "疯狂星期四文案副刊 · 第 46 期2026 年 11 月 7 日 星期六\n \n 疯狂星期四\n   文案副刊\n 把“V我50”写成短句、段子和群公告。按场景翻阅，选中即可复制；不保证原味鸡准时出现，只保证句子够用。\n 下一个星期四：11 月 12 日，还剩 5 天。今天先存稿，周四再发。\n \n  站内搜索\n  搜文案\n \n \n  本周精选全部文案转发示例来源",
+                "x": 122.5,
+                "y": 0,
+                "width": 1180,
+                "height": 414.03125,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "nav",
+                "text": "本周精选全部文案转发示例来源说明",
+                "x": 144.5,
+                "y": 371.6875,
+                "width": 1136,
+                "height": 42.34375,
+                "fontSize": "13.12px",
+                "lineHeight": "20.336px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "main",
+                "text": "本周精选 / 职场版\n  \n  \n   \n    职场版01\n   \n   周四的 KPI 是快乐\n   打工人小陶2026-11-05回复 18\n   今天不聊转化率，只聊原味鸡。V我50，我把周报最后一行改成：本周最大风险是香辣脆皮不够分。\n   \n    复制这条\n   \n  \n \n \n  \n   编辑桌边\n   这里不卖炸鸡，只整理能发在群里的句子。",
+                "x": 122.5,
+                "y": 414.03125,
+                "width": 1180,
+                "height": 1431.296875,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "featured",
+                "tag": "section",
+                "text": "本周精选 / 职场版\n  \n  \n   \n    职场版01\n   \n   周四的 KPI 是快乐\n   打工人小陶2026-11-05回复 18\n   今天不聊转化率，只聊原味鸡。V我50，我把周报最后一行改成：本周最大风险是香辣脆皮不够分。\n   \n    复制这条",
+                "x": 144.5,
+                "y": 436.03125,
+                "width": 716.859375,
+                "height": 390.109375,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "职场版01\n   \n   周四的 KPI 是快乐\n   打工人小陶2026-11-05回复 18\n   今天不聊转化率，只聊原味鸡。V我50，我把周报最后一行改成：本周最大风险是香辣脆皮不够分。\n   \n    复制这条",
+                "x": 144.5,
+                "y": 459.875,
+                "width": 716.859375,
+                "height": 221.4375,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "编辑桌边\n   这里不卖炸鸡，只整理能发在群里的句子。短句优先，长段也有；先看场景，再复制。\n   投稿请写成可以直接转发的样子，并注明想署的名字。\n  \n  \n   热门索引\n   \n    群公告：请保持安静31\n    疯狂星期四文学22\n    在等一句 V我5012\n   \n  \n  \n   时效提示\n   疯狂星期四每周四出现。今天不是星期四，但",
+                "x": 887.359375,
+                "y": 436.03125,
+                "width": 393.125,
+                "height": 390.109375,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "编辑桌边\n   这里不卖炸鸡，只整理能发在群里的句子。短句优先，长段也有；先看场景，再复制。\n   投稿请写成可以直接转发的样子，并注明想署的名字。",
+                "x": 887.359375,
+                "y": 436.03125,
+                "width": 393.125,
+                "height": 118.8125,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "热门索引\n   \n    群公告：请保持安静31\n    疯狂星期四文学22\n    在等一句 V我5012",
+                "x": 887.359375,
+                "y": 572.84375,
+                "width": 393.125,
+                "height": 135.8125,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "时效提示\n   疯狂星期四每周四出现。今天不是星期四，但文案可以先存；周四 00:00 之后发，比较像真的。",
+                "x": 887.359375,
+                "y": 726.65625,
+                "width": 393.125,
+                "height": 99.484375,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "all-copy",
+                "tag": "section",
+                "text": "按场景翻阅\n    \n    全部文案\n   \n   \n    筛选排序\n    标题 ↑\n    标题 ↓\n   \n  \n  在框内输入“职场”“恋爱”“群聊”等词，下面的文案会即时筛选；清空即可恢复全部。\n  \n   \n    \n     恋爱版02\n    \n    在等一句 V我50\n    恋爱脑观察员2026-11-06回复 12\n    恋爱可",
+                "x": 144.5,
+                "y": 856.140625,
+                "width": 1135.984375,
+                "height": 667.140625,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-2",
+                "tag": "article",
+                "text": "恋爱版02\n    \n    在等一句 V我50\n    恋爱脑观察员2026-11-06回复 12\n    恋爱可以慢慢谈，炸鸡要趁热。你的一句‘在吗’我可能晚点回，但‘V我50’我秒回。\n    \n     复制",
+                "x": 145.5,
+                "y": 970.953125,
+                "width": 378.328125,
+                "height": 184.109375,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-3",
+                "tag": "article",
+                "text": "学生版03\n    \n    食堂与疯四之间\n    晚自习小组2026-11-04回复 9\n    早八让我失去灵魂，疯四让我重新长出血肉。V我50，今日课堂重点：鸡块蘸酱的黄金比例。\n    \n     复制",
+                "x": 523.828125,
+                "y": 970.953125,
+                "width": 378.328125,
+                "height": 184.109375,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-4",
+                "tag": "article",
+                "text": "群聊版04\n    \n    群公告：请保持安静\n    群管理员阿群2026-11-06回复 31\n    本群今日禁止发‘收到’，只允许发‘V我50’。收到请扣1，不收到请扣鸡腿。\n    \n     复制",
+                "x": 902.15625,
+                "y": 970.953125,
+                "width": 378.328125,
+                "height": 184.109375,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-5",
+                "tag": "article",
+                "text": "自嘲版05\n    \n    我的财运在周四\n    本月赤字选手2026-11-03回复 7\n    周一：省钱。周二：省钱。周三：省钱。周四：V我50，让我看看钱长什么样，最好带点脆皮。\n    \n     复制",
+                "x": 145.5,
+                "y": 1155.0625,
+                "width": 378.328125,
+                "height": 184.109375,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-6",
+                "tag": "article",
+                "text": "游戏版06\n    \n    最后一局\n    凌晨四点半2026-11-02回复 14\n    再赢一局就睡，再输一局就V我50。不是炸鸡吃不起，是今晚的排位更有性价比。\n    \n     复制",
+                "x": 523.828125,
+                "y": 1155.0625,
+                "width": 378.328125,
+                "height": 184.109375,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-7",
+                "tag": "article",
+                "text": "下午茶版07\n    \n    三点半的会议\n    会议室常驻2026-11-05回复 6\n    会议可以延迟，疯狂星期四不能。V我50，我把会议纪要写成：原味鸡两桶，可乐四杯，情绪稳定。\n    \n     复制",
+                "x": 902.15625,
+                "y": 1155.0625,
+                "width": 378.328125,
+                "height": 184.109375,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-8",
+                "tag": "article",
+                "text": "万能版08\n    \n    疯狂星期四文学\n    匿名投稿2026-11-01回复 22\n    我这个人没什么优点，就是周四特别容易被感动。你V我50，我能把感谢词写到下周四。\n    \n     复制",
+                "x": 145.5,
+                "y": 1339.171875,
+                "width": 378.328125,
+                "height": 184.109375,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "usage",
+                "tag": "section",
+                "text": "转发使用示例\n  \n  先复制，再发群\n  把这条复制到群里：V我50，今天星期四，原味鸡在等我。收到请回“1”，不回请回“鸡腿”。\n  \n   复制示例\n  \n  示例不含链接和二维码；在不同群里发，最好把称呼换成对方的名字。",
+                "x": 144.5,
+                "y": 1559.28125,
+                "width": 1135.984375,
+                "height": 198.25,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "about",
+                "tag": "section",
+                "text": "来源与免责声明\n  \n   本站为文案整理与展示页面，与肯德基官方无隶属关系。“疯狂星期四”“V我50”为网络流行表达，页面内容多为投稿式再创作。\n   文案可自行复制、修改、转发；涉及价格、门店活动与供应情况，请以官方渠道为准。不要把文案当作促销承诺。",
+                "x": 144.5,
+                "y": 1789.53125,
+                "width": 1135.984375,
+                "height": 33.796875,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "footer",
+                "text": "疯狂星期四文案副刊 · 2026.11.07 · 编辑：副刊编辑部\n 版面：多栏副刊墙 / 字体：宋体、仿宋、黑体小字 / 状态：可复制、可筛选、可排序",
+                "x": 122.5,
+                "y": 1845.328125,
+                "width": 1180,
+                "height": 72.6875,
+                "fontSize": "11.52px",
+                "lineHeight": "17.856px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "visualProfile": {
+              "backgrounds": [
+                "rgb(246, 240, 226)"
+              ],
+              "fonts": [
+                "\"Songti SC\", SimSun, serif",
+                "FangSong, STFangsong, SimSun, serif"
+              ],
+              "headingSizes": [
+                70.4,
+                38.4,
+                12.8
+              ],
+              "regions": [
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.82
+                },
+                {
+                  "display": "flex",
+                  "columns": 4,
+                  "widthRatio": 0.79
+                },
+                {
+                  "display": "grid",
+                  "columns": 2,
+                  "widthRatio": 0.82
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.5
+                }
+              ]
+            }
+          },
+          {
+            "width": 390,
+            "height": 844,
+            "scrollWidth": 375,
+            "scrollHeight": 3176,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "",
+                "tag": "h1",
+                "text": "疯狂星期四\n   文案副刊",
+                "x": 14,
+                "y": 53.125,
+                "width": 347,
+                "height": 68.53125,
+                "fontSize": "33.6px",
+                "lineHeight": "34.272px",
+                "fontFamily": "FangSong, STFangsong, SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "周四的 KPI 是快乐",
+                "x": 14,
+                "y": 497.359375,
+                "width": 347,
+                "height": 30.1875,
+                "fontSize": "25.6px",
+                "lineHeight": "30.208px",
+                "fontFamily": "FangSong, STFangsong, SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "编辑桌边",
+                "x": 14,
+                "y": 722.6875,
+                "width": 347,
+                "height": 19.828125,
+                "fontSize": "12.8px",
+                "lineHeight": "19.84px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "热门索引",
+                "x": 14,
+                "y": 857.5,
+                "width": 347,
+                "height": 19.828125,
+                "fontSize": "12.8px",
+                "lineHeight": "19.84px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "时效提示",
+                "x": 23,
+                "y": 1011.3125,
+                "width": 329,
+                "height": 19.828125,
+                "fontSize": "12.8px",
+                "lineHeight": "19.84px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "全部文案",
+                "x": 14,
+                "y": 1166.640625,
+                "width": 118.65625,
+                "height": 44.625,
+                "fontSize": "28.8px",
+                "lineHeight": "44.64px",
+                "fontFamily": "FangSong, STFangsong, SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "在等一句 V我50",
+                "x": 25,
+                "y": 1405.3125,
+                "width": 325,
+                "height": 22.453125,
+                "fontSize": "17.28px",
+                "lineHeight": "22.464px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "食堂与疯四之间",
+                "x": 25,
+                "y": 1589.421875,
+                "width": 325,
+                "height": 22.453125,
+                "fontSize": "17.28px",
+                "lineHeight": "22.464px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "群公告：请保持安静",
+                "x": 25,
+                "y": 1773.53125,
+                "width": 325,
+                "height": 22.453125,
+                "fontSize": "17.28px",
+                "lineHeight": "22.464px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "我的财运在周四",
+                "x": 25,
+                "y": 1957.640625,
+                "width": 325,
+                "height": 22.453125,
+                "fontSize": "17.28px",
+                "lineHeight": "22.464px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "最后一局",
+                "x": 25,
+                "y": 2141.75,
+                "width": 325,
+                "height": 22.453125,
+                "fontSize": "17.28px",
+                "lineHeight": "22.464px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "三点半的会议",
+                "x": 25,
+                "y": 2325.859375,
+                "width": 325,
+                "height": 22.453125,
+                "fontSize": "17.28px",
+                "lineHeight": "22.464px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "疯狂星期四文学",
+                "x": 25,
+                "y": 2535.28125,
+                "width": 325,
+                "height": 22.453125,
+                "fontSize": "17.28px",
+                "lineHeight": "22.464px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "先复制，再发群",
+                "x": 14,
+                "y": 2755.390625,
+                "width": 347,
+                "height": 44.625,
+                "fontSize": "28.8px",
+                "lineHeight": "44.64px",
+                "fontFamily": "FangSong, STFangsong, SimSun, serif",
+                "horizontalScroll": null
+              }
+            ],
+            "controls": [
+              {
+                "id": "q",
+                "tag": "input",
+                "text": "",
+                "x": 14,
+                "y": 314.53125,
+                "width": 269.625,
+                "height": 38.796875,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "button",
+                "text": "搜文案",
+                "x": 291.625,
+                "y": 316.75,
+                "width": 69.375,
+                "height": 34.34375,
+                "fontSize": "13.12px",
+                "lineHeight": "20.336px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "本周精选",
+                "x": 14,
+                "y": 375.328125,
+                "width": 52.484375,
+                "height": 22.34375,
+                "fontSize": "13.12px",
+                "lineHeight": "20.336px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "全部文案",
+                "x": 82.484375,
+                "y": 375.328125,
+                "width": 52.484375,
+                "height": 22.34375,
+                "fontSize": "13.12px",
+                "lineHeight": "20.336px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "转发示例",
+                "x": 150.96875,
+                "y": 375.328125,
+                "width": 52.484375,
+                "height": 22.34375,
+                "fontSize": "13.12px",
+                "lineHeight": "20.336px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "来源说明",
+                "x": 219.453125,
+                "y": 375.328125,
+                "width": 52.484375,
+                "height": 22.34375,
+                "fontSize": "13.12px",
+                "lineHeight": "20.336px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-feature-btn",
+                "tag": "button",
+                "text": "复制这条",
+                "x": 14,
+                "y": 660.34375,
+                "width": 71.921875,
+                "height": 27.34375,
+                "fontSize": "12.48px",
+                "lineHeight": "19.344px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "群公告：请保持安静",
+                "x": 14,
+                "y": 889.328125,
+                "width": 126,
+                "height": 22.328125,
+                "fontSize": "14.4px",
+                "lineHeight": "22.32px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "疯狂星期四文学",
+                "x": 14,
+                "y": 922.65625,
+                "width": 98,
+                "height": 22.328125,
+                "fontSize": "14.4px",
+                "lineHeight": "22.32px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "在等一句 V我50",
+                "x": 14,
+                "y": 955.984375,
+                "width": 98,
+                "height": 22.328125,
+                "fontSize": "14.4px",
+                "lineHeight": "22.32px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "filter-copy",
+                "tag": "input",
+                "text": "",
+                "x": 14,
+                "y": 1253.09375,
+                "width": 347,
+                "height": 30.34375,
+                "fontSize": "13.12px",
+                "lineHeight": "20.336px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "sort-asc",
+                "tag": "button",
+                "text": "标题 ↑",
+                "x": 45.328125,
+                "y": 1290.4375,
+                "width": 49.109375,
+                "height": 26.34375,
+                "fontSize": "11.84px",
+                "lineHeight": "18.352px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "sort-desc",
+                "tag": "button",
+                "text": "标题 ↓",
+                "x": 101.4375,
+                "y": 1290.4375,
+                "width": 49.109375,
+                "height": 26.34375,
+                "fontSize": "11.84px",
+                "lineHeight": "18.352px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-2-btn",
+                "tag": "button",
+                "text": "复制",
+                "x": 25,
+                "y": 1514.234375,
+                "width": 46.96875,
+                "height": 27.34375,
+                "fontSize": "12.48px",
+                "lineHeight": "19.344px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-3-btn",
+                "tag": "button",
+                "text": "复制",
+                "x": 25,
+                "y": 1698.34375,
+                "width": 46.96875,
+                "height": 27.34375,
+                "fontSize": "12.48px",
+                "lineHeight": "19.344px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-4-btn",
+                "tag": "button",
+                "text": "复制",
+                "x": 25,
+                "y": 1882.453125,
+                "width": 46.96875,
+                "height": 27.34375,
+                "fontSize": "12.48px",
+                "lineHeight": "19.344px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-5-btn",
+                "tag": "button",
+                "text": "复制",
+                "x": 25,
+                "y": 2066.5625,
+                "width": 46.96875,
+                "height": 27.34375,
+                "fontSize": "12.48px",
+                "lineHeight": "19.344px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-6-btn",
+                "tag": "button",
+                "text": "复制",
+                "x": 25,
+                "y": 2250.671875,
+                "width": 46.96875,
+                "height": 27.34375,
+                "fontSize": "12.48px",
+                "lineHeight": "19.344px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-7-btn",
+                "tag": "button",
+                "text": "复制",
+                "x": 25,
+                "y": 2460.09375,
+                "width": 46.96875,
+                "height": 27.34375,
+                "fontSize": "12.48px",
+                "lineHeight": "19.344px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-8-btn",
+                "tag": "button",
+                "text": "复制",
+                "x": 25,
+                "y": 2644.203125,
+                "width": 46.96875,
+                "height": 27.34375,
+                "fontSize": "12.48px",
+                "lineHeight": "19.344px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-usage-btn",
+                "tag": "button",
+                "text": "复制示例",
+                "x": 14,
+                "y": 2925.296875,
+                "width": 71.921875,
+                "height": 27.34375,
+                "fontSize": "12.48px",
+                "lineHeight": "19.344px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "about-toggle",
+                "tag": "button",
+                "text": "来源与免责声明",
+                "x": 14,
+                "y": 3041.328125,
+                "width": 89.609375,
+                "height": 19.828125,
+                "fontSize": "12.8px",
+                "lineHeight": "19.84px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "regions": [
+              {
+                "id": "",
+                "tag": "header",
+                "text": "疯狂星期四文案副刊 · 第 46 期2026 年 11 月 7 日 星期六\n \n 疯狂星期四\n   文案副刊\n 把“V我50”写成短句、段子和群公告。按场景翻阅，选中即可复制；不保证原味鸡准时出现，只保证句子够用。\n 下一个星期四：11 月 12 日，还剩 5 天。今天先存稿，周四再发。\n \n  站内搜索\n  搜文案\n \n \n  本周精选全部文案转发示例来源",
+                "x": 0,
+                "y": 0,
+                "width": 375,
+                "height": 410.671875,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "nav",
+                "text": "本周精选全部文案转发示例来源说明",
+                "x": 14,
+                "y": 368.328125,
+                "width": 347,
+                "height": 42.34375,
+                "fontSize": "13.12px",
+                "lineHeight": "20.336px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "main",
+                "text": "本周精选 / 职场版\n  \n  \n   \n    职场版01\n   \n   周四的 KPI 是快乐\n   打工人小陶2026-11-05回复 18\n   今天不聊转化率，只聊原味鸡。V我50，我把周报最后一行改成：本周最大风险是香辣脆皮不够分。\n   \n    复制这条\n   \n  \n \n \n  \n   编辑桌边\n   这里不卖炸鸡，只整理能发在群里的句子。",
+                "x": 0,
+                "y": 410.671875,
+                "width": 375,
+                "height": 2674.453125,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "featured",
+                "tag": "section",
+                "text": "本周精选 / 职场版\n  \n  \n   \n    职场版01\n   \n   周四的 KPI 是快乐\n   打工人小陶2026-11-05回复 18\n   今天不聊转化率，只聊原味鸡。V我50，我把周报最后一行改成：本周最大风险是香辣脆皮不够分。\n   \n    复制这条",
+                "x": 14,
+                "y": 432.671875,
+                "width": 347,
+                "height": 255.015625,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "职场版01\n   \n   周四的 KPI 是快乐\n   打工人小陶2026-11-05回复 18\n   今天不聊转化率，只聊原味鸡。V我50，我把周报最后一行改成：本周最大风险是香辣脆皮不够分。\n   \n    复制这条",
+                "x": 14,
+                "y": 456.515625,
+                "width": 347,
+                "height": 231.171875,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "编辑桌边\n   这里不卖炸鸡，只整理能发在群里的句子。短句优先，长段也有；先看场景，再复制。\n   投稿请写成可以直接转发的样子，并注明想署的名字。\n  \n  \n   热门索引\n   \n    群公告：请保持安静31\n    疯狂星期四文学22\n    在等一句 V我5012\n   \n  \n  \n   时效提示\n   疯狂星期四每周四出现。今天不是星期四，但",
+                "x": 14,
+                "y": 713.6875,
+                "width": 347,
+                "height": 386.109375,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "编辑桌边\n   这里不卖炸鸡，只整理能发在群里的句子。短句优先，长段也有；先看场景，再复制。\n   投稿请写成可以直接转发的样子，并注明想署的名字。",
+                "x": 14,
+                "y": 713.6875,
+                "width": 347,
+                "height": 118.8125,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "热门索引\n   \n    群公告：请保持安静31\n    疯狂星期四文学22\n    在等一句 V我5012",
+                "x": 14,
+                "y": 848.5,
+                "width": 347,
+                "height": 135.8125,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "时效提示\n   疯狂星期四每周四出现。今天不是星期四，但文案可以先存；周四 00:00 之后发，比较像真的。",
+                "x": 14,
+                "y": 1000.3125,
+                "width": 347,
+                "height": 99.484375,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "all-copy",
+                "tag": "section",
+                "text": "按场景翻阅\n    \n    全部文案\n   \n   \n    筛选排序\n    标题 ↑\n    标题 ↓\n   \n  \n  在框内输入“职场”“恋爱”“群聊”等词，下面的文案会即时筛选；清空即可恢复全部。\n  \n   \n    \n     恋爱版02\n    \n    在等一句 V我50\n    恋爱脑观察员2026-11-06回复 12\n    恋爱可",
+                "x": 14,
+                "y": 1129.796875,
+                "width": 347,
+                "height": 1552.75,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-2",
+                "tag": "article",
+                "text": "恋爱版02\n    \n    在等一句 V我50\n    恋爱脑观察员2026-11-06回复 12\n    恋爱可以慢慢谈，炸鸡要趁热。你的一句‘在吗’我可能晚点回，但‘V我50’我秒回。\n    \n     复制",
+                "x": 15,
+                "y": 1368.46875,
+                "width": 346,
+                "height": 184.109375,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-3",
+                "tag": "article",
+                "text": "学生版03\n    \n    食堂与疯四之间\n    晚自习小组2026-11-04回复 9\n    早八让我失去灵魂，疯四让我重新长出血肉。V我50，今日课堂重点：鸡块蘸酱的黄金比例。\n    \n     复制",
+                "x": 15,
+                "y": 1552.578125,
+                "width": 346,
+                "height": 184.109375,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-4",
+                "tag": "article",
+                "text": "群聊版04\n    \n    群公告：请保持安静\n    群管理员阿群2026-11-06回复 31\n    本群今日禁止发‘收到’，只允许发‘V我50’。收到请扣1，不收到请扣鸡腿。\n    \n     复制",
+                "x": 15,
+                "y": 1736.6875,
+                "width": 346,
+                "height": 184.109375,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-5",
+                "tag": "article",
+                "text": "自嘲版05\n    \n    我的财运在周四\n    本月赤字选手2026-11-03回复 7\n    周一：省钱。周二：省钱。周三：省钱。周四：V我50，让我看看钱长什么样，最好带点脆皮。\n    \n     复制",
+                "x": 15,
+                "y": 1920.796875,
+                "width": 346,
+                "height": 184.109375,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-6",
+                "tag": "article",
+                "text": "游戏版06\n    \n    最后一局\n    凌晨四点半2026-11-02回复 14\n    再赢一局就睡，再输一局就V我50。不是炸鸡吃不起，是今晚的排位更有性价比。\n    \n     复制",
+                "x": 15,
+                "y": 2104.90625,
+                "width": 346,
+                "height": 184.109375,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-7",
+                "tag": "article",
+                "text": "下午茶版07\n    \n    三点半的会议\n    会议室常驻2026-11-05回复 6\n    会议可以延迟，疯狂星期四不能。V我50，我把会议纪要写成：原味鸡两桶，可乐四杯，情绪稳定。\n    \n     复制",
+                "x": 15,
+                "y": 2289.015625,
+                "width": 346,
+                "height": 209.421875,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-8",
+                "tag": "article",
+                "text": "万能版08\n    \n    疯狂星期四文学\n    匿名投稿2026-11-01回复 22\n    我这个人没什么优点，就是周四特别容易被感动。你V我50，我能把感谢词写到下周四。\n    \n     复制",
+                "x": 15,
+                "y": 2498.4375,
+                "width": 346,
+                "height": 184.109375,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "usage",
+                "tag": "section",
+                "text": "转发使用示例\n  \n  先复制，再发群\n  把这条复制到群里：V我50，今天星期四，原味鸡在等我。收到请回“1”，不回请回“鸡腿”。\n  \n   复制示例\n  \n  示例不含链接和二维码；在不同群里发，最好把称呼换成对方的名字。",
+                "x": 14,
+                "y": 2718.546875,
+                "width": 347,
+                "height": 278.78125,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "about",
+                "tag": "section",
+                "text": "来源与免责声明\n  \n   本站为文案整理与展示页面，与肯德基官方无隶属关系。“疯狂星期四”“V我50”为网络流行表达，页面内容多为投稿式再创作。\n   文案可自行复制、修改、转发；涉及价格、门店活动与供应情况，请以官方渠道为准。不要把文案当作促销承诺。",
+                "x": 14,
+                "y": 3029.328125,
+                "width": 347,
+                "height": 33.796875,
+                "fontSize": "16px",
+                "lineHeight": "24.8px",
+                "fontFamily": "\"Songti SC\", SimSun, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "footer",
+                "text": "疯狂星期四文案副刊 · 2026.11.07 · 编辑：副刊编辑部\n 版面：多栏副刊墙 / 字体：宋体、仿宋、黑体小字 / 状态：可复制、可筛选、可排序",
+                "x": 0,
+                "y": 3085.125,
+                "width": 375,
+                "height": 90.53125,
+                "fontSize": "11.52px",
+                "lineHeight": "17.856px",
+                "fontFamily": "\"Heiti SC\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "visualProfile": {
+              "backgrounds": [
+                "rgb(246, 240, 226)"
+              ],
+              "fonts": [
+                "\"Songti SC\", SimSun, serif",
+                "FangSong, STFangsong, SimSun, serif"
+              ],
+              "headingSizes": [
+                33.6,
+                25.6,
+                12.8
+              ],
+              "regions": [
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.96
+                },
+                {
+                  "display": "flex",
+                  "columns": 4,
+                  "widthRatio": 0.89
+                },
+                {
+                  "display": "grid",
+                  "columns": 1,
+                  "widthRatio": 0.96
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.89
+                }
+              ]
+            }
+          }
+        ],
+        "error": null
+      }
+    }
+  ]
+}

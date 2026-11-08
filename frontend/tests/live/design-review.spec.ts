@@ -236,6 +236,7 @@ test("replay real design documents through the browser runtime without model req
         (a: { kind: string }) => a.kind === "Sort",
       );
       let sortVerified = false;
+      let sortLocale: string | null = null;
       if (sort) {
         const control = frame.locator(`[id=${JSON.stringify(sort.elementId)}]`);
         const region = frame.locator(`[id=${JSON.stringify(sort.region)}]`);
@@ -274,6 +275,23 @@ test("replay real design documents through the browser runtime without model req
               `Sort options ${options.join(",")} do not match the declared single-field direction contract; sorting not verified.`,
             );
           } else {
+            // The Windows Node process and Chromium may use different default collations.
+            const expected = await page.evaluate(
+              ({ values, direction }) => {
+                const collator = new Intl.Collator(undefined, {
+                  numeric: true,
+                });
+                return {
+                  locale: collator.resolvedOptions().locale,
+                  values: [...values].sort(
+                    (a, b) =>
+                      (direction === "desc" ? -1 : 1) * collator.compare(a, b),
+                  ),
+                };
+              },
+              { values, direction },
+            );
+            sortLocale = expected.locale;
             if (isSelect) await control.selectOption(direction);
             else await control.click();
             expect(
@@ -287,13 +305,7 @@ test("replay real design documents through the browser runtime without model req
                   ),
                 sort.field ?? "sort",
               ),
-            ).toEqual(
-              [...values].sort(
-                (a, b) =>
-                  (direction === "desc" ? -1 : 1) *
-                  a.localeCompare(b, undefined, { numeric: true }),
-              ),
-            );
+            ).toEqual(expected.values);
             sortVerified = values.length > 1;
           }
         }
@@ -413,6 +425,7 @@ test("replay real design documents through the browser runtime without model req
         copyRawSource,
         filterVerified,
         sortVerified,
+        sortLocale,
         limitations,
         extraModelCalls: 0,
       });

@@ -1,0 +1,211 @@
+{
+  "complete": false,
+  "plannedPairs": 6,
+  "recordedPairs": 2,
+  "scope": "Same fixed input, date, retrieval sources and guidance. Effort applies to the entire pipeline, including generated briefs and subsequent visual-reference history; this is not a generation-only causal experiment. No visual quality conclusion is inferred from success counts.",
+  "additionalChanges": "Uses the subsequent host CSS math compatibility fix. Separate normalization repairs from design differences; this is not an otherwise-identical binary comparison.",
+  "pairs": [
+    {
+      "topic": "academic",
+      "requestHash": "f20a29e023377512d50a9fa832ce076c0ee634258695b8abcf8e4459287dbc7f",
+      "paired": true,
+      "standard": {
+        "pageId": "2dfc4357-7cc4-4fa9-839d-57266f203e09",
+        "jobId": "9d10011b-3888-4499-9b95-40600d4f2d89",
+        "ready": true,
+        "error": null,
+        "firstGenerationAccepted": true,
+        "seconds": 36,
+        "calls": 3,
+        "usageComplete": true,
+        "totalTokens": 40650,
+        "recordedReasoningTokens": 0,
+        "selection": "Original",
+        "selectedDirection": {
+          "concept": "三重递进的长文叙事",
+          "structure": "单栏纵向长页，以“刻画—辅助—形式化”三步为骨骼，每步一段配一句范畴论或经典引文，代表工作以紧凑列表收在最后；联系方式置于首屏身份块旁",
+          "typography": "正文用较大号宋体或衬线字体，行距宽松，标题以编号与短句并列；引文用略小字号的仿宋体加引号，突出古典文本与数学语感的对照",
+          "contentReason": "页面主体是一段有层次的研究愿景陈述，三步递进是原文核心逻辑，长栏阅读能保留论证连贯性，引文与正文的字体对照承载中医经典与范畴论双重视角"
+        },
+        "htmlUnchangedByReview": true,
+        "cssUnchangedByReview": true
+      },
+      "low": {
+        "pageId": "c217b962-03e8-4f09-bc7a-9d79a9cbd091",
+        "jobId": "cb65dcfe-1fc7-4d2f-9793-3ea7906b2598",
+        "ready": true,
+        "error": null,
+        "firstGenerationAccepted": true,
+        "seconds": 169,
+        "calls": 3,
+        "usageComplete": false,
+        "totalTokens": null,
+        "recordedReasoningTokens": 15408,
+        "selection": "Original",
+        "selectedDirection": {
+          "concept": "三层递进长卷",
+          "structure": "单列纵向叙事：顶部姓名、身份与邮箱，紧接研究主旨，按1—2—3展开医疗过程刻画、临床辅助、理论形式化，再过渡到范畴论与AI基础理论；代表工作与招生在文末形成两个清晰区块，全页依靠连续阅读而非多栏导航。",
+          "typography": "中文正文用学术宋体，标题用高对比宋体；英文机构名与论文题用小型大写字距拉开，编号用衬线数字；段落宽度收窄，注释式小字承载论文出处与荣誉。",
+          "contentReason": "材料本身是从临床到数学的三层论证，单列递进最能让读者沿作者思路理解AI+中医如何通向范畴论，避免把研究拆成互不相关的卡片。"
+        },
+        "htmlUnchangedByReview": true,
+        "cssUnchangedByReview": true
+      }
+    },
+    {
+      "topic": "copy",
+      "requestHash": "72eb7ab0d5c4ab6da441dc0abf7b7575da3a910aed14f30d32bcf4d158356660",
+      "paired": true,
+      "standard": {
+        "pageId": "cfa2b1de-f0d6-4879-ac0c-f6b124a7d107",
+        "jobId": "0e60ee47-f473-4712-a37f-4c11e51e52bd",
+        "ready": true,
+        "error": null,
+        "firstGenerationAccepted": true,
+        "seconds": 68,
+        "calls": 4,
+        "usageComplete": true,
+        "totalTokens": 53469,
+        "recordedReasoningTokens": 0,
+        "selection": "Original",
+        "selectedDirection": {
+          "concept": "文案便签墙：把每条文案视作一张可撕下的便签，适合展示碎片化内容和随性语气。",
+          "structure": "页面以多列错落排布的便签块为主体，每条文案独立成块并带轻微视觉边界，分类以悬浮的短标签形式出现在区块上方或侧边，整体呈轻拼贴式的浏览网格。",
+          "typography": "正文使用稍宽的手写感或圆润字体体现段子语气，字号适中；分类标签用小型印刷体形成对比，标题以中等粗细穿插在顶部，不做超大主标。",
+          "contentReason": "疯狂星期四文案本质上是被转发的短段子，便签墙的组织方式顺应其碎片化、可单条取用的属性，浏览时更像翻看灵感墙。"
+        },
+        "htmlUnchangedByReview": true,
+        "cssUnchangedByReview": true
+      },
+      "low": {
+        "pageId": "b5fb4392-a122-4e90-a7cb-6c606d59b2c0",
+        "jobId": "ed11209f-c63b-4f83-83af-b843ca1b0498",
+        "ready": true,
+        "error": null,
+        "firstGenerationAccepted": true,
+        "seconds": 181,
+        "calls": 3,
+        "usageComplete": false,
+        "totalTokens": null,
+        "recordedReasoningTokens": 14896,
+        "selection": "Original",
+        "selectedDirection": {
+          "concept": "文案副刊墙",
+          "structure": "采用多栏紧凑版面，把文案按场景或主题排成可扫读的短栏，栏间以细线和标签分隔；精选内容可占更宽栏位，搜索与分类作为页眉索引。",
+          "typography": "标题用宋体或仿宋建立副刊感，正文用较小字号宋体，标签用黑体小字；整体以阅读节奏和栏宽变化区分层级，而非大按钮。",
+          "contentReason": "“合集站”强调大量文案的浏览与比较，多栏副刊式组织适合按主题快速扫读，并让密集文本保持可读性。"
+        },
+        "htmlUnchangedByReview": true,
+        "cssUnchangedByReview": true
+      }
+    },
+    {
+      "topic": "calendar",
+      "requestHash": "2c2ef68b6d3f4f7d79d7dee51964c589125d9ab94e99ebc4d103649ba22cae40",
+      "paired": false,
+      "standard": {
+        "pageId": "ea752eef-7c54-4d56-8435-7c86b30c9e8f",
+        "jobId": "6979aa3e-d822-4c62-ad81-d885d904805a",
+        "ready": true,
+        "error": null,
+        "firstGenerationAccepted": true,
+        "seconds": 54,
+        "calls": 4,
+        "usageComplete": true,
+        "totalTokens": 38258,
+        "recordedReasoningTokens": 0,
+        "selection": "Original",
+        "selectedDirection": {
+          "concept": "日历网格总览",
+          "structure": "以月历网格为主体，今天高亮显示，节日和节气以标记或色块出现在对应日期上；顶部固定今日信息条，网格可切换月份。",
+          "typography": "网格内日期数字使用紧凑的等宽字体保证对齐，节日标记用小型标签字体，顶部今日信息条使用简洁无衬线字体。",
+          "contentReason": "日历网格便于用户建立日期与节日的空间关联，适合需要查看整月安排或查找特定日期节日的任务，同时顶部信息条保留今日焦点。"
+        },
+        "htmlUnchangedByReview": true,
+        "cssUnchangedByReview": true
+      },
+      "low": null
+    },
+    {
+      "topic": "comparison",
+      "requestHash": "a609dacb1ed6e2d12f8b498ce91f2cf62e3d1bf82815f9f6ec43592ede8a43c9",
+      "paired": false,
+      "standard": {
+        "pageId": "4347d739-8322-4932-b561-615076a56ad7",
+        "jobId": "c542bac8-3001-47fd-bc72-fdbd2e6c3638",
+        "ready": true,
+        "error": null,
+        "firstGenerationAccepted": true,
+        "seconds": 53,
+        "calls": 3,
+        "usageComplete": true,
+        "totalTokens": 34877,
+        "recordedReasoningTokens": 0,
+        "selection": "Original",
+        "selectedDirection": {
+          "concept": "场景分组",
+          "structure": "按出行场景分成几组（轻装徒步、差旅、办公室），每组内以小型横向卡片列出该场景下的候选器具与关键参数，组间用分区标题隔开。",
+          "typography": "分区标题用较大字重的标题字体承担导航，组内参数用小型粗体标签加常规值，形成场景标题到参数两级节奏。",
+          "contentReason": "访客往往先确定使用场景再比较器具，以场景为组织线索能先缩小候选范围，再在组内比较，符合这类选购的真实思考顺序。"
+        },
+        "htmlUnchangedByReview": true,
+        "cssUnchangedByReview": true
+      },
+      "low": null
+    },
+    {
+      "topic": "docs",
+      "requestHash": "81c4ef5402af0f79113a9b1d0fe23a78f8d4600beb4e4de07001ab64b90df49f",
+      "paired": false,
+      "standard": {
+        "pageId": "96254eed-c990-4275-b49c-196e2ecd7a3c",
+        "jobId": "239db47c-063e-42ea-b68f-fc10f9510e64",
+        "ready": true,
+        "error": null,
+        "firstGenerationAccepted": false,
+        "seconds": 62,
+        "calls": 4,
+        "usageComplete": true,
+        "totalTokens": 77612,
+        "recordedReasoningTokens": 0,
+        "selection": "Original",
+        "selectedDirection": {
+          "concept": "风险与机制双栏笔记",
+          "structure": "页面分两列：左栏为窄的风险速查列表，每条为短标签形式（长事务阻塞 vacuum、XID 回卷、WAL 暴涨、死锁 40P01、序列化失败 40001、idle in transaction），点击或滚动对应右侧条目；右栏为宽正文，按隔离级别、MVCC、事务 ID、WAL、锁体系、死锁、监控顺序排列并逐条展开，每个风险标签在正文中就近附注成因与排查入口；隔离级别对照表嵌在右栏对应段落内。",
+          "typography": "左栏标签用等宽字体、小字号、加粗，形成清单感；右栏正文用较大字号无衬线字体，概念名首次出现时加粗，SQL 与参数名保持等宽；整体以密度对比区分速查与深读。",
+          "contentReason": "资料大量篇幅描述生产故障与风险点，读者既有速查需求也有理解需求；双栏让风险清单始终可见，同时保留系统理论顺序，且不牺牲隔离级别与锁等需要完整语境的章节。"
+        },
+        "htmlUnchangedByReview": true,
+        "cssUnchangedByReview": true
+      },
+      "low": null
+    },
+    {
+      "topic": "essay",
+      "requestHash": "71d5157ecb8fece704d54fa6419571cacf313b80432f1d29cbf79626454669f2",
+      "paired": false,
+      "standard": {
+        "pageId": "efcdbc2f-1a53-45b5-b616-2f36094a167a",
+        "jobId": "8796ea1a-fa21-42cd-94ba-24d3f46b6f8e",
+        "ready": true,
+        "error": null,
+        "firstGenerationAccepted": true,
+        "seconds": 41,
+        "calls": 3,
+        "usageComplete": true,
+        "totalTokens": 28939,
+        "recordedReasoningTokens": 0,
+        "selection": "Original",
+        "selectedDirection": {
+          "concept": "盐雾留白：以大量留白和单篇聚焦制造呼吸感",
+          "structure": "首屏仅呈现站点名、一句自述与一篇当日或最新随笔的片段，向下以宽松间距交替展示随笔全文入口和短句，导航收束为页脚小字。",
+          "typography": "标题用细笔画现代衬线，字号克制；正文用大行距宋体，环境注记用极小号无衬线，形成轻盐雾般的层次。",
+          "contentReason": "散步随笔的基调是慢与留白，单篇聚焦让读者先沉浸一段文字，再决定是否继续，适合气质优先于信息密度的站点。"
+        },
+        "htmlUnchangedByReview": true,
+        "cssUnchangedByReview": true
+      },
+      "low": null
+    }
+  ]
+}

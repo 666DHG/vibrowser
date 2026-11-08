@@ -133,7 +133,9 @@ for (const file of (await readdir(input))
         : null,
     seconds: record.seconds,
     interrupted: record.interrupted ?? false,
-    usageComplete: record.usageComplete ?? true,
+    usageComplete:
+      record.usageComplete ??
+      record.modelCalls.every((call) => call.usage?.total_tokens != null),
     error: record.error,
     initialGenerationAccepted: record.attempts[0]?.outcome === "Accepted",
     generationAttempts: record.attempts.map(
