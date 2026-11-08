@@ -1,5 +1,15 @@
 # 设计评审与两挡思考验收
 
+low 固定六题完整记录（2026-11-08）：最终 5/6，首轮 4/6，共 23 次模型请求，累计任务耗时 1395 秒。两次可选评审超时的 usage 未返回，因此 422996 total_tokens 仅是已记录量，不是完整费用统计。原技术文档题四次生成均以 length 结束，每次 completion_tokens=24000，推理占 14555、16051、22976、16639；失败保留，不将后续复测覆盖为成功。[完整记录](acceptance/effort-guidance-v8-low.json)、[原输入配对](acceptance/effort-guidance-v8-low-paired.json)。
+
+五份成功文档的浏览器离线回放通过：每页实际声明的 Copy、Toggle、Filter、Sort、锚点和搜索／导航提交按报告分别验证，零额外模型请求；不是每页都有全部动作，也未生成搜索或详情结果。[逐页交互](acceptance/effort-guidance-v8-low-interactions.json)。相关 Scala 定向测试 23 项通过；没有据此宣称全量发布验收完成。
+
+桌面截图对照：文案由平铺列表变为副刊主文与热门索引；日期由日期概览及节日列表变为日期索引与词条正文；器具对比由场景切换和表格变为编辑榜单及并列决策指南；随笔由窄栏长文变为主文、地点索引与归档。四组存在任务相关结构变化，但整体仍频繁采用暖底色、衬线标题和细分隔线，不据此声称跨站视觉趋同已经解决。技术文档生成失败，且本批同站连续浏览尚未验证，默认启用条件仍未通过。[截图](screenshots/effort-guidance-v8-low)。
+
+容量排查为单独一次文档请求：复用失败任务的原始输入、设计说明和资料，不重新规划或评审，不写回数据库；仅验收请求启用 48000 token 容量和 600 秒请求时限（原生成 24000／180 秒）。因此这是容量与等待预算复测，不是严格单变量实验；不改变 prompt、增加修复次数或重抽六题。生产档位与实验默认开关未改变。
+
+该容量请求一次成功：127 秒，finish_reason=stop，completion_tokens=24672（reasoning_tokens=16398），total_tokens=35232；没有用到扩大的等待时限，实际输出超过原 24000 限制。支持输出容量不足的判断，不证明每次长文都能成功。桌面／窄屏测量和浏览器 Copy、Toggle、原生锚点、搜索提交回放通过，零额外模型调用。页面采用深色技术导航、步骤总览及并列解释／代码区；此为单独修复验证，不计入原六题的成功率或视觉分数。[容量报告](acceptance/effort-low-capacity.json)、[交互报告](acceptance/effort-low-capacity-interactions.json)、[截图](screenshots/effort-low-capacity)。
+
 low 思考阶段记录（2026-11-08，仅前两题，非完整验收）：学术、文案均首轮生成成功，实际三阶段请求均为 enabled/low、24000 token 上限。两次可选评审都在原 60 秒预算超时后保留原稿，无法得知这些未返回请求的 usage；报表现从实际调用记录判断用量是否完整，不将缺失视为零或完整。记录到的 61296 total_tokens 只是已返回调用的合计。
 
 两页运行时回放通过；文案的 Copy、Filter、Sort、展开、锚点和搜索提交均验证，搜索不算后续真实生成。第一次 Sort 断言失败是 Windows Node 默认中文排序与 Chromium en-US 排序不一致，现用浏览器 Intl.Collator 计算期望并记录 sortLocale，未更改运行时或生成内容。格式、类型检查及修正后的回放通过。证据：[阶段调用报告](acceptance/effort-guidance-v8-low.json)、[配对参数](acceptance/effort-guidance-v8-low-paired.json)、[两页回放](acceptance/effort-guidance-v8-low-partial-interactions.json)。余下四题仍在原进程运行，暂不作整体风格或默认档位结论。
