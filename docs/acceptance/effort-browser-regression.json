@@ -15,5 +15,13 @@
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
+  },
+  "v4SummaryGuardV3Regression": {
+    "startTime": "2026-11-08T03:03:07.532Z",
+    "duration": 24054.152000000002,
+    "expected": 11,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
   }
 }

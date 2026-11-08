@@ -41,7 +41,11 @@ object SummaryBindingReplay extends IOApp.Simple:
         "vibrowser",
         ""
       )
-      http <- EmberClientBuilder.default[IO].withTimeout(190.seconds).build
+      http <- EmberClientBuilder
+        .default[IO]
+        .withTimeout(190.seconds)
+        .withIdleConnectionTime(200.seconds)
+        .build
     yield (live, db, http)
     resources.use { (live, db, http) =>
       for

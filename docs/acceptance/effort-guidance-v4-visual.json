@@ -1,0 +1,17 @@
+{
+  "complete": true,
+  "method": "Compare all six preserved old-standard and v4-standard desktop screenshots; inspect v4 mobile screenshots and browser replay. No rerolls. More sections, larger heroes or color alone are not improvement. Minor rough edges are observations, not rejection criteria.",
+  "topics": [
+    { "name": "academic", "verdict": "improved", "observation": "Distinct identity/contact masthead and three parallel research directions make the research structure easier to scan than the old narrow continuous biography. Mobile stacks directions clearly; copy and filtering passed." },
+    { "name": "copy", "verdict": "neutral", "observation": "Categories and numbered entries are clearer, but the large introduction and stacked mobile statistics delay copying. Original output suffered host Summary-binding content loss. Separate single-repair evidence preserves all eight paragraphs; it does not retroactively make the original sample pass." },
+    { "name": "calendar", "verdict": "neutral", "observation": "Distinct dark date panel, but the old page already separates date summary and event rows. Additional introduction and repeated copy text do not establish overall improvement." },
+    { "name": "comparison", "verdict": "neutral", "observation": "Budget overview and category cards aid discovery, but the old interactive scenario selector reaches the table sooner. Different tradeoff rather than demonstrated improvement. Filter, sort and expansion passed; mobile button wrapping remains a minor observation." },
+    { "name": "docs", "verdict": "neutral", "observation": "Learning steps and misconceptions aid teaching, but replace the old chapter sidebar with an introductory landing layout. No clear overall navigation improvement. Readable mobile layout; wrapped search label does not warrant a prompt rule." },
+    { "name": "essay", "verdict": "improved", "observation": "Latest entry, observation sidebar and separate reading area establish clearer journal hierarchy than the old continuous column. Mobile preserves order. Copy refinement removes surrounding labels to match the promised opening sentence; this is not the copy-page content-loss bug." }
+  ],
+  "improvedTopics": 2,
+  "requiredForDefaultEnable": 4,
+  "defaultEnableGatePassed": false,
+  "sameSiteV4Retested": false,
+  "decision": "Keep workflow opt-in. Content/visual phase separation changes layouts but does not establish broad improvement; warm backgrounds and introductory two-column sections remain common. No per-page prompt rules or rerolls to force this gate. Earlier same-site evidence is not a v4 retest."
+}
