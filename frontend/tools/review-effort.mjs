@@ -10,6 +10,11 @@ const revision = ["v9", "v8", "v7", "v6", "v5", "v4", "v3"].find((v) =>
 );
 const sampling = process.argv.includes("--sampling-v1");
 const deep = process.argv.includes("--deep");
+const low = process.argv.includes("--low");
+assert(
+  !low || (revision === "v8" && !deep && !sampling),
+  "Low comparison requires isolated v8",
+);
 assert(
   !deep || (revision === "v8" && !sampling),
   "Deep comparison requires v8",
@@ -17,7 +22,7 @@ assert(
 const retest = revision !== undefined || sampling;
 const experiment = sampling
   ? "effort-sampling-v1"
-  : "effort-guidance-" + revision + (deep ? "-deep" : "");
+  : "effort-guidance-" + revision + (deep ? "-deep" : low ? "-low" : "");
 const expectedSamples = retest ? 6 : 18;
 const input = resolve(
   root,
@@ -52,6 +57,7 @@ for (const file of (await readdir(input))
       "Guidance retest must preserve the original input and research context",
     );
     assert.equal(record.effort, deep ? "deep" : "standard");
+    if (low) assert.equal(record.effortPolicy, "experimental-low");
     if (sampling) {
       assert(record.guidance.startsWith("7-"));
       assert(record.modelCalls.some((call) => call.temperature === 1.3));
@@ -83,6 +89,7 @@ for (const file of (await readdir(input))
     input: record.input,
     mode: record.mode,
     effort: record.effort,
+    effortPolicy: record.effortPolicy ?? "product",
     contentFocusOnly: record.workflow?.contentFocusOnly ?? false,
     draftPlanning: record.workflow?.draftPlanning ?? false,
     draftCharacters: record.workflow?.draft
@@ -101,11 +108,14 @@ for (const file of (await readdir(input))
       record.modelCalls.length === 0
         ? null
         : record.modelCalls.every((call) =>
-            record.effort === "deep"
+            low
               ? call.thinking?.type === "enabled" &&
-                call.reasoningEffort === "high"
-              : call.thinking?.type === "disabled" &&
-                call.reasoningEffort == null,
+                call.reasoningEffort === "low"
+              : record.effort === "deep"
+                ? call.thinking?.type === "enabled" &&
+                  call.reasoningEffort === "high"
+                : call.thinking?.type === "disabled" &&
+                  call.reasoningEffort == null,
           ),
     pageId: record.pageId,
     jobId: record.jobId,

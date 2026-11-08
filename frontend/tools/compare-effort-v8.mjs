@@ -5,13 +5,17 @@ import { resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "../..");
 const topics = ["academic", "copy", "calendar", "comparison", "docs", "essay"];
+const variant = process.argv.includes("--low") ? "low" : "deep";
 const hash = (value) => createHash("sha256").update(value).digest("hex");
 async function read(topic, effort) {
-  const directory = `effort-guidance-v8${effort === "deep" ? "-deep" : ""}`;
+  const directory = `effort-guidance-v8${effort === "standard" ? "" : "-" + effort}`;
   try {
     return JSON.parse(
       await readFile(
-        resolve(root, `.cache/${directory}/${topic}-new-${effort}.json`),
+        resolve(
+          root,
+          `.cache/${directory}/${topic}-new-${effort === "low" ? "standard" : effort}.json`,
+        ),
         "utf8",
       ),
     );
@@ -22,17 +26,18 @@ async function read(topic, effort) {
 }
 function summary(record, effort) {
   if (!record) return null;
-  assert.equal(record.effort, effort);
+  assert.equal(record.effort, effort === "low" ? "standard" : effort);
+  if (effort === "low") assert.equal(record.effortPolicy, "experimental-low");
   assert(record.guidance.startsWith("8-"));
   assert(record.modelCalls.length > 0);
   for (const call of record.modelCalls) {
     assert.equal(
       call.thinking?.type,
-      effort === "deep" ? "enabled" : "disabled",
+      effort === "standard" ? "disabled" : "enabled",
     );
     assert.equal(
       call.reasoningEffort ?? null,
-      effort === "deep" ? "high" : null,
+      effort === "deep" ? "high" : effort === "low" ? "low" : null,
     );
     assert.equal(call.temperature ?? null, null);
     assert.equal(call.maxTokens, effort === "deep" ? 48000 : 24000);
@@ -73,7 +78,7 @@ function summary(record, effort) {
 const pairs = [];
 for (const topic of topics) {
   const standard = await read(topic, "standard");
-  const deep = await read(topic, "deep");
+  const deep = await read(topic, variant);
   assert(standard, `Missing fixed standard sample: ${topic}`);
   if (deep) {
     assert.equal(
@@ -98,7 +103,7 @@ for (const topic of topics) {
     requestHash: hash(standard.request),
     paired: !!deep,
     standard: summary(standard, "standard"),
-    deep: summary(deep, "deep"),
+    [variant]: summary(deep, variant),
   });
 }
 const complete = pairs.every((pair) => pair.paired);
@@ -110,10 +115,17 @@ const report = {
   recordedPairs: pairs.filter((pair) => pair.paired).length,
   scope:
     "Same fixed input, date, retrieval sources and guidance. Effort applies to the entire pipeline, including generated briefs and subsequent visual-reference history; this is not a generation-only causal experiment. No visual quality conclusion is inferred from success counts.",
+  additionalChanges:
+    variant === "low"
+      ? "Uses the subsequent host CSS math compatibility fix. Separate normalization repairs from design differences; this is not an otherwise-identical binary comparison."
+      : null,
   pairs,
 };
 await writeFile(
-  resolve(root, "docs/acceptance/effort-guidance-v8-paired.json"),
+  resolve(
+    root,
+    `docs/acceptance/effort-guidance-v8${variant === "low" ? "-low" : ""}-paired.json`,
+  ),
   JSON.stringify(report, null, 2),
 );
 console.log(

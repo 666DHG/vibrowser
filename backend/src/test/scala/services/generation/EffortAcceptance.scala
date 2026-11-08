@@ -28,7 +28,8 @@ object EffortAcceptance extends IOApp.Simple:
   private val guidanceRevision = sys.env.getOrElse("VIBROWSER_EFFORT_GUIDANCE_VERSION", "3")
   private val samplingRetest = sys.env.get("VIBROWSER_DESIGN_SAMPLING_RETEST").contains("true")
   private val deepRetest = sys.env.get("VIBROWSER_DESIGN_DEEP_RETEST").contains("true")
-  private val effortSuffix = if deepRetest then "_deep" else ""
+  private val lowRetest = sys.env.get("VIBROWSER_DESIGN_LOW_RETEST").contains("true")
+  private val effortSuffix = if deepRetest then "_deep" else if lowRetest then "_low" else ""
   private val experimentGuidance =
     if guidanceRetest && guidanceRevision == "9" then DesignGuidance.draftExperiment
     else DesignGuidance.current
@@ -69,10 +70,15 @@ object EffortAcceptance extends IOApp.Simple:
       for
         start <- Resource.eval(IO.monotonic)
         original <- Resource.eval(request.as[Json])
-        payload = DesignSamplingExperiment.payload(
+        sampled = DesignSamplingExperiment.payload(
           original,
           request.uri.host.exists(_.value == "api.deepseek.com"),
           temperature
+        )
+        payload = DesignLowEffortExperiment.payload(
+          sampled,
+          request.uri.host.exists(_.value == "api.deepseek.com"),
+          lowRetest
         )
         system = payload.hcursor
           .downField("messages")
@@ -119,6 +125,10 @@ object EffortAcceptance extends IOApp.Simple:
       yield response.withEntity(result)
     }
   def run: IO[Unit] =
+    require(
+      !lowRetest || (guidanceRetest && guidanceRevision == "8" && !deepRetest && !samplingRetest),
+      "Low thinking comparison requires isolated v8 guidance without other parameter experiments"
+    )
     require(
       !deepRetest || (guidanceRetest && guidanceRevision == "8" && !samplingRetest),
       "Deep comparison requires isolated v8 guidance without sampling changes"
@@ -322,6 +332,8 @@ object EffortAcceptance extends IOApp.Simple:
                         "input" -> input.asJson,
                         "mode" -> mode.asJson,
                         "effort" -> effort.asJson,
+                        "effortPolicy" -> (if lowRetest then "experimental-low"
+                                           else "product").asJson,
                         "guidance" -> guidance.version.asJson,
                         "pageId" -> page.id.asJson,
                         "jobId" -> job.id.asJson,
