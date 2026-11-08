@@ -31,6 +31,44 @@ class WebDocumentBindingsSuite extends CatsEffectSuite:
   )
   private def normalize(doc: WebDocument): IO[WebDocument] =
     NormalizeWebDocumentMessage(doc, "https://site.example/").plan(null)
+  test("summary binding cannot silently replace a generated paragraph with its abstract") {
+    val body = "我有个室友，每天凌晨三点准时起床对着冰箱说话。我以为他疯了，直到他昨天跟我说：「星期四了，你还不转我五十？」我才知道疯的是那个冰箱。"
+    val item = entity.copy(summary = Some("离谱剧情型长文案，以室友与冰箱反转收尾。"))
+    for
+      inline <- normalize(
+        base.copy(
+          entities = List(item),
+          html = s"""<p id="story" data-entity-id="/topic" data-entity-field="Summary">$body</p>"""
+        )
+      )
+      failed <- ValidateWebDocumentMessage(inline, "https://site.example/").plan(null).attempt
+      _ = assert(
+        failed.swap.toOption.get.getMessage
+          .contains("summary binding would overwrite visible content")
+      )
+      _ = assert(inline.html.contains(body))
+      explicit <- normalize(
+        base.copy(
+          entities = List(item),
+          html = s"<p id='story'>$body</p>",
+          bindings = List(WebBinding("story", item.id, EntityField.Summary))
+        )
+      )
+      rejected <- ValidateWebDocumentMessage(explicit, "https://site.example/").plan(null).attempt
+      _ = assert(rejected.isLeft)
+      repaired <- normalize(
+        base.copy(
+          entities = List(item),
+          html =
+            s"""<p id="abstract" data-entity-id="/topic" data-entity-field="Summary"></p><p id="story">$body</p>"""
+        )
+      )
+      ready <- ValidateWebDocumentMessage(repaired, "https://site.example/").plan(null)
+      _ = assert(ready.html.contains(body) && ready.html.contains(item.summary.get))
+      again <- ValidateWebDocumentMessage(ready, "https://site.example/").plan(null)
+      _ = assertEquals(again.html, ready.html)
+    yield ()
+  }
   test("inline binding preserves layout and assigns collision-free IDs with canonical facts") {
     for
       doc <- normalize(

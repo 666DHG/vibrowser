@@ -38,7 +38,7 @@ npm run build
 node --test tools/measure.test.mjs
 ```
 
-浏览器旧格式回归使用 `VIBROWSER_LEGACY_MOCK=true` 启动 Mock，再执行 test:e2e（33 项）；v3 Mock 使用默认启动，设置 `VIBROWSER_V3_MOCK_SMOKE=true`，运行 research.spec.ts 与 web-worker.spec.ts（2 项）。两类固定样例不可混用，否则旧测试会找不到 v1 的固定标题。
+浏览器旧格式回归使用 `VIBROWSER_LEGACY_MOCK=true` 启动 Mock，排除使用 v3 样例的书签用例；随后以默认 v3 Mock 运行书签、认真模式和局部更新等集成用例。最新组合与结果见 [验收记录](DESIGN_ACCEPTANCE.md)。两类固定样例不可混用，否则旧测试会找不到 v1 的固定标题。
 
 付费对照只在显式 opt-in 下运行：
 

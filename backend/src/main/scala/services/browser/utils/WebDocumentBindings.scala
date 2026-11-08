@@ -89,7 +89,17 @@ private[browser] object WebDocumentBindings:
         Option.when(!doc.entities.exists(_.id == b.entityId))(prefix + ": binding entity missing"),
         Option(parsed.getElementById(b.elementId))
           .filter(e => !e.children().isEmpty)
-          .map(_ => prefix + ": binding must use text leaf element; 将绑定移到纯文本 span，保留外层链接与图标")
+          .map(_ => prefix + ": binding must use text leaf element; 将绑定移到纯文本 span，保留外层链接与图标"),
+        Option(parsed.getElementById(b.elementId))
+          .filter(e => b.field == EntityField.Summary && e.text().trim.nonEmpty)
+          .flatMap(e =>
+            doc.entities
+              .find(_.id == b.entityId)
+              .filter(entity => normalized(e.text()) != normalized(entity.summary.getOrElse("")))
+          )
+          .map(_ =>
+            prefix + ": summary binding would overwrite visible content; 正文保留在无字段绑定的元素，摘要使用空元素或与实体 summary 一致的文本"
+          )
       ).flatten
     }
     val actionIssues = doc.actions.zipWithIndex.flatMap { (a, i) =>
