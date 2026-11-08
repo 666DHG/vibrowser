@@ -155,6 +155,20 @@ object EffortAcceptance extends IOApp.Simple:
                   )
                 )
               else IO.pure(None)
+            _ <- IO.raiseUnless(
+              !guidanceRetest || reference.exists(r =>
+                r.hcursor.get[String]("request").exists(_.nonEmpty) &&
+                  (mode == BrowsingMode.Imagination || r.hcursor
+                    .get[Option[ResearchSnapshot]]("research")
+                    .toOption
+                    .flatten
+                    .exists(_.complete))
+              )
+            )(
+              new Exception(
+                "Complete original request and research required; retest must not purchase new retrieval"
+              )
+            )
             sharedResearch <- Ref.of[IO, Option[ResearchSnapshot]](
               reference.flatMap(
                 _.hcursor.get[Option[ResearchSnapshot]]("research").toOption.flatten
