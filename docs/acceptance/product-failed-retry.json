@@ -1,0 +1,1401 @@
+{
+  "method": "One explicit post-fix RetryPageMessage; original report/job retained; same page, request and design snapshot.",
+  "pageId": "e63ab585-2ccd-43a7-a0ef-26d73786db89",
+  "originalJobId": "efd11815-8c19-479f-908f-645de817712c",
+  "jobId": "488b99ad-62bb-41c9-aa7f-d50a0b0936ce",
+  "error": null,
+  "seconds": 159,
+  "modelCalls": [
+    {
+      "usage": {
+        "prompt_tokens": 2239,
+        "completion_tokens": 16985,
+        "total_tokens": 19224,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 9414
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 191
+      },
+      "finishReason": "stop",
+      "status": 200,
+      "milliseconds": 79321,
+      "model": "deepseek-flash",
+      "temperature": null,
+      "maxTokens": 48000,
+      "thinking": {
+        "type": "enabled"
+      },
+      "reasoningEffort": "low",
+      "stage": "document"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 23624,
+        "completion_tokens": 3926,
+        "total_tokens": 27550,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3610
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 22728
+      },
+      "finishReason": "stop",
+      "status": 200,
+      "milliseconds": 22917,
+      "model": "deepseek-flash",
+      "temperature": null,
+      "maxTokens": 48000,
+      "thinking": {
+        "type": "enabled"
+      },
+      "reasoningEffort": "low",
+      "stage": "review"
+    },
+    {
+      "usage": {
+        "prompt_tokens": 24247,
+        "completion_tokens": 13002,
+        "total_tokens": 37249,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1180
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 23351
+      },
+      "finishReason": "stop",
+      "status": 200,
+      "milliseconds": 43499,
+      "model": "deepseek-flash",
+      "temperature": null,
+      "maxTokens": 48000,
+      "thinking": {
+        "type": "enabled"
+      },
+      "reasoningEffort": "low",
+      "stage": "document"
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "outcome": "Accepted",
+      "errorCode": null,
+      "message": null,
+      "at": "2026-11-08T07:01:06.841099100Z"
+    }
+  ],
+  "selection": "Improved",
+  "siteStyle": {
+    "brand": "一个沿海小城居民的散步随笔",
+    "typography": "正文 Georgia / Songti SC / Noto Serif CJK SC 衬线，17px、行高 1.78、行宽受限；日期与天气为斜体边注；导航与按钮使用系统无衬线小字并加大字距。",
+    "palette": "[\"#f5f0e6\",\"#28251f\",\"#2f5b66\",\"#9c5a3c\",\"#d9d0bf\"]",
+    "layout": "居中单栏连续阅读流，最大宽度 760px；每篇随笔用两栏网格，左侧 92px 日期边注，右侧正文；篇间以细横线分隔，窄屏改为单列并把日期移到正文上方。"
+  },
+  "layout": {
+    "viewports": [
+      {
+        "width": 1440,
+        "height": 900,
+        "scrollWidth": 1425,
+        "scrollHeight": 3015,
+        "overflowIds": [],
+        "headings": [
+          {
+            "id": "",
+            "tag": "h1",
+            "text": "一个沿海小城居民的散步随笔",
+            "x": 356.5,
+            "y": 93.578125,
+            "width": 712,
+            "height": 58,
+            "fontSize": "46.4px",
+            "lineHeight": "58px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "h2",
+            "text": "按走的路线",
+            "x": 356.5,
+            "y": 558.625,
+            "width": 712,
+            "height": 33.59375,
+            "fontSize": "18.88px",
+            "lineHeight": "33.6064px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "notes-title",
+            "tag": "h2",
+            "text": "最近的散步",
+            "x": 356.5,
+            "y": 833.953125,
+            "width": 712,
+            "height": 40.59375,
+            "fontSize": "18.88px",
+            "lineHeight": "33.6064px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "h3",
+            "text": "潮退以后，沿老码头走到灯塔",
+            "x": 472.5,
+            "y": 951.234375,
+            "width": 596,
+            "height": 31.796875,
+            "fontSize": "22.72px",
+            "lineHeight": "31.808px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "h3",
+            "text": "南门街的早点铺子六点亮灯",
+            "x": 472.5,
+            "y": 1190.140625,
+            "width": 596,
+            "height": 31.796875,
+            "fontSize": "22.72px",
+            "lineHeight": "31.808px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "h3",
+            "text": "台风过境第二天，我数了三十七块碎瓦",
+            "x": 472.5,
+            "y": 1398.796875,
+            "width": 596,
+            "height": 31.796875,
+            "fontSize": "22.72px",
+            "lineHeight": "31.808px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "h3",
+            "text": "盐仓路的猫与雨棚下的象棋局",
+            "x": 472.5,
+            "y": 1607.453125,
+            "width": 596,
+            "height": 31.796875,
+            "fontSize": "22.72px",
+            "lineHeight": "31.808px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "h3",
+            "text": "走到防波堤尽头，渔船正回港",
+            "x": 472.5,
+            "y": 1816.109375,
+            "width": 596,
+            "height": 31.796875,
+            "fontSize": "22.72px",
+            "lineHeight": "31.808px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "h3",
+            "text": "北岸的芦苇比去年矮了一截",
+            "x": 472.5,
+            "y": 2024.765625,
+            "width": 596,
+            "height": 31.796875,
+            "fontSize": "22.72px",
+            "lineHeight": "31.808px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "h2",
+            "text": "关于这个本子",
+            "x": 356.5,
+            "y": 2342.671875,
+            "width": 712,
+            "height": 33.59375,
+            "fontSize": "18.88px",
+            "lineHeight": "33.6064px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "h2",
+            "text": "订阅散步",
+            "x": 356.5,
+            "y": 2590.578125,
+            "width": 712,
+            "height": 33.59375,
+            "fontSize": "18.88px",
+            "lineHeight": "33.6064px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          }
+        ],
+        "controls": [
+          {
+            "id": "",
+            "tag": "a",
+            "text": "最新几篇",
+            "x": 356.5,
+            "y": 264.640625,
+            "width": 53,
+            "height": 25.25,
+            "fontSize": "12.5px",
+            "lineHeight": "22.25px",
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "a",
+            "text": "按路线",
+            "x": 427.5,
+            "y": 264.640625,
+            "width": 39.75,
+            "height": 25.25,
+            "fontSize": "12.5px",
+            "lineHeight": "22.25px",
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "vib-link-6",
+            "tag": "a",
+            "text": "全部目录",
+            "x": 485.25,
+            "y": 264.640625,
+            "width": 53,
+            "height": 25.25,
+            "fontSize": "12.5px",
+            "lineHeight": "22.25px",
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "a",
+            "text": "关于这个本子",
+            "x": 556.25,
+            "y": 264.640625,
+            "width": 79.5,
+            "height": 25.25,
+            "fontSize": "12.5px",
+            "lineHeight": "22.25px",
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "a",
+            "text": "订阅",
+            "x": 653.75,
+            "y": 264.640625,
+            "width": 26.5,
+            "height": 25.25,
+            "fontSize": "12.5px",
+            "lineHeight": "22.25px",
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "q",
+            "tag": "input",
+            "text": "",
+            "x": 356.5,
+            "y": 356.25,
+            "width": 629.875,
+            "height": 46.6875,
+            "fontSize": "15px",
+            "lineHeight": "26.7px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "button",
+            "text": "找一找",
+            "x": 994.375,
+            "y": 356.25,
+            "width": 74.125,
+            "height": 46.6875,
+            "fontSize": "13px",
+            "lineHeight": "23.14px",
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "place-filter",
+            "tag": "input",
+            "text": "",
+            "x": 455.546875,
+            "y": 890.546875,
+            "width": 612.953125,
+            "height": 46.6875,
+            "fontSize": "15px",
+            "lineHeight": "26.7px",
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "vib-link-0",
+            "tag": "a",
+            "text": "潮退以后，沿老码头走到灯塔",
+            "x": 472.5,
+            "y": 953.234375,
+            "width": 295.375,
+            "height": 27,
+            "fontSize": "22.72px",
+            "lineHeight": "31.808px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "expand-1",
+            "tag": "button",
+            "text": "继续读这一段",
+            "x": 472.5,
+            "y": 1103.890625,
+            "width": 79.5,
+            "height": 25.25,
+            "fontSize": "12.5px",
+            "lineHeight": "22.25px",
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "vib-link-1",
+            "tag": "a",
+            "text": "南门街的早点铺子六点亮灯",
+            "x": 472.5,
+            "y": 1192.140625,
+            "width": 272.640625,
+            "height": 27,
+            "fontSize": "22.72px",
+            "lineHeight": "31.808px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "vib-link-2",
+            "tag": "a",
+            "text": "台风过境第二天，我数了三十七块碎瓦",
+            "x": 472.5,
+            "y": 1400.796875,
+            "width": 386.25,
+            "height": 27,
+            "fontSize": "22.72px",
+            "lineHeight": "31.808px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "vib-link-3",
+            "tag": "a",
+            "text": "盐仓路的猫与雨棚下的象棋局",
+            "x": 472.5,
+            "y": 1609.453125,
+            "width": 295.375,
+            "height": 27,
+            "fontSize": "22.72px",
+            "lineHeight": "31.808px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "vib-link-4",
+            "tag": "a",
+            "text": "走到防波堤尽头，渔船正回港",
+            "x": 472.5,
+            "y": 1818.109375,
+            "width": 295.375,
+            "height": 27,
+            "fontSize": "22.72px",
+            "lineHeight": "31.808px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "vib-link-5",
+            "tag": "a",
+            "text": "北岸的芦苇比去年矮了一截",
+            "x": 472.5,
+            "y": 2026.765625,
+            "width": 272.640625,
+            "height": 27,
+            "fontSize": "22.72px",
+            "lineHeight": "31.808px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "vib-link-7",
+            "tag": "a",
+            "text": "按时间倒序，翻看全部散步 →",
+            "x": 356.5,
+            "y": 2246.421875,
+            "width": 174.71875,
+            "height": 19,
+            "fontSize": "12.5px",
+            "lineHeight": "22.25px",
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "email",
+            "tag": "input",
+            "text": "",
+            "x": 356.5,
+            "y": 2714,
+            "width": 202,
+            "height": 41.125,
+            "fontSize": "17px",
+            "lineHeight": "30.26px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "button",
+            "text": "订阅",
+            "x": 566.5,
+            "y": 2714,
+            "width": 60.09375,
+            "height": 41.125,
+            "fontSize": "13px",
+            "lineHeight": "23.14px",
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "copy-rss",
+            "tag": "button",
+            "text": "复制订阅地址",
+            "x": 356.5,
+            "y": 2829.59375,
+            "width": 105.5,
+            "height": 38.25,
+            "fontSize": "12.5px",
+            "lineHeight": "22.25px",
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "save-btn",
+            "tag": "button",
+            "text": "收藏这个本子",
+            "x": 490,
+            "y": 2829.59375,
+            "width": 105.5,
+            "height": 38.25,
+            "fontSize": "12.5px",
+            "lineHeight": "22.25px",
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+            "horizontalScroll": null
+          }
+        ],
+        "regions": [
+          {
+            "id": "",
+            "tag": "header",
+            "text": "沿海小城 · 居民散步随笔 · 自二〇〇九年\n 一个沿海小城居民的散步随笔\n 我住在这座城的东南角，出门往东走就是海。这个本子只记走路时看到的事：潮水退到哪块石头，哪家铺子先亮灯，风从哪个方向来。\n \n  最新几篇按路线全部目录关于这个本子订阅\n \n \n  在随笔里找一处地名，或一件小事\n  \n   \n   找一找",
+            "x": 332.5,
+            "y": 0,
+            "width": 760,
+            "height": 402.9375,
+            "fontSize": "17px",
+            "lineHeight": "30.26px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "nav",
+            "text": "最新几篇按路线全部目录关于这个本子订阅",
+            "x": 356.5,
+            "y": 253.640625,
+            "width": 712,
+            "height": 47.25,
+            "fontSize": "12.5px",
+            "lineHeight": "22.25px",
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "main",
+            "text": "十一月八日，星期日\n  东北风三到四级，海上浮着一层薄白。低潮在十五点四十二分，堤面会干出一段能走的路。暮色比上周早了十分钟，出门该带件外套。\n \n \n  按走的路线\n  \n   海岸线与防波堤老码头往东到灯塔，折回约四十分钟。风大时走内侧。\n   南门街巷早点铺、修鞋摊、两棵老槐树。六点以后才有人气。\n   老码头与仓库退潮时能走上堤面，看渔船卸货。\n  ",
+            "x": 332.5,
+            "y": 436.9375,
+            "width": 760,
+            "height": 2430.90625,
+            "fontSize": "17px",
+            "lineHeight": "30.26px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "aside",
+            "text": "十一月八日，星期日\n  东北风三到四级，海上浮着一层薄白。低潮在十五点四十二分，堤面会干出一段能走的路。暮色比上周早了十分钟，出门该带件外套。",
+            "x": 356.5,
+            "y": 436.9375,
+            "width": 560,
+            "height": 77.6875,
+            "fontSize": "17px",
+            "lineHeight": "30.26px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "routes",
+            "tag": "section",
+            "text": "按走的路线\n  \n   海岸线与防波堤老码头往东到灯塔，折回约四十分钟。风大时走内侧。\n   南门街巷早点铺、修鞋摊、两棵老槐树。六点以后才有人气。\n   老码头与仓库退潮时能走上堤面，看渔船卸货。\n   北岸苇塘泥滩和芦苇，秋天风把苇穗压向一边。\n  \n  在下面输入「海岸」「街巷」「码头」或「苇塘」，只留那一条路线上的记录。",
+            "x": 356.5,
+            "y": 558.625,
+            "width": 712,
+            "height": 223.328125,
+            "fontSize": "17px",
+            "lineHeight": "30.26px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "section",
+            "text": "最近的散步\n  \n   只看某条路线：\n  \n  \n   \n    2026-11-06\n    \n     潮退以后，沿老码头走到灯塔\n     潮水退到一半，防波堤上露出湿的石头。我从老码头出发，鞋底在石缝里踩到一层薄薄的绿苔，灯塔的灯还没亮。\n     \n      堤面上有一段被潮水冲出的浅沟，沟底积着碎贝壳和一段蓝色的尼龙绳。走在前面的老人拎着一只",
+            "x": 356.5,
+            "y": 833.953125,
+            "width": 712,
+            "height": 1431.71875,
+            "fontSize": "17px",
+            "lineHeight": "30.26px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "article",
+            "text": "2026-11-06\n    \n     潮退以后，沿老码头走到灯塔\n     潮水退到一半，防波堤上露出湿的石头。我从老码头出发，鞋底在石缝里踩到一层薄薄的绿苔，灯塔的灯还没亮。\n     \n      堤面上有一段被潮水冲出的浅沟，沟底积着碎贝壳和一段蓝色的尼龙绳。走在前面的老人拎着一只铁皮桶，桶里是他从石头上撬下来的小螺。\n      到灯塔底下的时候",
+            "x": 356.5,
+            "y": 943.234375,
+            "width": 712,
+            "height": 215.90625,
+            "fontSize": "17px",
+            "lineHeight": "30.26px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "article",
+            "text": "2026-11-02\n    \n     南门街的早点铺子六点亮灯\n     六点差五分，南门街只有早点铺子亮着。蒸笼的白汽从卷帘门底下钻出来，把整条街熏得暖了一点。\n     文 / 陈屿 · 微雨，路面反光 · 4 条回应",
+            "x": 356.5,
+            "y": 1159.140625,
+            "width": 712,
+            "height": 208.65625,
+            "fontSize": "17px",
+            "lineHeight": "30.26px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "article",
+            "text": "2026-10-28\n    \n     台风过境第二天，我数了三十七块碎瓦\n     台风走后的第二天，屋顶的瓦片落了一地。我沿着墙根数过去，一共三十七块，有一块还是完整的。\n     文 / 陈屿 · 风后初晴，能见度极好 · 12 条回应",
+            "x": 356.5,
+            "y": 1367.796875,
+            "width": 712,
+            "height": 208.65625,
+            "fontSize": "17px",
+            "lineHeight": "30.26px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "article",
+            "text": "2026-10-19\n    \n     盐仓路的猫与雨棚下的象棋局\n     盐仓路的猫都躲在雨棚下面。四个人在棚子底下摆开象棋，棋子是啤酒瓶盖压着的，风一吹就要重摆。\n     文 / 陈屿 · 阴，棚顶积水 · 5 条回应",
+            "x": 356.5,
+            "y": 1576.453125,
+            "width": 712,
+            "height": 208.65625,
+            "fontSize": "17px",
+            "lineHeight": "30.26px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "article",
+            "text": "2026-10-11\n    \n     走到防波堤尽头，渔船正回港\n     走到防波堤尽头的时候，渔船正一条接一条回港。柴油味混着海腥，有人在船上喊话，声音被风撕成两半。\n     文 / 陈屿 · 西南风四级，涨潮 · 9 条回应",
+            "x": 356.5,
+            "y": 1785.109375,
+            "width": 712,
+            "height": 208.65625,
+            "fontSize": "17px",
+            "lineHeight": "30.26px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "article",
+            "text": "2026-09-30\n    \n     北岸的芦苇比去年矮了一截\n     北岸的芦苇比去年矮了一截。管滩的老人说，是夏天那场潮水带走了泥。我站在堤上看了一会儿，风把苇穗都压向一边。\n     文 / 陈屿 · 晴，退潮 · 2 条回应",
+            "x": 356.5,
+            "y": 1993.765625,
+            "width": 712,
+            "height": 208.65625,
+            "fontSize": "17px",
+            "lineHeight": "30.26px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "about",
+            "tag": "section",
+            "text": "关于这个本子\n  不写攻略，不写推荐，也不替这座城总结。走路的时候看见什么就记什么：一块被潮水磨圆的砖，一句从窗口漏出来的话，天气和时刻。有时候一周写三篇，有时候一个月只有两行。\n  所有文字都是我自己走的。路线在城里，海在东边。",
+            "x": 356.5,
+            "y": 2321.671875,
+            "width": 712,
+            "height": 194.90625,
+            "fontSize": "17px",
+            "lineHeight": "30.26px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "subscribe",
+            "tag": "section",
+            "text": "订阅散步\n  每个星期天晚上，把这一周走过的路和一两个句子寄给你。不写别的。\n  \n   你的邮箱\n   \n    \n    订阅\n   \n  \n  \n   订阅地址：https://xn--4gqvd894apme0h069bvhkjkbw5bu0clx1csqm860g.com/feed.xml\n   复制订阅地址\n   收藏这个本子未收藏",
+            "x": 356.5,
+            "y": 2568.578125,
+            "width": 712,
+            "height": 299.265625,
+            "fontSize": "17px",
+            "lineHeight": "30.26px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "footer",
+            "text": "一个沿海小城居民的散步随笔 · 文字与散步均为居民本人所写 · 二〇二六年",
+            "x": 332.5,
+            "y": 2923.84375,
+            "width": 760,
+            "height": 91.46875,
+            "fontSize": "11.5px",
+            "lineHeight": "20.47px",
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+            "horizontalScroll": null
+          }
+        ],
+        "visualProfile": {
+          "backgrounds": [
+            "rgb(245, 240, 230)"
+          ],
+          "fonts": [
+            "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif"
+          ],
+          "headingSizes": [
+            46.4,
+            18.88,
+            22.72
+          ],
+          "regions": [
+            {
+              "display": "block",
+              "columns": 1,
+              "widthRatio": 0.53
+            },
+            {
+              "display": "flex",
+              "columns": 5,
+              "widthRatio": 0.49
+            },
+            {
+              "display": "block",
+              "columns": 1,
+              "widthRatio": 0.53
+            },
+            {
+              "display": "block",
+              "columns": 1,
+              "widthRatio": 0.39
+            }
+          ]
+        }
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "scrollWidth": 375,
+        "scrollHeight": 3784,
+        "overflowIds": [],
+        "headings": [
+          {
+            "id": "",
+            "tag": "h1",
+            "text": "一个沿海小城居民的散步随笔",
+            "x": 24,
+            "y": 77.578125,
+            "width": 327,
+            "height": 76,
+            "fontSize": "30.4px",
+            "lineHeight": "38px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "h2",
+            "text": "按走的路线",
+            "x": 24,
+            "y": 664.28125,
+            "width": 327,
+            "height": 33.59375,
+            "fontSize": "18.88px",
+            "lineHeight": "33.6064px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "notes-title",
+            "tag": "h2",
+            "text": "最近的散步",
+            "x": 24,
+            "y": 1105.34375,
+            "width": 327,
+            "height": 40.59375,
+            "fontSize": "18.88px",
+            "lineHeight": "33.6064px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "h3",
+            "text": "潮退以后，沿老码头走到灯塔",
+            "x": 24,
+            "y": 1244.125,
+            "width": 327,
+            "height": 28.671875,
+            "fontSize": "20.48px",
+            "lineHeight": "28.672px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "h3",
+            "text": "南门街的早点铺子六点亮灯",
+            "x": 24,
+            "y": 1531.65625,
+            "width": 327,
+            "height": 28.671875,
+            "fontSize": "20.48px",
+            "lineHeight": "28.672px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "h3",
+            "text": "台风过境第二天，我数了三十七块碎瓦",
+            "x": 24,
+            "y": 1788.9375,
+            "width": 327,
+            "height": 57.34375,
+            "fontSize": "20.48px",
+            "lineHeight": "28.672px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "h3",
+            "text": "盐仓路的猫与雨棚下的象棋局",
+            "x": 24,
+            "y": 2074.890625,
+            "width": 327,
+            "height": 28.671875,
+            "fontSize": "20.48px",
+            "lineHeight": "28.672px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "h3",
+            "text": "走到防波堤尽头，渔船正回港",
+            "x": 24,
+            "y": 2332.171875,
+            "width": 327,
+            "height": 28.671875,
+            "fontSize": "20.48px",
+            "lineHeight": "28.672px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "h3",
+            "text": "北岸的芦苇比去年矮了一截",
+            "x": 24,
+            "y": 2589.453125,
+            "width": 327,
+            "height": 28.671875,
+            "fontSize": "20.48px",
+            "lineHeight": "28.672px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "h2",
+            "text": "关于这个本子",
+            "x": 24,
+            "y": 2934.484375,
+            "width": 327,
+            "height": 33.59375,
+            "fontSize": "18.88px",
+            "lineHeight": "33.6064px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "h2",
+            "text": "订阅散步",
+            "x": 24,
+            "y": 3237.546875,
+            "width": 327,
+            "height": 33.59375,
+            "fontSize": "18.88px",
+            "lineHeight": "33.6064px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          }
+        ],
+        "controls": [
+          {
+            "id": "",
+            "tag": "a",
+            "text": "最新几篇",
+            "x": 24,
+            "y": 295.671875,
+            "width": 53,
+            "height": 25.25,
+            "fontSize": "12.5px",
+            "lineHeight": "22.25px",
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "a",
+            "text": "按路线",
+            "x": 95,
+            "y": 295.671875,
+            "width": 39.75,
+            "height": 25.25,
+            "fontSize": "12.5px",
+            "lineHeight": "22.25px",
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "vib-link-6",
+            "tag": "a",
+            "text": "全部目录",
+            "x": 152.75,
+            "y": 295.671875,
+            "width": 53,
+            "height": 25.25,
+            "fontSize": "12.5px",
+            "lineHeight": "22.25px",
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "a",
+            "text": "关于这个本子",
+            "x": 223.75,
+            "y": 295.671875,
+            "width": 79.5,
+            "height": 25.25,
+            "fontSize": "12.5px",
+            "lineHeight": "22.25px",
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "a",
+            "text": "订阅",
+            "x": 321.25,
+            "y": 295.671875,
+            "width": 26.5,
+            "height": 25.25,
+            "fontSize": "12.5px",
+            "lineHeight": "22.25px",
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "q",
+            "tag": "input",
+            "text": "",
+            "x": 24,
+            "y": 387.28125,
+            "width": 327,
+            "height": 46.6875,
+            "fontSize": "15px",
+            "lineHeight": "26.7px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "button",
+            "text": "找一找",
+            "x": 24,
+            "y": 441.96875,
+            "width": 74.125,
+            "height": 41.125,
+            "fontSize": "13px",
+            "lineHeight": "23.14px",
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "place-filter",
+            "tag": "input",
+            "text": "",
+            "x": 123.046875,
+            "y": 1161.9375,
+            "width": 227.953125,
+            "height": 46.6875,
+            "fontSize": "15px",
+            "lineHeight": "26.7px",
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "vib-link-0",
+            "tag": "a",
+            "text": "潮退以后，沿老码头走到灯塔",
+            "x": 24,
+            "y": 1246.125,
+            "width": 266.25,
+            "height": 24,
+            "fontSize": "20.48px",
+            "lineHeight": "28.672px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "expand-1",
+            "tag": "button",
+            "text": "继续读这一段",
+            "x": 24,
+            "y": 1423.90625,
+            "width": 79.5,
+            "height": 25.25,
+            "fontSize": "12.5px",
+            "lineHeight": "22.25px",
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "vib-link-1",
+            "tag": "a",
+            "text": "南门街的早点铺子六点亮灯",
+            "x": 24,
+            "y": 1533.65625,
+            "width": 245.765625,
+            "height": 24,
+            "fontSize": "20.48px",
+            "lineHeight": "28.672px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "vib-link-2",
+            "tag": "a",
+            "text": "台风过境第二天，我数了三十七块碎瓦",
+            "x": 24,
+            "y": 1790.9375,
+            "width": 307.203125,
+            "height": 52.671875,
+            "fontSize": "20.48px",
+            "lineHeight": "28.672px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "vib-link-3",
+            "tag": "a",
+            "text": "盐仓路的猫与雨棚下的象棋局",
+            "x": 24,
+            "y": 2076.890625,
+            "width": 266.25,
+            "height": 24,
+            "fontSize": "20.48px",
+            "lineHeight": "28.672px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "vib-link-4",
+            "tag": "a",
+            "text": "走到防波堤尽头，渔船正回港",
+            "x": 24,
+            "y": 2334.171875,
+            "width": 266.25,
+            "height": 24,
+            "fontSize": "20.48px",
+            "lineHeight": "28.672px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "vib-link-5",
+            "tag": "a",
+            "text": "北岸的芦苇比去年矮了一截",
+            "x": 24,
+            "y": 2591.453125,
+            "width": 245.765625,
+            "height": 24,
+            "fontSize": "20.48px",
+            "lineHeight": "28.672px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "vib-link-7",
+            "tag": "a",
+            "text": "按时间倒序，翻看全部散步 →",
+            "x": 24,
+            "y": 2838.234375,
+            "width": 174.71875,
+            "height": 19,
+            "fontSize": "12.5px",
+            "lineHeight": "22.25px",
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "email",
+            "tag": "input",
+            "text": "",
+            "x": 24,
+            "y": 3389.4375,
+            "width": 327,
+            "height": 36.25,
+            "fontSize": "17px",
+            "lineHeight": "30.26px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "button",
+            "text": "订阅",
+            "x": 24,
+            "y": 3433.6875,
+            "width": 60.09375,
+            "height": 41.125,
+            "fontSize": "13px",
+            "lineHeight": "23.14px",
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "copy-rss",
+            "tag": "button",
+            "text": "复制订阅地址",
+            "x": 24,
+            "y": 3577.75,
+            "width": 105.5,
+            "height": 38.25,
+            "fontSize": "12.5px",
+            "lineHeight": "22.25px",
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "save-btn",
+            "tag": "button",
+            "text": "收藏这个本子",
+            "x": 157.5,
+            "y": 3577.75,
+            "width": 105.5,
+            "height": 38.25,
+            "fontSize": "12.5px",
+            "lineHeight": "22.25px",
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+            "horizontalScroll": null
+          }
+        ],
+        "regions": [
+          {
+            "id": "",
+            "tag": "header",
+            "text": "沿海小城 · 居民散步随笔 · 自二〇〇九年\n 一个沿海小城居民的散步随笔\n 我住在这座城的东南角，出门往东走就是海。这个本子只记走路时看到的事：潮水退到哪块石头，哪家铺子先亮灯，风从哪个方向来。\n \n  最新几篇按路线全部目录关于这个本子订阅\n \n \n  在随笔里找一处地名，或一件小事\n  \n   \n   找一找",
+            "x": 0,
+            "y": 0,
+            "width": 375,
+            "height": 483.09375,
+            "fontSize": "17px",
+            "lineHeight": "30.26px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "nav",
+            "text": "最新几篇按路线全部目录关于这个本子订阅",
+            "x": 24,
+            "y": 284.671875,
+            "width": 327,
+            "height": 47.25,
+            "fontSize": "12.5px",
+            "lineHeight": "22.25px",
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "main",
+            "text": "十一月八日，星期日\n  东北风三到四级，海上浮着一层薄白。低潮在十五点四十二分，堤面会干出一段能走的路。暮色比上周早了十分钟，出门该带件外套。\n \n \n  按走的路线\n  \n   海岸线与防波堤老码头往东到灯塔，折回约四十分钟。风大时走内侧。\n   南门街巷早点铺、修鞋摊、两棵老槐树。六点以后才有人气。\n   老码头与仓库退潮时能走上堤面，看渔船卸货。\n  ",
+            "x": 0,
+            "y": 517.09375,
+            "width": 375,
+            "height": 3098.90625,
+            "fontSize": "17px",
+            "lineHeight": "30.26px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "aside",
+            "text": "十一月八日，星期日\n  东北风三到四级，海上浮着一层薄白。低潮在十五点四十二分，堤面会干出一段能走的路。暮色比上周早了十分钟，出门该带件外套。",
+            "x": 24,
+            "y": 517.09375,
+            "width": 327,
+            "height": 103.1875,
+            "fontSize": "17px",
+            "lineHeight": "30.26px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "routes",
+            "tag": "section",
+            "text": "按走的路线\n  \n   海岸线与防波堤老码头往东到灯塔，折回约四十分钟。风大时走内侧。\n   南门街巷早点铺、修鞋摊、两棵老槐树。六点以后才有人气。\n   老码头与仓库退潮时能走上堤面，看渔船卸货。\n   北岸苇塘泥滩和芦苇，秋天风把苇穗压向一边。\n  \n  在下面输入「海岸」「街巷」「码头」或「苇塘」，只留那一条路线上的记录。",
+            "x": 24,
+            "y": 664.28125,
+            "width": 327,
+            "height": 389.0625,
+            "fontSize": "17px",
+            "lineHeight": "30.26px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "section",
+            "text": "最近的散步\n  \n   只看某条路线：\n  \n  \n   \n    2026-11-06\n    \n     潮退以后，沿老码头走到灯塔\n     潮水退到一半，防波堤上露出湿的石头。我从老码头出发，鞋底在石缝里踩到一层薄薄的绿苔，灯塔的灯还没亮。\n     \n      堤面上有一段被潮水冲出的浅沟，沟底积着碎贝壳和一段蓝色的尼龙绳。走在前面的老人拎着一只",
+            "x": 24,
+            "y": 1105.34375,
+            "width": 327,
+            "height": 1752.140625,
+            "fontSize": "17px",
+            "lineHeight": "30.26px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "article",
+            "text": "2026-11-06\n    \n     潮退以后，沿老码头走到灯塔\n     潮水退到一半，防波堤上露出湿的石头。我从老码头出发，鞋底在石缝里踩到一层薄薄的绿苔，灯塔的灯还没亮。\n     \n      堤面上有一段被潮水冲出的浅沟，沟底积着碎贝壳和一段蓝色的尼龙绳。走在前面的老人拎着一只铁皮桶，桶里是他从石头上撬下来的小螺。\n      到灯塔底下的时候",
+            "x": 24,
+            "y": 1214.625,
+            "width": 327,
+            "height": 264.53125,
+            "fontSize": "17px",
+            "lineHeight": "30.26px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "article",
+            "text": "2026-11-02\n    \n     南门街的早点铺子六点亮灯\n     六点差五分，南门街只有早点铺子亮着。蒸笼的白汽从卷帘门底下钻出来，把整条街熏得暖了一点。\n     文 / 陈屿 · 微雨，路面反光 · 4 条回应",
+            "x": 24,
+            "y": 1479.15625,
+            "width": 327,
+            "height": 257.28125,
+            "fontSize": "17px",
+            "lineHeight": "30.26px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "article",
+            "text": "2026-10-28\n    \n     台风过境第二天，我数了三十七块碎瓦\n     台风走后的第二天，屋顶的瓦片落了一地。我沿着墙根数过去，一共三十七块，有一块还是完整的。\n     文 / 陈屿 · 风后初晴，能见度极好 · 12 条回应",
+            "x": 24,
+            "y": 1736.4375,
+            "width": 327,
+            "height": 285.953125,
+            "fontSize": "17px",
+            "lineHeight": "30.26px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "article",
+            "text": "2026-10-19\n    \n     盐仓路的猫与雨棚下的象棋局\n     盐仓路的猫都躲在雨棚下面。四个人在棚子底下摆开象棋，棋子是啤酒瓶盖压着的，风一吹就要重摆。\n     文 / 陈屿 · 阴，棚顶积水 · 5 条回应",
+            "x": 24,
+            "y": 2022.390625,
+            "width": 327,
+            "height": 257.28125,
+            "fontSize": "17px",
+            "lineHeight": "30.26px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "article",
+            "text": "2026-10-11\n    \n     走到防波堤尽头，渔船正回港\n     走到防波堤尽头的时候，渔船正一条接一条回港。柴油味混着海腥，有人在船上喊话，声音被风撕成两半。\n     文 / 陈屿 · 西南风四级，涨潮 · 9 条回应",
+            "x": 24,
+            "y": 2279.671875,
+            "width": 327,
+            "height": 257.28125,
+            "fontSize": "17px",
+            "lineHeight": "30.26px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "article",
+            "text": "2026-09-30\n    \n     北岸的芦苇比去年矮了一截\n     北岸的芦苇比去年矮了一截。管滩的老人说，是夏天那场潮水带走了泥。我站在堤上看了一会儿，风把苇穗都压向一边。\n     文 / 陈屿 · 晴，退潮 · 2 条回应",
+            "x": 24,
+            "y": 2536.953125,
+            "width": 327,
+            "height": 257.28125,
+            "fontSize": "17px",
+            "lineHeight": "30.26px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "about",
+            "tag": "section",
+            "text": "关于这个本子\n  不写攻略，不写推荐，也不替这座城总结。走路的时候看见什么就记什么：一块被潮水磨圆的砖，一句从窗口漏出来的话，天气和时刻。有时候一周写三篇，有时候一个月只有两行。\n  所有文字都是我自己走的。路线在城里，海在东边。",
+            "x": 24,
+            "y": 2913.484375,
+            "width": 327,
+            "height": 250.0625,
+            "fontSize": "17px",
+            "lineHeight": "30.26px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "subscribe",
+            "tag": "section",
+            "text": "订阅散步\n  每个星期天晚上，把这一周走过的路和一两个句子寄给你。不写别的。\n  \n   你的邮箱\n   \n    \n    订阅\n   \n  \n  \n   订阅地址：https://xn--4gqvd894apme0h069bvhkjkbw5bu0clx1csqm860g.com/feed.xml\n   复制订阅地址\n   收藏这个本子未收藏",
+            "x": 24,
+            "y": 3215.546875,
+            "width": 327,
+            "height": 400.453125,
+            "fontSize": "17px",
+            "lineHeight": "30.26px",
+            "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif",
+            "horizontalScroll": null
+          },
+          {
+            "id": "",
+            "tag": "footer",
+            "text": "一个沿海小城居民的散步随笔 · 文字与散步均为居民本人所写 · 二〇二六年",
+            "x": 0,
+            "y": 3672,
+            "width": 375,
+            "height": 111.9375,
+            "fontSize": "11.5px",
+            "lineHeight": "20.47px",
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+            "horizontalScroll": null
+          }
+        ],
+        "visualProfile": {
+          "backgrounds": [
+            "rgb(245, 240, 230)"
+          ],
+          "fonts": [
+            "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", STSong, serif"
+          ],
+          "headingSizes": [
+            30.4,
+            18.88,
+            20.48
+          ],
+          "regions": [
+            {
+              "display": "block",
+              "columns": 1,
+              "widthRatio": 0.96
+            },
+            {
+              "display": "flex",
+              "columns": 5,
+              "widthRatio": 0.84
+            },
+            {
+              "display": "block",
+              "columns": 1,
+              "widthRatio": 0.96
+            },
+            {
+              "display": "block",
+              "columns": 1,
+              "widthRatio": 0.84
+            }
+          ]
+        }
+      }
+    ],
+    "error": null
+  }
+}

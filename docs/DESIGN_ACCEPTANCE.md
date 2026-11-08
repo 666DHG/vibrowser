@@ -1,5 +1,7 @@
 # 设计评审与两挡思考验收
 
+修复后随笔真实重试已完成（2026-11-08）：通过 RetryPageMessage 保持 pageId，创建新 job 并继承原简报／构想；首轮正文通过，随后采用一次改进，3 次实际 low／48k 请求、159 秒。五个已成功题目未重跑。复制、筛选、排序、展开、搜索／导航等实际存在动作的浏览器回放通过，原 5/6 批次统计未覆盖。[真实重试](acceptance/product-failed-retry.json)、[交互](acceptance/product-failed-retry-interactions.json)、[截图](screenshots/product-failed-retry)。
+
 产品 low／48k 固定六题已结束（2026-11-08）：原构建最终 5/6、首轮 3/6，共 27 次请求、1235 秒。一次评审超时未返回 usage；603776 total_tokens 仅是已记录量。技术文档首轮正文成功，风险诊断区以九个现象入口组合监控 SQL、参数和展开路径；桌面三列、窄屏单列，完整页面五份成功文档的交互回放通过。[完整原批次](acceptance/effort-guidance-v8-product.json)、[配对](acceptance/effort-guidance-v8-product-paired.json)、[文档内部截图](screenshots/effort-guidance-v8-product/docs-risk-1440.png)。
 
 随笔原批次因四个 siteStyle 字段逐次类型误拒失败。按原顺序离线完整校验，第一份品牌对象仍不符合契约；第二至四份在现有通用元数据兼容下通过，固定采用最早有效的第二份，未按外观选择。第二份的复制、筛选、排序、展开及搜索／导航等实际存在动作按报告验证，无额外模型调用；不改原失败统计。[逐次校验](acceptance/style-metadata-replay-essay.json)、[交互](acceptance/style-metadata-essay-interactions.json)、[截图](screenshots/style-metadata-essay)。随后仅针对失败的随笔通过 RetryPageMessage 发起一次真实修复后重试，复用旧设计快照、保留旧 job，输出独立 product-failed-retry；结果尚待完成，成功五题不重跑。
