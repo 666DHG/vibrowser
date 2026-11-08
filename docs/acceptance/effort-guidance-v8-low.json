@@ -1,7 +1,7 @@
 {
-  "evaluatedAt": "2026-11-08T05:59:49.555Z",
+  "evaluatedAt": "2026-11-08T06:20:43.598Z",
   "expectedSamples": 6,
-  "complete": false,
+  "complete": true,
   "groups": {
     "old-standard": {
       "samples": 0,
@@ -18,18 +18,18 @@
       "seconds": 0
     },
     "new-standard": {
-      "samples": 2,
-      "ready": 2,
+      "samples": 6,
+      "ready": 5,
       "interrupted": 0,
       "unknownUsageSamples": 2,
       "unknownDurationSamples": 0,
-      "initialGenerationAccepted": 2,
-      "modelCalls": 6,
-      "generationModelCalls": 6,
-      "recordedTokens": 61296,
-      "recordedCompletionTokens": 44649,
-      "recordedReasoningTokens": 30304,
-      "seconds": 350
+      "initialGenerationAccepted": 4,
+      "modelCalls": 23,
+      "generationModelCalls": 23,
+      "recordedTokens": 422996,
+      "recordedCompletionTokens": 253768,
+      "recordedReasoningTokens": 172540,
+      "seconds": 1395
     },
     "new-deep": {
       "samples": 0,
@@ -56,7 +56,39 @@
       "unobservedEffortSamples": 0
     },
     {
+      "input": "今天是什么日子.com",
+      "samples": 1,
+      "allThreePresent": false,
+      "identicalGenerationRequest": true,
+      "actualEffortMatches": true,
+      "unobservedEffortSamples": 0
+    },
+    {
+      "input": "便携手冲咖啡器具对比选购.com",
+      "samples": 1,
+      "allThreePresent": false,
+      "identicalGenerationRequest": true,
+      "actualEffortMatches": true,
+      "unobservedEffortSamples": 0
+    },
+    {
       "input": "kfc疯狂星期四文案合集站.com",
+      "samples": 1,
+      "allThreePresent": false,
+      "identicalGenerationRequest": true,
+      "actualEffortMatches": true,
+      "unobservedEffortSamples": 0
+    },
+    {
+      "input": "PostgreSQL事务隔离与并发控制学习笔记.com",
+      "samples": 1,
+      "allThreePresent": false,
+      "identicalGenerationRequest": true,
+      "actualEffortMatches": true,
+      "unobservedEffortSamples": 0
+    },
+    {
+      "input": "一个沿海小城居民的散步随笔.com",
       "samples": 1,
       "allThreePresent": false,
       "identicalGenerationRequest": true,
@@ -1264,6 +1296,2715 @@
                   "display": "block",
                   "columns": 1,
                   "widthRatio": 0.86
+                }
+              ]
+            }
+          }
+        ],
+        "error": null
+      }
+    },
+    {
+      "name": "calendar-new-standard",
+      "input": "今天是什么日子.com",
+      "mode": "imagination",
+      "effort": "standard",
+      "effortPolicy": "experimental-low",
+      "contentFocusOnly": true,
+      "draftPlanning": false,
+      "draftCharacters": 0,
+      "layoutExploration": true,
+      "designDirection": {
+        "concept": "问答词条 + 双栏索引",
+        "structure": "双栏：左栏放问题与日期索引，右栏放答案词条、解释与相关条目；空间以问答和索引关系组织。",
+        "typography": "标题用宋体/衬线，索引用小号无衬线标签，正文阅读型；比前两者更接近词典/百科。",
+        "contentReason": "把“今天是什么日子”当作查询词条，适合答案解释、相关条目与来源并列呈现。"
+      },
+      "proposedDirectionCount": 3,
+      "visualReferenceCount": 1,
+      "visualReferenceCharacters": 360,
+      "requestHash": "2c2ef68b6d3f4f7d79d7dee51964c589125d9ab94e99ebc4d103649ba22cae40",
+      "actualEffortMatches": true,
+      "pageId": "2965d673-b367-4445-8c4a-0428ee34f73d",
+      "jobId": "299ecdc9-f71a-453c-8e42-0e47837abc98",
+      "guidance": "8-c1e0823385b34590f0bf7bd797de93208836a202c8c5d1055843268e0d7bb5bd",
+      "briefCharacters": 948,
+      "earlyVisualPlanCharacters": 0,
+      "cssChangedByReview": true,
+      "seconds": 153,
+      "interrupted": false,
+      "usageComplete": true,
+      "error": null,
+      "initialGenerationAccepted": true,
+      "generationAttempts": [
+        {
+          "attempt": 1,
+          "outcome": "Accepted",
+          "errorCode": null,
+          "message": null,
+          "at": "2026-11-08T06:00:50.928122Z"
+        }
+      ],
+      "modelCalls": [
+        {
+          "usage": {
+            "prompt_tokens": 290,
+            "completion_tokens": 2013,
+            "total_tokens": 2303,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1574
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 290
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 14363,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "brief"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 1746,
+            "completion_tokens": 15945,
+            "total_tokens": 17691,
+            "prompt_tokens_details": {
+              "cached_tokens": 896
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 12035
+            },
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 850
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 74990,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 10250,
+            "completion_tokens": 4591,
+            "total_tokens": 14841,
+            "prompt_tokens_details": {
+              "cached_tokens": 768
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 4072
+            },
+            "prompt_cache_hit_tokens": 768,
+            "prompt_cache_miss_tokens": 9482
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 31082,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "review"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 11077,
+            "completion_tokens": 5802,
+            "total_tokens": 16879,
+            "prompt_tokens_details": {
+              "cached_tokens": 896
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 518
+            },
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 10181
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 20486,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "document"
+        }
+      ],
+      "selection": "Improved",
+      "events": [
+        {
+          "stage": "Brief",
+          "status": "Started",
+          "at": "2026-11-08T05:59:21.539190200Z",
+          "message": null
+        },
+        {
+          "stage": "Brief",
+          "status": "Completed",
+          "at": "2026-11-08T05:59:35.906199Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Started",
+          "at": "2026-11-08T06:00:50.933121900Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Completed",
+          "at": "2026-11-08T06:00:56.967109300Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Started",
+          "at": "2026-11-08T06:00:56.972121Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Completed",
+          "at": "2026-11-08T06:01:28.063465600Z",
+          "message": null
+        },
+        {
+          "stage": "Improve",
+          "status": "Started",
+          "at": "2026-11-08T06:01:28.068459900Z",
+          "message": null
+        },
+        {
+          "stage": "Improve",
+          "status": "Completed",
+          "at": "2026-11-08T06:01:48.603830400Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureImproved",
+          "status": "Started",
+          "at": "2026-11-08T06:01:48.607836400Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureImproved",
+          "status": "Completed",
+          "at": "2026-11-08T06:01:54.690144400Z",
+          "message": null
+        },
+        {
+          "stage": "Selection",
+          "status": "Completed",
+          "at": "2026-11-08T06:01:54.695153800Z",
+          "message": "采用改进页面"
+        }
+      ],
+      "researchReused": false,
+      "siteStyle": {
+        "brand": "今天是什么日子",
+        "typography": "词条标题用宋体/衬线大字，索引用无衬线小号标签，正文阅读型衬线，行距宽松",
+        "palette": "纸白 #f5efe0 与 #fffdf6、墨色 #201e1a、朱红 #8c2f21、虚线段 #d5cbb6、辅助灰 #6b6459",
+        "layout": "两栏：左侧 258px 放日期索引、本年进度与复制工具，右侧为可读宽度的词条正文与相关条目；窄屏折叠为单栏，并把词条正文置于索引之前"
+      },
+      "actions": [
+        {
+          "id": "act-search",
+          "kind": "Search",
+          "elementId": "search-form",
+          "target": null,
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-copy",
+          "kind": "Copy",
+          "elementId": "copy-btn",
+          "target": null,
+          "region": "copy-src",
+          "stateKey": "copyMsg",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-toggle-note",
+          "kind": "Toggle",
+          "elementId": "toggle-btn",
+          "target": null,
+          "region": "extra-note",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-filter-related",
+          "kind": "Filter",
+          "elementId": "rel-filter",
+          "target": null,
+          "region": "related-list",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-0",
+          "kind": "Navigate",
+          "elementId": "vib-link-0",
+          "target": "/jieqi/lidong",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-1",
+          "kind": "Navigate",
+          "elementId": "vib-link-1",
+          "target": "/jinianri/shiyue-geming",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-2",
+          "kind": "Navigate",
+          "elementId": "vib-link-2",
+          "target": "/renwu/mali-juli",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-3",
+          "kind": "Navigate",
+          "elementId": "vib-link-3",
+          "target": "/riqi/2026-11-08",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-4",
+          "kind": "Navigate",
+          "elementId": "vib-link-4",
+          "target": "/yuefen/2026-11",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-5",
+          "kind": "Navigate",
+          "elementId": "vib-link-5",
+          "target": "/xingqi/xingqiliu",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        }
+      ],
+      "layout": {
+        "viewports": [
+          {
+            "width": 1440,
+            "height": 900,
+            "scrollWidth": 1425,
+            "scrollHeight": 1421,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "日期索引",
+                "x": 206.5,
+                "y": 113.5,
+                "width": 258,
+                "height": 36.25,
+                "fontSize": "15px",
+                "lineHeight": "26.25px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "本年进度",
+                "x": 206.5,
+                "y": 529.25,
+                "width": 258,
+                "height": 21,
+                "fontSize": "12px",
+                "lineHeight": "21px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "复制日期",
+                "x": 221.5,
+                "y": 658.75,
+                "width": 228,
+                "height": 21,
+                "fontSize": "12px",
+                "lineHeight": "21px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h1",
+                "text": "今天是什么日子",
+                "x": 510.5,
+                "y": 143.625,
+                "width": 708,
+                "height": 47.1875,
+                "fontSize": "40px",
+                "lineHeight": "47.2px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "相关条目",
+                "x": 510.5,
+                "y": 772.5625,
+                "width": 81.53125,
+                "height": 29.75,
+                "fontSize": "17px",
+                "lineHeight": "29.75px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              }
+            ],
+            "controls": [
+              {
+                "id": "q",
+                "tag": "input",
+                "text": "",
+                "x": 972.5,
+                "y": 25,
+                "width": 200,
+                "height": 38.5,
+                "fontSize": "14px",
+                "lineHeight": "24.5px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "button",
+                "text": "检索",
+                "x": 1180.5,
+                "y": 25,
+                "width": 62,
+                "height": 38.5,
+                "fontSize": "14px",
+                "lineHeight": "24.5px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-btn",
+                "tag": "button",
+                "text": "复制到剪贴板",
+                "x": 221.5,
+                "y": 722,
+                "width": 108,
+                "height": 36.75,
+                "fontSize": "13px",
+                "lineHeight": "22.75px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "toggle-btn",
+                "tag": "button",
+                "text": "展开：日期关系的补充说明",
+                "x": 510.5,
+                "y": 677.3125,
+                "width": 186,
+                "height": 36.75,
+                "fontSize": "13px",
+                "lineHeight": "22.75px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "rel-filter",
+                "tag": "input",
+                "text": "",
+                "x": 1042.5,
+                "y": 770.0625,
+                "width": 176,
+                "height": 34.75,
+                "fontSize": "13px",
+                "lineHeight": "22.75px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-0",
+                "tag": "a",
+                "text": "立冬",
+                "x": 510.5,
+                "y": 832.8125,
+                "width": 34.640625,
+                "height": 18,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-1",
+                "tag": "a",
+                "text": "十月社会主义革命纪念日",
+                "x": 510.5,
+                "y": 913.3125,
+                "width": 190.53125,
+                "height": 18,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-2",
+                "tag": "a",
+                "text": "玛丽·居里诞辰",
+                "x": 510.5,
+                "y": 993.8125,
+                "width": 121.25,
+                "height": 18,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-3",
+                "tag": "a",
+                "text": "11月8日",
+                "x": 510.5,
+                "y": 1074.3125,
+                "width": 62.609375,
+                "height": 18,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-4",
+                "tag": "a",
+                "text": "十一月",
+                "x": 510.5,
+                "y": 1154.8125,
+                "width": 51.96875,
+                "height": 18,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-5",
+                "tag": "a",
+                "text": "星期六",
+                "x": 510.5,
+                "y": 1235.3125,
+                "width": 51.96875,
+                "height": 18,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              }
+            ],
+            "regions": [
+              {
+                "id": "",
+                "tag": "header",
+                "text": "今天是什么日子\n  日期词条 · 每日一答\n  \n   全站检索\n   检索",
+                "x": 0,
+                "y": 0,
+                "width": 1425,
+                "height": 79.5,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "main",
+                "text": "日期索引\n  十一月头九日，按日期排列。\n  \n   11月1日周日\n   11月2日周一\n   11月3日周二\n   11月4日周三\n   11月5日周四\n   11月6日周五\n   11月7日周六\n   11月8日周日\n   11月9日周一\n  \n  \n   本年进度\n   第 311 天 / 共 365 天\n   \n    \n   \n   85.2%\n",
+                "x": 182.5,
+                "y": 79.5,
+                "width": 1060,
+                "height": 1276.3125,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "日期索引\n  十一月头九日，按日期排列。\n  \n   11月1日周日\n   11月2日周一\n   11月3日周二\n   11月4日周三\n   11月5日周四\n   11月6日周五\n   11月7日周六\n   11月8日周日\n   11月9日周一\n  \n  \n   本年进度\n   第 311 天 / 共 365 天\n   \n    \n   \n   85.2%\n",
+                "x": 206.5,
+                "y": 113.5,
+                "width": 258,
+                "height": 1184.3125,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "今日词条 · 2026-11-07\n  今天是什么日子\n  今天不是法定假日，也没有全国性节日。就日期本身而言，2026年11月7日是公历一年中的第311天，星期六，距年末还有54天。\n  \n   \n    \n     公历\n    \n    \n     2026年11月7日\n    \n   \n   \n    \n     星期\n    \n    \n     ",
+                "x": 510.5,
+                "y": 113.5,
+                "width": 708,
+                "height": 1184.3125,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "相关条目筛选\n   \n   \n    \n     立冬\n     二十四节气之一，通常在11月7日前后交节，标示冬季开始，与今日日期相邻。\n    \n     十月社会主义革命纪念日\n     1917年11月7日（俄历10月25日）彼得格勒武装起义爆发，此后长期作为苏联的国庆纪念日。\n    \n     玛丽·居里诞辰\n     1867年11月7日生于华",
+                "x": 510.5,
+                "y": 750.0625,
+                "width": 708,
+                "height": 547.75,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "footer",
+                "text": "词条更新：2026-11-07 06:00（Asia/Shanghai）\n  日期由系统时间计算；历史条目参考通行历书与百科资料。",
+                "x": 0,
+                "y": 1355.8125,
+                "width": 1425,
+                "height": 64.875,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              }
+            ],
+            "visualProfile": {
+              "backgrounds": [
+                "rgb(245, 239, 224)",
+                "rgb(255, 253, 246)"
+              ],
+              "fonts": [
+                "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif"
+              ],
+              "headingSizes": [
+                15,
+                12,
+                40
+              ],
+              "regions": [
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.99
+                },
+                {
+                  "display": "grid",
+                  "columns": 2,
+                  "widthRatio": 0.74
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.18
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.49
+                }
+              ]
+            }
+          },
+          {
+            "width": 390,
+            "height": 844,
+            "scrollWidth": 375,
+            "scrollHeight": 2379,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "日期索引",
+                "x": 16,
+                "y": 1636.046875,
+                "width": 343,
+                "height": 36.25,
+                "fontSize": "15px",
+                "lineHeight": "26.25px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "本年进度",
+                "x": 16,
+                "y": 2051.796875,
+                "width": 343,
+                "height": 21,
+                "fontSize": "12px",
+                "lineHeight": "21px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "复制日期",
+                "x": 31,
+                "y": 2181.296875,
+                "width": 313,
+                "height": 21,
+                "fontSize": "12px",
+                "lineHeight": "21px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h1",
+                "text": "今天是什么日子",
+                "x": 16,
+                "y": 119.125,
+                "width": 343,
+                "height": 35.390625,
+                "fontSize": "30px",
+                "lineHeight": "35.4px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "相关条目",
+                "x": 16,
+                "y": 920.046875,
+                "width": 81.53125,
+                "height": 29.75,
+                "fontSize": "17px",
+                "lineHeight": "29.75px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              }
+            ],
+            "controls": [
+              {
+                "id": "q",
+                "tag": "input",
+                "text": "",
+                "x": 79.6875,
+                "y": 48.5,
+                "width": 209.3125,
+                "height": 38.5,
+                "fontSize": "14px",
+                "lineHeight": "24.5px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "button",
+                "text": "检索",
+                "x": 297,
+                "y": 48.5,
+                "width": 62,
+                "height": 38.5,
+                "fontSize": "14px",
+                "lineHeight": "24.5px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-btn",
+                "tag": "button",
+                "text": "复制到剪贴板",
+                "x": 31,
+                "y": 2244.546875,
+                "width": 108,
+                "height": 36.75,
+                "fontSize": "13px",
+                "lineHeight": "22.75px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "toggle-btn",
+                "tag": "button",
+                "text": "展开：日期关系的补充说明",
+                "x": 16,
+                "y": 827.296875,
+                "width": 186,
+                "height": 36.75,
+                "fontSize": "13px",
+                "lineHeight": "22.75px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "rel-filter",
+                "tag": "input",
+                "text": "",
+                "x": 16,
+                "y": 959.796875,
+                "width": 343,
+                "height": 34.75,
+                "fontSize": "13px",
+                "lineHeight": "22.75px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-0",
+                "tag": "a",
+                "text": "立冬",
+                "x": 16,
+                "y": 1022.546875,
+                "width": 34.640625,
+                "height": 18,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-1",
+                "tag": "a",
+                "text": "十月社会主义革命纪念日",
+                "x": 16,
+                "y": 1127.546875,
+                "width": 190.53125,
+                "height": 18,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-2",
+                "tag": "a",
+                "text": "玛丽·居里诞辰",
+                "x": 16,
+                "y": 1232.546875,
+                "width": 121.25,
+                "height": 18,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-3",
+                "tag": "a",
+                "text": "11月8日",
+                "x": 16,
+                "y": 1337.546875,
+                "width": 62.609375,
+                "height": 18,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-4",
+                "tag": "a",
+                "text": "十一月",
+                "x": 16,
+                "y": 1418.046875,
+                "width": 51.96875,
+                "height": 18,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-5",
+                "tag": "a",
+                "text": "星期六",
+                "x": 16,
+                "y": 1523.046875,
+                "width": 51.96875,
+                "height": 18,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              }
+            ],
+            "regions": [
+              {
+                "id": "",
+                "tag": "header",
+                "text": "今天是什么日子\n  日期词条 · 每日一答\n  \n   全站检索\n   检索",
+                "x": 0,
+                "y": 0,
+                "width": 375,
+                "height": 89,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "main",
+                "text": "日期索引\n  十一月头九日，按日期排列。\n  \n   11月1日周日\n   11月2日周一\n   11月3日周二\n   11月4日周三\n   11月5日周四\n   11月6日周五\n   11月7日周六\n   11月8日周日\n   11月9日周一\n  \n  \n   本年进度\n   第 311 天 / 共 365 天\n   \n    \n   \n   85.2%\n",
+                "x": 0,
+                "y": 89,
+                "width": 375,
+                "height": 2229.6875,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "日期索引\n  十一月头九日，按日期排列。\n  \n   11月1日周日\n   11月2日周一\n   11月3日周二\n   11月4日周三\n   11月5日周四\n   11月6日周五\n   11月7日周六\n   11月8日周日\n   11月9日周一\n  \n  \n   本年进度\n   第 311 天 / 共 365 天\n   \n    \n   \n   85.2%\n",
+                "x": 16,
+                "y": 1636.046875,
+                "width": 343,
+                "height": 682.640625,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "今日词条 · 2026-11-07\n  今天是什么日子\n  今天不是法定假日，也没有全国性节日。就日期本身而言，2026年11月7日是公历一年中的第311天，星期六，距年末还有54天。\n  \n   \n    \n     公历\n    \n    \n     2026年11月7日\n    \n   \n   \n    \n     星期\n    \n    \n     ",
+                "x": 16,
+                "y": 89,
+                "width": 343,
+                "height": 1521.046875,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "相关条目筛选\n   \n   \n    \n     立冬\n     二十四节气之一，通常在11月7日前后交节，标示冬季开始，与今日日期相邻。\n    \n     十月社会主义革命纪念日\n     1917年11月7日（俄历10月25日）彼得格勒武装起义爆发，此后长期作为苏联的国庆纪念日。\n    \n     玛丽·居里诞辰\n     1867年11月7日生于华",
+                "x": 16,
+                "y": 900.046875,
+                "width": 343,
+                "height": 710,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "footer",
+                "text": "词条更新：2026-11-07 06:00（Asia/Shanghai）\n  日期由系统时间计算；历史条目参考通行历书与百科资料。",
+                "x": 0,
+                "y": 2318.6875,
+                "width": 375,
+                "height": 60.75,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              }
+            ],
+            "visualProfile": {
+              "backgrounds": [
+                "rgb(245, 239, 224)",
+                "rgb(255, 253, 246)"
+              ],
+              "fonts": [
+                "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif"
+              ],
+              "headingSizes": [
+                15,
+                12,
+                30
+              ],
+              "regions": [
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.96
+                },
+                {
+                  "display": "grid",
+                  "columns": 1,
+                  "widthRatio": 0.96
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.88
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.88
+                }
+              ]
+            }
+          }
+        ],
+        "error": null
+      }
+    },
+    {
+      "name": "comparison-new-standard",
+      "input": "便携手冲咖啡器具对比选购.com",
+      "mode": "imagination",
+      "effort": "standard",
+      "effortPolicy": "experimental-low",
+      "contentFocusOnly": true,
+      "draftPlanning": false,
+      "draftCharacters": 0,
+      "layoutExploration": true,
+      "designDirection": {
+        "concept": "编辑评测杂志",
+        "structure": "采用非对称编辑网格：首屏为导语与编辑精选，正文以排名榜单和评测段落交替推进，侧栏放置规格摘要、优缺点与购买提示；单品详情以展开式注释穿插，形成阅读与比较并行的节奏。",
+        "typography": "衬线标题搭配无衬线正文，强调编辑判断与可读性；榜单序号和关键结论使用大字号，规格信息以小型标签式排版收束。",
+        "contentReason": "便携手冲器具的差异不只在参数，还涉及萃取取舍与使用体验；杂志式组织能解释“为什么推荐”，适合需要理由与可信度支撑的访客。"
+      },
+      "proposedDirectionCount": 3,
+      "visualReferenceCount": 2,
+      "visualReferenceCharacters": 730,
+      "requestHash": "a609dacb1ed6e2d12f8b498ce91f2cf62e3d1bf82815f9f6ec43592ede8a43c9",
+      "actualEffortMatches": true,
+      "pageId": "1e9d98ee-7f63-4e7c-bc2f-18ad095f0734",
+      "jobId": "f1bd608b-caa6-47e4-a249-e2b4fe03477e",
+      "guidance": "8-c1e0823385b34590f0bf7bd797de93208836a202c8c5d1055843268e0d7bb5bd",
+      "briefCharacters": 1194,
+      "earlyVisualPlanCharacters": 0,
+      "cssChangedByReview": true,
+      "seconds": 303,
+      "interrupted": false,
+      "usageComplete": true,
+      "error": null,
+      "initialGenerationAccepted": false,
+      "generationAttempts": [
+        {
+          "attempt": 1,
+          "outcome": "ProviderFailure",
+          "errorCode": "provider_content",
+          "message": "模型输出为空或被截断，请重试",
+          "at": "2026-11-08T06:03:59.924565500Z"
+        },
+        {
+          "attempt": 2,
+          "outcome": "Accepted",
+          "errorCode": null,
+          "message": null,
+          "at": "2026-11-08T06:05:36.323540100Z"
+        }
+      ],
+      "modelCalls": [
+        {
+          "usage": {
+            "prompt_tokens": 312,
+            "completion_tokens": 1082,
+            "total_tokens": 1394,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 499
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 312
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 10030,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "brief"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 1970,
+            "completion_tokens": 24000,
+            "total_tokens": 25970,
+            "prompt_tokens_details": {
+              "cached_tokens": 896
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 22072
+            },
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 1074
+          },
+          "finishReason": "length",
+          "status": 200,
+          "milliseconds": 115152,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 1970,
+            "completion_tokens": 19975,
+            "total_tokens": 21945,
+            "prompt_tokens_details": {
+              "cached_tokens": 1792
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 12168
+            },
+            "prompt_cache_hit_tokens": 1792,
+            "prompt_cache_miss_tokens": 178
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 96109,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 23562,
+            "completion_tokens": 4206,
+            "total_tokens": 27768,
+            "prompt_tokens_details": {
+              "cached_tokens": 768
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 3847
+            },
+            "prompt_cache_hit_tokens": 768,
+            "prompt_cache_miss_tokens": 22794
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 31341,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "review"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 24228,
+            "completion_tokens": 11947,
+            "total_tokens": 36175,
+            "prompt_tokens_details": {
+              "cached_tokens": 896
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 484
+            },
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 23332
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 37989,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "document"
+        }
+      ],
+      "selection": "Improved",
+      "events": [
+        {
+          "stage": "Brief",
+          "status": "Started",
+          "at": "2026-11-08T06:01:54.732384200Z",
+          "message": null
+        },
+        {
+          "stage": "Brief",
+          "status": "Completed",
+          "at": "2026-11-08T06:02:04.765541900Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Started",
+          "at": "2026-11-08T06:05:36.329785700Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Completed",
+          "at": "2026-11-08T06:05:42.586514500Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Started",
+          "at": "2026-11-08T06:05:42.590521300Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Completed",
+          "at": "2026-11-08T06:06:13.938816200Z",
+          "message": null
+        },
+        {
+          "stage": "Improve",
+          "status": "Started",
+          "at": "2026-11-08T06:06:13.943789100Z",
+          "message": null
+        },
+        {
+          "stage": "Improve",
+          "status": "Completed",
+          "at": "2026-11-08T06:06:51.983618700Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureImproved",
+          "status": "Started",
+          "at": "2026-11-08T06:06:51.988620800Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureImproved",
+          "status": "Completed",
+          "at": "2026-11-08T06:06:58.075793300Z",
+          "message": null
+        },
+        {
+          "stage": "Selection",
+          "status": "Completed",
+          "at": "2026-11-08T06:06:58.081800200Z",
+          "message": "采用改进页面"
+        }
+      ],
+      "researchReused": false,
+      "siteStyle": {
+        "brand": "便携手冲器具评测 · 田野笔记",
+        "typography": "衬线标题（Georgia / Songti）配系统无衬线正文；榜单序号用大字号斜体衬线，规格信息以小号标签收束",
+        "palette": "暖纸底 #f4eee0 与米白 #fbf7ee；墨色文字 #1c1915；陶土红 #a8461a 作强调；细线 #d8ccb6",
+        "layout": "非对称两栏编辑网格：主栏为榜单、规格表与决策路径，右侧窄栏放快速结论、价格区间与页内导航；窄屏折叠为单列"
+      },
+      "actions": [
+        {
+          "id": "a-search",
+          "kind": "Search",
+          "elementId": "search-form",
+          "target": "/search",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "a-filter",
+          "kind": "Filter",
+          "elementId": "filter-q",
+          "target": null,
+          "region": "rank-list",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "a-sort-price",
+          "kind": "Sort",
+          "elementId": "sort-price-btn",
+          "target": null,
+          "region": "rank-list",
+          "stateKey": null,
+          "value": "asc",
+          "field": "price"
+        },
+        {
+          "id": "a-toggle-guide",
+          "kind": "Toggle",
+          "elementId": "guide-toggle",
+          "target": null,
+          "region": "guide-panel",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "a-copy-verdict",
+          "kind": "Copy",
+          "elementId": "copy-btn",
+          "target": null,
+          "region": "verdict-text",
+          "stateKey": "copied",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-0",
+          "kind": "Navigate",
+          "elementId": "vib-link-0",
+          "target": "/gear/aeropress-go",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-1",
+          "kind": "Navigate",
+          "elementId": "vib-link-1",
+          "target": "/buy/aeropress-go",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-2",
+          "kind": "Navigate",
+          "elementId": "vib-link-2",
+          "target": "/gear/kalita-wave-155",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-3",
+          "kind": "Navigate",
+          "elementId": "vib-link-3",
+          "target": "/buy/kalita-wave-155",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-4",
+          "kind": "Navigate",
+          "elementId": "vib-link-4",
+          "target": "/gear/cuppamoka",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-5",
+          "kind": "Navigate",
+          "elementId": "vib-link-5",
+          "target": "/buy/cuppamoka",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-6",
+          "kind": "Navigate",
+          "elementId": "vib-link-6",
+          "target": "/gear/v60-resin-02",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-7",
+          "kind": "Navigate",
+          "elementId": "vib-link-7",
+          "target": "/buy/v60-resin-02",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-8",
+          "kind": "Navigate",
+          "elementId": "vib-link-8",
+          "target": "/gear/snow-peak-dripper",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-9",
+          "kind": "Navigate",
+          "elementId": "vib-link-9",
+          "target": "/buy/snow-peak-dripper",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        }
+      ],
+      "layout": {
+        "viewports": [
+          {
+            "width": 1440,
+            "height": 900,
+            "scrollWidth": 1425,
+            "scrollHeight": 3300,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "",
+                "tag": "h1",
+                "text": "把一杯好咖啡，塞进背包的缝隙里",
+                "x": 176.5,
+                "y": 192.890625,
+                "width": 840,
+                "height": 127.65625,
+                "fontSize": "56px",
+                "lineHeight": "63.84px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "编辑榜单",
+                "x": 176.5,
+                "y": 508.640625,
+                "width": 93.796875,
+                "height": 39.546875,
+                "fontSize": "23px",
+                "lineHeight": "39.56px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "AeroPress Go",
+                "x": 250.5,
+                "y": 670.890625,
+                "width": 573.25,
+                "height": 28.59375,
+                "fontSize": "22px",
+                "lineHeight": "28.6px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Kalita Wave 155 不锈钢",
+                "x": 250.5,
+                "y": 920.4375,
+                "width": 573.25,
+                "height": 28.59375,
+                "fontSize": "22px",
+                "lineHeight": "28.6px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Wacaco Cuppamoka",
+                "x": 250.5,
+                "y": 1169.984375,
+                "width": 573.25,
+                "height": 28.59375,
+                "fontSize": "22px",
+                "lineHeight": "28.6px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Hario V60 树脂滤杯 02",
+                "x": 250.5,
+                "y": 1419.53125,
+                "width": 573.25,
+                "height": 28.59375,
+                "fontSize": "22px",
+                "lineHeight": "28.6px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Snow Peak 户外折叠滤杯",
+                "x": 250.5,
+                "y": 1669.078125,
+                "width": 573.25,
+                "height": 28.59375,
+                "fontSize": "22px",
+                "lineHeight": "28.6px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "规格对照",
+                "x": 176.5,
+                "y": 1943.625,
+                "width": 93.796875,
+                "height": 39.546875,
+                "fontSize": "23px",
+                "lineHeight": "39.56px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "选购决策路径",
+                "x": 176.5,
+                "y": 2472.171875,
+                "width": 140.703125,
+                "height": 39.546875,
+                "fontSize": "23px",
+                "lineHeight": "39.56px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "评测方法与常见问题",
+                "x": 176.5,
+                "y": 2673.015625,
+                "width": 211.046875,
+                "height": 39.546875,
+                "fontSize": "23px",
+                "lineHeight": "39.56px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "快速结论",
+                "x": 900.75,
+                "y": 508.640625,
+                "width": 347.734375,
+                "height": 34.796875,
+                "fontSize": "15px",
+                "lineHeight": "25.8px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "价格区间",
+                "x": 900.75,
+                "y": 849.109375,
+                "width": 347.734375,
+                "height": 34.796875,
+                "fontSize": "15px",
+                "lineHeight": "25.8px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "页内导航",
+                "x": 900.75,
+                "y": 1014.5,
+                "width": 347.734375,
+                "height": 34.796875,
+                "fontSize": "15px",
+                "lineHeight": "25.8px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              }
+            ],
+            "controls": [
+              {
+                "id": "q",
+                "tag": "input",
+                "text": "",
+                "x": 999.5,
+                "y": 51.90625,
+                "width": 187.390625,
+                "height": 42.078125,
+                "fontSize": "14px",
+                "lineHeight": "24.08px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "button",
+                "text": "搜索",
+                "x": 1186.890625,
+                "y": 51.90625,
+                "width": 60.609375,
+                "height": 42.078125,
+                "fontSize": "13px",
+                "lineHeight": "22.36px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "filter-q",
+                "tag": "input",
+                "text": "",
+                "x": 214.34375,
+                "y": 612.8125,
+                "width": 472.9375,
+                "height": 42.078125,
+                "fontSize": "14px",
+                "lineHeight": "24.08px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "sort-price-btn",
+                "tag": "button",
+                "text": "按价格从低到高",
+                "x": 697.28125,
+                "y": 613.671875,
+                "width": 126.46875,
+                "height": 40.359375,
+                "fontSize": "13px",
+                "lineHeight": "22.36px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-0",
+                "tag": "a",
+                "text": "AeroPress Go",
+                "x": 250.5,
+                "y": 671.890625,
+                "width": 154.03125,
+                "height": 26,
+                "fontSize": "22px",
+                "lineHeight": "28.6px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-1",
+                "tag": "a",
+                "text": "购买入口",
+                "x": 771.75,
+                "y": 848.765625,
+                "width": 52,
+                "height": 24.359375,
+                "fontSize": "13px",
+                "lineHeight": "22.36px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-2",
+                "tag": "a",
+                "text": "Kalita Wave 155 不锈钢",
+                "x": 250.5,
+                "y": 921.4375,
+                "width": 252.40625,
+                "height": 26,
+                "fontSize": "22px",
+                "lineHeight": "28.6px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-3",
+                "tag": "a",
+                "text": "购买入口",
+                "x": 771.75,
+                "y": 1098.3125,
+                "width": 52,
+                "height": 24.359375,
+                "fontSize": "13px",
+                "lineHeight": "22.36px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-4",
+                "tag": "a",
+                "text": "Wacaco Cuppamoka",
+                "x": 250.5,
+                "y": 1170.984375,
+                "width": 229.953125,
+                "height": 26,
+                "fontSize": "22px",
+                "lineHeight": "28.6px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-5",
+                "tag": "a",
+                "text": "购买入口",
+                "x": 771.75,
+                "y": 1347.859375,
+                "width": 52,
+                "height": 24.359375,
+                "fontSize": "13px",
+                "lineHeight": "22.36px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-6",
+                "tag": "a",
+                "text": "Hario V60 树脂滤杯 02",
+                "x": 250.5,
+                "y": 1420.53125,
+                "width": 248.53125,
+                "height": 26,
+                "fontSize": "22px",
+                "lineHeight": "28.6px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-7",
+                "tag": "a",
+                "text": "购买入口",
+                "x": 771.75,
+                "y": 1597.40625,
+                "width": 52,
+                "height": 24.359375,
+                "fontSize": "13px",
+                "lineHeight": "22.36px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-8",
+                "tag": "a",
+                "text": "Snow Peak 户外折叠滤杯",
+                "x": 250.5,
+                "y": 1670.078125,
+                "width": 263.203125,
+                "height": 26,
+                "fontSize": "22px",
+                "lineHeight": "28.6px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-9",
+                "tag": "a",
+                "text": "购买入口",
+                "x": 771.75,
+                "y": 1846.953125,
+                "width": 52,
+                "height": 24.359375,
+                "fontSize": "13px",
+                "lineHeight": "22.36px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "guide-toggle",
+                "tag": "button",
+                "text": "展开四步决策",
+                "x": 176.5,
+                "y": 2582.65625,
+                "width": 122.25,
+                "height": 42.359375,
+                "fontSize": "13px",
+                "lineHeight": "22.36px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-btn",
+                "tag": "button",
+                "text": "复制这段结论",
+                "x": 900.75,
+                "y": 744.75,
+                "width": 347.734375,
+                "height": 44.359375,
+                "fontSize": "13px",
+                "lineHeight": "22.36px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "编辑榜单",
+                "x": 900.75,
+                "y": 1061.296875,
+                "width": 347.734375,
+                "height": 39.21875,
+                "fontSize": "13.5px",
+                "lineHeight": "23.22px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "规格对照",
+                "x": 900.75,
+                "y": 1101.515625,
+                "width": 347.734375,
+                "height": 39.21875,
+                "fontSize": "13.5px",
+                "lineHeight": "23.22px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "选购决策路径",
+                "x": 900.75,
+                "y": 1141.734375,
+                "width": 347.734375,
+                "height": 39.21875,
+                "fontSize": "13.5px",
+                "lineHeight": "23.22px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "评测方法与常见问题",
+                "x": 900.75,
+                "y": 1181.953125,
+                "width": 347.734375,
+                "height": 39.21875,
+                "fontSize": "13.5px",
+                "lineHeight": "23.22px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "regions": [
+              {
+                "id": "",
+                "tag": "header",
+                "text": "FIELD NOTES · 便携手冲\n   便携手冲器具评测\n  \n  \n   站内搜索\n   \n    \n    搜索",
+                "x": 176.5,
+                "y": 0,
+                "width": 1072,
+                "height": 113.984375,
+                "fontSize": "16px",
+                "lineHeight": "27.52px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "2026 秋季实测 · 第 7 次修订\n  把一杯好咖啡，塞进背包的缝隙里\n  我们带着五款便携手冲器具，在早班地铁、青旅洗手台和海拔 1800 米的营地里各冲了三十杯。这份榜单不排“最强”，只回答一个问题：你的背包和口味，适合哪一只。\n  \n   实测 38 天\n   累计 150 杯\n   更新于 2026-11-07",
+                "x": 176.5,
+                "y": 113.984375,
+                "width": 1072,
+                "height": 356.65625,
+                "fontSize": "16px",
+                "lineHeight": "27.52px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "rank",
+                "tag": "section",
+                "text": "编辑榜单\n     按“单位重量下的萃取稳定性”排序，不是价格排序；01–05 编号为编辑榜原序，不随排序变化。\n    \n    \n     筛选\n     按价格从低到高\n    \n    \n     \n      01\n      \n       AeroPress Go\n       \n        差旅\n        办公\n        压滤",
+                "x": 176.5,
+                "y": 508.640625,
+                "width": 647.25,
+                "height": 1386.984375,
+                "fontSize": "16px",
+                "lineHeight": "27.52px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "01\n      \n       AeroPress Go\n       \n        差旅\n        办公\n        压滤\n       \n       杯身即收纳盒，整套 330 g 塞进随行杯里，注水、搅拌、下压三步出杯。萃取厚实、容错率高，缺点是风味的细腻层次不如滤纸手冲。\n       \n        \n         \n   ",
+                "x": 176.5,
+                "y": 670.890625,
+                "width": 647.25,
+                "height": 226.546875,
+                "fontSize": "16px",
+                "lineHeight": "27.52px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "02\n      \n       Kalita Wave 155 不锈钢\n       \n        露营\n        新手\n        平底\n       \n       三孔蛋糕杯让水流均匀，容错率是五款里最高的，新手也很难冲出苦涩。不锈钢杯身耐磕碰，缺点是比树脂款重，专用滤纸也略贵一点。\n       \n        \n         ",
+                "x": 176.5,
+                "y": 897.4375,
+                "width": 647.25,
+                "height": 249.546875,
+                "fontSize": "16px",
+                "lineHeight": "27.52px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "03\n      \n       Wacaco Cuppamoka\n       \n        通勤\n        一体化\n        滴滤\n       \n       滴滤杯直接扣在 300 ml 保温杯上，出杯后能保温两小时。整机 336 g，通勤包里几乎占不出一格。清洗要拆三件，赶时间时会嫌它麻烦。\n       \n        \n   ",
+                "x": 176.5,
+                "y": 1146.984375,
+                "width": 647.25,
+                "height": 249.546875,
+                "fontSize": "16px",
+                "lineHeight": "27.52px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "04\n      \n       Hario V60 树脂滤杯 02\n       \n        通勤\n        性价比\n        轻量\n       \n       83 g 的单只滤杯，锥形单孔、流速快，风味明亮干净。它需要另配手冲壶与锥形滤纸，但整套算下来仍是五款里最便宜的方案。\n       \n        \n         \n ",
+                "x": 176.5,
+                "y": 1396.53125,
+                "width": 647.25,
+                "height": 249.546875,
+                "fontSize": "16px",
+                "lineHeight": "27.52px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "05\n      \n       Snow Peak 户外折叠滤杯\n       \n        露营\n        极简出行\n        折叠\n       \n       折叠后不到 3 cm 厚，可以塞进外套口袋。树脂材质不导热，出水略快，风味偏薄，适合当“第二只杯子”或极简出行时的备用方案。\n       \n        \n        ",
+                "x": 176.5,
+                "y": 1646.078125,
+                "width": 647.25,
+                "height": 249.546875,
+                "fontSize": "16px",
+                "lineHeight": "27.52px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "spec",
+                "tag": "section",
+                "text": "规格对照\n     窄屏可横向滑动查完整表格\n    \n    \n     \n      \n       \n        器具\n        重量\n        单次容量\n        材质\n        收纳体积\n        萃取风格\n        参考价\n       \n      \n      \n       \n        Aero",
+                "x": 176.5,
+                "y": 1943.625,
+                "width": 647.25,
+                "height": 480.546875,
+                "fontSize": "16px",
+                "lineHeight": "27.52px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "guide",
+                "tag": "section",
+                "text": "选购决策路径\n     四个问题，落到唯一一只\n    \n    不想读完两千字的话，按顺序回答下面四个问题，最后落到的名字就是答案。\n    展开四步决策\n    \n     \n      你愿意带磨豆机吗？不愿意 → 先解决豆子（预磨粉或挂耳），再谈器具，选定后回到第 2 步继续；愿意 → 进入第 2 步。\n      你更在意速度还是风味？速度 → 若",
+                "x": 176.5,
+                "y": 2472.171875,
+                "width": 647.25,
+                "height": 152.84375,
+                "fontSize": "16px",
+                "lineHeight": "27.52px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "method",
+                "tag": "section",
+                "text": "评测方法与常见问题\n     数据怎么来的，以及它测不出什么\n    \n    每款器具使用同一支手磨、同一批水洗中浅烘豆，粉水比 1:15，研磨度按各自推荐值微调。重量用厨房秤实测整机（含必要配件），容量为标注可冲煮上限。萃取表现由三位评测员盲测打分，只保留分歧小于 1 分的结论。我们不测量耐摔极限与长期老化，这两项只作使用体感描述。\n    \n     ",
+                "x": 176.5,
+                "y": 2673.015625,
+                "width": 647.25,
+                "height": 445.0625,
+                "fontSize": "16px",
+                "lineHeight": "27.52px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "快速结论\n    \n     通勤：V60 树脂 02 加一只保温杯，不到 100 g，69 元起步。\n     差旅：AeroPress Go，冲煮与收纳一套解决，酒店房间也能出杯。\n     露营：Kalita Wave 155 不锈钢，抗摔、容错最高。\n     极简出行：Snow Peak 折叠滤杯，折后 3 cm 塞进口袋。\n    \n    复制",
+                "x": 867.75,
+                "y": 508.640625,
+                "width": 380.734375,
+                "height": 2609.4375,
+                "fontSize": "16px",
+                "lineHeight": "27.52px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "footer",
+                "text": "便携手冲器具评测 · 田野笔记　|　编辑部邮箱：editor@fieldnotes.coffee（可直接选中复制）\n  数据来自 2026 年 9–10 月的实测评测，价格随渠道浮动，仅供参考。",
+                "x": 176.5,
+                "y": 3174.078125,
+                "width": 1072,
+                "height": 126,
+                "fontSize": "12.5px",
+                "lineHeight": "21.5px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "visualProfile": {
+              "backgrounds": [
+                "rgb(244, 238, 224)"
+              ],
+              "fonts": [
+                "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif"
+              ],
+              "headingSizes": [
+                56,
+                23,
+                22
+              ],
+              "regions": [
+                {
+                  "display": "flex",
+                  "columns": 1,
+                  "widthRatio": 0.74
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.74
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.45
+                },
+                {
+                  "display": "grid",
+                  "columns": 2,
+                  "widthRatio": 0.45
+                }
+              ]
+            }
+          },
+          {
+            "width": 390,
+            "height": 844,
+            "scrollWidth": 375,
+            "scrollHeight": 4860,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "",
+                "tag": "h1",
+                "text": "把一杯好咖啡，塞进背包的缝隙里",
+                "x": 16,
+                "y": 253.90625,
+                "width": 343,
+                "height": 66.09375,
+                "fontSize": "29px",
+                "lineHeight": "33.06px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "编辑榜单",
+                "x": 16,
+                "y": 552.5625,
+                "width": 93.796875,
+                "height": 39.546875,
+                "fontSize": "23px",
+                "lineHeight": "39.56px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "AeroPress Go",
+                "x": 72,
+                "y": 816.421875,
+                "width": 287,
+                "height": 24.6875,
+                "fontSize": "19px",
+                "lineHeight": "24.7px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Kalita Wave 155 不锈钢",
+                "x": 72,
+                "y": 1137.4375,
+                "width": 287,
+                "height": 24.6875,
+                "fontSize": "19px",
+                "lineHeight": "24.7px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Wacaco Cuppamoka",
+                "x": 72,
+                "y": 1458.453125,
+                "width": 287,
+                "height": 24.6875,
+                "fontSize": "19px",
+                "lineHeight": "24.7px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Hario V60 树脂滤杯 02",
+                "x": 72,
+                "y": 1779.46875,
+                "width": 287,
+                "height": 24.6875,
+                "fontSize": "19px",
+                "lineHeight": "24.7px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Snow Peak 户外折叠滤杯",
+                "x": 72,
+                "y": 2075.546875,
+                "width": 287,
+                "height": 24.6875,
+                "fontSize": "19px",
+                "lineHeight": "24.7px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "规格对照",
+                "x": 16,
+                "y": 2421.5625,
+                "width": 93.796875,
+                "height": 39.546875,
+                "fontSize": "23px",
+                "lineHeight": "39.56px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "选购决策路径",
+                "x": 16,
+                "y": 2950.109375,
+                "width": 140.703125,
+                "height": 39.546875,
+                "fontSize": "23px",
+                "lineHeight": "39.56px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "评测方法与常见问题",
+                "x": 16,
+                "y": 3175.890625,
+                "width": 211.046875,
+                "height": 39.546875,
+                "fontSize": "23px",
+                "lineHeight": "39.56px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "快速结论",
+                "x": 16,
+                "y": 3887.703125,
+                "width": 343,
+                "height": 34.796875,
+                "fontSize": "15px",
+                "lineHeight": "25.8px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "价格区间",
+                "x": 16,
+                "y": 4228.171875,
+                "width": 343,
+                "height": 34.796875,
+                "fontSize": "15px",
+                "lineHeight": "25.8px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "页内导航",
+                "x": 16,
+                "y": 4393.5625,
+                "width": 343,
+                "height": 34.796875,
+                "fontSize": "15px",
+                "lineHeight": "25.8px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              }
+            ],
+            "controls": [
+              {
+                "id": "q",
+                "tag": "input",
+                "text": "",
+                "x": 17,
+                "y": 124.921875,
+                "width": 280.390625,
+                "height": 42.078125,
+                "fontSize": "14px",
+                "lineHeight": "24.08px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "button",
+                "text": "搜索",
+                "x": 297.390625,
+                "y": 124.921875,
+                "width": 60.609375,
+                "height": 42.078125,
+                "fontSize": "13px",
+                "lineHeight": "22.36px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "filter-q",
+                "tag": "input",
+                "text": "",
+                "x": 16,
+                "y": 707.984375,
+                "width": 343,
+                "height": 42.078125,
+                "fontSize": "14px",
+                "lineHeight": "24.08px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "sort-price-btn",
+                "tag": "button",
+                "text": "按价格从低到高",
+                "x": 16,
+                "y": 760.0625,
+                "width": 126.46875,
+                "height": 40.359375,
+                "fontSize": "13px",
+                "lineHeight": "22.36px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-0",
+                "tag": "a",
+                "text": "AeroPress Go",
+                "x": 72,
+                "y": 817.421875,
+                "width": 133.03125,
+                "height": 22,
+                "fontSize": "19px",
+                "lineHeight": "24.7px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-1",
+                "tag": "a",
+                "text": "购买入口",
+                "x": 228.546875,
+                "y": 1065.765625,
+                "width": 52,
+                "height": 24.359375,
+                "fontSize": "13px",
+                "lineHeight": "22.36px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-2",
+                "tag": "a",
+                "text": "Kalita Wave 155 不锈钢",
+                "x": 72,
+                "y": 1138.4375,
+                "width": 217.984375,
+                "height": 22,
+                "fontSize": "19px",
+                "lineHeight": "24.7px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-3",
+                "tag": "a",
+                "text": "购买入口",
+                "x": 228.984375,
+                "y": 1386.78125,
+                "width": 52,
+                "height": 24.359375,
+                "fontSize": "13px",
+                "lineHeight": "22.36px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-4",
+                "tag": "a",
+                "text": "Wacaco Cuppamoka",
+                "x": 72,
+                "y": 1459.453125,
+                "width": 198.59375,
+                "height": 22,
+                "fontSize": "19px",
+                "lineHeight": "24.7px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-5",
+                "tag": "a",
+                "text": "购买入口",
+                "x": 228.953125,
+                "y": 1707.796875,
+                "width": 52,
+                "height": 24.359375,
+                "fontSize": "13px",
+                "lineHeight": "22.36px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-6",
+                "tag": "a",
+                "text": "Hario V60 树脂滤杯 02",
+                "x": 72,
+                "y": 1780.46875,
+                "width": 214.640625,
+                "height": 22,
+                "fontSize": "19px",
+                "lineHeight": "24.7px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-7",
+                "tag": "a",
+                "text": "购买入口",
+                "x": 216.546875,
+                "y": 2003.875,
+                "width": 52,
+                "height": 24.359375,
+                "fontSize": "13px",
+                "lineHeight": "22.36px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-8",
+                "tag": "a",
+                "text": "Snow Peak 户外折叠滤杯",
+                "x": 72,
+                "y": 2076.546875,
+                "width": 227.3125,
+                "height": 22,
+                "fontSize": "19px",
+                "lineHeight": "24.7px",
+                "fontFamily": "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-9",
+                "tag": "a",
+                "text": "购买入口",
+                "x": 226.453125,
+                "y": 2324.890625,
+                "width": 52,
+                "height": 24.359375,
+                "fontSize": "13px",
+                "lineHeight": "22.36px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "guide-toggle",
+                "tag": "button",
+                "text": "展开四步决策",
+                "x": 16,
+                "y": 3085.53125,
+                "width": 122.25,
+                "height": 42.359375,
+                "fontSize": "13px",
+                "lineHeight": "22.36px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-btn",
+                "tag": "button",
+                "text": "复制这段结论",
+                "x": 16,
+                "y": 4123.8125,
+                "width": 343,
+                "height": 44.359375,
+                "fontSize": "13px",
+                "lineHeight": "22.36px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "编辑榜单",
+                "x": 16,
+                "y": 4440.359375,
+                "width": 343,
+                "height": 39.21875,
+                "fontSize": "13.5px",
+                "lineHeight": "23.22px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "规格对照",
+                "x": 16,
+                "y": 4480.578125,
+                "width": 343,
+                "height": 39.21875,
+                "fontSize": "13.5px",
+                "lineHeight": "23.22px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "选购决策路径",
+                "x": 16,
+                "y": 4520.796875,
+                "width": 343,
+                "height": 39.21875,
+                "fontSize": "13.5px",
+                "lineHeight": "23.22px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "评测方法与常见问题",
+                "x": 16,
+                "y": 4561.015625,
+                "width": 343,
+                "height": 39.21875,
+                "fontSize": "13.5px",
+                "lineHeight": "23.22px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "regions": [
+              {
+                "id": "",
+                "tag": "header",
+                "text": "FIELD NOTES · 便携手冲\n   便携手冲器具评测\n  \n  \n   站内搜索\n   \n    \n    搜索",
+                "x": 16,
+                "y": 0,
+                "width": 343,
+                "height": 187,
+                "fontSize": "16px",
+                "lineHeight": "27.52px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "2026 秋季实测 · 第 7 次修订\n  把一杯好咖啡，塞进背包的缝隙里\n  我们带着五款便携手冲器具，在早班地铁、青旅洗手台和海拔 1800 米的营地里各冲了三十杯。这份榜单不排“最强”，只回答一个问题：你的背包和口味，适合哪一只。\n  \n   实测 38 天\n   累计 150 杯\n   更新于 2026-11-07",
+                "x": 16,
+                "y": 187,
+                "width": 343,
+                "height": 335.5625,
+                "fontSize": "16px",
+                "lineHeight": "27.52px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "rank",
+                "tag": "section",
+                "text": "编辑榜单\n     按“单位重量下的萃取稳定性”排序，不是价格排序；01–05 编号为编辑榜原序，不随排序变化。\n    \n    \n     筛选\n     按价格从低到高\n    \n    \n     \n      01\n      \n       AeroPress Go\n       \n        差旅\n        办公\n        压滤",
+                "x": 16,
+                "y": 552.5625,
+                "width": 343,
+                "height": 1821,
+                "fontSize": "16px",
+                "lineHeight": "27.52px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "01\n      \n       AeroPress Go\n       \n        差旅\n        办公\n        压滤\n       \n       杯身即收纳盒，整套 330 g 塞进随行杯里，注水、搅拌、下压三步出杯。萃取厚实、容错率高，缺点是风味的细腻层次不如滤纸手冲。\n       \n        \n         \n   ",
+                "x": 16,
+                "y": 816.421875,
+                "width": 343,
+                "height": 298.015625,
+                "fontSize": "16px",
+                "lineHeight": "27.52px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "02\n      \n       Kalita Wave 155 不锈钢\n       \n        露营\n        新手\n        平底\n       \n       三孔蛋糕杯让水流均匀，容错率是五款里最高的，新手也很难冲出苦涩。不锈钢杯身耐磕碰，缺点是比树脂款重，专用滤纸也略贵一点。\n       \n        \n         ",
+                "x": 16,
+                "y": 1114.4375,
+                "width": 343,
+                "height": 321.015625,
+                "fontSize": "16px",
+                "lineHeight": "27.52px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "03\n      \n       Wacaco Cuppamoka\n       \n        通勤\n        一体化\n        滴滤\n       \n       滴滤杯直接扣在 300 ml 保温杯上，出杯后能保温两小时。整机 336 g，通勤包里几乎占不出一格。清洗要拆三件，赶时间时会嫌它麻烦。\n       \n        \n   ",
+                "x": 16,
+                "y": 1435.453125,
+                "width": 343,
+                "height": 321.015625,
+                "fontSize": "16px",
+                "lineHeight": "27.52px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "04\n      \n       Hario V60 树脂滤杯 02\n       \n        通勤\n        性价比\n        轻量\n       \n       83 g 的单只滤杯，锥形单孔、流速快，风味明亮干净。它需要另配手冲壶与锥形滤纸，但整套算下来仍是五款里最便宜的方案。\n       \n        \n         \n ",
+                "x": 16,
+                "y": 1756.46875,
+                "width": 343,
+                "height": 296.078125,
+                "fontSize": "16px",
+                "lineHeight": "27.52px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "05\n      \n       Snow Peak 户外折叠滤杯\n       \n        露营\n        极简出行\n        折叠\n       \n       折叠后不到 3 cm 厚，可以塞进外套口袋。树脂材质不导热，出水略快，风味偏薄，适合当“第二只杯子”或极简出行时的备用方案。\n       \n        \n        ",
+                "x": 16,
+                "y": 2052.546875,
+                "width": 343,
+                "height": 321.015625,
+                "fontSize": "16px",
+                "lineHeight": "27.52px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "spec",
+                "tag": "section",
+                "text": "规格对照\n     窄屏可横向滑动查完整表格\n    \n    \n     \n      \n       \n        器具\n        重量\n        单次容量\n        材质\n        收纳体积\n        萃取风格\n        参考价\n       \n      \n      \n       \n        Aero",
+                "x": 16,
+                "y": 2421.5625,
+                "width": 343,
+                "height": 480.546875,
+                "fontSize": "16px",
+                "lineHeight": "27.52px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "guide",
+                "tag": "section",
+                "text": "选购决策路径\n     四个问题，落到唯一一只\n    \n    不想读完两千字的话，按顺序回答下面四个问题，最后落到的名字就是答案。\n    展开四步决策\n    \n     \n      你愿意带磨豆机吗？不愿意 → 先解决豆子（预磨粉或挂耳），再谈器具，选定后回到第 2 步继续；愿意 → 进入第 2 步。\n      你更在意速度还是风味？速度 → 若",
+                "x": 16,
+                "y": 2950.109375,
+                "width": 343,
+                "height": 177.78125,
+                "fontSize": "16px",
+                "lineHeight": "27.52px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "method",
+                "tag": "section",
+                "text": "评测方法与常见问题\n     数据怎么来的，以及它测不出什么\n    \n    每款器具使用同一支手磨、同一批水洗中浅烘豆，粉水比 1:15，研磨度按各自推荐值微调。重量用厨房秤实测整机（含必要配件），容量为标注可冲煮上限。萃取表现由三位评测员盲测打分，只保留分歧小于 1 分的结论。我们不测量耐摔极限与长期老化，这两项只作使用体感描述。\n    \n     ",
+                "x": 16,
+                "y": 3175.890625,
+                "width": 343,
+                "height": 650.8125,
+                "fontSize": "16px",
+                "lineHeight": "27.52px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "快速结论\n    \n     通勤：V60 树脂 02 加一只保温杯，不到 100 g，69 元起步。\n     差旅：AeroPress Go，冲煮与收纳一套解决，酒店房间也能出杯。\n     露营：Kalita Wave 155 不锈钢，抗摔、容错最高。\n     极简出行：Snow Peak 折叠滤杯，折后 3 cm 塞进口袋。\n    \n    复制",
+                "x": 16,
+                "y": 3860.703125,
+                "width": 343,
+                "height": 774.53125,
+                "fontSize": "16px",
+                "lineHeight": "27.52px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "footer",
+                "text": "便携手冲器具评测 · 田野笔记　|　编辑部邮箱：editor@fieldnotes.coffee（可直接选中复制）\n  数据来自 2026 年 9–10 月的实测评测，价格随渠道浮动，仅供参考。",
+                "x": 16,
+                "y": 4691.234375,
+                "width": 343,
+                "height": 169,
+                "fontSize": "12.5px",
+                "lineHeight": "21.5px",
+                "fontFamily": "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "visualProfile": {
+              "backgrounds": [
+                "rgb(244, 238, 224)"
+              ],
+              "fonts": [
+                "-apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", system-ui, sans-serif",
+                "Georgia, \"Songti SC\", SimSun, \"Noto Serif CJK SC\", serif"
+              ],
+              "headingSizes": [
+                29,
+                23,
+                19
+              ],
+              "regions": [
+                {
+                  "display": "flex",
+                  "columns": 1,
+                  "widthRatio": 0.88
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.88
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.88
+                },
+                {
+                  "display": "grid",
+                  "columns": 2,
+                  "widthRatio": 0.88
                 }
               ]
             }
@@ -3123,6 +5864,2055 @@
                   "display": "block",
                   "columns": 1,
                   "widthRatio": 0.89
+                }
+              ]
+            }
+          }
+        ],
+        "error": null
+      }
+    },
+    {
+      "name": "docs-new-standard",
+      "input": "PostgreSQL事务隔离与并发控制学习笔记.com",
+      "mode": "research",
+      "effort": "standard",
+      "effortPolicy": "experimental-low",
+      "contentFocusOnly": true,
+      "draftPlanning": false,
+      "draftCharacters": 0,
+      "layoutExploration": true,
+      "designDirection": {
+        "concept": "实验手册式左右对照",
+        "structure": "每个主题采用左右并置：左侧解释现象与原理，右侧放对应 SQL、Shell 脚本、监控查询或参数模板；章节顶部用“现象—复现—观察—处理”的步骤条串起实验，理论内容缩为可折叠段落或短栏。",
+        "typography": "以等宽字体作为主视觉，命令与输出占据主要字号；标题使用高对比粗黑无衬线，解释文字用较小号无衬线并配等宽小标签，形成操作台气质。",
+        "contentReason": "资料包含隔离级别复现、死锁模拟、WAL 解析、XID 年龄监控等大量可直接执行的实验，左右对照让读者边读边做；等宽主导的字体表达能突出命令、输出和错误码，与纯阅读型方案明显区分。"
+      },
+      "proposedDirectionCount": 3,
+      "visualReferenceCount": 1,
+      "visualReferenceCharacters": 365,
+      "requestHash": "81c4ef5402af0f79113a9b1d0fe23a78f8d4600beb4e4de07001ab64b90df49f",
+      "actualEffortMatches": true,
+      "pageId": "1dbd9409-26f2-4f61-94e4-ea373eeedb5c",
+      "jobId": "b215d8f3-ba12-4b8e-9373-fc677c61c541",
+      "guidance": "8-c1e0823385b34590f0bf7bd797de93208836a202c8c5d1055843268e0d7bb5bd",
+      "briefCharacters": 1599,
+      "earlyVisualPlanCharacters": 0,
+      "cssChangedByReview": null,
+      "seconds": 469,
+      "interrupted": false,
+      "usageComplete": true,
+      "error": "模型输出为空或被截断，请重试",
+      "initialGenerationAccepted": false,
+      "generationAttempts": [
+        {
+          "attempt": 1,
+          "outcome": "ProviderFailure",
+          "errorCode": "provider_content",
+          "message": "模型输出为空或被截断，请重试",
+          "at": "2026-11-08T06:09:03.374697300Z"
+        },
+        {
+          "attempt": 2,
+          "outcome": "ProviderFailure",
+          "errorCode": "provider_content",
+          "message": "模型输出为空或被截断，请重试",
+          "at": "2026-11-08T06:10:55.012278200Z"
+        },
+        {
+          "attempt": 3,
+          "outcome": "ProviderFailure",
+          "errorCode": "provider_content",
+          "message": "模型输出为空或被截断，请重试",
+          "at": "2026-11-08T06:12:51.391670300Z"
+        },
+        {
+          "attempt": 4,
+          "outcome": "ProviderFailure",
+          "errorCode": "provider_content",
+          "message": "模型输出为空或被截断，请重试",
+          "at": "2026-11-08T06:14:47.584326Z"
+        }
+      ],
+      "modelCalls": [
+        {
+          "usage": {
+            "prompt_tokens": 8838,
+            "completion_tokens": 1527,
+            "total_tokens": 10365,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 691
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 8838
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 12402,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "brief"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 10631,
+            "completion_tokens": 24000,
+            "total_tokens": 34631,
+            "prompt_tokens_details": {
+              "cached_tokens": 1024
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 14555
+            },
+            "prompt_cache_hit_tokens": 1024,
+            "prompt_cache_miss_tokens": 9607
+          },
+          "finishReason": "length",
+          "status": 200,
+          "milliseconds": 112829,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 10631,
+            "completion_tokens": 24000,
+            "total_tokens": 34631,
+            "prompt_tokens_details": {
+              "cached_tokens": 10496
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 16051
+            },
+            "prompt_cache_hit_tokens": 10496,
+            "prompt_cache_miss_tokens": 135
+          },
+          "finishReason": "length",
+          "status": 200,
+          "milliseconds": 111365,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 10631,
+            "completion_tokens": 24000,
+            "total_tokens": 34631,
+            "prompt_tokens_details": {
+              "cached_tokens": 10496
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 22976
+            },
+            "prompt_cache_hit_tokens": 10496,
+            "prompt_cache_miss_tokens": 135
+          },
+          "finishReason": "length",
+          "status": 200,
+          "milliseconds": 115859,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 10631,
+            "completion_tokens": 24000,
+            "total_tokens": 34631,
+            "prompt_tokens_details": {
+              "cached_tokens": 10496
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 16639
+            },
+            "prompt_cache_hit_tokens": 10496,
+            "prompt_cache_miss_tokens": 135
+          },
+          "finishReason": "length",
+          "status": 200,
+          "milliseconds": 115425,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "document"
+        }
+      ],
+      "selection": "Original",
+      "events": [
+        {
+          "stage": "Brief",
+          "status": "Started",
+          "at": "2026-11-08T06:06:58.133124600Z",
+          "message": null
+        },
+        {
+          "stage": "Brief",
+          "status": "Completed",
+          "at": "2026-11-08T06:07:10.538640Z",
+          "message": null
+        }
+      ],
+      "sources": [
+        {
+          "id": "source-1",
+          "url": "https://browse.dgit.debian.org/cl-postmodern.git/tree/doc/isolation-notes.org?pow_referer=#2",
+          "title": "isolation-notes.org « doc - cl-postmodern - The [[https://www",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        },
+        {
+          "id": "source-2",
+          "url": "https://cloud.tencent.com.cn/developer/article/2744614#3",
+          "title": "数据库教程FGMT53‑PostgreSQL事务处理与并发控制 - 自动换行",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        },
+        {
+          "id": "source-3",
+          "url": "https://learn.microsoft.com/zh-tw/training/modules/understand-concurrency-postgresql/2-understand-multi-version-concurrency-control-snapshots",
+          "title": "了解多版本並行控制 (MVCC) 與快照集 - Training",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        },
+        {
+          "id": "source-4",
+          "url": "https://cloud.tencent.com.cn/developer/article/2449747?from=15425&policyId=undefined&traceId=&frompage=seopage#1",
+          "title": "从零开始学PostgreSQL (十一)：并发控制 - DBA实战",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        },
+        {
+          "id": "source-5",
+          "url": "http://www.yisu.com/ask/47402750.html#1",
+          "title": "centos postgresql并发控制方法 - centos postgresql并发控制方法",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        },
+        {
+          "id": "source-6",
+          "url": "https://www.postgresql.org/docs/19/transaction-iso.html",
+          "title": "13.2. Transaction Isolation",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        }
+      ],
+      "researchReused": true,
+      "layout": null
+    },
+    {
+      "name": "essay-new-standard",
+      "input": "一个沿海小城居民的散步随笔.com",
+      "mode": "imagination",
+      "effort": "standard",
+      "effortPolicy": "experimental-low",
+      "contentFocusOnly": true,
+      "draftPlanning": false,
+      "draftCharacters": 0,
+      "layoutExploration": true,
+      "designDirection": {
+        "concept": "口袋笔记本式不对称版面",
+        "structure": "模拟随身笔记的开合页：主栏放一篇主推随笔，侧栏放短注、地点和归档；版面左右不对称，留出手写式批注位置。",
+        "typography": "主文用偏书卷气的宋体，侧注用较小黑体或楷体；标题可稍带手写感但保持可读，行距紧凑与宽松交替。",
+        "contentReason": "散步随笔带有个人观察与随手记录气质，不对称笔记本结构能突出主文与边注的关系，适合作者自述、地点短注和长文入口并存。"
+      },
+      "proposedDirectionCount": 3,
+      "visualReferenceCount": 3,
+      "visualReferenceCharacters": 1177,
+      "requestHash": "71d5157ecb8fece704d54fa6419571cacf313b80432f1d29cbf79626454669f2",
+      "actualEffortMatches": true,
+      "pageId": "f7f93af7-8067-4aa6-aeed-4ee299a15d0b",
+      "jobId": "019b3dad-3574-472b-8064-6ce2e715b897",
+      "guidance": "8-c1e0823385b34590f0bf7bd797de93208836a202c8c5d1055843268e0d7bb5bd",
+      "briefCharacters": 1043,
+      "earlyVisualPlanCharacters": 0,
+      "cssChangedByReview": false,
+      "seconds": 120,
+      "interrupted": false,
+      "usageComplete": true,
+      "error": null,
+      "initialGenerationAccepted": true,
+      "generationAttempts": [
+        {
+          "attempt": 1,
+          "outcome": "Accepted",
+          "errorCode": null,
+          "message": null,
+          "at": "2026-11-08T06:16:25.432188900Z"
+        }
+      ],
+      "modelCalls": [
+        {
+          "usage": {
+            "prompt_tokens": 314,
+            "completion_tokens": 957,
+            "total_tokens": 1271,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 452
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 314
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 8689,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "brief"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 2084,
+            "completion_tokens": 19216,
+            "total_tokens": 21300,
+            "prompt_tokens_details": {
+              "cached_tokens": 896
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 11751
+            },
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 1188
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 89099,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 23416,
+            "completion_tokens": 1858,
+            "total_tokens": 25274,
+            "prompt_tokens_details": {
+              "cached_tokens": 768
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1852
+            },
+            "prompt_cache_hit_tokens": 768,
+            "prompt_cache_miss_tokens": 22648
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 16135,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "review"
+        }
+      ],
+      "selection": "Original",
+      "events": [
+        {
+          "stage": "Brief",
+          "status": "Started",
+          "at": "2026-11-08T06:14:47.605330Z",
+          "message": null
+        },
+        {
+          "stage": "Brief",
+          "status": "Completed",
+          "at": "2026-11-08T06:14:56.297348200Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Started",
+          "at": "2026-11-08T06:16:25.437189800Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Completed",
+          "at": "2026-11-08T06:16:31.842966700Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Started",
+          "at": "2026-11-08T06:16:31.850108800Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Completed",
+          "at": "2026-11-08T06:16:47.992056700Z",
+          "message": null
+        },
+        {
+          "stage": "Selection",
+          "status": "Completed",
+          "at": "2026-11-08T06:16:47.996205300Z",
+          "message": "采用已校验原页面"
+        }
+      ],
+      "researchReused": false,
+      "siteStyle": {
+        "brand": "沿海小城散步笔记——纸本、铅笔、潮汐表",
+        "typography": "正文宋代腔（Songti SC/SimSun/Georgia），标题略大、字距放宽；侧注与元信息使用系统黑体小字号，行距一紧一松形成手记节奏",
+        "palette": "米黄纸底 #f5efe2，墨黑 #2a2621，海蓝绿 #2f5d63 作强调，锈红 #a25c3a 作编号与批注色，浅米线 #d9cdb4 作分隔",
+        "layout": "不对称双栏：左侧 1.68 倍主栏放主推长文与编号随笔列表，右侧窄栏放作者自述、地点短注、归档与联系；窄屏堆叠为单列，主栏保留悬挂编号"
+      },
+      "actions": [
+        {
+          "id": "act-search",
+          "kind": "Search",
+          "elementId": "site-search",
+          "target": null,
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-filter-place",
+          "kind": "Filter",
+          "elementId": "place-filter",
+          "target": null,
+          "region": "walk-list",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-sort-date",
+          "kind": "Sort",
+          "elementId": "date-sort",
+          "target": null,
+          "region": "walk-list",
+          "stateKey": null,
+          "value": "desc",
+          "field": "date"
+        },
+        {
+          "id": "act-toggle-author",
+          "kind": "Toggle",
+          "elementId": "author-more-btn",
+          "target": null,
+          "region": "author-more",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-copy-email",
+          "kind": "Copy",
+          "elementId": "copy-email",
+          "target": null,
+          "region": "email-text",
+          "stateKey": "copyState",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-0",
+          "kind": "Navigate",
+          "elementId": "vib-link-0",
+          "target": "/walks/2026-11-06-harbor-fog",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-1",
+          "kind": "Navigate",
+          "elementId": "vib-link-1",
+          "target": "/walks/2026-11-06-harbor-fog",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-2",
+          "kind": "Navigate",
+          "elementId": "vib-link-2",
+          "target": "/walks/2026-10-28-tide-flat",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-3",
+          "kind": "Navigate",
+          "elementId": "vib-link-3",
+          "target": "/walks/2026-10-28-tide-flat",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-4",
+          "kind": "Navigate",
+          "elementId": "vib-link-4",
+          "target": "/walks/2026-10-15-old-pier",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-5",
+          "kind": "Navigate",
+          "elementId": "vib-link-5",
+          "target": "/walks/2026-10-15-old-pier",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-6",
+          "kind": "Navigate",
+          "elementId": "vib-link-6",
+          "target": "/walks/2026-09-30-salt-wind-lane",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-7",
+          "kind": "Navigate",
+          "elementId": "vib-link-7",
+          "target": "/walks/2026-09-30-salt-wind-lane",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-8",
+          "kind": "Navigate",
+          "elementId": "vib-link-8",
+          "target": "/walks/2026-09-12-lighthouse-road",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-9",
+          "kind": "Navigate",
+          "elementId": "vib-link-9",
+          "target": "/walks/2026-09-12-lighthouse-road",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-10",
+          "kind": "Navigate",
+          "elementId": "vib-link-10",
+          "target": "/walks/2026-08-23-rainy-market",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-11",
+          "kind": "Navigate",
+          "elementId": "vib-link-11",
+          "target": "/walks/2026-08-23-rainy-market",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-12",
+          "kind": "Navigate",
+          "elementId": "vib-link-12",
+          "target": "/archive/2026-11",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-13",
+          "kind": "Navigate",
+          "elementId": "vib-link-13",
+          "target": "/archive/2026-10",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-14",
+          "kind": "Navigate",
+          "elementId": "vib-link-14",
+          "target": "/archive/2026-09",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-15",
+          "kind": "Navigate",
+          "elementId": "vib-link-15",
+          "target": "/archive/2026-08",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-16",
+          "kind": "Navigate",
+          "elementId": "vib-link-16",
+          "target": "/archive",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        }
+      ],
+      "layout": {
+        "viewports": [
+          {
+            "width": 1440,
+            "height": 900,
+            "scrollWidth": 1425,
+            "scrollHeight": 1903,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "",
+                "tag": "h1",
+                "text": "一个沿海小城居民的散步随笔",
+                "x": 198.5,
+                "y": 88.46875,
+                "width": 1028,
+                "height": 60,
+                "fontSize": "50px",
+                "lineHeight": "60px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "lead-title",
+                "tag": "h2",
+                "text": "雾从防波堤上来",
+                "x": 197.0625,
+                "y": 432.484375,
+                "width": 608.234375,
+                "height": 48.234375,
+                "fontSize": "36px",
+                "lineHeight": "48.24px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "log-title",
+                "tag": "h2",
+                "text": "更早的散步",
+                "x": 198.5,
+                "y": 814.890625,
+                "width": 96.5,
+                "height": 26.6875,
+                "fontSize": "15px",
+                "lineHeight": "26.7px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "退潮后的三小时",
+                "x": 252.5,
+                "y": 872.578125,
+                "width": 552.796875,
+                "height": 27.546875,
+                "fontSize": "19px",
+                "lineHeight": "27.55px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "旧码头的第十七个清晨",
+                "x": 252.5,
+                "y": 1055.109375,
+                "width": 552.796875,
+                "height": 27.546875,
+                "fontSize": "19px",
+                "lineHeight": "27.55px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "盐风巷的午后",
+                "x": 252.5,
+                "y": 1237.640625,
+                "width": 552.796875,
+                "height": 27.546875,
+                "fontSize": "19px",
+                "lineHeight": "27.55px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "走到没有路灯的地方",
+                "x": 252.5,
+                "y": 1420.171875,
+                "width": 552.796875,
+                "height": 27.546875,
+                "fontSize": "19px",
+                "lineHeight": "27.55px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "雨天的菜市场与一条鱼的去向",
+                "x": 252.5,
+                "y": 1602.703125,
+                "width": 552.796875,
+                "height": 27.546875,
+                "fontSize": "19px",
+                "lineHeight": "27.55px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "作者自述",
+                "x": 886.296875,
+                "y": 461.015625,
+                "width": 319.203125,
+                "height": 20.46875,
+                "fontSize": "11.5px",
+                "lineHeight": "20.47px",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "常走的地方",
+                "x": 886.296875,
+                "y": 655.328125,
+                "width": 319.203125,
+                "height": 20.46875,
+                "fontSize": "11.5px",
+                "lineHeight": "20.47px",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "归档",
+                "x": 886.296875,
+                "y": 990.234375,
+                "width": 319.203125,
+                "height": 20.46875,
+                "fontSize": "11.5px",
+                "lineHeight": "20.47px",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "说点什么",
+                "x": 886.296875,
+                "y": 1266.328125,
+                "width": 319.203125,
+                "height": 20.46875,
+                "fontSize": "11.5px",
+                "lineHeight": "20.47px",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "controls": [
+              {
+                "id": "q",
+                "tag": "input",
+                "text": "",
+                "x": 198.5,
+                "y": 282.328125,
+                "width": 555.671875,
+                "height": 43.6875,
+                "fontSize": "15px",
+                "lineHeight": "26.7px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "button",
+                "text": "查找",
+                "x": 764.171875,
+                "y": 284,
+                "width": 74.328125,
+                "height": 42.015625,
+                "fontSize": "13.5px",
+                "lineHeight": "24.03px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-0",
+                "tag": "a",
+                "text": "雾从防波堤上来",
+                "x": 197.0625,
+                "y": 438.484375,
+                "width": 256.921875,
+                "height": 36,
+                "fontSize": "36px",
+                "lineHeight": "48.24px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-1",
+                "tag": "a",
+                "text": "读全文 · 约 1400 字 →",
+                "x": 198.5,
+                "y": 713.515625,
+                "width": 151.671875,
+                "height": 26.125,
+                "fontSize": "13px",
+                "lineHeight": "23.14px",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "place-filter",
+                "tag": "input",
+                "text": "",
+                "x": 501.296875,
+                "y": 809.453125,
+                "width": 156,
+                "height": 32.125,
+                "fontSize": "13px",
+                "lineHeight": "23.14px",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "date-sort",
+                "tag": "select",
+                "text": "新的在前旧的在前",
+                "x": 673.296875,
+                "y": 809.453125,
+                "width": 132,
+                "height": 28,
+                "fontSize": "13px",
+                "lineHeight": "normal",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-2",
+                "tag": "a",
+                "text": "退潮后的三小时",
+                "x": 252.5,
+                "y": 876.578125,
+                "width": 135.609375,
+                "height": 19,
+                "fontSize": "19px",
+                "lineHeight": "27.55px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-3",
+                "tag": "a",
+                "text": "读这篇 →",
+                "x": 252.5,
+                "y": 994.859375,
+                "width": 57.453125,
+                "height": 16,
+                "fontSize": "12.5px",
+                "lineHeight": "22.25px",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-4",
+                "tag": "a",
+                "text": "旧码头的第十七个清晨",
+                "x": 252.5,
+                "y": 1059.109375,
+                "width": 193.71875,
+                "height": 19,
+                "fontSize": "19px",
+                "lineHeight": "27.55px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-5",
+                "tag": "a",
+                "text": "读这篇 →",
+                "x": 252.5,
+                "y": 1177.390625,
+                "width": 57.453125,
+                "height": 16,
+                "fontSize": "12.5px",
+                "lineHeight": "22.25px",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-6",
+                "tag": "a",
+                "text": "盐风巷的午后",
+                "x": 252.5,
+                "y": 1241.640625,
+                "width": 116.234375,
+                "height": 19,
+                "fontSize": "19px",
+                "lineHeight": "27.55px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-7",
+                "tag": "a",
+                "text": "读这篇 →",
+                "x": 252.5,
+                "y": 1359.921875,
+                "width": 57.453125,
+                "height": 16,
+                "fontSize": "12.5px",
+                "lineHeight": "22.25px",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-8",
+                "tag": "a",
+                "text": "走到没有路灯的地方",
+                "x": 252.5,
+                "y": 1424.171875,
+                "width": 174.34375,
+                "height": 19,
+                "fontSize": "19px",
+                "lineHeight": "27.55px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-9",
+                "tag": "a",
+                "text": "读这篇 →",
+                "x": 252.5,
+                "y": 1542.453125,
+                "width": 57.453125,
+                "height": 16,
+                "fontSize": "12.5px",
+                "lineHeight": "22.25px",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-10",
+                "tag": "a",
+                "text": "雨天的菜市场与一条鱼的去向",
+                "x": 252.5,
+                "y": 1606.703125,
+                "width": 251.828125,
+                "height": 19,
+                "fontSize": "19px",
+                "lineHeight": "27.55px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-11",
+                "tag": "a",
+                "text": "读这篇 →",
+                "x": 252.5,
+                "y": 1724.984375,
+                "width": 57.453125,
+                "height": 16,
+                "fontSize": "12.5px",
+                "lineHeight": "22.25px",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "author-more-btn",
+                "tag": "button",
+                "text": "展开自述 ↓",
+                "x": 886.296875,
+                "y": 553.078125,
+                "width": 109.5,
+                "height": 36.25,
+                "fontSize": "12.5px",
+                "lineHeight": "22.25px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-12",
+                "tag": "a",
+                "text": "2026 年 11 月",
+                "x": 886.296875,
+                "y": 1026.703125,
+                "width": 83.28125,
+                "height": 23.125,
+                "fontSize": "13px",
+                "lineHeight": "23.14px",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-13",
+                "tag": "a",
+                "text": "2026 年 10 月",
+                "x": 886.296875,
+                "y": 1062.828125,
+                "width": 83.28125,
+                "height": 23.125,
+                "fontSize": "13px",
+                "lineHeight": "23.14px",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-14",
+                "tag": "a",
+                "text": "2026 年 9 月",
+                "x": 886.296875,
+                "y": 1098.953125,
+                "width": 75.671875,
+                "height": 23.125,
+                "fontSize": "13px",
+                "lineHeight": "23.14px",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-15",
+                "tag": "a",
+                "text": "2026 年 8 月",
+                "x": 886.296875,
+                "y": 1135.078125,
+                "width": 75.671875,
+                "height": 23.125,
+                "fontSize": "13px",
+                "lineHeight": "23.14px",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-16",
+                "tag": "a",
+                "text": "更早的笔记（2019 起）",
+                "x": 886.296875,
+                "y": 1171.203125,
+                "width": 138.34375,
+                "height": 23.125,
+                "fontSize": "13px",
+                "lineHeight": "23.14px",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-email",
+                "tag": "button",
+                "text": "复制邮箱地址",
+                "x": 886.296875,
+                "y": 1394.1875,
+                "width": 115.5,
+                "height": 36.25,
+                "fontSize": "12.5px",
+                "lineHeight": "22.25px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              }
+            ],
+            "regions": [
+              {
+                "id": "",
+                "tag": "header",
+                "text": "沿海小城 · 散步笔记 · 第七年\n  一个沿海小城居民的散步随笔\n  潮水每天两次改写海岸线的形状。我沿着它走，把看见的记下来——风向、退潮的时辰、谁家的猫又换了睡觉的地方。\n  \n   在随笔里找一条路、一个地名 \n   查找",
+                "x": 198.5,
+                "y": 52,
+                "width": 1028,
+                "height": 300.015625,
+                "fontSize": "16.5px",
+                "lineHeight": "29.37px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "main",
+                "text": "本周主推 · 第 214 篇\n    雾从防波堤上来\n    陈屿·2026-11-06·防波堤\n    六点二十分，雾从东南方向推过来，先吃掉灯塔，再吃掉防波堤尽头那三个人影。卖紫菜的阿婆说，这种雾一起，当天就不会下雨。\n    \n     \n      \n       路线\n      \n      \n       防波堤—老闸口\n      \n    ",
+                "x": 198.5,
+                "y": 400.015625,
+                "width": 606.796875,
+                "height": 1365.21875,
+                "fontSize": "16.5px",
+                "lineHeight": "29.37px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "本周主推 · 第 214 篇\n    雾从防波堤上来\n    陈屿·2026-11-06·防波堤\n    六点二十分，雾从东南方向推过来，先吃掉灯塔，再吃掉防波堤尽头那三个人影。卖紫菜的阿婆说，这种雾一起，当天就不会下雨。\n    \n     \n      \n       路线\n      \n      \n       防波堤—老闸口\n      \n    ",
+                "x": 198.5,
+                "y": 400.015625,
+                "width": 606.796875,
+                "height": 339.859375,
+                "fontSize": "16.5px",
+                "lineHeight": "29.37px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "更早的散步\n     \n      按地名筛 排列新的在前旧的在前\n     \n    \n    \n     \n      02\n      \n       退潮后的三小时\n       2026-10-28 · 西岸滩涂 · 8 条回应\n       滩涂露出来的时候，整片海像被谁抽走了。我沿着湿沙走到最外面那根系缆桩，回头看见自己的脚印已经歪了。\n   ",
+                "x": 198.5,
+                "y": 785.875,
+                "width": 606.796875,
+                "height": 979.359375,
+                "fontSize": "16.5px",
+                "lineHeight": "29.37px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "02\n      \n       退潮后的三小时\n       2026-10-28 · 西岸滩涂 · 8 条回应\n       滩涂露出来的时候，整片海像被谁抽走了。我沿着湿沙走到最外面那根系缆桩，回头看见自己的脚印已经歪了。\n       读这篇 →",
+                "x": 198.5,
+                "y": 852.578125,
+                "width": 606.796875,
+                "height": 182.53125,
+                "fontSize": "16.5px",
+                "lineHeight": "29.37px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "03\n      \n       旧码头的第十七个清晨\n       2026-10-15 · 北旧码头 · 5 条回应\n       同一个位置，同一把折叠椅，同一个钓鱼的人。第十七次路过时，他终于开口说了第一句话。\n       读这篇 →",
+                "x": 198.5,
+                "y": 1035.109375,
+                "width": 606.796875,
+                "height": 182.53125,
+                "fontSize": "16.5px",
+                "lineHeight": "29.37px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "04\n      \n       盐风巷的午后\n       2026-09-30 · 老城盐风巷 · 3 条回应\n       两点到四点，巷子里只有三样声音：麻将、收音机、和谁家在炸鱼。阳光从晾衣绳的缝隙里漏下来，落在青苔上。\n       读这篇 →",
+                "x": 198.5,
+                "y": 1217.640625,
+                "width": 606.796875,
+                "height": 182.53125,
+                "fontSize": "16.5px",
+                "lineHeight": "29.37px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "05\n      \n       走到没有路灯的地方\n       2026-09-12 · 东岬灯塔路 · 15 条回应\n       灯塔路尽头再往东，路灯就断了。那天我带着手电走到礁石边，听见的浪声和白天完全不是一回事。\n       读这篇 →",
+                "x": 198.5,
+                "y": 1400.171875,
+                "width": 606.796875,
+                "height": 182.53125,
+                "fontSize": "16.5px",
+                "lineHeight": "29.37px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "06\n      \n       雨天的菜市场与一条鱼的去向\n       2026-08-23 · 中市菜市场 · 9 条回应\n       雨把市场的人赶进棚子里，反而热闹。我跟着一条三斤二两的鲈鱼，看它从案板走到别人的晚饭桌上。\n       读这篇 →",
+                "x": 198.5,
+                "y": 1582.703125,
+                "width": 606.796875,
+                "height": 182.53125,
+                "fontSize": "16.5px",
+                "lineHeight": "29.37px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "作者自述\n    陈屿，港口调度员，在本城住到第七年。上班看潮汐表，下班沿着海岸线走一段。\n    展开自述 ↓\n    \n     散步这件事是从一次值完夜班开始的。凌晨四点回家，路灯全灭，只有海在响，我就顺着声音走到了防波堤。后来成了习惯：早上走东边，傍晚走西边，涨潮走堤上，退潮走滩涂。\n     这里写下的都不是什么大事。风向变了、谁家的船回来了、巷口",
+                "x": 865.296875,
+                "y": 440.015625,
+                "width": 361.203125,
+                "height": 1325.21875,
+                "fontSize": "16.5px",
+                "lineHeight": "29.37px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "作者自述\n    陈屿，港口调度员，在本城住到第七年。上班看潮汐表，下班沿着海岸线走一段。\n    展开自述 ↓\n    \n     散步这件事是从一次值完夜班开始的。凌晨四点回家，路灯全灭，只有海在响，我就顺着声音走到了防波堤。后来成了习惯：早上走东边，傍晚走西边，涨潮走堤上，退潮走滩涂。\n     这里写下的都不是什么大事。风向变了、谁家的船回来了、巷口",
+                "x": 865.296875,
+                "y": 440.015625,
+                "width": 361.203125,
+                "height": 172.3125,
+                "fontSize": "16.5px",
+                "lineHeight": "29.37px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "常走的地方\n    \n     防波堤东南，雾最先到这里\n     西岸滩涂退潮后能走出去八百米\n     旧码头北，清晨有一把折叠椅\n     盐风巷老城，午后两点最安静\n     灯塔路东岬，路灯断在尽头\n     中市菜市场雨天反而更热闹",
+                "x": 865.296875,
+                "y": 634.328125,
+                "width": 361.203125,
+                "height": 312.90625,
+                "fontSize": "16.5px",
+                "lineHeight": "29.37px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "归档\n    \n     2026 年 11 月2 篇\n     2026 年 10 月4 篇\n     2026 年 9 月5 篇\n     2026 年 8 月3 篇\n     更早的笔记（2019 起）全部",
+                "x": 865.296875,
+                "y": 969.234375,
+                "width": 361.203125,
+                "height": 254.09375,
+                "fontSize": "16.5px",
+                "lineHeight": "29.37px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "说点什么\n    路线、地名、错字，都欢迎写信。我一般三天内回。\n    sanbu@xiaocheng.co\n    复制邮箱地址",
+                "x": 865.296875,
+                "y": 1245.328125,
+                "width": 361.203125,
+                "height": 229.109375,
+                "fontSize": "16.5px",
+                "lineHeight": "29.37px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "footer",
+                "text": "一个沿海小城居民的散步随笔 · 2019—2026 文字归作者所有，路线可自由使用",
+                "x": 198.5,
+                "y": 1819.234375,
+                "width": 1028,
+                "height": 39.359375,
+                "fontSize": "12px",
+                "lineHeight": "21.36px",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "visualProfile": {
+              "backgrounds": [
+                "rgb(245, 239, 226)"
+              ],
+              "fonts": [
+                "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "sans-serif"
+              ],
+              "headingSizes": [
+                50,
+                36,
+                15
+              ],
+              "regions": [
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.71
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.42
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.42
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.42
+                }
+              ]
+            }
+          },
+          {
+            "width": 390,
+            "height": 844,
+            "scrollWidth": 375,
+            "scrollHeight": 3254,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "",
+                "tag": "h1",
+                "text": "一个沿海小城居民的散步随笔",
+                "x": 18,
+                "y": 58.46875,
+                "width": 339,
+                "height": 69.59375,
+                "fontSize": "29px",
+                "lineHeight": "34.8px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "lead-title",
+                "tag": "h2",
+                "text": "雾从防波堤上来",
+                "x": 17,
+                "y": 461.65625,
+                "width": 340,
+                "height": 33.5,
+                "fontSize": "25px",
+                "lineHeight": "33.5px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "log-title",
+                "tag": "h2",
+                "text": "更早的散步",
+                "x": 18,
+                "y": 881.140625,
+                "width": 96.5,
+                "height": 26.6875,
+                "fontSize": "15px",
+                "lineHeight": "26.7px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "退潮后的三小时",
+                "x": 56,
+                "y": 1008.53125,
+                "width": 301,
+                "height": 27.546875,
+                "fontSize": "19px",
+                "lineHeight": "27.55px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "旧码头的第十七个清晨",
+                "x": 56,
+                "y": 1217.75,
+                "width": 301,
+                "height": 27.546875,
+                "fontSize": "19px",
+                "lineHeight": "27.55px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "盐风巷的午后",
+                "x": 56,
+                "y": 1426.96875,
+                "width": 301,
+                "height": 27.546875,
+                "fontSize": "19px",
+                "lineHeight": "27.55px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "走到没有路灯的地方",
+                "x": 56,
+                "y": 1636.1875,
+                "width": 301,
+                "height": 27.546875,
+                "fontSize": "19px",
+                "lineHeight": "27.55px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "雨天的菜市场与一条鱼的去向",
+                "x": 56,
+                "y": 1845.40625,
+                "width": 301,
+                "height": 27.546875,
+                "fontSize": "19px",
+                "lineHeight": "27.55px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "作者自述",
+                "x": 35,
+                "y": 2111.625,
+                "width": 305,
+                "height": 20.46875,
+                "fontSize": "11.5px",
+                "lineHeight": "20.47px",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "常走的地方",
+                "x": 35,
+                "y": 2295.9375,
+                "width": 305,
+                "height": 20.46875,
+                "fontSize": "11.5px",
+                "lineHeight": "20.47px",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "归档",
+                "x": 35,
+                "y": 2620.84375,
+                "width": 305,
+                "height": 20.46875,
+                "fontSize": "11.5px",
+                "lineHeight": "20.47px",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "说点什么",
+                "x": 35,
+                "y": 2886.9375,
+                "width": 305,
+                "height": 20.46875,
+                "fontSize": "11.5px",
+                "lineHeight": "20.47px",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "controls": [
+              {
+                "id": "q",
+                "tag": "input",
+                "text": "",
+                "x": 18,
+                "y": 281.484375,
+                "width": 339,
+                "height": 43.6875,
+                "fontSize": "15px",
+                "lineHeight": "26.7px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "button",
+                "text": "查找",
+                "x": 18,
+                "y": 335.171875,
+                "width": 74.328125,
+                "height": 42.015625,
+                "fontSize": "13.5px",
+                "lineHeight": "24.03px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-0",
+                "tag": "a",
+                "text": "雾从防波堤上来",
+                "x": 17,
+                "y": 465.65625,
+                "width": 178.421875,
+                "height": 25,
+                "fontSize": "25px",
+                "lineHeight": "33.5px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-1",
+                "tag": "a",
+                "text": "读全文 · 约 1400 字 →",
+                "x": 18,
+                "y": 808.78125,
+                "width": 151.671875,
+                "height": 26.125,
+                "fontSize": "13px",
+                "lineHeight": "23.14px",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "place-filter",
+                "tag": "input",
+                "text": "",
+                "x": 18,
+                "y": 945.40625,
+                "width": 156,
+                "height": 32.125,
+                "fontSize": "13px",
+                "lineHeight": "23.14px",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "date-sort",
+                "tag": "select",
+                "text": "新的在前旧的在前",
+                "x": 186,
+                "y": 945.40625,
+                "width": 112,
+                "height": 28,
+                "fontSize": "13px",
+                "lineHeight": "normal",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-2",
+                "tag": "a",
+                "text": "退潮后的三小时",
+                "x": 56,
+                "y": 1012.53125,
+                "width": 135.609375,
+                "height": 19,
+                "fontSize": "19px",
+                "lineHeight": "27.55px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-3",
+                "tag": "a",
+                "text": "读这篇 →",
+                "x": 56,
+                "y": 1157.5,
+                "width": 57.453125,
+                "height": 16,
+                "fontSize": "12.5px",
+                "lineHeight": "22.25px",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-4",
+                "tag": "a",
+                "text": "旧码头的第十七个清晨",
+                "x": 56,
+                "y": 1221.75,
+                "width": 193.71875,
+                "height": 19,
+                "fontSize": "19px",
+                "lineHeight": "27.55px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-5",
+                "tag": "a",
+                "text": "读这篇 →",
+                "x": 56,
+                "y": 1366.71875,
+                "width": 57.453125,
+                "height": 16,
+                "fontSize": "12.5px",
+                "lineHeight": "22.25px",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-6",
+                "tag": "a",
+                "text": "盐风巷的午后",
+                "x": 56,
+                "y": 1430.96875,
+                "width": 116.234375,
+                "height": 19,
+                "fontSize": "19px",
+                "lineHeight": "27.55px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-7",
+                "tag": "a",
+                "text": "读这篇 →",
+                "x": 56,
+                "y": 1575.9375,
+                "width": 57.453125,
+                "height": 16,
+                "fontSize": "12.5px",
+                "lineHeight": "22.25px",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-8",
+                "tag": "a",
+                "text": "走到没有路灯的地方",
+                "x": 56,
+                "y": 1640.1875,
+                "width": 174.34375,
+                "height": 19,
+                "fontSize": "19px",
+                "lineHeight": "27.55px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-9",
+                "tag": "a",
+                "text": "读这篇 →",
+                "x": 56,
+                "y": 1785.15625,
+                "width": 57.453125,
+                "height": 16,
+                "fontSize": "12.5px",
+                "lineHeight": "22.25px",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-10",
+                "tag": "a",
+                "text": "雨天的菜市场与一条鱼的去向",
+                "x": 56,
+                "y": 1849.40625,
+                "width": 251.828125,
+                "height": 19,
+                "fontSize": "19px",
+                "lineHeight": "27.55px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-11",
+                "tag": "a",
+                "text": "读这篇 →",
+                "x": 56,
+                "y": 1994.375,
+                "width": 57.453125,
+                "height": 16,
+                "fontSize": "12.5px",
+                "lineHeight": "22.25px",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "author-more-btn",
+                "tag": "button",
+                "text": "展开自述 ↓",
+                "x": 35,
+                "y": 2203.6875,
+                "width": 109.5,
+                "height": 36.25,
+                "fontSize": "12.5px",
+                "lineHeight": "22.25px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-12",
+                "tag": "a",
+                "text": "2026 年 11 月",
+                "x": 35,
+                "y": 2657.3125,
+                "width": 83.28125,
+                "height": 23.125,
+                "fontSize": "13px",
+                "lineHeight": "23.14px",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-13",
+                "tag": "a",
+                "text": "2026 年 10 月",
+                "x": 35,
+                "y": 2693.4375,
+                "width": 83.28125,
+                "height": 23.125,
+                "fontSize": "13px",
+                "lineHeight": "23.14px",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-14",
+                "tag": "a",
+                "text": "2026 年 9 月",
+                "x": 35,
+                "y": 2729.5625,
+                "width": 75.671875,
+                "height": 23.125,
+                "fontSize": "13px",
+                "lineHeight": "23.14px",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-15",
+                "tag": "a",
+                "text": "2026 年 8 月",
+                "x": 35,
+                "y": 2765.6875,
+                "width": 75.671875,
+                "height": 23.125,
+                "fontSize": "13px",
+                "lineHeight": "23.14px",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-16",
+                "tag": "a",
+                "text": "更早的笔记（2019 起）",
+                "x": 35,
+                "y": 2801.8125,
+                "width": 138.34375,
+                "height": 23.125,
+                "fontSize": "13px",
+                "lineHeight": "23.14px",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-email",
+                "tag": "button",
+                "text": "复制邮箱地址",
+                "x": 35,
+                "y": 3014.796875,
+                "width": 115.5,
+                "height": 36.25,
+                "fontSize": "12.5px",
+                "lineHeight": "22.25px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              }
+            ],
+            "regions": [
+              {
+                "id": "",
+                "tag": "header",
+                "text": "沿海小城 · 散步笔记 · 第七年\n  一个沿海小城居民的散步随笔\n  潮水每天两次改写海岸线的形状。我沿着它走，把看见的记下来——风向、退潮的时辰、谁家的猫又换了睡觉的地方。\n  \n   在随笔里找一条路、一个地名 \n   查找",
+                "x": 18,
+                "y": 22,
+                "width": 339,
+                "height": 381.1875,
+                "fontSize": "16.5px",
+                "lineHeight": "29.37px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "main",
+                "text": "本周主推 · 第 214 篇\n    雾从防波堤上来\n    陈屿·2026-11-06·防波堤\n    六点二十分，雾从东南方向推过来，先吃掉灯塔，再吃掉防波堤尽头那三个人影。卖紫菜的阿婆说，这种雾一起，当天就不会下雨。\n    \n     \n      \n       路线\n      \n      \n       防波堤—老闸口\n      \n    ",
+                "x": 18,
+                "y": 429.1875,
+                "width": 339,
+                "height": 1605.4375,
+                "fontSize": "16.5px",
+                "lineHeight": "29.37px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "本周主推 · 第 214 篇\n    雾从防波堤上来\n    陈屿·2026-11-06·防波堤\n    六点二十分，雾从东南方向推过来，先吃掉灯塔，再吃掉防波堤尽头那三个人影。卖紫菜的阿婆说，这种雾一起，当天就不会下雨。\n    \n     \n      \n       路线\n      \n      \n       防波堤—老闸口\n      \n    ",
+                "x": 18,
+                "y": 429.1875,
+                "width": 339,
+                "height": 405.953125,
+                "fontSize": "16.5px",
+                "lineHeight": "29.37px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "更早的散步\n     \n      按地名筛 排列新的在前旧的在前\n     \n    \n    \n     \n      02\n      \n       退潮后的三小时\n       2026-10-28 · 西岸滩涂 · 8 条回应\n       滩涂露出来的时候，整片海像被谁抽走了。我沿着湿沙走到最外面那根系缆桩，回头看见自己的脚印已经歪了。\n   ",
+                "x": 18,
+                "y": 881.140625,
+                "width": 339,
+                "height": 1153.484375,
+                "fontSize": "16.5px",
+                "lineHeight": "29.37px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "02\n      \n       退潮后的三小时\n       2026-10-28 · 西岸滩涂 · 8 条回应\n       滩涂露出来的时候，整片海像被谁抽走了。我沿着湿沙走到最外面那根系缆桩，回头看见自己的脚印已经歪了。\n       读这篇 →",
+                "x": 18,
+                "y": 988.53125,
+                "width": 339,
+                "height": 209.21875,
+                "fontSize": "16.5px",
+                "lineHeight": "29.37px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "03\n      \n       旧码头的第十七个清晨\n       2026-10-15 · 北旧码头 · 5 条回应\n       同一个位置，同一把折叠椅，同一个钓鱼的人。第十七次路过时，他终于开口说了第一句话。\n       读这篇 →",
+                "x": 18,
+                "y": 1197.75,
+                "width": 339,
+                "height": 209.21875,
+                "fontSize": "16.5px",
+                "lineHeight": "29.37px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "04\n      \n       盐风巷的午后\n       2026-09-30 · 老城盐风巷 · 3 条回应\n       两点到四点，巷子里只有三样声音：麻将、收音机、和谁家在炸鱼。阳光从晾衣绳的缝隙里漏下来，落在青苔上。\n       读这篇 →",
+                "x": 18,
+                "y": 1406.96875,
+                "width": 339,
+                "height": 209.21875,
+                "fontSize": "16.5px",
+                "lineHeight": "29.37px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "05\n      \n       走到没有路灯的地方\n       2026-09-12 · 东岬灯塔路 · 15 条回应\n       灯塔路尽头再往东，路灯就断了。那天我带着手电走到礁石边，听见的浪声和白天完全不是一回事。\n       读这篇 →",
+                "x": 18,
+                "y": 1616.1875,
+                "width": 339,
+                "height": 209.21875,
+                "fontSize": "16.5px",
+                "lineHeight": "29.37px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "06\n      \n       雨天的菜市场与一条鱼的去向\n       2026-08-23 · 中市菜市场 · 9 条回应\n       雨把市场的人赶进棚子里，反而热闹。我跟着一条三斤二两的鲈鱼，看它从案板走到别人的晚饭桌上。\n       读这篇 →",
+                "x": 18,
+                "y": 1825.40625,
+                "width": 339,
+                "height": 209.21875,
+                "fontSize": "16.5px",
+                "lineHeight": "29.37px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "作者自述\n    陈屿，港口调度员，在本城住到第七年。上班看潮汐表，下班沿着海岸线走一段。\n    展开自述 ↓\n    \n     散步这件事是从一次值完夜班开始的。凌晨四点回家，路灯全灭，只有海在响，我就顺着声音走到了防波堤。后来成了习惯：早上走东边，傍晚走西边，涨潮走堤上，退潮走滩涂。\n     这里写下的都不是什么大事。风向变了、谁家的船回来了、巷口",
+                "x": 18,
+                "y": 2094.625,
+                "width": 339,
+                "height": 994.421875,
+                "fontSize": "16.5px",
+                "lineHeight": "29.37px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "作者自述\n    陈屿，港口调度员，在本城住到第七年。上班看潮汐表，下班沿着海岸线走一段。\n    展开自述 ↓\n    \n     散步这件事是从一次值完夜班开始的。凌晨四点回家，路灯全灭，只有海在响，我就顺着声音走到了防波堤。后来成了习惯：早上走东边，傍晚走西边，涨潮走堤上，退潮走滩涂。\n     这里写下的都不是什么大事。风向变了、谁家的船回来了、巷口",
+                "x": 18,
+                "y": 2094.625,
+                "width": 339,
+                "height": 162.3125,
+                "fontSize": "16.5px",
+                "lineHeight": "29.37px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "常走的地方\n    \n     防波堤东南，雾最先到这里\n     西岸滩涂退潮后能走出去八百米\n     旧码头北，清晨有一把折叠椅\n     盐风巷老城，午后两点最安静\n     灯塔路东岬，路灯断在尽头\n     中市菜市场雨天反而更热闹",
+                "x": 18,
+                "y": 2278.9375,
+                "width": 339,
+                "height": 302.90625,
+                "fontSize": "16.5px",
+                "lineHeight": "29.37px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "归档\n    \n     2026 年 11 月2 篇\n     2026 年 10 月4 篇\n     2026 年 9 月5 篇\n     2026 年 8 月3 篇\n     更早的笔记（2019 起）全部",
+                "x": 18,
+                "y": 2603.84375,
+                "width": 339,
+                "height": 244.09375,
+                "fontSize": "16.5px",
+                "lineHeight": "29.37px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "说点什么\n    路线、地名、错字，都欢迎写信。我一般三天内回。\n    sanbu@xiaocheng.co\n    复制邮箱地址",
+                "x": 18,
+                "y": 2869.9375,
+                "width": 339,
+                "height": 219.109375,
+                "fontSize": "16.5px",
+                "lineHeight": "29.37px",
+                "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "footer",
+                "text": "一个沿海小城居民的散步随笔 · 2019—2026 文字归作者所有，路线可自由使用",
+                "x": 18,
+                "y": 3143.046875,
+                "width": 339,
+                "height": 66.71875,
+                "fontSize": "12px",
+                "lineHeight": "21.36px",
+                "fontFamily": "sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "visualProfile": {
+              "backgrounds": [
+                "rgb(245, 239, 226)"
+              ],
+              "fonts": [
+                "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+                "sans-serif"
+              ],
+              "headingSizes": [
+                29,
+                25,
+                15
+              ],
+              "regions": [
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.87
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.87
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.87
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.87
                 }
               ]
             }

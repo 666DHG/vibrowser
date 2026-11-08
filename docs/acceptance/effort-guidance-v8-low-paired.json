@@ -1,7 +1,7 @@
 {
-  "complete": false,
+  "complete": true,
   "plannedPairs": 6,
-  "recordedPairs": 2,
+  "recordedPairs": 6,
   "scope": "Same fixed input, date, retrieval sources and guidance. Effort applies to the entire pipeline, including generated briefs and subsequent visual-reference history; this is not a generation-only causal experiment. No visual quality conclusion is inferred from success counts.",
   "additionalChanges": "Uses the subsequent host CSS math compatibility fix. Separate normalization repairs from design differences; this is not an otherwise-identical binary comparison.",
   "pairs": [
@@ -102,7 +102,7 @@
     {
       "topic": "calendar",
       "requestHash": "2c2ef68b6d3f4f7d79d7dee51964c589125d9ab94e99ebc4d103649ba22cae40",
-      "paired": false,
+      "paired": true,
       "standard": {
         "pageId": "ea752eef-7c54-4d56-8435-7c86b30c9e8f",
         "jobId": "6979aa3e-d822-4c62-ad81-d885d904805a",
@@ -124,12 +124,32 @@
         "htmlUnchangedByReview": true,
         "cssUnchangedByReview": true
       },
-      "low": null
+      "low": {
+        "pageId": "2965d673-b367-4445-8c4a-0428ee34f73d",
+        "jobId": "299ecdc9-f71a-453c-8e42-0e47837abc98",
+        "ready": true,
+        "error": null,
+        "firstGenerationAccepted": true,
+        "seconds": 153,
+        "calls": 4,
+        "usageComplete": true,
+        "totalTokens": 51714,
+        "recordedReasoningTokens": 18199,
+        "selection": "Improved",
+        "selectedDirection": {
+          "concept": "问答词条 + 双栏索引",
+          "structure": "双栏：左栏放问题与日期索引，右栏放答案词条、解释与相关条目；空间以问答和索引关系组织。",
+          "typography": "标题用宋体/衬线，索引用小号无衬线标签，正文阅读型；比前两者更接近词典/百科。",
+          "contentReason": "把“今天是什么日子”当作查询词条，适合答案解释、相关条目与来源并列呈现。"
+        },
+        "htmlUnchangedByReview": false,
+        "cssUnchangedByReview": false
+      }
     },
     {
       "topic": "comparison",
       "requestHash": "a609dacb1ed6e2d12f8b498ce91f2cf62e3d1bf82815f9f6ec43592ede8a43c9",
-      "paired": false,
+      "paired": true,
       "standard": {
         "pageId": "4347d739-8322-4932-b561-615076a56ad7",
         "jobId": "c542bac8-3001-47fd-bc72-fdbd2e6c3638",
@@ -151,12 +171,32 @@
         "htmlUnchangedByReview": true,
         "cssUnchangedByReview": true
       },
-      "low": null
+      "low": {
+        "pageId": "1e9d98ee-7f63-4e7c-bc2f-18ad095f0734",
+        "jobId": "f1bd608b-caa6-47e4-a249-e2b4fe03477e",
+        "ready": true,
+        "error": null,
+        "firstGenerationAccepted": false,
+        "seconds": 303,
+        "calls": 5,
+        "usageComplete": true,
+        "totalTokens": 113252,
+        "recordedReasoningTokens": 39070,
+        "selection": "Improved",
+        "selectedDirection": {
+          "concept": "编辑评测杂志",
+          "structure": "采用非对称编辑网格：首屏为导语与编辑精选，正文以排名榜单和评测段落交替推进，侧栏放置规格摘要、优缺点与购买提示；单品详情以展开式注释穿插，形成阅读与比较并行的节奏。",
+          "typography": "衬线标题搭配无衬线正文，强调编辑判断与可读性；榜单序号和关键结论使用大字号，规格信息以小型标签式排版收束。",
+          "contentReason": "便携手冲器具的差异不只在参数，还涉及萃取取舍与使用体验；杂志式组织能解释“为什么推荐”，适合需要理由与可信度支撑的访客。"
+        },
+        "htmlUnchangedByReview": false,
+        "cssUnchangedByReview": false
+      }
     },
     {
       "topic": "docs",
       "requestHash": "81c4ef5402af0f79113a9b1d0fe23a78f8d4600beb4e4de07001ab64b90df49f",
-      "paired": false,
+      "paired": true,
       "standard": {
         "pageId": "96254eed-c990-4275-b49c-196e2ecd7a3c",
         "jobId": "239db47c-063e-42ea-b68f-fc10f9510e64",
@@ -178,12 +218,32 @@
         "htmlUnchangedByReview": true,
         "cssUnchangedByReview": true
       },
-      "low": null
+      "low": {
+        "pageId": "1dbd9409-26f2-4f61-94e4-ea373eeedb5c",
+        "jobId": "b215d8f3-ba12-4b8e-9373-fc677c61c541",
+        "ready": false,
+        "error": "模型输出为空或被截断，请重试",
+        "firstGenerationAccepted": false,
+        "seconds": 469,
+        "calls": 5,
+        "usageComplete": true,
+        "totalTokens": 148889,
+        "recordedReasoningTokens": 70912,
+        "selection": "Original",
+        "selectedDirection": {
+          "concept": "实验手册式左右对照",
+          "structure": "每个主题采用左右并置：左侧解释现象与原理，右侧放对应 SQL、Shell 脚本、监控查询或参数模板；章节顶部用“现象—复现—观察—处理”的步骤条串起实验，理论内容缩为可折叠段落或短栏。",
+          "typography": "以等宽字体作为主视觉，命令与输出占据主要字号；标题使用高对比粗黑无衬线，解释文字用较小号无衬线并配等宽小标签，形成操作台气质。",
+          "contentReason": "资料包含隔离级别复现、死锁模拟、WAL 解析、XID 年龄监控等大量可直接执行的实验，左右对照让读者边读边做；等宽主导的字体表达能突出命令、输出和错误码，与纯阅读型方案明显区分。"
+        },
+        "htmlUnchangedByReview": null,
+        "cssUnchangedByReview": null
+      }
     },
     {
       "topic": "essay",
       "requestHash": "71d5157ecb8fece704d54fa6419571cacf313b80432f1d29cbf79626454669f2",
-      "paired": false,
+      "paired": true,
       "standard": {
         "pageId": "efcdbc2f-1a53-45b5-b616-2f36094a167a",
         "jobId": "8796ea1a-fa21-42cd-94ba-24d3f46b6f8e",
@@ -205,7 +265,27 @@
         "htmlUnchangedByReview": true,
         "cssUnchangedByReview": true
       },
-      "low": null
+      "low": {
+        "pageId": "f7f93af7-8067-4aa6-aeed-4ee299a15d0b",
+        "jobId": "019b3dad-3574-472b-8064-6ce2e715b897",
+        "ready": true,
+        "error": null,
+        "firstGenerationAccepted": true,
+        "seconds": 120,
+        "calls": 3,
+        "usageComplete": true,
+        "totalTokens": 47845,
+        "recordedReasoningTokens": 14055,
+        "selection": "Original",
+        "selectedDirection": {
+          "concept": "口袋笔记本式不对称版面",
+          "structure": "模拟随身笔记的开合页：主栏放一篇主推随笔，侧栏放短注、地点和归档；版面左右不对称，留出手写式批注位置。",
+          "typography": "主文用偏书卷气的宋体，侧注用较小黑体或楷体；标题可稍带手写感但保持可读，行距紧凑与宽松交替。",
+          "contentReason": "散步随笔带有个人观察与随手记录气质，不对称笔记本结构能突出主文与边注的关系，适合作者自述、地点短注和长文入口并存。"
+        },
+        "htmlUnchangedByReview": true,
+        "cssUnchangedByReview": true
+      }
     }
   ]
 }

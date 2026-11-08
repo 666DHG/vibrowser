@@ -1,5 +1,9 @@
 # 下一步计划与目标
 
+最新核对（2026-11-08）：low 固定六题已结束，首轮成功 4/6、最终成功 5/6，共 23 次模型请求。技术文档四次输出均因 length 截断，原失败保留；这属于输出容量问题，不追加逐样本 prompt。完整配对记录已更新，尚未完成整体视觉门槛判定，不改变生产默认档位或开启设计实验。23 项针对性 Scala 检查通过。
+
+继续遵守用户边界：允许不影响主要使用的微小交互不足；只优先修复主要操作失效、内容丢失及稳定性问题，不把可选增强追加为提示词或验收硬条件。后续容量复测与视觉判断分别记录，不能用容量复测覆盖原六题失败。
+
 下一项有界实验（2026-11-08）：阶段归因确认 v9 草稿本身已出现相近视觉习惯，继续扩写评审没有依据。官方现支持 low/high/max 思考（[文档](https://api-docs.deepseek.com/guides/thinking_mode/)），现产品标准关闭思考，深入为 high。增加仅验收运行器可用的 low 对照：保持 v8 指导、原六题／日期／检索资料、24000 输出预算和原超时，只将官方 disabled 请求改为 enabled/low，不改 prompt 或采样；生产标准行为不变。
 
 显式开关 VIBROWSER_DESIGN_LOW_RETEST=true，要求 v8，禁止与深入或采样实验混用。隔离 schema 为 effort_guidance_v8_low，输出 .cache/effort-guidance-v8-low；每条记录标记 effortPolicy=experimental-low，保存实际参数。只运行这六题一次，原失败保留。报告工具使用 --guidance-v8 --low、配对工具 compare-effort-v8.mjs --low --complete；不会把它标成现有标准档已经通过。三项参数定向测试通过。

@@ -1,0 +1,675 @@
+{
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 900,
+      "scrollWidth": 1425,
+      "scrollHeight": 1421,
+      "overflowIds": [],
+      "headings": [
+        {
+          "id": "",
+          "tag": "h2",
+          "text": "日期索引",
+          "x": 206.5,
+          "y": 113.5,
+          "width": 258,
+          "height": 36.25,
+          "fontSize": "15px",
+          "lineHeight": "26.25px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "h3",
+          "text": "本年进度",
+          "x": 206.5,
+          "y": 529.25,
+          "width": 258,
+          "height": 21,
+          "fontSize": "12px",
+          "lineHeight": "21px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "h3",
+          "text": "复制日期",
+          "x": 221.5,
+          "y": 658.75,
+          "width": 228,
+          "height": 21,
+          "fontSize": "12px",
+          "lineHeight": "21px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "h1",
+          "text": "今天是什么日子",
+          "x": 510.5,
+          "y": 143.625,
+          "width": 708,
+          "height": 47.1875,
+          "fontSize": "40px",
+          "lineHeight": "47.2px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "h2",
+          "text": "相关条目",
+          "x": 510.5,
+          "y": 772.5625,
+          "width": 81.53125,
+          "height": 29.75,
+          "fontSize": "17px",
+          "lineHeight": "29.75px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        }
+      ],
+      "controls": [
+        {
+          "id": "q",
+          "tag": "input",
+          "text": "",
+          "x": 972.5,
+          "y": 25,
+          "width": 200,
+          "height": 38.5,
+          "fontSize": "14px",
+          "lineHeight": "24.5px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "button",
+          "text": "检索",
+          "x": 1180.5,
+          "y": 25,
+          "width": 62,
+          "height": 38.5,
+          "fontSize": "14px",
+          "lineHeight": "24.5px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "copy-btn",
+          "tag": "button",
+          "text": "复制到剪贴板",
+          "x": 221.5,
+          "y": 722,
+          "width": 108,
+          "height": 36.75,
+          "fontSize": "13px",
+          "lineHeight": "22.75px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "toggle-btn",
+          "tag": "button",
+          "text": "展开：日期关系的补充说明",
+          "x": 510.5,
+          "y": 677.3125,
+          "width": 186,
+          "height": 36.75,
+          "fontSize": "13px",
+          "lineHeight": "22.75px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "rel-filter",
+          "tag": "input",
+          "text": "",
+          "x": 1042.5,
+          "y": 770.0625,
+          "width": 176,
+          "height": 34.75,
+          "fontSize": "13px",
+          "lineHeight": "22.75px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "vib-link-0",
+          "tag": "a",
+          "text": "立冬",
+          "x": 510.5,
+          "y": 832.8125,
+          "width": 34.640625,
+          "height": 18,
+          "fontSize": "16px",
+          "lineHeight": "28px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "vib-link-1",
+          "tag": "a",
+          "text": "十月社会主义革命纪念日",
+          "x": 510.5,
+          "y": 913.3125,
+          "width": 190.53125,
+          "height": 18,
+          "fontSize": "16px",
+          "lineHeight": "28px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "vib-link-2",
+          "tag": "a",
+          "text": "玛丽·居里诞辰",
+          "x": 510.5,
+          "y": 993.8125,
+          "width": 121.25,
+          "height": 18,
+          "fontSize": "16px",
+          "lineHeight": "28px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "vib-link-3",
+          "tag": "a",
+          "text": "11月8日",
+          "x": 510.5,
+          "y": 1074.3125,
+          "width": 62.609375,
+          "height": 18,
+          "fontSize": "16px",
+          "lineHeight": "28px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "vib-link-4",
+          "tag": "a",
+          "text": "十一月",
+          "x": 510.5,
+          "y": 1154.8125,
+          "width": 51.96875,
+          "height": 18,
+          "fontSize": "16px",
+          "lineHeight": "28px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "vib-link-5",
+          "tag": "a",
+          "text": "星期六",
+          "x": 510.5,
+          "y": 1235.3125,
+          "width": 51.96875,
+          "height": 18,
+          "fontSize": "16px",
+          "lineHeight": "28px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        }
+      ],
+      "regions": [
+        {
+          "id": "",
+          "tag": "header",
+          "text": "今天是什么日子\n  日期词条 · 每日一答\n  \n   全站检索\n   检索",
+          "x": 0,
+          "y": 0,
+          "width": 1425,
+          "height": 79.5,
+          "fontSize": "16px",
+          "lineHeight": "28px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "main",
+          "text": "日期索引\n  十一月头九日，按日期排列。\n  \n   11月1日周日\n   11月2日周一\n   11月3日周二\n   11月4日周三\n   11月5日周四\n   11月6日周五\n   11月7日周六\n   11月8日周日\n   11月9日周一\n  \n  \n   本年进度\n   第 311 天 / 共 365 天\n   \n    \n   \n   85.2%\n",
+          "x": 182.5,
+          "y": 79.5,
+          "width": 1060,
+          "height": 1276.3125,
+          "fontSize": "16px",
+          "lineHeight": "28px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "aside",
+          "text": "日期索引\n  十一月头九日，按日期排列。\n  \n   11月1日周日\n   11月2日周一\n   11月3日周二\n   11月4日周三\n   11月5日周四\n   11月6日周五\n   11月7日周六\n   11月8日周日\n   11月9日周一\n  \n  \n   本年进度\n   第 311 天 / 共 365 天\n   \n    \n   \n   85.2%\n",
+          "x": 206.5,
+          "y": 113.5,
+          "width": 258,
+          "height": 1184.3125,
+          "fontSize": "16px",
+          "lineHeight": "28px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "article",
+          "text": "今日词条 · 2026-11-07\n  今天是什么日子\n  今天不是法定假日，也没有全国性节日。就日期本身而言，2026年11月7日是公历一年中的第311天，星期六，距年末还有54天。\n  \n   \n    \n     公历\n    \n    \n     2026年11月7日\n    \n   \n   \n    \n     星期\n    \n    \n     ",
+          "x": 510.5,
+          "y": 113.5,
+          "width": 708,
+          "height": 1184.3125,
+          "fontSize": "16px",
+          "lineHeight": "28px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "section",
+          "text": "相关条目筛选\n   \n   \n    \n     立冬\n     二十四节气之一，通常在11月7日前后交节，标示冬季开始，与今日日期相邻。\n    \n     十月社会主义革命纪念日\n     1917年11月7日（俄历10月25日）彼得格勒武装起义爆发，此后长期作为苏联的国庆纪念日。\n    \n     玛丽·居里诞辰\n     1867年11月7日生于华",
+          "x": 510.5,
+          "y": 750.0625,
+          "width": 708,
+          "height": 547.75,
+          "fontSize": "16px",
+          "lineHeight": "28px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "footer",
+          "text": "词条更新：2026-11-07 06:00（Asia/Shanghai）\n  日期由系统时间计算；历史条目参考通行历书与百科资料。",
+          "x": 0,
+          "y": 1355.8125,
+          "width": 1425,
+          "height": 64.875,
+          "fontSize": "16px",
+          "lineHeight": "28px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        }
+      ],
+      "visualProfile": {
+        "backgrounds": [
+          "rgb(245, 239, 224)",
+          "rgb(255, 253, 246)"
+        ],
+        "fonts": [
+          "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif"
+        ],
+        "headingSizes": [
+          15,
+          12,
+          40
+        ],
+        "regions": [
+          {
+            "display": "block",
+            "columns": 1,
+            "widthRatio": 0.99
+          },
+          {
+            "display": "grid",
+            "columns": 2,
+            "widthRatio": 0.74
+          },
+          {
+            "display": "block",
+            "columns": 1,
+            "widthRatio": 0.18
+          },
+          {
+            "display": "block",
+            "columns": 1,
+            "widthRatio": 0.49
+          }
+        ]
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 375,
+      "scrollHeight": 2379,
+      "overflowIds": [],
+      "headings": [
+        {
+          "id": "",
+          "tag": "h2",
+          "text": "日期索引",
+          "x": 16,
+          "y": 1636.046875,
+          "width": 343,
+          "height": 36.25,
+          "fontSize": "15px",
+          "lineHeight": "26.25px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "h3",
+          "text": "本年进度",
+          "x": 16,
+          "y": 2051.796875,
+          "width": 343,
+          "height": 21,
+          "fontSize": "12px",
+          "lineHeight": "21px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "h3",
+          "text": "复制日期",
+          "x": 31,
+          "y": 2181.296875,
+          "width": 313,
+          "height": 21,
+          "fontSize": "12px",
+          "lineHeight": "21px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "h1",
+          "text": "今天是什么日子",
+          "x": 16,
+          "y": 119.125,
+          "width": 343,
+          "height": 35.390625,
+          "fontSize": "30px",
+          "lineHeight": "35.4px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "h2",
+          "text": "相关条目",
+          "x": 16,
+          "y": 920.046875,
+          "width": 81.53125,
+          "height": 29.75,
+          "fontSize": "17px",
+          "lineHeight": "29.75px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        }
+      ],
+      "controls": [
+        {
+          "id": "q",
+          "tag": "input",
+          "text": "",
+          "x": 79.6875,
+          "y": 48.5,
+          "width": 209.3125,
+          "height": 38.5,
+          "fontSize": "14px",
+          "lineHeight": "24.5px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "button",
+          "text": "检索",
+          "x": 297,
+          "y": 48.5,
+          "width": 62,
+          "height": 38.5,
+          "fontSize": "14px",
+          "lineHeight": "24.5px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "copy-btn",
+          "tag": "button",
+          "text": "复制到剪贴板",
+          "x": 31,
+          "y": 2244.546875,
+          "width": 108,
+          "height": 36.75,
+          "fontSize": "13px",
+          "lineHeight": "22.75px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "toggle-btn",
+          "tag": "button",
+          "text": "展开：日期关系的补充说明",
+          "x": 16,
+          "y": 827.296875,
+          "width": 186,
+          "height": 36.75,
+          "fontSize": "13px",
+          "lineHeight": "22.75px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "rel-filter",
+          "tag": "input",
+          "text": "",
+          "x": 16,
+          "y": 959.796875,
+          "width": 343,
+          "height": 34.75,
+          "fontSize": "13px",
+          "lineHeight": "22.75px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "vib-link-0",
+          "tag": "a",
+          "text": "立冬",
+          "x": 16,
+          "y": 1022.546875,
+          "width": 34.640625,
+          "height": 18,
+          "fontSize": "16px",
+          "lineHeight": "28px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "vib-link-1",
+          "tag": "a",
+          "text": "十月社会主义革命纪念日",
+          "x": 16,
+          "y": 1127.546875,
+          "width": 190.53125,
+          "height": 18,
+          "fontSize": "16px",
+          "lineHeight": "28px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "vib-link-2",
+          "tag": "a",
+          "text": "玛丽·居里诞辰",
+          "x": 16,
+          "y": 1232.546875,
+          "width": 121.25,
+          "height": 18,
+          "fontSize": "16px",
+          "lineHeight": "28px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "vib-link-3",
+          "tag": "a",
+          "text": "11月8日",
+          "x": 16,
+          "y": 1337.546875,
+          "width": 62.609375,
+          "height": 18,
+          "fontSize": "16px",
+          "lineHeight": "28px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "vib-link-4",
+          "tag": "a",
+          "text": "十一月",
+          "x": 16,
+          "y": 1418.046875,
+          "width": 51.96875,
+          "height": 18,
+          "fontSize": "16px",
+          "lineHeight": "28px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "vib-link-5",
+          "tag": "a",
+          "text": "星期六",
+          "x": 16,
+          "y": 1523.046875,
+          "width": 51.96875,
+          "height": 18,
+          "fontSize": "16px",
+          "lineHeight": "28px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        }
+      ],
+      "regions": [
+        {
+          "id": "",
+          "tag": "header",
+          "text": "今天是什么日子\n  日期词条 · 每日一答\n  \n   全站检索\n   检索",
+          "x": 0,
+          "y": 0,
+          "width": 375,
+          "height": 89,
+          "fontSize": "16px",
+          "lineHeight": "28px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "main",
+          "text": "日期索引\n  十一月头九日，按日期排列。\n  \n   11月1日周日\n   11月2日周一\n   11月3日周二\n   11月4日周三\n   11月5日周四\n   11月6日周五\n   11月7日周六\n   11月8日周日\n   11月9日周一\n  \n  \n   本年进度\n   第 311 天 / 共 365 天\n   \n    \n   \n   85.2%\n",
+          "x": 0,
+          "y": 89,
+          "width": 375,
+          "height": 2229.6875,
+          "fontSize": "16px",
+          "lineHeight": "28px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "aside",
+          "text": "日期索引\n  十一月头九日，按日期排列。\n  \n   11月1日周日\n   11月2日周一\n   11月3日周二\n   11月4日周三\n   11月5日周四\n   11月6日周五\n   11月7日周六\n   11月8日周日\n   11月9日周一\n  \n  \n   本年进度\n   第 311 天 / 共 365 天\n   \n    \n   \n   85.2%\n",
+          "x": 16,
+          "y": 1636.046875,
+          "width": 343,
+          "height": 682.640625,
+          "fontSize": "16px",
+          "lineHeight": "28px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "article",
+          "text": "今日词条 · 2026-11-07\n  今天是什么日子\n  今天不是法定假日，也没有全国性节日。就日期本身而言，2026年11月7日是公历一年中的第311天，星期六，距年末还有54天。\n  \n   \n    \n     公历\n    \n    \n     2026年11月7日\n    \n   \n   \n    \n     星期\n    \n    \n     ",
+          "x": 16,
+          "y": 89,
+          "width": 343,
+          "height": 1521.046875,
+          "fontSize": "16px",
+          "lineHeight": "28px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "section",
+          "text": "相关条目筛选\n   \n   \n    \n     立冬\n     二十四节气之一，通常在11月7日前后交节，标示冬季开始，与今日日期相邻。\n    \n     十月社会主义革命纪念日\n     1917年11月7日（俄历10月25日）彼得格勒武装起义爆发，此后长期作为苏联的国庆纪念日。\n    \n     玛丽·居里诞辰\n     1867年11月7日生于华",
+          "x": 16,
+          "y": 900.046875,
+          "width": 343,
+          "height": 710,
+          "fontSize": "16px",
+          "lineHeight": "28px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "footer",
+          "text": "词条更新：2026-11-07 06:00（Asia/Shanghai）\n  日期由系统时间计算；历史条目参考通行历书与百科资料。",
+          "x": 0,
+          "y": 2318.6875,
+          "width": 375,
+          "height": 60.75,
+          "fontSize": "16px",
+          "lineHeight": "28px",
+          "fontFamily": "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif",
+          "horizontalScroll": null
+        }
+      ],
+      "visualProfile": {
+        "backgrounds": [
+          "rgb(245, 239, 224)",
+          "rgb(255, 253, 246)"
+        ],
+        "fonts": [
+          "\"Songti SC\", SimSun, \"Noto Serif CJK SC\", Georgia, serif"
+        ],
+        "headingSizes": [
+          15,
+          12,
+          30
+        ],
+        "regions": [
+          {
+            "display": "block",
+            "columns": 1,
+            "widthRatio": 0.96
+          },
+          {
+            "display": "grid",
+            "columns": 1,
+            "widthRatio": 0.96
+          },
+          {
+            "display": "block",
+            "columns": 1,
+            "widthRatio": 0.88
+          },
+          {
+            "display": "block",
+            "columns": 1,
+            "widthRatio": 0.88
+          }
+        ]
+      }
+    }
+  ],
+  "error": null
+}
