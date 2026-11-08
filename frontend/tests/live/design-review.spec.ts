@@ -278,6 +278,35 @@ test("replay real design documents through the browser runtime without model req
         }
       }
       expect(requests).toBe(0);
+      let anchorVerified = false;
+      const anchor = record.document.actions.find(
+        (a: { kind: string; target?: string }) =>
+          a.kind === "Navigate" &&
+          a.target?.startsWith("#") &&
+          a.target.length > 1,
+      );
+      if (anchor) {
+        const control = frame.locator(
+          `[id=${JSON.stringify(anchor.elementId)}]`,
+        );
+        const target = frame.locator(
+          `[id=${JSON.stringify(decodeURIComponent(anchor.target.slice(1)))}]`,
+        );
+        if (await control.isVisible()) {
+          const before = requests;
+          await control.click();
+          await expect
+            .poll(() =>
+              target.evaluate((e) => {
+                const rect = e.getBoundingClientRect();
+                return rect.top >= -2 && rect.top < window.innerHeight;
+              }),
+            )
+            .toBe(true);
+          expect(requests).toBe(before);
+          anchorVerified = true;
+        }
+      }
       const search = record.document.actions.find(
         (a: { kind: string }) => a.kind === "Search",
       );
@@ -301,7 +330,10 @@ test("replay real design documents through the browser runtime without model req
       let navigationSubmitted = false;
       const link = record.document.actions.find(
         (a: { kind: string; target?: string }) =>
-          a.kind === "Navigate" && a.target && a.target !== "/",
+          a.kind === "Navigate" &&
+          a.target &&
+          a.target !== "/" &&
+          !a.target.startsWith("#"),
       );
       if (link) {
         const control = frame.locator(`[id=${JSON.stringify(link.elementId)}]`);
@@ -328,6 +360,7 @@ test("replay real design documents through the browser runtime without model req
         localActions: local,
         searchSubmitted,
         navigationSubmitted,
+        anchorVerified,
         copyVerified,
         copyContentPreserved,
         filterVerified,

@@ -11,7 +11,8 @@ final case class LayoutElement(
     height: Double,
     fontSize: String,
     lineHeight: String,
-    fontFamily: String
+    fontFamily: String,
+    horizontalScroll: Option[LayoutScrollContext] = None
 )
 object LayoutElement:
   given Encoder[LayoutElement] = deriveEncoder

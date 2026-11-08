@@ -1,0 +1,17 @@
+{
+  "complete": true,
+  "method": "Inspect six fixed v5 desktop/mobile screenshots against the preserved old-standard pages. Count concrete task-related structural changes, not additional sections or colors. Do not reroll. Runtime replay is separate from visual judgment.",
+  "topics": [
+    { "name": "academic", "verdict": "improved", "observation": "Research-coordinate sidebar and parallel research directions separate research relationships from the old continuous biography. Mobile stacks them readably. The large introductory area remains a tradeoff; font or accent color alone is not the counted benefit." },
+    { "name": "copy", "verdict": "improved", "observation": "Category controls and a three-column collection expose multiple independent copy targets at once, instead of the old continuous list. Mobile becomes one column with a working filter and copy control. Local return-to-top works without generation; its initial replay failure was a test incorrectly expecting a navigation request." },
+    { "name": "calendar", "verdict": "improved", "observation": "Previous/current/next-date controls sit immediately below the date and before events, rather than below the entire event list. Category filtering is grouped with the events. This is task-related navigation hierarchy, not merely a larger date or changed colors." },
+    { "name": "comparison", "verdict": "neutral", "observation": "Seven explanatory dimension cards precede the actual comparison table. They offer context but delay comparison, especially on mobile. Filtering and sorting work; the new layout does not establish an overall improvement over the old scenario selector and table." },
+    { "name": "docs", "verdict": "neutral", "observation": "Learning route and topic directory replace the old chapter sidebar with introductory content. Useful as a topic overview, but not clearly better for direct reference reading. Filter, sort, expansion and search submission passed replay." },
+    { "name": "essay", "verdict": "neutral", "observation": "Metadata grid separates author context, but the narrow continuous article layout remains close to the old page and mobile metadata pushes prose down. Copy and archive controls work; no clear structural improvement established." }
+  ],
+  "improvedTopics": 3,
+  "requiredForDefaultEnable": 4,
+  "defaultEnableGatePassed": false,
+  "sameSiteV5Retested": false,
+  "decision": "Keep the design workflow opt-in. Task-first guidance helps some primary controls but does not meet the breadth gate; warm neutral backgrounds and introductory sections remain common. Do not add per-sample rules or reinterpret more content as better design."
+}

@@ -71,6 +71,32 @@ export async function measureDocument(document, options = {}) {
             r.height > 0
           );
         };
+        const horizontalScroll = (e) => {
+          let parent = e.parentElement;
+          while (
+            parent &&
+            parent !== document.body &&
+            parent !== document.documentElement
+          ) {
+            const style = getComputedStyle(parent);
+            if (
+              ["auto", "scroll"].includes(style.overflowX) &&
+              parent.scrollWidth > parent.clientWidth + 2
+            ) {
+              const rect = parent.getBoundingClientRect();
+              return {
+                containerId: parent.id,
+                clientWidth: parent.clientWidth,
+                scrollWidth: parent.scrollWidth,
+                viewportLeft: rect.left + parent.clientLeft,
+                viewportRight:
+                  rect.left + parent.clientLeft + parent.clientWidth,
+              };
+            }
+            parent = parent.parentElement;
+          }
+          return null;
+        };
         const describe = (e) => {
           const r = e.getBoundingClientRect(),
             s = getComputedStyle(e);
@@ -85,6 +111,7 @@ export async function measureDocument(document, options = {}) {
             fontSize: s.fontSize,
             lineHeight: s.lineHeight,
             fontFamily: s.fontFamily,
+            horizontalScroll: horizontalScroll(e),
           };
         };
         const elements = [...document.body.querySelectorAll("*")].filter(

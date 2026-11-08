@@ -27,6 +27,24 @@ class DesignWorkflowSuite extends CatsEffectSuite:
     List(390, 1440).map(w => LayoutViewport(w, 844, w, 900, Nil, Nil, Nil, Nil))
   )
   private val config = new ProviderConnection("https://mock.invalid", "test", "secret", 1)
+  test("layout scroll context survives encoding while historical measurements remain readable") {
+    val element = LayoutElement(
+      "link",
+      "a",
+      "Next",
+      500,
+      0,
+      80,
+      20,
+      "16px",
+      "20px",
+      "serif",
+      Some(LayoutScrollContext("nav", 300, 800, 20, 320))
+    )
+    assertEquals(element.asJson.as[LayoutElement], Right(element))
+    val old = element.asJson.mapObject(_.remove("horizontalScroll"))
+    assertEquals(old.as[LayoutElement], Right(element.copy(horizontalScroll = None)))
+  }
   test("compact intent and saved visual briefs both decode without losing old fields") {
     val compact = brief.asJson.mapObject(_.remove("typography").remove("continuity"))
     assertEquals(compact.as[DesignBrief].toOption.get.typography, "")

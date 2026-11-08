@@ -51,3 +51,31 @@ test("all existing runtime fixtures measure without submitting or loading extern
     );
   }
 });
+test("offscreen navigation distinguishes local scrolling from document overflow", async () => {
+  const result = await measureDocument({
+    ...fixture,
+    html: '<nav id="scroll-nav"><div class="row"><a id="first" href="#main">起点</a><a id="last" href="#main">末项</a></div></nav><main id="main"><h1>正文</h1></main><div id="uncontained"><a id="outside" href="#main">真正溢出</a></div>',
+    css: "#scroll-nav{width:300px;overflow-x:auto}.row{width:1800px;display:flex;justify-content:space-between}#uncontained{width:1800px;text-align:right}",
+    entities: [],
+    actions: [],
+    bindings: [],
+  });
+  assert.equal(result.error, null);
+  for (const viewport of result.viewports) {
+    const last = viewport.controls.find((c) => c.id === "last");
+    assert(last.x > viewport.width);
+    assert.equal(last.horizontalScroll.containerId, "scroll-nav");
+    assert.equal(last.horizontalScroll.clientWidth, 300);
+    assert(last.horizontalScroll.scrollWidth >= 1800);
+    assert.equal(
+      last.horizontalScroll.viewportRight - last.horizontalScroll.viewportLeft,
+      300,
+    );
+    assert(!viewport.overflowIds.includes("last"));
+    assert.equal(
+      viewport.controls.find((c) => c.id === "outside").horizontalScroll,
+      null,
+    );
+    assert(viewport.overflowIds.includes("outside"));
+  }
+});
