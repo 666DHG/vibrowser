@@ -11,7 +11,7 @@ private[generation] object DesignGuidance:
   lazy val design: String = resource("design.md")
   lazy val review: String = resource("review.md")
   lazy val intent: String = resource("intent.md")
-  lazy val version: String = "4-" + MessageDigest
+  lazy val version: String = "5-" + MessageDigest
     .getInstance("SHA-256")
     .digest((intent + design + review).getBytes(UTF_8))
     .map(b => f"${b & 0xff}%02x")

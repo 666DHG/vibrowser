@@ -5,10 +5,10 @@ import { createHash } from "node:crypto";
 import { measureDocument } from "../dist-measure/measure.mjs";
 
 const root = resolve(import.meta.dirname, "../..");
-const revision = process.argv.includes("--guidance-v4") ? "v4" : "v3";
-const retest =
-  process.argv.includes("--guidance-v3") ||
-  process.argv.includes("--guidance-v4");
+const revision = ["v5", "v4", "v3"].find((v) =>
+  process.argv.includes(`--guidance-${v}`),
+);
+const retest = revision !== undefined;
 const expectedSamples = retest ? 6 : 18;
 const input = resolve(
   root,

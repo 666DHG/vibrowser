@@ -98,7 +98,7 @@ object EffortAcceptance extends IOApp.Simple:
       yield response.withEntity(result)
     }
   def run: IO[Unit] =
-    require(Set("3", "4")(guidanceRevision), "Unsupported fixed experiment revision")
+    require(Set("3", "4", "5")(guidanceRevision), "Unsupported fixed experiment revision")
     require(
       !guidanceRetest || DesignGuidance.version.startsWith(guidanceRevision + "-"),
       "Guidance build must match the isolated experiment directory"

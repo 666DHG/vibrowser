@@ -163,7 +163,10 @@ class DesignWorkflowSuite extends CatsEffectSuite:
           ): IO[String] =
             calls.getAndUpdate(_ + 1).map { index =>
               if Set(1, 2, 4)(index) then
-                assert(system.contains(WebDocumentPrompt.system))
+                assert(
+                  system.contains(WebDocumentPrompt.system.linesIterator.drop(1).mkString("\n"))
+                )
+                assert(!system.contains("生成完整的中文网站"))
                 assert(system.contains(WebDocumentPrompt.actionLimitations))
                 assertEquals(
                   (system + prompt).sliding("Copy: 绑定 button".length).count(_ == "Copy: 绑定 button"),
@@ -263,7 +266,7 @@ class DesignWorkflowSuite extends CatsEffectSuite:
   test(
     "guidance resources are packaged, versioned and validation preserves required content and actions"
   ) {
-    assert(DesignGuidance.version.startsWith("4-"))
+    assert(DesignGuidance.version.startsWith("5-"))
     assert(
       DesignGuidance.design.nonEmpty && DesignGuidance.review.nonEmpty && DesignGuidance.intent.nonEmpty
     )
