@@ -1,0 +1,391 @@
+{
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 900,
+      "scrollWidth": 1425,
+      "scrollHeight": 2354,
+      "overflowIds": [],
+      "headings": [
+        {
+          "id": "",
+          "tag": "h1",
+          "text": "今天是什么日子",
+          "x": 722.25,
+          "y": 160,
+          "width": 430.25,
+          "height": 21,
+          "fontSize": "15px",
+          "lineHeight": "normal",
+          "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+        },
+        {
+          "id": "",
+          "tag": "h2",
+          "text": "历史上的今天",
+          "x": 272.5,
+          "y": 818.875,
+          "width": 880,
+          "height": 21,
+          "fontSize": "15px",
+          "lineHeight": "normal",
+          "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+        },
+        {
+          "id": "",
+          "tag": "h2",
+          "text": "未来七日",
+          "x": 272.5,
+          "y": 1414.640625,
+          "width": 880,
+          "height": 21,
+          "fontSize": "15px",
+          "lineHeight": "normal",
+          "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+        }
+      ],
+      "controls": [
+        {
+          "id": "vib-link-0",
+          "tag": "a",
+          "text": "今天是什么日子.com",
+          "x": 272.5,
+          "y": 56,
+          "width": 208.59375,
+          "height": 29,
+          "fontSize": "20px",
+          "lineHeight": "normal",
+          "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+        },
+        {
+          "id": "lookup-q",
+          "tag": "input",
+          "text": "",
+          "x": 812.5,
+          "y": 45,
+          "width": 253.75,
+          "height": 37,
+          "fontSize": "15px",
+          "lineHeight": "normal",
+          "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+        },
+        {
+          "id": "",
+          "tag": "button",
+          "text": "查这一天",
+          "x": 1066.25,
+          "y": 45,
+          "width": 86.25,
+          "height": 37,
+          "fontSize": "14px",
+          "lineHeight": "normal",
+          "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+        },
+        {
+          "id": "copy-today",
+          "tag": "button",
+          "text": "复制今天这一页",
+          "x": 722.25,
+          "y": 738.875,
+          "width": 126.46875,
+          "height": 35,
+          "fontSize": "13px",
+          "lineHeight": "normal",
+          "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+        },
+        {
+          "id": "vib-link-1",
+          "tag": "a",
+          "text": "按月份浏览：2026 年 11 月",
+          "x": 272.5,
+          "y": 2286.703125,
+          "width": 144.03125,
+          "height": 19,
+          "fontSize": "12px",
+          "lineHeight": "normal",
+          "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+        },
+        {
+          "id": "vib-link-2",
+          "tag": "a",
+          "text": "关于本站口径",
+          "x": 438.53125,
+          "y": 2286.703125,
+          "width": 72,
+          "height": 19,
+          "fontSize": "12px",
+          "lineHeight": "normal",
+          "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+        }
+      ],
+      "regions": [
+        {
+          "id": "",
+          "tag": "header",
+          "text": "今天是什么日子.com\n   给每一天写一条注解\n  \n  \n   换一天看看\n   \n    \n    查这一天\n   \n   支持公历日期、月日，例如“12月24日”。",
+          "x": 272.5,
+          "y": 0,
+          "width": 880,
+          "height": 126,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+        },
+        {
+          "id": "",
+          "tag": "main",
+          "text": "二〇二六年 · 立冬\n     11/07\n     星期六 · 农历九月十八\n     今日交立冬，北风渐起，昼短夜长。距 2027 年元旦还有 55 天。\n    \n    \n     今天是什么日子\n     \n      \n       十月社会主义革命纪念日\n       纪念日1917 年 · 俄国\n       1917 年 11 月 7 日（",
+          "x": 272.5,
+          "y": 126,
+          "width": 880,
+          "height": 2055.921875,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+        },
+        {
+          "id": "today-card",
+          "tag": "section",
+          "text": "二〇二六年 · 立冬\n     11/07\n     星期六 · 农历九月十八\n     今日交立冬，北风渐起，昼短夜长。距 2027 年元旦还有 55 天。\n    \n    \n     今天是什么日子\n     \n      \n       十月社会主义革命纪念日\n       纪念日1917 年 · 俄国\n       1917 年 11 月 7 日（",
+          "x": 272.5,
+          "y": 126,
+          "width": 880,
+          "height": 656.875,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+        },
+        {
+          "id": "history-card",
+          "tag": "section",
+          "text": "历史上的今天\n   同为 11 月 7 日，不同年份发生过这些事。\n   \n    \n     1867\n     玛丽·居里出生于波兰华沙，她后来两度获得诺贝尔奖。\n    \n     1917\n     彼得格勒武装起义爆发，冬宫被攻占，临时政府垮台。\n    \n     1913\n     法国作家阿尔贝·加缪出生于阿尔及利亚蒙多維。\n    \n   ",
+          "x": 272.5,
+          "y": 782.875,
+          "width": 880,
+          "height": 595.765625,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+        },
+        {
+          "id": "ahead-card",
+          "tag": "section",
+          "text": "未来七日\n   从 11 月 7 日往后数，接下来一周里值得记下的日子。\n   \n    \n     11月08日\n     \n      中国记者节\n      行业日2000 年起施行\n      国务院于 2000 年正式批复，将 11 月 8 日定为中国记者节。\n     \n    \n     11月09日\n     \n      全国消防日\n   ",
+          "x": 272.5,
+          "y": 1378.640625,
+          "width": 880,
+          "height": 803.28125,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+        },
+        {
+          "id": "",
+          "tag": "footer",
+          "text": "本站以公历日期为入口，节日与纪念日口径以国内主流年历及公开资料为准；同一日期因地区与历法差异可能另有说法。\n  按月份浏览：2026 年 11 月关于本站口径",
+          "x": 272.5,
+          "y": 2217.921875,
+          "width": 880,
+          "height": 87.78125,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 375,
+      "scrollHeight": 2848,
+      "overflowIds": [],
+      "headings": [
+        {
+          "id": "",
+          "tag": "h1",
+          "text": "今天是什么日子",
+          "x": 20,
+          "y": 466.875,
+          "width": 335,
+          "height": 21,
+          "fontSize": "15px",
+          "lineHeight": "normal",
+          "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+        },
+        {
+          "id": "",
+          "tag": "h2",
+          "text": "历史上的今天",
+          "x": 20,
+          "y": 1125.75,
+          "width": 335,
+          "height": 21,
+          "fontSize": "15px",
+          "lineHeight": "normal",
+          "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+        },
+        {
+          "id": "",
+          "tag": "h2",
+          "text": "未来七日",
+          "x": 20,
+          "y": 1864.296875,
+          "width": 335,
+          "height": 21,
+          "fontSize": "15px",
+          "lineHeight": "normal",
+          "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+        }
+      ],
+      "controls": [
+        {
+          "id": "vib-link-0",
+          "tag": "a",
+          "text": "今天是什么日子.com",
+          "x": 20,
+          "y": 22,
+          "width": 208.59375,
+          "height": 29,
+          "fontSize": "20px",
+          "lineHeight": "normal",
+          "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+        },
+        {
+          "id": "lookup-q",
+          "tag": "input",
+          "text": "",
+          "x": 20,
+          "y": 111,
+          "width": 248.75,
+          "height": 37,
+          "fontSize": "15px",
+          "lineHeight": "normal",
+          "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+        },
+        {
+          "id": "",
+          "tag": "button",
+          "text": "查这一天",
+          "x": 268.75,
+          "y": 111,
+          "width": 86.25,
+          "height": 37,
+          "fontSize": "14px",
+          "lineHeight": "normal",
+          "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+        },
+        {
+          "id": "copy-today",
+          "tag": "button",
+          "text": "复制今天这一页",
+          "x": 20,
+          "y": 1045.75,
+          "width": 126.46875,
+          "height": 35,
+          "fontSize": "13px",
+          "lineHeight": "normal",
+          "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+        },
+        {
+          "id": "vib-link-1",
+          "tag": "a",
+          "text": "按月份浏览：2026 年 11 月",
+          "x": 20,
+          "y": 2780.546875,
+          "width": 144.03125,
+          "height": 19,
+          "fontSize": "12px",
+          "lineHeight": "normal",
+          "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+        },
+        {
+          "id": "vib-link-2",
+          "tag": "a",
+          "text": "关于本站口径",
+          "x": 186.03125,
+          "y": 2780.546875,
+          "width": 72,
+          "height": 19,
+          "fontSize": "12px",
+          "lineHeight": "normal",
+          "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+        }
+      ],
+      "regions": [
+        {
+          "id": "",
+          "tag": "header",
+          "text": "今天是什么日子.com\n   给每一天写一条注解\n  \n  \n   换一天看看\n   \n    \n    查这一天\n   \n   支持公历日期、月日，例如“12月24日”。",
+          "x": 20,
+          "y": 0,
+          "width": 335,
+          "height": 192,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+        },
+        {
+          "id": "",
+          "tag": "main",
+          "text": "二〇二六年 · 立冬\n     11/07\n     星期六 · 农历九月十八\n     今日交立冬，北风渐起，昼短夜长。距 2027 年元旦还有 55 天。\n    \n    \n     今天是什么日子\n     \n      \n       十月社会主义革命纪念日\n       纪念日1917 年 · 俄国\n       1917 年 11 月 7 日（",
+          "x": 20,
+          "y": 192,
+          "width": 335,
+          "height": 2483.765625,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+        },
+        {
+          "id": "today-card",
+          "tag": "section",
+          "text": "二〇二六年 · 立冬\n     11/07\n     星期六 · 农历九月十八\n     今日交立冬，北风渐起，昼短夜长。距 2027 年元旦还有 55 天。\n    \n    \n     今天是什么日子\n     \n      \n       十月社会主义革命纪念日\n       纪念日1917 年 · 俄国\n       1917 年 11 月 7 日（",
+          "x": 20,
+          "y": 192,
+          "width": 335,
+          "height": 897.75,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+        },
+        {
+          "id": "history-card",
+          "tag": "section",
+          "text": "历史上的今天\n   同为 11 月 7 日，不同年份发生过这些事。\n   \n    \n     1867\n     玛丽·居里出生于波兰华沙，她后来两度获得诺贝尔奖。\n    \n     1917\n     彼得格勒武装起义爆发，冬宫被攻占，临时政府垮台。\n    \n     1913\n     法国作家阿尔贝·加缪出生于阿尔及利亚蒙多維。\n    \n   ",
+          "x": 20,
+          "y": 1089.75,
+          "width": 335,
+          "height": 738.546875,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+        },
+        {
+          "id": "ahead-card",
+          "tag": "section",
+          "text": "未来七日\n   从 11 月 7 日往后数，接下来一周里值得记下的日子。\n   \n    \n     11月08日\n     \n      中国记者节\n      行业日2000 年起施行\n      国务院于 2000 年正式批复，将 11 月 8 日定为中国记者节。\n     \n    \n     11月09日\n     \n      全国消防日\n   ",
+          "x": 20,
+          "y": 1828.296875,
+          "width": 335,
+          "height": 847.46875,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+        },
+        {
+          "id": "",
+          "tag": "footer",
+          "text": "本站以公历日期为入口，节日与纪念日口径以国内主流年历及公开资料为准；同一日期因地区与历法差异可能另有说法。\n  按月份浏览：2026 年 11 月关于本站口径",
+          "x": 20,
+          "y": 2711.765625,
+          "width": 335,
+          "height": 87.78125,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+        }
+      ]
+    }
+  ],
+  "error": null
+}

@@ -1,5 +1,5 @@
 {
-  "evaluatedAt": "2026-11-08T02:23:41.878Z",
+  "evaluatedAt": "2026-11-08T02:27:55.613Z",
   "expectedSamples": 6,
   "complete": false,
   "groups": {
@@ -18,18 +18,18 @@
       "seconds": 0
     },
     "new-standard": {
-      "samples": 1,
-      "ready": 1,
+      "samples": 3,
+      "ready": 3,
       "interrupted": 0,
       "unknownUsageSamples": 0,
       "unknownDurationSamples": 0,
-      "initialGenerationAccepted": 1,
-      "modelCalls": 3,
-      "generationModelCalls": 3,
-      "recordedTokens": 44761,
-      "recordedCompletionTokens": 5715,
+      "initialGenerationAccepted": 2,
+      "modelCalls": 11,
+      "generationModelCalls": 11,
+      "recordedTokens": 160672,
+      "recordedCompletionTokens": 42522,
       "recordedReasoningTokens": 0,
-      "seconds": 40
+      "seconds": 210
     },
     "new-deep": {
       "samples": 0,
@@ -49,6 +49,22 @@
   "comparability": [
     {
       "input": "清华教师袁洋的个人学术主页.com",
+      "samples": 1,
+      "allThreePresent": false,
+      "identicalGenerationRequest": true,
+      "actualEffortMatches": true,
+      "unobservedEffortSamples": 0
+    },
+    {
+      "input": "今天是什么日子.com",
+      "samples": 1,
+      "allThreePresent": false,
+      "identicalGenerationRequest": true,
+      "actualEffortMatches": true,
+      "unobservedEffortSamples": 0
+    },
+    {
+      "input": "kfc疯狂星期四文案合集站.com",
       "samples": 1,
       "allThreePresent": false,
       "identicalGenerationRequest": true,
@@ -1236,6 +1252,2255 @@
                 "fontSize": "16.5px",
                 "lineHeight": "31.35px",
                 "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              }
+            ]
+          }
+        ],
+        "error": null
+      }
+    },
+    {
+      "name": "calendar-new-standard",
+      "input": "今天是什么日子.com",
+      "mode": "imagination",
+      "effort": "standard",
+      "requestHash": "2c2ef68b6d3f4f7d79d7dee51964c589125d9ab94e99ebc4d103649ba22cae40",
+      "actualEffortMatches": true,
+      "pageId": "05696a15-05bc-4479-bb06-b20d489d931c",
+      "jobId": "3954c055-4aed-450f-a455-71eb5c8d950b",
+      "guidance": "3-eee6ce41898c5c741389926ab7a9cf2a1cccf33fac2bb403c66cc24dbbddda6a",
+      "seconds": 61,
+      "interrupted": false,
+      "usageComplete": true,
+      "error": null,
+      "initialGenerationAccepted": false,
+      "generationAttempts": [
+        {
+          "attempt": 1,
+          "outcome": "InvalidContent",
+          "errorCode": "invalid_content",
+          "message": "DecodingFailure at .siteStyle.palette: Got value '{\"paper\":\"#F4EFE6\",\"ink\":\"#1C1A17\",\"red\":\"#C0392B\",\"rule\":\"#D8CFBF\",\"muted\":\"#6B6258\"}' with wrong type, expecting string",
+          "at": "2026-11-08T02:25:19.306624400Z"
+        },
+        {
+          "attempt": 2,
+          "outcome": "Accepted",
+          "errorCode": null,
+          "message": null,
+          "at": "2026-11-08T02:25:39.444658800Z"
+        }
+      ],
+      "modelCalls": [
+        {
+          "usage": {
+            "prompt_tokens": 937,
+            "completion_tokens": 842,
+            "total_tokens": 1779,
+            "prompt_tokens_details": {
+              "cached_tokens": 640
+            },
+            "prompt_cache_hit_tokens": 640,
+            "prompt_cache_miss_tokens": 297
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 8189,
+          "model": "deepseek-flash",
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "brief"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 2742,
+            "completion_tokens": 5761,
+            "total_tokens": 8503,
+            "prompt_tokens_details": {
+              "cached_tokens": 1024
+            },
+            "prompt_cache_hit_tokens": 1024,
+            "prompt_cache_miss_tokens": 1718
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 26179,
+          "model": "deepseek-flash",
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 8649,
+            "completion_tokens": 5774,
+            "total_tokens": 14423,
+            "prompt_tokens_details": {
+              "cached_tokens": 2688
+            },
+            "prompt_cache_hit_tokens": 2688,
+            "prompt_cache_miss_tokens": 5961
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 20117,
+          "model": "deepseek-flash",
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 12005,
+            "completion_tokens": 5,
+            "total_tokens": 12010,
+            "prompt_tokens_details": {
+              "cached_tokens": 768
+            },
+            "prompt_cache_hit_tokens": 768,
+            "prompt_cache_miss_tokens": 11237
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 775,
+          "model": "deepseek-flash",
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "review"
+        }
+      ],
+      "selection": "Original",
+      "events": [
+        {
+          "stage": "Brief",
+          "status": "Started",
+          "at": "2026-11-08T02:24:44.923702200Z",
+          "message": null
+        },
+        {
+          "stage": "Brief",
+          "status": "Completed",
+          "at": "2026-11-08T02:24:53.115784700Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Started",
+          "at": "2026-11-08T02:25:39.449659200Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Completed",
+          "at": "2026-11-08T02:25:45.648852800Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Started",
+          "at": "2026-11-08T02:25:45.652860100Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Completed",
+          "at": "2026-11-08T02:25:46.428849700Z",
+          "message": null
+        },
+        {
+          "stage": "Selection",
+          "status": "Completed",
+          "at": "2026-11-08T02:25:46.433921400Z",
+          "message": "采用已校验原页面"
+        }
+      ],
+      "researchReused": false,
+      "siteStyle": {
+        "brand": "今天是什么日子.com — 日历档案卡，红圈标注的纸面日历",
+        "typography": "中文系统黑体为主，标题700-900字重，日期用极大字号与 tabular-nums，正文14px、行高1.75、宽度约34字，类别标签11px且字距加宽",
+        "palette": "纸米色 #F4EFE6 为底，墨黑 #1C1A17 为文字主色，圈注红 #C0392B 为唯一强调色，分隔线 #D8CFBF，次要文字 #6B6258",
+        "layout": "单页纵向档案卡：页眉站名加日期查询；主卡左侧大号圈注日期、右侧主题列表；下接年份对齐的历史时间轴与未来七日的短列表；页脚一句口径说明"
+      },
+      "actions": [
+        {
+          "id": "act-search-date",
+          "kind": "Search",
+          "elementId": "date-lookup",
+          "target": null,
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-copy-today",
+          "kind": "Copy",
+          "elementId": "copy-today",
+          "target": null,
+          "region": "copy-source",
+          "stateKey": "copyFeedback",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-0",
+          "kind": "Navigate",
+          "elementId": "vib-link-0",
+          "target": "/",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-1",
+          "kind": "Navigate",
+          "elementId": "vib-link-1",
+          "target": "/2026/11/",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-2",
+          "kind": "Navigate",
+          "elementId": "vib-link-2",
+          "target": "/about",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        }
+      ],
+      "layout": {
+        "viewports": [
+          {
+            "width": 1440,
+            "height": 900,
+            "scrollWidth": 1425,
+            "scrollHeight": 2354,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "",
+                "tag": "h1",
+                "text": "今天是什么日子",
+                "x": 722.25,
+                "y": 160,
+                "width": 430.25,
+                "height": 21,
+                "fontSize": "15px",
+                "lineHeight": "normal",
+                "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "历史上的今天",
+                "x": 272.5,
+                "y": 818.875,
+                "width": 880,
+                "height": 21,
+                "fontSize": "15px",
+                "lineHeight": "normal",
+                "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "未来七日",
+                "x": 272.5,
+                "y": 1414.640625,
+                "width": 880,
+                "height": 21,
+                "fontSize": "15px",
+                "lineHeight": "normal",
+                "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+              }
+            ],
+            "controls": [
+              {
+                "id": "vib-link-0",
+                "tag": "a",
+                "text": "今天是什么日子.com",
+                "x": 272.5,
+                "y": 56,
+                "width": 208.59375,
+                "height": 29,
+                "fontSize": "20px",
+                "lineHeight": "normal",
+                "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+              },
+              {
+                "id": "lookup-q",
+                "tag": "input",
+                "text": "",
+                "x": 812.5,
+                "y": 45,
+                "width": 253.75,
+                "height": 37,
+                "fontSize": "15px",
+                "lineHeight": "normal",
+                "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "button",
+                "text": "查这一天",
+                "x": 1066.25,
+                "y": 45,
+                "width": 86.25,
+                "height": 37,
+                "fontSize": "14px",
+                "lineHeight": "normal",
+                "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+              },
+              {
+                "id": "copy-today",
+                "tag": "button",
+                "text": "复制今天这一页",
+                "x": 722.25,
+                "y": 738.875,
+                "width": 126.46875,
+                "height": 35,
+                "fontSize": "13px",
+                "lineHeight": "normal",
+                "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+              },
+              {
+                "id": "vib-link-1",
+                "tag": "a",
+                "text": "按月份浏览：2026 年 11 月",
+                "x": 272.5,
+                "y": 2286.703125,
+                "width": 144.03125,
+                "height": 19,
+                "fontSize": "12px",
+                "lineHeight": "normal",
+                "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+              },
+              {
+                "id": "vib-link-2",
+                "tag": "a",
+                "text": "关于本站口径",
+                "x": 438.53125,
+                "y": 2286.703125,
+                "width": 72,
+                "height": 19,
+                "fontSize": "12px",
+                "lineHeight": "normal",
+                "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+              }
+            ],
+            "regions": [
+              {
+                "id": "",
+                "tag": "header",
+                "text": "今天是什么日子.com\n   给每一天写一条注解\n  \n  \n   换一天看看\n   \n    \n    查这一天\n   \n   支持公历日期、月日，例如“12月24日”。",
+                "x": 272.5,
+                "y": 0,
+                "width": 880,
+                "height": 126,
+                "fontSize": "16px",
+                "lineHeight": "normal",
+                "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "main",
+                "text": "二〇二六年 · 立冬\n     11/07\n     星期六 · 农历九月十八\n     今日交立冬，北风渐起，昼短夜长。距 2027 年元旦还有 55 天。\n    \n    \n     今天是什么日子\n     \n      \n       十月社会主义革命纪念日\n       纪念日1917 年 · 俄国\n       1917 年 11 月 7 日（",
+                "x": 272.5,
+                "y": 126,
+                "width": 880,
+                "height": 2055.921875,
+                "fontSize": "16px",
+                "lineHeight": "normal",
+                "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+              },
+              {
+                "id": "today-card",
+                "tag": "section",
+                "text": "二〇二六年 · 立冬\n     11/07\n     星期六 · 农历九月十八\n     今日交立冬，北风渐起，昼短夜长。距 2027 年元旦还有 55 天。\n    \n    \n     今天是什么日子\n     \n      \n       十月社会主义革命纪念日\n       纪念日1917 年 · 俄国\n       1917 年 11 月 7 日（",
+                "x": 272.5,
+                "y": 126,
+                "width": 880,
+                "height": 656.875,
+                "fontSize": "16px",
+                "lineHeight": "normal",
+                "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+              },
+              {
+                "id": "history-card",
+                "tag": "section",
+                "text": "历史上的今天\n   同为 11 月 7 日，不同年份发生过这些事。\n   \n    \n     1867\n     玛丽·居里出生于波兰华沙，她后来两度获得诺贝尔奖。\n    \n     1917\n     彼得格勒武装起义爆发，冬宫被攻占，临时政府垮台。\n    \n     1913\n     法国作家阿尔贝·加缪出生于阿尔及利亚蒙多維。\n    \n   ",
+                "x": 272.5,
+                "y": 782.875,
+                "width": 880,
+                "height": 595.765625,
+                "fontSize": "16px",
+                "lineHeight": "normal",
+                "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+              },
+              {
+                "id": "ahead-card",
+                "tag": "section",
+                "text": "未来七日\n   从 11 月 7 日往后数，接下来一周里值得记下的日子。\n   \n    \n     11月08日\n     \n      中国记者节\n      行业日2000 年起施行\n      国务院于 2000 年正式批复，将 11 月 8 日定为中国记者节。\n     \n    \n     11月09日\n     \n      全国消防日\n   ",
+                "x": 272.5,
+                "y": 1378.640625,
+                "width": 880,
+                "height": 803.28125,
+                "fontSize": "16px",
+                "lineHeight": "normal",
+                "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "footer",
+                "text": "本站以公历日期为入口，节日与纪念日口径以国内主流年历及公开资料为准；同一日期因地区与历法差异可能另有说法。\n  按月份浏览：2026 年 11 月关于本站口径",
+                "x": 272.5,
+                "y": 2217.921875,
+                "width": 880,
+                "height": 87.78125,
+                "fontSize": "16px",
+                "lineHeight": "normal",
+                "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+              }
+            ]
+          },
+          {
+            "width": 390,
+            "height": 844,
+            "scrollWidth": 375,
+            "scrollHeight": 2848,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "",
+                "tag": "h1",
+                "text": "今天是什么日子",
+                "x": 20,
+                "y": 466.875,
+                "width": 335,
+                "height": 21,
+                "fontSize": "15px",
+                "lineHeight": "normal",
+                "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "历史上的今天",
+                "x": 20,
+                "y": 1125.75,
+                "width": 335,
+                "height": 21,
+                "fontSize": "15px",
+                "lineHeight": "normal",
+                "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "未来七日",
+                "x": 20,
+                "y": 1864.296875,
+                "width": 335,
+                "height": 21,
+                "fontSize": "15px",
+                "lineHeight": "normal",
+                "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+              }
+            ],
+            "controls": [
+              {
+                "id": "vib-link-0",
+                "tag": "a",
+                "text": "今天是什么日子.com",
+                "x": 20,
+                "y": 22,
+                "width": 208.59375,
+                "height": 29,
+                "fontSize": "20px",
+                "lineHeight": "normal",
+                "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+              },
+              {
+                "id": "lookup-q",
+                "tag": "input",
+                "text": "",
+                "x": 20,
+                "y": 111,
+                "width": 248.75,
+                "height": 37,
+                "fontSize": "15px",
+                "lineHeight": "normal",
+                "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "button",
+                "text": "查这一天",
+                "x": 268.75,
+                "y": 111,
+                "width": 86.25,
+                "height": 37,
+                "fontSize": "14px",
+                "lineHeight": "normal",
+                "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+              },
+              {
+                "id": "copy-today",
+                "tag": "button",
+                "text": "复制今天这一页",
+                "x": 20,
+                "y": 1045.75,
+                "width": 126.46875,
+                "height": 35,
+                "fontSize": "13px",
+                "lineHeight": "normal",
+                "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+              },
+              {
+                "id": "vib-link-1",
+                "tag": "a",
+                "text": "按月份浏览：2026 年 11 月",
+                "x": 20,
+                "y": 2780.546875,
+                "width": 144.03125,
+                "height": 19,
+                "fontSize": "12px",
+                "lineHeight": "normal",
+                "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+              },
+              {
+                "id": "vib-link-2",
+                "tag": "a",
+                "text": "关于本站口径",
+                "x": 186.03125,
+                "y": 2780.546875,
+                "width": 72,
+                "height": 19,
+                "fontSize": "12px",
+                "lineHeight": "normal",
+                "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+              }
+            ],
+            "regions": [
+              {
+                "id": "",
+                "tag": "header",
+                "text": "今天是什么日子.com\n   给每一天写一条注解\n  \n  \n   换一天看看\n   \n    \n    查这一天\n   \n   支持公历日期、月日，例如“12月24日”。",
+                "x": 20,
+                "y": 0,
+                "width": 335,
+                "height": 192,
+                "fontSize": "16px",
+                "lineHeight": "normal",
+                "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "main",
+                "text": "二〇二六年 · 立冬\n     11/07\n     星期六 · 农历九月十八\n     今日交立冬，北风渐起，昼短夜长。距 2027 年元旦还有 55 天。\n    \n    \n     今天是什么日子\n     \n      \n       十月社会主义革命纪念日\n       纪念日1917 年 · 俄国\n       1917 年 11 月 7 日（",
+                "x": 20,
+                "y": 192,
+                "width": 335,
+                "height": 2483.765625,
+                "fontSize": "16px",
+                "lineHeight": "normal",
+                "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+              },
+              {
+                "id": "today-card",
+                "tag": "section",
+                "text": "二〇二六年 · 立冬\n     11/07\n     星期六 · 农历九月十八\n     今日交立冬，北风渐起，昼短夜长。距 2027 年元旦还有 55 天。\n    \n    \n     今天是什么日子\n     \n      \n       十月社会主义革命纪念日\n       纪念日1917 年 · 俄国\n       1917 年 11 月 7 日（",
+                "x": 20,
+                "y": 192,
+                "width": 335,
+                "height": 897.75,
+                "fontSize": "16px",
+                "lineHeight": "normal",
+                "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+              },
+              {
+                "id": "history-card",
+                "tag": "section",
+                "text": "历史上的今天\n   同为 11 月 7 日，不同年份发生过这些事。\n   \n    \n     1867\n     玛丽·居里出生于波兰华沙，她后来两度获得诺贝尔奖。\n    \n     1917\n     彼得格勒武装起义爆发，冬宫被攻占，临时政府垮台。\n    \n     1913\n     法国作家阿尔贝·加缪出生于阿尔及利亚蒙多維。\n    \n   ",
+                "x": 20,
+                "y": 1089.75,
+                "width": 335,
+                "height": 738.546875,
+                "fontSize": "16px",
+                "lineHeight": "normal",
+                "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+              },
+              {
+                "id": "ahead-card",
+                "tag": "section",
+                "text": "未来七日\n   从 11 月 7 日往后数，接下来一周里值得记下的日子。\n   \n    \n     11月08日\n     \n      中国记者节\n      行业日2000 年起施行\n      国务院于 2000 年正式批复，将 11 月 8 日定为中国记者节。\n     \n    \n     11月09日\n     \n      全国消防日\n   ",
+                "x": 20,
+                "y": 1828.296875,
+                "width": 335,
+                "height": 847.46875,
+                "fontSize": "16px",
+                "lineHeight": "normal",
+                "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "footer",
+                "text": "本站以公历日期为入口，节日与纪念日口径以国内主流年历及公开资料为准；同一日期因地区与历法差异可能另有说法。\n  按月份浏览：2026 年 11 月关于本站口径",
+                "x": 20,
+                "y": 2711.765625,
+                "width": 335,
+                "height": 87.78125,
+                "fontSize": "16px",
+                "lineHeight": "normal",
+                "fontFamily": "\"PingFang SC\", \"Noto Sans SC\", \"Microsoft YaHei\", system-ui, sans-serif"
+              }
+            ]
+          }
+        ],
+        "error": null
+      }
+    },
+    {
+      "name": "copy-new-standard",
+      "input": "kfc疯狂星期四文案合集站.com",
+      "mode": "imagination",
+      "effort": "standard",
+      "requestHash": "72eb7ab0d5c4ab6da441dc0abf7b7575da3a910aed14f30d32bcf4d158356660",
+      "actualEffortMatches": true,
+      "pageId": "3c0806f1-ad55-4c59-a784-05d2faf6808d",
+      "jobId": "ddc6ed43-72e1-401b-b3a4-c9b8a840cf1e",
+      "guidance": "3-eee6ce41898c5c741389926ab7a9cf2a1cccf33fac2bb403c66cc24dbbddda6a",
+      "seconds": 109,
+      "interrupted": false,
+      "usageComplete": true,
+      "error": null,
+      "initialGenerationAccepted": true,
+      "generationAttempts": [
+        {
+          "attempt": 1,
+          "outcome": "Accepted",
+          "errorCode": null,
+          "message": null,
+          "at": "2026-11-08T02:23:52.329071700Z"
+        }
+      ],
+      "modelCalls": [
+        {
+          "usage": {
+            "prompt_tokens": 958,
+            "completion_tokens": 547,
+            "total_tokens": 1505,
+            "prompt_tokens_details": {
+              "cached_tokens": 640
+            },
+            "prompt_cache_hit_tokens": 640,
+            "prompt_cache_miss_tokens": 318
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 6915,
+          "model": "deepseek-flash",
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "brief"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 2473,
+            "completion_tokens": 10909,
+            "total_tokens": 13382,
+            "prompt_tokens_details": {
+              "cached_tokens": 1024
+            },
+            "prompt_cache_hit_tokens": 1024,
+            "prompt_cache_miss_tokens": 1449
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 50422,
+          "model": "deepseek-flash",
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 24884,
+            "completion_tokens": 759,
+            "total_tokens": 25643,
+            "prompt_tokens_details": {
+              "cached_tokens": 768
+            },
+            "prompt_cache_hit_tokens": 768,
+            "prompt_cache_miss_tokens": 24116
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 7737,
+          "model": "deepseek-flash",
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "review"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 26456,
+            "completion_tokens": 12210,
+            "total_tokens": 38666,
+            "prompt_tokens_details": {
+              "cached_tokens": 1024
+            },
+            "prompt_cache_hit_tokens": 1024,
+            "prompt_cache_miss_tokens": 25432
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 38647,
+          "model": "deepseek-flash",
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "document"
+        }
+      ],
+      "selection": "Original",
+      "events": [
+        {
+          "stage": "Brief",
+          "status": "Started",
+          "at": "2026-11-08T02:22:54.946930400Z",
+          "message": null
+        },
+        {
+          "stage": "Brief",
+          "status": "Completed",
+          "at": "2026-11-08T02:23:01.866075200Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Started",
+          "at": "2026-11-08T02:23:52.334076200Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Completed",
+          "at": "2026-11-08T02:23:58.322983200Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Started",
+          "at": "2026-11-08T02:23:58.327980500Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Completed",
+          "at": "2026-11-08T02:24:06.074777300Z",
+          "message": null
+        },
+        {
+          "stage": "Improve",
+          "status": "Started",
+          "at": "2026-11-08T02:24:06.079302100Z",
+          "message": null
+        },
+        {
+          "stage": "Improve",
+          "status": "Failed",
+          "at": "2026-11-08T02:24:44.873732300Z",
+          "message": "动作功能变化: a-filter; 动作功能变化: a-sort"
+        },
+        {
+          "stage": "Selection",
+          "status": "Completed",
+          "at": "2026-11-08T02:24:44.878718500Z",
+          "message": "采用已校验原页面"
+        }
+      ],
+      "researchReused": false,
+      "siteStyle": {
+        "brand": "星期四句库 · KFC疯狂星期四文案合集站",
+        "typography": "中文系统无衬线为主：大字号宽松行距的文案正文（16.5–20px，行高约2），小号加紧字距的场景/语气标签（11–12px，letter-spacing .14–.28em），加粗短标题；日期与条数使用 tabular-nums 等宽数字呈现。",
+        "palette": "暖米白纸张底 #fbf4e8 与 #f4e8d4，深棕墨色文字 #231a13，番茄红 #c23b22 作强调与标签，暗红 #8f2414 作链接与反馈，琥珀 #e8a33d 作焦点环与点缀。",
+        "layout": "单页纵向结构：深色报头＋双侧信息栏主视觉（大字文案＋复制），场景卡片网格按横向分隔线分组，随后是最近新增表格、折叠的使用提示、站内搜索与深色页脚；窄屏收为单列。"
+      },
+      "actions": [
+        {
+          "id": "a-copy-hero",
+          "kind": "Copy",
+          "elementId": "copy-hero",
+          "target": null,
+          "region": "hero-text",
+          "stateKey": "heroCopied",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "a-copy-1",
+          "kind": "Copy",
+          "elementId": "copy-c1",
+          "target": null,
+          "region": "c1",
+          "stateKey": "copied_c1",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "a-copy-2",
+          "kind": "Copy",
+          "elementId": "copy-c2",
+          "target": null,
+          "region": "c2",
+          "stateKey": "copied_c2",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "a-copy-3",
+          "kind": "Copy",
+          "elementId": "copy-c3",
+          "target": null,
+          "region": "c3",
+          "stateKey": "copied_c3",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "a-copy-4",
+          "kind": "Copy",
+          "elementId": "copy-c4",
+          "target": null,
+          "region": "c4",
+          "stateKey": "copied_c4",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "a-copy-5",
+          "kind": "Copy",
+          "elementId": "copy-c5",
+          "target": null,
+          "region": "c5",
+          "stateKey": "copied_c5",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "a-copy-6",
+          "kind": "Copy",
+          "elementId": "copy-c6",
+          "target": null,
+          "region": "c6",
+          "stateKey": "copied_c6",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "a-copy-7",
+          "kind": "Copy",
+          "elementId": "copy-c7",
+          "target": null,
+          "region": "c7",
+          "stateKey": "copied_c7",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "a-copy-8",
+          "kind": "Copy",
+          "elementId": "copy-c8",
+          "target": null,
+          "region": "c8",
+          "stateKey": "copied_c8",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "a-copy-9",
+          "kind": "Copy",
+          "elementId": "copy-c9",
+          "target": null,
+          "region": "c9",
+          "stateKey": "copied_c9",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "a-copy-10",
+          "kind": "Copy",
+          "elementId": "copy-c10",
+          "target": null,
+          "region": "c10",
+          "stateKey": "copied_c10",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "a-copy-11",
+          "kind": "Copy",
+          "elementId": "copy-c11",
+          "target": null,
+          "region": "c11",
+          "stateKey": "copied_c11",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "a-copy-12",
+          "kind": "Copy",
+          "elementId": "copy-c12",
+          "target": null,
+          "region": "c12",
+          "stateKey": "copied_c12",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "a-copy-13",
+          "kind": "Copy",
+          "elementId": "copy-c13",
+          "target": null,
+          "region": "c13",
+          "stateKey": "copied_c13",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "a-copy-14",
+          "kind": "Copy",
+          "elementId": "copy-c14",
+          "target": null,
+          "region": "c14",
+          "stateKey": "copied_c14",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "a-filter",
+          "kind": "Filter",
+          "elementId": "scene-filter",
+          "target": null,
+          "region": "region-cards",
+          "stateKey": null,
+          "value": null,
+          "field": "text"
+        },
+        {
+          "id": "a-sort",
+          "kind": "Sort",
+          "elementId": "sort-select",
+          "target": null,
+          "region": "region-cards",
+          "stateKey": null,
+          "value": "desc",
+          "field": "copies"
+        },
+        {
+          "id": "a-toggle-tips",
+          "kind": "Toggle",
+          "elementId": "toggle-tips",
+          "target": null,
+          "region": "tips-body",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "a-search",
+          "kind": "Search",
+          "elementId": "site-search",
+          "target": null,
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-0",
+          "kind": "Navigate",
+          "elementId": "vib-link-0",
+          "target": "/about",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-1",
+          "kind": "Navigate",
+          "elementId": "vib-link-1",
+          "target": "/about",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-2",
+          "kind": "Navigate",
+          "elementId": "vib-link-2",
+          "target": "/about#correction",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        }
+      ],
+      "layout": {
+        "viewports": [
+          {
+            "width": 1440,
+            "height": 900,
+            "scrollWidth": 1425,
+            "scrollHeight": 3800,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "hero-h",
+                "tag": "h1",
+                "text": "今天星期四，我的钱包和我本人一样，\n     都在等一句“我请”。",
+                "x": 194.5,
+                "y": 290.140625,
+                "width": 661.6875,
+                "height": 104.375,
+                "fontSize": "36px",
+                "lineHeight": "52.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "lib-h",
+                "tag": "h2",
+                "text": "按场景找",
+                "x": 194.5,
+                "y": 739.8125,
+                "width": 89.765625,
+                "height": 37.390625,
+                "fontSize": "22px",
+                "lineHeight": "37.4px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "g-date",
+                "tag": "h3",
+                "text": "约会与请客 傲娇",
+                "x": 194.5,
+                "y": 927.09375,
+                "width": 1036,
+                "height": 28.890625,
+                "fontSize": "17px",
+                "lineHeight": "28.9px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "g-work",
+                "tag": "h3",
+                "text": "加班与办公室 卖惨",
+                "x": 194.5,
+                "y": 1217.765625,
+                "width": 1036,
+                "height": 28.890625,
+                "fontSize": "17px",
+                "lineHeight": "28.9px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "群聊与接梗 纯广告腔",
+                "x": 194.5,
+                "y": 1508.4375,
+                "width": 1036,
+                "height": 28.890625,
+                "fontSize": "17px",
+                "lineHeight": "28.9px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "撒娇与软磨 卖惨",
+                "x": 194.5,
+                "y": 1831.28125,
+                "width": 1036,
+                "height": 28.890625,
+                "fontSize": "17px",
+                "lineHeight": "28.9px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "互怼与抬杠 傲娇",
+                "x": 194.5,
+                "y": 2121.953125,
+                "width": 1036,
+                "height": 28.890625,
+                "fontSize": "17px",
+                "lineHeight": "28.9px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "独自吃 卖惨",
+                "x": 194.5,
+                "y": 2412.625,
+                "width": 1036,
+                "height": 28.890625,
+                "fontSize": "17px",
+                "lineHeight": "28.9px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "new-h",
+                "tag": "h2",
+                "text": "最近新增",
+                "x": 194.5,
+                "y": 2745.296875,
+                "width": 88,
+                "height": 37.390625,
+                "fontSize": "22px",
+                "lineHeight": "37.4px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "tips-h",
+                "tag": "h2",
+                "text": "使用提示与免责",
+                "x": 194.5,
+                "y": 3165.15625,
+                "width": 1036,
+                "height": 37.390625,
+                "fontSize": "22px",
+                "lineHeight": "37.4px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "search-h",
+                "tag": "h2",
+                "text": "站内搜索",
+                "x": 194.5,
+                "y": 3358.984375,
+                "width": 1036,
+                "height": 37.390625,
+                "fontSize": "22px",
+                "lineHeight": "37.4px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              }
+            ],
+            "controls": [
+              {
+                "id": "",
+                "tag": "a",
+                "text": "今日推荐",
+                "x": 194.5,
+                "y": 170.953125,
+                "width": 56,
+                "height": 26.796875,
+                "fontSize": "14px",
+                "lineHeight": "23.8px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "按场景找",
+                "x": 270.5,
+                "y": 170.953125,
+                "width": 56,
+                "height": 26.796875,
+                "fontSize": "14px",
+                "lineHeight": "23.8px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "最近新增",
+                "x": 346.5,
+                "y": 170.953125,
+                "width": 56,
+                "height": 26.796875,
+                "fontSize": "14px",
+                "lineHeight": "23.8px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "使用提示",
+                "x": 422.5,
+                "y": 170.953125,
+                "width": 56,
+                "height": 26.796875,
+                "fontSize": "14px",
+                "lineHeight": "23.8px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "vib-link-0",
+                "tag": "a",
+                "text": "关于本站",
+                "x": 498.5,
+                "y": 170.953125,
+                "width": 56,
+                "height": 26.796875,
+                "fontSize": "14px",
+                "lineHeight": "23.8px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "copy-hero",
+                "tag": "button",
+                "text": "复制这条文案",
+                "x": 222.5,
+                "y": 607.3125,
+                "width": 137.609375,
+                "height": 47.5,
+                "fontSize": "15px",
+                "lineHeight": "25.5px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "scene-filter",
+                "tag": "input",
+                "text": "",
+                "x": 213.5,
+                "y": 836.59375,
+                "width": 872,
+                "height": 45.5,
+                "fontSize": "15px",
+                "lineHeight": "25.5px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "sort-select",
+                "tag": "select",
+                "text": "最新 最多复制",
+                "x": 1113.5,
+                "y": 841.09375,
+                "width": 98,
+                "height": 41,
+                "fontSize": "14px",
+                "lineHeight": "normal",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "copy-c1",
+                "tag": "button",
+                "text": "复制",
+                "x": 261.828125,
+                "y": 1138.671875,
+                "width": 57.5625,
+                "height": 34.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "copy-c2",
+                "tag": "button",
+                "text": "复制",
+                "x": 638.703125,
+                "y": 1138.671875,
+                "width": 57.5625,
+                "height": 34.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "copy-c3",
+                "tag": "button",
+                "text": "复制",
+                "x": 963.15625,
+                "y": 1138.671875,
+                "width": 57.5625,
+                "height": 34.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "copy-c4",
+                "tag": "button",
+                "text": "复制",
+                "x": 261.828125,
+                "y": 1429.34375,
+                "width": 57.5625,
+                "height": 34.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "copy-c5",
+                "tag": "button",
+                "text": "复制",
+                "x": 638.703125,
+                "y": 1429.34375,
+                "width": 57.5625,
+                "height": 34.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "copy-c6",
+                "tag": "button",
+                "text": "复制",
+                "x": 963.15625,
+                "y": 1429.34375,
+                "width": 57.5625,
+                "height": 34.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "copy-c7",
+                "tag": "button",
+                "text": "复制",
+                "x": 288.046875,
+                "y": 1752.1875,
+                "width": 57.5625,
+                "height": 34.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "copy-c8",
+                "tag": "button",
+                "text": "复制",
+                "x": 612.484375,
+                "y": 1752.1875,
+                "width": 57.5625,
+                "height": 34.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "copy-c9",
+                "tag": "button",
+                "text": "复制",
+                "x": 261.828125,
+                "y": 2042.859375,
+                "width": 57.5625,
+                "height": 34.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "copy-c10",
+                "tag": "button",
+                "text": "复制",
+                "x": 612.484375,
+                "y": 2042.859375,
+                "width": 57.5625,
+                "height": 34.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "copy-c11",
+                "tag": "button",
+                "text": "复制",
+                "x": 261.828125,
+                "y": 2333.53125,
+                "width": 57.5625,
+                "height": 34.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "copy-c12",
+                "tag": "button",
+                "text": "复制",
+                "x": 638.703125,
+                "y": 2333.53125,
+                "width": 57.5625,
+                "height": 34.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "copy-c13",
+                "tag": "button",
+                "text": "复制",
+                "x": 261.828125,
+                "y": 2624.203125,
+                "width": 57.5625,
+                "height": 34.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "copy-c14",
+                "tag": "button",
+                "text": "复制",
+                "x": 638.703125,
+                "y": 2624.203125,
+                "width": 57.5625,
+                "height": 34.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "toggle-tips",
+                "tag": "button",
+                "text": "展开详细提示",
+                "x": 194.5,
+                "y": 3251.1875,
+                "width": 125.375,
+                "height": 41.796875,
+                "fontSize": "14px",
+                "lineHeight": "23.8px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "q",
+                "tag": "input",
+                "text": "",
+                "x": 246.265625,
+                "y": 3442.171875,
+                "width": 890.421875,
+                "height": 47.5,
+                "fontSize": "15px",
+                "lineHeight": "25.5px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "button",
+                "text": "搜索",
+                "x": 1146.6875,
+                "y": 3442.171875,
+                "width": 83.8125,
+                "height": 47.5,
+                "fontSize": "15px",
+                "lineHeight": "25.5px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "vib-link-1",
+                "tag": "a",
+                "text": "关于与投稿说明",
+                "x": 621.75,
+                "y": 3629.0625,
+                "width": 94.5,
+                "height": 19,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "vib-link-2",
+                "tag": "a",
+                "text": "纠错与下架请求",
+                "x": 621.75,
+                "y": 3654.703125,
+                "width": 94.5,
+                "height": 19,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "回到场景库",
+                "x": 621.75,
+                "y": 3680.34375,
+                "width": 67.5,
+                "height": 19,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "回到顶部",
+                "x": 621.75,
+                "y": 3705.984375,
+                "width": 54,
+                "height": 19,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              }
+            ],
+            "regions": [
+              {
+                "id": "top",
+                "tag": "header",
+                "text": "星期四句库KFC疯狂星期四文案合集站\n   今日 2026-11-07 星期六 · 距下个星期四还有 5 天\n  \n  一个供人顺手抄走的口语素材库。没有品牌授权，不承诺任何价格与活动，只负责把句子写好、写顺、写得能直接粘贴进群聊。\n  \n   今日推荐 按场景找 最近新增 使用提示 关于本站",
+                "x": 0,
+                "y": 0,
+                "width": 1425,
+                "height": 221.75,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "nav",
+                "text": "今日推荐 按场景找 最近新增 使用提示 关于本站",
+                "x": 194.5,
+                "y": 170.953125,
+                "width": 1036,
+                "height": 26.796875,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "main",
+                "text": "今日推荐 · 群聊适用\n   今天星期四，我的钱包和我本人一样，\n     都在等一句“我请”。\n   下面这条可以直接复制。改掉称呼和地点，就是你的了。\n   \n    各位，本星期四的疯狂星期四由本人郑重宣布：我出胃，你们出钱。手速快的先上车，犹豫的只能闻到香味。别问我在哪家，问就是离你最近的那一家。\n    \n     复制这条文案\n    \n   \n",
+                "x": 172.5,
+                "y": 221.75,
+                "width": 1080,
+                "height": 3317.921875,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "today",
+                "tag": "section",
+                "text": "今日推荐 · 群聊适用\n   今天星期四，我的钱包和我本人一样，\n     都在等一句“我请”。\n   下面这条可以直接复制。改掉称呼和地点，就是你的了。\n   \n    各位，本星期四的疯狂星期四由本人郑重宣布：我出胃，你们出钱。手速快的先上车，犹豫的只能闻到香味。别问我在哪家，问就是离你最近的那一家。\n    \n     复制这条文案\n    \n   \n",
+                "x": 194.5,
+                "y": 221.75,
+                "width": 1036,
+                "height": 484.0625,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "本期快览\n   \n    \n     \n      收录文案\n     \n     \n      36\n     \n    \n    \n     \n      场景分组\n     \n     \n      6\n     \n    \n    \n     \n      语气标签\n     \n     \n      4\n     \n    \n    \n     \n",
+                "x": 890.1875,
+                "y": 259.75,
+                "width": 340.296875,
+                "height": 270.84375,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "library",
+                "tag": "section",
+                "text": "按场景找\n   六个场景，每个场景三到六条。输入框按文字匹配，直接收窄卡片列表；排序默认为最新。\n  \n  \n   \n    筛选文案 \n   排序  最新 最多复制  \n  \n  约会与请客 傲娇\n  \n   约会\n    周四了。我不是想让你请我吃肯德基，我是想让你在排队的时候，顺便想起我。当然，如果你非要请，我也不会拒绝得太快。\n    \n     傲",
+                "x": 194.5,
+                "y": 705.8125,
+                "width": 1036,
+                "height": 1977.484375,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "newest",
+                "tag": "section",
+                "text": "最近新增\n   按日期倒序。新写的句子往往还没被验证过，先放在这里，看反应再进场景库。\n  \n  \n   \n    最近新增文案一览\n   \n   \n    \n     日期\n     开场句\n     场景\n     状态\n    \n   \n   \n    \n     11-05\n     周四了，我的钱包和我的胃，决定握手言和。\n     群聊\n    ",
+                "x": 194.5,
+                "y": 2709.296875,
+                "width": 1036,
+                "height": 393.859375,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "tips",
+                "tag": "section",
+                "text": "使用提示与免责\n  这些句子是给人顺手用的，不是公告。用之前建议看一遍下面几条。\n  展开详细提示\n  \n   \n    改称呼：把“各位”换成群名或对方昵称，句子立刻从通用变成私人。\n    加地点：写清城市或商圈即可，不要写门牌号和具体电话号码。\n    不要承诺价格与活动：本页所有文案都不保证任何优惠真实有效，涉及“免费”“半价”等字样的请自行删除。\n",
+                "x": 194.5,
+                "y": 3129.15625,
+                "width": 1036,
+                "height": 169.828125,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "站内搜索\n  搜索按关键词在全站文案与说明中查找，适合你已经记得半句话的时候。\n  \n   关键词 \n   搜索",
+                "x": 194.5,
+                "y": 3324.984375,
+                "width": 1036,
+                "height": 174.6875,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "footer",
+                "text": "星期四句库\n   一个不追热点、只在星期四出现的句子合集。\n     维护者为两名上班摸鱼爱好者。\n  \n  \n   站内\n   \n    关于与投稿说明\n    纠错与下架请求\n    回到场景库\n    回到顶部\n   \n  \n  \n   说明\n   本页文案可自由复制使用，转载时请注明来自星期四句库，不必注明作者。涉及商业推广请先自行核实平台规则。\n ",
+                "x": 0,
+                "y": 3559.671875,
+                "width": 1425,
+                "height": 240.34375,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              }
+            ]
+          },
+          {
+            "width": 390,
+            "height": 844,
+            "scrollWidth": 375,
+            "scrollHeight": 6600,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "hero-h",
+                "tag": "h1",
+                "text": "今天星期四，我的钱包和我本人一样，\n     都在等一句“我请”。",
+                "x": 16,
+                "y": 379.015625,
+                "width": 343,
+                "height": 104.390625,
+                "fontSize": "24px",
+                "lineHeight": "34.8px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "lib-h",
+                "tag": "h2",
+                "text": "按场景找",
+                "x": 16,
+                "y": 1157.34375,
+                "width": 89.765625,
+                "height": 37.390625,
+                "fontSize": "22px",
+                "lineHeight": "37.4px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "g-date",
+                "tag": "h3",
+                "text": "约会与请客 傲娇",
+                "x": 16,
+                "y": 1477.890625,
+                "width": 343,
+                "height": 28.890625,
+                "fontSize": "17px",
+                "lineHeight": "28.9px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "g-work",
+                "tag": "h3",
+                "text": "加班与办公室 卖惨",
+                "x": 16,
+                "y": 2203.953125,
+                "width": 343,
+                "height": 28.890625,
+                "fontSize": "17px",
+                "lineHeight": "28.9px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "群聊与接梗 纯广告腔",
+                "x": 16,
+                "y": 2930.015625,
+                "width": 343,
+                "height": 28.890625,
+                "fontSize": "17px",
+                "lineHeight": "28.9px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "撒娇与软磨 卖惨",
+                "x": 16,
+                "y": 3486.640625,
+                "width": 343,
+                "height": 28.890625,
+                "fontSize": "17px",
+                "lineHeight": "28.9px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "互怼与抬杠 傲娇",
+                "x": 16,
+                "y": 4011.09375,
+                "width": 343,
+                "height": 28.890625,
+                "fontSize": "17px",
+                "lineHeight": "28.9px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "独自吃 卖惨",
+                "x": 16,
+                "y": 4535.546875,
+                "width": 343,
+                "height": 28.890625,
+                "fontSize": "17px",
+                "lineHeight": "28.9px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "new-h",
+                "tag": "h2",
+                "text": "最近新增",
+                "x": 16,
+                "y": 5069.828125,
+                "width": 88,
+                "height": 37.390625,
+                "fontSize": "22px",
+                "lineHeight": "37.4px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "tips-h",
+                "tag": "h2",
+                "text": "使用提示与免责",
+                "x": 16,
+                "y": 5619.515625,
+                "width": 343,
+                "height": 37.390625,
+                "fontSize": "22px",
+                "lineHeight": "37.4px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "search-h",
+                "tag": "h2",
+                "text": "站内搜索",
+                "x": 16,
+                "y": 5837.984375,
+                "width": 343,
+                "height": 37.390625,
+                "fontSize": "22px",
+                "lineHeight": "37.4px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              }
+            ],
+            "controls": [
+              {
+                "id": "",
+                "tag": "a",
+                "text": "今日推荐",
+                "x": 16,
+                "y": 229.03125,
+                "width": 56,
+                "height": 26.796875,
+                "fontSize": "14px",
+                "lineHeight": "23.8px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "按场景找",
+                "x": 92,
+                "y": 229.03125,
+                "width": 56,
+                "height": 26.796875,
+                "fontSize": "14px",
+                "lineHeight": "23.8px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "最近新增",
+                "x": 168,
+                "y": 229.03125,
+                "width": 56,
+                "height": 26.796875,
+                "fontSize": "14px",
+                "lineHeight": "23.8px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "使用提示",
+                "x": 244,
+                "y": 229.03125,
+                "width": 56,
+                "height": 26.796875,
+                "fontSize": "14px",
+                "lineHeight": "23.8px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "vib-link-0",
+                "tag": "a",
+                "text": "关于本站",
+                "x": 16,
+                "y": 263.828125,
+                "width": 56,
+                "height": 26.796875,
+                "fontSize": "14px",
+                "lineHeight": "23.8px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "copy-hero",
+                "tag": "button",
+                "text": "复制这条文案",
+                "x": 38,
+                "y": 732,
+                "width": 137.609375,
+                "height": 47.5,
+                "fontSize": "15px",
+                "lineHeight": "25.5px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "scene-filter",
+                "tag": "input",
+                "text": "",
+                "x": 35,
+                "y": 1306,
+                "width": 305,
+                "height": 45.5,
+                "fontSize": "15px",
+                "lineHeight": "25.5px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "sort-select",
+                "tag": "select",
+                "text": "最新 最多复制",
+                "x": 35,
+                "y": 1391.890625,
+                "width": 98,
+                "height": 41,
+                "fontSize": "14px",
+                "lineHeight": "normal",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "copy-c1",
+                "tag": "button",
+                "text": "复制",
+                "x": 83.328125,
+                "y": 1689.46875,
+                "width": 57.5625,
+                "height": 34.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "copy-c2",
+                "tag": "button",
+                "text": "复制",
+                "x": 109.546875,
+                "y": 1923.25,
+                "width": 57.5625,
+                "height": 34.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "copy-c3",
+                "tag": "button",
+                "text": "复制",
+                "x": 83.328125,
+                "y": 2124.859375,
+                "width": 57.5625,
+                "height": 34.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "copy-c4",
+                "tag": "button",
+                "text": "复制",
+                "x": 83.328125,
+                "y": 2415.53125,
+                "width": 57.5625,
+                "height": 34.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "copy-c5",
+                "tag": "button",
+                "text": "复制",
+                "x": 109.546875,
+                "y": 2617.140625,
+                "width": 57.5625,
+                "height": 34.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "copy-c6",
+                "tag": "button",
+                "text": "复制",
+                "x": 83.328125,
+                "y": 2850.921875,
+                "width": 57.5625,
+                "height": 34.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "copy-c7",
+                "tag": "button",
+                "text": "复制",
+                "x": 109.546875,
+                "y": 3173.765625,
+                "width": 57.5625,
+                "height": 34.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "copy-c8",
+                "tag": "button",
+                "text": "复制",
+                "x": 83.328125,
+                "y": 3407.546875,
+                "width": 57.5625,
+                "height": 34.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "copy-c9",
+                "tag": "button",
+                "text": "复制",
+                "x": 83.328125,
+                "y": 3698.21875,
+                "width": 57.5625,
+                "height": 34.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "copy-c10",
+                "tag": "button",
+                "text": "复制",
+                "x": 83.328125,
+                "y": 3932,
+                "width": 57.5625,
+                "height": 34.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "copy-c11",
+                "tag": "button",
+                "text": "复制",
+                "x": 83.328125,
+                "y": 4222.671875,
+                "width": 57.5625,
+                "height": 34.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "copy-c12",
+                "tag": "button",
+                "text": "复制",
+                "x": 109.546875,
+                "y": 4456.453125,
+                "width": 57.5625,
+                "height": 34.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "copy-c13",
+                "tag": "button",
+                "text": "复制",
+                "x": 83.328125,
+                "y": 4747.125,
+                "width": 57.5625,
+                "height": 34.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "copy-c14",
+                "tag": "button",
+                "text": "复制",
+                "x": 109.546875,
+                "y": 4948.734375,
+                "width": 57.5625,
+                "height": 34.09375,
+                "fontSize": "13px",
+                "lineHeight": "22.1px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "toggle-tips",
+                "tag": "button",
+                "text": "展开详细提示",
+                "x": 16,
+                "y": 5730.1875,
+                "width": 125.375,
+                "height": 41.796875,
+                "fontSize": "14px",
+                "lineHeight": "23.8px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "q",
+                "tag": "input",
+                "text": "",
+                "x": 67.765625,
+                "y": 5944.96875,
+                "width": 291.234375,
+                "height": 47.5,
+                "fontSize": "15px",
+                "lineHeight": "25.5px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "button",
+                "text": "搜索",
+                "x": 16,
+                "y": 6002.46875,
+                "width": 83.8125,
+                "height": 47.5,
+                "fontSize": "15px",
+                "lineHeight": "25.5px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "vib-link-1",
+                "tag": "a",
+                "text": "关于与投稿说明",
+                "x": 22,
+                "y": 6286.046875,
+                "width": 94.5,
+                "height": 19,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "vib-link-2",
+                "tag": "a",
+                "text": "纠错与下架请求",
+                "x": 22,
+                "y": 6311.6875,
+                "width": 94.5,
+                "height": 19,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "回到场景库",
+                "x": 22,
+                "y": 6337.328125,
+                "width": 67.5,
+                "height": 19,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "回到顶部",
+                "x": 22,
+                "y": 6362.96875,
+                "width": 54,
+                "height": 19,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              }
+            ],
+            "regions": [
+              {
+                "id": "top",
+                "tag": "header",
+                "text": "星期四句库KFC疯狂星期四文案合集站\n   今日 2026-11-07 星期六 · 距下个星期四还有 5 天\n  \n  一个供人顺手抄走的口语素材库。没有品牌授权，不承诺任何价格与活动，只负责把句子写好、写顺、写得能直接粘贴进群聊。\n  \n   今日推荐 按场景找 最近新增 使用提示 关于本站",
+                "x": 0,
+                "y": 0,
+                "width": 375,
+                "height": 310.625,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "nav",
+                "text": "今日推荐 按场景找 最近新增 使用提示 关于本站",
+                "x": 16,
+                "y": 229.03125,
+                "width": 343,
+                "height": 61.59375,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "main",
+                "text": "今日推荐 · 群聊适用\n   今天星期四，我的钱包和我本人一样，\n     都在等一句“我请”。\n   下面这条可以直接复制。改掉称呼和地点，就是你的了。\n   \n    各位，本星期四的疯狂星期四由本人郑重宣布：我出胃，你们出钱。手速快的先上车，犹豫的只能闻到香味。别问我在哪家，问就是离你最近的那一家。\n    \n     复制这条文案\n    \n   \n",
+                "x": 0,
+                "y": 310.625,
+                "width": 375,
+                "height": 5779.34375,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "today",
+                "tag": "section",
+                "text": "今日推荐 · 群聊适用\n   今天星期四，我的钱包和我本人一样，\n     都在等一句“我请”。\n   下面这条可以直接复制。改掉称呼和地点，就是你的了。\n   \n    各位，本星期四的疯狂星期四由本人郑重宣布：我出胃，你们出钱。手速快的先上车，犹豫的只能闻到香味。别问我在哪家，问就是离你最近的那一家。\n    \n     复制这条文案\n    \n   \n",
+                "x": 16,
+                "y": 310.625,
+                "width": 343,
+                "height": 812.71875,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "本期快览\n   \n    \n     \n      收录文案\n     \n     \n      36\n     \n    \n    \n     \n      场景分组\n     \n     \n      6\n     \n    \n    \n     \n      语气标签\n     \n     \n      4\n     \n    \n    \n     \n",
+                "x": 16,
+                "y": 820.5,
+                "width": 343,
+                "height": 270.84375,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "library",
+                "tag": "section",
+                "text": "按场景找\n   六个场景，每个场景三到六条。输入框按文字匹配，直接收窄卡片列表；排序默认为最新。\n  \n  \n   \n    筛选文案 \n   排序  最新 最多复制  \n  \n  约会与请客 傲娇\n  \n   约会\n    周四了。我不是想让你请我吃肯德基，我是想让你在排队的时候，顺便想起我。当然，如果你非要请，我也不会拒绝得太快。\n    \n     傲",
+                "x": 16,
+                "y": 1123.34375,
+                "width": 343,
+                "height": 3884.484375,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "newest",
+                "tag": "section",
+                "text": "最近新增\n   按日期倒序。新写的句子往往还没被验证过，先放在这里，看反应再进场景库。\n  \n  \n   \n    最近新增文案一览\n   \n   \n    \n     日期\n     开场句\n     场景\n     状态\n    \n   \n   \n    \n     11-05\n     周四了，我的钱包和我的胃，决定握手言和。\n     群聊\n    ",
+                "x": 16,
+                "y": 5033.828125,
+                "width": 343,
+                "height": 523.6875,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "tips",
+                "tag": "section",
+                "text": "使用提示与免责\n  这些句子是给人顺手用的，不是公告。用之前建议看一遍下面几条。\n  展开详细提示\n  \n   \n    改称呼：把“各位”换成群名或对方昵称，句子立刻从通用变成私人。\n    加地点：写清城市或商圈即可，不要写门牌号和具体电话号码。\n    不要承诺价格与活动：本页所有文案都不保证任何优惠真实有效，涉及“免费”“半价”等字样的请自行删除。\n",
+                "x": 16,
+                "y": 5583.515625,
+                "width": 343,
+                "height": 194.46875,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "站内搜索\n  搜索按关键词在全站文案与说明中查找，适合你已经记得半句话的时候。\n  \n   关键词 \n   搜索",
+                "x": 16,
+                "y": 5803.984375,
+                "width": 343,
+                "height": 255.984375,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "footer",
+                "text": "星期四句库\n   一个不追热点、只在星期四出现的句子合集。\n     维护者为两名上班摸鱼爱好者。\n  \n  \n   站内\n   \n    关于与投稿说明\n    纠错与下架请求\n    回到场景库\n    回到顶部\n   \n  \n  \n   说明\n   本页文案可自由复制使用，转载时请注明来自星期四句库，不必注明作者。涉及商业推广请先自行核实平台规则。\n ",
+                "x": 0,
+                "y": 6109.96875,
+                "width": 375,
+                "height": 489.953125,
+                "fontSize": "16px",
+                "lineHeight": "27.2px",
+                "fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans SC\", system-ui, sans-serif"
               }
             ]
           }
