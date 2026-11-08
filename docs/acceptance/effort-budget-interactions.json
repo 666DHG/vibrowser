@@ -1,0 +1,15 @@
+[
+  {
+    "file": "calendar-new-deep.json",
+    "localActions": [
+      "a-toggle-lidong"
+    ],
+    "searchSubmitted": true,
+    "navigationSubmitted": true,
+    "copyVerified": true,
+    "filterVerified": false,
+    "sortVerified": false,
+    "limitations": [],
+    "extraModelCalls": 0
+  }
+]
