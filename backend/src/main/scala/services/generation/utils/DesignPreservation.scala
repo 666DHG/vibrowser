@@ -9,11 +9,17 @@ private[generation] object DesignPreservation:
     body.text().filterNot(_.isWhitespace)
 
   def preservesProse(before: String, after: String): Boolean =
-    coverage(content(before), content(after)) >= 0.9
+    // Unpublished drafts may duplicate visible text in clipboard or alternate-view elements.
+    // Assembly can share that text without losing content; adopted-page review remains stricter.
+    coverage(content(before), content(after), preserveRepetitions = false) >= 0.9
 
   // Local ordered text fragments survive markup, section moves and small editorial changes.
   // Multiset counts retain repeated prose; unrelated text cannot stand in for missing paragraphs.
-  private def coverage(before: String, after: String): Double =
+  private def coverage(
+      before: String,
+      after: String,
+      preserveRepetitions: Boolean = true
+  ): Double =
     if before.isEmpty then 1.0
     else
       val width = math.min(8, before.length)
@@ -27,7 +33,11 @@ private[generation] object DesignPreservation:
         ) { case ((remaining, positions), (text, start)) =>
           val count = remaining.getOrElse(text, 0)
           if count == 0 then (remaining, positions)
-          else (remaining.updated(text, count - 1), positions ++ (start until start + width))
+          else
+            (
+              if preserveRepetitions then remaining.updated(text, count - 1) else remaining,
+              positions ++ (start until start + width)
+            )
         }
       covered.size.toDouble / before.length
 
