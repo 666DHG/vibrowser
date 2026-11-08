@@ -1,0 +1,1247 @@
+{
+  "evaluatedAt": "2026-11-08T02:23:41.878Z",
+  "expectedSamples": 6,
+  "complete": false,
+  "groups": {
+    "old-standard": {
+      "samples": 0,
+      "ready": 0,
+      "interrupted": 0,
+      "unknownUsageSamples": 0,
+      "unknownDurationSamples": 0,
+      "initialGenerationAccepted": 0,
+      "modelCalls": 0,
+      "generationModelCalls": 0,
+      "recordedTokens": 0,
+      "recordedCompletionTokens": 0,
+      "recordedReasoningTokens": 0,
+      "seconds": 0
+    },
+    "new-standard": {
+      "samples": 1,
+      "ready": 1,
+      "interrupted": 0,
+      "unknownUsageSamples": 0,
+      "unknownDurationSamples": 0,
+      "initialGenerationAccepted": 1,
+      "modelCalls": 3,
+      "generationModelCalls": 3,
+      "recordedTokens": 44761,
+      "recordedCompletionTokens": 5715,
+      "recordedReasoningTokens": 0,
+      "seconds": 40
+    },
+    "new-deep": {
+      "samples": 0,
+      "ready": 0,
+      "interrupted": 0,
+      "unknownUsageSamples": 0,
+      "unknownDurationSamples": 0,
+      "initialGenerationAccepted": 0,
+      "modelCalls": 0,
+      "generationModelCalls": 0,
+      "recordedTokens": 0,
+      "recordedCompletionTokens": 0,
+      "recordedReasoningTokens": 0,
+      "seconds": 0
+    }
+  },
+  "comparability": [
+    {
+      "input": "清华教师袁洋的个人学术主页.com",
+      "samples": 1,
+      "allThreePresent": false,
+      "identicalGenerationRequest": true,
+      "actualEffortMatches": true,
+      "unobservedEffortSamples": 0
+    }
+  ],
+  "samples": [
+    {
+      "name": "academic-new-standard",
+      "input": "清华教师袁洋的个人学术主页.com",
+      "mode": "research",
+      "effort": "standard",
+      "requestHash": "f20a29e023377512d50a9fa832ce076c0ee634258695b8abcf8e4459287dbc7f",
+      "actualEffortMatches": true,
+      "pageId": "245e0323-f067-4bca-a5e5-1e31888369b5",
+      "jobId": "a50d6c19-cc7a-465c-af56-327e3cf4b172",
+      "guidance": "3-eee6ce41898c5c741389926ab7a9cf2a1cccf33fac2bb403c66cc24dbbddda6a",
+      "seconds": 40,
+      "interrupted": false,
+      "usageComplete": true,
+      "error": null,
+      "initialGenerationAccepted": true,
+      "generationAttempts": [
+        {
+          "attempt": 1,
+          "outcome": "Accepted",
+          "errorCode": null,
+          "message": null,
+          "at": "2026-11-08T02:22:47.312059400Z"
+        }
+      ],
+      "modelCalls": [
+        {
+          "usage": {
+            "prompt_tokens": 7205,
+            "completion_tokens": 808,
+            "total_tokens": 8013,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 7205
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 9906,
+          "model": "deepseek-flash",
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "brief"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 9052,
+            "completion_tokens": 4902,
+            "total_tokens": 13954,
+            "prompt_tokens_details": {
+              "cached_tokens": 7296
+            },
+            "prompt_cache_hit_tokens": 7296,
+            "prompt_cache_miss_tokens": 1756
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 22580,
+          "model": "deepseek-flash",
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 22789,
+            "completion_tokens": 5,
+            "total_tokens": 22794,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 22789
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 1534,
+          "model": "deepseek-flash",
+          "maxTokens": 24000,
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "review"
+        }
+      ],
+      "selection": "Original",
+      "events": [
+        {
+          "stage": "Brief",
+          "status": "Started",
+          "at": "2026-11-08T02:22:14.411151Z",
+          "message": null
+        },
+        {
+          "stage": "Brief",
+          "status": "Completed",
+          "at": "2026-11-08T02:22:24.547490700Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Started",
+          "at": "2026-11-08T02:22:47.325866700Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Completed",
+          "at": "2026-11-08T02:22:53.331712600Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Started",
+          "at": "2026-11-08T02:22:53.341717100Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Completed",
+          "at": "2026-11-08T02:22:54.883777600Z",
+          "message": null
+        },
+        {
+          "stage": "Selection",
+          "status": "Completed",
+          "at": "2026-11-08T02:22:54.889787300Z",
+          "message": "采用已校验原页面"
+        }
+      ],
+      "sources": [
+        {
+          "id": "source-1",
+          "url": "https://people.iiis.tsinghua.edu.cn/~yuanyang/index.html",
+          "title": "袁洋",
+          "retrievedAt": "2026-11-07T15:34:42.982846400Z"
+        },
+        {
+          "id": "source-2",
+          "url": "http://people.iiis.tsinghua.edu.cn/~yuanyang/index.html",
+          "title": "袁洋",
+          "retrievedAt": "2026-11-07T15:34:42.983490200Z"
+        },
+        {
+          "id": "source-3",
+          "url": "https://www.sqz.ac.cn/artificial-1",
+          "title": "袁洋-人工智能-上海期智研究院",
+          "retrievedAt": "2026-11-07T15:34:42.983490200Z"
+        },
+        {
+          "id": "source-4",
+          "url": "https://www.sqz.ac.cn/jushen-1",
+          "title": "袁洋-具身智能与智能制造-上海期智研究院",
+          "retrievedAt": "2026-11-07T15:34:42.983490200Z"
+        },
+        {
+          "id": "source-5",
+          "url": "https://baike.baidu.com/item/%E8%A2%81%E6%B4%8B/68477227?bst=1791367531.faf4e3422d575025#1",
+          "title": "袁洋 - 清华大学交叉信息研究院院长助理、副教授",
+          "retrievedAt": "2026-11-07T15:34:42.983490200Z"
+        }
+      ],
+      "researchReused": true,
+      "siteStyle": {
+        "brand": "袁洋个人学术主页：以第一人称长文陈述研究纲领的学者页面，而不是成果卡片集合。",
+        "typography": "中文衬线（Songti/宋体族）承担正文，行高 1.9，正文宽约 34em；姓名与标题使用黑体无衬线，姓名 64px 极粗；拉丁论文题名用小型衬线斜体；年份与邮箱用等宽字体；段落侧置细体大号编号。",
+        "palette": "纸白 #fbfaf7 底色，近黑 #1c1a17 正文，灰褐 #8a8378 / #5a5348 作次要信息，单一朱砂红 #b23a2b 用于链接下划线、编号、二级标题与按钮描边；分隔线为 #ece7dd 一类低对比暖灰。",
+        "layout": "单列纵向，内容列最大 720px 居中；页首身份块含姓名、导语、锚点导航与四项标识定义表；正文按 1–3 编号推进，范畴论段带左侧引文注脚；招生与招聘为并列双栏，履历与荣誉为 1.5fr/1fr 双栏时间线；代表工作为带缩进注文的清单；窄屏全部塌为单列。"
+      },
+      "actions": [
+        {
+          "id": "act-copy-email",
+          "kind": "Copy",
+          "elementId": "copy-email",
+          "target": null,
+          "region": "copy-out",
+          "stateKey": "copyMsg",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-0",
+          "kind": "Navigate",
+          "elementId": "vib-link-0",
+          "target": "https://people.iiis.tsinghua.edu.cn/~yuanyang/index.html",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-1",
+          "kind": "Navigate",
+          "elementId": "vib-link-1",
+          "target": "https://www.sqz.ac.cn/artificial-1",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-2",
+          "kind": "Navigate",
+          "elementId": "vib-link-2",
+          "target": "https://www.sqz.ac.cn/jushen-1",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        }
+      ],
+      "layout": {
+        "viewports": [
+          {
+            "width": 1440,
+            "height": 900,
+            "scrollWidth": 1425,
+            "scrollHeight": 4069,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "",
+                "tag": "h1",
+                "text": "袁洋",
+                "x": 352.5,
+                "y": 106.6875,
+                "width": 720,
+                "height": 67.1875,
+                "fontSize": "64px",
+                "lineHeight": "67.2px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "研究主线",
+                "x": 376.5,
+                "y": 539.90625,
+                "width": 672,
+                "height": 28.5,
+                "fontSize": "15px",
+                "lineHeight": "28.5px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "刻画医疗过程",
+                "x": 448.5,
+                "y": 672.703125,
+                "width": 600,
+                "height": 38,
+                "fontSize": "20px",
+                "lineHeight": "38px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "辅助临床诊疗",
+                "x": 448.5,
+                "y": 805,
+                "width": 600,
+                "height": 38,
+                "fontSize": "20px",
+                "lineHeight": "38px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "形式化中医理论",
+                "x": 448.5,
+                "y": 937.296875,
+                "width": 600,
+                "height": 38,
+                "fontSize": "20px",
+                "lineHeight": "38px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "范畴论作为组织轴心",
+                "x": 376.5,
+                "y": 1290.078125,
+                "width": 672,
+                "height": 28.5,
+                "fontSize": "15px",
+                "lineHeight": "28.5px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "招生与招聘",
+                "x": 376.5,
+                "y": 1878.203125,
+                "width": 672,
+                "height": 28.5,
+                "fontSize": "15px",
+                "lineHeight": "28.5px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "学生",
+                "x": 376.5,
+                "y": 2049.59375,
+                "width": 318,
+                "height": 47,
+                "fontSize": "20px",
+                "lineHeight": "38px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "全职工程团队",
+                "x": 730.5,
+                "y": 2049.59375,
+                "width": 318,
+                "height": 47,
+                "fontSize": "20px",
+                "lineHeight": "38px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "履历与荣誉",
+                "x": 376.5,
+                "y": 2525.84375,
+                "width": 672,
+                "height": 28.5,
+                "fontSize": "15px",
+                "lineHeight": "28.5px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "学习与任职",
+                "x": 376.5,
+                "y": 2580.34375,
+                "width": 384,
+                "height": 38,
+                "fontSize": "20px",
+                "lineHeight": "38px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "荣誉",
+                "x": 792.5,
+                "y": 2580.34375,
+                "width": 256,
+                "height": 38,
+                "fontSize": "20px",
+                "lineHeight": "38px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "代表工作",
+                "x": 376.5,
+                "y": 3077.28125,
+                "width": 672,
+                "height": 28.5,
+                "fontSize": "15px",
+                "lineHeight": "28.5px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "联系",
+                "x": 376.5,
+                "y": 3686.125,
+                "width": 672,
+                "height": 28.5,
+                "fontSize": "15px",
+                "lineHeight": "28.5px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif"
+              }
+            ],
+            "controls": [
+              {
+                "id": "",
+                "tag": "a",
+                "text": "研究主线",
+                "x": 352.5,
+                "y": 309.46875,
+                "width": 57.25,
+                "height": 25.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "范畴论",
+                "x": 431.75,
+                "y": 309.46875,
+                "width": 42.9375,
+                "height": 25.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "招生与招聘",
+                "x": 496.6875,
+                "y": 309.46875,
+                "width": 71.5625,
+                "height": 25.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "履历",
+                "x": 590.25,
+                "y": 309.46875,
+                "width": 28.625,
+                "height": 25.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "代表工作",
+                "x": 640.875,
+                "y": 309.46875,
+                "width": 57.25,
+                "height": 25.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "联系",
+                "x": 720.125,
+                "y": 309.46875,
+                "width": 28.625,
+                "height": 25.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-0",
+                "tag": "a",
+                "text": "个人主页",
+                "x": 376.5,
+                "y": 3825.625,
+                "width": 60,
+                "height": 28.5,
+                "fontSize": "15px",
+                "lineHeight": "28.5px",
+                "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              },
+              {
+                "id": "vib-link-1",
+                "tag": "a",
+                "text": "上海期智研究院 · 人工智能",
+                "x": 460.5,
+                "y": 3825.625,
+                "width": 196,
+                "height": 28.5,
+                "fontSize": "15px",
+                "lineHeight": "28.5px",
+                "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              },
+              {
+                "id": "vib-link-2",
+                "tag": "a",
+                "text": "上海期智研究院 · 具身智能与智能制造",
+                "x": 376.5,
+                "y": 3862.125,
+                "width": 271,
+                "height": 28.5,
+                "fontSize": "15px",
+                "lineHeight": "28.5px",
+                "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              },
+              {
+                "id": "copy-email",
+                "tag": "button",
+                "text": "复制邮箱地址",
+                "x": 376.5,
+                "y": 3914.625,
+                "width": 127.046875,
+                "height": 46.59375,
+                "fontSize": "14px",
+                "lineHeight": "26.6px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", sans-serif"
+              }
+            ],
+            "regions": [
+              {
+                "id": "",
+                "tag": "header",
+                "text": "清华大学交叉信息研究院 · 副教授\n  袁洋\n  我希望从三个层面推进 AI+中医：刻画医疗过程，辅助临床诊疗，形式化中医理论。最终目标，是建立一种以中医为基础、由范畴论支撑的新医疗。\n  \n   研究主线 范畴论 招生与招聘 履历 代表工作 联系\n  \n  \n   \n    \n     邮箱\n    \n    \n     yuanyang@tsinghua",
+                "x": 0,
+                "y": 0,
+                "width": 1425,
+                "height": 483.90625,
+                "fontSize": "17px",
+                "lineHeight": "32.3px",
+                "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              },
+              {
+                "id": "",
+                "tag": "nav",
+                "text": "研究主线 范畴论 招生与招聘 履历 代表工作 联系",
+                "x": 352.5,
+                "y": 290.46875,
+                "width": 720,
+                "height": 44.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "main",
+                "text": "研究主线\n  我主要研究 AI+中医。具体来说，我希望从三个层面推进这件事。\n  \n   1\n   \n    刻画医疗过程\n    记录并描绘医生在日常诊疗中与患者的交互、判断、推理和思考过程。\n   \n  \n  \n   2\n   \n    辅助临床诊疗\n    结合人工智能算法与医疗设备，分析患者信息，辅助医生辨证、开方。\n   \n  \n  \n   3\n ",
+                "x": 352.5,
+                "y": 483.90625,
+                "width": 720,
+                "height": 3585.3125,
+                "fontSize": "17px",
+                "lineHeight": "32.3px",
+                "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              },
+              {
+                "id": "program",
+                "tag": "section",
+                "text": "研究主线\n  我主要研究 AI+中医。具体来说，我希望从三个层面推进这件事。\n  \n   1\n   \n    刻画医疗过程\n    记录并描绘医生在日常诊疗中与患者的交互、判断、推理和思考过程。\n   \n  \n  \n   2\n   \n    辅助临床诊疗\n    结合人工智能算法与医疗设备，分析患者信息，辅助医生辨证、开方。\n   \n  \n  \n   3\n ",
+                "x": 376.5,
+                "y": 483.90625,
+                "width": 672,
+                "height": 750.171875,
+                "fontSize": "17px",
+                "lineHeight": "32.3px",
+                "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "1\n   \n    刻画医疗过程\n    记录并描绘医生在日常诊疗中与患者的交互、判断、推理和思考过程。",
+                "x": 376.5,
+                "y": 646.703125,
+                "width": 672,
+                "height": 132.296875,
+                "fontSize": "17px",
+                "lineHeight": "32.3px",
+                "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "2\n   \n    辅助临床诊疗\n    结合人工智能算法与医疗设备，分析患者信息，辅助医生辨证、开方。",
+                "x": 376.5,
+                "y": 779,
+                "width": 672,
+                "height": 132.296875,
+                "fontSize": "17px",
+                "lineHeight": "32.3px",
+                "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "3\n   \n    形式化中医理论\n    在实践过程中，我逐渐意识到，仅靠数据驱动是不够的。医疗知识需要自洽，辅助诊疗需要可解释性。为此，我们需要将医疗过程形式化为一种代数系统，也就是把中医变成一种数学。\n    我希望推动的方向，是建立一种以中医为基础、由范畴论支撑的新医疗。其中，医理、病症、病机、治法、方药与人体状态可以被统一刻画，并通过其中的结构关系",
+                "x": 376.5,
+                "y": 911.296875,
+                "width": 672,
+                "height": 313.78125,
+                "fontSize": "17px",
+                "lineHeight": "32.3px",
+                "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              },
+              {
+                "id": "category",
+                "tag": "section",
+                "text": "范畴论作为组织轴心\n  我因此对范畴论产生了浓厚的兴趣。范畴论不仅可以帮助我们分析和理解复杂系统，也可以为人工智能提供一种新的组织方式：刻画大模型的能力边界，设计新的算法，并将许多局部能力组合成可验证、可扩展的大规模系统。\n  具体来说，我们正在尝试使用拓扑斯理论来构建软件生成系统和数学自动证明系统。我认为，随着模型能力不断提升，未来真正重要的问题将不只是“",
+                "x": 376.5,
+                "y": 1234.078125,
+                "width": 672,
+                "height": 588.125,
+                "fontSize": "17px",
+                "lineHeight": "32.3px",
+                "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "方法论注脚\n   \n    有诸内，必形诸外。《孟子·告子下》\n   \n   \n    司外揣内，司内揣外。《黄帝内经·灵枢·外揣》",
+                "x": 376.5,
+                "y": 1618.65625,
+                "width": 578,
+                "height": 186.546875,
+                "fontSize": "17px",
+                "lineHeight": "32.3px",
+                "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              },
+              {
+                "id": "join",
+                "tag": "section",
+                "text": "招生与招聘\n  由于在学校培养 AI 中医方向的人才极为困难，我目前主要招收对 AI 数学、软件生成、大规模复杂系统构建感兴趣的学生。此外，我也在组建一支全职工程团队，方向聚焦于 AI 数学。\n  \n   \n    学生\n    如果你对以下方向有兴趣，欢迎带着你的想法与已有工作来信：\n    \n     AI 数学：以范畴论、拓扑斯理论为组织的算法设计与能",
+                "x": 376.5,
+                "y": 1822.203125,
+                "width": 672,
+                "height": 647.640625,
+                "fontSize": "17px",
+                "lineHeight": "32.3px",
+                "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "学生\n    如果你对以下方向有兴趣，欢迎带着你的想法与已有工作来信：\n    \n     AI 数学：以范畴论、拓扑斯理论为组织的算法设计与能力边界分析\n     软件生成：把复杂任务拆解后重新组织为可验证的系统\n     大规模复杂系统构建：局部可验证能力的组合与扩展\n     数学自动证明：使用拓扑斯理论构建自动做数学证明的系统",
+                "x": 376.5,
+                "y": 2049.59375,
+                "width": 318,
+                "height": 411.25,
+                "fontSize": "17px",
+                "lineHeight": "32.3px",
+                "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "全职工程团队\n    我正在组建一支全职工程团队，方向聚焦于 AI 数学。工作内容围绕理论落地为可运行系统展开，需要工程实现的完整能力，而非仅仅调用现成模型。\n    来信请说明你做过什么、想做什么，以及对“复杂任务拆解与重组”这一问题的看法。",
+                "x": 730.5,
+                "y": 2049.59375,
+                "width": 318,
+                "height": 411.25,
+                "fontSize": "17px",
+                "lineHeight": "32.3px",
+                "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              },
+              {
+                "id": "cv",
+                "tag": "section",
+                "text": "履历与荣誉\n  \n   \n    学习与任职\n    \n     2012北京大学计算机系学士\n     2018美国康奈尔大学计算机博士，师从 Robert Kleinberg 教授\n     2014–2015微软新英格兰研究院访问学生\n     2016 秋美国普林斯顿大学访问学生\n     2018–2019麻省理工学院大数据科学学院（MIFODS）",
+                "x": 376.5,
+                "y": 2469.84375,
+                "width": 672,
+                "height": 551.4375,
+                "fontSize": "17px",
+                "lineHeight": "32.3px",
+                "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              },
+              {
+                "id": "works",
+                "tag": "section",
+                "text": "代表工作\n  \n   \n    On the power of foundation models\n    Yang Yuan\n    《孟子·告子下》：有诸内，必形诸外。《黄帝内经·灵枢·外揣》：司外揣内，司内揣外。\n   \n    Contrastive learning is spectral clustering on similarity grap",
+                "x": 376.5,
+                "y": 3021.28125,
+                "width": 672,
+                "height": 608.84375,
+                "fontSize": "17px",
+                "lineHeight": "32.3px",
+                "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              },
+              {
+                "id": "contact",
+                "tag": "section",
+                "text": "联系\n  来信请写至 yuanyang@tsinghua.edu.cn。学术履历与论文列表可另行查阅我的简历与 Google Scholar 主页。\n  个人主页 上海期智研究院 · 人工智能 上海期智研究院 · 具身智能与智能制造\n  \n   复制邮箱地址",
+                "x": 376.5,
+                "y": 3630.125,
+                "width": 672,
+                "height": 359.09375,
+                "fontSize": "17px",
+                "lineHeight": "32.3px",
+                "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              }
+            ]
+          },
+          {
+            "width": 390,
+            "height": 844,
+            "scrollWidth": 375,
+            "scrollHeight": 5283,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "",
+                "tag": "h1",
+                "text": "袁洋",
+                "x": 20,
+                "y": 82.6875,
+                "width": 335,
+                "height": 46.1875,
+                "fontSize": "44px",
+                "lineHeight": "46.2px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "研究主线",
+                "x": 20,
+                "y": 646.625,
+                "width": 335,
+                "height": 28.5,
+                "fontSize": "15px",
+                "lineHeight": "28.5px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "刻画医疗过程",
+                "x": 72,
+                "y": 809.8125,
+                "width": 283,
+                "height": 38,
+                "fontSize": "20px",
+                "lineHeight": "38px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "辅助临床诊疗",
+                "x": 72,
+                "y": 972.5,
+                "width": 283,
+                "height": 38,
+                "fontSize": "20px",
+                "lineHeight": "38px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "形式化中医理论",
+                "x": 72,
+                "y": 1135.1875,
+                "width": 283,
+                "height": 38,
+                "fontSize": "20px",
+                "lineHeight": "38px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "范畴论作为组织轴心",
+                "x": 20,
+                "y": 1670.3125,
+                "width": 335,
+                "height": 28.5,
+                "fontSize": "15px",
+                "lineHeight": "28.5px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "招生与招聘",
+                "x": 20,
+                "y": 2439.828125,
+                "width": 335,
+                "height": 28.5,
+                "fontSize": "15px",
+                "lineHeight": "28.5px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "学生",
+                "x": 20,
+                "y": 2671.046875,
+                "width": 335,
+                "height": 47,
+                "fontSize": "20px",
+                "lineHeight": "38px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "全职工程团队",
+                "x": 20,
+                "y": 3108.296875,
+                "width": 335,
+                "height": 47,
+                "fontSize": "20px",
+                "lineHeight": "38px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "履历与荣誉",
+                "x": 20,
+                "y": 3446.921875,
+                "width": 335,
+                "height": 28.5,
+                "fontSize": "15px",
+                "lineHeight": "28.5px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "学习与任职",
+                "x": 20,
+                "y": 3501.421875,
+                "width": 335,
+                "height": 38,
+                "fontSize": "20px",
+                "lineHeight": "38px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "荣誉",
+                "x": 20,
+                "y": 3959.359375,
+                "width": 335,
+                "height": 38,
+                "fontSize": "20px",
+                "lineHeight": "38px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "代表工作",
+                "x": 20,
+                "y": 4194.671875,
+                "width": 335,
+                "height": 28.5,
+                "fontSize": "15px",
+                "lineHeight": "28.5px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "联系",
+                "x": 20,
+                "y": 4894.703125,
+                "width": 335,
+                "height": 28.5,
+                "fontSize": "15px",
+                "lineHeight": "28.5px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif"
+              }
+            ],
+            "controls": [
+              {
+                "id": "",
+                "tag": "a",
+                "text": "研究主线",
+                "x": 20,
+                "y": 325.25,
+                "width": 57.25,
+                "height": 25.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "范畴论",
+                "x": 99.25,
+                "y": 325.25,
+                "width": 42.9375,
+                "height": 25.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "招生与招聘",
+                "x": 164.1875,
+                "y": 325.25,
+                "width": 71.5625,
+                "height": 25.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "履历",
+                "x": 257.75,
+                "y": 325.25,
+                "width": 28.625,
+                "height": 25.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "代表工作",
+                "x": 20,
+                "y": 356.890625,
+                "width": 57.25,
+                "height": 25.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "联系",
+                "x": 99.25,
+                "y": 356.890625,
+                "width": 28.625,
+                "height": 25.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-0",
+                "tag": "a",
+                "text": "个人主页",
+                "x": 20,
+                "y": 5063.234375,
+                "width": 60,
+                "height": 28.5,
+                "fontSize": "15px",
+                "lineHeight": "28.5px",
+                "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              },
+              {
+                "id": "vib-link-1",
+                "tag": "a",
+                "text": "上海期智研究院 · 人工智能",
+                "x": 104,
+                "y": 5063.234375,
+                "width": 196,
+                "height": 28.5,
+                "fontSize": "15px",
+                "lineHeight": "28.5px",
+                "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              },
+              {
+                "id": "vib-link-2",
+                "tag": "a",
+                "text": "上海期智研究院 · 具身智能与智能制造",
+                "x": 20,
+                "y": 5099.734375,
+                "width": 271,
+                "height": 28.5,
+                "fontSize": "15px",
+                "lineHeight": "28.5px",
+                "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              },
+              {
+                "id": "copy-email",
+                "tag": "button",
+                "text": "复制邮箱地址",
+                "x": 20,
+                "y": 5152.234375,
+                "width": 127.046875,
+                "height": 46.59375,
+                "fontSize": "14px",
+                "lineHeight": "26.6px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", sans-serif"
+              }
+            ],
+            "regions": [
+              {
+                "id": "",
+                "tag": "header",
+                "text": "清华大学交叉信息研究院 · 副教授\n  袁洋\n  我希望从三个层面推进 AI+中医：刻画医疗过程，辅助临床诊疗，形式化中医理论。最终目标，是建立一种以中医为基础、由范畴论支撑的新医疗。\n  \n   研究主线 范畴论 招生与招聘 履历 代表工作 联系\n  \n  \n   \n    \n     邮箱\n    \n    \n     yuanyang@tsinghua",
+                "x": 0,
+                "y": 0,
+                "width": 375,
+                "height": 590.625,
+                "fontSize": "16.5px",
+                "lineHeight": "31.35px",
+                "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              },
+              {
+                "id": "",
+                "tag": "nav",
+                "text": "研究主线 范畴论 招生与招聘 履历 代表工作 联系",
+                "x": 20,
+                "y": 306.25,
+                "width": 335,
+                "height": 76.28125,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "\"Heiti SC\", \"PingFang SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "main",
+                "text": "研究主线\n  我主要研究 AI+中医。具体来说，我希望从三个层面推进这件事。\n  \n   1\n   \n    刻画医疗过程\n    记录并描绘医生在日常诊疗中与患者的交互、判断、推理和思考过程。\n   \n  \n  \n   2\n   \n    辅助临床诊疗\n    结合人工智能算法与医疗设备，分析患者信息，辅助医生辨证、开方。\n   \n  \n  \n   3\n ",
+                "x": 0,
+                "y": 590.625,
+                "width": 375,
+                "height": 4692.203125,
+                "fontSize": "16.5px",
+                "lineHeight": "31.35px",
+                "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              },
+              {
+                "id": "program",
+                "tag": "section",
+                "text": "研究主线\n  我主要研究 AI+中医。具体来说，我希望从三个层面推进这件事。\n  \n   1\n   \n    刻画医疗过程\n    记录并描绘医生在日常诊疗中与患者的交互、判断、推理和思考过程。\n   \n  \n  \n   2\n   \n    辅助临床诊疗\n    结合人工智能算法与医疗设备，分析患者信息，辅助医生辨证、开方。\n   \n  \n  \n   3\n ",
+                "x": 20,
+                "y": 590.625,
+                "width": 335,
+                "height": 1023.6875,
+                "fontSize": "16.5px",
+                "lineHeight": "31.35px",
+                "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "1\n   \n    刻画医疗过程\n    记录并描绘医生在日常诊疗中与患者的交互、判断、推理和思考过程。",
+                "x": 20,
+                "y": 783.8125,
+                "width": 335,
+                "height": 162.6875,
+                "fontSize": "16.5px",
+                "lineHeight": "31.35px",
+                "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "2\n   \n    辅助临床诊疗\n    结合人工智能算法与医疗设备，分析患者信息，辅助医生辨证、开方。",
+                "x": 20,
+                "y": 946.5,
+                "width": 335,
+                "height": 162.6875,
+                "fontSize": "16.5px",
+                "lineHeight": "31.35px",
+                "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "3\n   \n    形式化中医理论\n    在实践过程中，我逐渐意识到，仅靠数据驱动是不够的。医疗知识需要自洽，辅助诊疗需要可解释性。为此，我们需要将医疗过程形式化为一种代数系统，也就是把中医变成一种数学。\n    我希望推动的方向，是建立一种以中医为基础、由范畴论支撑的新医疗。其中，医理、病症、病机、治法、方药与人体状态可以被统一刻画，并通过其中的结构关系",
+                "x": 20,
+                "y": 1109.1875,
+                "width": 335,
+                "height": 496.125,
+                "fontSize": "16.5px",
+                "lineHeight": "31.35px",
+                "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              },
+              {
+                "id": "category",
+                "tag": "section",
+                "text": "范畴论作为组织轴心\n  我因此对范畴论产生了浓厚的兴趣。范畴论不仅可以帮助我们分析和理解复杂系统，也可以为人工智能提供一种新的组织方式：刻画大模型的能力边界，设计新的算法，并将许多局部能力组合成可验证、可扩展的大规模系统。\n  具体来说，我们正在尝试使用拓扑斯理论来构建软件生成系统和数学自动证明系统。我认为，随着模型能力不断提升，未来真正重要的问题将不只是“",
+                "x": 20,
+                "y": 1614.3125,
+                "width": 335,
+                "height": 769.515625,
+                "fontSize": "16.5px",
+                "lineHeight": "31.35px",
+                "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "方法论注脚\n   \n    有诸内，必形诸外。《孟子·告子下》\n   \n   \n    司外揣内，司内揣外。《黄帝内经·灵枢·外揣》",
+                "x": 20,
+                "y": 2180.28125,
+                "width": 335,
+                "height": 186.546875,
+                "fontSize": "16.5px",
+                "lineHeight": "31.35px",
+                "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              },
+              {
+                "id": "join",
+                "tag": "section",
+                "text": "招生与招聘\n  由于在学校培养 AI 中医方向的人才极为困难，我目前主要招收对 AI 数学、软件生成、大规模复杂系统构建感兴趣的学生。此外，我也在组建一支全职工程团队，方向聚焦于 AI 数学。\n  \n   \n    学生\n    如果你对以下方向有兴趣，欢迎带着你的想法与已有工作来信：\n    \n     AI 数学：以范畴论、拓扑斯理论为组织的算法设计与能",
+                "x": 20,
+                "y": 2383.828125,
+                "width": 335,
+                "height": 1007.09375,
+                "fontSize": "16.5px",
+                "lineHeight": "31.35px",
+                "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "学生\n    如果你对以下方向有兴趣，欢迎带着你的想法与已有工作来信：\n    \n     AI 数学：以范畴论、拓扑斯理论为组织的算法设计与能力边界分析\n     软件生成：把复杂任务拆解后重新组织为可验证的系统\n     大规模复杂系统构建：局部可验证能力的组合与扩展\n     数学自动证明：使用拓扑斯理论构建自动做数学证明的系统",
+                "x": 20,
+                "y": 2671.046875,
+                "width": 335,
+                "height": 411.25,
+                "fontSize": "16.5px",
+                "lineHeight": "31.35px",
+                "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "全职工程团队\n    我正在组建一支全职工程团队，方向聚焦于 AI 数学。工作内容围绕理论落地为可运行系统展开，需要工程实现的完整能力，而非仅仅调用现成模型。\n    来信请说明你做过什么、想做什么，以及对“复杂任务拆解与重组”这一问题的看法。",
+                "x": 20,
+                "y": 3108.296875,
+                "width": 335,
+                "height": 273.625,
+                "fontSize": "16.5px",
+                "lineHeight": "31.35px",
+                "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              },
+              {
+                "id": "cv",
+                "tag": "section",
+                "text": "履历与荣誉\n  \n   \n    学习与任职\n    \n     2012北京大学计算机系学士\n     2018美国康奈尔大学计算机博士，师从 Robert Kleinberg 教授\n     2014–2015微软新英格兰研究院访问学生\n     2016 秋美国普林斯顿大学访问学生\n     2018–2019麻省理工学院大数据科学学院（MIFODS）",
+                "x": 20,
+                "y": 3390.921875,
+                "width": 335,
+                "height": 747.75,
+                "fontSize": "16.5px",
+                "lineHeight": "31.35px",
+                "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              },
+              {
+                "id": "works",
+                "tag": "section",
+                "text": "代表工作\n  \n   \n    On the power of foundation models\n    Yang Yuan\n    《孟子·告子下》：有诸内，必形诸外。《黄帝内经·灵枢·外揣》：司外揣内，司内揣外。\n   \n    Contrastive learning is spectral clustering on similarity grap",
+                "x": 20,
+                "y": 4138.671875,
+                "width": 335,
+                "height": 700.03125,
+                "fontSize": "16.5px",
+                "lineHeight": "31.35px",
+                "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              },
+              {
+                "id": "contact",
+                "tag": "section",
+                "text": "联系\n  来信请写至 yuanyang@tsinghua.edu.cn。学术履历与论文列表可另行查阅我的简历与 Google Scholar 主页。\n  个人主页 上海期智研究院 · 人工智能 上海期智研究院 · 具身智能与智能制造\n  \n   复制邮箱地址",
+                "x": 20,
+                "y": 4838.703125,
+                "width": 335,
+                "height": 388.125,
+                "fontSize": "16.5px",
+                "lineHeight": "31.35px",
+                "fontFamily": "\"Songti SC\", \"Source Han Serif SC\", \"Noto Serif CJK SC\", Songti, SimSun, serif"
+              }
+            ]
+          }
+        ],
+        "error": null
+      }
+    }
+  ]
+}

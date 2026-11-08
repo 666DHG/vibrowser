@@ -146,3 +146,7 @@ ProviderClientSuite 7 项通过，确认深入 48,000／标准 24,000／连接�
 日历原输入的单次 48,000 容量复测已经开始，仍使用固定 v2 指导；结果与下一轮 v3 指导实验分开保存。
 
 容量复测首项：calendar-new-deep 在 48,000 上限下单次成功，200 秒，finishReason=stop；completion_tokens=40,488，其中 reasoning_tokens=29,130。使用原输入、原简报与原 v2 指导；保存指导的 SHA-256 与固定批次版本完全一致。结构校验通过，隔离浏览器回放的复制、展开、搜索/链接提交通过，额外模型调用 0；搜索与导航提交被拦截，未冒充生成后的连续浏览。原数据库页面未替换。截图和公开用量见 acceptance/effort-budget-replay.json、acceptance/effort-budget-interactions.json。器具对比复测尚在运行。
+
+容量复测第二项：comparison-new-deep 单次成功，209 秒，finishReason=stop；completion_tokens=36,746，其中 reasoning_tokens=22,192。两项都超过旧 24,000 上限且在 48,000 内正常结束，内容结构校验通过。器具页复制、展开、关键词筛选、排序和搜索提交的隔离回放通过，无额外模型调用。容量复测报告 complete=true；它证明两个已观察截断场景的修复，不重写原批次成功率，也不宣称所有深入输入必然成功。
+
+当前代码完整检查：Scala 格式与全量 101 项通过，前端格式、42 项单测、类型与生产构建通过。指导 v3 六主题对照已启动，首个学术样本首轮结构通过；视觉效果尚待全组比较。
