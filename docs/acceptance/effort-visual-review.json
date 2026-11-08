@@ -62,6 +62,20 @@
         "new-standard: keyword filter, weight sort, intercepted search and detail navigation"
       ],
       "limitations": "The side column counts candidates but does not compute a shopping list or total weight/price. This secondary affordance is not counted as an implemented comparison calculator."
+    },
+    {
+      "name": "docs",
+      "guidanceVerdict": "neutral",
+      "countsAsImprovement": false,
+      "observations": [
+        "Old standard uses a persistent chapter column beside the explanatory text and comparison tables.",
+        "New standard uses a larger dark opening section with chapter links followed by a narrow reading column. The headings and tables are legible, but the structural change does not establish a clearer documentation experience.",
+        "Both are recognizably technical notes; new guidance has not demonstrated a meaningful gain for this topic."
+      ],
+      "verifiedInteractions": [
+        "new-standard: browser replay of declared local controls and navigation, recorded in effort-interaction-replay.json"
+      ],
+      "limitations": "Deep sample interrupted before any candidate was persisted; no deep visual comparison is available."
     }
   ]
 }

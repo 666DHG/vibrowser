@@ -33,15 +33,22 @@ for (const file of (await readdir(input))
     mode: record.mode,
     effort: record.effort,
     requestHash: createHash("sha256").update(record.request).digest("hex"),
-    actualEffortMatches: record.modelCalls.every((call) =>
-      record.effort === "deep"
-        ? call.thinking?.type === "enabled" && call.reasoningEffort === "high"
-        : call.thinking?.type === "disabled" && call.reasoningEffort == null,
-    ),
+    actualEffortMatches:
+      record.modelCalls.length === 0
+        ? null
+        : record.modelCalls.every((call) =>
+            record.effort === "deep"
+              ? call.thinking?.type === "enabled" &&
+                call.reasoningEffort === "high"
+              : call.thinking?.type === "disabled" &&
+                call.reasoningEffort == null,
+          ),
     pageId: record.pageId,
     jobId: record.jobId,
     guidance: record.guidance,
     seconds: record.seconds,
+    interrupted: record.interrupted ?? false,
+    usageComplete: record.usageComplete ?? true,
     error: record.error,
     initialGenerationAccepted: record.attempts[0]?.outcome === "Accepted",
     generationAttempts: record.attempts.map(
@@ -72,6 +79,9 @@ const groups = Object.fromEntries(
       {
         samples: rows.length,
         ready: rows.filter((r) => !r.error).length,
+        interrupted: rows.filter((r) => r.interrupted).length,
+        unknownUsageSamples: rows.filter((r) => !r.usageComplete).length,
+        unknownDurationSamples: rows.filter((r) => r.seconds == null).length,
         initialGenerationAccepted: rows.filter(
           (r) => r.initialGenerationAccepted,
         ).length,
@@ -124,7 +134,11 @@ const comparability = [...new Set(results.map((r) => r.input))].map((input) => {
     allThreePresent: rows.length === 3,
     identicalGenerationRequest:
       new Set(rows.map((r) => r.requestHash)).size === 1,
-    actualEffortMatches: rows.every((r) => r.actualEffortMatches),
+    actualEffortMatches: rows
+      .filter((r) => r.actualEffortMatches != null)
+      .every((r) => r.actualEffortMatches),
+    unobservedEffortSamples: rows.filter((r) => r.actualEffortMatches == null)
+      .length,
   };
 });
 assert(

@@ -1,40 +1,49 @@
 {
-  "evaluatedAt": "2026-11-07T16:05:12.563Z",
+  "evaluatedAt": "2026-11-08T02:00:29.135Z",
   "expectedSamples": 18,
   "complete": false,
   "groups": {
     "old-standard": {
-      "samples": 4,
-      "ready": 4,
-      "initialGenerationAccepted": 1,
-      "modelCalls": 22,
-      "generationModelCalls": 21,
-      "recordedTokens": 368324,
-      "recordedCompletionTokens": 101924,
+      "samples": 5,
+      "ready": 5,
+      "interrupted": 0,
+      "unknownUsageSamples": 0,
+      "unknownDurationSamples": 0,
+      "initialGenerationAccepted": 2,
+      "modelCalls": 27,
+      "generationModelCalls": 25,
+      "recordedTokens": 493288,
+      "recordedCompletionTokens": 124944,
       "recordedReasoningTokens": 0,
-      "seconds": 444
+      "seconds": 569
     },
     "new-standard": {
-      "samples": 4,
-      "ready": 4,
+      "samples": 5,
+      "ready": 5,
+      "interrupted": 0,
+      "unknownUsageSamples": 0,
+      "unknownDurationSamples": 0,
       "initialGenerationAccepted": 0,
-      "modelCalls": 20,
-      "generationModelCalls": 20,
-      "recordedTokens": 336106,
-      "recordedCompletionTokens": 90090,
+      "modelCalls": 24,
+      "generationModelCalls": 24,
+      "recordedTokens": 425478,
+      "recordedCompletionTokens": 107841,
       "recordedReasoningTokens": 0,
-      "seconds": 373
+      "seconds": 448
     },
     "new-deep": {
-      "samples": 3,
+      "samples": 5,
       "ready": 3,
+      "interrupted": 1,
+      "unknownUsageSamples": 1,
+      "unknownDurationSamples": 1,
       "initialGenerationAccepted": 2,
-      "modelCalls": 13,
-      "generationModelCalls": 13,
-      "recordedTokens": 350562,
-      "recordedCompletionTokens": 185259,
-      "recordedReasoningTokens": 126015,
-      "seconds": 964
+      "modelCalls": 18,
+      "generationModelCalls": 18,
+      "recordedTokens": 463441,
+      "recordedCompletionTokens": 283571,
+      "recordedReasoningTokens": 217848,
+      "seconds": 1504
     }
   },
   "comparability": [
@@ -43,28 +52,40 @@
       "samples": 3,
       "allThreePresent": true,
       "identicalGenerationRequest": true,
-      "actualEffortMatches": true
+      "actualEffortMatches": true,
+      "unobservedEffortSamples": 0
     },
     {
       "input": "今天是什么日子.com",
       "samples": 3,
       "allThreePresent": true,
       "identicalGenerationRequest": true,
-      "actualEffortMatches": true
+      "actualEffortMatches": true,
+      "unobservedEffortSamples": 0
     },
     {
       "input": "便携手冲咖啡器具对比选购.com",
-      "samples": 2,
-      "allThreePresent": false,
+      "samples": 3,
+      "allThreePresent": true,
       "identicalGenerationRequest": true,
-      "actualEffortMatches": true
+      "actualEffortMatches": true,
+      "unobservedEffortSamples": 0
     },
     {
       "input": "kfc疯狂星期四文案合集站.com",
       "samples": 3,
       "allThreePresent": true,
       "identicalGenerationRequest": true,
-      "actualEffortMatches": true
+      "actualEffortMatches": true,
+      "unobservedEffortSamples": 0
+    },
+    {
+      "input": "PostgreSQL事务隔离与并发控制学习笔记.com",
+      "samples": 3,
+      "allThreePresent": true,
+      "identicalGenerationRequest": true,
+      "actualEffortMatches": true,
+      "unobservedEffortSamples": 1
     }
   ],
   "samples": [
@@ -79,6 +100,8 @@
       "jobId": "76a64da4-59bc-4935-aa4f-9fcf89e6bae2",
       "guidance": "2-5fc17c54ff3efd04494df031447a34fd7187103e7927a266800e0b6242f1e996",
       "seconds": 196,
+      "interrupted": false,
+      "usageComplete": true,
       "error": null,
       "initialGenerationAccepted": true,
       "generationAttempts": [
@@ -1273,6 +1296,8 @@
       "jobId": "68f8e4a7-d667-4865-8ade-7c60dc6972f9",
       "guidance": "2-5fc17c54ff3efd04494df031447a34fd7187103e7927a266800e0b6242f1e996",
       "seconds": 96,
+      "interrupted": false,
+      "usageComplete": true,
       "error": null,
       "initialGenerationAccepted": false,
       "generationAttempts": [
@@ -2970,6 +2995,8 @@
       "jobId": "2c1e1e1a-2fe9-4247-ad0f-b54b23397df3",
       "guidance": "baseline-6ad0a7c",
       "seconds": 82,
+      "interrupted": false,
+      "usageComplete": true,
       "error": null,
       "initialGenerationAccepted": true,
       "generationAttempts": [
@@ -4226,6 +4253,8 @@
       "jobId": "96d6c267-23e7-48ec-96ed-807dd05a84ba",
       "guidance": "2-5fc17c54ff3efd04494df031447a34fd7187103e7927a266800e0b6242f1e996",
       "seconds": 465,
+      "interrupted": false,
+      "usageComplete": true,
       "error": null,
       "initialGenerationAccepted": false,
       "generationAttempts": [
@@ -6420,6 +6449,8 @@
       "jobId": "1bbacbf7-16c6-4590-ac64-45a92681e186",
       "guidance": "2-5fc17c54ff3efd04494df031447a34fd7187103e7927a266800e0b6242f1e996",
       "seconds": 54,
+      "interrupted": false,
+      "usageComplete": true,
       "error": null,
       "initialGenerationAccepted": false,
       "generationAttempts": [
@@ -7035,6 +7066,8 @@
       "jobId": "834c3435-9841-49dd-acd8-eecb3fbf68a9",
       "guidance": "baseline-6ad0a7c",
       "seconds": 140,
+      "interrupted": false,
+      "usageComplete": true,
       "error": null,
       "initialGenerationAccepted": false,
       "generationAttempts": [
@@ -8656,6 +8689,186 @@
       }
     },
     {
+      "name": "comparison-new-deep",
+      "input": "便携手冲咖啡器具对比选购.com",
+      "mode": "imagination",
+      "effort": "deep",
+      "requestHash": "a609dacb1ed6e2d12f8b498ce91f2cf62e3d1bf82815f9f6ec43592ede8a43c9",
+      "actualEffortMatches": true,
+      "pageId": "48cb643a-8340-46cd-bdb8-f366b12ee088",
+      "jobId": "4f1fb1a6-fcd2-4206-b3e3-57f5a5b3f53f",
+      "guidance": "2-5fc17c54ff3efd04494df031447a34fd7187103e7927a266800e0b6242f1e996",
+      "seconds": 540,
+      "interrupted": false,
+      "usageComplete": true,
+      "error": "模型输出为空或被截断，请重试",
+      "initialGenerationAccepted": false,
+      "generationAttempts": [
+        {
+          "attempt": 1,
+          "outcome": "ProviderFailure",
+          "errorCode": "provider_content",
+          "message": "模型输出为空或被截断，请重试",
+          "at": "2026-11-07T16:07:06.243880900Z"
+        },
+        {
+          "attempt": 2,
+          "outcome": "ProviderFailure",
+          "errorCode": "provider_content",
+          "message": "模型输出为空或被截断，请重试",
+          "at": "2026-11-07T16:09:15.108803700Z"
+        },
+        {
+          "attempt": 3,
+          "outcome": "ProviderFailure",
+          "errorCode": "provider_content",
+          "message": "模型输出为空或被截断，请重试",
+          "at": "2026-11-07T16:11:22.405447600Z"
+        },
+        {
+          "attempt": 4,
+          "outcome": "ProviderFailure",
+          "errorCode": "provider_content",
+          "message": "模型输出为空或被截断，请重试",
+          "at": "2026-11-07T16:13:27.867231700Z"
+        }
+      ],
+      "modelCalls": [
+        {
+          "usage": {
+            "prompt_tokens": 1263,
+            "completion_tokens": 2312,
+            "total_tokens": 3575,
+            "prompt_tokens_details": {
+              "cached_tokens": 1024
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1216
+            },
+            "prompt_cache_hit_tokens": 1024,
+            "prompt_cache_miss_tokens": 239
+          },
+          "status": 200,
+          "milliseconds": 19181,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "high",
+          "stage": "brief"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 3326,
+            "completion_tokens": 24000,
+            "total_tokens": 27326,
+            "prompt_tokens_details": {
+              "cached_tokens": 896
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 24000
+            },
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 2430
+          },
+          "status": 200,
+          "milliseconds": 139787,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "high",
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 3326,
+            "completion_tokens": 24000,
+            "total_tokens": 27326,
+            "prompt_tokens_details": {
+              "cached_tokens": 3072
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 21214
+            },
+            "prompt_cache_hit_tokens": 3072,
+            "prompt_cache_miss_tokens": 254
+          },
+          "status": 200,
+          "milliseconds": 128608,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "high",
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 3326,
+            "completion_tokens": 24000,
+            "total_tokens": 27326,
+            "prompt_tokens_details": {
+              "cached_tokens": 3072
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 22482
+            },
+            "prompt_cache_hit_tokens": 3072,
+            "prompt_cache_miss_tokens": 254
+          },
+          "status": 200,
+          "milliseconds": 126786,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "high",
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 3326,
+            "completion_tokens": 24000,
+            "total_tokens": 27326,
+            "prompt_tokens_details": {
+              "cached_tokens": 3072
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 22921
+            },
+            "prompt_cache_hit_tokens": 3072,
+            "prompt_cache_miss_tokens": 254
+          },
+          "status": 200,
+          "milliseconds": 124702,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "high",
+          "stage": "document"
+        }
+      ],
+      "selection": "Original",
+      "events": [
+        {
+          "stage": "Brief",
+          "status": "Started",
+          "at": "2026-11-07T16:04:27.261135300Z",
+          "message": null
+        },
+        {
+          "stage": "Brief",
+          "status": "Completed",
+          "at": "2026-11-07T16:04:46.446020900Z",
+          "message": null
+        }
+      ],
+      "researchReused": false,
+      "layout": null
+    },
+    {
       "name": "comparison-new-standard",
       "input": "便携手冲咖啡器具对比选购.com",
       "mode": "imagination",
@@ -8666,6 +8879,8 @@
       "jobId": "51ebcfa2-eb37-462f-baf9-825bd4ef4844",
       "guidance": "2-5fc17c54ff3efd04494df031447a34fd7187103e7927a266800e0b6242f1e996",
       "seconds": 145,
+      "interrupted": false,
+      "usageComplete": true,
       "error": null,
       "initialGenerationAccepted": false,
       "generationAttempts": [
@@ -10329,6 +10544,8 @@
       "jobId": "31647d50-d5f9-46ef-b86e-5d5a62d85f15",
       "guidance": "baseline-6ad0a7c",
       "seconds": 147,
+      "interrupted": false,
+      "usageComplete": true,
       "error": null,
       "initialGenerationAccepted": false,
       "generationAttempts": [
@@ -12470,6 +12687,8 @@
       "jobId": "e3f3820c-99e0-4a4a-b954-f905f2af32f4",
       "guidance": "2-5fc17c54ff3efd04494df031447a34fd7187103e7927a266800e0b6242f1e996",
       "seconds": 303,
+      "interrupted": false,
+      "usageComplete": true,
       "error": null,
       "initialGenerationAccepted": true,
       "generationAttempts": [
@@ -13847,6 +14066,8 @@
       "jobId": "2215795a-0eec-4a46-a049-a05d679495cd",
       "guidance": "2-5fc17c54ff3efd04494df031447a34fd7187103e7927a266800e0b6242f1e996",
       "seconds": 78,
+      "interrupted": false,
+      "usageComplete": true,
       "error": null,
       "initialGenerationAccepted": false,
       "generationAttempts": [
@@ -15126,6 +15347,8 @@
       "jobId": "1fe372c0-c07d-48a0-a206-989b734c4e30",
       "guidance": "baseline-6ad0a7c",
       "seconds": 75,
+      "interrupted": false,
+      "usageComplete": true,
       "error": null,
       "initialGenerationAccepted": false,
       "generationAttempts": [
@@ -16023,6 +16246,2960 @@
                 "fontSize": "16px",
                 "lineHeight": "28px",
                 "fontFamily": "-apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif"
+              }
+            ]
+          }
+        ],
+        "error": null
+      }
+    },
+    {
+      "name": "docs-new-deep",
+      "input": "PostgreSQL事务隔离与并发控制学习笔记.com",
+      "mode": "research",
+      "effort": "deep",
+      "requestHash": "81c4ef5402af0f79113a9b1d0fe23a78f8d4600beb4e4de07001ab64b90df49f",
+      "actualEffortMatches": null,
+      "pageId": "8bdbb88d-8de6-4bdb-b14d-7d8d4e52b985",
+      "jobId": "23ea8b8e-2970-4f70-b3d7-3613b8997a8d",
+      "guidance": "2-5fc17c54ff3efd04494df031447a34fd7187103e7927a266800e0b6242f1e996",
+      "seconds": null,
+      "interrupted": true,
+      "usageComplete": false,
+      "error": "Experiment process stopped during generation; response and usage were not captured. No request was reissued.",
+      "initialGenerationAccepted": false,
+      "generationAttempts": [],
+      "modelCalls": [],
+      "selection": "Original",
+      "events": [
+        {
+          "at": "2026-11-07T16:16:48.988923400Z",
+          "stage": "Brief",
+          "status": "Started",
+          "message": null
+        },
+        {
+          "at": "2026-11-07T16:17:19.816641600Z",
+          "stage": "Brief",
+          "status": "Completed",
+          "message": null
+        }
+      ],
+      "sources": [
+        {
+          "id": "source-1",
+          "url": "https://browse.dgit.debian.org/cl-postmodern.git/tree/doc/isolation-notes.org?pow_referer=#2",
+          "title": "isolation-notes.org « doc - cl-postmodern - The [[https://www",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        },
+        {
+          "id": "source-2",
+          "url": "https://cloud.tencent.com.cn/developer/article/2744614#3",
+          "title": "数据库教程FGMT53‑PostgreSQL事务处理与并发控制 - 自动换行",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        },
+        {
+          "id": "source-3",
+          "url": "https://learn.microsoft.com/zh-tw/training/modules/understand-concurrency-postgresql/2-understand-multi-version-concurrency-control-snapshots",
+          "title": "了解多版本並行控制 (MVCC) 與快照集 - Training",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        },
+        {
+          "id": "source-4",
+          "url": "https://cloud.tencent.com.cn/developer/article/2449747?from=15425&policyId=undefined&traceId=&frompage=seopage#1",
+          "title": "从零开始学PostgreSQL (十一)：并发控制 - DBA实战",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        },
+        {
+          "id": "source-5",
+          "url": "http://www.yisu.com/ask/47402750.html#1",
+          "title": "centos postgresql并发控制方法 - centos postgresql并发控制方法",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        },
+        {
+          "id": "source-6",
+          "url": "https://www.postgresql.org/docs/19/transaction-iso.html",
+          "title": "13.2. Transaction Isolation",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        }
+      ],
+      "researchReused": true,
+      "layout": null
+    },
+    {
+      "name": "docs-new-standard",
+      "input": "PostgreSQL事务隔离与并发控制学习笔记.com",
+      "mode": "research",
+      "effort": "standard",
+      "requestHash": "81c4ef5402af0f79113a9b1d0fe23a78f8d4600beb4e4de07001ab64b90df49f",
+      "actualEffortMatches": true,
+      "pageId": "21100646-e9e0-46bb-a280-1e9addef0647",
+      "jobId": "b8b26734-6950-41f4-98f4-39e8b67f44ac",
+      "guidance": "2-5fc17c54ff3efd04494df031447a34fd7187103e7927a266800e0b6242f1e996",
+      "seconds": 75,
+      "interrupted": false,
+      "usageComplete": true,
+      "error": null,
+      "initialGenerationAccepted": false,
+      "generationAttempts": [
+        {
+          "attempt": 1,
+          "outcome": "InvalidContent",
+          "errorCode": "invalid_content",
+          "message": "Copy must bind a button",
+          "at": "2026-11-07T16:16:16.340771700Z"
+        },
+        {
+          "attempt": 2,
+          "outcome": "Accepted",
+          "errorCode": null,
+          "message": null,
+          "at": "2026-11-07T16:16:42.136210200Z"
+        }
+      ],
+      "modelCalls": [
+        {
+          "usage": {
+            "prompt_tokens": 9764,
+            "completion_tokens": 1169,
+            "total_tokens": 10933,
+            "prompt_tokens_details": {
+              "cached_tokens": 896
+            },
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 8868
+          },
+          "status": 200,
+          "milliseconds": 9660,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "brief"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 11972,
+            "completion_tokens": 8270,
+            "total_tokens": 20242,
+            "prompt_tokens_details": {
+              "cached_tokens": 9600
+            },
+            "prompt_cache_hit_tokens": 9600,
+            "prompt_cache_miss_tokens": 2372
+          },
+          "status": 200,
+          "milliseconds": 33243,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 20328,
+            "completion_tokens": 8307,
+            "total_tokens": 28635,
+            "prompt_tokens_details": {
+              "cached_tokens": 11904
+            },
+            "prompt_cache_hit_tokens": 11904,
+            "prompt_cache_miss_tokens": 8424
+          },
+          "status": 200,
+          "milliseconds": 25779,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 29557,
+            "completion_tokens": 5,
+            "total_tokens": 29562,
+            "prompt_tokens_details": {
+              "cached_tokens": 896
+            },
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 28661
+          },
+          "status": 200,
+          "milliseconds": 742,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "review"
+        }
+      ],
+      "selection": "Original",
+      "events": [
+        {
+          "stage": "Brief",
+          "status": "Started",
+          "at": "2026-11-07T16:15:33.427982700Z",
+          "message": null
+        },
+        {
+          "stage": "Brief",
+          "status": "Completed",
+          "at": "2026-11-07T16:15:43.089215800Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Started",
+          "at": "2026-11-07T16:16:42.140211600Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Completed",
+          "at": "2026-11-07T16:16:48.204519Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Started",
+          "at": "2026-11-07T16:16:48.209533Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Completed",
+          "at": "2026-11-07T16:16:48.955925900Z",
+          "message": null
+        },
+        {
+          "stage": "Selection",
+          "status": "Completed",
+          "at": "2026-11-07T16:16:48.959923600Z",
+          "message": "采用已校验原页面"
+        }
+      ],
+      "sources": [
+        {
+          "id": "source-1",
+          "url": "https://browse.dgit.debian.org/cl-postmodern.git/tree/doc/isolation-notes.org?pow_referer=#2",
+          "title": "isolation-notes.org « doc - cl-postmodern - The [[https://www",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        },
+        {
+          "id": "source-2",
+          "url": "https://cloud.tencent.com.cn/developer/article/2744614#3",
+          "title": "数据库教程FGMT53‑PostgreSQL事务处理与并发控制 - 自动换行",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        },
+        {
+          "id": "source-3",
+          "url": "https://learn.microsoft.com/zh-tw/training/modules/understand-concurrency-postgresql/2-understand-multi-version-concurrency-control-snapshots",
+          "title": "了解多版本並行控制 (MVCC) 與快照集 - Training",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        },
+        {
+          "id": "source-4",
+          "url": "https://cloud.tencent.com.cn/developer/article/2449747?from=15425&policyId=undefined&traceId=&frompage=seopage#1",
+          "title": "从零开始学PostgreSQL (十一)：并发控制 - DBA实战",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        },
+        {
+          "id": "source-5",
+          "url": "http://www.yisu.com/ask/47402750.html#1",
+          "title": "centos postgresql并发控制方法 - centos postgresql并发控制方法",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        },
+        {
+          "id": "source-6",
+          "url": "https://www.postgresql.org/docs/19/transaction-iso.html",
+          "title": "13.2. Transaction Isolation",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        }
+      ],
+      "researchReused": true,
+      "siteStyle": {
+        "brand": "PostgreSQL 事务隔离与并发控制学习笔记——单列技术文档站，深色书眉 + 米白阅读面 + 单一赭红强调色",
+        "typography": "中文正文系统字体栈 16px / 行高 1.85，阅读栏宽约 42 字；章节标题 25px 加粗；术语、SQL、参数用等宽字体栈；表格 13.5–14px 紧凑行高",
+        "palette": "深墨 #1c1f23 书眉，米白 #f7f5f0 纸面，赭红 #b4451f 强调（章节序号、错误码、风险标记），代码块 #22262b 深底浅字",
+        "layout": "单列长文，顶部定位区 + 章节锚点索引；正文按依赖顺序六章，每章以要点条起头，用对照表、字段清单、编号步骤、代码块承载高密度信息；窄屏单列折行"
+      },
+      "actions": [
+        {
+          "id": "copy-isolation",
+          "kind": "Copy",
+          "elementId": "copy-isolation-btn",
+          "target": null,
+          "region": "sql-isolation",
+          "stateKey": "copyFb",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "copy-lock",
+          "kind": "Copy",
+          "elementId": "copy-lock-btn",
+          "target": null,
+          "region": "sql-lock",
+          "stateKey": "copyFb",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "copy-conf",
+          "kind": "Copy",
+          "elementId": "copy-conf-btn",
+          "target": null,
+          "region": "conf-template",
+          "stateKey": "copyFb",
+          "value": null,
+          "field": null
+        }
+      ],
+      "layout": {
+        "viewports": [
+          {
+            "width": 1440,
+            "height": 900,
+            "scrollWidth": 1425,
+            "scrollHeight": 6847,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "",
+                "tag": "h1",
+                "text": "PostgreSQL 事务隔离\n    与并发控制",
+                "x": 358.5,
+                "y": 94.046875,
+                "width": 708,
+                "height": 89.75,
+                "fontSize": "34px",
+                "lineHeight": "44.88px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "隔离级别：标准定义与 PG 的实际实现",
+                "x": 388.359375,
+                "y": 471.609375,
+                "width": 427.9375,
+                "height": 35.5,
+                "fontSize": "25px",
+                "lineHeight": "35.5px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Read Committed：每条语句一个新快照",
+                "x": 358.5,
+                "y": 894.765625,
+                "width": 708,
+                "height": 27,
+                "fontSize": "18px",
+                "lineHeight": "27px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Repeatable Read：事务级快照",
+                "x": 358.5,
+                "y": 1282.359375,
+                "width": 708,
+                "height": 27,
+                "fontSize": "18px",
+                "lineHeight": "27px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Serializable：SSI 冲突检测",
+                "x": 358.5,
+                "y": 1569.875,
+                "width": 708,
+                "height": 27,
+                "fontSize": "18px",
+                "lineHeight": "27px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "设置语法与错误码",
+                "x": 358.5,
+                "y": 1802.671875,
+                "width": 708,
+                "height": 27,
+                "fontSize": "18px",
+                "lineHeight": "27px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "MVCC 与快照：读写为什么互不阻塞",
+                "x": 388.359375,
+                "y": 2269.421875,
+                "width": 410.625,
+                "height": 35.5,
+                "fontSize": "25px",
+                "lineHeight": "35.5px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "长事务的代价",
+                "x": 377.5,
+                "y": 2749.046875,
+                "width": 670,
+                "height": 24,
+                "fontSize": "16px",
+                "lineHeight": "24px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "事务 ID 回卷与冻结",
+                "x": 388.359375,
+                "y": 2913.765625,
+                "width": 219.453125,
+                "height": 35.5,
+                "fontSize": "25px",
+                "lineHeight": "35.5px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "WAL 预写日志与检查点",
+                "x": 388.359375,
+                "y": 3481.8125,
+                "width": 267.375,
+                "height": 35.5,
+                "fontSize": "25px",
+                "lineHeight": "35.5px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "锁体系与死锁",
+                "x": 388.359375,
+                "y": 4102.109375,
+                "width": 150.75,
+                "height": 35.5,
+                "fontSize": "25px",
+                "lineHeight": "35.5px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "行级锁与咨询锁",
+                "x": 358.5,
+                "y": 4816.609375,
+                "width": 708,
+                "height": 27,
+                "fontSize": "18px",
+                "lineHeight": "27px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "死锁：成因与规避",
+                "x": 358.5,
+                "y": 5049.40625,
+                "width": 708,
+                "height": 27,
+                "fontSize": "18px",
+                "lineHeight": "27px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "参数模板与排查清单",
+                "x": 388.359375,
+                "y": 5609.15625,
+                "width": 226.125,
+                "height": 35.5,
+                "fontSize": "25px",
+                "lineHeight": "35.5px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "连接与内存的一般起点",
+                "x": 358.5,
+                "y": 5938.96875,
+                "width": 708,
+                "height": 27,
+                "fontSize": "18px",
+                "lineHeight": "27px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "生产风险点",
+                "x": 358.5,
+                "y": 6253.84375,
+                "width": 708,
+                "height": 27,
+                "fontSize": "18px",
+                "lineHeight": "27px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "上线验收检查",
+                "x": 358.5,
+                "y": 6555.640625,
+                "width": 708,
+                "height": 27,
+                "fontSize": "18px",
+                "lineHeight": "27px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              }
+            ],
+            "controls": [
+              {
+                "id": "",
+                "tag": "a",
+                "text": "01 隔离级别",
+                "x": 358.5,
+                "y": 309.671875,
+                "width": 97.203125,
+                "height": 34.96875,
+                "fontSize": "13.5px",
+                "lineHeight": "24.975px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "02 MVCC 与快照",
+                "x": 459.703125,
+                "y": 309.671875,
+                "width": 127.390625,
+                "height": 34.96875,
+                "fontSize": "13.5px",
+                "lineHeight": "24.975px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "03 XID 回卷与冻结",
+                "x": 591.09375,
+                "y": 309.671875,
+                "width": 137.65625,
+                "height": 34.96875,
+                "fontSize": "13.5px",
+                "lineHeight": "24.975px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "04 WAL 与检查点",
+                "x": 732.75,
+                "y": 309.671875,
+                "width": 130.84375,
+                "height": 34.96875,
+                "fontSize": "13.5px",
+                "lineHeight": "24.975px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "05 锁与死锁",
+                "x": 867.59375,
+                "y": 309.671875,
+                "width": 97.203125,
+                "height": 34.96875,
+                "fontSize": "13.5px",
+                "lineHeight": "24.975px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "06 参数与排查",
+                "x": 358.5,
+                "y": 350.640625,
+                "width": 110.703125,
+                "height": 34.96875,
+                "fontSize": "13.5px",
+                "lineHeight": "24.975px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "copy-isolation-btn",
+                "tag": "button",
+                "text": "复制",
+                "x": 1010.578125,
+                "y": 1853.671875,
+                "width": 45.921875,
+                "height": 31.265625,
+                "fontSize": "11.5px",
+                "lineHeight": "21.275px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+              },
+              {
+                "id": "copy-lock-btn",
+                "tag": "button",
+                "text": "复制",
+                "x": 1010.578125,
+                "y": 5202.234375,
+                "width": 45.921875,
+                "height": 31.265625,
+                "fontSize": "11.5px",
+                "lineHeight": "21.275px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+              },
+              {
+                "id": "copy-conf-btn",
+                "tag": "button",
+                "text": "复制",
+                "x": 1010.578125,
+                "y": 5748.40625,
+                "width": 45.921875,
+                "height": 31.265625,
+                "fontSize": "11.5px",
+                "lineHeight": "21.275px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+              }
+            ],
+            "regions": [
+              {
+                "id": "",
+                "tag": "header",
+                "text": "学习笔记 · 数据库内核与运维\n  PostgreSQL 事务隔离\n    与并发控制\n  一条从并发异常出发、经 MVCC 快照、事务 ID 回卷、WAL 与检查点，落到锁体系与生产排查的阅读路径。每种隔离级别先看它防住什么，再看它在 PG 里实际怎么实现。\n  \n   01 隔离级别 02 MVCC 与快照 03 XID 回卷与冻结 04 WAL 与检查",
+                "x": 0,
+                "y": 0,
+                "width": 1425,
+                "height": 419.609375,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "nav",
+                "text": "01 隔离级别 02 MVCC 与快照 03 XID 回卷与冻结 04 WAL 与检查点 05 锁与死锁 06 参数与排查",
+                "x": 358.5,
+                "y": 290.671875,
+                "width": 708,
+                "height": 94.9375,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "main",
+                "text": "01\n   隔离级别：标准定义与 PG 的实际实现\n  \n  SQL 标准定义四档隔离级别，PostgreSQL 只实现三档：Read Uncommitted 在 PG 内部等同于 Read Committed，因为这是把标准映射到 MVCC 架构唯一说得通的方式。\n  \n   \n    表 1 · 各隔离级别下禁止出现的现象\n   \n   \n    \n  ",
+                "x": 332.5,
+                "y": 419.609375,
+                "width": 760,
+                "height": 6427.46875,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "iso",
+                "tag": "section",
+                "text": "01\n   隔离级别：标准定义与 PG 的实际实现\n  \n  SQL 标准定义四档隔离级别，PostgreSQL 只实现三档：Read Uncommitted 在 PG 内部等同于 Read Committed，因为这是把标准映射到 MVCC 架构唯一说得通的方式。\n  \n   \n    表 1 · 各隔离级别下禁止出现的现象\n   \n   \n    \n  ",
+                "x": 358.5,
+                "y": 427.609375,
+                "width": 708,
+                "height": 1797.8125,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "mvcc",
+                "tag": "section",
+                "text": "02\n   MVCC 与快照：读写为什么互不阻塞\n  \n  大多数 DBMS 靠锁实现并发控制，PostgreSQL 以 MVCC 作为补充：同一行可以同时存在多个版本，每个查询看到一致的快照，于是读不阻塞写，写不阻塞读。\n  连接 A 扫描全表时，连接 B 正在更新部分行。MVCC 为受影响的行建立另一个版本，B 的更新不影响 A 的扫描；A 忽略其查询开",
+                "x": 358.5,
+                "y": 2225.421875,
+                "width": 708,
+                "height": 644.34375,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "xid",
+                "tag": "section",
+                "text": "03\n   事务 ID 回卷与冻结\n  \n  事务 ID 是 32 位无符号整数，最大值约 42 亿，用尽后循环复用，即 wraparound。VACUUM 通过冻结把老元组的 xmin 替换为特殊 Frozen 事务 ID，使其永远对所有会话可见。\n  \n   \n    表 2 · 冻结相关参数与含义\n   \n   \n    \n     参数\n     作",
+                "x": 358.5,
+                "y": 2869.765625,
+                "width": 708,
+                "height": 568.046875,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "wal",
+                "tag": "section",
+                "text": "04\n   WAL 预写日志与检查点\n  \n  修改数据页之前，先把变更写入 WAL；事务提交时先把变更写入 WAL 缓冲区，fsync 刷到磁盘文件后才向客户端返回成功，脏数据页可以之后由 bgwriter / checkpoint 慢慢落盘。\n  \n   事务提交 → 变更写入 WAL 缓冲区。\n   fsync 刷 WAL 到磁盘文件 → 返回提交成功",
+                "x": 358.5,
+                "y": 3437.8125,
+                "width": 708,
+                "height": 620.296875,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "lock",
+                "tag": "section",
+                "text": "05\n   锁体系与死锁\n  \n  表级锁模式名称里的「行」是历史遗留，语义相同；模式之间唯一的真正区别在于与其他模式的冲突关系。两个事务不能在同一表上同时持有冲突的锁模式，但事务永远不会与自身冲突。\n  \n   \n    表 3 · 常用语句自动获取的表级锁\n   \n   \n    \n     语句\n     表级锁模式\n     主要冲突\n    \n  ",
+                "x": 358.5,
+                "y": 4058.109375,
+                "width": 708,
+                "height": 1507.046875,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "ops",
+                "tag": "section",
+                "text": "06\n   参数模板与排查清单\n  \n  以下参数为 64GB 内存、8 CPU 实验主机的示例模板，实际需按负载压测微调。\n  \n   # 内存\nshared_buffers = 16GB\nwork_mem = 64MB\nmaintenance_work_mem = 4GB\n\nmax_connections = 800\n   复制\n  \n  连接与内存的一",
+                "x": 358.5,
+                "y": 5565.15625,
+                "width": 708,
+                "height": 1191.921875,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              }
+            ]
+          },
+          {
+            "width": 390,
+            "height": 844,
+            "scrollWidth": 375,
+            "scrollHeight": 9454,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "",
+                "tag": "h1",
+                "text": "PostgreSQL 事务隔离\n    与并发控制",
+                "x": 18,
+                "y": 76.046875,
+                "width": 339,
+                "height": 68.625,
+                "fontSize": "26px",
+                "lineHeight": "34.32px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "隔离级别：标准定义与 PG 的实际实现",
+                "x": 41.265625,
+                "y": 504.765625,
+                "width": 315.734375,
+                "height": 58.21875,
+                "fontSize": "20.5px",
+                "lineHeight": "29.11px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Read Committed：每条语句一个新快照",
+                "x": 18,
+                "y": 1173.921875,
+                "width": 339,
+                "height": 27,
+                "fontSize": "18px",
+                "lineHeight": "27px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Repeatable Read：事务级快照",
+                "x": 18,
+                "y": 1807.75,
+                "width": 339,
+                "height": 27,
+                "fontSize": "18px",
+                "lineHeight": "27px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Serializable：SSI 冲突检测",
+                "x": 18,
+                "y": 2204.703125,
+                "width": 339,
+                "height": 27,
+                "fontSize": "18px",
+                "lineHeight": "27px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "设置语法与错误码",
+                "x": 18,
+                "y": 2574.296875,
+                "width": 339,
+                "height": 27,
+                "fontSize": "18px",
+                "lineHeight": "27px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "MVCC 与快照：读写为什么互不阻塞",
+                "x": 41.84375,
+                "y": 3081.96875,
+                "width": 315.15625,
+                "height": 58.21875,
+                "fontSize": "20.5px",
+                "lineHeight": "29.11px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "长事务的代价",
+                "x": 37,
+                "y": 3920.3125,
+                "width": 301,
+                "height": 24,
+                "fontSize": "16px",
+                "lineHeight": "24px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "事务 ID 回卷与冻结",
+                "x": 42.859375,
+                "y": 4125.75,
+                "width": 179.953125,
+                "height": 29.109375,
+                "fontSize": "20.5px",
+                "lineHeight": "29.11px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "WAL 预写日志与检查点",
+                "x": 42.859375,
+                "y": 4853.390625,
+                "width": 219.25,
+                "height": 29.109375,
+                "fontSize": "20.5px",
+                "lineHeight": "29.11px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "锁体系与死锁",
+                "x": 42.859375,
+                "y": 5733.203125,
+                "width": 123.625,
+                "height": 29.109375,
+                "fontSize": "20.5px",
+                "lineHeight": "29.11px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "行级锁与咨询锁",
+                "x": 18,
+                "y": 6688.84375,
+                "width": 339,
+                "height": 27,
+                "fontSize": "18px",
+                "lineHeight": "27px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "死锁：成因与规避",
+                "x": 18,
+                "y": 7085.796875,
+                "width": 339,
+                "height": 27,
+                "fontSize": "18px",
+                "lineHeight": "27px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "参数模板与排查清单",
+                "x": 42.859375,
+                "y": 7810.828125,
+                "width": 185.4375,
+                "height": 29.109375,
+                "fontSize": "20.5px",
+                "lineHeight": "29.11px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "连接与内存的一般起点",
+                "x": 18,
+                "y": 8169.71875,
+                "width": 339,
+                "height": 27,
+                "fontSize": "18px",
+                "lineHeight": "27px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "生产风险点",
+                "x": 18,
+                "y": 8703.46875,
+                "width": 339,
+                "height": 27,
+                "fontSize": "18px",
+                "lineHeight": "27px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "上线验收检查",
+                "x": 18,
+                "y": 9087.34375,
+                "width": 339,
+                "height": 27,
+                "fontSize": "18px",
+                "lineHeight": "27px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              }
+            ],
+            "controls": [
+              {
+                "id": "",
+                "tag": "a",
+                "text": "01 隔离级别",
+                "x": 18,
+                "y": 321.859375,
+                "width": 97.203125,
+                "height": 34.96875,
+                "fontSize": "13.5px",
+                "lineHeight": "24.975px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "02 MVCC 与快照",
+                "x": 119.203125,
+                "y": 321.859375,
+                "width": 127.390625,
+                "height": 34.96875,
+                "fontSize": "13.5px",
+                "lineHeight": "24.975px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "03 XID 回卷与冻结",
+                "x": 18,
+                "y": 362.828125,
+                "width": 137.65625,
+                "height": 34.96875,
+                "fontSize": "13.5px",
+                "lineHeight": "24.975px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "04 WAL 与检查点",
+                "x": 159.65625,
+                "y": 362.828125,
+                "width": 130.84375,
+                "height": 34.96875,
+                "fontSize": "13.5px",
+                "lineHeight": "24.975px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "05 锁与死锁",
+                "x": 18,
+                "y": 403.796875,
+                "width": 97.203125,
+                "height": 34.96875,
+                "fontSize": "13.5px",
+                "lineHeight": "24.975px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "06 参数与排查",
+                "x": 119.203125,
+                "y": 403.796875,
+                "width": 110.703125,
+                "height": 34.96875,
+                "fontSize": "13.5px",
+                "lineHeight": "24.975px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "copy-isolation-btn",
+                "tag": "button",
+                "text": "复制",
+                "x": 303.078125,
+                "y": 2623.296875,
+                "width": 45.921875,
+                "height": 31.265625,
+                "fontSize": "11.5px",
+                "lineHeight": "21.275px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+              },
+              {
+                "id": "copy-lock-btn",
+                "tag": "button",
+                "text": "复制",
+                "x": 303.078125,
+                "y": 7326.453125,
+                "width": 45.921875,
+                "height": 31.265625,
+                "fontSize": "11.5px",
+                "lineHeight": "21.275px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+              },
+              {
+                "id": "copy-conf-btn",
+                "tag": "button",
+                "text": "复制",
+                "x": 303.078125,
+                "y": 7971.375,
+                "width": 45.921875,
+                "height": 31.265625,
+                "fontSize": "11.5px",
+                "lineHeight": "21.275px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+              }
+            ],
+            "regions": [
+              {
+                "id": "",
+                "tag": "header",
+                "text": "学习笔记 · 数据库内核与运维\n  PostgreSQL 事务隔离\n    与并发控制\n  一条从并发异常出发、经 MVCC 快照、事务 ID 回卷、WAL 与检查点，落到锁体系与生产排查的阅读路径。每种隔离级别先看它防住什么，再看它在 PG 里实际怎么实现。\n  \n   01 隔离级别 02 MVCC 与快照 03 XID 回卷与冻结 04 WAL 与检查",
+                "x": 0,
+                "y": 0,
+                "width": 375,
+                "height": 466.765625,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "nav",
+                "text": "01 隔离级别 02 MVCC 与快照 03 XID 回卷与冻结 04 WAL 与检查点 05 锁与死锁 06 参数与排查",
+                "x": 18,
+                "y": 302.859375,
+                "width": 339,
+                "height": 135.90625,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "main",
+                "text": "01\n   隔离级别：标准定义与 PG 的实际实现\n  \n  SQL 标准定义四档隔离级别，PostgreSQL 只实现三档：Read Uncommitted 在 PG 内部等同于 Read Committed，因为这是把标准映射到 MVCC 架构唯一说得通的方式。\n  \n   \n    表 1 · 各隔离级别下禁止出现的现象\n   \n   \n    \n  ",
+                "x": 0,
+                "y": 466.765625,
+                "width": 375,
+                "height": 8987.453125,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "iso",
+                "tag": "section",
+                "text": "01\n   隔离级别：标准定义与 PG 的实际实现\n  \n  SQL 标准定义四档隔离级别，PostgreSQL 只实现三档：Read Uncommitted 在 PG 内部等同于 Read Committed，因为这是把标准映射到 MVCC 架构唯一说得通的方式。\n  \n   \n    表 1 · 各隔离级别下禁止出现的现象\n   \n   \n    \n  ",
+                "x": 18,
+                "y": 470.765625,
+                "width": 339,
+                "height": 2577.203125,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "mvcc",
+                "tag": "section",
+                "text": "02\n   MVCC 与快照：读写为什么互不阻塞\n  \n  大多数 DBMS 靠锁实现并发控制，PostgreSQL 以 MVCC 作为补充：同一行可以同时存在多个版本，每个查询看到一致的快照，于是读不阻塞写，写不阻塞读。\n  连接 A 扫描全表时，连接 B 正在更新部分行。MVCC 为受影响的行建立另一个版本，B 的更新不影响 A 的扫描；A 忽略其查询开",
+                "x": 18,
+                "y": 3047.96875,
+                "width": 339,
+                "height": 1043.78125,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "xid",
+                "tag": "section",
+                "text": "03\n   事务 ID 回卷与冻结\n  \n  事务 ID 是 32 位无符号整数，最大值约 42 亿，用尽后循环复用，即 wraparound。VACUUM 通过冻结把老元组的 xmin 替换为特殊 Frozen 事务 ID，使其永远对所有会话可见。\n  \n   \n    表 2 · 冻结相关参数与含义\n   \n   \n    \n     参数\n     作",
+                "x": 18,
+                "y": 4091.75,
+                "width": 339,
+                "height": 727.640625,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "wal",
+                "tag": "section",
+                "text": "04\n   WAL 预写日志与检查点\n  \n  修改数据页之前，先把变更写入 WAL；事务提交时先把变更写入 WAL 缓冲区，fsync 刷到磁盘文件后才向客户端返回成功，脏数据页可以之后由 bgwriter / checkpoint 慢慢落盘。\n  \n   事务提交 → 变更写入 WAL 缓冲区。\n   fsync 刷 WAL 到磁盘文件 → 返回提交成功",
+                "x": 18,
+                "y": 4819.390625,
+                "width": 339,
+                "height": 879.8125,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "lock",
+                "tag": "section",
+                "text": "05\n   锁体系与死锁\n  \n  表级锁模式名称里的「行」是历史遗留，语义相同；模式之间唯一的真正区别在于与其他模式的冲突关系。两个事务不能在同一表上同时持有冲突的锁模式，但事务永远不会与自身冲突。\n  \n   \n    表 3 · 常用语句自动获取的表级锁\n   \n   \n    \n     语句\n     表级锁模式\n     主要冲突\n    \n  ",
+                "x": 18,
+                "y": 5699.203125,
+                "width": 339,
+                "height": 2077.625,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "ops",
+                "tag": "section",
+                "text": "06\n   参数模板与排查清单\n  \n  以下参数为 64GB 内存、8 CPU 实验主机的示例模板，实际需按负载压测微调。\n  \n   # 内存\nshared_buffers = 16GB\nwork_mem = 64MB\nmaintenance_work_mem = 4GB\n\nmax_connections = 800\n   复制\n  \n  连接与内存的一",
+                "x": 18,
+                "y": 7776.828125,
+                "width": 339,
+                "height": 1617.390625,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif"
+              }
+            ]
+          }
+        ],
+        "error": null
+      }
+    },
+    {
+      "name": "docs-old-standard",
+      "input": "PostgreSQL事务隔离与并发控制学习笔记.com",
+      "mode": "research",
+      "effort": "standard",
+      "requestHash": "81c4ef5402af0f79113a9b1d0fe23a78f8d4600beb4e4de07001ab64b90df49f",
+      "actualEffortMatches": true,
+      "pageId": "63acdbe6-4462-46dd-80f1-76800d2b2074",
+      "jobId": "2254e31d-b382-49b8-b57f-810c8ce6cf8e",
+      "guidance": "baseline-6ad0a7c",
+      "seconds": 125,
+      "interrupted": false,
+      "usageComplete": true,
+      "error": null,
+      "initialGenerationAccepted": true,
+      "generationAttempts": [
+        {
+          "attempt": 1,
+          "outcome": "Accepted",
+          "errorCode": null,
+          "message": null,
+          "at": "2026-11-07T16:14:43.690372300Z"
+        }
+      ],
+      "modelCalls": [
+        {
+          "usage": {
+            "prompt_tokens": 5675,
+            "completion_tokens": 68,
+            "total_tokens": 5743,
+            "prompt_tokens_details": {
+              "cached_tokens": 128
+            },
+            "prompt_cache_hit_tokens": 128,
+            "prompt_cache_miss_tokens": 5547
+          },
+          "status": 200,
+          "milliseconds": 888,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "researchPlanning"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 9622,
+            "completion_tokens": 889,
+            "total_tokens": 10511,
+            "prompt_tokens_details": {
+              "cached_tokens": 768
+            },
+            "prompt_cache_hit_tokens": 768,
+            "prompt_cache_miss_tokens": 8854
+          },
+          "status": 200,
+          "milliseconds": 7363,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "brief"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 11550,
+            "completion_tokens": 9915,
+            "total_tokens": 21465,
+            "prompt_tokens_details": {
+              "cached_tokens": 896
+            },
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 10654
+          },
+          "status": 200,
+          "milliseconds": 41601,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 36699,
+            "completion_tokens": 994,
+            "total_tokens": 37693,
+            "prompt_tokens_details": {
+              "cached_tokens": 768
+            },
+            "prompt_cache_hit_tokens": 768,
+            "prompt_cache_miss_tokens": 35931
+          },
+          "status": 200,
+          "milliseconds": 8219,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "review"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 38398,
+            "completion_tokens": 11154,
+            "total_tokens": 49552,
+            "prompt_tokens_details": {
+              "cached_tokens": 896
+            },
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 37502
+          },
+          "status": 200,
+          "milliseconds": 35168,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "document"
+        }
+      ],
+      "selection": "Original",
+      "events": [
+        {
+          "stage": "Brief",
+          "status": "Started",
+          "at": "2026-11-07T16:13:54.697332800Z",
+          "message": null
+        },
+        {
+          "stage": "Brief",
+          "status": "Completed",
+          "at": "2026-11-07T16:14:02.062714100Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Started",
+          "at": "2026-11-07T16:14:43.694373200Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Completed",
+          "at": "2026-11-07T16:14:49.931248Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Started",
+          "at": "2026-11-07T16:14:49.938857500Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Completed",
+          "at": "2026-11-07T16:14:58.166612700Z",
+          "message": null
+        },
+        {
+          "stage": "Improve",
+          "status": "Started",
+          "at": "2026-11-07T16:14:58.172622100Z",
+          "message": null
+        },
+        {
+          "stage": "Improve",
+          "status": "Failed",
+          "at": "2026-11-07T16:15:33.385172800Z",
+          "message": "动作功能变化: act-count-check; 主要正文覆盖不足，保留原有文本并调整排版; 初始状态变化; 可恢复状态声明丢失"
+        },
+        {
+          "stage": "Selection",
+          "status": "Completed",
+          "at": "2026-11-07T16:15:33.389680600Z",
+          "message": "采用已校验原页面"
+        }
+      ],
+      "sources": [
+        {
+          "id": "source-1",
+          "url": "https://browse.dgit.debian.org/cl-postmodern.git/tree/doc/isolation-notes.org?pow_referer=#2",
+          "title": "isolation-notes.org « doc - cl-postmodern - The [[https://www",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        },
+        {
+          "id": "source-2",
+          "url": "https://cloud.tencent.com.cn/developer/article/2744614#3",
+          "title": "数据库教程FGMT53‑PostgreSQL事务处理与并发控制 - 自动换行",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        },
+        {
+          "id": "source-3",
+          "url": "https://learn.microsoft.com/zh-tw/training/modules/understand-concurrency-postgresql/2-understand-multi-version-concurrency-control-snapshots",
+          "title": "了解多版本並行控制 (MVCC) 與快照集 - Training",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        },
+        {
+          "id": "source-4",
+          "url": "https://cloud.tencent.com.cn/developer/article/2449747?from=15425&policyId=undefined&traceId=&frompage=seopage#1",
+          "title": "从零开始学PostgreSQL (十一)：并发控制 - DBA实战",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        },
+        {
+          "id": "source-5",
+          "url": "http://www.yisu.com/ask/47402750.html#1",
+          "title": "centos postgresql并发控制方法 - centos postgresql并发控制方法",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        },
+        {
+          "id": "source-6",
+          "url": "https://www.postgresql.org/docs/19/transaction-iso.html",
+          "title": "13.2. Transaction Isolation",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        }
+      ],
+      "researchReused": false,
+      "siteStyle": {
+        "brand": "PostgreSQL 事务与并发笔记——中文技术学习笔记，深色页眉配青绿色强调条，正文浅米底色，长页连续阅读配左侧固定目录。",
+        "typography": "正文系统无衬线栈 16px / 行高 1.75；一级标题 28px 700，章节标题 21px 600 带下边线；小节 17px 700；代码与参数使用 ui-monospace 等宽栈，代码块 13px / 1.7 深底浅字；表格 14px，表头小字大写字距。",
+        "palette": "墨色 #1d2327 正文、#4a545c 次级文字；页眉 #1f2a30 与强调色 #2f6f6b；页面底色 #fbfaf7、面板白；分隔线 #d8dde1 / #b6bec5；代码块 #22272b 底 #e8ecef 字；错误码用 #8a4b12 暖褐。",
+        "layout": "固定左栏 260px 目录 + 单列正文，正文行宽约 74–78 字符；对照表与锁表全宽但字号更小；代码块与折叠说明限制在 78ch；窄屏降至单列，目录变为双列网格。"
+      },
+      "actions": [
+        {
+          "id": "act-search",
+          "kind": "Search",
+          "elementId": "search-form",
+          "target": null,
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-filter-toc",
+          "kind": "Filter",
+          "elementId": "toc-filter-input",
+          "target": null,
+          "region": "toc-list",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-sort-iso",
+          "kind": "Sort",
+          "elementId": "sort-iso",
+          "target": null,
+          "region": "iso-body",
+          "stateKey": null,
+          "value": "asc",
+          "field": "dirty"
+        },
+        {
+          "id": "act-toggle-mvcc",
+          "kind": "Toggle",
+          "elementId": "toggle-mvcc",
+          "target": null,
+          "region": "mvcc-extra",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-copy-iso",
+          "kind": "Copy",
+          "elementId": "copy-iso-sql",
+          "target": null,
+          "region": "iso-sql",
+          "stateKey": "copiedIso",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-copy-wal",
+          "kind": "Copy",
+          "elementId": "copy-wal-sql",
+          "target": null,
+          "region": "wal-sql",
+          "stateKey": "copiedWal",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-copy-lock",
+          "kind": "Copy",
+          "elementId": "copy-lock-sql",
+          "target": null,
+          "region": "lock-sql",
+          "stateKey": "copiedLock",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-copy-retry",
+          "kind": "Copy",
+          "elementId": "copy-retry-sql",
+          "target": null,
+          "region": "retry-sql",
+          "stateKey": "copiedRetry",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-copy-diag",
+          "kind": "Copy",
+          "elementId": "copy-diag-sql",
+          "target": null,
+          "region": "diag-sql",
+          "stateKey": "copiedDiag",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-copy-conf",
+          "kind": "Copy",
+          "elementId": "copy-conf",
+          "target": null,
+          "region": "conf-block",
+          "stateKey": "copiedConf",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-count-check",
+          "kind": "Increment",
+          "elementId": "checklist",
+          "target": null,
+          "region": null,
+          "stateKey": "checkedCount",
+          "value": "1",
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-0",
+          "kind": "Navigate",
+          "elementId": "vib-link-0",
+          "target": "/",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        }
+      ],
+      "layout": {
+        "viewports": [
+          {
+            "width": 1440,
+            "height": 900,
+            "scrollWidth": 1425,
+            "scrollHeight": 6969,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "章节目录",
+                "x": 146.5,
+                "y": 143.25,
+                "width": 260,
+                "height": 29.75,
+                "fontSize": "13px",
+                "lineHeight": "22.75px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "intro-h",
+                "tag": "h1",
+                "text": "PostgreSQL 事务隔离与并发控制",
+                "x": 450.5,
+                "y": 143.25,
+                "width": 828,
+                "height": 37.796875,
+                "fontSize": "28px",
+                "lineHeight": "37.8px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "s1h",
+                "tag": "h2",
+                "text": "1. 三种实际生效的隔离级别",
+                "x": 450.5,
+                "y": 439.375,
+                "width": 828,
+                "height": 38.390625,
+                "fontSize": "21px",
+                "lineHeight": "29.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "1.1 READ COMMITTED（默认）",
+                "x": 450.5,
+                "y": 931.078125,
+                "width": 828,
+                "height": 29.75,
+                "fontSize": "17px",
+                "lineHeight": "29.75px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "1.2 REPEATABLE READ",
+                "x": 450.5,
+                "y": 1164.328125,
+                "width": 828,
+                "height": 29.75,
+                "fontSize": "17px",
+                "lineHeight": "29.75px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "1.3 SERIALIZABLE",
+                "x": 450.5,
+                "y": 1368.078125,
+                "width": 828,
+                "height": 29.75,
+                "fontSize": "17px",
+                "lineHeight": "29.75px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "s2h",
+                "tag": "h2",
+                "text": "2. MVCC 快照与元组可见性",
+                "x": 450.5,
+                "y": 1880.203125,
+                "width": 828,
+                "height": 38.390625,
+                "fontSize": "21px",
+                "lineHeight": "29.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "s3h",
+                "tag": "h2",
+                "text": "3. XID 回卷与冻结",
+                "x": 450.5,
+                "y": 2297.84375,
+                "width": 828,
+                "height": 38.390625,
+                "fontSize": "21px",
+                "lineHeight": "29.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "s4h",
+                "tag": "h2",
+                "text": "4. WAL、检查点与归档",
+                "x": 450.5,
+                "y": 2720.765625,
+                "width": 828,
+                "height": 38.390625,
+                "fontSize": "21px",
+                "lineHeight": "29.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "s5h",
+                "tag": "h2",
+                "text": "5. 锁体系：表级、行级、咨询锁",
+                "x": 450.5,
+                "y": 3454.75,
+                "width": 828,
+                "height": 38.390625,
+                "fontSize": "21px",
+                "lineHeight": "29.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "s6h",
+                "tag": "h2",
+                "text": "6. 死锁 40P01 与序列化失败 40001",
+                "x": 450.5,
+                "y": 4337.390625,
+                "width": 828,
+                "height": 38.390625,
+                "fontSize": "21px",
+                "lineHeight": "29.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "s7h",
+                "tag": "h2",
+                "text": "7. 监控与诊断查询",
+                "x": 450.5,
+                "y": 4854.59375,
+                "width": 828,
+                "height": 38.390625,
+                "fontSize": "21px",
+                "lineHeight": "29.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "s8h",
+                "tag": "h2",
+                "text": "8. 上线验收检查清单",
+                "x": 450.5,
+                "y": 5385.328125,
+                "width": 828,
+                "height": 38.390625,
+                "fontSize": "21px",
+                "lineHeight": "29.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "参数参考起点",
+                "x": 450.5,
+                "y": 5911.34375,
+                "width": 828,
+                "height": 29.75,
+                "fontSize": "17px",
+                "lineHeight": "29.75px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "glh",
+                "tag": "h2",
+                "text": "术语与参数速查",
+                "x": 450.5,
+                "y": 6310.4375,
+                "width": 828,
+                "height": 38.390625,
+                "fontSize": "21px",
+                "lineHeight": "29.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              }
+            ],
+            "controls": [
+              {
+                "id": "vib-link-0",
+                "tag": "a",
+                "text": "PostgreSQL 事务与并发笔记",
+                "x": 146.5,
+                "y": 22,
+                "width": 292.484375,
+                "height": 38.5,
+                "fontSize": "22px",
+                "lineHeight": "38.5px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "q",
+                "tag": "input",
+                "text": "",
+                "x": 938.5,
+                "y": 48.75,
+                "width": 276,
+                "height": 40.5,
+                "fontSize": "14px",
+                "lineHeight": "24.5px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "button",
+                "text": "检索",
+                "x": 1220.5,
+                "y": 48.75,
+                "width": 58,
+                "height": 40.5,
+                "fontSize": "14px",
+                "lineHeight": "24.5px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "toc-filter-input",
+                "tag": "input",
+                "text": "",
+                "x": 146.5,
+                "y": 207,
+                "width": 260,
+                "height": 36.75,
+                "fontSize": "13px",
+                "lineHeight": "22.75px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "1. 三种实际生效的隔离级别",
+                "x": 158.5,
+                "y": 283,
+                "width": 169.734375,
+                "height": 19,
+                "fontSize": "14px",
+                "lineHeight": "21px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "2. MVCC 快照与元组可见性",
+                "x": 158.5,
+                "y": 314,
+                "width": 173.03125,
+                "height": 19,
+                "fontSize": "14px",
+                "lineHeight": "21px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "3. XID 回卷与冻结",
+                "x": 158.5,
+                "y": 345,
+                "width": 113.6875,
+                "height": 19,
+                "fontSize": "14px",
+                "lineHeight": "21px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "4. WAL、检查点与归档",
+                "x": 158.5,
+                "y": 376,
+                "width": 144.46875,
+                "height": 19,
+                "fontSize": "14px",
+                "lineHeight": "21px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "5. 锁体系：表级、行级、咨询锁",
+                "x": 158.5,
+                "y": 407,
+                "width": 197.734375,
+                "height": 19,
+                "fontSize": "14px",
+                "lineHeight": "21px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "6. 死锁 40P01 与序列化失败 40001",
+                "x": 158.5,
+                "y": 438,
+                "width": 222.609375,
+                "height": 19,
+                "fontSize": "14px",
+                "lineHeight": "21px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "7. 监控与诊断查询",
+                "x": 158.5,
+                "y": 469,
+                "width": 113.734375,
+                "height": 19,
+                "fontSize": "14px",
+                "lineHeight": "21px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "8. 上线验收检查清单",
+                "x": 158.5,
+                "y": 500,
+                "width": 127.734375,
+                "height": 19,
+                "fontSize": "14px",
+                "lineHeight": "21px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "跳到术语与参数速查",
+                "x": 146.5,
+                "y": 545,
+                "width": 117,
+                "height": 18,
+                "fontSize": "13px",
+                "lineHeight": "22.75px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "sort-iso",
+                "tag": "button",
+                "text": "按「脏读」列排序",
+                "x": 1148.5,
+                "y": 623.765625,
+                "width": 130,
+                "height": 34.75,
+                "fontSize": "13px",
+                "lineHeight": "22.75px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "copy-iso-sql",
+                "tag": "button",
+                "text": "复制",
+                "x": 1128.359375,
+                "y": 1653.640625,
+                "width": 46,
+                "height": 31,
+                "fontSize": "12px",
+                "lineHeight": "21px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "toggle-mvcc",
+                "tag": "button",
+                "text": "展开：快照可见性与常见误读",
+                "x": 450.5,
+                "y": 2203.34375,
+                "width": 212,
+                "height": 40.5,
+                "fontSize": "14px",
+                "lineHeight": "24.5px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "copy-wal-sql",
+                "tag": "button",
+                "text": "复制",
+                "x": 1128.359375,
+                "y": 3250.28125,
+                "width": 46,
+                "height": 31,
+                "fontSize": "12px",
+                "lineHeight": "21px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "copy-lock-sql",
+                "tag": "button",
+                "text": "复制",
+                "x": 1128.359375,
+                "y": 4132.921875,
+                "width": 46,
+                "height": 31,
+                "fontSize": "12px",
+                "lineHeight": "21px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "copy-retry-sql",
+                "tag": "button",
+                "text": "复制",
+                "x": 1128.359375,
+                "y": 4628.03125,
+                "width": 46,
+                "height": 31,
+                "fontSize": "12px",
+                "lineHeight": "21px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "copy-diag-sql",
+                "tag": "button",
+                "text": "复制",
+                "x": 1128.359375,
+                "y": 4990.484375,
+                "width": 46,
+                "height": 31,
+                "fontSize": "12px",
+                "lineHeight": "21px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "input",
+                "text": "",
+                "x": 454.5,
+                "y": 5491.09375,
+                "width": 15,
+                "height": 15,
+                "fontSize": "15px",
+                "lineHeight": "26.25px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "input",
+                "text": "",
+                "x": 454.5,
+                "y": 5536.34375,
+                "width": 15,
+                "height": 15,
+                "fontSize": "15px",
+                "lineHeight": "26.25px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "input",
+                "text": "",
+                "x": 454.5,
+                "y": 5581.59375,
+                "width": 15,
+                "height": 15,
+                "fontSize": "15px",
+                "lineHeight": "26.25px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "input",
+                "text": "",
+                "x": 454.5,
+                "y": 5626.84375,
+                "width": 15,
+                "height": 15,
+                "fontSize": "15px",
+                "lineHeight": "26.25px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "input",
+                "text": "",
+                "x": 454.5,
+                "y": 5672.09375,
+                "width": 15,
+                "height": 15,
+                "fontSize": "15px",
+                "lineHeight": "26.25px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "input",
+                "text": "",
+                "x": 454.5,
+                "y": 5717.34375,
+                "width": 15,
+                "height": 15,
+                "fontSize": "15px",
+                "lineHeight": "26.25px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "input",
+                "text": "",
+                "x": 454.5,
+                "y": 5762.59375,
+                "width": 15,
+                "height": 15,
+                "fontSize": "15px",
+                "lineHeight": "26.25px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "input",
+                "text": "",
+                "x": 454.5,
+                "y": 5807.84375,
+                "width": 15,
+                "height": 15,
+                "fontSize": "15px",
+                "lineHeight": "26.25px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "input",
+                "text": "",
+                "x": 454.5,
+                "y": 5853.09375,
+                "width": 15,
+                "height": 15,
+                "fontSize": "15px",
+                "lineHeight": "26.25px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "copy-conf",
+                "tag": "button",
+                "text": "复制",
+                "x": 1128.359375,
+                "y": 6017.59375,
+                "width": 46,
+                "height": 31,
+                "fontSize": "12px",
+                "lineHeight": "21px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              }
+            ],
+            "regions": [
+              {
+                "id": "",
+                "tag": "header",
+                "text": "PostgreSQL 事务与并发笔记\n   隔离级别 · MVCC 快照 · XID 回卷 · WAL 提交 · 锁与死锁 · 重试约定\n  \n  \n   站点内检索笔记标题\n   \n    \n    检索",
+                "x": 0,
+                "y": 0,
+                "width": 1425,
+                "height": 113.25,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "章节目录\n  \n   筛选章节标题 \n   按包含匹配过滤，改写关键字即重新筛选。\n  \n  \n   1. 三种实际生效的隔离级别\n   2. MVCC 快照与元组可见性\n   3. XID 回卷与冻结\n   4. WAL、检查点与归档\n   5. 锁体系：表级、行级、咨询锁\n   6. 死锁 40P01 与序列化失败 40001\n   7. 监控与诊断查询",
+                "x": 146.5,
+                "y": 113.25,
+                "width": 260,
+                "height": 452.5,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "main",
+                "text": "PostgreSQL 事务隔离与并发控制\n   PostgreSQL 以 MVCC 多版本并发控制实现读不阻塞写、写不阻塞读，配合 WAL 预写日志保障崩溃恢复，再以 32 位事务 ID 与冻结机制维护版本可见性；锁子系统处理并发写冲突，死锁检测与序列化冲突检测分别以 40P01、40001 上报给应用。\n   本笔记按「先建模型、再读机制、最后动手核对」的",
+                "x": 450.5,
+                "y": 113.25,
+                "width": 828,
+                "height": 6783.703125,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "PostgreSQL 事务隔离与并发控制\n   PostgreSQL 以 MVCC 多版本并发控制实现读不阻塞写、写不阻塞读，配合 WAL 预写日志保障崩溃恢复，再以 32 位事务 ID 与冻结机制维护版本可见性；锁子系统处理并发写冲突，死锁检测与序列化冲突检测分别以 40P01、40001 上报给应用。\n   本笔记按「先建模型、再读机制、最后动手核对」的",
+                "x": 450.5,
+                "y": 143.25,
+                "width": 828,
+                "height": 242.125,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "s1",
+                "tag": "section",
+                "text": "1. 三种实际生效的隔离级别\n   SQL 标准定义四级隔离，PostgreSQL 可请求全部四级，但内部只实现三种：READ UNCOMMITTED 的行为等同 READ COMMITTED，这是把标准级别映射到 MVCC 架构后唯一合理的结果。另外，PG 的 REPEATABLE READ 不允许幻读，标准允许更高考量，因此这是可接受的。\n   \n   ",
+                "x": 450.5,
+                "y": 431.375,
+                "width": 828,
+                "height": 1394.828125,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "s2",
+                "tag": "section",
+                "text": "2. MVCC 快照与元组可见性\n   多数 DBMS 依靠锁实现并发控制，PostgreSQL 以 MVCC 作为补充：同一数据行的多个版本同时存在，每个查询看到一致的快照。连接 A 扫描全表时，连接 B 更新部分行，MVCC 通过生成新的行版本让两者并行，A 忽略自身查询开始之后发生的修改。\n   每个元组头部保存 xmin（创建该行版本的事务 ID）与",
+                "x": 450.5,
+                "y": 1872.203125,
+                "width": 828,
+                "height": 371.640625,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "s3",
+                "tag": "section",
+                "text": "3. XID 回卷与冻结\n   事务 ID 是 32 位无符号整数，最大值约 42 亿，会循环复用，即回卷（wraparound）。为防止 ID 循环后数据不可见，VACUUM 执行冻结（freeze），把很老的元组 xmin 设为特殊 Frozen 事务 ID，永远对所有会话可见。\n   \n    \n     \n      参数\n      作用\n    ",
+                "x": 450.5,
+                "y": 2289.84375,
+                "width": 828,
+                "height": 376.921875,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "s4",
+                "tag": "section",
+                "text": "4. WAL、检查点与归档\n   WAL（Write-Ahead Log）在修改数据页之前先写变更日志。事务提交时先把变更写入 WAL 缓冲区，fsync 将 WAL 刷入磁盘后向客户端返回成功；数据脏页由 bgwriter 与检查点后续落盘。实例崩溃重启时回放 WAL 完成恢复，WAL 同时是物理流复制的数据源。\n   \n    \n     CheckPo",
+                "x": 450.5,
+                "y": 2712.765625,
+                "width": 828,
+                "height": 687.984375,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "s5",
+                "tag": "section",
+                "text": "5. 锁体系：表级、行级、咨询锁\n   表级锁全部作用在表对象上，名称中的「行」属于历史遗留，语义相同。不同锁模式的唯一真正区别在于彼此冲突的方式；事务永不与自身冲突。页级锁在索引维护与更新期间使用，不同索引类型（B-tree、Hash、GiST、SP-GiST、GIN）的锁定策略不同，影响并发性与性能。\n   \n    \n     \n      锁模式\n ",
+                "x": 450.5,
+                "y": 3446.75,
+                "width": 828,
+                "height": 836.640625,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "s6",
+                "tag": "section",
+                "text": "6. 死锁 40P01 与序列化失败 40001\n   死锁发生在两个或多个会话互相持有对方需要的锁、形成循环等待时。PostgreSQL 后台死锁检测器会自动检测，随机回滚其中一个事务并抛出 40P01 deadlock_detected。根本原因常是更新行顺序不一致，应用层应保证更新资源的顺序统一，并尽量缩短事务、缩小持锁范围。设置 lock_timeo",
+                "x": 450.5,
+                "y": 4329.390625,
+                "width": 828,
+                "height": 471.203125,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "s7",
+                "tag": "section",
+                "text": "7. 监控与诊断查询\n   查看当前锁与等待关系使用 pg_locks，结合 pg_stat_activity 定位阻塞会话与锁模式；txid_current() 可查看当前事务 ID。\n   \n    复制\n    -- 阻塞等待中的会话\nSELECT a.pid, a.usename, a.state, a.wait_event_type, a.wait",
+                "x": 450.5,
+                "y": 4846.59375,
+                "width": 828,
+                "height": 484.734375,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "s8",
+                "tag": "section",
+                "text": "8. 上线验收检查清单\n   逐项确认，未通过的项回到对应章节复核。当前已勾选 0 项。\n   \n     确认业务读取路径使用的隔离级别，并说明在该级别下允许出现的异常\n     READ COMMITTED 下检查依赖「同事务内两次查询结果一致」的逻辑是否成立\n     REPEATABLE READ / SERIALIZABLE 路径具备 40001 ",
+                "x": 450.5,
+                "y": 5377.328125,
+                "width": 828,
+                "height": 879.109375,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "glossary",
+                "tag": "section",
+                "text": "术语与参数速查\n   \n    \n     xmin / xmax\n    \n    \n     元组头部记录创建版本与删除/更新版本的事务 ID；xmax 为 0 表示未删除。\n    \n    \n     死元组 dead tuple\n    \n    \n     被更新或删除后遗留的旧版本，需由 VACUUM 回收空间。\n    \n    \n     ",
+                "x": 450.5,
+                "y": 6302.4375,
+                "width": 828,
+                "height": 578.515625,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              }
+            ]
+          },
+          {
+            "width": 390,
+            "height": 844,
+            "scrollWidth": 375,
+            "scrollHeight": 10027,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "章节目录",
+                "x": 14,
+                "y": 237.5,
+                "width": 347,
+                "height": 29.75,
+                "fontSize": "13px",
+                "lineHeight": "22.75px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "intro-h",
+                "tag": "h1",
+                "text": "PostgreSQL 事务隔离与并发控制",
+                "x": 14,
+                "y": 700,
+                "width": 347,
+                "height": 28.34375,
+                "fontSize": "21px",
+                "lineHeight": "28.35px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "s1h",
+                "tag": "h2",
+                "text": "1. 三种实际生效的隔离级别",
+                "x": 14,
+                "y": 1173,
+                "width": 347,
+                "height": 35.59375,
+                "fontSize": "19px",
+                "lineHeight": "26.6px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "1.1 READ COMMITTED（默认）",
+                "x": 14,
+                "y": 2000.578125,
+                "width": 347,
+                "height": 29.75,
+                "fontSize": "17px",
+                "lineHeight": "29.75px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "1.2 REPEATABLE READ",
+                "x": 14,
+                "y": 2365.1875,
+                "width": 347,
+                "height": 29.75,
+                "fontSize": "17px",
+                "lineHeight": "29.75px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "1.3 SERIALIZABLE",
+                "x": 14,
+                "y": 2673.0625,
+                "width": 347,
+                "height": 29.75,
+                "fontSize": "17px",
+                "lineHeight": "29.75px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "s2h",
+                "tag": "h2",
+                "text": "2. MVCC 快照与元组可见性",
+                "x": 14,
+                "y": 3338.421875,
+                "width": 347,
+                "height": 35.59375,
+                "fontSize": "19px",
+                "lineHeight": "26.6px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "s3h",
+                "tag": "h2",
+                "text": "3. XID 回卷与冻结",
+                "x": 14,
+                "y": 3964.171875,
+                "width": 347,
+                "height": 35.59375,
+                "fontSize": "19px",
+                "lineHeight": "26.6px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "s4h",
+                "tag": "h2",
+                "text": "4. WAL、检查点与归档",
+                "x": 14,
+                "y": 4571.09375,
+                "width": 347,
+                "height": 35.59375,
+                "fontSize": "19px",
+                "lineHeight": "26.6px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "s5h",
+                "tag": "h2",
+                "text": "5. 锁体系：表级、行级、咨询锁",
+                "x": 14,
+                "y": 5479.453125,
+                "width": 347,
+                "height": 35.59375,
+                "fontSize": "19px",
+                "lineHeight": "26.6px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "s6h",
+                "tag": "h2",
+                "text": "6. 死锁 40P01 与序列化失败 40001",
+                "x": 14,
+                "y": 6766.046875,
+                "width": 347,
+                "height": 35.59375,
+                "fontSize": "19px",
+                "lineHeight": "26.6px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "s7h",
+                "tag": "h2",
+                "text": "7. 监控与诊断查询",
+                "x": 14,
+                "y": 7410.1875,
+                "width": 347,
+                "height": 35.59375,
+                "fontSize": "19px",
+                "lineHeight": "26.6px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "s8h",
+                "tag": "h2",
+                "text": "8. 上线验收检查清单",
+                "x": 14,
+                "y": 8016.109375,
+                "width": 347,
+                "height": 35.59375,
+                "fontSize": "19px",
+                "lineHeight": "26.6px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "参数参考起点",
+                "x": 14,
+                "y": 8774.703125,
+                "width": 347,
+                "height": 29.75,
+                "fontSize": "17px",
+                "lineHeight": "29.75px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "glh",
+                "tag": "h2",
+                "text": "术语与参数速查",
+                "x": 14,
+                "y": 9198.296875,
+                "width": 347,
+                "height": 35.59375,
+                "fontSize": "19px",
+                "lineHeight": "26.6px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              }
+            ],
+            "controls": [
+              {
+                "id": "vib-link-0",
+                "tag": "a",
+                "text": "PostgreSQL 事务与并发笔记",
+                "x": 18,
+                "y": 18,
+                "width": 292.484375,
+                "height": 38.5,
+                "fontSize": "22px",
+                "lineHeight": "38.5px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "q",
+                "tag": "input",
+                "text": "",
+                "x": 18,
+                "y": 153,
+                "width": 275,
+                "height": 40.5,
+                "fontSize": "14px",
+                "lineHeight": "24.5px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "button",
+                "text": "检索",
+                "x": 299,
+                "y": 153,
+                "width": 58,
+                "height": 40.5,
+                "fontSize": "14px",
+                "lineHeight": "24.5px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "toc-filter-input",
+                "tag": "input",
+                "text": "",
+                "x": 14,
+                "y": 301.25,
+                "width": 347,
+                "height": 36.75,
+                "fontSize": "13px",
+                "lineHeight": "22.75px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "1. 三种实际生效的隔离级别",
+                "x": 26,
+                "y": 377.25,
+                "width": 169.734375,
+                "height": 19,
+                "fontSize": "14px",
+                "lineHeight": "21px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "2. MVCC 快照与元组可见性",
+                "x": 26,
+                "y": 410.25,
+                "width": 173.03125,
+                "height": 19,
+                "fontSize": "14px",
+                "lineHeight": "21px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "3. XID 回卷与冻结",
+                "x": 26,
+                "y": 443.25,
+                "width": 113.6875,
+                "height": 19,
+                "fontSize": "14px",
+                "lineHeight": "21px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "4. WAL、检查点与归档",
+                "x": 26,
+                "y": 476.25,
+                "width": 144.46875,
+                "height": 19,
+                "fontSize": "14px",
+                "lineHeight": "21px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "5. 锁体系：表级、行级、咨询锁",
+                "x": 26,
+                "y": 509.25,
+                "width": 197.734375,
+                "height": 19,
+                "fontSize": "14px",
+                "lineHeight": "21px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "6. 死锁 40P01 与序列化失败 40001",
+                "x": 26,
+                "y": 542.25,
+                "width": 222.609375,
+                "height": 19,
+                "fontSize": "14px",
+                "lineHeight": "21px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "7. 监控与诊断查询",
+                "x": 26,
+                "y": 575.25,
+                "width": 113.734375,
+                "height": 19,
+                "fontSize": "14px",
+                "lineHeight": "21px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "8. 上线验收检查清单",
+                "x": 26,
+                "y": 608.25,
+                "width": 127.734375,
+                "height": 19,
+                "fontSize": "14px",
+                "lineHeight": "21px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "跳到术语与参数速查",
+                "x": 14,
+                "y": 653.25,
+                "width": 117,
+                "height": 18,
+                "fontSize": "13px",
+                "lineHeight": "22.75px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "sort-iso",
+                "tag": "button",
+                "text": "按「脏读」列排序",
+                "x": 231,
+                "y": 1432.46875,
+                "width": 130,
+                "height": 34.75,
+                "fontSize": "13px",
+                "lineHeight": "22.75px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "copy-iso-sql",
+                "tag": "button",
+                "text": "复制",
+                "x": 307,
+                "y": 3111.859375,
+                "width": 46,
+                "height": 31,
+                "fontSize": "12px",
+                "lineHeight": "21px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "toggle-mvcc",
+                "tag": "button",
+                "text": "展开：快照可见性与常见误读",
+                "x": 14,
+                "y": 3869.671875,
+                "width": 212,
+                "height": 40.5,
+                "fontSize": "14px",
+                "lineHeight": "24.5px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "copy-wal-sql",
+                "tag": "button",
+                "text": "复制",
+                "x": 307,
+                "y": 5274.984375,
+                "width": 46,
+                "height": 31,
+                "fontSize": "12px",
+                "lineHeight": "21px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "copy-lock-sql",
+                "tag": "button",
+                "text": "复制",
+                "x": 307,
+                "y": 6561.578125,
+                "width": 46,
+                "height": 31,
+                "fontSize": "12px",
+                "lineHeight": "21px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "copy-retry-sql",
+                "tag": "button",
+                "text": "复制",
+                "x": 307,
+                "y": 7183.625,
+                "width": 46,
+                "height": 31,
+                "fontSize": "12px",
+                "lineHeight": "21px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "copy-diag-sql",
+                "tag": "button",
+                "text": "复制",
+                "x": 307,
+                "y": 7569.640625,
+                "width": 46,
+                "height": 31,
+                "fontSize": "12px",
+                "lineHeight": "21px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "input",
+                "text": "",
+                "x": 18,
+                "y": 8144.453125,
+                "width": 15,
+                "height": 15,
+                "fontSize": "15px",
+                "lineHeight": "26.25px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "input",
+                "text": "",
+                "x": 18,
+                "y": 8215.953125,
+                "width": 15,
+                "height": 15,
+                "fontSize": "15px",
+                "lineHeight": "26.25px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "input",
+                "text": "",
+                "x": 18,
+                "y": 8287.453125,
+                "width": 15,
+                "height": 15,
+                "fontSize": "15px",
+                "lineHeight": "26.25px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "input",
+                "text": "",
+                "x": 18,
+                "y": 8358.953125,
+                "width": 15,
+                "height": 15,
+                "fontSize": "15px",
+                "lineHeight": "26.25px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "input",
+                "text": "",
+                "x": 18,
+                "y": 8430.453125,
+                "width": 15,
+                "height": 15,
+                "fontSize": "15px",
+                "lineHeight": "26.25px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "input",
+                "text": "",
+                "x": 18,
+                "y": 8501.953125,
+                "width": 15,
+                "height": 15,
+                "fontSize": "15px",
+                "lineHeight": "26.25px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "input",
+                "text": "",
+                "x": 18,
+                "y": 8573.453125,
+                "width": 15,
+                "height": 15,
+                "fontSize": "15px",
+                "lineHeight": "26.25px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "input",
+                "text": "",
+                "x": 18,
+                "y": 8644.953125,
+                "width": 15,
+                "height": 15,
+                "fontSize": "15px",
+                "lineHeight": "26.25px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "input",
+                "text": "",
+                "x": 18,
+                "y": 8690.203125,
+                "width": 15,
+                "height": 15,
+                "fontSize": "15px",
+                "lineHeight": "26.25px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "copy-conf",
+                "tag": "button",
+                "text": "复制",
+                "x": 307,
+                "y": 8905.453125,
+                "width": 46,
+                "height": 31,
+                "fontSize": "12px",
+                "lineHeight": "21px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              }
+            ],
+            "regions": [
+              {
+                "id": "",
+                "tag": "header",
+                "text": "PostgreSQL 事务与并发笔记\n   隔离级别 · MVCC 快照 · XID 回卷 · WAL 提交 · 锁与死锁 · 重试约定\n  \n  \n   站点内检索笔记标题\n   \n    \n    检索",
+                "x": 0,
+                "y": 0,
+                "width": 375,
+                "height": 215.5,
+                "fontSize": "15.5px",
+                "lineHeight": "27.125px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "章节目录\n  \n   筛选章节标题 \n   按包含匹配过滤，改写关键字即重新筛选。\n  \n  \n   1. 三种实际生效的隔离级别\n   2. MVCC 快照与元组可见性\n   3. XID 回卷与冻结\n   4. WAL、检查点与归档\n   5. 锁体系：表级、行级、咨询锁\n   6. 死锁 40P01 与序列化失败 40001\n   7. 监控与诊断查询",
+                "x": 14,
+                "y": 215.5,
+                "width": 347,
+                "height": 458.5,
+                "fontSize": "15.5px",
+                "lineHeight": "27.125px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "main",
+                "text": "PostgreSQL 事务隔离与并发控制\n   PostgreSQL 以 MVCC 多版本并发控制实现读不阻塞写、写不阻塞读，配合 WAL 预写日志保障崩溃恢复，再以 32 位事务 ID 与冻结机制维护版本可见性；锁子系统处理并发写冲突，死锁检测与序列化冲突检测分别以 40P01、40001 上报给应用。\n   本笔记按「先建模型、再读机制、最后动手核对」的",
+                "x": 14,
+                "y": 674,
+                "width": 347,
+                "height": 9305.140625,
+                "fontSize": "15.5px",
+                "lineHeight": "27.125px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "PostgreSQL 事务隔离与并发控制\n   PostgreSQL 以 MVCC 多版本并发控制实现读不阻塞写、写不阻塞读，配合 WAL 预写日志保障崩溃恢复，再以 32 位事务 ID 与冻结机制维护版本可见性；锁子系统处理并发写冲突，死锁检测与序列化冲突检测分别以 40P01、40001 上报给应用。\n   本笔记按「先建模型、再读机制、最后动手核对」的",
+                "x": 14,
+                "y": 700,
+                "width": 347,
+                "height": 419,
+                "fontSize": "15.5px",
+                "lineHeight": "27.125px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "s1",
+                "tag": "section",
+                "text": "1. 三种实际生效的隔离级别\n   SQL 标准定义四级隔离，PostgreSQL 可请求全部四级，但内部只实现三种：READ UNCOMMITTED 的行为等同 READ COMMITTED，这是把标准级别映射到 MVCC 架构后唯一合理的结果。另外，PG 的 REPEATABLE READ 不允许幻读，标准允许更高考量，因此这是可接受的。\n   \n   ",
+                "x": 14,
+                "y": 1165,
+                "width": 347,
+                "height": 2119.421875,
+                "fontSize": "15.5px",
+                "lineHeight": "27.125px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "s2",
+                "tag": "section",
+                "text": "2. MVCC 快照与元组可见性\n   多数 DBMS 依靠锁实现并发控制，PostgreSQL 以 MVCC 作为补充：同一数据行的多个版本同时存在，每个查询看到一致的快照。连接 A 扫描全表时，连接 B 更新部分行，MVCC 通过生成新的行版本让两者并行，A 忽略自身查询开始之后发生的修改。\n   每个元组头部保存 xmin（创建该行版本的事务 ID）与",
+                "x": 14,
+                "y": 3330.421875,
+                "width": 347,
+                "height": 579.75,
+                "fontSize": "15.5px",
+                "lineHeight": "27.125px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "s3",
+                "tag": "section",
+                "text": "3. XID 回卷与冻结\n   事务 ID 是 32 位无符号整数，最大值约 42 亿，会循环复用，即回卷（wraparound）。为防止 ID 循环后数据不可见，VACUUM 执行冻结（freeze），把很老的元组 xmin 设为特殊 Frozen 事务 ID，永远对所有会话可见。\n   \n    \n     \n      参数\n      作用\n    ",
+                "x": 14,
+                "y": 3956.171875,
+                "width": 347,
+                "height": 560.921875,
+                "fontSize": "15.5px",
+                "lineHeight": "27.125px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "s4",
+                "tag": "section",
+                "text": "4. WAL、检查点与归档\n   WAL（Write-Ahead Log）在修改数据页之前先写变更日志。事务提交时先把变更写入 WAL 缓冲区，fsync 将 WAL 刷入磁盘后向客户端返回成功；数据脏页由 bgwriter 与检查点后续落盘。实例崩溃重启时回放 WAL 完成恢复，WAL 同时是物理流复制的数据源。\n   \n    \n     CheckPo",
+                "x": 14,
+                "y": 4563.09375,
+                "width": 347,
+                "height": 862.359375,
+                "fontSize": "15.5px",
+                "lineHeight": "27.125px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "s5",
+                "tag": "section",
+                "text": "5. 锁体系：表级、行级、咨询锁\n   表级锁全部作用在表对象上，名称中的「行」属于历史遗留，语义相同。不同锁模式的唯一真正区别在于彼此冲突的方式；事务永不与自身冲突。页级锁在索引维护与更新期间使用，不同索引类型（B-tree、Hash、GiST、SP-GiST、GIN）的锁定策略不同，影响并发性与性能。\n   \n    \n     \n      锁模式\n ",
+                "x": 14,
+                "y": 5471.453125,
+                "width": 347,
+                "height": 1240.59375,
+                "fontSize": "15.5px",
+                "lineHeight": "27.125px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "s6",
+                "tag": "section",
+                "text": "6. 死锁 40P01 与序列化失败 40001\n   死锁发生在两个或多个会话互相持有对方需要的锁、形成循环等待时。PostgreSQL 后台死锁检测器会自动检测，随机回滚其中一个事务并抛出 40P01 deadlock_detected。根本原因常是更新行顺序不一致，应用层应保证更新资源的顺序统一，并尽量缩短事务、缩小持锁范围。设置 lock_timeo",
+                "x": 14,
+                "y": 6758.046875,
+                "width": 347,
+                "height": 598.140625,
+                "fontSize": "15.5px",
+                "lineHeight": "27.125px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "s7",
+                "tag": "section",
+                "text": "7. 监控与诊断查询\n   查看当前锁与等待关系使用 pg_locks，结合 pg_stat_activity 定位阻塞会话与锁模式；txid_current() 可查看当前事务 ID。\n   \n    复制\n    -- 阻塞等待中的会话\nSELECT a.pid, a.usename, a.state, a.wait_event_type, a.wait",
+                "x": 14,
+                "y": 7402.1875,
+                "width": 347,
+                "height": 559.921875,
+                "fontSize": "15.5px",
+                "lineHeight": "27.125px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "s8",
+                "tag": "section",
+                "text": "8. 上线验收检查清单\n   逐项确认，未通过的项回到对应章节复核。当前已勾选 0 项。\n   \n     确认业务读取路径使用的隔离级别，并说明在该级别下允许出现的异常\n     READ COMMITTED 下检查依赖「同事务内两次查询结果一致」的逻辑是否成立\n     REPEATABLE READ / SERIALIZABLE 路径具备 40001 ",
+                "x": 14,
+                "y": 8008.109375,
+                "width": 347,
+                "height": 1136.1875,
+                "fontSize": "15.5px",
+                "lineHeight": "27.125px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              },
+              {
+                "id": "glossary",
+                "tag": "section",
+                "text": "术语与参数速查\n   \n    \n     xmin / xmax\n    \n    \n     元组头部记录创建版本与删除/更新版本的事务 ID；xmax 为 0 表示未删除。\n    \n    \n     死元组 dead tuple\n    \n    \n     被更新或删除后遗留的旧版本，需由 VACUUM 回收空间。\n    \n    \n     ",
+                "x": 14,
+                "y": 9190.296875,
+                "width": 347,
+                "height": 772.84375,
+                "fontSize": "15.5px",
+                "lineHeight": "27.125px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
               }
             ]
           }
