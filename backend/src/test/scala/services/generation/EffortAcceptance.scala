@@ -116,7 +116,10 @@ object EffortAcceptance extends IOApp.Simple:
       !samplingRetest || (guidanceRetest && guidanceRevision == "7"),
       "Sampling test requires the unchanged v7 guidance"
     )
-    require(Set("3", "4", "5", "6", "7")(guidanceRevision), "Unsupported fixed experiment revision")
+    require(
+      Set("3", "4", "5", "6", "7", "8")(guidanceRevision),
+      "Unsupported fixed experiment revision"
+    )
     require(
       !guidanceRetest || DesignGuidance.version.startsWith(guidanceRevision + "-"),
       "Guidance build must match the isolated experiment directory"
