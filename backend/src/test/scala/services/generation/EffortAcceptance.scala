@@ -64,7 +64,9 @@ object EffortAcceptance extends IOApp.Simple:
   private[generation] def metered(
       http: Client[IO],
       records: Ref[IO, Vector[Json]],
-      temperature: Option[Double] = None
+      temperature: Option[Double] = None,
+      lowThinking: Boolean = false,
+      lowOutputTokens: Option[Int] = None
   ): Client[IO] =
     Client { request =>
       for
@@ -78,7 +80,8 @@ object EffortAcceptance extends IOApp.Simple:
         payload = DesignLowEffortExperiment.payload(
           sampled,
           request.uri.host.exists(_.value == "api.deepseek.com"),
-          lowRetest
+          lowThinking,
+          lowOutputTokens
         )
         system = payload.hcursor
           .downField("messages")
@@ -270,7 +273,7 @@ object EffortAcceptance extends IOApp.Simple:
                     page <- db.transaction(c => PageTable.findById(c, nav.pageId)).map(_.get)
                     records <- Ref.of[IO, Vector[Json]](Vector.empty)
                     client = new DeepSeekCompatibleClient(
-                      metered(http, records, Option.when(samplingRetest)(1.3))
+                      metered(http, records, Option.when(samplingRetest)(1.3), lowRetest)
                     )
                     config = new ProviderConnection(
                       base.baseUrl,

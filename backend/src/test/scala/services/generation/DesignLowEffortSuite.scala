@@ -22,4 +22,10 @@ class DesignLowEffortSuite extends FunSuite:
     assertEquals(DesignLowEffortExperiment.payload(original, true, false), original)
     val deep = result.deepMerge(Json.obj("reasoning_effort" -> "high".asJson))
     assertEquals(DesignLowEffortExperiment.payload(deep, true, true), deep)
+    val expanded = DesignLowEffortExperiment.payload(original, true, true, Some(48000))
+    assertEquals(expanded.hcursor.get[Int]("max_tokens"), Right(48000))
+    assertEquals(expanded.hcursor.get[String]("reasoning_effort"), Right("low"))
+    intercept[IllegalArgumentException](
+      DesignLowEffortExperiment.payload(original, true, true, Some(96000))
+    )
   }

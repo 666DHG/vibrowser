@@ -25,7 +25,14 @@ object DesignContinuityAcceptance extends IOApp.Simple:
     val source = sys.env.getOrElse("VIBROWSER_CONTINUITY_SOURCE", "discussion-new")
     val label = sys.env.getOrElse("VIBROWSER_CONTINUITY_LABEL", "discussion-detail")
     require(
-      Set("design_acceptance", "effort_acceptance", "effort_guidance_v6")(schema),
+      Set(
+        "design_acceptance",
+        "effort_acceptance",
+        "effort_guidance_v6",
+        "effort_guidance_v8",
+        "effort_guidance_v8_deep",
+        "effort_guidance_v8_low"
+      )(schema),
       "Isolated acceptance schema required"
     )
     require(List(source, label).forall(_.matches("[a-z0-9-]+")), "Invalid sample name")
@@ -61,6 +68,19 @@ object DesignContinuityAcceptance extends IOApp.Simple:
             .parse(Files.readString(directory.resolve(source + ".json")))
             .toOption
             .get
+        )
+        policy = record.hcursor.get[String]("effortPolicy").getOrElse("product")
+        lowThinking = policy == "experimental-low"
+        _ <- IO.raiseUnless(lowThinking == schema.endsWith("_low"))(
+          new IllegalArgumentException("Parent effort policy does not match the isolated schema")
+        )
+        _ <- IO.raiseUnless(
+          record.hcursor
+            .downField("workflow")
+            .get[String]("guidanceVersion")
+            .contains(DesignGuidance.current.version)
+        )(
+          new IllegalArgumentException("Build guidance differs from the saved parent")
         )
         parent <- db
           .transaction(c =>
@@ -118,7 +138,9 @@ object DesignContinuityAcceptance extends IOApp.Simple:
         calls <- Ref.of[IO, Vector[Json]](Vector.empty)
         result <- new DesignWorkflowGeneration(
           db,
-          new DeepSeekCompatibleClient(EffortAcceptance.metered(http, calls)),
+          new DeepSeekCompatibleClient(
+            EffortAcceptance.metered(http, calls, lowThinking = lowThinking)
+          ),
           new NodeLayoutMeasurer
         ).generate(config, page, WebDocumentPrompt.request(page), None, None).attempt
         _ <- result.fold(
@@ -142,6 +164,7 @@ object DesignContinuityAcceptance extends IOApp.Simple:
                 "input" -> page.prompt.asJson,
                 "mode" -> page.mode.asJson,
                 "effort" -> page.effort.asJson,
+                "effortPolicy" -> policy.asJson,
                 "target" -> page.address.asJson,
                 "sourceAction" -> action.asJson,
                 "context" -> page.navigationContext.asJson,
