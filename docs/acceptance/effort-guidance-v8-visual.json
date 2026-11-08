@@ -1,0 +1,18 @@
+{
+  "complete": true,
+  "method": "Inspect all six fixed desktop/mobile screenshots against preserved old-standard pages. Count substantive task-related structure/typography, not renamed concepts, extra content or recoloring. No rerolls.",
+  "topics": [
+    {"name":"academic","verdict":"neutral","observation":"Serif long-form narrative and separate contact column are coherent, but the original already had a three-part research sequence. Larger identity typography and a later mobile directory do not establish a substantial overall improvement."},
+    {"name":"copy","verdict":"improved","observation":"Independent note grid, category presentation and individual copy controls support scanning and taking a single snippet. Mobile remains usable. Keyword filtering and copy were replayed; the multi-option sort does not match its declared single-field contract and remains a recorded limitation."},
+    {"name":"calendar","verdict":"improved","observation":"A month grid with compact current-date header and adjacent upcoming events creates a materially different date-navigation structure. Mobile keeps the calendar within the viewport. Content problem: the highlighted 8th disagrees with the 7th in the current-date header, so structural improvement does not establish complete correctness."},
+    {"name":"comparison","verdict":"neutral","observation":"Large introductory block, summary metrics and product cards delay comparison. The old scenario controls and direct comparison table already supported this task. More cards do not establish improvement."},
+    {"name":"docs","verdict":"neutral","observation":"Risk reference sidebar and chapter links are useful, but the original already provided chapter navigation and a reference table. On mobile the risk reference precedes the main content. No clear overall structural improvement."},
+    {"name":"essay","verdict":"neutral","observation":"Spacious serif introduction and a featured excerpt retain the old single-column journal composition. The added whitespace and changed text do not establish a new reading organization."}
+  ],
+  "improvedTopics": 2,
+  "requiredForDefaultEnable": 4,
+  "defaultEnableGatePassed": false,
+  "sameSiteV8Retested": false,
+  "reviewObservation": "Copy review includes useful sort-contract evidence but also aesthetic note-height alignment and optional wording changes. Calendar review assumes a Search needs in-page results and speculates Append has no content source. Do not convert these comments into per-example prompt restrictions. Final copy/calendar selections retain Original.",
+  "decision": "Keep opt-in disabled by default. Six final successes and five first-pass successes show compatibility, not sufficient visual breadth. Retain the observed defects without demanding perfection or claiming all interactions were verified. No new paid same-site sample while this gate is unmet."
+}

@@ -315,6 +315,32 @@ test("replay real design documents through the browser runtime without model req
           anchorVerified = true;
         }
       }
+      // Native fragment links are valid v3 navigation even without an action record.
+      if (!anchorVerified) {
+        const links = frame.locator('a[href^="#"]');
+        for (const control of await links.all()) {
+          const href = await control.getAttribute("href");
+          if (!href || href.length < 2 || !(await control.isVisible()))
+            continue;
+          const target = frame.locator(
+            `[id=${JSON.stringify(decodeURIComponent(href.slice(1)))}]`,
+          );
+          if ((await target.count()) !== 1) continue;
+          const before = requests;
+          await control.click();
+          await expect
+            .poll(() =>
+              target.evaluate((e) => {
+                const rect = e.getBoundingClientRect();
+                return rect.top >= -2 && rect.top < window.innerHeight;
+              }),
+            )
+            .toBe(true);
+          expect(requests).toBe(before);
+          anchorVerified = true;
+          break;
+        }
+      }
       const search = record.document.actions.find(
         (a: { kind: string }) => a.kind === "Search",
       );
