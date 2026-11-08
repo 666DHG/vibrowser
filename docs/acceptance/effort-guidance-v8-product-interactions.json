@@ -1,0 +1,17 @@
+[
+  {
+    "file": "academic-new-standard.json",
+    "localActions": [],
+    "searchSubmitted": false,
+    "navigationSubmitted": true,
+    "anchorVerified": true,
+    "copyVerified": true,
+    "copyContentPreserved": true,
+    "copyRawSource": "improvement",
+    "filterVerified": false,
+    "sortVerified": false,
+    "sortLocale": null,
+    "limitations": [],
+    "extraModelCalls": 0
+  }
+]

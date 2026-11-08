@@ -1,0 +1,1806 @@
+{
+  "evaluatedAt": "2026-11-08T06:38:10.354Z",
+  "expectedSamples": 6,
+  "complete": false,
+  "groups": {
+    "old-standard": {
+      "samples": 0,
+      "ready": 0,
+      "interrupted": 0,
+      "unknownUsageSamples": 0,
+      "unknownDurationSamples": 0,
+      "initialGenerationAccepted": 0,
+      "modelCalls": 0,
+      "generationModelCalls": 0,
+      "recordedTokens": 0,
+      "recordedCompletionTokens": 0,
+      "recordedReasoningTokens": 0,
+      "seconds": 0
+    },
+    "new-standard": {
+      "samples": 1,
+      "ready": 1,
+      "interrupted": 0,
+      "unknownUsageSamples": 0,
+      "unknownDurationSamples": 0,
+      "initialGenerationAccepted": 1,
+      "modelCalls": 4,
+      "generationModelCalls": 4,
+      "recordedTokens": 106795,
+      "recordedCompletionTokens": 32137,
+      "recordedReasoningTokens": 18136,
+      "seconds": 162
+    },
+    "new-deep": {
+      "samples": 0,
+      "ready": 0,
+      "interrupted": 0,
+      "unknownUsageSamples": 0,
+      "unknownDurationSamples": 0,
+      "initialGenerationAccepted": 0,
+      "modelCalls": 0,
+      "generationModelCalls": 0,
+      "recordedTokens": 0,
+      "recordedCompletionTokens": 0,
+      "recordedReasoningTokens": 0,
+      "seconds": 0
+    }
+  },
+  "comparability": [
+    {
+      "input": "清华教师袁洋的个人学术主页.com",
+      "samples": 1,
+      "allThreePresent": false,
+      "identicalGenerationRequest": true,
+      "actualEffortMatches": true,
+      "unobservedEffortSamples": 0
+    }
+  ],
+  "samples": [
+    {
+      "name": "academic-new-standard",
+      "input": "清华教师袁洋的个人学术主页.com",
+      "mode": "research",
+      "effort": "standard",
+      "effortPolicy": "product-low-48k",
+      "contentFocusOnly": true,
+      "draftPlanning": false,
+      "draftCharacters": 0,
+      "layoutExploration": true,
+      "designDirection": {
+        "concept": "三层递进：从诊室到代数",
+        "structure": "单栏纵向叙事，按「刻画医疗过程—辅助临床诊疗—形式化中医理论」三段依次展开，每段以一句主张加若干短条目呈现；代表工作置于主线之后作为证据区，招募与教育背景收束在页面尾部。",
+        "typography": "正文采用朴素学术衬线体，标题用中等字重衬线并放大行距；层级编号用小型等宽字体标记，形成“笔记—论证”的阅读节奏，避免营销式大字。",
+        "contentReason": "资料本身即以三个层面组织AI+中医，递进结构直接对应作者自述的推进逻辑，读者无需先理解范畴论也能顺次进入其研究动机。"
+      },
+      "proposedDirectionCount": 3,
+      "visualReferenceCount": 0,
+      "visualReferenceCharacters": 2,
+      "requestHash": "f20a29e023377512d50a9fa832ce076c0ee634258695b8abcf8e4459287dbc7f",
+      "actualEffortMatches": true,
+      "pageId": "4a4d23e5-e3a2-4281-9328-d78e1f29bd12",
+      "jobId": "d01220f4-2bdc-4fbb-99db-b6396ca29371",
+      "guidance": "8-c1e0823385b34590f0bf7bd797de93208836a202c8c5d1055843268e0d7bb5bd",
+      "briefCharacters": 1680,
+      "earlyVisualPlanCharacters": 0,
+      "cssChangedByReview": false,
+      "seconds": 162,
+      "interrupted": false,
+      "usageComplete": true,
+      "error": null,
+      "initialGenerationAccepted": true,
+      "generationAttempts": [
+        {
+          "attempt": 1,
+          "outcome": "Accepted",
+          "errorCode": null,
+          "message": null,
+          "at": "2026-11-08T06:36:09.127361600Z"
+        }
+      ],
+      "modelCalls": [
+        {
+          "usage": {
+            "prompt_tokens": 6558,
+            "completion_tokens": 1200,
+            "total_tokens": 7758,
+            "prompt_tokens_details": {
+              "cached_tokens": 6400
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 384
+            },
+            "prompt_cache_hit_tokens": 6400,
+            "prompt_cache_miss_tokens": 158
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 11015,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 48000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "brief"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 8189,
+            "completion_tokens": 21447,
+            "total_tokens": 29636,
+            "prompt_tokens_details": {
+              "cached_tokens": 7552
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 15121
+            },
+            "prompt_cache_hit_tokens": 7552,
+            "prompt_cache_miss_tokens": 637
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 97614,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 48000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 29669,
+            "completion_tokens": 1253,
+            "total_tokens": 30922,
+            "prompt_tokens_details": {
+              "cached_tokens": 7424
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 986
+            },
+            "prompt_cache_hit_tokens": 7424,
+            "prompt_cache_miss_tokens": 22245
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 9676,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 48000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "review"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 30242,
+            "completion_tokens": 8237,
+            "total_tokens": 38479,
+            "prompt_tokens_details": {
+              "cached_tokens": 896
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1645
+            },
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 29346
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 31090,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 48000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "low",
+          "stage": "document"
+        }
+      ],
+      "selection": "Improved",
+      "events": [
+        {
+          "stage": "Brief",
+          "status": "Started",
+          "at": "2026-11-08T06:34:19.965809400Z",
+          "message": null
+        },
+        {
+          "stage": "Brief",
+          "status": "Completed",
+          "at": "2026-11-08T06:34:31.206724400Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Started",
+          "at": "2026-11-08T06:36:09.140384700Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Completed",
+          "at": "2026-11-08T06:36:15.475083Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Started",
+          "at": "2026-11-08T06:36:15.491114300Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Completed",
+          "at": "2026-11-08T06:36:25.183885Z",
+          "message": null
+        },
+        {
+          "stage": "Improve",
+          "status": "Started",
+          "at": "2026-11-08T06:36:25.189877800Z",
+          "message": null
+        },
+        {
+          "stage": "Improve",
+          "status": "Completed",
+          "at": "2026-11-08T06:36:56.372327300Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureImproved",
+          "status": "Started",
+          "at": "2026-11-08T06:36:56.383393400Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureImproved",
+          "status": "Completed",
+          "at": "2026-11-08T06:37:02.499642100Z",
+          "message": null
+        },
+        {
+          "stage": "Selection",
+          "status": "Completed",
+          "at": "2026-11-08T06:37:02.506604500Z",
+          "message": "采用改进页面"
+        }
+      ],
+      "sources": [
+        {
+          "id": "source-1",
+          "url": "https://people.iiis.tsinghua.edu.cn/~yuanyang/index.html",
+          "title": "袁洋",
+          "retrievedAt": "2026-11-07T15:34:42.982846400Z"
+        },
+        {
+          "id": "source-2",
+          "url": "http://people.iiis.tsinghua.edu.cn/~yuanyang/index.html",
+          "title": "袁洋",
+          "retrievedAt": "2026-11-07T15:34:42.983490200Z"
+        },
+        {
+          "id": "source-3",
+          "url": "https://www.sqz.ac.cn/artificial-1",
+          "title": "袁洋-人工智能-上海期智研究院",
+          "retrievedAt": "2026-11-07T15:34:42.983490200Z"
+        },
+        {
+          "id": "source-4",
+          "url": "https://www.sqz.ac.cn/jushen-1",
+          "title": "袁洋-具身智能与智能制造-上海期智研究院",
+          "retrievedAt": "2026-11-07T15:34:42.983490200Z"
+        },
+        {
+          "id": "source-5",
+          "url": "https://baike.baidu.com/item/%E8%A2%81%E6%B4%8B/68477227?bst=1791367531.faf4e3422d575025#1",
+          "title": "袁洋 - 清华大学交叉信息研究院院长助理、副教授",
+          "retrievedAt": "2026-11-07T15:34:42.983490200Z"
+        }
+      ],
+      "researchReused": true,
+      "siteStyle": {
+        "brand": "学术笔记：纸白底、墨色衬线、陶土色编号，强调研究主线的递进关系",
+        "typography": "标题与正文使用系统学术衬线体，编号使用等宽字体；行距宽松，字号克制，避免营销式大字",
+        "palette": "纸白 #f6f2e8、墨色 #1e1f1a、陶土 #8a3d24、松绿 #2f5d50、细线 #d5cdbc",
+        "layout": "单栏纵向叙事，最大宽度 880px；三段编号与内容两列网格，窄屏折叠为单列；以细线和留白分隔，不使用卡片阴影"
+      },
+      "actions": [
+        {
+          "id": "copy-email",
+          "kind": "Copy",
+          "elementId": "copy-email-btn",
+          "target": null,
+          "region": "email-text",
+          "stateKey": "copyFeedback",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "filter-works",
+          "kind": "Filter",
+          "elementId": "works-filter",
+          "target": null,
+          "region": "works-list",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-0",
+          "kind": "Navigate",
+          "elementId": "vib-link-0",
+          "target": "https://arxiv.org/pdf/2501.06425",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-1",
+          "kind": "Navigate",
+          "elementId": "vib-link-1",
+          "target": "https://aclanthology.org/2025.findings-acl.216.pdf",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-2",
+          "kind": "Navigate",
+          "elementId": "vib-link-2",
+          "target": "https://arxiv.org/pdf/2504.19188",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-3",
+          "kind": "Navigate",
+          "elementId": "vib-link-3",
+          "target": "https://arxiv.org/pdf/2305.17326",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        }
+      ],
+      "layout": {
+        "viewports": [
+          {
+            "width": 1440,
+            "height": 900,
+            "scrollWidth": 1425,
+            "scrollHeight": 3962,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "",
+                "tag": "h1",
+                "text": "袁洋",
+                "x": 302.5,
+                "y": 75.703125,
+                "width": 820,
+                "height": 86.015625,
+                "fontSize": "67.2px",
+                "lineHeight": "86.016px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "从诊室到代数",
+                "x": 302.5,
+                "y": 511.515625,
+                "width": 820,
+                "height": 40.953125,
+                "fontSize": "32px",
+                "lineHeight": "40.96px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "刻画医疗过程",
+                "x": 388.5,
+                "y": 648.40625,
+                "width": 734,
+                "height": 23.125,
+                "fontSize": "18.08px",
+                "lineHeight": "23.1424px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "辅助临床诊疗",
+                "x": 388.5,
+                "y": 752.1875,
+                "width": 734,
+                "height": 23.125,
+                "fontSize": "18.08px",
+                "lineHeight": "23.1424px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "形式化中医理论",
+                "x": 388.5,
+                "y": 855.96875,
+                "width": 734,
+                "height": 23.125,
+                "fontSize": "18.08px",
+                "lineHeight": "23.1424px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "为什么是范畴论",
+                "x": 302.5,
+                "y": 1032.15625,
+                "width": 820,
+                "height": 40.953125,
+                "fontSize": "32px",
+                "lineHeight": "40.96px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "代表工作",
+                "x": 302.5,
+                "y": 1511.984375,
+                "width": 820,
+                "height": 40.953125,
+                "fontSize": "32px",
+                "lineHeight": "40.96px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "On the power of foundation models",
+                "x": 302.5,
+                "y": 1684.453125,
+                "width": 820,
+                "height": 22.9375,
+                "fontSize": "17.92px",
+                "lineHeight": "22.9376px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Contrastive learning is spectral clustering on similarity graph",
+                "x": 302.5,
+                "y": 1860.96875,
+                "width": 820,
+                "height": 22.9375,
+                "fontSize": "17.92px",
+                "lineHeight": "22.9376px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Trade-off between efficiency and consistency for removal-based explanations",
+                "x": 302.5,
+                "y": 2037.484375,
+                "width": 820,
+                "height": 22.9375,
+                "fontSize": "17.92px",
+                "lineHeight": "22.9376px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "团队近期成果",
+                "x": 302.5,
+                "y": 2236.796875,
+                "width": 820,
+                "height": 40.953125,
+                "fontSize": "32px",
+                "lineHeight": "40.96px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Tensor Product Attention Is All You Need",
+                "x": 302.5,
+                "y": 2340.53125,
+                "width": 820,
+                "height": 21.09375,
+                "fontSize": "16.48px",
+                "lineHeight": "21.0944px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Autonomous Data Selection with Zero-shot Generative Classifiers for Mathematical Texts",
+                "x": 302.5,
+                "y": 2511.5,
+                "width": 820,
+                "height": 21.09375,
+                "fontSize": "16.48px",
+                "lineHeight": "21.0944px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Hierarchical Attention Generates Better Proofs",
+                "x": 302.5,
+                "y": 2682.46875,
+                "width": 820,
+                "height": 21.09375,
+                "fontSize": "16.48px",
+                "lineHeight": "21.0944px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Matrix Information Theory for Self-Supervised Learning",
+                "x": 302.5,
+                "y": 2853.4375,
+                "width": 820,
+                "height": 21.09375,
+                "fontSize": "16.48px",
+                "lineHeight": "21.0944px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "教育与荣誉",
+                "x": 302.5,
+                "y": 3020.96875,
+                "width": 820,
+                "height": 40.953125,
+                "fontSize": "32px",
+                "lineHeight": "40.96px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "荣誉",
+                "x": 302.5,
+                "y": 3304.359375,
+                "width": 820,
+                "height": 20.46875,
+                "fontSize": "16px",
+                "lineHeight": "20.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "教学",
+                "x": 302.5,
+                "y": 3422.546875,
+                "width": 820,
+                "height": 20.46875,
+                "fontSize": "16px",
+                "lineHeight": "20.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "加入与联系",
+                "x": 302.5,
+                "y": 3588.28125,
+                "width": 820,
+                "height": 40.953125,
+                "fontSize": "32px",
+                "lineHeight": "40.96px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              }
+            ],
+            "controls": [
+              {
+                "id": "copy-email-btn",
+                "tag": "button",
+                "text": "复制邮箱",
+                "x": 556.953125,
+                "y": 327.171875,
+                "width": 74,
+                "height": 33.90625,
+                "fontSize": "13.44px",
+                "lineHeight": "23.9232px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "研究主线",
+                "x": 302.5,
+                "y": 404.078125,
+                "width": 56,
+                "height": 24.5,
+                "fontSize": "13.76px",
+                "lineHeight": "24.4928px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "范畴论与 AI 基础理论",
+                "x": 380.5,
+                "y": 404.078125,
+                "width": 134.234375,
+                "height": 24.5,
+                "fontSize": "13.76px",
+                "lineHeight": "24.4928px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "代表工作",
+                "x": 536.734375,
+                "y": 404.078125,
+                "width": 56,
+                "height": 24.5,
+                "fontSize": "13.76px",
+                "lineHeight": "24.4928px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "近年成果",
+                "x": 614.734375,
+                "y": 404.078125,
+                "width": 56,
+                "height": 24.5,
+                "fontSize": "13.76px",
+                "lineHeight": "24.4928px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "教育与荣誉",
+                "x": 692.734375,
+                "y": 404.078125,
+                "width": 70,
+                "height": 24.5,
+                "fontSize": "13.76px",
+                "lineHeight": "24.4928px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "招募与联系",
+                "x": 784.734375,
+                "y": 404.078125,
+                "width": 70,
+                "height": 24.5,
+                "fontSize": "13.76px",
+                "lineHeight": "24.4928px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "works-filter",
+                "tag": "input",
+                "text": "",
+                "x": 389.78125,
+                "y": 1585.125,
+                "width": 732.71875,
+                "height": 39.1875,
+                "fontSize": "14.72px",
+                "lineHeight": "26.2016px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-0",
+                "tag": "a",
+                "text": "Tensor Product Attention Is All You Need",
+                "x": 302.5,
+                "y": 2339.53125,
+                "width": 304.359375,
+                "height": 22,
+                "fontSize": "16.48px",
+                "lineHeight": "21.0944px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-1",
+                "tag": "a",
+                "text": "Autonomous Data Selection with Zero-shot Generative Classifiers for Mathematical Texts",
+                "x": 302.5,
+                "y": 2510.5,
+                "width": 659.203125,
+                "height": 22,
+                "fontSize": "16.48px",
+                "lineHeight": "21.0944px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-2",
+                "tag": "a",
+                "text": "Hierarchical Attention Generates Better Proofs",
+                "x": 302.5,
+                "y": 2681.46875,
+                "width": 341.140625,
+                "height": 22,
+                "fontSize": "16.48px",
+                "lineHeight": "21.0944px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-3",
+                "tag": "a",
+                "text": "Matrix Information Theory for Self-Supervised Learning",
+                "x": 302.5,
+                "y": 2852.4375,
+                "width": 418.140625,
+                "height": 22,
+                "fontSize": "16.48px",
+                "lineHeight": "21.0944px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "回到页面顶部",
+                "x": 302.5,
+                "y": 3814.859375,
+                "width": 75.3125,
+                "height": 14,
+                "fontSize": "11.84px",
+                "lineHeight": "21.0752px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
+                "horizontalScroll": null
+              }
+            ],
+            "regions": [
+              {
+                "id": "top",
+                "tag": "header",
+                "text": "清华大学交叉信息研究院 · 副教授\n  袁洋\n  清华大学交叉信息研究院副教授、上海期智研究院 PI。研究智能医疗、AI 基础理论与应用范畴论，目标是以范畴论为骨架，把医疗知识、诊疗过程与人体状态统一刻画，并借此为人工智能提供组织复杂系统的新方式。\n  \n   清华大学交叉信息研究院 副教授\n   上海期智研究院 PI（2020 年 7 月至今）\n   清华",
+                "x": 302.5,
+                "y": 44,
+                "width": 820,
+                "height": 344.078125,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "nav",
+                "text": "研究主线范畴论与 AI 基础理论代表工作近年成果教育与荣誉招募与联系",
+                "x": 302.5,
+                "y": 388.078125,
+                "width": 820,
+                "height": 57.5,
+                "fontSize": "13.76px",
+                "lineHeight": "24.4928px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "main",
+                "text": "01 / 主线\n    从诊室到代数\n   \n   我主要研究 AI+中医。具体来说，希望从三个层面推进这件事。\n   \n    \n     \n      01\n     \n     \n      刻画医疗过程\n      记录并描绘医生在日常诊疗中与患者的交互、判断、推理和思考过程。\n     \n    \n    \n     \n      02\n     ",
+                "x": 302.5,
+                "y": 445.578125,
+                "width": 820,
+                "height": 3444.75,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "main-line",
+                "tag": "section",
+                "text": "01 / 主线\n    从诊室到代数\n   \n   我主要研究 AI+中医。具体来说，希望从三个层面推进这件事。\n   \n    \n     \n      01\n     \n     \n      刻画医疗过程\n      记录并描绘医生在日常诊疗中与患者的交互、判断、推理和思考过程。\n     \n    \n    \n     \n      02\n     ",
+                "x": 302.5,
+                "y": 445.578125,
+                "width": 820,
+                "height": 520.640625,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "01\n     \n     \n      刻画医疗过程\n      记录并描绘医生在日常诊疗中与患者的交互、判断、推理和思考过程。",
+                "x": 312.5,
+                "y": 626.40625,
+                "width": 810,
+                "height": 103.78125,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "02\n     \n     \n      辅助临床诊疗\n      结合人工智能算法与医疗设备，分析患者信息，辅助医生辨证、开方。",
+                "x": 312.5,
+                "y": 730.1875,
+                "width": 810,
+                "height": 103.78125,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "03\n     \n     \n      形式化中医理论\n      仅靠数据驱动是不够的。医疗知识需要自洽，辅助诊疗需要可解释性。为此，需要将医疗过程形式化为一种代数系统，也就是把中医变成一种数学。",
+                "x": 312.5,
+                "y": 833.96875,
+                "width": 810,
+                "height": 132.25,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "theory",
+                "tag": "section",
+                "text": "02 / 理论\n    为什么是范畴论\n   \n   在实践过程中，我逐渐意识到，仅靠数据驱动是不够的。医疗知识需要自洽，辅助诊疗需要可解释性。为此，需要将医疗过程形式化为一种代数系统，也就是把中医变成一种数学。\n   希望推动的方向，是建立一种以中医为基础、由范畴论支撑的新医疗。其中，医理、病症、病机、治法、方药与人体状态可以被统一刻画，并通过其中的结构关",
+                "x": 302.5,
+                "y": 966.21875,
+                "width": 820,
+                "height": 463.828125,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "works",
+                "tag": "section",
+                "text": "03 / 证据\n    代表工作\n   \n   \n    筛选代表工作\n   \n   \n    \n     代表工作 · 01\n     On the power of foundation models\n     Yang Yuan\n     基础模型 · 内外关系\n     《孟子·告子下》：有诸内，必形诸外。《黄帝内经·灵枢·外揣》：司外揣内，司内揣外",
+                "x": 302.5,
+                "y": 1446.046875,
+                "width": 820,
+                "height": 724.8125,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "代表工作 · 01\n     On the power of foundation models\n     Yang Yuan\n     基础模型 · 内外关系\n     《孟子·告子下》：有诸内，必形诸外。《黄帝内经·灵枢·外揣》：司外揣内，司内揣外。",
+                "x": 302.5,
+                "y": 1641.3125,
+                "width": 820,
+                "height": 176.515625,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "代表工作 · 02\n     Contrastive learning is spectral clustering on similarity graph\n     Zhiquan Tan, Yifan Zhang, Jingqin Yang, Yang Yuan\n     自监督学习 · 谱聚类 · 范畴论\n     AI 范畴论的一维情形。",
+                "x": 302.5,
+                "y": 1817.828125,
+                "width": 820,
+                "height": 176.515625,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "代表工作 · 03\n     Trade-off between efficiency and consistency for removal-based explanations\n     Yifan Zhang, Haowei He, Zhiquan Tan, Yang Yuan\n     可解释性 · 效率与一致性\n     传统可解释性的不可能三角。",
+                "x": 302.5,
+                "y": 1994.34375,
+                "width": 820,
+                "height": 176.515625,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "results",
+                "tag": "section",
+                "text": "04 / 近年\n    团队近期成果\n   \n   \n    \n     2025 · NeurIPS\n     Tensor Product Attention Is All You Need\n     Yifan Zhang*, Yifeng Liu*, Huizhuo Yuan, Zhen Qin, Yang Yuan, Quanquan Gu, An",
+                "x": 302.5,
+                "y": 2170.859375,
+                "width": 820,
+                "height": 784.171875,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "2025 · NeurIPS\n     Tensor Product Attention Is All You Need\n     Yifan Zhang*, Yifeng Liu*, Huizhuo Yuan, Zhen Qin, Yang Yuan, Quanquan Gu, Andrew C Yao†\n     姚期智、袁洋团队与 UCLA 顾全全老师",
+                "x": 302.5,
+                "y": 2297.9375,
+                "width": 820,
+                "height": 170.96875,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "2025 · ACL Findings\n     Autonomous Data Selection with Zero-shot Generative Classifiers for Mathematical Texts\n     Yifan Zhang*, Yifan Luo*, Yang Yuan†, Andrew Chi-Chih Yao†\n    ",
+                "x": 302.5,
+                "y": 2468.90625,
+                "width": 820,
+                "height": 170.96875,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "2025 · ACL\n     Hierarchical Attention Generates Better Proofs\n     Jianlong Chen, Chao Li, Yang Yuan†, Andrew Chi-Chih Yao†\n     用层次化注意力正则化方法帮助大模型理解形式化定理证明的结构。在 miniF2F 和 ProofNet",
+                "x": 302.5,
+                "y": 2639.875,
+                "width": 820,
+                "height": 170.96875,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "2024 · ICML\n     Matrix Information Theory for Self-Supervised Learning\n     Yifan Zhang, Zhiquan Tan, Jingqin Yang, Weiran Huang, Yang Yuan\n     用矩阵信息论解释最大熵编码框架，提出矩阵均匀性损失和矩阵对齐损失，把",
+                "x": 302.5,
+                "y": 2810.84375,
+                "width": 820,
+                "height": 144.1875,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "education",
+                "tag": "section",
+                "text": "05 / 背景\n    教育与荣誉\n   \n   \n    \n     博士\n     康奈尔大学计算机系，师从 Robert Kleinberg 教授\n    \n    \n     博士后\n     MIT 大数据科学基础研究院（MIFODS）\n    \n    \n     本科\n     北京大学计算机系\n    \n    \n     访问经历\n    ",
+                "x": 302.5,
+                "y": 2955.03125,
+                "width": 820,
+                "height": 551.3125,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "join",
+                "tag": "section",
+                "text": "06 / 加入\n    加入与联系\n   \n   由于在学校培养 AI 中医方向的人才极为困难，我目前主要招收对 AI 数学、软件生成、大规模复杂系统构建感兴趣的学生。\n   此外，我也在组建一支全职工程团队，方向聚焦于 AI 数学。\n   邮箱：yuanyang@tsinghua.edu.cn\n   回到页面顶部",
+                "x": 302.5,
+                "y": 3522.34375,
+                "width": 820,
+                "height": 367.984375,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              }
+            ],
+            "visualProfile": {
+              "backgrounds": [
+                "rgb(246, 242, 232)"
+              ],
+              "fonts": [
+                "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif"
+              ],
+              "headingSizes": [
+                67.2,
+                32,
+                18.08
+              ],
+              "regions": [
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.57
+                },
+                {
+                  "display": "flex",
+                  "columns": 6,
+                  "widthRatio": 0.57
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.57
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.57
+                }
+              ]
+            }
+          },
+          {
+            "width": 390,
+            "height": 844,
+            "scrollWidth": 375,
+            "scrollHeight": 5239,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "",
+                "tag": "h1",
+                "text": "袁洋",
+                "x": 18,
+                "y": 57.859375,
+                "width": 339,
+                "height": 53.234375,
+                "fontSize": "41.6px",
+                "lineHeight": "53.248px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "从诊室到代数",
+                "x": 18,
+                "y": 618.65625,
+                "width": 339,
+                "height": 29.6875,
+                "fontSize": "23.2px",
+                "lineHeight": "29.696px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "刻画医疗过程",
+                "x": 28,
+                "y": 800.109375,
+                "width": 329,
+                "height": 23.125,
+                "fontSize": "18.08px",
+                "lineHeight": "23.1424px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "辅助临床诊疗",
+                "x": 28,
+                "y": 957.4375,
+                "width": 329,
+                "height": 23.125,
+                "fontSize": "18.08px",
+                "lineHeight": "23.1424px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "形式化中医理论",
+                "x": 28,
+                "y": 1114.765625,
+                "width": 329,
+                "height": 23.125,
+                "fontSize": "18.08px",
+                "lineHeight": "23.1424px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "为什么是范畴论",
+                "x": 18,
+                "y": 1347.890625,
+                "width": 339,
+                "height": 29.6875,
+                "fontSize": "23.2px",
+                "lineHeight": "29.696px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "代表工作",
+                "x": 18,
+                "y": 2075.109375,
+                "width": 339,
+                "height": 29.6875,
+                "fontSize": "23.2px",
+                "lineHeight": "29.696px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "On the power of foundation models",
+                "x": 18,
+                "y": 2236.3125,
+                "width": 339,
+                "height": 22.9375,
+                "fontSize": "17.92px",
+                "lineHeight": "22.9376px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Contrastive learning is spectral clustering on similarity graph",
+                "x": 18,
+                "y": 2440.75,
+                "width": 339,
+                "height": 45.875,
+                "fontSize": "17.92px",
+                "lineHeight": "22.9376px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Trade-off between efficiency and consistency for removal-based explanations",
+                "x": 18,
+                "y": 2640.203125,
+                "width": 339,
+                "height": 68.8125,
+                "fontSize": "17.92px",
+                "lineHeight": "22.9376px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "团队近期成果",
+                "x": 18,
+                "y": 2885.390625,
+                "width": 339,
+                "height": 29.6875,
+                "fontSize": "23.2px",
+                "lineHeight": "29.696px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Tensor Product Attention Is All You Need",
+                "x": 18,
+                "y": 2977.859375,
+                "width": 339,
+                "height": 21.09375,
+                "fontSize": "16.48px",
+                "lineHeight": "21.0944px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Autonomous Data Selection with Zero-shot Generative Classifiers for Mathematical Texts",
+                "x": 18,
+                "y": 3226.296875,
+                "width": 339,
+                "height": 42.1875,
+                "fontSize": "16.48px",
+                "lineHeight": "21.0944px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Hierarchical Attention Generates Better Proofs",
+                "x": 18,
+                "y": 3522.609375,
+                "width": 339,
+                "height": 42.1875,
+                "fontSize": "16.48px",
+                "lineHeight": "21.0944px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Matrix Information Theory for Self-Supervised Learning",
+                "x": 18,
+                "y": 3792.140625,
+                "width": 339,
+                "height": 42.1875,
+                "fontSize": "16.48px",
+                "lineHeight": "21.0944px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "教育与荣誉",
+                "x": 18,
+                "y": 4058.234375,
+                "width": 339,
+                "height": 29.6875,
+                "fontSize": "23.2px",
+                "lineHeight": "29.696px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "荣誉",
+                "x": 18,
+                "y": 4496.484375,
+                "width": 339,
+                "height": 20.46875,
+                "fontSize": "16px",
+                "lineHeight": "20.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "教学",
+                "x": 18,
+                "y": 4643.140625,
+                "width": 339,
+                "height": 20.46875,
+                "fontSize": "16px",
+                "lineHeight": "20.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "加入与联系",
+                "x": 18,
+                "y": 4837.34375,
+                "width": 339,
+                "height": 29.6875,
+                "fontSize": "23.2px",
+                "lineHeight": "29.696px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              }
+            ],
+            "controls": [
+              {
+                "id": "copy-email-btn",
+                "tag": "button",
+                "text": "复制邮箱",
+                "x": 272.453125,
+                "y": 391.8125,
+                "width": 74,
+                "height": 33.90625,
+                "fontSize": "13.44px",
+                "lineHeight": "23.9232px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "研究主线",
+                "x": 18,
+                "y": 478.71875,
+                "width": 56,
+                "height": 24.5,
+                "fontSize": "13.76px",
+                "lineHeight": "24.4928px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "范畴论与 AI 基础理论",
+                "x": 96,
+                "y": 478.71875,
+                "width": 134.234375,
+                "height": 24.5,
+                "fontSize": "13.76px",
+                "lineHeight": "24.4928px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "代表工作",
+                "x": 252.234375,
+                "y": 478.71875,
+                "width": 56,
+                "height": 24.5,
+                "fontSize": "13.76px",
+                "lineHeight": "24.4928px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "近年成果",
+                "x": 18,
+                "y": 511.21875,
+                "width": 56,
+                "height": 24.5,
+                "fontSize": "13.76px",
+                "lineHeight": "24.4928px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "教育与荣誉",
+                "x": 96,
+                "y": 511.21875,
+                "width": 70,
+                "height": 24.5,
+                "fontSize": "13.76px",
+                "lineHeight": "24.4928px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "招募与联系",
+                "x": 188,
+                "y": 511.21875,
+                "width": 70,
+                "height": 24.5,
+                "fontSize": "13.76px",
+                "lineHeight": "24.4928px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "works-filter",
+                "tag": "input",
+                "text": "",
+                "x": 105.28125,
+                "y": 2136.984375,
+                "width": 251.71875,
+                "height": 39.1875,
+                "fontSize": "14.72px",
+                "lineHeight": "26.2016px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-0",
+                "tag": "a",
+                "text": "Tensor Product Attention Is All You Need",
+                "x": 18,
+                "y": 2976.859375,
+                "width": 304.359375,
+                "height": 22,
+                "fontSize": "16.48px",
+                "lineHeight": "21.0944px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-1",
+                "tag": "a",
+                "text": "Autonomous Data Selection with Zero-shot Generative Classifiers for Mathematical Texts",
+                "x": 18,
+                "y": 3225.296875,
+                "width": 336.234375,
+                "height": 43.09375,
+                "fontSize": "16.48px",
+                "lineHeight": "21.0944px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-2",
+                "tag": "a",
+                "text": "Hierarchical Attention Generates Better Proofs",
+                "x": 18,
+                "y": 3521.609375,
+                "width": 289.65625,
+                "height": 43.09375,
+                "fontSize": "16.48px",
+                "lineHeight": "21.0944px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-3",
+                "tag": "a",
+                "text": "Matrix Information Theory for Self-Supervised Learning",
+                "x": 18,
+                "y": 3791.140625,
+                "width": 264.375,
+                "height": 43.09375,
+                "fontSize": "16.48px",
+                "lineHeight": "21.0944px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "回到页面顶部",
+                "x": 18,
+                "y": 5109.59375,
+                "width": 75.3125,
+                "height": 14,
+                "fontSize": "11.84px",
+                "lineHeight": "21.0752px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
+                "horizontalScroll": null
+              }
+            ],
+            "regions": [
+              {
+                "id": "top",
+                "tag": "header",
+                "text": "清华大学交叉信息研究院 · 副教授\n  袁洋\n  清华大学交叉信息研究院副教授、上海期智研究院 PI。研究智能医疗、AI 基础理论与应用范畴论，目标是以范畴论为骨架，把医疗知识、诊疗过程与人体状态统一刻画，并借此为人工智能提供组织复杂系统的新方式。\n  \n   清华大学交叉信息研究院 副教授\n   上海期智研究院 PI（2020 年 7 月至今）\n   清华",
+                "x": 18,
+                "y": 30,
+                "width": 339,
+                "height": 432.71875,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "nav",
+                "text": "研究主线范畴论与 AI 基础理论代表工作近年成果教育与荣誉招募与联系",
+                "x": 18,
+                "y": 462.71875,
+                "width": 339,
+                "height": 90,
+                "fontSize": "13.76px",
+                "lineHeight": "24.4928px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "main",
+                "text": "01 / 主线\n    从诊室到代数\n   \n   我主要研究 AI+中医。具体来说，希望从三个层面推进这件事。\n   \n    \n     \n      01\n     \n     \n      刻画医疗过程\n      记录并描绘医生在日常诊疗中与患者的交互、判断、推理和思考过程。\n     \n    \n    \n     \n      02\n     ",
+                "x": 18,
+                "y": 552.71875,
+                "width": 339,
+                "height": 4632.34375,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "main-line",
+                "tag": "section",
+                "text": "01 / 主线\n    从诊室到代数\n   \n   我主要研究 AI+中医。具体来说，希望从三个层面推进这件事。\n   \n    \n     \n      01\n     \n     \n      刻画医疗过程\n      记录并描绘医生在日常诊疗中与患者的交互、判断、推理和思考过程。\n     \n    \n    \n     \n      02\n     ",
+                "x": 18,
+                "y": 552.71875,
+                "width": 339,
+                "height": 729.234375,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "01\n     \n     \n      刻画医疗过程\n      记录并描绘医生在日常诊疗中与患者的交互、判断、推理和思考过程。",
+                "x": 28,
+                "y": 753.03125,
+                "width": 329,
+                "height": 157.328125,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "02\n     \n     \n      辅助临床诊疗\n      结合人工智能算法与医疗设备，分析患者信息，辅助医生辨证、开方。",
+                "x": 28,
+                "y": 910.359375,
+                "width": 329,
+                "height": 157.328125,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "03\n     \n     \n      形式化中医理论\n      仅靠数据驱动是不够的。医疗知识需要自洽，辅助诊疗需要可解释性。为此，需要将医疗过程形式化为一种代数系统，也就是把中医变成一种数学。",
+                "x": 28,
+                "y": 1067.6875,
+                "width": 329,
+                "height": 214.265625,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "theory",
+                "tag": "section",
+                "text": "02 / 理论\n    为什么是范畴论\n   \n   在实践过程中，我逐渐意识到，仅靠数据驱动是不够的。医疗知识需要自洽，辅助诊疗需要可解释性。为此，需要将医疗过程形式化为一种代数系统，也就是把中医变成一种数学。\n   希望推动的方向，是建立一种以中医为基础、由范畴论支撑的新医疗。其中，医理、病症、病机、治法、方药与人体状态可以被统一刻画，并通过其中的结构关",
+                "x": 18,
+                "y": 1281.953125,
+                "width": 339,
+                "height": 711.21875,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "works",
+                "tag": "section",
+                "text": "03 / 证据\n    代表工作\n   \n   \n    筛选代表工作\n   \n   \n    \n     代表工作 · 01\n     On the power of foundation models\n     Yang Yuan\n     基础模型 · 内外关系\n     《孟子·告子下》：有诸内，必形诸外。《黄帝内经·灵枢·外揣》：司外揣内，司内揣外",
+                "x": 18,
+                "y": 2009.171875,
+                "width": 339,
+                "height": 810.28125,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "代表工作 · 01\n     On the power of foundation models\n     Yang Yuan\n     基础模型 · 内外关系\n     《孟子·告子下》：有诸内，必形诸外。《黄帝内经·灵枢·外揣》：司外揣内，司内揣外。",
+                "x": 18,
+                "y": 2193.171875,
+                "width": 339,
+                "height": 204.4375,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "代表工作 · 02\n     Contrastive learning is spectral clustering on similarity graph\n     Zhiquan Tan, Yifan Zhang, Jingqin Yang, Yang Yuan\n     自监督学习 · 谱聚类 · 范畴论\n     AI 范畴论的一维情形。",
+                "x": 18,
+                "y": 2397.609375,
+                "width": 339,
+                "height": 199.453125,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "代表工作 · 03\n     Trade-off between efficiency and consistency for removal-based explanations\n     Yifan Zhang, Haowei He, Zhiquan Tan, Yang Yuan\n     可解释性 · 效率与一致性\n     传统可解释性的不可能三角。",
+                "x": 18,
+                "y": 2597.0625,
+                "width": 339,
+                "height": 222.390625,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "results",
+                "tag": "section",
+                "text": "04 / 近年\n    团队近期成果\n   \n   \n    \n     2025 · NeurIPS\n     Tensor Product Attention Is All You Need\n     Yifan Zhang*, Yifeng Liu*, Huizhuo Yuan, Zhen Qin, Yang Yuan, Quanquan Gu, An",
+                "x": 18,
+                "y": 2819.453125,
+                "width": 339,
+                "height": 1172.84375,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "2025 · NeurIPS\n     Tensor Product Attention Is All You Need\n     Yifan Zhang*, Yifeng Liu*, Huizhuo Yuan, Zhen Qin, Yang Yuan, Quanquan Gu, Andrew C Yao†\n     姚期智、袁洋团队与 UCLA 顾全全老师",
+                "x": 18,
+                "y": 2935.265625,
+                "width": 339,
+                "height": 248.4375,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "2025 · ACL Findings\n     Autonomous Data Selection with Zero-shot Generative Classifiers for Mathematical Texts\n     Yifan Zhang*, Yifan Luo*, Yang Yuan†, Andrew Chi-Chih Yao†\n    ",
+                "x": 18,
+                "y": 3183.703125,
+                "width": 339,
+                "height": 296.3125,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "2025 · ACL\n     Hierarchical Attention Generates Better Proofs\n     Jianlong Chen, Chao Li, Yang Yuan†, Andrew Chi-Chih Yao†\n     用层次化注意力正则化方法帮助大模型理解形式化定理证明的结构。在 miniF2F 和 ProofNet",
+                "x": 18,
+                "y": 3480.015625,
+                "width": 339,
+                "height": 269.53125,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "2024 · ICML\n     Matrix Information Theory for Self-Supervised Learning\n     Yifan Zhang, Zhiquan Tan, Jingqin Yang, Weiran Huang, Yang Yuan\n     用矩阵信息论解释最大熵编码框架，提出矩阵均匀性损失和矩阵对齐损失，把",
+                "x": 18,
+                "y": 3749.546875,
+                "width": 339,
+                "height": 242.75,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "education",
+                "tag": "section",
+                "text": "05 / 背景\n    教育与荣誉\n   \n   \n    \n     博士\n     康奈尔大学计算机系，师从 Robert Kleinberg 教授\n    \n    \n     博士后\n     MIT 大数据科学基础研究院（MIFODS）\n    \n    \n     本科\n     北京大学计算机系\n    \n    \n     访问经历\n    ",
+                "x": 18,
+                "y": 3992.296875,
+                "width": 339,
+                "height": 763.109375,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "join",
+                "tag": "section",
+                "text": "06 / 加入\n    加入与联系\n   \n   由于在学校培养 AI 中医方向的人才极为困难，我目前主要招收对 AI 数学、软件生成、大规模复杂系统构建感兴趣的学生。\n   此外，我也在组建一支全职工程团队，方向聚焦于 AI 数学。\n   邮箱：yuanyang@tsinghua.edu.cn\n   回到页面顶部",
+                "x": 18,
+                "y": 4771.40625,
+                "width": 339,
+                "height": 413.65625,
+                "fontSize": "16px",
+                "lineHeight": "28.48px",
+                "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif",
+                "horizontalScroll": null
+              }
+            ],
+            "visualProfile": {
+              "backgrounds": [
+                "rgb(246, 242, 232)"
+              ],
+              "fonts": [
+                "\"Iowan Old Style\", \"Palatino Linotype\", \"Songti SC\", \"Noto Serif CJK SC\", Georgia, serif"
+              ],
+              "headingSizes": [
+                41.6,
+                23.2,
+                18.08
+              ],
+              "regions": [
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.87
+                },
+                {
+                  "display": "flex",
+                  "columns": 3,
+                  "widthRatio": 0.87
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.87
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.87
+                }
+              ]
+            }
+          }
+        ],
+        "error": null
+      }
+    }
+  ]
+}

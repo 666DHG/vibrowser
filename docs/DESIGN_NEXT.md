@@ -1,5 +1,9 @@
 # 下一步计划与目标
 
+运行中（2026-11-08）：产品参数六题批次进程仍有效，第一题学术主页已完成，第二题文案正在生成；同一进程继续，不重新提交。完整日志 `.cache/product-standard-live.log`。第一题截图与浏览器回放已保存，不能从单题推断批次成功率或多样性门槛。
+
+批次结束后补一次 ResearchPlanningAcceptance：六题复用了资料，未覆盖改为 low 后的检索规划。该运行器已编译，相关 17 项测试通过；显式付费开关为 VIBROWSER_PAID_PLANNING_ACCEPTANCE=true，输出 `.cache/product-research-planning/academic.json`。这只验证真实规划调用在原预算下可用，不重复付费搜索、不修改原六题记录。尚未运行。
+
 当前源码候选（2026-11-08）：官方标准改为 enabled／low，输出预算 48000；深入仍为 enabled／high、48000。连接测试保持 disabled／128，兼容接口标准不携带官方参数。没有新增 prompt 或模型阶段；129 项 Scala、42 项前端及格式／类型／生产构建通过。运行中 LIVE 仍是此前构建，尚未重启部署候选。
 
 完整候选验收使用 `VIBROWSER_PRODUCT_STANDARD_RETEST=true`，同时设置 `VIBROWSER_EFFORT_GUIDANCE_RETEST=true` 与 `VIBROWSER_EFFORT_GUIDANCE_VERSION=8`。隔离 schema／目录为 `effort_guidance_v8_product`／`.cache/effort-guidance-v8-product`，保留六题原请求、日期和资料，模型请求不由测试工具修改。历史 disabled／24k 运行器在新构建中禁止启动，避免混写参数。报告命令为 `review-effort.mjs --guidance-v8 --product --complete`、`compare-effort-v8.mjs --product --complete`；原失败与容量复测不改写。设计工作流仍默认关闭，等待完整结果和回归后决定启用。

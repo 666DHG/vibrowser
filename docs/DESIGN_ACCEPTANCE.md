@@ -1,5 +1,9 @@
 # 设计评审与两挡思考验收
 
+产品 low／48k 批次进行中（2026-11-08）：已完成学术主页一题，首轮正文通过，最终采用一次改进，162 秒、4 次实际产品请求；保存输入／日期／资料与原基线一致。浏览器复制、原生锚点、导航提交回放通过；该页没有 Search，不因此要求补控件。截图仍是学术长文／研究路径，不把字体变化单独算成结构改善。当前仅 1/6，不能宣称批次完成。[阶段记录](acceptance/effort-guidance-v8-product.json)、[配对](acceptance/effort-guidance-v8-product-paired.json)、[交互](acceptance/effort-guidance-v8-product-interactions.json)。
+
+认真模式的规划调用尚未由本批覆盖，因为六题复用了历史检索资料。已将规划 system/request 原样抽为 ResearchPlanPrompt，供产品和一次真实规划回放共用；17 项集成／检索客户端测试通过。ResearchPlanningAcceptance 需显式 VIBROWSER_PAID_PLANNING_ACCEPTANCE=true，仅在六题批次结束后运行，使用保存来源、实际产品参数和原 30 秒规划预算；不调用 Search/Fetch，不生成页面，不写数据库，不把它当作新联网检索验收。
+
 low 同站连续性（2026-11-08）：通过保存的器具榜单实际动作进入 AeroPress Go 详情，159 秒、4 次模型请求，初次正文生成通过，采用一次改进；实体完整相等、品牌描述一致，未触发新站构想探索。桌面／窄屏截图延续父页暖底、衬线标题、橙色强调、细分隔线及正文与选购结论并排的编辑式结构，详情改变内容组织而非复制列表页。品牌字符串比较和截图判断分别记录，不以字段相等替代视觉验证。[任务与测量](acceptance/effort-guidance-v8-low-continuity.json)、[截图](screenshots/effort-guidance-v8-low-continuity)。
 
 详情浏览器回放验证 Copy、Toggle、Filter、Sort、原生锚点和站内搜索／导航提交，零额外模型调用；未再生成下一层。[交互记录](acceptance/effort-guidance-v8-low-continuity-interactions.json)。另外 `npx playwright test tests/e2e/effort.spec.ts` 四项通过：两挡等待预算绑定提交快照、标签继承／历史与会话恢复、窄屏无整体横向溢出、兼容接口禁用深入。该测试使用拦截响应，不是四次真实模型验收。
