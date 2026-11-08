@@ -24,6 +24,19 @@
     "extraModelCalls": 0
   },
   {
+    "file": "comparison-new-standard.json",
+    "localActions": [
+      "act-toggle-v60"
+    ],
+    "searchSubmitted": true,
+    "navigationSubmitted": false,
+    "copyVerified": true,
+    "filterVerified": true,
+    "sortVerified": true,
+    "limitations": [],
+    "extraModelCalls": 0
+  },
+  {
     "file": "copy-new-standard.json",
     "localActions": [
       "a-toggle-tips"
@@ -33,6 +46,32 @@
     "copyVerified": true,
     "filterVerified": true,
     "sortVerified": true,
+    "limitations": [],
+    "extraModelCalls": 0
+  },
+  {
+    "file": "docs-new-standard.json",
+    "localActions": [
+      "toggle-dead-act"
+    ],
+    "searchSubmitted": true,
+    "navigationSubmitted": false,
+    "copyVerified": true,
+    "filterVerified": false,
+    "sortVerified": false,
+    "limitations": [],
+    "extraModelCalls": 0
+  },
+  {
+    "file": "essay-new-standard.json",
+    "localActions": [
+      "act-tide-toggle"
+    ],
+    "searchSubmitted": true,
+    "navigationSubmitted": false,
+    "copyVerified": true,
+    "filterVerified": true,
+    "sortVerified": false,
     "limitations": [],
     "extraModelCalls": 0
   }

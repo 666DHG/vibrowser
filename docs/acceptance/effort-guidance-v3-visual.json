@@ -1,0 +1,16 @@
+{
+  "complete": true,
+  "method": "Inspect all six fixed v3 standard screenshots against their preserved old-standard counterparts. No rerolls. Color alone is not structural improvement. This is a small qualitative comparison, not a general model ranking.",
+  "topics": [
+    { "name": "academic", "verdict": "neutral", "observation": "Larger identity title and four-column contact facts, followed by numbered research. The wide title treatment changes hierarchy but the warm continuous reading layout remains; no clear overall improvement established. Empty Copy target is a recorded local limitation." },
+    { "name": "copy", "verdict": "improved", "observation": "Featured copyable entry beside a collection summary, followed by category browsing and a sortable/filterable collection. More distinct retrieval and copying hierarchy than the old continuous text list; these local controls passed browser replay." },
+    { "name": "calendar", "verdict": "improved", "observation": "Large circled month/day becomes the main visual anchor, date search is immediately available, and a separate event column supports scanning. The date hierarchy is materially clearer than the old small date summary; warm colors are not counted as improvement." },
+    { "name": "comparison", "verdict": "neutral", "observation": "Adds an opening decision summary and advice sidebar, but both old and new use a scenario selector followed by parameter tables. Extra introductory content does not by itself prove better comparison access. Filter, sort, copy and expansion passed replay." },
+    { "name": "docs", "verdict": "neutral", "observation": "A dark masthead and horizontal section links replace the old persistent chapter sidebar. Tables and copyable code remain useful, but the narrower continuous page is not a clear improvement in navigation or information architecture." },
+    { "name": "essay", "verdict": "improved", "observation": "A compact site header leads directly to the current entry, a six-field observation grid separates place/weather/tide context from prose, and larger serif text creates a distinct reading rhythm. The grey-blue palette alone is not counted." }
+  ],
+  "improvedTopics": 3,
+  "requiredForDefaultEnable": 4,
+  "defaultEnableGatePassed": false,
+  "decision": "Keep the design workflow opt-in. The shorter guidance produced six usable pages and fewer initial structural failures in this batch, but does not establish the required breadth of style improvement. Do not add per-sample prompt rules or reroll to force this gate."
+}
