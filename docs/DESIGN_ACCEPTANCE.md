@@ -1,5 +1,11 @@
 # 设计评审与两挡思考验收
 
+low 同站连续性（2026-11-08）：通过保存的器具榜单实际动作进入 AeroPress Go 详情，159 秒、4 次模型请求，初次正文生成通过，采用一次改进；实体完整相等、品牌描述一致，未触发新站构想探索。桌面／窄屏截图延续父页暖底、衬线标题、橙色强调、细分隔线及正文与选购结论并排的编辑式结构，详情改变内容组织而非复制列表页。品牌字符串比较和截图判断分别记录，不以字段相等替代视觉验证。[任务与测量](acceptance/effort-guidance-v8-low-continuity.json)、[截图](screenshots/effort-guidance-v8-low-continuity)。
+
+详情浏览器回放验证 Copy、Toggle、Filter、Sort、原生锚点和站内搜索／导航提交，零额外模型调用；未再生成下一层。[交互记录](acceptance/effort-guidance-v8-low-continuity-interactions.json)。另外 `npx playwright test tests/e2e/effort.spec.ts` 四项通过：两挡等待预算绑定提交快照、标签继承／历史与会话恢复、窄屏无整体横向溢出、兼容接口禁用深入。该测试使用拦截响应，不是四次真实模型验收。
+
+本轮没有新增 prompt 或改变默认参数。产品标准 disabled／24000、深入 high／48000；low 及容量复测仍是验收配置。官方思考参数已核对 [DeepSeek 文档](https://api-docs.deepseek.com/guides/thinking_mode/)，文档确认 low/high/max 可用，不代表质量门槛已通过。
+
 low 固定六题完整记录（2026-11-08）：最终 5/6，首轮 4/6，共 23 次模型请求，累计任务耗时 1395 秒。两次可选评审超时的 usage 未返回，因此 422996 total_tokens 仅是已记录量，不是完整费用统计。原技术文档题四次生成均以 length 结束，每次 completion_tokens=24000，推理占 14555、16051、22976、16639；失败保留，不将后续复测覆盖为成功。[完整记录](acceptance/effort-guidance-v8-low.json)、[原输入配对](acceptance/effort-guidance-v8-low-paired.json)。
 
 五份成功文档的浏览器离线回放通过：每页实际声明的 Copy、Toggle、Filter、Sort、锚点和搜索／导航提交按报告分别验证，零额外模型请求；不是每页都有全部动作，也未生成搜索或详情结果。[逐页交互](acceptance/effort-guidance-v8-low-interactions.json)。相关 Scala 定向测试 23 项通过；没有据此宣称全量发布验收完成。

@@ -21,6 +21,8 @@
       },
       "mode": "imagination",
       "effort": "standard",
+      "effortPolicy": "product",
+      "layoutExploration": null,
       "seconds": 57,
       "error": null,
       "inheritedEntityCount": 1,
@@ -1318,10 +1320,5 @@
         "error": null
       }
     }
-  ],
-  "visualVerdict": {
-    "passed": true,
-    "observation": "Desktop and mobile retain the warm surface, orange/green accents, system sans typography, centered content width and comparison dimensions. The child reorganizes into item summary/specifications without copying the complete parent layout. Title, author, summary and published date bind to the inherited entity. Header adds a small mark but retains site identity.",
-    "scope": "One fixed product detail path; not evidence for every possible site or interaction."
-  }
+  ]
 }

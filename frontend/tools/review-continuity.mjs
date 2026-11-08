@@ -1,13 +1,24 @@
 import { readFile, readdir, mkdir, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
+import assert from "node:assert/strict";
 import { measureDocument } from "../dist-measure/measure.mjs";
 
 const root = resolve(import.meta.dirname, "../..");
 const v6 = process.argv.includes("--guidance-v6");
-const reportName = v6 ? "effort-guidance-v6-continuity" : "effort-continuity";
+const low = process.argv.includes("--low");
+assert(!(v6 && low), "Select one continuity experiment");
+const reportName = low
+  ? "effort-guidance-v8-low-continuity"
+  : v6
+    ? "effort-guidance-v6-continuity"
+    : "effort-continuity";
 const input = resolve(
   root,
-  v6 ? ".cache/effort-guidance-v6" : ".cache/effort-acceptance",
+  low
+    ? ".cache/effort-guidance-v8-low"
+    : v6
+      ? ".cache/effort-guidance-v6"
+      : ".cache/effort-acceptance",
 );
 const screenshots = resolve(root, "docs/screenshots/" + reportName);
 const replay = resolve(root, ".cache/" + reportName + "-browser");
@@ -15,11 +26,32 @@ await mkdir(screenshots, { recursive: true });
 await mkdir(replay, { recursive: true });
 const results = [];
 for (const file of (await readdir(input)).filter((f) =>
-  v6
-    ? f === "comparison-detail.json"
-    : /^calendar-(next|previous)-continuity\.json$/.test(f),
+  low
+    ? f === "comparison-detail-low.json"
+    : v6
+      ? f === "comparison-detail.json"
+      : /^calendar-(next|previous)-continuity\.json$/.test(f),
 )) {
   const record = JSON.parse(await readFile(resolve(input, file), "utf8"));
+  if (low) {
+    const parent = JSON.parse(
+      await readFile(resolve(input, "comparison-new-standard.json"), "utf8"),
+    );
+    assert.equal(record.parentPageId, parent.pageId);
+    assert.equal(record.effortPolicy, "experimental-low");
+    assert.equal(record.effort, parent.effort);
+    assert.equal(
+      record.workflow.guidanceVersion,
+      parent.workflow.guidanceVersion,
+    );
+    assert.equal(record.workflow.layoutExploration, false);
+    assert(
+      record.modelCalls.every(
+        (call) =>
+          call.thinking?.type === "enabled" && call.reasoningEffort === "low",
+      ),
+    );
+  }
   const name = file.slice(0, -5);
   const layout = record.document
     ? await measureDocument(record.document, {
@@ -44,6 +76,8 @@ for (const file of (await readdir(input)).filter((f) =>
     sourceAction: record.sourceAction,
     mode: record.mode,
     effort: record.effort,
+    effortPolicy: record.effortPolicy ?? "product",
+    layoutExploration: record.workflow?.layoutExploration ?? null,
     seconds: record.seconds,
     error: record.error,
     inheritedEntityCount: record.inheritedEntityCount,
@@ -62,8 +96,8 @@ await writeFile(
     {
       method:
         "Real NavigateMessage from preserved page actions, inherited mode and effort, one bounded workflow per selected target. Brand comparison is exact descriptive-string equality, not a visual identity verdict. Browser replay is separately isolated and does not issue further model calls.",
-      expectedSamples: v6 ? 1 : 2,
-      complete: results.length === (v6 ? 1 : 2),
+      expectedSamples: v6 || low ? 1 : 2,
+      complete: results.length === (v6 || low ? 1 : 2),
       samples: results,
     },
     null,

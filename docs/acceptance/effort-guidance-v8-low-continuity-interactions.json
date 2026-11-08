@@ -1,0 +1,19 @@
+[
+  {
+    "file": "comparison-detail-low-new-standard.json",
+    "localActions": [
+      "act-toggle-limits"
+    ],
+    "searchSubmitted": true,
+    "navigationSubmitted": true,
+    "anchorVerified": true,
+    "copyVerified": true,
+    "copyContentPreserved": true,
+    "copyRawSource": "improvement",
+    "filterVerified": true,
+    "sortVerified": true,
+    "sortLocale": "en-US",
+    "limitations": [],
+    "extraModelCalls": 0
+  }
+]
