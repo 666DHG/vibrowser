@@ -1,0 +1,26 @@
+{
+  "complete": true,
+  "experiment": "Standard document temperature 1.3; v7 prompts and original six requests retained",
+  "ready": 3,
+  "initialAccepted": 1,
+  "modelCalls": 31,
+  "summedSeconds": 726,
+  "adopt": false,
+  "reason": "The batch loses three previously working pages and cannot satisfy the requirement that remaining topics retain usable function. It does not establish a sufficient layout benefit. Keep the original production sampling behavior.",
+  "failures": {
+    "copy": "Invalid JSON, one empty/truncated response, then undeclared Copy feedback state. Offline feedback normalization exposes a separate missing Submit region; still not a passing page.",
+    "calendar": "Invalid JSON remains after the fixed request budget.",
+    "essay": "Unsupported figure/figcaption. After semantic markup support, offline validation still rejects action/method attributes on an unbound form. Original failure retained."
+  },
+  "offlineFixes": [
+    "copy-feedback-replay.json",
+    "text-figure-replay.json"
+  ],
+  "runtimeReplay": "Three ready documents only; no model calls. This is not six successful interaction paths.",
+  "currentChecks": {
+    "scalaPassed": 114,
+    "frontendUnitPassed": 42,
+    "formatTypesBuild": true
+  },
+  "goalComplete": false
+}

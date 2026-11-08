@@ -1,0 +1,773 @@
+{
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 900,
+      "scrollWidth": 1425,
+      "scrollHeight": 1943,
+      "overflowIds": [],
+      "headings": [
+        {
+          "id": "",
+          "tag": "h1",
+          "text": "读写互不阻塞，快照决定你看见什么",
+          "x": 0,
+          "y": 127.4375,
+          "width": 1425,
+          "height": 42,
+          "fontSize": "32px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "h2",
+          "text": "一、事务隔离级别：四种标准、三种实现",
+          "x": 0,
+          "y": 473.78125,
+          "width": 1425,
+          "height": 31,
+          "fontSize": "24px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "h3",
+          "text": "现象对照表",
+          "x": 0,
+          "y": 585.40625,
+          "width": 1425,
+          "height": 25,
+          "fontSize": "18.72px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "rc",
+          "tag": "h3",
+          "text": "READ COMMITTED：每条语句一个新快照",
+          "x": 0,
+          "y": 853.84375,
+          "width": 1425,
+          "height": 25,
+          "fontSize": "18.72px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "rr",
+          "tag": "h3",
+          "text": "REPEATABLE READ：整个事务一个快照",
+          "x": 0,
+          "y": 1016.28125,
+          "width": 1425,
+          "height": 25,
+          "fontSize": "18.72px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "ser",
+          "tag": "h3",
+          "text": "SERIALIZABLE：最严格的隔离",
+          "x": 0,
+          "y": 1178.71875,
+          "width": 1425,
+          "height": 25,
+          "fontSize": "18.72px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "set-level",
+          "tag": "h3",
+          "text": "设置方式与测试方法",
+          "x": 0,
+          "y": 1341.15625,
+          "width": 1425,
+          "height": 25,
+          "fontSize": "18.72px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "h2",
+          "text": "二、MVCC：同一行数据允许多个合法快照版本共存",
+          "x": 0,
+          "y": 1571.78125,
+          "width": 1425,
+          "height": 31,
+          "fontSize": "24px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "h3",
+          "text": "元组头部的 xmin 与 xmax",
+          "x": 0,
+          "y": 1741.40625,
+          "width": 1425,
+          "height": 25,
+          "fontSize": "18.72px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        }
+      ],
+      "controls": [
+        {
+          "id": "q",
+          "tag": "input",
+          "text": "",
+          "x": 64,
+          "y": 21,
+          "width": 186,
+          "height": 27,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "btn-search",
+          "tag": "button",
+          "text": "查找",
+          "x": 254.734375,
+          "y": 21,
+          "width": 48,
+          "height": 27,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "a",
+          "text": "隔离级别",
+          "x": 0,
+          "y": 48,
+          "width": 64,
+          "height": 21,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "a",
+          "text": "MVCC",
+          "x": 64,
+          "y": 48,
+          "width": 47.046875,
+          "height": 21,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "a",
+          "text": "事务 ID",
+          "x": 111.046875,
+          "y": 48,
+          "width": 53.625,
+          "height": 21,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "a",
+          "text": "WAL",
+          "x": 164.671875,
+          "y": 48,
+          "width": 35.125,
+          "height": 21,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "a",
+          "text": "锁",
+          "x": 199.796875,
+          "y": 48,
+          "width": 16,
+          "height": 21,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "a",
+          "text": "死锁",
+          "x": 215.796875,
+          "y": 48,
+          "width": 32,
+          "height": 21,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "a",
+          "text": "生产实践",
+          "x": 247.796875,
+          "y": 48,
+          "width": 64,
+          "height": 21,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "a",
+          "text": "四种隔离级别的现象对照",
+          "x": 68.734375,
+          "y": 248.875,
+          "width": 176,
+          "height": 21,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "a",
+          "text": "串行化失败的重试处理",
+          "x": 345.46875,
+          "y": 248.875,
+          "width": 160,
+          "height": 21,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        }
+      ],
+      "regions": [
+        {
+          "id": "",
+          "tag": "header",
+          "text": "事务隔离与并发控制PostgreSQL 学习笔记\n  \n  \n   检索笔记\n   查找\n  \n  \n   隔离级别MVCC事务 IDWAL锁死锁生产实践",
+          "x": 0,
+          "y": 0,
+          "width": 1425,
+          "height": 69,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "nav",
+          "text": "隔离级别MVCC事务 IDWAL锁死锁生产实践",
+          "x": 0,
+          "y": 48,
+          "width": 1425,
+          "height": 21,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "main",
+          "text": "事务是一个要么全部提交、要么全部回滚的工作单元；并发控制决定并发事务彼此看到什么、等待什么。\n  \n   \n    读写互不阻塞，快照决定你看见什么\n    PostgreSQL 以 MVCC 为基础实现隔离：读不阻塞写，写不阻塞读。同一行的多个元组版本分别带 xmin（创建该版本的事务 ID）与 xmax（删除或更新该版本的事务 ID，0 表示未被删除），",
+          "x": 0,
+          "y": 85,
+          "width": 1425,
+          "height": 1842.125,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "section",
+          "text": "事务是一个要么全部提交、要么全部回滚的工作单元；并发控制决定并发事务彼此看到什么、等待什么。\n  \n   \n    读写互不阻塞，快照决定你看见什么\n    PostgreSQL 以 MVCC 为基础实现隔离：读不阻塞写，写不阻塞读。同一行的多个元组版本分别带 xmin（创建该版本的事务 ID）与 xmax（删除或更新该版本的事务 ID，0 表示未被删除），",
+          "x": 0,
+          "y": 85,
+          "width": 1425,
+          "height": 368.875,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "isolation",
+          "tag": "article",
+          "text": "一、事务隔离级别：四种标准、三种实现\n  通过 SET TRANSACTION ISOLATION LEVEL 设定当前事务的隔离级别，该命令必须在事务块中使用。会话默认值可以用 SET default_transaction_isolation 统一调整。SQL 标准定义了四个级别，PostgreSQL 全部接受，但内部只实现三种不同行为。\n  现象对照表",
+          "x": 0,
+          "y": 473.78125,
+          "width": 1425,
+          "height": 1078.09375,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "mvcc",
+          "tag": "article",
+          "text": "二、MVCC：同一行数据允许多个合法快照版本共存\n  几乎所有数据库管理系统都会用锁来实现并发控制，但 PostgreSQL 采用多种事务一起进行的后置分离机制：它允许相同数据记录使用多版本共存以提高并发性。使用这个系统后，每个查询拿到的是一致的数据快照版；读取数据的业务操作不会阻止修改数据的事务写入也常常不会相互影响。\n  例如连接 A 正在执行查询并尝试",
+          "x": 0,
+          "y": 1571.78125,
+          "width": 1425,
+          "height": 355.34375,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        }
+      ],
+      "visualProfile": {
+        "backgrounds": [],
+        "fonts": [
+          "\"Times New Roman\""
+        ],
+        "headingSizes": [
+          32,
+          24,
+          18.72
+        ],
+        "regions": [
+          {
+            "display": "block",
+            "columns": 1,
+            "widthRatio": 0.99
+          },
+          {
+            "display": "block",
+            "columns": 7,
+            "widthRatio": 0.99
+          },
+          {
+            "display": "block",
+            "columns": 1,
+            "widthRatio": 0.99
+          },
+          {
+            "display": "block",
+            "columns": 1,
+            "widthRatio": 0.99
+          }
+        ]
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 375,
+      "scrollHeight": 3601,
+      "overflowIds": [],
+      "headings": [
+        {
+          "id": "",
+          "tag": "h1",
+          "text": "读写互不阻塞，快照决定你看见什么",
+          "x": 0,
+          "y": 169.4375,
+          "width": 375,
+          "height": 84,
+          "fontSize": "32px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "h2",
+          "text": "一、事务隔离级别：四种标准、三种实现",
+          "x": 0,
+          "y": 725.78125,
+          "width": 375,
+          "height": 62,
+          "fontSize": "24px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "h3",
+          "text": "现象对照表",
+          "x": 0,
+          "y": 931.40625,
+          "width": 375,
+          "height": 25,
+          "fontSize": "18.72px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "rc",
+          "tag": "h3",
+          "text": "READ COMMITTED：每条语句一个新快照",
+          "x": 0,
+          "y": 1493.84375,
+          "width": 375,
+          "height": 25,
+          "fontSize": "18.72px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "rr",
+          "tag": "h3",
+          "text": "REPEATABLE READ：整个事务一个快照",
+          "x": 0,
+          "y": 1803.28125,
+          "width": 375,
+          "height": 25,
+          "fontSize": "18.72px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "ser",
+          "tag": "h3",
+          "text": "SERIALIZABLE：最严格的隔离",
+          "x": 0,
+          "y": 2112.71875,
+          "width": 375,
+          "height": 25,
+          "fontSize": "18.72px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "set-level",
+          "tag": "h3",
+          "text": "设置方式与测试方法",
+          "x": 0,
+          "y": 2443.15625,
+          "width": 375,
+          "height": 25,
+          "fontSize": "18.72px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "h2",
+          "text": "二、MVCC：同一行数据允许多个合法快照版本共存",
+          "x": 0,
+          "y": 2736.78125,
+          "width": 375,
+          "height": 62,
+          "fontSize": "24px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "h3",
+          "text": "元组头部的 xmin 与 xmax",
+          "x": 0,
+          "y": 3126.40625,
+          "width": 375,
+          "height": 25,
+          "fontSize": "18.72px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        }
+      ],
+      "controls": [
+        {
+          "id": "q",
+          "tag": "input",
+          "text": "",
+          "x": 64,
+          "y": 21,
+          "width": 186,
+          "height": 27,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "btn-search",
+          "tag": "button",
+          "text": "查找",
+          "x": 254.734375,
+          "y": 21,
+          "width": 48,
+          "height": 27,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "a",
+          "text": "隔离级别",
+          "x": 0,
+          "y": 48,
+          "width": 64,
+          "height": 21,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "a",
+          "text": "MVCC",
+          "x": 64,
+          "y": 48,
+          "width": 47.046875,
+          "height": 21,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "a",
+          "text": "事务 ID",
+          "x": 111.046875,
+          "y": 48,
+          "width": 53.625,
+          "height": 21,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "a",
+          "text": "WAL",
+          "x": 164.671875,
+          "y": 48,
+          "width": 35.125,
+          "height": 21,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "a",
+          "text": "锁",
+          "x": 199.796875,
+          "y": 48,
+          "width": 16,
+          "height": 21,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "a",
+          "text": "死锁",
+          "x": 215.796875,
+          "y": 48,
+          "width": 32,
+          "height": 21,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "a",
+          "text": "生产实践",
+          "x": 247.796875,
+          "y": 48,
+          "width": 64,
+          "height": 21,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "a",
+          "text": "四种隔离级别的现象对照",
+          "x": 68.734375,
+          "y": 416.875,
+          "width": 176,
+          "height": 21,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "a",
+          "text": "串行化失败的重试处理",
+          "x": 0,
+          "y": 416.875,
+          "width": 361.46875,
+          "height": 42,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        }
+      ],
+      "regions": [
+        {
+          "id": "",
+          "tag": "header",
+          "text": "事务隔离与并发控制PostgreSQL 学习笔记\n  \n  \n   检索笔记\n   查找\n  \n  \n   隔离级别MVCC事务 IDWAL锁死锁生产实践",
+          "x": 0,
+          "y": 0,
+          "width": 375,
+          "height": 69,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "nav",
+          "text": "隔离级别MVCC事务 IDWAL锁死锁生产实践",
+          "x": 0,
+          "y": 48,
+          "width": 375,
+          "height": 21,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "main",
+          "text": "事务是一个要么全部提交、要么全部回滚的工作单元；并发控制决定并发事务彼此看到什么、等待什么。\n  \n   \n    读写互不阻塞，快照决定你看见什么\n    PostgreSQL 以 MVCC 为基础实现隔离：读不阻塞写，写不阻塞读。同一行的多个元组版本分别带 xmin（创建该版本的事务 ID）与 xmax（删除或更新该版本的事务 ID，0 表示未被删除），",
+          "x": 0,
+          "y": 85,
+          "width": 375,
+          "height": 3500.125,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "",
+          "tag": "section",
+          "text": "事务是一个要么全部提交、要么全部回滚的工作单元；并发控制决定并发事务彼此看到什么、等待什么。\n  \n   \n    读写互不阻塞，快照决定你看见什么\n    PostgreSQL 以 MVCC 为基础实现隔离：读不阻塞写，写不阻塞读。同一行的多个元组版本分别带 xmin（创建该版本的事务 ID）与 xmax（删除或更新该版本的事务 ID，0 表示未被删除），",
+          "x": 0,
+          "y": 85,
+          "width": 375,
+          "height": 620.875,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "isolation",
+          "tag": "article",
+          "text": "一、事务隔离级别：四种标准、三种实现\n  通过 SET TRANSACTION ISOLATION LEVEL 设定当前事务的隔离级别，该命令必须在事务块中使用。会话默认值可以用 SET default_transaction_isolation 统一调整。SQL 标准定义了四个级别，PostgreSQL 全部接受，但内部只实现三种不同行为。\n  现象对照表",
+          "x": 0,
+          "y": 725.78125,
+          "width": 375,
+          "height": 1991.09375,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        },
+        {
+          "id": "mvcc",
+          "tag": "article",
+          "text": "二、MVCC：同一行数据允许多个合法快照版本共存\n  几乎所有数据库管理系统都会用锁来实现并发控制，但 PostgreSQL 采用多种事务一起进行的后置分离机制：它允许相同数据记录使用多版本共存以提高并发性。使用这个系统后，每个查询拿到的是一致的数据快照版；读取数据的业务操作不会阻止修改数据的事务写入也常常不会相互影响。\n  例如连接 A 正在执行查询并尝试",
+          "x": 0,
+          "y": 2736.78125,
+          "width": 375,
+          "height": 848.34375,
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontFamily": "\"Times New Roman\"",
+          "horizontalScroll": null
+        }
+      ],
+      "visualProfile": {
+        "backgrounds": [],
+        "fonts": [
+          "\"Times New Roman\""
+        ],
+        "headingSizes": [
+          32,
+          24,
+          18.72
+        ],
+        "regions": [
+          {
+            "display": "block",
+            "columns": 1,
+            "widthRatio": 0.96
+          },
+          {
+            "display": "block",
+            "columns": 7,
+            "widthRatio": 0.96
+          },
+          {
+            "display": "block",
+            "columns": 1,
+            "widthRatio": 0.96
+          },
+          {
+            "display": "block",
+            "columns": 1,
+            "widthRatio": 0.96
+          }
+        ]
+      }
+    }
+  ],
+  "error": null
+}

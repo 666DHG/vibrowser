@@ -196,3 +196,5 @@ v6 完整检查通过：Scala 格式/编译与 108 项测试、前端格式、42
 v7 渲染复查确认六页中五页 CSS 未被评审改变，实际系统字体不同，未发现宿主统一覆盖。仅在测试运行器增加一次固定六题的 temperature=1.3 对照：沿用 v7 指导和原始资料，只调整官方、非思考模式的页面生成／修复／改进请求。规划、检索、评审、连接测试、深入档和自定义接口不受影响；生产默认不变，不添加提示词。独立 schema/output 为 effort_sampling_v1 / .cache/effort-sampling-v1，所有实际采样值进入调用摘要。
 
 依据：DeepSeek 官方 temperature 参数范围 0–2；思考模式忽略该参数（https://api-docs.deepseek.com/guides/thinking_mode/ ，2026-11-08 核验）。1.3 是待测值，不是官方针对网页生成的推荐，也不保证布局改善。两项隔离／非法值测试通过。运行前须显式设置 VIBROWSER_DESIGN_SAMPLING_RETEST=true、VIBROWSER_EFFORT_GUIDANCE_RETEST=true、VIBROWSER_EFFORT_GUIDANCE_VERSION=7 及既有付费验收开关。仍按原六题和四组门槛判定，不重抽样。
+
+采样对照已完成：六题仅三题可展示，未采用 temperature=1.3。保留原生产默认；新增独立 Copy 反馈默认值及文本 figure/figcaption/cite 支持，均无 prompt 增量。离线原样本仍有其他协议错误，未改写原失败。当前完整检查 Scala 114 项、前端 42 项通过；多样性目标仍未完成。详见 DESIGN_ACCEPTANCE.md 与 acceptance/effort-sampling-v1-decision.json。
