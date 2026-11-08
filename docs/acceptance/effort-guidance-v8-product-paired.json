@@ -1,7 +1,7 @@
 {
   "complete": false,
   "plannedPairs": 6,
-  "recordedPairs": 3,
+  "recordedPairs": 4,
   "scope": "Same fixed input, date, retrieval sources and guidance. Effort applies to the entire pipeline, including generated briefs and subsequent visual-reference history; this is not a generation-only causal experiment. No visual quality conclusion is inferred from success counts.",
   "additionalChanges": "Uses the subsequent host CSS math compatibility fix. Separate normalization repairs from design differences; this is not an otherwise-identical binary comparison.",
   "pairs": [
@@ -149,7 +149,7 @@
     {
       "topic": "comparison",
       "requestHash": "a609dacb1ed6e2d12f8b498ce91f2cf62e3d1bf82815f9f6ec43592ede8a43c9",
-      "paired": false,
+      "paired": true,
       "standard": {
         "pageId": "4347d739-8322-4932-b561-615076a56ad7",
         "jobId": "c542bac8-3001-47fd-bc72-fdbd2e6c3638",
@@ -171,7 +171,27 @@
         "htmlUnchangedByReview": true,
         "cssUnchangedByReview": true
       },
-      "product": null
+      "product": {
+        "pageId": "170b550c-ecd1-477f-8a12-5c288d207458",
+        "jobId": "74b1d1d8-b26b-4710-bc92-e781b8feec45",
+        "ready": true,
+        "error": null,
+        "firstGenerationAccepted": true,
+        "seconds": 299,
+        "calls": 4,
+        "usageComplete": true,
+        "totalTokens": 146438,
+        "recordedReasoningTokens": 30231,
+        "selection": "Improved",
+        "selectedDirection": {
+          "concept": "折叠手册：先建立使用判断框架，再进入参数比较。",
+          "structure": "纵向阅读路径，以场景和操作步骤开场，对比表作为可折叠附录；底部或侧边常驻快速对比条，随时回到候选清单。",
+          "typography": "书籍感衬线标题配小号无衬线注释，步骤编号明确，正文节奏偏叙事，规格区转为紧凑附录。",
+          "contentReason": "手冲器具需要先理解使用方式和场景，再比较参数；手册式组织适合建立判断框架，也保留随时查表的入口。"
+        },
+        "htmlUnchangedByReview": false,
+        "cssUnchangedByReview": false
+      }
     },
     {
       "topic": "docs",
