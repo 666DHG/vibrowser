@@ -1,0 +1,30 @@
+[
+  {
+    "file": "academic-new-deep.json",
+    "localActions": [],
+    "searchSubmitted": false,
+    "navigationSubmitted": true,
+    "anchorVerified": true,
+    "copyVerified": true,
+    "copyContentPreserved": true,
+    "filterVerified": false,
+    "sortVerified": false,
+    "limitations": [],
+    "extraModelCalls": 0
+  },
+  {
+    "file": "copy-new-deep.json",
+    "localActions": [
+      "a-toggle-note"
+    ],
+    "searchSubmitted": true,
+    "navigationSubmitted": false,
+    "anchorVerified": true,
+    "copyVerified": true,
+    "copyContentPreserved": true,
+    "filterVerified": true,
+    "sortVerified": true,
+    "limitations": [],
+    "extraModelCalls": 0
+  }
+]
