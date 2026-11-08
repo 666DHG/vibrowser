@@ -29,6 +29,9 @@ object EffortAcceptance extends IOApp.Simple:
   private val samplingRetest = sys.env.get("VIBROWSER_DESIGN_SAMPLING_RETEST").contains("true")
   private val deepRetest = sys.env.get("VIBROWSER_DESIGN_DEEP_RETEST").contains("true")
   private val effortSuffix = if deepRetest then "_deep" else ""
+  private val experimentGuidance =
+    if guidanceRetest && guidanceRevision == "9" then DesignGuidance.draftExperiment
+    else DesignGuidance.current
   private val schema =
     if samplingRetest then "effort_sampling_v1"
     else if guidanceRetest then "effort_guidance_v" + guidanceRevision + effortSuffix
@@ -84,6 +87,7 @@ object EffortAcceptance extends IOApp.Simple:
           "thinking" -> payload.hcursor.downField("thinking").focus.asJson,
           "reasoningEffort" -> payload.hcursor.get[String]("reasoning_effort").toOption.asJson,
           "stage" -> (if system.startsWith("ResearchPlan:") then "researchPlanning"
+                      else if system == DesignPrompts.draftSystem then "draft"
                       else if system.contains("这是简短设计说明") then "brief"
                       else if system.contains("最多5项") then "review"
                       else "document") .asJson
@@ -124,11 +128,11 @@ object EffortAcceptance extends IOApp.Simple:
       "Sampling test requires the unchanged v7 guidance"
     )
     require(
-      Set("3", "4", "5", "6", "7", "8")(guidanceRevision),
+      Set("3", "4", "5", "6", "7", "8", "9")(guidanceRevision),
       "Unsupported fixed experiment revision"
     )
     require(
-      !guidanceRetest || DesignGuidance.version.startsWith(guidanceRevision + "-"),
+      !guidanceRetest || experimentGuidance.version.startsWith(guidanceRevision + "-"),
       "Guidance build must match the isolated experiment directory"
     )
     require(
@@ -168,7 +172,7 @@ object EffortAcceptance extends IOApp.Simple:
           ) *> SchemaInitializer.initialize(c)
         )
         old <-
-          if guidanceRetest then IO.pure(DesignGuidance.current)
+          if guidanceRetest then IO.pure(experimentGuidance)
           else
             IO.blocking(
               DesignGuidanceText(
@@ -215,8 +219,8 @@ object EffortAcceptance extends IOApp.Simple:
             )
             variants =
               if guidanceRetest then
-                if deepRetest then List(("new-deep", DesignGuidance.current, GenerationEffort.Deep))
-                else List(("new-standard", DesignGuidance.current, GenerationEffort.Standard))
+                if deepRetest then List(("new-deep", experimentGuidance, GenerationEffort.Deep))
+                else List(("new-standard", experimentGuidance, GenerationEffort.Standard))
               else
                 List(
                   ("old-standard", old, GenerationEffort.Standard),

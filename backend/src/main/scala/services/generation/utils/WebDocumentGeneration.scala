@@ -20,7 +20,8 @@ private[generation] final class WebDocumentGeneration(
       snapshot: Option[PageActionSnapshot] = None,
       research: Option[ResearchSnapshot] = None,
       system: String = WebDocumentPrompt.system,
-      maxRequests: Int = GenerationPolicy.maxDocumentRequests
+      maxRequests: Int = GenerationPolicy.maxDocumentRequests,
+      draft: Option[DesignDraft] = None
   ): IO[WebDocument] =
     def phase(value: GenerationPhase, n: Int) =
       database.transaction(UpdateGenerationPhaseMessage(page.currentJobId, value, n).plan)
@@ -65,6 +66,12 @@ private[generation] final class WebDocumentGeneration(
               text,
               snapshot,
               research
+            ).flatTap(document =>
+              IO.raiseUnless(
+                draft.forall(d => DesignPreservation.preservesProse(d.html, document.html))
+              )(
+                AppError("invalid_content", "视觉草稿主要正文丢失，请保留正文并完成实体与动作绑定", 502)
+              )
             )).attempt.flatMap {
               case Right(document) =>
                 record(attempt, AttemptOutcome.Accepted, Some(text), None).as(document)

@@ -9,15 +9,17 @@ final case class DesignGuidanceText(
     intent: Option[String] = None,
     visualContext: Boolean = false,
     contentFocusOnly: Boolean = false,
-    exploreLayouts: Boolean = false
+    exploreLayouts: Boolean = false,
+    draftPlanning: Boolean = false
 )
 object DesignGuidanceText:
   given Encoder[DesignGuidanceText] = deriveEncoder
   given Decoder[DesignGuidanceText] = deriveDecoder[DesignGuidanceText].prepare(
     _.withFocus(json =>
-      List("visualContext", "contentFocusOnly", "exploreLayouts").foldLeft(json)((value, field) =>
-        if value.hcursor.downField(field).succeeded then value
-        else value.mapObject(_.add(field, io.circe.Json.False))
+      List("visualContext", "contentFocusOnly", "exploreLayouts", "draftPlanning").foldLeft(json)(
+        (value, field) =>
+          if value.hcursor.downField(field).succeeded then value
+          else value.mapObject(_.add(field, io.circe.Json.False))
       )
     )
   )

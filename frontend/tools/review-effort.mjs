@@ -5,7 +5,7 @@ import { createHash } from "node:crypto";
 import { measureDocument } from "../dist-measure/measure.mjs";
 
 const root = resolve(import.meta.dirname, "../..");
-const revision = ["v8", "v7", "v6", "v5", "v4", "v3"].find((v) =>
+const revision = ["v9", "v8", "v7", "v6", "v5", "v4", "v3"].find((v) =>
   process.argv.includes(`--guidance-${v}`),
 );
 const sampling = process.argv.includes("--sampling-v1");
@@ -84,6 +84,10 @@ for (const file of (await readdir(input))
     mode: record.mode,
     effort: record.effort,
     contentFocusOnly: record.workflow?.contentFocusOnly ?? false,
+    draftPlanning: record.workflow?.draftPlanning ?? false,
+    draftCharacters: record.workflow?.draft
+      ? record.workflow.draft.html.length + record.workflow.draft.css.length
+      : 0,
     layoutExploration: record.workflow?.layoutExploration ?? false,
     designDirection: record.workflow?.designDirection ?? null,
     proposedDirectionCount:

@@ -3,10 +3,13 @@ import org.jsoup.Jsoup
 import services.browser.objects.{WebDocument, WebAction, WebActionKind}
 import services.generation.objects.LayoutReport
 private[generation] object DesignPreservation:
-  private def content(doc: WebDocument): String =
-    val body = Jsoup.parseBodyFragment(doc.html).body()
+  private def content(html: String): String =
+    val body = Jsoup.parseBodyFragment(html).body()
     body.select("nav, button, form, script, style").remove()
     body.text().filterNot(_.isWhitespace)
+
+  def preservesProse(before: String, after: String): Boolean =
+    coverage(content(before), content(after)) >= 0.9
 
   // Local ordered text fragments survive markup, section moves and small editorial changes.
   // Multiset counts retain repeated prose; unrelated text cannot stand in for missing paragraphs.
@@ -57,7 +60,7 @@ private[generation] object DesignPreservation:
         .map(a => "动作功能变化: " + a.id)
     val bindings =
       before.bindings.filterNot(after.bindings.contains).map(b => "实体字段绑定变化: " + b.elementId)
-    val retained = coverage(content(before), content(after))
+    val retained = coverage(content(before.html), content(after.html))
     entities ++ actions ++ bindings ++ List(
       Option.when(retained < 0.9)("主要正文覆盖不足，保留原有文本并调整排版"),
       Option.when(before.subjectEntityId != after.subjectEntityId)("主体引用变化"),

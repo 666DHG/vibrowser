@@ -26,3 +26,9 @@ private[generation] object DesignGuidance:
       contentFocusOnly = true,
       exploreLayouts = true
     )
+  lazy val draftExperiment: DesignGuidanceText = current.copy(
+    version = "9-" + version.drop(2),
+    visualContext = false,
+    exploreLayouts = false,
+    draftPlanning = true
+  )

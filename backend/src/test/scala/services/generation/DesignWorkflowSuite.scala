@@ -20,6 +20,8 @@ class DesignWorkflowSuite extends CatsEffectSuite:
   private val fixture = decode[WebDocument](
     Files.readString(Paths.get("../contracts/web-documents/docs.json"))
   ).toOption.get
+  private val visualDraft =
+    DesignDraft(fixture.title, fixture.description, fixture.html, fixture.css, fixture.siteStyle)
   private val brief =
     DesignBrief("阅读", "查找内容", List("正文"), "围绕内容自由组织", "中文排版", List("检索"), "继承站点", "内容关系决定阅读顺序")
   private val review = DesignReview(List(DesignIssue("main", "正文过窄", "阅读频繁换行", "调整行宽")))
@@ -288,6 +290,177 @@ class DesignWorkflowSuite extends CatsEffectSuite:
         _ = assertEquals(saved.brief.map(_.typography), Some(""))
         _ = assertEquals(saved.contentFocusOnly, Some(true))
         _ <- calls.get.map(n => assertEquals(n, 3))
+      yield ()
+    }
+  }
+  test("visual draft uses one planning request, preserves same-site identity and survives retry") {
+    isolated { db =>
+      for
+        parent <- seedVisual(db, "draft-parent.example", VisualProfile(Nil, Nil, Nil, Nil))
+        nav <- db.transaction(NavigateMessage("/guide/start", Some(parent), Some("chapter")).plan)
+        _ <- db.transaction(ClaimGenerationJobMessage().plan)
+        page <- db.transaction(c => PageTable.findById(c, nav.pageId)).map(_.get)
+        calls <- Ref.of[IO, Int](0)
+        measured <- Ref.of[IO, Int](0)
+        client = new TextGenerationClient:
+          def complete(
+              c: ProviderConnection,
+              system: String,
+              prompt: String,
+              test: Boolean
+          ): IO[String] =
+            calls.getAndUpdate(_ + 1).map {
+              case 0 =>
+                assertEquals(system, DesignPrompts.draftSystem)
+                assert(!system.contains("Copy: 绑定 button"))
+                assert(prompt.contains(fixture.siteStyle.brand))
+                visualDraft.asJson.noSpaces
+              case 1 =>
+                assert(prompt.contains(visualDraft.asJson.noSpaces))
+                assert(!prompt.contains("recentVisualReferences"))
+                assert(system.contains("Copy: 绑定 button"))
+                fixture.asJson.noSpaces
+              case 2 => DesignReview(Nil).asJson.noSpaces
+              case _ => fail("unexpected extra request")
+            }
+        measurer = new LayoutMeasurer:
+          def measure(document: WebDocument): IO[LayoutReport] =
+            IO(assert(document.actions.nonEmpty)) *> measured.update(_ + 1).as(report)
+        generator = new DesignWorkflowGeneration(
+          db,
+          client,
+          measurer,
+          guidance = DesignGuidance.draftExperiment
+        )
+        result <- generator.generate(config, page, WebDocumentPrompt.request(page), None, None)
+        expected <- db.transaction(ValidateWebDocumentMessage(fixture, page.address).plan)
+        _ = assertEquals(result.css, expected.css)
+        _ = assertEquals(result.siteStyle, visualDraft.siteStyle)
+        saved <- db.transaction(c => GenerationJobTable.designWorkflow(c, nav.jobId)).map(_.get)
+        _ = assertEquals(saved.draft, Some(visualDraft))
+        _ = assertEquals(saved.brief, None)
+        _ = assertEquals(saved.draftPlanning, Some(true))
+        _ <- measured.get.map(n => assertEquals(n, 1))
+        _ <- db.transaction(FailGenerationJobMessage(nav.jobId, "interrupted after assembly").plan)
+        retry <- db.transaction(RetryPageMessage(page.id, nav.jobId).plan)
+        _ <- db.transaction(ClaimGenerationJobMessage().plan)
+        next <- db.transaction(c => PageTable.findById(c, retry.pageId)).map(_.get)
+        restored <- new DesignWorkflowGeneration(db, client, measurer).generate(
+          config,
+          next,
+          WebDocumentPrompt.request(next),
+          None,
+          None
+        )
+        _ = assertEquals(restored, result)
+        _ <- calls.get.map(n => assertEquals(n, 3))
+        _ <- measured.get.map(n => assertEquals(n, 1))
+      yield ()
+    }
+  }
+  test("saved text plans continue under draft guidance without planning again") {
+    isolated { db =>
+      for
+        nav <- db.transaction(NavigateMessage("old-plan.example", None).plan)
+        _ <- db.transaction(ClaimGenerationJobMessage().plan)
+        page <- db.transaction(c => PageTable.findById(c, nav.pageId)).map(_.get)
+        _ <- db.transaction(
+          SaveDesignWorkflowMessage(
+            nav.jobId,
+            DesignWorkflow(
+              "8-saved",
+              brief = Some(brief),
+              events = List(
+                DesignEvent(
+                  DesignStage.Brief,
+                  DesignStageStatus.Completed,
+                  java.time.Instant.now.toString
+                )
+              )
+            )
+          ).plan
+        )
+        calls <- Ref.of[IO, Int](0)
+        client = provider(
+          List(fixture.asJson.noSpaces, DesignReview(Nil).asJson.noSpaces).map(Right(_)),
+          calls
+        )
+        _ <- new DesignWorkflowGeneration(
+          db,
+          client,
+          meter(),
+          guidance = DesignGuidance.draftExperiment
+        ).generate(config, page, "source", None, None)
+        saved <- db.transaction(c => GenerationJobTable.designWorkflow(c, nav.jobId)).map(_.get)
+        _ = assertEquals(saved.guidanceVersion, "8-saved")
+        _ = assertEquals(saved.draftPlanning, None)
+        _ = assertEquals(saved.draft, None)
+        _ <- calls.get.map(n => assertEquals(n, 2))
+      yield ()
+    }
+  }
+  test("draft assembly repairs prose loss within the existing request limit") {
+    List(false, true).traverse_ { exhaust =>
+      isolated { db =>
+        val parsed = org.jsoup.Jsoup.parseBodyFragment(fixture.html)
+        parsed.select("main p").remove()
+        val loss = fixture.copy(html = parsed.body().html())
+        for
+          nav <- db.transaction(NavigateMessage("draft-loss.example", None).plan)
+          _ <- db.transaction(ClaimGenerationJobMessage().plan)
+          page <- db.transaction(c => PageTable.findById(c, nav.pageId)).map(_.get)
+          calls <- Ref.of[IO, Int](0)
+          responses = List(visualDraft.asJson.noSpaces) ++ (if exhaust then
+                                                              List.fill(4)(loss.asJson.noSpaces)
+                                                            else
+                                                              List(
+                                                                loss.asJson.noSpaces,
+                                                                fixture.asJson.noSpaces,
+                                                                DesignReview(Nil).asJson.noSpaces
+                                                              ))
+          result <- new DesignWorkflowGeneration(
+            db,
+            provider(responses.map(Right(_)), calls),
+            meter(),
+            guidance = DesignGuidance.draftExperiment
+          ).generate(config, page, "source", None, None).attempt
+          _ = assertEquals(result.isLeft, exhaust)
+          _ <- calls.get.map(n => assertEquals(n, if exhaust then 5 else 4))
+          attempts <- db.transaction(c => GenerationJobTable.diagnostics(c, nav.jobId))
+          _ = assertEquals(attempts.head.outcome, AttemptOutcome.InvalidContent)
+          _ = assert(attempts.head.message.exists(_.contains("视觉草稿主要正文丢失")))
+        yield ()
+      }
+    }
+  }
+  test("invalid optional draft falls back once and never renders the draft") {
+    isolated { db =>
+      for
+        nav <- db.transaction(NavigateMessage("draft-fallback.example", None).plan)
+        _ <- db.transaction(ClaimGenerationJobMessage().plan)
+        page <- db.transaction(c => PageTable.findById(c, nav.pageId)).map(_.get)
+        calls <- Ref.of[IO, Int](0)
+        client = provider(
+          List("{}", fixture.asJson.noSpaces, DesignReview(Nil).asJson.noSpaces).map(Right(_)),
+          calls
+        )
+        generator = new DesignWorkflowGeneration(
+          db,
+          client,
+          meter(),
+          guidance = DesignGuidance.draftExperiment
+        )
+        result <- generator.generate(config, page, "source", None, None)
+        _ <- generator.generate(config, page, "source", None, None)
+        _ <- calls.get.map(n => assertEquals(n, 3))
+        saved <- db.transaction(c => GenerationJobTable.designWorkflow(c, nav.jobId)).map(_.get)
+        _ = assertEquals(saved.draft, None)
+        _ = assert(
+          saved.events.exists(e =>
+            e.stage == DesignStage.Brief && e.status == DesignStageStatus.Failed
+          )
+        )
+        _ = assertEquals(result.title, fixture.title)
       yield ()
     }
   }

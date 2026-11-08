@@ -6,6 +6,10 @@ import scala.jdk.CollectionConverters.*
 import services.browser.objects.WebDocument
 import services.generation.objects.*
 private[generation] object DesignPrompts:
+  val draftSystem = """依据当前请求和资料，直接设计一个可阅读、可操作的中文网页视觉草稿，以具体 HTML/CSS 表达内容组织和站点身份，不写版式说明或备选方案。已有站点沿用 navigationContext 中的视觉身份与事实。
+只返回 JSON：{title,description,html,css,siteStyle:{brand,typography,palette,layout}}。html 为 body 片段，CSS 单独提供；使用系统字体、语义 HTML、CSS 图形和真实正文，适配窄屏，不含脚本、内联事件、外部资源、图片、SVG 或 iframe。
+原生链接、搜索表单、按钮、列表与内容区域使用稳定 id。按本页需要设计导航、搜索、提交、展开、切换、筛选、排序、状态更新或复制入口；这些能力由下一阶段绑定宿主运行时，本阶段无需 actions、entities、bindings 或状态协议。HTML/CSS 合计不超过120000字符、2000节点、24层。以所附资料为内容依据，同站保留已知实体事实。
+"""
   def contentBrief(workflow: DesignWorkflow): Json =
     if workflow.contentFocusOnly.contains(true) then
       workflow.brief

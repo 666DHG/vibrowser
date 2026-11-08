@@ -15,7 +15,9 @@ final case class DesignWorkflow(
     visualReferences: Option[List[VisualProfile]] = None,
     contentFocusOnly: Option[Boolean] = None,
     layoutExploration: Option[Boolean] = None,
-    designDirection: Option[DesignDirection] = None
+    designDirection: Option[DesignDirection] = None,
+    draftPlanning: Option[Boolean] = None,
+    draft: Option[DesignDraft] = None
 )
 object DesignWorkflow:
   given Encoder[DesignWorkflow] = deriveEncoder
