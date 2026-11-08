@@ -10,7 +10,7 @@ private[generation] object DesignGuidance:
     finally stream.close()
   lazy val design: String = resource("design.md")
   lazy val review: String = resource("review.md")
-  lazy val version: String = "2-" + MessageDigest
+  lazy val version: String = "3-" + MessageDigest
     .getInstance("SHA-256")
     .digest((design + review).getBytes(UTF_8))
     .map(b => f"${b & 0xff}%02x")

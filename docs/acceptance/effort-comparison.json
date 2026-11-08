@@ -1,35 +1,35 @@
 {
-  "evaluatedAt": "2026-11-08T02:00:29.135Z",
+  "evaluatedAt": "2026-11-08T02:04:48.527Z",
   "expectedSamples": 18,
   "complete": false,
   "groups": {
     "old-standard": {
-      "samples": 5,
-      "ready": 5,
+      "samples": 6,
+      "ready": 6,
       "interrupted": 0,
       "unknownUsageSamples": 0,
       "unknownDurationSamples": 0,
-      "initialGenerationAccepted": 2,
-      "modelCalls": 27,
-      "generationModelCalls": 25,
-      "recordedTokens": 493288,
-      "recordedCompletionTokens": 124944,
+      "initialGenerationAccepted": 3,
+      "modelCalls": 31,
+      "generationModelCalls": 29,
+      "recordedTokens": 565990,
+      "recordedCompletionTokens": 145518,
       "recordedReasoningTokens": 0,
-      "seconds": 569
+      "seconds": 676
     },
     "new-standard": {
-      "samples": 5,
-      "ready": 5,
+      "samples": 6,
+      "ready": 6,
       "interrupted": 0,
       "unknownUsageSamples": 0,
       "unknownDurationSamples": 0,
       "initialGenerationAccepted": 0,
-      "modelCalls": 24,
-      "generationModelCalls": 24,
-      "recordedTokens": 425478,
-      "recordedCompletionTokens": 107841,
+      "modelCalls": 30,
+      "generationModelCalls": 30,
+      "recordedTokens": 542901,
+      "recordedCompletionTokens": 143505,
       "recordedReasoningTokens": 0,
-      "seconds": 448
+      "seconds": 601
     },
     "new-deep": {
       "samples": 5,
@@ -86,6 +86,14 @@
       "identicalGenerationRequest": true,
       "actualEffortMatches": true,
       "unobservedEffortSamples": 1
+    },
+    {
+      "input": "一个沿海小城居民的散步随笔.com",
+      "samples": 2,
+      "allThreePresent": false,
+      "identicalGenerationRequest": true,
+      "actualEffortMatches": true,
+      "unobservedEffortSamples": 0
     }
   ],
   "samples": [
@@ -19200,6 +19208,3740 @@
                 "fontSize": "15.5px",
                 "lineHeight": "27.125px",
                 "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", sans-serif"
+              }
+            ]
+          }
+        ],
+        "error": null
+      }
+    },
+    {
+      "name": "essay-new-standard",
+      "input": "一个沿海小城居民的散步随笔.com",
+      "mode": "imagination",
+      "effort": "standard",
+      "requestHash": "71d5157ecb8fece704d54fa6419571cacf313b80432f1d29cbf79626454669f2",
+      "actualEffortMatches": true,
+      "pageId": "e76d2348-341a-427f-bf7c-1dd09740d2ca",
+      "jobId": "647d142e-81c9-402b-aa6f-b6e79d515117",
+      "guidance": "2-5fc17c54ff3efd04494df031447a34fd7187103e7927a266800e0b6242f1e996",
+      "seconds": 153,
+      "interrupted": false,
+      "usageComplete": true,
+      "error": null,
+      "initialGenerationAccepted": false,
+      "generationAttempts": [
+        {
+          "attempt": 1,
+          "outcome": "InvalidContent",
+          "errorCode": "invalid_content",
+          "message": "DecodingFailure at .siteStyle: Missing required field",
+          "at": "2026-11-08T02:02:31.665916600Z"
+        },
+        {
+          "attempt": 2,
+          "outcome": "InvalidContent",
+          "errorCode": "invalid_content",
+          "message": "bindings[0] elementId=vib-link-1, entityId=https://xn--4gqvd894apme0h069bvhkjkbw5bu0clx1csqm860g.com/walks/breakwater-november, field=Title: binding entity missing; bindings[1] elementId=vib-entity-0, entityId=https://xn--4gqvd894apme0h069bvhkjkbw5bu0clx1csqm860g.com/walks/breakwater-november, field=PublishedAt: binding entity missing; 现有 HTML IDs: about, about-h, archive, archive-h, archive-list, entry-filter, latest, latest-h, list-breakwater, list-market, list-northshore, list-olddock, routes, routes-h, toggle-breakwater, toggle-market, toggle-northshore, toggle-olddock, vib-entity-0, vib-link-0, vib-link-1, vib-link-10, vib-link-11, vib-link-12, vib-link-13, vib-link-14, vib-link-15, vib-link-16, vib-link-17, vib-link-18, vib-link-19, vib-link-2, vib-link-20, vib-link-21, vib-link-22, vib-link-23, vib-link-24, vib-link-25, vib-link-26, vib-link-27, vib-link-28, vib-link-29, vib-link-3, vib-link-30, vib-link-31, vib-link-32, vib-link-33, vib-link-4, vib-link-5, vib-link-6, vib-link-7, vib-link-8, vib-link-9",
+          "at": "2026-11-08T02:03:00.841069200Z"
+        },
+        {
+          "attempt": 3,
+          "outcome": "Accepted",
+          "errorCode": null,
+          "message": null,
+          "at": "2026-11-08T02:03:30.090775900Z"
+        }
+      ],
+      "modelCalls": [
+        {
+          "usage": {
+            "prompt_tokens": 1240,
+            "completion_tokens": 698,
+            "total_tokens": 1938,
+            "prompt_tokens_details": {
+              "cached_tokens": 896
+            },
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 344
+          },
+          "status": 200,
+          "milliseconds": 7901,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "brief"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 2906,
+            "completion_tokens": 7488,
+            "total_tokens": 10394,
+            "prompt_tokens_details": {
+              "cached_tokens": 1024
+            },
+            "prompt_cache_hit_tokens": 1024,
+            "prompt_cache_miss_tokens": 1882
+          },
+          "status": 200,
+          "milliseconds": 37223,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 10486,
+            "completion_tokens": 7992,
+            "total_tokens": 18478,
+            "prompt_tokens_details": {
+              "cached_tokens": 2816
+            },
+            "prompt_cache_hit_tokens": 2816,
+            "prompt_cache_miss_tokens": 7670
+          },
+          "status": 200,
+          "milliseconds": 29152,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 11349,
+            "completion_tokens": 8293,
+            "total_tokens": 19642,
+            "prompt_tokens_details": {
+              "cached_tokens": 2816
+            },
+            "prompt_cache_hit_tokens": 2816,
+            "prompt_cache_miss_tokens": 8533
+          },
+          "status": 200,
+          "milliseconds": 29221,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 27181,
+            "completion_tokens": 833,
+            "total_tokens": 28014,
+            "prompt_tokens_details": {
+              "cached_tokens": 896
+            },
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 26285
+          },
+          "status": 200,
+          "milliseconds": 8125,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "review"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 28597,
+            "completion_tokens": 10360,
+            "total_tokens": 38957,
+            "prompt_tokens_details": {
+              "cached_tokens": 1024
+            },
+            "prompt_cache_hit_tokens": 1024,
+            "prompt_cache_miss_tokens": 27573
+          },
+          "status": 200,
+          "milliseconds": 35636,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "document"
+        }
+      ],
+      "selection": "Original",
+      "events": [
+        {
+          "stage": "Brief",
+          "status": "Started",
+          "at": "2026-11-08T02:01:46.522366700Z",
+          "message": null
+        },
+        {
+          "stage": "Brief",
+          "status": "Completed",
+          "at": "2026-11-08T02:01:54.426904300Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Started",
+          "at": "2026-11-08T02:03:30.097730500Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Completed",
+          "at": "2026-11-08T02:03:36.212124100Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Started",
+          "at": "2026-11-08T02:03:36.218124Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Completed",
+          "at": "2026-11-08T02:03:44.349780700Z",
+          "message": null
+        },
+        {
+          "stage": "Improve",
+          "status": "Started",
+          "at": "2026-11-08T02:03:44.356925500Z",
+          "message": null
+        },
+        {
+          "stage": "Improve",
+          "status": "Failed",
+          "at": "2026-11-08T02:04:20.028283900Z",
+          "message": "主要正文覆盖不足，保留原有文本并调整排版"
+        },
+        {
+          "stage": "Selection",
+          "status": "Completed",
+          "at": "2026-11-08T02:04:20.036567700Z",
+          "message": "采用已校验原页面"
+        }
+      ],
+      "researchReused": false,
+      "siteStyle": {
+        "brand": "潮线以下 · 一个沿海小城居民的散步随笔，低饱和海灰与米白，日期与潮位用等宽数字，以路线而非栏目组织导航。",
+        "typography": "正文系统中文无衬线字体栈，17px 上下、行高约1.9、栏宽约34–38字；标题同字族加粗，靠字号与留白分级；日期潮位用 tabular-nums 小一号淡色；导航与路线标签小号宽字距。",
+        "palette": "米白底 #f4f1ea，面板 #edeae0，分隔线 #d9d2c4，正文 #20282b，标题 #142a30，强调海灰蓝 #1b4a54，辅助淡色 #6b7875。",
+        "layout": "顶部窄条刊头与横向导航；首屏左文右潮汐侧记；其后按路线分组可展开的条目列表；页尾筛选与按月归档，最末作者自述与联系方式；窄屏单列堆叠。"
+      },
+      "actions": [
+        {
+          "id": "toggle-breakwater",
+          "kind": "Toggle",
+          "elementId": "toggle-breakwater",
+          "target": null,
+          "region": "list-breakwater",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "toggle-olddock",
+          "kind": "Toggle",
+          "elementId": "toggle-olddock",
+          "target": null,
+          "region": "list-olddock",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "toggle-market",
+          "kind": "Toggle",
+          "elementId": "toggle-market",
+          "target": null,
+          "region": "list-market",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "toggle-northshore",
+          "kind": "Toggle",
+          "elementId": "toggle-northshore",
+          "target": null,
+          "region": "list-northshore",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "filter-archive",
+          "kind": "Filter",
+          "elementId": "entry-filter",
+          "target": null,
+          "region": "archive-list",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-0",
+          "kind": "Navigate",
+          "elementId": "vib-link-0",
+          "target": "/",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-1",
+          "kind": "Navigate",
+          "elementId": "vib-link-1",
+          "target": "/walks/breakwater-november",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-2",
+          "kind": "Navigate",
+          "elementId": "vib-link-2",
+          "target": "/walks",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-3",
+          "kind": "Navigate",
+          "elementId": "vib-link-3",
+          "target": "/walks/breakwater-november",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-4",
+          "kind": "Navigate",
+          "elementId": "vib-link-4",
+          "target": "/walks/breakwater-october",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-5",
+          "kind": "Navigate",
+          "elementId": "vib-link-5",
+          "target": "/walks/breakwater-september",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-6",
+          "kind": "Navigate",
+          "elementId": "vib-link-6",
+          "target": "/walks/breakwater-summer",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-7",
+          "kind": "Navigate",
+          "elementId": "vib-link-7",
+          "target": "/walks/olddock-october",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-8",
+          "kind": "Navigate",
+          "elementId": "vib-link-8",
+          "target": "/walks/olddock-september",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-9",
+          "kind": "Navigate",
+          "elementId": "vib-link-9",
+          "target": "/walks/olddock-july",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-10",
+          "kind": "Navigate",
+          "elementId": "vib-link-10",
+          "target": "/walks/market-november",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-11",
+          "kind": "Navigate",
+          "elementId": "vib-link-11",
+          "target": "/walks/market-october",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-12",
+          "kind": "Navigate",
+          "elementId": "vib-link-12",
+          "target": "/walks/market-august",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-13",
+          "kind": "Navigate",
+          "elementId": "vib-link-13",
+          "target": "/walks/northshore-september",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-14",
+          "kind": "Navigate",
+          "elementId": "vib-link-14",
+          "target": "/walks/northshore-june",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-15",
+          "kind": "Navigate",
+          "elementId": "vib-link-15",
+          "target": "/walks/breakwater-november",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-16",
+          "kind": "Navigate",
+          "elementId": "vib-link-16",
+          "target": "/walks/market-november",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-17",
+          "kind": "Navigate",
+          "elementId": "vib-link-17",
+          "target": "/walks/olddock-october",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-18",
+          "kind": "Navigate",
+          "elementId": "vib-link-18",
+          "target": "/walks/breakwater-october",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-19",
+          "kind": "Navigate",
+          "elementId": "vib-link-19",
+          "target": "/walks/market-october",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-20",
+          "kind": "Navigate",
+          "elementId": "vib-link-20",
+          "target": "/walks/breakwater-september",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-21",
+          "kind": "Navigate",
+          "elementId": "vib-link-21",
+          "target": "/walks/olddock-september",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-22",
+          "kind": "Navigate",
+          "elementId": "vib-link-22",
+          "target": "/walks/northshore-september",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-23",
+          "kind": "Navigate",
+          "elementId": "vib-link-23",
+          "target": "/walks/market-august",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-24",
+          "kind": "Navigate",
+          "elementId": "vib-link-24",
+          "target": "/walks/breakwater-summer",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-25",
+          "kind": "Navigate",
+          "elementId": "vib-link-25",
+          "target": "/walks/olddock-july",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-26",
+          "kind": "Navigate",
+          "elementId": "vib-link-26",
+          "target": "/walks/northshore-june",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-27",
+          "kind": "Navigate",
+          "elementId": "vib-link-27",
+          "target": "/archive/2026-11",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-28",
+          "kind": "Navigate",
+          "elementId": "vib-link-28",
+          "target": "/archive/2026-10",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-29",
+          "kind": "Navigate",
+          "elementId": "vib-link-29",
+          "target": "/archive/2026-09",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-30",
+          "kind": "Navigate",
+          "elementId": "vib-link-30",
+          "target": "/archive/2026-08",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-31",
+          "kind": "Navigate",
+          "elementId": "vib-link-31",
+          "target": "/archive/2026-07",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-32",
+          "kind": "Navigate",
+          "elementId": "vib-link-32",
+          "target": "/archive/2026-06",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-33",
+          "kind": "Navigate",
+          "elementId": "vib-link-33",
+          "target": "/archive/2026-05",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        }
+      ],
+      "layout": {
+        "viewports": [
+          {
+            "width": 1440,
+            "height": 900,
+            "scrollWidth": 1425,
+            "scrollHeight": 3317,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "latest-h",
+                "tag": "h1",
+                "text": "防波堤尽头的那把塑料椅又回来了",
+                "x": 200.5,
+                "y": 188.5,
+                "width": 682,
+                "height": 44.9375,
+                "fontSize": "31px",
+                "lineHeight": "44.95px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "routes-h",
+                "tag": "h2",
+                "text": "沿这条线走",
+                "x": 200.5,
+                "y": 1080.578125,
+                "width": 1024,
+                "height": 39.890625,
+                "fontSize": "21px",
+                "lineHeight": "39.9px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "防波堤与港口 63 篇\n    展开",
+                "x": 200.5,
+                "y": 1174.109375,
+                "width": 1024,
+                "height": 36.75,
+                "fontSize": "17px",
+                "lineHeight": "32.3px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "旧码头与修船铺 41 篇\n    展开",
+                "x": 200.5,
+                "y": 1267.25,
+                "width": 1024,
+                "height": 36.75,
+                "fontSize": "17px",
+                "lineHeight": "32.3px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "菜市场后巷 35 篇\n    展开",
+                "x": 200.5,
+                "y": 1360.390625,
+                "width": 1024,
+                "height": 36.75,
+                "fontSize": "17px",
+                "lineHeight": "32.3px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "北岸礁石与灯塔 28 篇\n    展开",
+                "x": 200.5,
+                "y": 1453.53125,
+                "width": 1024,
+                "height": 36.75,
+                "fontSize": "17px",
+                "lineHeight": "32.3px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "archive-h",
+                "tag": "h2",
+                "text": "全部随笔",
+                "x": 200.5,
+                "y": 1612.671875,
+                "width": 1024,
+                "height": 39.890625,
+                "fontSize": "21px",
+                "lineHeight": "39.9px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "about-h",
+                "tag": "h2",
+                "text": "关于我和这座城",
+                "x": 200.5,
+                "y": 2865.328125,
+                "width": 1024,
+                "height": 39.890625,
+                "fontSize": "21px",
+                "lineHeight": "39.9px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              }
+            ],
+            "controls": [
+              {
+                "id": "vib-link-0",
+                "tag": "a",
+                "text": "◦ 潮线以下",
+                "x": 200.5,
+                "y": 22,
+                "width": 224.640625,
+                "height": 38,
+                "fontSize": "20px",
+                "lineHeight": "38px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "最新一篇",
+                "x": 925.1875,
+                "y": 57.109375,
+                "width": 58.328125,
+                "height": 28.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "沿这条线走",
+                "x": 1005.515625,
+                "y": 57.109375,
+                "width": 72.90625,
+                "height": 28.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "按月归档",
+                "x": 1100.421875,
+                "y": 57.109375,
+                "width": 58.328125,
+                "height": 28.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "关于我",
+                "x": 1180.75,
+                "y": 57.109375,
+                "width": 43.75,
+                "height": 28.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-1",
+                "tag": "a",
+                "text": "防波堤尽头的那把塑料椅又回来了",
+                "x": 200.5,
+                "y": 189.5,
+                "width": 469.65625,
+                "height": 41,
+                "fontSize": "31px",
+                "lineHeight": "44.95px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-2",
+                "tag": "a",
+                "text": "全部 187 篇 →",
+                "x": 977.5,
+                "y": 428,
+                "width": 88.125,
+                "height": 18,
+                "fontSize": "13px",
+                "lineHeight": "23.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "toggle-breakwater",
+                "tag": "button",
+                "text": "展开",
+                "x": 1167,
+                "y": 1175.109375,
+                "width": 57.5,
+                "height": 35.75,
+                "fontSize": "12.5px",
+                "lineHeight": "23.75px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "toggle-olddock",
+                "tag": "button",
+                "text": "展开",
+                "x": 1167,
+                "y": 1268.25,
+                "width": 57.5,
+                "height": 35.75,
+                "fontSize": "12.5px",
+                "lineHeight": "23.75px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "toggle-market",
+                "tag": "button",
+                "text": "展开",
+                "x": 1167,
+                "y": 1361.390625,
+                "width": 57.5,
+                "height": 35.75,
+                "fontSize": "12.5px",
+                "lineHeight": "23.75px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "toggle-northshore",
+                "tag": "button",
+                "text": "展开",
+                "x": 1167,
+                "y": 1454.53125,
+                "width": 57.5,
+                "height": 35.75,
+                "fontSize": "12.5px",
+                "lineHeight": "23.75px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "entry-filter",
+                "tag": "input",
+                "text": "",
+                "x": 314.25,
+                "y": 1721.203125,
+                "width": 340,
+                "height": 43.546875,
+                "fontSize": "14.5px",
+                "lineHeight": "27.55px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-15",
+                "tag": "a",
+                "text": "防波堤尽头的那把塑料椅又回来了",
+                "x": 334.5,
+                "y": 1806.75,
+                "width": 890,
+                "height": 26.25,
+                "fontSize": "14.5px",
+                "lineHeight": "24.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-16",
+                "tag": "a",
+                "text": "后巷的豆腐坊换了一台新的磨",
+                "x": 334.5,
+                "y": 1875.625,
+                "width": 890,
+                "height": 26.25,
+                "fontSize": "14.5px",
+                "lineHeight": "24.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-17",
+                "tag": "a",
+                "text": "修船铺的师傅在做一条木船的龙骨",
+                "x": 334.5,
+                "y": 1944.5,
+                "width": 890,
+                "height": 26.25,
+                "fontSize": "14.5px",
+                "lineHeight": "24.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-18",
+                "tag": "a",
+                "text": "东堤的灯坏了两盏，月亮很亮",
+                "x": 334.5,
+                "y": 2013.375,
+                "width": 890,
+                "height": 26.25,
+                "fontSize": "14.5px",
+                "lineHeight": "24.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-19",
+                "tag": "a",
+                "text": "卖腌菜的阿婆今年不出摊了",
+                "x": 334.5,
+                "y": 2082.25,
+                "width": 890,
+                "height": 26.25,
+                "fontSize": "14.5px",
+                "lineHeight": "24.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-20",
+                "tag": "a",
+                "text": "台风过后，堤面上多了一排贝壳",
+                "x": 334.5,
+                "y": 2151.125,
+                "width": 890,
+                "height": 26.25,
+                "fontSize": "14.5px",
+                "lineHeight": "24.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-21",
+                "tag": "a",
+                "text": "废冷库墙上的粉笔字被雨冲掉了一半",
+                "x": 334.5,
+                "y": 2220,
+                "width": 890,
+                "height": 26.25,
+                "fontSize": "14.5px",
+                "lineHeight": "24.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-22",
+                "tag": "a",
+                "text": "灯塔下的石阶生了一层青苔",
+                "x": 334.5,
+                "y": 2288.875,
+                "width": 890,
+                "height": 26.25,
+                "fontSize": "14.5px",
+                "lineHeight": "24.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-23",
+                "tag": "a",
+                "text": "下雨的早晨，市场里几乎没有客人",
+                "x": 334.5,
+                "y": 2357.75,
+                "width": 890,
+                "height": 26.25,
+                "fontSize": "14.5px",
+                "lineHeight": "24.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-24",
+                "tag": "a",
+                "text": "夏天傍晚，三个小孩在堤上钓鱼",
+                "x": 334.5,
+                "y": 2426.625,
+                "width": 890,
+                "height": 26.25,
+                "fontSize": "14.5px",
+                "lineHeight": "24.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-25",
+                "tag": "a",
+                "text": "在码头边捡到一只旧浮标",
+                "x": 334.5,
+                "y": 2495.5,
+                "width": 890,
+                "height": 26.25,
+                "fontSize": "14.5px",
+                "lineHeight": "24.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-26",
+                "tag": "a",
+                "text": "在礁石缝里看见一只很旧的玻璃瓶",
+                "x": 334.5,
+                "y": 2564.375,
+                "width": 890,
+                "height": 26.25,
+                "fontSize": "14.5px",
+                "lineHeight": "24.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-27",
+                "tag": "a",
+                "text": "二〇二六年十一月4 篇",
+                "x": 200.5,
+                "y": 2701.046875,
+                "width": 238,
+                "height": 37.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-28",
+                "tag": "a",
+                "text": "二〇二六年十月9 篇",
+                "x": 462.5,
+                "y": 2701.046875,
+                "width": 238,
+                "height": 37.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-29",
+                "tag": "a",
+                "text": "二〇二六年九月8 篇",
+                "x": 724.5,
+                "y": 2701.046875,
+                "width": 238,
+                "height": 37.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-30",
+                "tag": "a",
+                "text": "二〇二六年八月11 篇",
+                "x": 986.5,
+                "y": 2701.046875,
+                "width": 238,
+                "height": 37.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-31",
+                "tag": "a",
+                "text": "二〇二六年七月12 篇",
+                "x": 200.5,
+                "y": 2741.6875,
+                "width": 238,
+                "height": 37.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-32",
+                "tag": "a",
+                "text": "二〇二六年六月10 篇",
+                "x": 462.5,
+                "y": 2741.6875,
+                "width": 238,
+                "height": 37.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-33",
+                "tag": "a",
+                "text": "二〇二六年五月13 篇",
+                "x": 724.5,
+                "y": 2741.6875,
+                "width": 238,
+                "height": 37.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              }
+            ],
+            "regions": [
+              {
+                "id": "",
+                "tag": "header",
+                "text": "◦ 潮线以下\n  沿海小城散步随笔 · 自 2019 年秋\n  \n   最新一篇 沿这条线走 按月归档 关于我",
+                "x": 0,
+                "y": 0,
+                "width": 1425,
+                "height": 102.75,
+                "fontSize": "17px",
+                "lineHeight": "32.3px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "nav",
+                "text": "最新一篇 沿这条线走 按月归档 关于我",
+                "x": 925.1875,
+                "y": 57.109375,
+                "width": 299.3125,
+                "height": 28.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "main",
+                "text": "第 187 篇 · 二〇二六年十一月\n  防波堤尽头的那把塑料椅又回来了\n  2026-11-06 · 防波堤 · 4.2 公里 · 低潮 06:41 / 高潮 12:58 · 晴转多云，18°C，东北风 3 级\n  \n   早上六点半出门，天还没完全亮，路面有昨夜雨留下的暗色。走到防波堤入口时，低潮刚过十分钟，露出水面的礁石上积着一层薄薄的海藻，踩上去会滑",
+                "x": 172.5,
+                "y": 102.75,
+                "width": 1080,
+                "height": 3094.53125,
+                "fontSize": "17px",
+                "lineHeight": "32.3px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "latest",
+                "tag": "section",
+                "text": "第 187 篇 · 二〇二六年十一月\n  防波堤尽头的那把塑料椅又回来了\n  2026-11-06 · 防波堤 · 4.2 公里 · 低潮 06:41 / 高潮 12:58 · 晴转多云，18°C，东北风 3 级\n  \n   早上六点半出门，天还没完全亮，路面有昨夜雨留下的暗色。走到防波堤入口时，低潮刚过十分钟，露出水面的礁石上积着一层薄薄的海藻，踩上去会滑",
+                "x": 200.5,
+                "y": 102.75,
+                "width": 1024,
+                "height": 933.828125,
+                "fontSize": "17px",
+                "lineHeight": "32.3px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "写这篇时\n   \n    \n     \n      潮位\n     \n     \n      1.8 m\n     \n    \n    \n     \n      水温\n     \n     \n      16.4 °C\n     \n    \n    \n     \n      同行\n     \n     \n      无（一个人）\n     \n    \n   ",
+                "x": 956.5,
+                "y": 154.75,
+                "width": 268,
+                "height": 312.640625,
+                "fontSize": "13px",
+                "lineHeight": "23.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "routes",
+                "tag": "section",
+                "text": "沿这条线走\n   按常常走的那几条路线分组，每条下面只留日期、题名和第一句。\n  \n  \n   防波堤与港口 63 篇\n    展开\n   从防波堤入口到东堤尽头，再折回港口侧。约 4 公里，一个半小时。\n   \n    11-06 防波堤尽头的那把塑料椅又回来了早上六点半出门，天还没完全亮，路面有昨夜雨留下的暗色。\n    10-19 东堤的灯坏了两盏，月",
+                "x": 200.5,
+                "y": 1036.578125,
+                "width": 1024,
+                "height": 532.09375,
+                "fontSize": "17px",
+                "lineHeight": "32.3px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "防波堤与港口 63 篇\n    展开\n   从防波堤入口到东堤尽头，再折回港口侧。约 4 公里，一个半小时。\n   \n    11-06 防波堤尽头的那把塑料椅又回来了早上六点半出门，天还没完全亮，路面有昨夜雨留下的暗色。\n    10-19 东堤的灯坏了两盏，月亮很亮走到第七个墩子时才发现，前面的两盏灯都不亮了。\n    09-28 台风过后，堤面上多了一",
+                "x": 200.5,
+                "y": 1174.109375,
+                "width": 1024,
+                "height": 74.140625,
+                "fontSize": "17px",
+                "lineHeight": "32.3px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "旧码头与修船铺 41 篇\n    展开\n   沿着旧码头往北，绕过修船铺和废置的冷库，最后回到石桥。\n   \n    10-30 修船铺的师傅在做一条木船的龙骨他说这条船是给邻村一个老头修的，老头今年八十二。\n    09-14 废冷库墙上的粉笔字被雨冲掉了一半上次还能看清“不要靠近”，现在只剩“靠近”两个字。\n    07-21 在码头边捡到一只旧浮标是白",
+                "x": 200.5,
+                "y": 1248.25,
+                "width": 1024,
+                "height": 93.140625,
+                "fontSize": "17px",
+                "lineHeight": "32.3px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "菜市场后巷 35 篇\n    展开\n   从市场正门进，从后巷出来，绕过豆腐坊和修鞋摊。距离最短，人最多。\n   \n    11-03 后巷的豆腐坊换了一台新的磨声音比以前小，但是同样的节奏，一圈一圈。\n    10-08 卖腌菜的阿婆今年不出摊了她的位置现在摆着一台旧的电子秤，没人用。\n    08-30 下雨的早晨，市场里几乎没有客人只有卖鱼的两三家还开",
+                "x": 200.5,
+                "y": 1341.390625,
+                "width": 1024,
+                "height": 93.140625,
+                "fontSize": "17px",
+                "lineHeight": "32.3px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "北岸礁石与灯塔 28 篇\n    展开\n   唯一需要坐车的一段。下车后走礁石步道，两个小时来回，只能在低潮时走。\n   \n    09-05 灯塔下的石阶生了一层青苔雨停了三天，青苔还是滑的，我扶着栏杆上去。\n    06-18 在礁石缝里看见一只很旧的玻璃瓶瓶口封着蜡，里面有一张卷起来的纸，没敢打开。",
+                "x": 200.5,
+                "y": 1434.53125,
+                "width": 1024,
+                "height": 93.140625,
+                "fontSize": "17px",
+                "lineHeight": "32.3px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "archive",
+                "tag": "section",
+                "text": "全部随笔\n   共 187 篇。输入关键词，只按题名与第一句筛选下面这些条目。\n  \n  \n   筛选题名或首句  不区分大小写，留空显示全部\n  \n  \n   2026-11-06 防波堤尽头的那把塑料椅又回来了早上六点半出门，天还没完全亮，路面有昨夜雨留下的暗色。\n   2026-11-03 后巷的豆腐坊换了一台新的磨声音比以前小，但是同样的节奏，一圈一",
+                "x": 200.5,
+                "y": 1568.671875,
+                "width": 1024,
+                "height": 1252.65625,
+                "fontSize": "17px",
+                "lineHeight": "32.3px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "about",
+                "tag": "section",
+                "text": "关于我和这座城\n  \n   \n    我住在一座小城的城南，靠港口那一侧，窗外能看到半个港口的桅杆。三十岁以后开始认真走路，先是每天上下班的路，后来是海边。现在一般早上出门，涨潮前后各走一次，雨雪天不停，一次大约四到五公里。\n    这些随笔写的都是走路时看到的东西：防波堤上被搬来搬去的椅子、菜市场后巷换了磨的豆腐坊、修船铺里正在做的龙骨，还有涨潮时来不及收",
+                "x": 200.5,
+                "y": 2821.328125,
+                "width": 1024,
+                "height": 375.953125,
+                "fontSize": "17px",
+                "lineHeight": "32.3px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "footer",
+                "text": "潮线以下 · 一个沿海小城居民的散步随笔\n 文章与照片均为个人记录，转载前请来信告知。",
+                "x": 0,
+                "y": 3197.28125,
+                "width": 1425,
+                "height": 119.546875,
+                "fontSize": "12.5px",
+                "lineHeight": "23.75px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              }
+            ]
+          },
+          {
+            "width": 390,
+            "height": 844,
+            "scrollWidth": 375,
+            "scrollHeight": 5194,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "latest-h",
+                "tag": "h1",
+                "text": "防波堤尽头的那把塑料椅又回来了",
+                "x": 18,
+                "y": 211.140625,
+                "width": 339,
+                "height": 72.5,
+                "fontSize": "25px",
+                "lineHeight": "36.25px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "routes-h",
+                "tag": "h2",
+                "text": "沿这条线走",
+                "x": 18,
+                "y": 1776.75,
+                "width": 339,
+                "height": 39.890625,
+                "fontSize": "21px",
+                "lineHeight": "39.9px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "防波堤与港口 63 篇\n    展开",
+                "x": 18,
+                "y": 1895.921875,
+                "width": 339,
+                "height": 36.75,
+                "fontSize": "17px",
+                "lineHeight": "32.3px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "旧码头与修船铺 41 篇\n    展开",
+                "x": 18,
+                "y": 2012.453125,
+                "width": 339,
+                "height": 36.75,
+                "fontSize": "17px",
+                "lineHeight": "32.3px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "菜市场后巷 35 篇\n    展开",
+                "x": 18,
+                "y": 2128.984375,
+                "width": 339,
+                "height": 36.75,
+                "fontSize": "17px",
+                "lineHeight": "32.3px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "北岸礁石与灯塔 28 篇\n    展开",
+                "x": 18,
+                "y": 2245.515625,
+                "width": 339,
+                "height": 36.75,
+                "fontSize": "17px",
+                "lineHeight": "32.3px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "archive-h",
+                "tag": "h2",
+                "text": "全部随笔",
+                "x": 18,
+                "y": 2428.046875,
+                "width": 339,
+                "height": 39.890625,
+                "fontSize": "21px",
+                "lineHeight": "39.9px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "about-h",
+                "tag": "h2",
+                "text": "关于我和这座城",
+                "x": 18,
+                "y": 4375.03125,
+                "width": 339,
+                "height": 39.890625,
+                "fontSize": "21px",
+                "lineHeight": "39.9px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              }
+            ],
+            "controls": [
+              {
+                "id": "vib-link-0",
+                "tag": "a",
+                "text": "◦ 潮线以下",
+                "x": 18,
+                "y": 22,
+                "width": 114.46875,
+                "height": 38,
+                "fontSize": "20px",
+                "lineHeight": "38px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "最新一篇",
+                "x": 18,
+                "y": 95.75,
+                "width": 58.328125,
+                "height": 28.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "沿这条线走",
+                "x": 94.328125,
+                "y": 95.75,
+                "width": 72.90625,
+                "height": 28.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "按月归档",
+                "x": 185.234375,
+                "y": 95.75,
+                "width": 58.328125,
+                "height": 28.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "关于我",
+                "x": 261.5625,
+                "y": 95.75,
+                "width": 43.75,
+                "height": 28.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-1",
+                "tag": "a",
+                "text": "防波堤尽头的那把塑料椅又回来了",
+                "x": 18,
+                "y": 212.140625,
+                "width": 328.25,
+                "height": 69.25,
+                "fontSize": "25px",
+                "lineHeight": "36.25px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-2",
+                "tag": "a",
+                "text": "全部 187 篇 →",
+                "x": 39,
+                "y": 1648.359375,
+                "width": 88.015625,
+                "height": 18,
+                "fontSize": "13px",
+                "lineHeight": "23.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "toggle-breakwater",
+                "tag": "button",
+                "text": "展开",
+                "x": 186.453125,
+                "y": 1896.921875,
+                "width": 57.5,
+                "height": 35.75,
+                "fontSize": "12.5px",
+                "lineHeight": "23.75px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "toggle-olddock",
+                "tag": "button",
+                "text": "展开",
+                "x": 203.96875,
+                "y": 2013.453125,
+                "width": 57.5,
+                "height": 35.75,
+                "fontSize": "12.5px",
+                "lineHeight": "23.75px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "toggle-market",
+                "tag": "button",
+                "text": "展开",
+                "x": 168.953125,
+                "y": 2129.984375,
+                "width": 57.5,
+                "height": 35.75,
+                "fontSize": "12.5px",
+                "lineHeight": "23.75px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "toggle-northshore",
+                "tag": "button",
+                "text": "展开",
+                "x": 203.96875,
+                "y": 2246.515625,
+                "width": 57.5,
+                "height": 35.75,
+                "fontSize": "12.5px",
+                "lineHeight": "23.75px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "entry-filter",
+                "tag": "input",
+                "text": "",
+                "x": 18,
+                "y": 2593.96875,
+                "width": 339,
+                "height": 43.546875,
+                "fontSize": "14.5px",
+                "lineHeight": "27.55px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-15",
+                "tag": "a",
+                "text": "防波堤尽头的那把塑料椅又回来了",
+                "x": 18,
+                "y": 2738.5625,
+                "width": 339,
+                "height": 25.640625,
+                "fontSize": "14.5px",
+                "lineHeight": "24.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-16",
+                "tag": "a",
+                "text": "后巷的豆腐坊换了一台新的磨",
+                "x": 18,
+                "y": 2860.703125,
+                "width": 339,
+                "height": 25.640625,
+                "fontSize": "14.5px",
+                "lineHeight": "24.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-17",
+                "tag": "a",
+                "text": "修船铺的师傅在做一条木船的龙骨",
+                "x": 18,
+                "y": 2959.21875,
+                "width": 339,
+                "height": 25.640625,
+                "fontSize": "14.5px",
+                "lineHeight": "24.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-18",
+                "tag": "a",
+                "text": "东堤的灯坏了两盏，月亮很亮",
+                "x": 18,
+                "y": 3057.734375,
+                "width": 339,
+                "height": 25.640625,
+                "fontSize": "14.5px",
+                "lineHeight": "24.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-19",
+                "tag": "a",
+                "text": "卖腌菜的阿婆今年不出摊了",
+                "x": 18,
+                "y": 3156.25,
+                "width": 339,
+                "height": 25.640625,
+                "fontSize": "14.5px",
+                "lineHeight": "24.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-20",
+                "tag": "a",
+                "text": "台风过后，堤面上多了一排贝壳",
+                "x": 18,
+                "y": 3254.765625,
+                "width": 339,
+                "height": 25.640625,
+                "fontSize": "14.5px",
+                "lineHeight": "24.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-21",
+                "tag": "a",
+                "text": "废冷库墙上的粉笔字被雨冲掉了一半",
+                "x": 18,
+                "y": 3353.28125,
+                "width": 339,
+                "height": 25.640625,
+                "fontSize": "14.5px",
+                "lineHeight": "24.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-22",
+                "tag": "a",
+                "text": "灯塔下的石阶生了一层青苔",
+                "x": 18,
+                "y": 3475.421875,
+                "width": 339,
+                "height": 25.640625,
+                "fontSize": "14.5px",
+                "lineHeight": "24.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-23",
+                "tag": "a",
+                "text": "下雨的早晨，市场里几乎没有客人",
+                "x": 18,
+                "y": 3573.9375,
+                "width": 339,
+                "height": 25.640625,
+                "fontSize": "14.5px",
+                "lineHeight": "24.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-24",
+                "tag": "a",
+                "text": "夏天傍晚，三个小孩在堤上钓鱼",
+                "x": 18,
+                "y": 3672.453125,
+                "width": 339,
+                "height": 25.640625,
+                "fontSize": "14.5px",
+                "lineHeight": "24.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-25",
+                "tag": "a",
+                "text": "在码头边捡到一只旧浮标",
+                "x": 18,
+                "y": 3770.96875,
+                "width": 339,
+                "height": 25.640625,
+                "fontSize": "14.5px",
+                "lineHeight": "24.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-26",
+                "tag": "a",
+                "text": "在礁石缝里看见一只很旧的玻璃瓶",
+                "x": 18,
+                "y": 3869.484375,
+                "width": 339,
+                "height": 25.640625,
+                "fontSize": "14.5px",
+                "lineHeight": "24.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-27",
+                "tag": "a",
+                "text": "二〇二六年十一月4 篇",
+                "x": 18,
+                "y": 4007.546875,
+                "width": 339,
+                "height": 37.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-28",
+                "tag": "a",
+                "text": "二〇二六年十月9 篇",
+                "x": 18,
+                "y": 4048.1875,
+                "width": 339,
+                "height": 37.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-29",
+                "tag": "a",
+                "text": "二〇二六年九月8 篇",
+                "x": 18,
+                "y": 4088.828125,
+                "width": 339,
+                "height": 37.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-30",
+                "tag": "a",
+                "text": "二〇二六年八月11 篇",
+                "x": 18,
+                "y": 4129.46875,
+                "width": 339,
+                "height": 37.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-31",
+                "tag": "a",
+                "text": "二〇二六年七月12 篇",
+                "x": 18,
+                "y": 4170.109375,
+                "width": 339,
+                "height": 37.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-32",
+                "tag": "a",
+                "text": "二〇二六年六月10 篇",
+                "x": 18,
+                "y": 4210.75,
+                "width": 339,
+                "height": 37.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "vib-link-33",
+                "tag": "a",
+                "text": "二〇二六年五月13 篇",
+                "x": 18,
+                "y": 4251.390625,
+                "width": 339,
+                "height": 37.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              }
+            ],
+            "regions": [
+              {
+                "id": "",
+                "tag": "header",
+                "text": "◦ 潮线以下\n  沿海小城散步随笔 · 自 2019 年秋\n  \n   最新一篇 沿这条线走 按月归档 关于我",
+                "x": 0,
+                "y": 0,
+                "width": 375,
+                "height": 141.390625,
+                "fontSize": "16px",
+                "lineHeight": "30.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "nav",
+                "text": "最新一篇 沿这条线走 按月归档 关于我",
+                "x": 18,
+                "y": 95.75,
+                "width": 287.3125,
+                "height": 28.640625,
+                "fontSize": "13.5px",
+                "lineHeight": "25.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "main",
+                "text": "第 187 篇 · 二〇二六年十一月\n  防波堤尽头的那把塑料椅又回来了\n  2026-11-06 · 防波堤 · 4.2 公里 · 低潮 06:41 / 高潮 12:58 · 晴转多云，18°C，东北风 3 级\n  \n   早上六点半出门，天还没完全亮，路面有昨夜雨留下的暗色。走到防波堤入口时，低潮刚过十分钟，露出水面的礁石上积着一层薄薄的海藻，踩上去会滑",
+                "x": 0,
+                "y": 141.390625,
+                "width": 375,
+                "height": 4933.46875,
+                "fontSize": "16px",
+                "lineHeight": "30.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "latest",
+                "tag": "section",
+                "text": "第 187 篇 · 二〇二六年十一月\n  防波堤尽头的那把塑料椅又回来了\n  2026-11-06 · 防波堤 · 4.2 公里 · 低潮 06:41 / 高潮 12:58 · 晴转多云，18°C，东北风 3 级\n  \n   早上六点半出门，天还没完全亮，路面有昨夜雨留下的暗色。走到防波堤入口时，低潮刚过十分钟，露出水面的礁石上积着一层薄薄的海藻，踩上去会滑",
+                "x": 18,
+                "y": 141.390625,
+                "width": 339,
+                "height": 1591.359375,
+                "fontSize": "16px",
+                "lineHeight": "30.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "写这篇时\n   \n    \n     \n      潮位\n     \n     \n      1.8 m\n     \n    \n    \n     \n      水温\n     \n     \n      16.4 °C\n     \n    \n    \n     \n      同行\n     \n     \n      无（一个人）\n     \n    \n   ",
+                "x": 18,
+                "y": 1375.109375,
+                "width": 339,
+                "height": 312.640625,
+                "fontSize": "13px",
+                "lineHeight": "23.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "routes",
+                "tag": "section",
+                "text": "沿这条线走\n   按常常走的那几条路线分组，每条下面只留日期、题名和第一句。\n  \n  \n   防波堤与港口 63 篇\n    展开\n   从防波堤入口到东堤尽头，再折回港口侧。约 4 公里，一个半小时。\n   \n    11-06 防波堤尽头的那把塑料椅又回来了早上六点半出门，天还没完全亮，路面有昨夜雨留下的暗色。\n    10-19 东堤的灯坏了两盏，月",
+                "x": 18,
+                "y": 1732.75,
+                "width": 339,
+                "height": 651.296875,
+                "fontSize": "16px",
+                "lineHeight": "30.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "防波堤与港口 63 篇\n    展开\n   从防波堤入口到东堤尽头，再折回港口侧。约 4 公里，一个半小时。\n   \n    11-06 防波堤尽头的那把塑料椅又回来了早上六点半出门，天还没完全亮，路面有昨夜雨留下的暗色。\n    10-19 东堤的灯坏了两盏，月亮很亮走到第七个墩子时才发现，前面的两盏灯都不亮了。\n    09-28 台风过后，堤面上多了一",
+                "x": 18,
+                "y": 1895.921875,
+                "width": 339,
+                "height": 97.53125,
+                "fontSize": "16px",
+                "lineHeight": "30.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "旧码头与修船铺 41 篇\n    展开\n   沿着旧码头往北，绕过修船铺和废置的冷库，最后回到石桥。\n   \n    10-30 修船铺的师傅在做一条木船的龙骨他说这条船是给邻村一个老头修的，老头今年八十二。\n    09-14 废冷库墙上的粉笔字被雨冲掉了一半上次还能看清“不要靠近”，现在只剩“靠近”两个字。\n    07-21 在码头边捡到一只旧浮标是白",
+                "x": 18,
+                "y": 1993.453125,
+                "width": 339,
+                "height": 116.53125,
+                "fontSize": "16px",
+                "lineHeight": "30.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "菜市场后巷 35 篇\n    展开\n   从市场正门进，从后巷出来，绕过豆腐坊和修鞋摊。距离最短，人最多。\n   \n    11-03 后巷的豆腐坊换了一台新的磨声音比以前小，但是同样的节奏，一圈一圈。\n    10-08 卖腌菜的阿婆今年不出摊了她的位置现在摆着一台旧的电子秤，没人用。\n    08-30 下雨的早晨，市场里几乎没有客人只有卖鱼的两三家还开",
+                "x": 18,
+                "y": 2109.984375,
+                "width": 339,
+                "height": 116.53125,
+                "fontSize": "16px",
+                "lineHeight": "30.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "北岸礁石与灯塔 28 篇\n    展开\n   唯一需要坐车的一段。下车后走礁石步道，两个小时来回，只能在低潮时走。\n   \n    09-05 灯塔下的石阶生了一层青苔雨停了三天，青苔还是滑的，我扶着栏杆上去。\n    06-18 在礁石缝里看见一只很旧的玻璃瓶瓶口封着蜡，里面有一张卷起来的纸，没敢打开。",
+                "x": 18,
+                "y": 2226.515625,
+                "width": 339,
+                "height": 116.53125,
+                "fontSize": "16px",
+                "lineHeight": "30.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "archive",
+                "tag": "section",
+                "text": "全部随笔\n   共 187 篇。输入关键词，只按题名与第一句筛选下面这些条目。\n  \n  \n   筛选题名或首句  不区分大小写，留空显示全部\n  \n  \n   2026-11-06 防波堤尽头的那把塑料椅又回来了早上六点半出门，天还没完全亮，路面有昨夜雨留下的暗色。\n   2026-11-03 后巷的豆腐坊换了一台新的磨声音比以前小，但是同样的节奏，一圈一",
+                "x": 18,
+                "y": 2384.046875,
+                "width": 339,
+                "height": 1946.984375,
+                "fontSize": "16px",
+                "lineHeight": "30.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "about",
+                "tag": "section",
+                "text": "关于我和这座城\n  \n   \n    我住在一座小城的城南，靠港口那一侧，窗外能看到半个港口的桅杆。三十岁以后开始认真走路，先是每天上下班的路，后来是海边。现在一般早上出门，涨潮前后各走一次，雨雪天不停，一次大约四到五公里。\n    这些随笔写的都是走路时看到的东西：防波堤上被搬来搬去的椅子、菜市场后巷换了磨的豆腐坊、修船铺里正在做的龙骨，还有涨潮时来不及收",
+                "x": 18,
+                "y": 4331.03125,
+                "width": 339,
+                "height": 743.828125,
+                "fontSize": "16px",
+                "lineHeight": "30.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              },
+              {
+                "id": "",
+                "tag": "footer",
+                "text": "潮线以下 · 一个沿海小城居民的散步随笔\n 文章与照片均为个人记录，转载前请来信告知。",
+                "x": 0,
+                "y": 5074.859375,
+                "width": 375,
+                "height": 119.546875,
+                "fontSize": "12.5px",
+                "lineHeight": "23.75px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"Source Han Sans SC\", \"Noto Sans CJK SC\", sans-serif"
+              }
+            ]
+          }
+        ],
+        "error": null
+      }
+    },
+    {
+      "name": "essay-old-standard",
+      "input": "一个沿海小城居民的散步随笔.com",
+      "mode": "imagination",
+      "effort": "standard",
+      "requestHash": "71d5157ecb8fece704d54fa6419571cacf313b80432f1d29cbf79626454669f2",
+      "actualEffortMatches": true,
+      "pageId": "0033b009-92d3-4106-8856-71b069bc4dee",
+      "jobId": "37ea8155-a6a0-4733-ae81-3cfd0b96f6de",
+      "guidance": "baseline-6ad0a7c",
+      "seconds": 107,
+      "interrupted": false,
+      "usageComplete": true,
+      "error": null,
+      "initialGenerationAccepted": true,
+      "generationAttempts": [
+        {
+          "attempt": 1,
+          "outcome": "Accepted",
+          "errorCode": null,
+          "message": null,
+          "at": "2026-11-08T02:00:48.414614700Z"
+        }
+      ],
+      "modelCalls": [
+        {
+          "usage": {
+            "prompt_tokens": 1098,
+            "completion_tokens": 638,
+            "total_tokens": 1736,
+            "prompt_tokens_details": {
+              "cached_tokens": 768
+            },
+            "prompt_cache_hit_tokens": 768,
+            "prompt_cache_miss_tokens": 330
+          },
+          "status": 200,
+          "milliseconds": 7911,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "brief"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 2704,
+            "completion_tokens": 8248,
+            "total_tokens": 10952,
+            "prompt_tokens_details": {
+              "cached_tokens": 896
+            },
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 1808
+          },
+          "status": 200,
+          "milliseconds": 41199,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 23441,
+            "completion_tokens": 743,
+            "total_tokens": 24184,
+            "prompt_tokens_details": {
+              "cached_tokens": 768
+            },
+            "prompt_cache_hit_tokens": 768,
+            "prompt_cache_miss_tokens": 22673
+          },
+          "status": 200,
+          "milliseconds": 7829,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "review"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 24885,
+            "completion_tokens": 10945,
+            "total_tokens": 35830,
+            "prompt_tokens_details": {
+              "cached_tokens": 896
+            },
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 23989
+          },
+          "status": 200,
+          "milliseconds": 37887,
+          "model": "deepseek-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "reasoningEffort": null,
+          "stage": "document"
+        }
+      ],
+      "selection": "Improved",
+      "events": [
+        {
+          "stage": "Brief",
+          "status": "Started",
+          "at": "2026-11-08T01:59:58.761719500Z",
+          "message": null
+        },
+        {
+          "stage": "Brief",
+          "status": "Completed",
+          "at": "2026-11-08T02:00:06.952242900Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Started",
+          "at": "2026-11-08T02:00:48.429315600Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Completed",
+          "at": "2026-11-08T02:00:54.474703300Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Started",
+          "at": "2026-11-08T02:00:54.484718900Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Completed",
+          "at": "2026-11-08T02:01:02.333496300Z",
+          "message": null
+        },
+        {
+          "stage": "Improve",
+          "status": "Started",
+          "at": "2026-11-08T02:01:02.338516300Z",
+          "message": null
+        },
+        {
+          "stage": "Improve",
+          "status": "Completed",
+          "at": "2026-11-08T02:01:40.289102800Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureImproved",
+          "status": "Started",
+          "at": "2026-11-08T02:01:40.296348Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureImproved",
+          "status": "Completed",
+          "at": "2026-11-08T02:01:46.453287500Z",
+          "message": null
+        },
+        {
+          "stage": "Selection",
+          "status": "Completed",
+          "at": "2026-11-08T02:01:46.460418800Z",
+          "message": "采用改进页面"
+        }
+      ],
+      "researchReused": false,
+      "siteStyle": {
+        "brand": "潮间带散步",
+        "typography": "正文 Georgia / Songti SC 衬线 17px 行高1.85；日期、天气、导航与归档用 ui-monospace 小字；标题同衬线，字号克制、自然换行。",
+        "palette": "纸底 #f5f1e8，深墨字 #1e2321，次要灰褐 #6b6a62 / #7a7365，链接与选中态海蓝 #1a5d7a，页脚底 #eee8da，细线 #d8d2c2。",
+        "layout": "全站单列窄栏 34rem 居中；题头之后是先读的完整最新篇，再接可比对的编年清单与两条横向归档带；无卡片、无阴影、无插画。"
+      },
+      "actions": [
+        {
+          "id": "act-search-top",
+          "kind": "Search",
+          "elementId": "search-top",
+          "target": null,
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-search-bottom",
+          "kind": "Search",
+          "elementId": "search-bottom",
+          "target": null,
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-filter-log",
+          "kind": "Filter",
+          "elementId": "filter-log",
+          "target": null,
+          "region": "log-list",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-sort-log",
+          "kind": "Sort",
+          "elementId": "sort-log",
+          "target": null,
+          "region": "log-list",
+          "stateKey": null,
+          "value": "desc",
+          "field": "date"
+        },
+        {
+          "id": "act-copy-latest",
+          "kind": "Copy",
+          "elementId": "copy-latest",
+          "target": null,
+          "region": "latest-piece",
+          "stateKey": "copyFeedback",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-0",
+          "kind": "Navigate",
+          "elementId": "vib-link-0",
+          "target": "/",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-1",
+          "kind": "Navigate",
+          "elementId": "vib-link-1",
+          "target": "/recent",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-2",
+          "kind": "Navigate",
+          "elementId": "vib-link-2",
+          "target": "/routes",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-3",
+          "kind": "Navigate",
+          "elementId": "vib-link-3",
+          "target": "/months",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-4",
+          "kind": "Navigate",
+          "elementId": "vib-link-4",
+          "target": "/about",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-5",
+          "kind": "Navigate",
+          "elementId": "vib-link-5",
+          "target": "/2026-11-07-old-pier",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-6",
+          "kind": "Navigate",
+          "elementId": "vib-link-6",
+          "target": "/2026-11-05-fish-market",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-7",
+          "kind": "Navigate",
+          "elementId": "vib-link-7",
+          "target": "/2026-11-03-breakwater",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-8",
+          "kind": "Navigate",
+          "elementId": "vib-link-8",
+          "target": "/2026-10-31-inner-river",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-9",
+          "kind": "Navigate",
+          "elementId": "vib-link-9",
+          "target": "/2026-10-28-rocky-shore",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-10",
+          "kind": "Navigate",
+          "elementId": "vib-link-10",
+          "target": "/2026-10-25-clams",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-11",
+          "kind": "Navigate",
+          "elementId": "vib-link-11",
+          "target": "/2026-10-21-wind",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-12",
+          "kind": "Navigate",
+          "elementId": "vib-link-12",
+          "target": "/recent",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-13",
+          "kind": "Navigate",
+          "elementId": "vib-link-13",
+          "target": "/routes/old-pier",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-14",
+          "kind": "Navigate",
+          "elementId": "vib-link-14",
+          "target": "/routes/breakwater",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-15",
+          "kind": "Navigate",
+          "elementId": "vib-link-15",
+          "target": "/routes/fish-market",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-16",
+          "kind": "Navigate",
+          "elementId": "vib-link-16",
+          "target": "/routes/rocky-shore",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-17",
+          "kind": "Navigate",
+          "elementId": "vib-link-17",
+          "target": "/routes/inner-river",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-18",
+          "kind": "Navigate",
+          "elementId": "vib-link-18",
+          "target": "/routes/other",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-19",
+          "kind": "Navigate",
+          "elementId": "vib-link-19",
+          "target": "/months/2026-11",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-20",
+          "kind": "Navigate",
+          "elementId": "vib-link-20",
+          "target": "/months/2026-10",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-21",
+          "kind": "Navigate",
+          "elementId": "vib-link-21",
+          "target": "/months/2026-09",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-22",
+          "kind": "Navigate",
+          "elementId": "vib-link-22",
+          "target": "/months/2026-08",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-23",
+          "kind": "Navigate",
+          "elementId": "vib-link-23",
+          "target": "/months/2026-07",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-24",
+          "kind": "Navigate",
+          "elementId": "vib-link-24",
+          "target": "/months/2026-06",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-25",
+          "kind": "Navigate",
+          "elementId": "vib-link-25",
+          "target": "/months",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-26",
+          "kind": "Navigate",
+          "elementId": "vib-link-26",
+          "target": "/about",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-27",
+          "kind": "Navigate",
+          "elementId": "vib-link-27",
+          "target": "/recent",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-28",
+          "kind": "Navigate",
+          "elementId": "vib-link-28",
+          "target": "/routes",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-29",
+          "kind": "Navigate",
+          "elementId": "vib-link-29",
+          "target": "/months",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        }
+      ],
+      "layout": {
+        "viewports": [
+          {
+            "width": 1440,
+            "height": 900,
+            "scrollWidth": 1425,
+            "scrollHeight": 3550,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "",
+                "tag": "h1",
+                "text": "潮间带散步",
+                "x": 460.5,
+                "y": 117.296875,
+                "width": 504,
+                "height": 55.6875,
+                "fontSize": "46.4px",
+                "lineHeight": "55.68px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "旧码头到防波堤，锈梯上坐了半小时",
+                "x": 460.5,
+                "y": 576.640625,
+                "width": 504,
+                "height": 45.609375,
+                "fontSize": "30.4px",
+                "lineHeight": "45.6px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "chronicle-h",
+                "tag": "h2",
+                "text": "近三十天",
+                "x": 460.5,
+                "y": 1607.125,
+                "width": 504,
+                "height": 34.046875,
+                "fontSize": "18.4px",
+                "lineHeight": "34.04px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "archive-h",
+                "tag": "h2",
+                "text": "归档",
+                "x": 460.5,
+                "y": 2480.5,
+                "width": 504,
+                "height": 34.046875,
+                "fontSize": "18.4px",
+                "lineHeight": "34.04px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "按去处",
+                "x": 460.5,
+                "y": 2536.9375,
+                "width": 504,
+                "height": 21.90625,
+                "fontSize": "11.84px",
+                "lineHeight": "21.904px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "按月份",
+                "x": 460.5,
+                "y": 2664.890625,
+                "width": 504,
+                "height": 21.90625,
+                "fontSize": "11.84px",
+                "lineHeight": "21.904px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "about-h",
+                "tag": "h2",
+                "text": "关于这里",
+                "x": 460.5,
+                "y": 2845.03125,
+                "width": 504,
+                "height": 20.71875,
+                "fontSize": "11.84px",
+                "lineHeight": "20.72px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              }
+            ],
+            "controls": [
+              {
+                "id": "vib-link-0",
+                "tag": "a",
+                "text": "潮间带散步",
+                "x": 460.5,
+                "y": 118.296875,
+                "width": 241.28125,
+                "height": 53,
+                "fontSize": "46.4px",
+                "lineHeight": "55.68px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "q-top",
+                "tag": "input",
+                "text": "",
+                "x": 460.5,
+                "y": 370.6875,
+                "width": 449.53125,
+                "height": 43.59375,
+                "fontSize": "14.72px",
+                "lineHeight": "27.232px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "",
+                "tag": "button",
+                "text": "搜",
+                "x": 918.03125,
+                "y": 372.453125,
+                "width": 46.46875,
+                "height": 40.046875,
+                "fontSize": "12.8px",
+                "lineHeight": "23.68px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-1",
+                "tag": "a",
+                "text": "最近的",
+                "x": 460.5,
+                "y": 451.265625,
+                "width": 39.6875,
+                "height": 24.09375,
+                "fontSize": "12.48px",
+                "lineHeight": "23.088px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-2",
+                "tag": "a",
+                "text": "按去处",
+                "x": 522.578125,
+                "y": 451.265625,
+                "width": 39.6875,
+                "height": 24.09375,
+                "fontSize": "12.48px",
+                "lineHeight": "23.088px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-3",
+                "tag": "a",
+                "text": "按月份",
+                "x": 584.65625,
+                "y": 451.265625,
+                "width": 39.6875,
+                "height": 24.09375,
+                "fontSize": "12.48px",
+                "lineHeight": "23.088px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-4",
+                "tag": "a",
+                "text": "关于这里",
+                "x": 646.734375,
+                "y": 451.265625,
+                "width": 52.921875,
+                "height": 24.09375,
+                "fontSize": "12.48px",
+                "lineHeight": "23.088px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "copy-latest",
+                "tag": "button",
+                "text": "复制这篇的文字",
+                "x": 460.5,
+                "y": 1441.71875,
+                "width": 121.125,
+                "height": 37.265625,
+                "fontSize": "12.16px",
+                "lineHeight": "22.496px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "跳去近三十天 ↓",
+                "x": 678.890625,
+                "y": 1517.5625,
+                "width": 89.046875,
+                "height": 14,
+                "fontSize": "12px",
+                "lineHeight": "22.2px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "filter-log",
+                "tag": "input",
+                "text": "",
+                "x": 460.5,
+                "y": 1715.75,
+                "width": 389.484375,
+                "height": 41.421875,
+                "fontSize": "14.4px",
+                "lineHeight": "26.64px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "sort-log",
+                "tag": "button",
+                "text": "日期 ↓ 新到旧",
+                "x": 857.984375,
+                "y": 1718.421875,
+                "width": 106.515625,
+                "height": 36.078125,
+                "fontSize": "11.52px",
+                "lineHeight": "21.312px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-5",
+                "tag": "a",
+                "text": "旧码头到防波堤，锈梯上坐了半小时",
+                "x": 582.359375,
+                "y": 1789.75,
+                "width": 256,
+                "height": 20,
+                "fontSize": "16px",
+                "lineHeight": "24px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "vib-link-6",
+                "tag": "a",
+                "text": "下雨的鱼市，摊子上撑着塑料布",
+                "x": 570.921875,
+                "y": 1870.9375,
+                "width": 224,
+                "height": 20,
+                "fontSize": "16px",
+                "lineHeight": "24px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "vib-link-7",
+                "tag": "a",
+                "text": "台风走后第三天，防波堤上多了半张渔网",
+                "x": 582.359375,
+                "y": 1952.125,
+                "width": 288,
+                "height": 20,
+                "fontSize": "16px",
+                "lineHeight": "24px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "vib-link-8",
+                "tag": "a",
+                "text": "沿内河走到老桥，看人在桥墩上钓小鲻",
+                "x": 582.359375,
+                "y": 2033.3125,
+                "width": 272,
+                "height": 20,
+                "fontSize": "16px",
+                "lineHeight": "24px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "vib-link-9",
+                "tag": "a",
+                "text": "礁石滩捡到一只完整的虎斑宝贝壳",
+                "x": 570.921875,
+                "y": 2114.5,
+                "width": 240,
+                "height": 20,
+                "fontSize": "16px",
+                "lineHeight": "24px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "vib-link-10",
+                "tag": "a",
+                "text": "文蛤降价了，摊主说是今年最后一次大批上岸",
+                "x": 582.359375,
+                "y": 2195.6875,
+                "width": 320,
+                "height": 20,
+                "fontSize": "16px",
+                "lineHeight": "24px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "vib-link-11",
+                "tag": "a",
+                "text": "风大到走不直，浪拍在堤身上有回声",
+                "x": 582.359375,
+                "y": 2308.3125,
+                "width": 256,
+                "height": 20,
+                "fontSize": "16px",
+                "lineHeight": "24px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "vib-link-12",
+                "tag": "a",
+                "text": "看全部 213 篇 →",
+                "x": 460.5,
+                "y": 2395.5,
+                "width": 97.953125,
+                "height": 15,
+                "fontSize": "12.48px",
+                "lineHeight": "23.088px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-13",
+                "tag": "a",
+                "text": "旧码头 61",
+                "x": 460.5,
+                "y": 2573.5625,
+                "width": 76.25,
+                "height": 27.515625,
+                "fontSize": "11.84px",
+                "lineHeight": "16.576px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-14",
+                "tag": "a",
+                "text": "防波堤 54",
+                "x": 544.75,
+                "y": 2573.5625,
+                "width": 76.25,
+                "height": 27.515625,
+                "fontSize": "11.84px",
+                "lineHeight": "16.576px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-15",
+                "tag": "a",
+                "text": "鱼市 43",
+                "x": 629,
+                "y": 2573.5625,
+                "width": 64.421875,
+                "height": 27.515625,
+                "fontSize": "11.84px",
+                "lineHeight": "16.576px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-16",
+                "tag": "a",
+                "text": "礁石滩 28",
+                "x": 701.421875,
+                "y": 2573.5625,
+                "width": 76.25,
+                "height": 27.515625,
+                "fontSize": "11.84px",
+                "lineHeight": "16.576px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-17",
+                "tag": "a",
+                "text": "内河与老桥 19",
+                "x": 785.671875,
+                "y": 2573.5625,
+                "width": 99.9375,
+                "height": 27.515625,
+                "fontSize": "11.84px",
+                "lineHeight": "16.576px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-18",
+                "tag": "a",
+                "text": "其他零碎 8",
+                "x": 460.5,
+                "y": 2611.390625,
+                "width": 81.578125,
+                "height": 27.515625,
+                "fontSize": "11.84px",
+                "lineHeight": "16.576px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-19",
+                "tag": "a",
+                "text": "2026 年 11 月 3",
+                "x": 460.5,
+                "y": 2701.515625,
+                "width": 116.484375,
+                "height": 27.515625,
+                "fontSize": "11.84px",
+                "lineHeight": "16.576px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-20",
+                "tag": "a",
+                "text": "2026 年 10 月 18",
+                "x": 584.984375,
+                "y": 2701.515625,
+                "width": 123,
+                "height": 27.515625,
+                "fontSize": "11.84px",
+                "lineHeight": "16.576px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-21",
+                "tag": "a",
+                "text": "2026 年 9 月 21",
+                "x": 715.984375,
+                "y": 2701.515625,
+                "width": 116.5,
+                "height": 27.515625,
+                "fontSize": "11.84px",
+                "lineHeight": "16.576px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-22",
+                "tag": "a",
+                "text": "2026 年 8 月 24",
+                "x": 840.484375,
+                "y": 2701.515625,
+                "width": 116.5,
+                "height": 27.515625,
+                "fontSize": "11.84px",
+                "lineHeight": "16.576px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-23",
+                "tag": "a",
+                "text": "2026 年 7 月 26",
+                "x": 460.5,
+                "y": 2739.34375,
+                "width": 116.5,
+                "height": 27.515625,
+                "fontSize": "11.84px",
+                "lineHeight": "16.576px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-24",
+                "tag": "a",
+                "text": "2026 年 6 月 23",
+                "x": 585,
+                "y": 2739.34375,
+                "width": 116.5,
+                "height": 27.515625,
+                "fontSize": "11.84px",
+                "lineHeight": "16.576px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-25",
+                "tag": "a",
+                "text": "更早的 →",
+                "x": 709.5,
+                "y": 2739.34375,
+                "width": 69.734375,
+                "height": 27.515625,
+                "fontSize": "11.84px",
+                "lineHeight": "16.576px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "q-bottom",
+                "tag": "input",
+                "text": "",
+                "x": 440.5,
+                "y": 3287.15625,
+                "width": 489.890625,
+                "height": 39.46875,
+                "fontSize": "12.48px",
+                "lineHeight": "23.088px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "",
+                "tag": "button",
+                "text": "搜",
+                "x": 938.390625,
+                "y": 3287.15625,
+                "width": 46.109375,
+                "height": 39.46875,
+                "fontSize": "12.48px",
+                "lineHeight": "23.088px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-26",
+                "tag": "a",
+                "text": "关于这里",
+                "x": 725.296875,
+                "y": 3392.84375,
+                "width": 56,
+                "height": 17,
+                "fontSize": "14.08px",
+                "lineHeight": "26.048px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "vib-link-27",
+                "tag": "a",
+                "text": "最近的",
+                "x": 792.03125,
+                "y": 3392.84375,
+                "width": 42,
+                "height": 17,
+                "fontSize": "14.08px",
+                "lineHeight": "26.048px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "vib-link-28",
+                "tag": "a",
+                "text": "去处",
+                "x": 844.765625,
+                "y": 3392.84375,
+                "width": 28,
+                "height": 17,
+                "fontSize": "14.08px",
+                "lineHeight": "26.048px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "vib-link-29",
+                "tag": "a",
+                "text": "月份",
+                "x": 883.5,
+                "y": 3392.84375,
+                "width": 28,
+                "height": 17,
+                "fontSize": "14.08px",
+                "lineHeight": "26.048px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              }
+            ],
+            "regions": [
+              {
+                "id": "",
+                "tag": "header",
+                "text": "沿海小城 · 步行手记\n 潮间带散步\n 我住在一座退潮后能走出三百米的小城。每天傍晚出门，沿防波堤走到旧码头，再拐进收摊的鱼市。多数日子没什么事发生，记下来就成了这些字。\n 更新不定 · 通常隔一两天 · 已记 213 篇\n \n  在散步里找 \n  搜\n \n \n  最近的 按去处 按月份 关于这里",
+                "x": 440.5,
+                "y": 0,
+                "width": 544,
+                "height": 507.359375,
+                "fontSize": "17px",
+                "lineHeight": "31.45px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "",
+                "tag": "nav",
+                "text": "最近的 按去处 按月份 关于这里",
+                "x": 460.5,
+                "y": 436.671875,
+                "width": 504,
+                "height": 38.6875,
+                "fontSize": "12.48px",
+                "lineHeight": "23.088px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "",
+                "tag": "main",
+                "text": "2026.11.07 晴 · 东北风 4 级 · 退潮 18:02\n  旧码头到防波堤，锈梯上坐了半小时\n  路线：旧码头 → 水泥护岸 → 防波堤东端 · 约 3.2 公里 · 走了 1 小时 10 分\n  \n   立冬后的海是灰的，不是阴天的灰，是那种被磨了很多次、露出底色的灰。出门时太阳还挂在鱼市冷藏库的屋顶上，等我走到旧码头，它已经沉到对岸养殖区的浮",
+                "x": 440.5,
+                "y": 507.359375,
+                "width": 544,
+                "height": 2603.0625,
+                "fontSize": "17px",
+                "lineHeight": "31.45px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "latest-piece",
+                "tag": "article",
+                "text": "2026.11.07 晴 · 东北风 4 级 · 退潮 18:02\n  旧码头到防波堤，锈梯上坐了半小时\n  路线：旧码头 → 水泥护岸 → 防波堤东端 · 约 3.2 公里 · 走了 1 小时 10 分\n  \n   立冬后的海是灰的，不是阴天的灰，是那种被磨了很多次、露出底色的灰。出门时太阳还挂在鱼市冷藏库的屋顶上，等我走到旧码头，它已经沉到对岸养殖区的浮",
+                "x": 460.5,
+                "y": 507.359375,
+                "width": 504,
+                "height": 1063.578125,
+                "fontSize": "17px",
+                "lineHeight": "31.45px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "近三十天\n   日期 · 去处 · 天气 · 一句摘句。点标题读全文。\n  \n  \n   筛去处或摘句 \n   日期 ↓ 新到旧\n  \n  \n   11.07 晴 · 东北风 旧码头到防波堤，锈梯上坐了半小时 旧码头 · 防波堤 白鹭没动，我也没动；狗跑过去，它们一起飞了。\n   11.05 雨 · 无风 下雨的鱼市，摊子上撑着塑料布 鱼市 · 内河桥 塑料",
+                "x": 460.5,
+                "y": 1570.9375,
+                "width": 504,
+                "height": 873.375,
+                "fontSize": "17px",
+                "lineHeight": "31.45px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "归档\n  \n   按去处\n   \n    旧码头 61\n    防波堤 54\n    鱼市 43\n    礁石滩 28\n    内河与老桥 19\n    其他零碎 8\n   \n  \n  \n   按月份\n   \n    2026 年 11 月 3\n    2026 年 10 月 18\n    2026 年 9 月 21\n    2026 年 8 月 24\n  ",
+                "x": 460.5,
+                "y": 2444.3125,
+                "width": 504,
+                "height": 364.53125,
+                "fontSize": "17px",
+                "lineHeight": "31.45px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "关于这里\n  小城常住人口不到五万，靠养殖和近海捕捞。我在这里长大，出去念了几年书又回来，现在在镇上做一份和文字有关的工作，傍晚出门走一段，回来写几百字。写的时候尽量不修饰，看到什么记什么。没有投稿入口，也不接推广。\n  如果某一段路你也走过，欢迎按站点里写的方式告诉我——我在页脚留了地址。",
+                "x": 460.5,
+                "y": 2808.84375,
+                "width": 504,
+                "height": 241.421875,
+                "fontSize": "15.2px",
+                "lineHeight": "26.6px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "",
+                "tag": "footer",
+                "text": "订阅\n   全文 RSS：https://一个沿海小城居民的散步随笔.com/feed.xml\n   \n    在散步里找 \n    搜\n   \n  \n  \n   联系\n   写信：walk@一个沿海小城居民的散步随笔.com\n   来信不一定回，但都会看。请不要转载整篇。\n  \n  \n   站内\n   关于这里 · 最近的 · 去处 · 月份\n  \n \n ",
+                "x": 0,
+                "y": 3142.421875,
+                "width": 1425,
+                "height": 407.390625,
+                "fontSize": "17px",
+                "lineHeight": "31.45px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              }
+            ]
+          },
+          {
+            "width": 390,
+            "height": 844,
+            "scrollWidth": 375,
+            "scrollHeight": 4184,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "",
+                "tag": "h1",
+                "text": "潮间带散步",
+                "x": 20,
+                "y": 101.296875,
+                "width": 335,
+                "height": 40.3125,
+                "fontSize": "33.6px",
+                "lineHeight": "40.32px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "旧码头到防波堤，锈梯上坐了半小时",
+                "x": 20,
+                "y": 575.4375,
+                "width": 335,
+                "height": 69.59375,
+                "fontSize": "23.2px",
+                "lineHeight": "34.8px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "chronicle-h",
+                "tag": "h2",
+                "text": "近三十天",
+                "x": 20,
+                "y": 1816.6875,
+                "width": 335,
+                "height": 34.046875,
+                "fontSize": "18.4px",
+                "lineHeight": "34.04px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "archive-h",
+                "tag": "h2",
+                "text": "归档",
+                "x": 20,
+                "y": 2934.28125,
+                "width": 335,
+                "height": 34.046875,
+                "fontSize": "18.4px",
+                "lineHeight": "34.04px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "按去处",
+                "x": 20,
+                "y": 2990.71875,
+                "width": 335,
+                "height": 21.90625,
+                "fontSize": "11.84px",
+                "lineHeight": "21.904px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "按月份",
+                "x": 20,
+                "y": 3115.890625,
+                "width": 335,
+                "height": 21.90625,
+                "fontSize": "11.84px",
+                "lineHeight": "21.904px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "about-h",
+                "tag": "h2",
+                "text": "关于这里",
+                "x": 20,
+                "y": 3329.6875,
+                "width": 335,
+                "height": 20.71875,
+                "fontSize": "11.84px",
+                "lineHeight": "20.72px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              }
+            ],
+            "controls": [
+              {
+                "id": "vib-link-0",
+                "tag": "a",
+                "text": "潮间带散步",
+                "x": 20,
+                "y": 102.296875,
+                "width": 174.671875,
+                "height": 38,
+                "fontSize": "33.6px",
+                "lineHeight": "40.32px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "q-top",
+                "tag": "input",
+                "text": "",
+                "x": 20,
+                "y": 369.484375,
+                "width": 280.53125,
+                "height": 43.59375,
+                "fontSize": "14.72px",
+                "lineHeight": "27.232px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "",
+                "tag": "button",
+                "text": "搜",
+                "x": 308.53125,
+                "y": 371.25,
+                "width": 46.46875,
+                "height": 40.046875,
+                "fontSize": "12.8px",
+                "lineHeight": "23.68px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-1",
+                "tag": "a",
+                "text": "最近的",
+                "x": 20,
+                "y": 450.0625,
+                "width": 39.6875,
+                "height": 24.09375,
+                "fontSize": "12.48px",
+                "lineHeight": "23.088px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-2",
+                "tag": "a",
+                "text": "按去处",
+                "x": 82.078125,
+                "y": 450.0625,
+                "width": 39.6875,
+                "height": 24.09375,
+                "fontSize": "12.48px",
+                "lineHeight": "23.088px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-3",
+                "tag": "a",
+                "text": "按月份",
+                "x": 144.15625,
+                "y": 450.0625,
+                "width": 39.6875,
+                "height": 24.09375,
+                "fontSize": "12.48px",
+                "lineHeight": "23.088px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-4",
+                "tag": "a",
+                "text": "关于这里",
+                "x": 206.234375,
+                "y": 450.0625,
+                "width": 52.921875,
+                "height": 24.09375,
+                "fontSize": "12.48px",
+                "lineHeight": "23.088px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "copy-latest",
+                "tag": "button",
+                "text": "复制这篇的文字",
+                "x": 20,
+                "y": 1651.28125,
+                "width": 121.125,
+                "height": 37.265625,
+                "fontSize": "12.16px",
+                "lineHeight": "22.496px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "跳去近三十天 ↓",
+                "x": 238.390625,
+                "y": 1727.125,
+                "width": 89.046875,
+                "height": 14,
+                "fontSize": "12px",
+                "lineHeight": "22.2px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "filter-log",
+                "tag": "input",
+                "text": "",
+                "x": 20,
+                "y": 1925.3125,
+                "width": 220.484375,
+                "height": 41.421875,
+                "fontSize": "14.4px",
+                "lineHeight": "26.64px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "sort-log",
+                "tag": "button",
+                "text": "日期 ↓ 新到旧",
+                "x": 248.484375,
+                "y": 1927.984375,
+                "width": 106.515625,
+                "height": 36.078125,
+                "fontSize": "11.52px",
+                "lineHeight": "21.312px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-5",
+                "tag": "a",
+                "text": "旧码头到防波堤，锈梯上坐了半小时",
+                "x": 20,
+                "y": 2022.625,
+                "width": 256,
+                "height": 20,
+                "fontSize": "16px",
+                "lineHeight": "24px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "vib-link-6",
+                "tag": "a",
+                "text": "下雨的鱼市，摊子上撑着塑料布",
+                "x": 20,
+                "y": 2155.875,
+                "width": 224,
+                "height": 20,
+                "fontSize": "16px",
+                "lineHeight": "24px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "vib-link-7",
+                "tag": "a",
+                "text": "台风走后第三天，防波堤上多了半张渔网",
+                "x": 20,
+                "y": 2259.53125,
+                "width": 288,
+                "height": 20,
+                "fontSize": "16px",
+                "lineHeight": "24px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "vib-link-8",
+                "tag": "a",
+                "text": "沿内河走到老桥，看人在桥墩上钓小鲻",
+                "x": 20,
+                "y": 2363.1875,
+                "width": 272,
+                "height": 20,
+                "fontSize": "16px",
+                "lineHeight": "24px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "vib-link-9",
+                "tag": "a",
+                "text": "礁石滩捡到一只完整的虎斑宝贝壳",
+                "x": 20,
+                "y": 2496.4375,
+                "width": 240,
+                "height": 20,
+                "fontSize": "16px",
+                "lineHeight": "24px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "vib-link-10",
+                "tag": "a",
+                "text": "文蛤降价了，摊主说是今年最后一次大批上岸",
+                "x": 20,
+                "y": 2600.09375,
+                "width": 320,
+                "height": 20,
+                "fontSize": "16px",
+                "lineHeight": "24px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "vib-link-11",
+                "tag": "a",
+                "text": "风大到走不直，浪拍在堤身上有回声",
+                "x": 20,
+                "y": 2733.34375,
+                "width": 256,
+                "height": 20,
+                "fontSize": "16px",
+                "lineHeight": "24px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "vib-link-12",
+                "tag": "a",
+                "text": "看全部 213 篇 →",
+                "x": 20,
+                "y": 2849.28125,
+                "width": 97.953125,
+                "height": 15,
+                "fontSize": "12.48px",
+                "lineHeight": "23.088px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-13",
+                "tag": "a",
+                "text": "旧码头 61",
+                "x": 20,
+                "y": 3026.34375,
+                "width": 76.25,
+                "height": 27.515625,
+                "fontSize": "11.84px",
+                "lineHeight": "16.576px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-14",
+                "tag": "a",
+                "text": "防波堤 54",
+                "x": 104.25,
+                "y": 3026.34375,
+                "width": 76.25,
+                "height": 27.515625,
+                "fontSize": "11.84px",
+                "lineHeight": "16.576px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-15",
+                "tag": "a",
+                "text": "鱼市 43",
+                "x": 188.5,
+                "y": 3026.34375,
+                "width": 64.421875,
+                "height": 27.515625,
+                "fontSize": "11.84px",
+                "lineHeight": "16.576px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-16",
+                "tag": "a",
+                "text": "礁石滩 28",
+                "x": 260.921875,
+                "y": 3026.34375,
+                "width": 76.25,
+                "height": 27.515625,
+                "fontSize": "11.84px",
+                "lineHeight": "16.576px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-17",
+                "tag": "a",
+                "text": "内河与老桥 19",
+                "x": 20,
+                "y": 3062.78125,
+                "width": 99.9375,
+                "height": 27.515625,
+                "fontSize": "11.84px",
+                "lineHeight": "16.576px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-18",
+                "tag": "a",
+                "text": "其他零碎 8",
+                "x": 127.9375,
+                "y": 3062.78125,
+                "width": 81.578125,
+                "height": 27.515625,
+                "fontSize": "11.84px",
+                "lineHeight": "16.576px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-19",
+                "tag": "a",
+                "text": "2026 年 11 月 3",
+                "x": 20,
+                "y": 3151.515625,
+                "width": 116.484375,
+                "height": 27.515625,
+                "fontSize": "11.84px",
+                "lineHeight": "16.576px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-20",
+                "tag": "a",
+                "text": "2026 年 10 月 18",
+                "x": 144.484375,
+                "y": 3151.515625,
+                "width": 123,
+                "height": 27.515625,
+                "fontSize": "11.84px",
+                "lineHeight": "16.576px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-21",
+                "tag": "a",
+                "text": "2026 年 9 月 21",
+                "x": 20,
+                "y": 3187.953125,
+                "width": 116.5,
+                "height": 27.515625,
+                "fontSize": "11.84px",
+                "lineHeight": "16.576px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-22",
+                "tag": "a",
+                "text": "2026 年 8 月 24",
+                "x": 144.5,
+                "y": 3187.953125,
+                "width": 116.5,
+                "height": 27.515625,
+                "fontSize": "11.84px",
+                "lineHeight": "16.576px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-23",
+                "tag": "a",
+                "text": "2026 年 7 月 26",
+                "x": 20,
+                "y": 3224.390625,
+                "width": 116.5,
+                "height": 27.515625,
+                "fontSize": "11.84px",
+                "lineHeight": "16.576px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-24",
+                "tag": "a",
+                "text": "2026 年 6 月 23",
+                "x": 144.5,
+                "y": 3224.390625,
+                "width": 116.5,
+                "height": 27.515625,
+                "fontSize": "11.84px",
+                "lineHeight": "16.576px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-25",
+                "tag": "a",
+                "text": "更早的 →",
+                "x": 269,
+                "y": 3224.390625,
+                "width": 69.734375,
+                "height": 27.515625,
+                "fontSize": "11.84px",
+                "lineHeight": "16.576px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "q-bottom",
+                "tag": "input",
+                "text": "",
+                "x": 20,
+                "y": 3824.4375,
+                "width": 280.890625,
+                "height": 39.46875,
+                "fontSize": "12.48px",
+                "lineHeight": "23.088px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "",
+                "tag": "button",
+                "text": "搜",
+                "x": 308.890625,
+                "y": 3824.4375,
+                "width": 46.109375,
+                "height": 39.46875,
+                "fontSize": "12.48px",
+                "lineHeight": "23.088px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "vib-link-26",
+                "tag": "a",
+                "text": "关于这里",
+                "x": 20,
+                "y": 4059.65625,
+                "width": 56,
+                "height": 17,
+                "fontSize": "14.08px",
+                "lineHeight": "26.048px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "vib-link-27",
+                "tag": "a",
+                "text": "最近的",
+                "x": 86.734375,
+                "y": 4059.65625,
+                "width": 42,
+                "height": 17,
+                "fontSize": "14.08px",
+                "lineHeight": "26.048px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "vib-link-28",
+                "tag": "a",
+                "text": "去处",
+                "x": 139.46875,
+                "y": 4059.65625,
+                "width": 28,
+                "height": 17,
+                "fontSize": "14.08px",
+                "lineHeight": "26.048px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "vib-link-29",
+                "tag": "a",
+                "text": "月份",
+                "x": 178.203125,
+                "y": 4059.65625,
+                "width": 28,
+                "height": 17,
+                "fontSize": "14.08px",
+                "lineHeight": "26.048px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              }
+            ],
+            "regions": [
+              {
+                "id": "",
+                "tag": "header",
+                "text": "沿海小城 · 步行手记\n 潮间带散步\n 我住在一座退潮后能走出三百米的小城。每天傍晚出门，沿防波堤走到旧码头，再拐进收摊的鱼市。多数日子没什么事发生，记下来就成了这些字。\n 更新不定 · 通常隔一两天 · 已记 213 篇\n \n  在散步里找 \n  搜\n \n \n  最近的 按去处 按月份 关于这里",
+                "x": 0,
+                "y": 0,
+                "width": 375,
+                "height": 506.15625,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "",
+                "tag": "nav",
+                "text": "最近的 按去处 按月份 关于这里",
+                "x": 20,
+                "y": 435.46875,
+                "width": 335,
+                "height": 38.6875,
+                "fontSize": "12.48px",
+                "lineHeight": "23.088px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+              },
+              {
+                "id": "",
+                "tag": "main",
+                "text": "2026.11.07 晴 · 东北风 4 级 · 退潮 18:02\n  旧码头到防波堤，锈梯上坐了半小时\n  路线：旧码头 → 水泥护岸 → 防波堤东端 · 约 3.2 公里 · 走了 1 小时 10 分\n  \n   立冬后的海是灰的，不是阴天的灰，是那种被磨了很多次、露出底色的灰。出门时太阳还挂在鱼市冷藏库的屋顶上，等我走到旧码头，它已经沉到对岸养殖区的浮",
+                "x": 0,
+                "y": 506.15625,
+                "width": 375,
+                "height": 3115.515625,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "latest-piece",
+                "tag": "article",
+                "text": "2026.11.07 晴 · 东北风 4 级 · 退潮 18:02\n  旧码头到防波堤，锈梯上坐了半小时\n  路线：旧码头 → 水泥护岸 → 防波堤东端 · 约 3.2 公里 · 走了 1 小时 10 分\n  \n   立冬后的海是灰的，不是阴天的灰，是那种被磨了很多次、露出底色的灰。出门时太阳还挂在鱼市冷藏库的屋顶上，等我走到旧码头，它已经沉到对岸养殖区的浮",
+                "x": 20,
+                "y": 506.15625,
+                "width": 335,
+                "height": 1274.34375,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "近三十天\n   日期 · 去处 · 天气 · 一句摘句。点标题读全文。\n  \n  \n   筛去处或摘句 \n   日期 ↓ 新到旧\n  \n  \n   11.07 晴 · 东北风 旧码头到防波堤，锈梯上坐了半小时 旧码头 · 防波堤 白鹭没动，我也没动；狗跑过去，它们一起飞了。\n   11.05 雨 · 无风 下雨的鱼市，摊子上撑着塑料布 鱼市 · 内河桥 塑料",
+                "x": 20,
+                "y": 1780.5,
+                "width": 335,
+                "height": 1117.59375,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "归档\n  \n   按去处\n   \n    旧码头 61\n    防波堤 54\n    鱼市 43\n    礁石滩 28\n    内河与老桥 19\n    其他零碎 8\n   \n  \n  \n   按月份\n   \n    2026 年 11 月 3\n    2026 年 10 月 18\n    2026 年 9 月 21\n    2026 年 8 月 24\n  ",
+                "x": 20,
+                "y": 2898.09375,
+                "width": 335,
+                "height": 395.40625,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "关于这里\n  小城常住人口不到五万，靠养殖和近海捕捞。我在这里长大，出去念了几年书又回来，现在在镇上做一份和文字有关的工作，傍晚出门走一段，回来写几百字。写的时候尽量不修饰，看到什么记什么。没有投稿入口，也不接推广。\n  如果某一段路你也走过，欢迎按站点里写的方式告诉我——我在页脚留了地址。",
+                "x": 20,
+                "y": 3293.5,
+                "width": 335,
+                "height": 268.015625,
+                "fontSize": "15.2px",
+                "lineHeight": "26.6px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
+              },
+              {
+                "id": "",
+                "tag": "footer",
+                "text": "订阅\n   全文 RSS：https://一个沿海小城居民的散步随笔.com/feed.xml\n   \n    在散步里找 \n    搜\n   \n  \n  \n   联系\n   写信：walk@一个沿海小城居民的散步随笔.com\n   来信不一定回，但都会看。请不要转载整篇。\n  \n  \n   站内\n   关于这里 · 最近的 · 去处 · 月份\n  \n \n ",
+                "x": 0,
+                "y": 3653.671875,
+                "width": 375,
+                "height": 530.265625,
+                "fontSize": "16px",
+                "lineHeight": "29.6px",
+                "fontFamily": "Georgia, \"Songti SC\", \"Noto Serif CJK SC\", \"Source Han Serif SC\", serif"
               }
             ]
           }

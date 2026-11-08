@@ -24,7 +24,11 @@ import services.generation.utils.*
 
 /** Fixed paid experiment: no sample selection, automatic rerolls, or LIVE mutations. */
 object EffortAcceptance extends IOApp.Simple:
-  private val output = Paths.get("../.cache/effort-acceptance")
+  private val guidanceRetest = sys.env.get("VIBROWSER_EFFORT_GUIDANCE_RETEST").contains("true")
+  private val schema = if guidanceRetest then "effort_guidance_v3" else "effort_acceptance"
+  private val output = Paths.get(
+    if guidanceRetest then "../.cache/effort-guidance-v3" else "../.cache/effort-acceptance"
+  )
   private val samples = List(
     ("academic", "清华教师袁洋的个人学术主页.com", BrowsingMode.Research),
     ("copy", "kfc疯狂星期四文案合集站.com", BrowsingMode.Imagination),
@@ -102,7 +106,7 @@ object EffortAcceptance extends IOApp.Simple:
         ""
       )
       db <- DatabaseSession.resource(
-        "jdbc:postgresql://127.0.0.1:55432/vibrowser?currentSchema=effort_acceptance",
+        "jdbc:postgresql://127.0.0.1:55432/vibrowser?currentSchema=" + schema,
         "vibrowser",
         ""
       )
@@ -124,25 +128,51 @@ object EffortAcceptance extends IOApp.Simple:
         _ <- db.transaction(c =>
           SqlExecutor.update(
             c,
-            "CREATE SCHEMA IF NOT EXISTS effort_acceptance"
+            "CREATE SCHEMA IF NOT EXISTS " + schema
           ) *> SchemaInitializer.initialize(c)
         )
-        old <- IO.blocking(
-          DesignGuidanceText(
-            "baseline-6ad0a7c",
-            Files.readString(output.resolve("old-design.md")),
-            Files.readString(output.resolve("old-review.md"))
-          )
-        )
+        old <-
+          if guidanceRetest then IO.pure(DesignGuidance.current)
+          else
+            IO.blocking(
+              DesignGuidanceText(
+                "baseline-6ad0a7c",
+                Files.readString(output.resolve("old-design.md")),
+                Files.readString(output.resolve("old-review.md"))
+              )
+            )
         _ <- samples.traverse_ { (name, input, mode) =>
           for
-            sharedResearch <- Ref.of[IO, Option[ResearchSnapshot]](None)
-            sharedRequest <- Ref.of[IO, Option[String]](None)
-            _ <- List(
-              ("old-standard", old, GenerationEffort.Standard),
-              ("new-standard", DesignGuidance.current, GenerationEffort.Standard),
-              ("new-deep", DesignGuidance.current, GenerationEffort.Deep)
-            ).traverse_ { (variant, guidance, effort) =>
+            reference <-
+              if guidanceRetest then
+                IO.blocking(
+                  Some(
+                    parse(
+                      Files.readString(
+                        Paths.get("../.cache/effort-acceptance/" + name + "-new-standard.json")
+                      )
+                    ).fold(throw _, identity)
+                  )
+                )
+              else IO.pure(None)
+            sharedResearch <- Ref.of[IO, Option[ResearchSnapshot]](
+              reference.flatMap(
+                _.hcursor.get[Option[ResearchSnapshot]]("research").toOption.flatten
+              )
+            )
+            sharedRequest <- Ref.of[IO, Option[String]](
+              reference.flatMap(_.hcursor.get[String]("request").toOption)
+            )
+            variants =
+              if guidanceRetest then
+                List(("new-standard", DesignGuidance.current, GenerationEffort.Standard))
+              else
+                List(
+                  ("old-standard", old, GenerationEffort.Standard),
+                  ("new-standard", DesignGuidance.current, GenerationEffort.Standard),
+                  ("new-deep", DesignGuidance.current, GenerationEffort.Deep)
+                )
+            _ <- variants.traverse_ { (variant, guidance, effort) =>
               val label = name + "-" + variant
               read(label).flatMap {
                 case Some(existing) =>

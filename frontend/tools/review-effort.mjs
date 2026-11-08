@@ -5,14 +5,35 @@ import { createHash } from "node:crypto";
 import { measureDocument } from "../dist-measure/measure.mjs";
 
 const root = resolve(import.meta.dirname, "../..");
-const input = resolve(root, ".cache/effort-acceptance");
-const output = resolve(root, "docs/screenshots/effort-comparison");
+const retest = process.argv.includes("--guidance-v3");
+const expectedSamples = retest ? 6 : 18;
+const input = resolve(
+  root,
+  retest ? ".cache/effort-guidance-v3" : ".cache/effort-acceptance",
+);
+const output = resolve(
+  root,
+  retest
+    ? "docs/screenshots/effort-guidance-v3"
+    : "docs/screenshots/effort-comparison",
+);
 await mkdir(output, { recursive: true });
 const results = [];
 for (const file of (await readdir(input))
   .filter((f) => /-(old-standard|new-standard|new-deep)\.json$/.test(f))
   .sort()) {
   const record = JSON.parse(await readFile(resolve(input, file), "utf8"));
+  if (retest) {
+    const baseline = JSON.parse(
+      await readFile(resolve(root, ".cache/effort-acceptance", file), "utf8"),
+    );
+    assert.equal(
+      record.request,
+      baseline.request,
+      "Guidance retest must preserve the original input and research context",
+    );
+    assert.equal(record.effort, "standard");
+  }
   const name = file.slice(0, -5);
   const measurePath = resolve(output, name + "-measurement.json");
   let layout = null;
@@ -68,7 +89,7 @@ for (const file of (await readdir(input))
 if (process.argv.includes("--complete"))
   assert.equal(
     results.length,
-    18,
+    expectedSamples,
     "All fixed samples must be recorded, including failures",
   );
 const groups = Object.fromEntries(
@@ -148,12 +169,17 @@ assert(
   "Comparison inputs or actual effort parameters differ from the declared experiment",
 );
 await writeFile(
-  resolve(root, "docs/acceptance/effort-comparison.json"),
+  resolve(
+    root,
+    retest
+      ? "docs/acceptance/effort-guidance-v3.json"
+      : "docs/acceptance/effort-comparison.json",
+  ),
   JSON.stringify(
     {
       evaluatedAt: new Date().toISOString(),
-      expectedSamples: 18,
-      complete: results.length === 18,
+      expectedSamples,
+      complete: results.length === expectedSamples,
       groups,
       comparability,
       samples: results,

@@ -69,6 +69,14 @@ object EffortBudgetReplay extends IOApp.Simple:
             )
         )(new Exception("No recorded truncation to retest"))
         workflow <- IO.fromEither(record.hcursor.get[DesignWorkflow]("workflow"))
+        guidance <- IO.blocking {
+          parse(Files.readString(Paths.get("../.cache/effort-acceptance/guidance-v2.json")))
+            .flatMap(_.as[DesignGuidanceText])
+            .fold(throw _, identity)
+        }
+        _ <- IO.raiseUnless(guidance.version == workflow.guidanceVersion)(
+          new Exception("Original guidance snapshot required")
+        )
         request <- IO.fromEither(record.hcursor.get[String]("request"))
         pageId <- IO.fromEither(record.hcursor.get[PageId]("pageId"))
         page <- db
@@ -89,7 +97,7 @@ object EffortBudgetReplay extends IOApp.Simple:
           page.effort
         )
         prompt =
-          request + "\n设计指导：\n" + DesignGuidance.current.design + "\n交互能力：\n" + WebDocumentPrompt.actionContract + "\n设计说明：" + workflow.brief.asJson.noSpaces
+          request + "\n设计指导：\n" + guidance.design + "\n交互能力：\n" + WebDocumentPrompt.actionContract + "\n设计说明：" + workflow.brief.asJson.noSpaces
         calls <- Ref.of[IO, Vector[Json]](Vector.empty)
         client = new DeepSeekCompatibleClient(EffortAcceptance.metered(http, calls))
         _ <- IO.blocking {

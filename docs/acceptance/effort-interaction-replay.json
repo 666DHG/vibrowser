@@ -96,5 +96,18 @@
     "sortVerified": false,
     "limitations": [],
     "extraModelCalls": 0
+  },
+  {
+    "file": "essay-new-standard.json",
+    "localActions": [
+      "toggle-breakwater"
+    ],
+    "searchSubmitted": false,
+    "navigationSubmitted": true,
+    "copyVerified": false,
+    "filterVerified": true,
+    "sortVerified": false,
+    "limitations": [],
+    "extraModelCalls": 0
   }
 ]
