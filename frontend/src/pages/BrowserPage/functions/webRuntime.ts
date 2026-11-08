@@ -70,16 +70,28 @@ function runtime(
         });
       state[key] = value;
     } else if (action.kind === "Filter") {
-      if (region)
-        [...region.children].forEach((e) => {
-          (e as HTMLElement).hidden = !(
-            e.getAttribute("data-" + (action.field ?? "filter")) ??
-            e.textContent ??
-            ""
+      if (region) {
+        const field = "data-" + (action.field ?? "filter");
+        const marked = [...region.querySelectorAll<HTMLElement>("*")].filter(
+          (e) => e.hasAttribute(field),
+        );
+        const items = marked.length ? marked : [...region.children];
+        items
+          .filter(
+            (e) =>
+              !e.contains(element) &&
+              !e.matches("input,select,textarea,button,label,form"),
           )
-            .toLocaleLowerCase()
-            .includes(value.toLocaleLowerCase());
-        });
+          .forEach((e) => {
+            (e as HTMLElement).hidden = !(
+              e.getAttribute(field) ??
+              e.textContent ??
+              ""
+            )
+              .toLocaleLowerCase()
+              .includes(value.toLocaleLowerCase());
+          });
+      }
       state[key] = value;
     } else if (action.kind === "Sort") {
       if (region)

@@ -24,6 +24,17 @@ for (const name of ["forum", "shop", "docs"])
       target: "#anchor-target",
     });
     let currentDocument = document;
+    if (name === "docs") {
+      document.html +=
+        '<section id="nested-filter"><label for="nested-query">筛选章节</label><input id="nested-query"><ul><li data-topic="锁" id="lock-row">锁等待</li><li data-topic="事务" id="transaction-row">事务隔离</li></ul></section>';
+      document.actions.push({
+        id: "nested-filter-action",
+        kind: "Filter",
+        elementId: "nested-query",
+        region: "nested-filter",
+        field: "topic",
+      });
+    }
     let currentId = "sample";
     const errors: string[] = [];
     page.on("pageerror", (e) => errors.push(e.message));
@@ -123,6 +134,15 @@ for (const name of ["forum", "shop", "docs"])
       await expect(frame.locator('output[data-state="cart"]')).toHaveText("0");
     }
     if (name === "docs") {
+      await frame.locator("#nested-query").fill("锁");
+      await expect(frame.locator("#lock-row")).toBeVisible();
+      await expect(frame.locator("#transaction-row")).toBeHidden();
+      await expect(frame.locator('label[for="nested-query"]')).toBeVisible();
+      await frame.locator("#nested-query").fill("不存在");
+      await expect(frame.locator("#lock-row")).toBeHidden();
+      await frame.locator("#nested-query").fill("");
+      await expect(frame.locator("#lock-row")).toBeVisible();
+      await expect(frame.locator("#transaction-row")).toBeVisible();
       await frame.locator("#toggle").click();
       await expect(frame.locator("#chapters")).toBeVisible();
     }

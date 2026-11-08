@@ -166,15 +166,23 @@ test("replay real design documents through the browser runtime without model req
           `[id=${JSON.stringify(filter.elementId)}]`,
         );
         const region = frame.locator(`[id=${JSON.stringify(filter.region)}]`);
+        const markedItems = region.locator(
+          `[data-${filter.field ?? "filter"}]`,
+        );
+        const items = (await markedItems.count())
+          ? markedItems
+          : region.locator(
+              ":scope > :not(input,select,textarea,button,label,form)",
+            );
         if (
           (await control.isVisible()) &&
           (await control.evaluate((e) =>
             ["BUTTON", "INPUT"].includes(e.tagName),
           ))
         ) {
-          const values = await region.evaluate(
-            (e, field) =>
-              [...e.children].map(
+          const values = await items.evaluateAll(
+            (elements, field) =>
+              elements.map(
                 (child) =>
                   child.getAttribute("data-" + field) ??
                   child.textContent ??
@@ -195,8 +203,8 @@ test("replay real design documents through the browser runtime without model req
             text.toLocaleLowerCase().includes(query.toLocaleLowerCase()),
           );
           expect(
-            await region.evaluate((e) =>
-              [...e.children].map((child) => !(child as HTMLElement).hidden),
+            await items.evaluateAll((elements) =>
+              elements.map((child) => !(child as HTMLElement).hidden),
             ),
           ).toEqual(expected);
           filterVerified = expected.some(Boolean) && expected.some((v) => !v);
