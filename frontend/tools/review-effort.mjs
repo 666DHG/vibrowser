@@ -70,6 +70,17 @@ for (const file of (await readdir(input))
     pageId: record.pageId,
     jobId: record.jobId,
     guidance: record.guidance,
+    briefCharacters: record.workflow?.brief
+      ? JSON.stringify(record.workflow.brief).length
+      : null,
+    earlyVisualPlanCharacters: record.workflow?.brief
+      ? (record.workflow.brief.typography ?? "").length +
+        (record.workflow.brief.continuity ?? "").length
+      : null,
+    cssChangedByReview:
+      record.document && record.workflow?.candidate
+        ? record.document.css !== record.workflow.candidate.css
+        : null,
     seconds: record.seconds,
     interrupted: record.interrupted ?? false,
     usageComplete: record.usageComplete ?? true,
