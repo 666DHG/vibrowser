@@ -67,6 +67,7 @@ test("replay real design documents through the browser runtime without model req
       };
       page.on("request", listener);
       const local: string[] = [];
+      const limitations: string[] = [];
       for (const action of record.document.actions.filter(
         (a: { kind: string }) => a.kind === "Toggle",
       )) {
@@ -118,7 +119,11 @@ test("replay real design documents through the browser runtime without model req
                 (window as unknown as { copiedTexts: string[] }).copiedTexts,
             ),
           ).toEqual([expectedText]);
-          copyVerified = true;
+          copyVerified = expectedText.trim().length > 0;
+          if (!copyVerified)
+            limitations.push(
+              "Copy target is empty; runtime dispatch matched but useful copying was not verified.",
+            );
         }
       }
       expect(requests).toBe(0);
@@ -185,7 +190,6 @@ test("replay real design documents through the browser runtime without model req
         (a: { kind: string }) => a.kind === "Sort",
       );
       let sortVerified = false;
-      const limitations: string[] = [];
       if (sort) {
         const control = frame.locator(`[id=${JSON.stringify(sort.elementId)}]`);
         const region = frame.locator(`[id=${JSON.stringify(sort.region)}]`);

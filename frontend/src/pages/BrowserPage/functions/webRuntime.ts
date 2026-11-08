@@ -51,11 +51,12 @@ function runtime(
     }
     if (action.kind === "Copy") {
       if (!region || pendingCopies.has(action.id)) return;
+      const text = region.innerText;
       const requestId = crypto.randomUUID();
       pendingCopies.set(action.id, requestId);
       state[key] = "正在复制…";
       draw();
-      send("copy", { actionId: action.id, requestId, text: region.innerText });
+      send("copy", { actionId: action.id, requestId, text });
       return;
     } else if (action.kind === "Toggle") {
       if (region) {

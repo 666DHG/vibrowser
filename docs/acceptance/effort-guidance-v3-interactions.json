@@ -1,0 +1,39 @@
+[
+  {
+    "file": "academic-new-standard.json",
+    "localActions": [],
+    "searchSubmitted": false,
+    "navigationSubmitted": true,
+    "copyVerified": false,
+    "filterVerified": false,
+    "sortVerified": false,
+    "limitations": [
+      "Copy target is empty; runtime dispatch matched but useful copying was not verified."
+    ],
+    "extraModelCalls": 0
+  },
+  {
+    "file": "calendar-new-standard.json",
+    "localActions": [],
+    "searchSubmitted": true,
+    "navigationSubmitted": true,
+    "copyVerified": true,
+    "filterVerified": false,
+    "sortVerified": false,
+    "limitations": [],
+    "extraModelCalls": 0
+  },
+  {
+    "file": "copy-new-standard.json",
+    "localActions": [
+      "a-toggle-tips"
+    ],
+    "searchSubmitted": true,
+    "navigationSubmitted": true,
+    "copyVerified": true,
+    "filterVerified": true,
+    "sortVerified": true,
+    "limitations": [],
+    "extraModelCalls": 0
+  }
+]
