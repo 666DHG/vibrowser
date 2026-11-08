@@ -1,12 +1,16 @@
 # 设计评审与两挡思考验收
 
-深入档最新进度为 4/6（2026-11-08）：已完成学术、文案、日历、器具对比，四题均首轮结构通过，共 15 次请求、累计 1006 秒。学术采用原稿，后三题采用改进稿。技术文档与随笔仍由原进程顺序执行，没有重复提交，尚不认定整体成功率或风格门槛通过。
+深入档固定六题已全部完成（2026-11-08），无重复提交：最终 6/6，首轮结构通过 6/6，23 次请求、累计任务耗时 1609 秒、记录 total_tokens 691691，其中 reasoning_tokens 210497。标准档对应为最终 6/6、首轮 5/6、21 次请求、314 秒、273805 total_tokens。两挡同时包含已实现的思考设置与输出预算差异；这是一批固定样本，不证明深入普遍更准确或更优。
 
-[标准／深入配对报告](acceptance/effort-guidance-v8-paired.json)及 `frontend/tools/compare-effort-v8.mjs` 核验原请求、日期、来源、指导版本一致，以及每次调用的 thinking、reasoning_effort、max_tokens 与无采样变更。`--complete` 要求六对都有终态（失败也计入记录）；当前仍为 complete=false。档位作用于整个流水线，规划结果和后续视觉参照也会变化，因此不宣称是仅生成阶段的因果实验。
+[标准／深入配对报告](acceptance/effort-guidance-v8-paired.json)及 `frontend/tools/compare-effort-v8.mjs --complete` 已核验六对的原请求、日期、来源、指导版本一致，以及每次调用的 thinking、reasoning_effort、max_tokens 与无采样变更。档位作用于整个流水线，规划结果和后续视觉参照也会变化，因此不宣称是仅生成阶段的因果实验。
 
 文案的 Copy、Toggle、Filter、Sort 和原生锚点均通过实际浏览器回放，排序比标准档该题完整。日历以冷灰色信息面板与日期流组织内容，标题与今日条目均为原固定请求中的 11 月 7 日。器具对比页修复了 CSS 页面容器未绑定的问题：390 视口下 scrollWidth 由 391 降为 375，verdict 越界消失；展开、复制、筛选、排序和锚点均通过。搜索／跨页导航只验证拦截提交，不算真实后续生成。修复功能不计作风格改善；普通审美不足只记录，不新增 prompt 规则。
 
-部分证据：[深入调用报告（complete=false）](acceptance/effort-guidance-v8-deep.json)、[四题交互](acceptance/effort-guidance-v8-deep-interactions-partial.json)、[已完成页面截图](screenshots/effort-guidance-v8-deep)。这里的四题终态不替代计划六题的分母。
+深入档视觉对照为文案、日历、文档、随笔四组改善，学术与器具对比 neutral。标准档仍只有两组，不能用深入结果替换标准档默认启用门槛；设计实验保持默认关闭，整体目标继续进行中。尚未进行 v8 的真实同站详情验收。
+
+技术文档最终搜索框两种视口均为 44px；点击第二章后，桌面标题顶部为 89px，位于导航底部（51px）下方，窄屏也可见。随笔复制初次回放误把初稿当作比较基准：初稿列表无换行，改进原始输出与最终输出包含换行，非正文丢失。回放已按实际采用的生成／改进原始输出比较，完整剪贴板断言不变，六页复测通过；没有改动生产校验或新增 prompt。
+
+证据：[完整深入调用报告](acceptance/effort-guidance-v8-deep.json)、[六题交互](acceptance/effort-guidance-v8-deep-interactions.json)、[视觉结论](acceptance/effort-guidance-v8-deep-visual.json)、[文档布局复验](acceptance/effort-guidance-v8-deep-docs-layout.json)、[截图](screenshots/effort-guidance-v8-deep)。此前 partial 交互文件保留为阶段证据，不代表完整覆盖。最终报告与配对检查通过，回放测试格式及类型检查通过；本阶段未重复全量 Scala／Mock 浏览器测试，生产代码未改变。
 
 v8 标准档渲染追踪已完成：[离线字体与原稿核对](acceptance/design-render-audit-v8.json)。六题最终 HTML/CSS 与候选完全相同，故该批视觉趋同不能归因于评审改写。h1 与首个 p 使用宋体／微软雅黑变体，并非全局单一字体覆盖；探针范围不代表整页字体。构想已体现在便签、月历、风险侧栏等结构中，效果不足仍如实保留。深入档隔离验收运行器已编译及格式检查通过，标准报告重新生成校验通过。
 

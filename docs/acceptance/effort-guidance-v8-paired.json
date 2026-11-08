@@ -1,7 +1,7 @@
 {
-  "complete": false,
+  "complete": true,
   "plannedPairs": 6,
-  "recordedPairs": 4,
+  "recordedPairs": 6,
   "scope": "Same fixed input, date, retrieval sources and guidance. Effort applies to the entire pipeline, including generated briefs and subsequent visual-reference history; this is not a generation-only causal experiment. No visual quality conclusion is inferred from success counts.",
   "pairs": [
     {
@@ -195,7 +195,7 @@
     {
       "topic": "docs",
       "requestHash": "81c4ef5402af0f79113a9b1d0fe23a78f8d4600beb4e4de07001ab64b90df49f",
-      "paired": false,
+      "paired": true,
       "standard": {
         "pageId": "96254eed-c990-4275-b49c-196e2ecd7a3c",
         "jobId": "239db47c-063e-42ea-b68f-fc10f9510e64",
@@ -217,12 +217,32 @@
         "htmlUnchangedByReview": true,
         "cssUnchangedByReview": true
       },
-      "deep": null
+      "deep": {
+        "pageId": "0eb98084-5d07-40c9-bdd4-96077cfdaee6",
+        "jobId": "1a3233c6-ede2-4440-8cee-7225c7b387d9",
+        "ready": true,
+        "error": null,
+        "firstGenerationAccepted": true,
+        "seconds": 325,
+        "calls": 4,
+        "usageComplete": true,
+        "totalTokens": 168389,
+        "recordedReasoningTokens": 44999,
+        "selection": "Improved",
+        "selectedDirection": {
+          "concept": "机制纵向剖面：按数据流动的真实层次自上而下堆叠——会话与事务 → 快照可见性 → 锁与等待 → WAL 与检查点 → 磁盘与 vacuum，每层是一张横向卡片，卡片内左侧写原理、右侧放该层对应的视图查询与参数；层次之间有细连线表示依赖。",
+          "structure": "垂直分层的卡片栈，每张卡片内部左右分栏；页面顶部是一条精简的层次索引条，点击直达某一层；实验脚本集中在对应层次卡片内，不单独成章。",
+          "typography": "层次编号用超大等宽数字作视觉锚点，标题无衬线且字重厚；原理叙述用中等字号灰黑，右侧代码与参数用等宽小字号并统一底色，整体像技术剖面图标注。",
+          "contentReason": "并发问题往往要跨层推断（一个锁等待可能源于长事务未提交，进而影响 vacuum 与 XID 年龄），按机制分层而非按章节顺序组织，能把“从现象追到根因”的路径直接画出来。"
+        },
+        "htmlUnchangedByReview": true,
+        "cssUnchangedByReview": false
+      }
     },
     {
       "topic": "essay",
       "requestHash": "71d5157ecb8fece704d54fa6419571cacf313b80432f1d29cbf79626454669f2",
-      "paired": false,
+      "paired": true,
       "standard": {
         "pageId": "efcdbc2f-1a53-45b5-b616-2f36094a167a",
         "jobId": "8796ea1a-fa21-42cd-94ba-24d3f46b6f8e",
@@ -244,7 +264,27 @@
         "htmlUnchangedByReview": true,
         "cssUnchangedByReview": true
       },
-      "deep": null
+      "deep": {
+        "pageId": "c9d6051c-7cb1-4be9-8e09-a2cda54fd2d7",
+        "jobId": "cff76949-2ac9-4a77-928f-6803674ded69",
+        "ready": true,
+        "error": null,
+        "firstGenerationAccepted": true,
+        "seconds": 278,
+        "calls": 4,
+        "usageComplete": true,
+        "totalTokens": 115059,
+        "recordedReasoningTokens": 33681,
+        "selection": "Improved",
+        "selectedDirection": {
+          "concept": "图版与短句",
+          "structure": "首页为非对称图块拼合：大小不等的照片与一两句摘录交错，段落只在少数位置整段出现，点击任一图块进入单篇；文字密度前低后高。",
+          "typography": "标题用大字重短句，几乎占满一行；正文退缩为小字紧随其后，图文错位，留白故意不均，让页面像一叠摊开的相片与便条。",
+          "contentReason": "沿海小城的海、堤、街面本身是内容的一部分，先给氛围再给文字，适合第一次到访、还不知道要读哪篇的人，用图像和短句快速建立地方感。"
+        },
+        "htmlUnchangedByReview": false,
+        "cssUnchangedByReview": false
+      }
     }
   ]
 }

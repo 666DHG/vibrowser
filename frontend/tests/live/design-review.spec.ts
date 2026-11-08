@@ -89,15 +89,28 @@ test("replay real design documents through the browser runtime without model req
       );
       let copyVerified = false;
       let copyContentPreserved: boolean | null = null;
+      const copyRawSource =
+        record.workflow?.selection === "Improved"
+          ? "improvement"
+          : "generation";
       if (copy) {
         const button = frame.locator(`[id=${JSON.stringify(copy.elementId)}]`);
         if (await button.isVisible()) {
           const expectedText = await frame
             .locator(`[id=${JSON.stringify(copy.region)}]`)
             .innerText();
-          const acceptedRaw = record.attempts?.find(
-            (attempt: { outcome: string }) => attempt.outcome === "Accepted",
-          )?.output;
+          const acceptedRaw =
+            copyRawSource === "improvement"
+              ? [...(record.workflow?.events ?? [])]
+                  .reverse()
+                  .find(
+                    (event: { stage: string; status: string }) =>
+                      event.stage === "Improve" && event.status === "Completed",
+                  )?.output
+              : record.attempts?.find(
+                  (attempt: { outcome: string }) =>
+                    attempt.outcome === "Accepted",
+                )?.output;
           if (acceptedRaw) {
             const raw = JSON.parse(acceptedRaw);
             if (typeof raw.html === "string") {
@@ -114,7 +127,7 @@ test("replay real design documents through the browser runtime without model req
                   expectedText.replace(/\s+/g, " ").trim();
                 if (!copyContentPreserved)
                   limitations.push(
-                    "Copy text differs from the accepted raw model response; successful clipboard dispatch does not prove content preservation.",
+                    "Copy text differs from the adopted raw model response; successful clipboard dispatch does not prove content preservation.",
                   );
               }
             }
@@ -397,6 +410,7 @@ test("replay real design documents through the browser runtime without model req
         anchorVerified,
         copyVerified,
         copyContentPreserved,
+        copyRawSource,
         filterVerified,
         sortVerified,
         limitations,

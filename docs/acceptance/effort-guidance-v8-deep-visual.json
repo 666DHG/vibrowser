@@ -1,0 +1,20 @@
+{
+  "complete": true,
+  "method": "Inspect the fixed six deep desktop/mobile outputs against the preserved old-standard pages and the v8-standard counterparts. Count task-related organization and typography, not color alone. No rerolls; this does not replace the standard-effort gate.",
+  "topics": [
+    {"name":"academic","verdict":"neutral","observation":"Clear serif research manifesto and three research tracks, but the original already used a continuous research narrative. Larger headings do not establish a substantially better organization."},
+    {"name":"copy","verdict":"improved","observation":"A dated weekly archive, navigation between weeks, working hot/latest sorting, inline copying and filtering organize independent snippets for reuse. This differs materially from the original continuous text list. The v8-standard note wall is another valid structure; its multi-option sort was not verified, while deep sorting was."},
+    {"name":"calendar","verdict":"improved","observation":"Compact current-date facts, year-progress strip and a horizontally navigable day sequence create a usable temporal hierarchy beyond the original event list. Desktop and mobile maintain the date hierarchy. The title and current highlighted day agree on the fixed November 7 request."},
+    {"name":"comparison","verdict":"neutral","observation":"Large introductory title, scenario choices, product cards and comparison information remain close to the original structure. The adopted correction resolves a missing wrapper and mobile overflow, which is functional improvement but not a separate visual-diversity success."},
+    {"name":"docs","verdict":"improved","observation":"Mechanism layers follow transaction flow, with explanatory text beside relevant code and a concise layer index, replacing the original sidebar/chapter-reference organization. Mobile preserves the layer sequence. Final search height and second-chapter visibility were independently measured."},
+    {"name":"essay","verdict":"improved","observation":"An asymmetric arrangement of CSS coastal illustrations, excerpts and article entrances creates a browsable collection rather than the original single journal stream. Mobile retains the image/excerpt reading rhythm. No external images are loaded; illustration changes are accompanied by structural changes."}
+  ],
+  "improvedTopics": 4,
+  "requiredForDefaultEnable": 4,
+  "deepVisualThresholdMet": true,
+  "standardImprovedTopics": 2,
+  "defaultEnableGatePassed": false,
+  "sameSiteV8DeepRetested": false,
+  "interactionScope": "Six saved documents replayed. Local controls and captured search/navigation submissions verified where present. This is not six live follow-on generation chains. Copy content is compared against the actually adopted raw model output, not a superseded candidate.",
+  "decision": "The deep preset shows useful layout and interaction gains in this one batch, at higher token and time costs. Keep standard as the default effort. Do not use the deep result to overwrite the unmet standard-effort gate or claim whole-goal completion. Existing same-site evidence belongs to earlier revisions; v8 same-site remains unverified."
+}

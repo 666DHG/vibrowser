@@ -1,7 +1,7 @@
 {
-  "evaluatedAt": "2026-11-08T05:00:59.737Z",
+  "evaluatedAt": "2026-11-08T05:10:40.395Z",
   "expectedSamples": 6,
-  "complete": false,
+  "complete": true,
   "groups": {
     "old-standard": {
       "samples": 0,
@@ -32,18 +32,18 @@
       "seconds": 0
     },
     "new-deep": {
-      "samples": 4,
-      "ready": 4,
+      "samples": 6,
+      "ready": 6,
       "interrupted": 0,
       "unknownUsageSamples": 0,
       "unknownDurationSamples": 0,
-      "initialGenerationAccepted": 4,
-      "modelCalls": 15,
-      "generationModelCalls": 15,
-      "recordedTokens": 408243,
-      "recordedCompletionTokens": 200846,
-      "recordedReasoningTokens": 131817,
-      "seconds": 1006
+      "initialGenerationAccepted": 6,
+      "modelCalls": 23,
+      "generationModelCalls": 23,
+      "recordedTokens": 691691,
+      "recordedCompletionTokens": 325892,
+      "recordedReasoningTokens": 210497,
+      "seconds": 1609
     }
   },
   "comparability": [
@@ -73,6 +73,22 @@
     },
     {
       "input": "kfc疯狂星期四文案合集站.com",
+      "samples": 1,
+      "allThreePresent": false,
+      "identicalGenerationRequest": true,
+      "actualEffortMatches": true,
+      "unobservedEffortSamples": 0
+    },
+    {
+      "input": "PostgreSQL事务隔离与并发控制学习笔记.com",
+      "samples": 1,
+      "allThreePresent": false,
+      "identicalGenerationRequest": true,
+      "actualEffortMatches": true,
+      "unobservedEffortSamples": 0
+    },
+    {
+      "input": "一个沿海小城居民的散步随笔.com",
       "samples": 1,
       "allThreePresent": false,
       "identicalGenerationRequest": true,
@@ -6915,6 +6931,4128 @@
                   "display": "grid",
                   "columns": 1,
                   "widthRatio": 0.85
+                }
+              ]
+            }
+          }
+        ],
+        "error": null
+      }
+    },
+    {
+      "name": "docs-new-deep",
+      "input": "PostgreSQL事务隔离与并发控制学习笔记.com",
+      "mode": "research",
+      "effort": "deep",
+      "contentFocusOnly": true,
+      "layoutExploration": true,
+      "designDirection": {
+        "concept": "机制纵向剖面：按数据流动的真实层次自上而下堆叠——会话与事务 → 快照可见性 → 锁与等待 → WAL 与检查点 → 磁盘与 vacuum，每层是一张横向卡片，卡片内左侧写原理、右侧放该层对应的视图查询与参数；层次之间有细连线表示依赖。",
+        "structure": "垂直分层的卡片栈，每张卡片内部左右分栏；页面顶部是一条精简的层次索引条，点击直达某一层；实验脚本集中在对应层次卡片内，不单独成章。",
+        "typography": "层次编号用超大等宽数字作视觉锚点，标题无衬线且字重厚；原理叙述用中等字号灰黑，右侧代码与参数用等宽小字号并统一底色，整体像技术剖面图标注。",
+        "contentReason": "并发问题往往要跨层推断（一个锁等待可能源于长事务未提交，进而影响 vacuum 与 XID 年龄），按机制分层而非按章节顺序组织，能把“从现象追到根因”的路径直接画出来。"
+      },
+      "proposedDirectionCount": 3,
+      "visualReferenceCount": 1,
+      "visualReferenceCharacters": 389,
+      "requestHash": "81c4ef5402af0f79113a9b1d0fe23a78f8d4600beb4e4de07001ab64b90df49f",
+      "actualEffortMatches": true,
+      "pageId": "0eb98084-5d07-40c9-bdd4-96077cfdaee6",
+      "jobId": "1a3233c6-ede2-4440-8cee-7225c7b387d9",
+      "guidance": "8-c1e0823385b34590f0bf7bd797de93208836a202c8c5d1055843268e0d7bb5bd",
+      "briefCharacters": 1977,
+      "earlyVisualPlanCharacters": 0,
+      "cssChangedByReview": true,
+      "seconds": 325,
+      "interrupted": false,
+      "usageComplete": true,
+      "error": null,
+      "initialGenerationAccepted": true,
+      "generationAttempts": [
+        {
+          "attempt": 1,
+          "outcome": "Accepted",
+          "errorCode": null,
+          "message": null,
+          "at": "2026-11-08T05:03:39.045093Z"
+        }
+      ],
+      "modelCalls": [
+        {
+          "usage": {
+            "prompt_tokens": 8838,
+            "completion_tokens": 1806,
+            "total_tokens": 10644,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 718
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 8838
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 14820,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 48000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "high",
+          "stage": "brief"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 10733,
+            "completion_tokens": 38985,
+            "total_tokens": 49718,
+            "prompt_tokens_details": {
+              "cached_tokens": 1024
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 29221
+            },
+            "prompt_cache_hit_tokens": 1024,
+            "prompt_cache_miss_tokens": 9709
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 189307,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 48000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "high",
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 40254,
+            "completion_tokens": 4407,
+            "total_tokens": 44661,
+            "prompt_tokens_details": {
+              "cached_tokens": 768
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 4006
+            },
+            "prompt_cache_hit_tokens": 768,
+            "prompt_cache_miss_tokens": 39486
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 29540,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 48000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "high",
+          "stage": "review"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 40962,
+            "completion_tokens": 22404,
+            "total_tokens": 63366,
+            "prompt_tokens_details": {
+              "cached_tokens": 896
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 11054
+            },
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 40066
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 79377,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 48000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "high",
+          "stage": "document"
+        }
+      ],
+      "selection": "Improved",
+      "events": [
+        {
+          "stage": "Brief",
+          "status": "Started",
+          "at": "2026-11-08T05:00:14.887526200Z",
+          "message": null
+        },
+        {
+          "stage": "Brief",
+          "status": "Completed",
+          "at": "2026-11-08T05:00:29.712288300Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Started",
+          "at": "2026-11-08T05:03:39.050101900Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Completed",
+          "at": "2026-11-08T05:03:45.140032600Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Started",
+          "at": "2026-11-08T05:03:45.145112300Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Completed",
+          "at": "2026-11-08T05:04:14.691353700Z",
+          "message": null
+        },
+        {
+          "stage": "Improve",
+          "status": "Started",
+          "at": "2026-11-08T05:04:14.697039800Z",
+          "message": null
+        },
+        {
+          "stage": "Improve",
+          "status": "Completed",
+          "at": "2026-11-08T05:05:34.118083100Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureImproved",
+          "status": "Started",
+          "at": "2026-11-08T05:05:34.124085200Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureImproved",
+          "status": "Completed",
+          "at": "2026-11-08T05:05:40.255773100Z",
+          "message": null
+        },
+        {
+          "stage": "Selection",
+          "status": "Completed",
+          "at": "2026-11-08T05:05:40.266279300Z",
+          "message": "采用改进页面"
+        }
+      ],
+      "sources": [
+        {
+          "id": "source-1",
+          "url": "https://browse.dgit.debian.org/cl-postmodern.git/tree/doc/isolation-notes.org?pow_referer=#2",
+          "title": "isolation-notes.org « doc - cl-postmodern - The [[https://www",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        },
+        {
+          "id": "source-2",
+          "url": "https://cloud.tencent.com.cn/developer/article/2744614#3",
+          "title": "数据库教程FGMT53‑PostgreSQL事务处理与并发控制 - 自动换行",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        },
+        {
+          "id": "source-3",
+          "url": "https://learn.microsoft.com/zh-tw/training/modules/understand-concurrency-postgresql/2-understand-multi-version-concurrency-control-snapshots",
+          "title": "了解多版本並行控制 (MVCC) 與快照集 - Training",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        },
+        {
+          "id": "source-4",
+          "url": "https://cloud.tencent.com.cn/developer/article/2449747?from=15425&policyId=undefined&traceId=&frompage=seopage#1",
+          "title": "从零开始学PostgreSQL (十一)：并发控制 - DBA实战",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        },
+        {
+          "id": "source-5",
+          "url": "http://www.yisu.com/ask/47402750.html#1",
+          "title": "centos postgresql并发控制方法 - centos postgresql并发控制方法",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        },
+        {
+          "id": "source-6",
+          "url": "https://www.postgresql.org/docs/19/transaction-iso.html",
+          "title": "13.2. Transaction Isolation",
+          "retrievedAt": "2026-11-07T16:13:28.328028500Z"
+        }
+      ],
+      "researchReused": true,
+      "siteStyle": {
+        "brand": "PostgreSQL 机制剖面笔记：以编号层级和锈红标记构成的纵向技术剖面，冷灰纸面上放白卡片与深色代码面板",
+        "typography": "正文 -apple-system / Segoe UI / PingFang SC / Microsoft YaHei 无衬线 16px/1.65；层次编号、代码、标签、索引使用 ui-monospace / SFMono / Consolas 等宽；标题字重 800、负字距",
+        "palette": "纸面 #eef1f3、卡片白 #fff、深墨 #131c22、正文灰蓝 #33454f、砖红强调 #b8431f、代码面板 #16212a 配浅蓝白 #d6e2ea",
+        "layout": "1160px 单列容器；标题与检索在上，粘性层次索引条居中；主体为带大号编号的分层卡片纵向堆叠，卡内左原理右代码双栏，窄屏折叠为单列并允许表格横向滚动"
+      },
+      "actions": [
+        {
+          "id": "act-search",
+          "kind": "Search",
+          "elementId": "search-form",
+          "target": null,
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-filter-lock",
+          "kind": "Filter",
+          "elementId": "lock-filter",
+          "target": null,
+          "region": "lock-list",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-filter-triage",
+          "kind": "Filter",
+          "elementId": "triage-filter",
+          "target": null,
+          "region": "triage-list",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-toggle-rc",
+          "kind": "Toggle",
+          "elementId": "toggle-rc",
+          "target": null,
+          "region": "rc-more",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-toggle-retry",
+          "kind": "Toggle",
+          "elementId": "toggle-retry",
+          "target": null,
+          "region": "retry-more",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-copy-tx",
+          "kind": "Copy",
+          "elementId": "copy-tx-btn",
+          "target": null,
+          "region": "tx-code",
+          "stateKey": "copyTx",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-copy-iso",
+          "kind": "Copy",
+          "elementId": "copy-iso-btn",
+          "target": null,
+          "region": "iso-code",
+          "stateKey": "copyIso",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-copy-txid",
+          "kind": "Copy",
+          "elementId": "copy-txid-btn",
+          "target": null,
+          "region": "txid-code",
+          "stateKey": "copyTxid",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-copy-lock",
+          "kind": "Copy",
+          "elementId": "copy-lock-btn",
+          "target": null,
+          "region": "lock-code",
+          "stateKey": "copyLock",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-copy-mon",
+          "kind": "Copy",
+          "elementId": "copy-mon-btn",
+          "target": null,
+          "region": "mon-code",
+          "stateKey": "copyMon",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-copy-wal",
+          "kind": "Copy",
+          "elementId": "copy-wal-btn",
+          "target": null,
+          "region": "wal-params",
+          "stateKey": "copyWal",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "act-copy-xid",
+          "kind": "Copy",
+          "elementId": "copy-xid-btn",
+          "target": null,
+          "region": "xid-code",
+          "stateKey": "copyXid",
+          "value": null,
+          "field": null
+        }
+      ],
+      "layout": {
+        "viewports": [
+          {
+            "width": 1440,
+            "height": 900,
+            "scrollWidth": 1425,
+            "scrollHeight": 5630,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "",
+                "tag": "h1",
+                "text": "事务隔离与并发控制",
+                "x": 156.5,
+                "y": 65.5,
+                "width": 1112,
+                "height": 54.078125,
+                "fontSize": "52px",
+                "lineHeight": "54.08px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "会话与事务",
+                "x": 277.5,
+                "y": 437.828125,
+                "width": 964,
+                "height": 35.640625,
+                "fontSize": "31px",
+                "lineHeight": "35.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "隔离级别：先看现象是否被允许",
+                "x": 277.5,
+                "y": 911.265625,
+                "width": 964,
+                "height": 35.640625,
+                "fontSize": "31px",
+                "lineHeight": "35.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Read Committed",
+                "x": 277.5,
+                "y": 1355.1875,
+                "width": 539.34375,
+                "height": 26.390625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Repeatable Read",
+                "x": 277.5,
+                "y": 1538.640625,
+                "width": 539.34375,
+                "height": 26.390625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Serializable",
+                "x": 277.5,
+                "y": 1671.203125,
+                "width": 539.34375,
+                "height": 26.390625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "快照与 MVCC",
+                "x": 277.5,
+                "y": 1908.65625,
+                "width": 964,
+                "height": 35.640625,
+                "fontSize": "31px",
+                "lineHeight": "35.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "锁与等待",
+                "x": 277.5,
+                "y": 2539.203125,
+                "width": 964,
+                "height": 35.640625,
+                "fontSize": "31px",
+                "lineHeight": "35.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "表级锁模式",
+                "x": 277.5,
+                "y": 2718.765625,
+                "width": 539.34375,
+                "height": 26.390625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "行级锁",
+                "x": 277.5,
+                "y": 3275.609375,
+                "width": 539.34375,
+                "height": 26.390625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "咨询锁",
+                "x": 277.5,
+                "y": 3381.78125,
+                "width": 539.34375,
+                "height": 26.390625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "死锁",
+                "x": 277.5,
+                "y": 3487.953125,
+                "width": 539.34375,
+                "height": 26.390625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "WAL 与检查点",
+                "x": 277.5,
+                "y": 3712.90625,
+                "width": 964,
+                "height": 35.640625,
+                "fontSize": "31px",
+                "lineHeight": "35.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "vacuum 与事务 ID 回卷",
+                "x": 277.5,
+                "y": 4308.203125,
+                "width": 964,
+                "height": 35.640625,
+                "fontSize": "31px",
+                "lineHeight": "35.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "故障速查",
+                "x": 277.5,
+                "y": 4774.5,
+                "width": 964,
+                "height": 35.640625,
+                "fontSize": "31px",
+                "lineHeight": "35.65px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "同一事务里两次查询结果不同",
+                "x": 296.5,
+                "y": 4936.890625,
+                "width": 928,
+                "height": 25.5625,
+                "fontSize": "15.5px",
+                "lineHeight": "25.575px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "更新时收到 40001",
+                "x": 296.5,
+                "y": 5026.25,
+                "width": 928,
+                "height": 25.5625,
+                "fontSize": "15.5px",
+                "lineHeight": "25.575px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "两个会话互等，其中一个报 40P01",
+                "x": 296.5,
+                "y": 5115.609375,
+                "width": 928,
+                "height": 25.5625,
+                "fontSize": "15.5px",
+                "lineHeight": "25.575px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "查询长时间卡住",
+                "x": 296.5,
+                "y": 5204.96875,
+                "width": 928,
+                "height": 25.5625,
+                "fontSize": "15.5px",
+                "lineHeight": "25.575px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "表持续膨胀、vacuum 清不动",
+                "x": 296.5,
+                "y": 5294.328125,
+                "width": 928,
+                "height": 25.5625,
+                "fontSize": "15.5px",
+                "lineHeight": "25.575px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "WAL 目录暴涨或提交变慢",
+                "x": 296.5,
+                "y": 5383.6875,
+                "width": 928,
+                "height": 25.5625,
+                "fontSize": "15.5px",
+                "lineHeight": "25.575px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "XID 年龄逼近阈值",
+                "x": 296.5,
+                "y": 5473.046875,
+                "width": 928,
+                "height": 25.5625,
+                "fontSize": "15.5px",
+                "lineHeight": "25.575px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "controls": [
+              {
+                "id": "q",
+                "tag": "input",
+                "text": "",
+                "x": 156.5,
+                "y": 267.828125,
+                "width": 552,
+                "height": 44,
+                "fontSize": "15px",
+                "lineHeight": "normal",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "button",
+                "text": "检索",
+                "x": 718.5,
+                "y": 267.828125,
+                "width": 78,
+                "height": 44,
+                "fontSize": "14px",
+                "lineHeight": "normal",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "01会话与事务",
+                "x": 156.5,
+                "y": 345.828125,
+                "width": 103.890625,
+                "height": 28,
+                "fontSize": "12px",
+                "lineHeight": "12px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, \"Liberation Mono\", monospace",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "02隔离级别",
+                "x": 268.390625,
+                "y": 345.828125,
+                "width": 91.65625,
+                "height": 28,
+                "fontSize": "12px",
+                "lineHeight": "12px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, \"Liberation Mono\", monospace",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "03快照与 MVCC",
+                "x": 368.046875,
+                "y": 345.828125,
+                "width": 113.609375,
+                "height": 28,
+                "fontSize": "12px",
+                "lineHeight": "12px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, \"Liberation Mono\", monospace",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "04锁与等待",
+                "x": 489.65625,
+                "y": 345.828125,
+                "width": 91.65625,
+                "height": 28,
+                "fontSize": "12px",
+                "lineHeight": "12px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, \"Liberation Mono\", monospace",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "05WAL 与检查点",
+                "x": 589.3125,
+                "y": 345.828125,
+                "width": 119,
+                "height": 28,
+                "fontSize": "12px",
+                "lineHeight": "12px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, \"Liberation Mono\", monospace",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "06vacuum 与 XID",
+                "x": 716.3125,
+                "y": 345.828125,
+                "width": 130.15625,
+                "height": 28,
+                "fontSize": "12px",
+                "lineHeight": "12px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, \"Liberation Mono\", monospace",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "07故障速查",
+                "x": 854.46875,
+                "y": 345.828125,
+                "width": 91.65625,
+                "height": 28,
+                "fontSize": "12px",
+                "lineHeight": "12px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, \"Liberation Mono\", monospace",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-tx-btn",
+                "tag": "button",
+                "text": "复制",
+                "x": 1187.234375,
+                "y": 528.21875,
+                "width": 42.265625,
+                "height": 22.5,
+                "fontSize": "10.5px",
+                "lineHeight": "10.5px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, \"Liberation Mono\", monospace",
+                "horizontalScroll": null
+              },
+              {
+                "id": "toggle-rc",
+                "tag": "button",
+                "text": "展开：Read Committed 下容易踩坑的命令行为",
+                "x": 277.5,
+                "y": 1479.75,
+                "width": 539.34375,
+                "height": 38.890625,
+                "fontSize": "13.5px",
+                "lineHeight": "18.9px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "toggle-retry",
+                "tag": "button",
+                "text": "展开：降低序列化失败的做法",
+                "x": 277.5,
+                "y": 1795.765625,
+                "width": 539.34375,
+                "height": 38.890625,
+                "fontSize": "13.5px",
+                "lineHeight": "18.9px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-iso-btn",
+                "tag": "button",
+                "text": "复制",
+                "x": 1187.234375,
+                "y": 1266.015625,
+                "width": 42.265625,
+                "height": 22.5,
+                "fontSize": "10.5px",
+                "lineHeight": "10.5px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, \"Liberation Mono\", monospace",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-txid-btn",
+                "tag": "button",
+                "text": "复制",
+                "x": 1187.234375,
+                "y": 1999.046875,
+                "width": 42.265625,
+                "height": 22.5,
+                "fontSize": "10.5px",
+                "lineHeight": "10.5px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, \"Liberation Mono\", monospace",
+                "horizontalScroll": null
+              },
+              {
+                "id": "lock-filter",
+                "tag": "input",
+                "text": "",
+                "x": 277.5,
+                "y": 2772.15625,
+                "width": 539.34375,
+                "height": 38,
+                "fontSize": "14px",
+                "lineHeight": "normal",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-lock-btn",
+                "tag": "button",
+                "text": "复制",
+                "x": 1187.234375,
+                "y": 2629.59375,
+                "width": 42.265625,
+                "height": 22.5,
+                "fontSize": "10.5px",
+                "lineHeight": "10.5px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, \"Liberation Mono\", monospace",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-mon-btn",
+                "tag": "button",
+                "text": "复制",
+                "x": 1187.234375,
+                "y": 2734.71875,
+                "width": 42.265625,
+                "height": 22.5,
+                "fontSize": "10.5px",
+                "lineHeight": "10.5px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, \"Liberation Mono\", monospace",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-wal-btn",
+                "tag": "button",
+                "text": "复制",
+                "x": 1187.234375,
+                "y": 3803.296875,
+                "width": 42.265625,
+                "height": 22.5,
+                "fontSize": "10.5px",
+                "lineHeight": "10.5px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, \"Liberation Mono\", monospace",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-xid-btn",
+                "tag": "button",
+                "text": "复制",
+                "x": 1187.234375,
+                "y": 4398.59375,
+                "width": 42.265625,
+                "height": 22.5,
+                "fontSize": "10.5px",
+                "lineHeight": "10.5px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, \"Liberation Mono\", monospace",
+                "horizontalScroll": null
+              },
+              {
+                "id": "triage-filter",
+                "tag": "input",
+                "text": "",
+                "x": 277.5,
+                "y": 4871.890625,
+                "width": 964,
+                "height": 38,
+                "fontSize": "14px",
+                "lineHeight": "normal",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "regions": [
+              {
+                "id": "top",
+                "tag": "header",
+                "text": "学习笔记 · PostgreSQL 机制剖面\n  事务隔离与并发控制\n  并发故障常常不在它冒出来的那一层。这里按数据流经的方向自上而下排开：会话发出事务，快照决定可见性，锁决定谁在等，WAL 决定提交何时算数，vacuum 决定旧版本与事务 ID 能否被回收。先判断停在哪一层，再取那一层的视图查询和参数去验证。\n  \n   在笔记内检索\n   \n    \n",
+                "x": 156.5,
+                "y": 0,
+                "width": 1112,
+                "height": 335.828125,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "nav",
+                "text": "01会话与事务 02隔离级别 03快照与 MVCC 04锁与等待 05WAL 与检查点 06vacuum 与 XID 07故障速查",
+                "x": 156.5,
+                "y": 335.828125,
+                "width": 1112,
+                "height": 51,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "main",
+                "text": "01\n   \n   \n    \n     会话与事务\n     你在这里发出 BEGIN、SET TRANSACTION、COMMIT\n    \n    \n     \n      事务是一个或多个语句的包裹：要么全部成功并提交，要么都不成功，此时所有状态变更回滚到事务开始之前。isolation notes\n      PostgreSQL 默认为可读写的 ",
+                "x": 156.5,
+                "y": 386.828125,
+                "width": 1112,
+                "height": 5243.578125,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "layer-1",
+                "tag": "section",
+                "text": "01\n   \n   \n    \n     会话与事务\n     你在这里发出 BEGIN、SET TRANSACTION、COMMIT\n    \n    \n     \n      事务是一个或多个语句的包裹：要么全部成功并提交，要么都不成功，此时所有状态变更回滚到事务开始之前。isolation notes\n      PostgreSQL 默认为可读写的 ",
+                "x": 156.5,
+                "y": 412.828125,
+                "width": 1112,
+                "height": 451.4375,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "header",
+                "text": "会话与事务\n     你在这里发出 BEGIN、SET TRANSACTION、COMMIT",
+                "x": 277.5,
+                "y": 437.828125,
+                "width": 964,
+                "height": 60.390625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "会话中的一次更新\n        复制\n       \n       BEGIN TRANSACTION;\n    UPDATE production.workorder\n        SET stockedqty = 7\n        WHERE workorderid = 1;\nCOMMIT;",
+                "x": 842.84375,
+                "y": 518.21875,
+                "width": 398.65625,
+                "height": 173.625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "layer-2",
+                "tag": "section",
+                "text": "02\n   \n   \n    \n     隔离级别：先看现象是否被允许\n     默认 READ COMMITTED；标准四级，内部只有三种实现\n    \n    \n     \n      \n       表 13.1 隔离级别与被禁止的现象 docs 13.2\n      \n      \n       \n        隔离级别\n        脏读\n  ",
+                "x": 156.5,
+                "y": 886.265625,
+                "width": 1112,
+                "height": 975.390625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "header",
+                "text": "隔离级别：先看现象是否被允许\n     默认 READ COMMITTED；标准四级，内部只有三种实现",
+                "x": 277.5,
+                "y": 911.265625,
+                "width": 964,
+                "height": 60.390625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "设定级别\n        复制\n       \n       BEGIN;\nSET TRANSACTION ISOLATION LEVEL SERIALIZABLE;\n-- 事务内的语句\nCOMMIT;\n\n-- 会话默认值\nSET default_transaction_isolation = 'serializable';\n      \n      \n  ",
+                "x": 842.84375,
+                "y": 1256.015625,
+                "width": 398.65625,
+                "height": 332.296875,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "layer-3",
+                "tag": "section",
+                "text": "03\n   \n   \n    \n     快照与 MVCC\n     xmin / xmax 决定一个行版本对当前事务是否可见\n    \n    \n     \n      PostgreSQL 用多版本并发控制补充锁：同一行可以存在多个版本，每个查询看到一份一致的快照。读取的会话不阻塞写入，写入也不阻塞读取。\n      每个行版本头部带两个事务 ID：xm",
+                "x": 156.5,
+                "y": 1883.65625,
+                "width": 1112,
+                "height": 608.546875,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "header",
+                "text": "快照与 MVCC\n     xmin / xmax 决定一个行版本对当前事务是否可见",
+                "x": 277.5,
+                "y": 1908.65625,
+                "width": 964,
+                "height": 60.390625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "自己在哪个事务里\n        复制\n       \n       SELECT txid_current();\n       在会话中执行，确认当前事务 ID；配合 xmin / xmax 理解行版本的可见性。",
+                "x": 842.84375,
+                "y": 1989.046875,
+                "width": 398.65625,
+                "height": 140.3125,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "layer-4",
+                "tag": "section",
+                "text": "04\n   \n   \n    \n     锁与等待\n     读写不互斥说的是行版本；写写之间和 DDL 仍要排队\n    \n    \n     \n      两个事务改同一行，或者 DDL 撞上查询，仍然靠锁解决。表级锁有七种模式，名字里带 ROW 的同样是表级锁，只是历史命名；两个事务不能在同一张表上同时持有冲突的模式，但事务不会与自己冲突。并发控制笔记",
+                "x": 156.5,
+                "y": 2514.203125,
+                "width": 1112,
+                "height": 1151.703125,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "header",
+                "text": "锁与等待\n     读写不互斥说的是行版本；写写之间和 DDL 仍要排队",
+                "x": 277.5,
+                "y": 2539.203125,
+                "width": 964,
+                "height": 60.390625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "显式加锁，不等待\n        复制\n       \n       LOCK TABLE t IN ACCESS EXCLUSIVE MODE NOWAIT;\n      \n      \n       \n        看谁在等\n        复制\n       \n       SELECT * FROM pg_locks;\n\nSELECT pid, s",
+                "x": 842.84375,
+                "y": 2619.59375,
+                "width": 398.65625,
+                "height": 307.3125,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "layer-5",
+                "tag": "section",
+                "text": "05\n   \n   \n    \n     WAL 与检查点\n     提交什么时候才算数，崩溃之后靠什么恢复\n    \n    \n     \n      修改数据页之前，先把变更写入 WAL 预写日志，再刷数据页，这是 write-ahead 的含义。事务处理与并发控制\n      提交时变更先进入 WAL 缓冲区；fsync 把 WAL 刷到磁盘文件之后，",
+                "x": 156.5,
+                "y": 3687.90625,
+                "width": 1112,
+                "height": 573.296875,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "header",
+                "text": "WAL 与检查点\n     提交什么时候才算数，崩溃之后靠什么恢复",
+                "x": 277.5,
+                "y": 3712.90625,
+                "width": 964,
+                "height": 60.390625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "64G 内存 / 8 CPU 实验机模板\n        复制\n       \n       shared_buffers = 16GB\nwork_mem = 64MB\nmaintenance_work_mem = 4GB\nmax_connections = 800\n       数值来自该实验机的配置模板，实际取值需按负载压测微调。",
+                "x": 842.84375,
+                "y": 3793.296875,
+                "width": 398.65625,
+                "height": 183.59375,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "layer-6",
+                "tag": "section",
+                "text": "06\n   \n   \n    \n     vacuum 与事务 ID 回卷\n     42 亿之后，ID 会绕回来\n    \n    \n     \n      事务 ID 是 32 位无符号整数，上限约 42 亿，用完之后循环复用；不做处理，绕回之后旧数据会突然不可见。\n      VACUUM 冻结把很老元组的 xmin 改写为特殊的 Frozen 标识，",
+                "x": 156.5,
+                "y": 4283.203125,
+                "width": 1112,
+                "height": 444.296875,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "header",
+                "text": "vacuum 与事务 ID 回卷\n     42 亿之后，ID 会绕回来",
+                "x": 277.5,
+                "y": 4308.203125,
+                "width": 964,
+                "height": 60.390625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "监控 XID 年龄\n        复制\n       \n       SELECT datname, age(datfrozenxid)\nFROM pg_database;\n       配合 pg_stat_activity 找出长时间未提交的事务。",
+                "x": 842.84375,
+                "y": 4388.59375,
+                "width": 398.65625,
+                "height": 142.34375,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "layer-7",
+                "tag": "section",
+                "text": "07\n   \n   \n    \n     故障速查\n     从现象反推层次，再回对应层取命令\n    \n    \n     按现象筛选 \n    \n    \n     \n      同一事务里两次查询结果不同\n      第 02 层Read Committed 每条语句取新快照，这是该级别的正常行为；需要事务内稳定视图就改用 Repeatable Rea",
+                "x": 156.5,
+                "y": 4749.5,
+                "width": 1112,
+                "height": 816.90625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "header",
+                "text": "故障速查\n     从现象反推层次，再回对应层取命令",
+                "x": 277.5,
+                "y": 4774.5,
+                "width": 964,
+                "height": 60.390625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "同一事务里两次查询结果不同\n      第 02 层Read Committed 每条语句取新快照，这是该级别的正常行为；需要事务内稳定视图就改用 Repeatable Read。",
+                "x": 277.5,
+                "y": 4923.890625,
+                "width": 964,
+                "height": 79.359375,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "更新时收到 40001\n      第 02 层可重复读与串行化的序列化失败。回滚整个事务后重试，让重试看到新提交的数据；只读事务不受影响。",
+                "x": 277.5,
+                "y": 5013.25,
+                "width": 964,
+                "height": 79.359375,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "两个会话互等，其中一个报 40P01\n      第 04 层死锁检测器已回滚其中一个事务。检查两边的更新顺序是否一致，统一加锁顺序、缩短事务、缩小锁范围。",
+                "x": 277.5,
+                "y": 5102.609375,
+                "width": 964,
+                "height": 79.359375,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "查询长时间卡住\n      第 04 层用 pg_locks 与 pg_stat_activity 的等待事件定位阻塞会话和锁模式；需要快速失败时改用 lock_timeout 或 NOWAIT。",
+                "x": 277.5,
+                "y": 5191.96875,
+                "width": 964,
+                "height": 79.359375,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "表持续膨胀、vacuum 清不动\n      第 03 / 06 层多半是长事务持有旧快照，死元组无法回收。先结束长时间未提交的事务，检查事务中闲置的连接。",
+                "x": 277.5,
+                "y": 5281.328125,
+                "width": 964,
+                "height": 79.359375,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "WAL 目录暴涨或提交变慢\n      第 05 层检查归档是否失败、检查点是否过于频繁、fsync 是否成为瓶颈。",
+                "x": 277.5,
+                "y": 5370.6875,
+                "width": 964,
+                "height": 79.359375,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "XID 年龄逼近阈值\n      第 06 层确认 autovacuum 没有被关闭，找出阻止冻结的长事务；接近回卷点时实例会拒绝分配新事务 ID。",
+                "x": 277.5,
+                "y": 5460.046875,
+                "width": 964,
+                "height": 79.359375,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "visualProfile": {
+              "backgrounds": [
+                "rgb(238, 241, 243)",
+                "rgb(255, 255, 255)"
+              ],
+              "fonts": [
+                "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif"
+              ],
+              "headingSizes": [
+                52,
+                31,
+                16
+              ],
+              "regions": [
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.77
+                },
+                {
+                  "display": "flex",
+                  "columns": 7,
+                  "widthRatio": 0.77
+                },
+                {
+                  "display": "grid",
+                  "columns": 1,
+                  "widthRatio": 0.77
+                },
+                {
+                  "display": "grid",
+                  "columns": 2,
+                  "widthRatio": 0.77
+                }
+              ]
+            }
+          },
+          {
+            "width": 390,
+            "height": 844,
+            "scrollWidth": 375,
+            "scrollHeight": 9134,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "",
+                "tag": "h1",
+                "text": "事务隔离与并发控制",
+                "x": 16,
+                "y": 53.5,
+                "width": 343,
+                "height": 31.1875,
+                "fontSize": "30px",
+                "lineHeight": "31.2px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "会话与事务",
+                "x": 33,
+                "y": 617.3125,
+                "width": 305,
+                "height": 25.296875,
+                "fontSize": "22px",
+                "lineHeight": "25.3px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "隔离级别：先看现象是否被允许",
+                "x": 33,
+                "y": 1455.71875,
+                "width": 305,
+                "height": 25.296875,
+                "fontSize": "22px",
+                "lineHeight": "25.3px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Read Committed",
+                "x": 33,
+                "y": 1980.015625,
+                "width": 305,
+                "height": 26.390625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Repeatable Read",
+                "x": 33,
+                "y": 2261.53125,
+                "width": 305,
+                "height": 26.390625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "Serializable",
+                "x": 33,
+                "y": 2473.265625,
+                "width": 305,
+                "height": 26.390625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "快照与 MVCC",
+                "x": 33,
+                "y": 3142.421875,
+                "width": 305,
+                "height": 25.296875,
+                "fontSize": "22px",
+                "lineHeight": "25.3px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "锁与等待",
+                "x": 33,
+                "y": 4185.15625,
+                "width": 305,
+                "height": 25.296875,
+                "fontSize": "22px",
+                "lineHeight": "25.3px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "表级锁模式",
+                "x": 33,
+                "y": 4407.15625,
+                "width": 305,
+                "height": 26.390625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "行级锁",
+                "x": 33,
+                "y": 5148.53125,
+                "width": 305,
+                "height": 26.390625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "咨询锁",
+                "x": 33,
+                "y": 5307.484375,
+                "width": 305,
+                "height": 26.390625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "死锁",
+                "x": 33,
+                "y": 5413.65625,
+                "width": 305,
+                "height": 26.390625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "WAL 与检查点",
+                "x": 33,
+                "y": 6071.71875,
+                "width": 305,
+                "height": 25.296875,
+                "fontSize": "22px",
+                "lineHeight": "25.3px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "vacuum 与事务 ID 回卷",
+                "x": 33,
+                "y": 7136.4375,
+                "width": 305,
+                "height": 25.296875,
+                "fontSize": "22px",
+                "lineHeight": "25.3px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "故障速查",
+                "x": 33,
+                "y": 7992.484375,
+                "width": 305,
+                "height": 25.296875,
+                "fontSize": "22px",
+                "lineHeight": "25.3px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "同一事务里两次查询结果不同",
+                "x": 52,
+                "y": 8144.53125,
+                "width": 269,
+                "height": 25.5625,
+                "fontSize": "15.5px",
+                "lineHeight": "25.575px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "更新时收到 40001",
+                "x": 52,
+                "y": 8280.078125,
+                "width": 269,
+                "height": 25.5625,
+                "fontSize": "15.5px",
+                "lineHeight": "25.575px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "两个会话互等，其中一个报 40P01",
+                "x": 52,
+                "y": 8415.625,
+                "width": 269,
+                "height": 25.5625,
+                "fontSize": "15.5px",
+                "lineHeight": "25.575px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "查询长时间卡住",
+                "x": 52,
+                "y": 8551.171875,
+                "width": 269,
+                "height": 25.5625,
+                "fontSize": "15.5px",
+                "lineHeight": "25.575px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "表持续膨胀、vacuum 清不动",
+                "x": 52,
+                "y": 8686.71875,
+                "width": 269,
+                "height": 25.5625,
+                "fontSize": "15.5px",
+                "lineHeight": "25.575px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "WAL 目录暴涨或提交变慢",
+                "x": 52,
+                "y": 8822.265625,
+                "width": 269,
+                "height": 25.5625,
+                "fontSize": "15.5px",
+                "lineHeight": "25.575px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "XID 年龄逼近阈值",
+                "x": 52,
+                "y": 8934.71875,
+                "width": 269,
+                "height": 25.5625,
+                "fontSize": "15.5px",
+                "lineHeight": "25.575px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "controls": [
+              {
+                "id": "q",
+                "tag": "input",
+                "text": "",
+                "x": 16,
+                "y": 296.6875,
+                "width": 343,
+                "height": 44,
+                "fontSize": "15px",
+                "lineHeight": "normal",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "button",
+                "text": "检索",
+                "x": 16,
+                "y": 350.6875,
+                "width": 343,
+                "height": 44,
+                "fontSize": "14px",
+                "lineHeight": "normal",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "01会话与事务",
+                "x": 16,
+                "y": 428.6875,
+                "width": 103.890625,
+                "height": 28,
+                "fontSize": "12px",
+                "lineHeight": "12px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, \"Liberation Mono\", monospace",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "02隔离级别",
+                "x": 127.890625,
+                "y": 428.6875,
+                "width": 91.65625,
+                "height": 28,
+                "fontSize": "12px",
+                "lineHeight": "12px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, \"Liberation Mono\", monospace",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "03快照与 MVCC",
+                "x": 227.546875,
+                "y": 428.6875,
+                "width": 113.609375,
+                "height": 28,
+                "fontSize": "12px",
+                "lineHeight": "12px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, \"Liberation Mono\", monospace",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "04锁与等待",
+                "x": 16,
+                "y": 464.6875,
+                "width": 91.65625,
+                "height": 28,
+                "fontSize": "12px",
+                "lineHeight": "12px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, \"Liberation Mono\", monospace",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "05WAL 与检查点",
+                "x": 115.65625,
+                "y": 464.6875,
+                "width": 119,
+                "height": 28,
+                "fontSize": "12px",
+                "lineHeight": "12px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, \"Liberation Mono\", monospace",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "06vacuum 与 XID",
+                "x": 16,
+                "y": 500.6875,
+                "width": 130.15625,
+                "height": 28,
+                "fontSize": "12px",
+                "lineHeight": "12px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, \"Liberation Mono\", monospace",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "07故障速查",
+                "x": 154.15625,
+                "y": 500.6875,
+                "width": 91.65625,
+                "height": 28,
+                "fontSize": "12px",
+                "lineHeight": "12px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, \"Liberation Mono\", monospace",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-tx-btn",
+                "tag": "button",
+                "text": "复制",
+                "x": 283.734375,
+                "y": 1197.46875,
+                "width": 42.265625,
+                "height": 22.5,
+                "fontSize": "10.5px",
+                "lineHeight": "10.5px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, \"Liberation Mono\", monospace",
+                "horizontalScroll": null
+              },
+              {
+                "id": "toggle-rc",
+                "tag": "button",
+                "text": "展开：Read Committed 下容易踩坑的命令行为",
+                "x": 33,
+                "y": 2183.75,
+                "width": 305,
+                "height": 57.78125,
+                "fontSize": "13.5px",
+                "lineHeight": "18.9px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "toggle-retry",
+                "tag": "button",
+                "text": "展开：降低序列化失败的做法",
+                "x": 33,
+                "y": 2650.609375,
+                "width": 305,
+                "height": 38.890625,
+                "fontSize": "13.5px",
+                "lineHeight": "18.9px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-iso-btn",
+                "tag": "button",
+                "text": "复制",
+                "x": 283.734375,
+                "y": 2725.5,
+                "width": 42.265625,
+                "height": 22.5,
+                "fontSize": "10.5px",
+                "lineHeight": "10.5px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, \"Liberation Mono\", monospace",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-txid-btn",
+                "tag": "button",
+                "text": "复制",
+                "x": 283.734375,
+                "y": 3960.21875,
+                "width": 42.265625,
+                "height": 22.5,
+                "fontSize": "10.5px",
+                "lineHeight": "10.5px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, \"Liberation Mono\", monospace",
+                "horizontalScroll": null
+              },
+              {
+                "id": "lock-filter",
+                "tag": "input",
+                "text": "",
+                "x": 33,
+                "y": 4460.546875,
+                "width": 305,
+                "height": 38,
+                "fontSize": "14px",
+                "lineHeight": "normal",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-lock-btn",
+                "tag": "button",
+                "text": "复制",
+                "x": 283.734375,
+                "y": 5679.78125,
+                "width": 42.265625,
+                "height": 22.5,
+                "fontSize": "10.5px",
+                "lineHeight": "10.5px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, \"Liberation Mono\", monospace",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-mon-btn",
+                "tag": "button",
+                "text": "复制",
+                "x": 283.734375,
+                "y": 5784.90625,
+                "width": 42.265625,
+                "height": 22.5,
+                "fontSize": "10.5px",
+                "lineHeight": "10.5px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, \"Liberation Mono\", monospace",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-wal-btn",
+                "tag": "button",
+                "text": "复制",
+                "x": 283.734375,
+                "y": 6849.625,
+                "width": 42.265625,
+                "height": 22.5,
+                "fontSize": "10.5px",
+                "lineHeight": "10.5px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, \"Liberation Mono\", monospace",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copy-xid-btn",
+                "tag": "button",
+                "text": "复制",
+                "x": 283.734375,
+                "y": 7765.515625,
+                "width": 42.265625,
+                "height": 22.5,
+                "fontSize": "10.5px",
+                "lineHeight": "10.5px",
+                "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, \"Liberation Mono\", monospace",
+                "horizontalScroll": null
+              },
+              {
+                "id": "triage-filter",
+                "tag": "input",
+                "text": "",
+                "x": 33,
+                "y": 8079.53125,
+                "width": 305,
+                "height": 38,
+                "fontSize": "14px",
+                "lineHeight": "normal",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "regions": [
+              {
+                "id": "top",
+                "tag": "header",
+                "text": "学习笔记 · PostgreSQL 机制剖面\n  事务隔离与并发控制\n  并发故障常常不在它冒出来的那一层。这里按数据流经的方向自上而下排开：会话发出事务，快照决定可见性，锁决定谁在等，WAL 决定提交何时算数，vacuum 决定旧版本与事务 ID 能否被回收。先判断停在哪一层，再取那一层的视图查询和参数去验证。\n  \n   在笔记内检索\n   \n    \n",
+                "x": 16,
+                "y": 0,
+                "width": 343,
+                "height": 418.6875,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "nav",
+                "text": "01会话与事务 02隔离级别 03快照与 MVCC 04锁与等待 05WAL 与检查点 06vacuum 与 XID 07故障速查",
+                "x": 16,
+                "y": 418.6875,
+                "width": 343,
+                "height": 123,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "main",
+                "text": "01\n   \n   \n    \n     会话与事务\n     你在这里发出 BEGIN、SET TRANSACTION、COMMIT\n    \n    \n     \n      事务是一个或多个语句的包裹：要么全部成功并提交，要么都不成功，此时所有状态变更回滚到事务开始之前。isolation notes\n      PostgreSQL 默认为可读写的 ",
+                "x": 16,
+                "y": 541.6875,
+                "width": 343,
+                "height": 8592.578125,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "layer-1",
+                "tag": "section",
+                "text": "01\n   \n   \n    \n     会话与事务\n     你在这里发出 BEGIN、SET TRANSACTION、COMMIT\n    \n    \n     \n      事务是一个或多个语句的包裹：要么全部成功并提交，要么都不成功，此时所有状态变更回滚到事务开始之前。isolation notes\n      PostgreSQL 默认为可读写的 ",
+                "x": 16,
+                "y": 567.6875,
+                "width": 343,
+                "height": 816.40625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "header",
+                "text": "会话与事务\n     你在这里发出 BEGIN、SET TRANSACTION、COMMIT",
+                "x": 33,
+                "y": 617.3125,
+                "width": 305,
+                "height": 50.046875,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "会话中的一次更新\n        复制\n       \n       BEGIN TRANSACTION;\n    UPDATE production.workorder\n        SET stockedqty = 7\n        WHERE workorderid = 1;\nCOMMIT;",
+                "x": 33,
+                "y": 1187.46875,
+                "width": 305,
+                "height": 173.625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "layer-2",
+                "tag": "section",
+                "text": "02\n   \n   \n    \n     隔离级别：先看现象是否被允许\n     默认 READ COMMITTED；标准四级，内部只有三种实现\n    \n    \n     \n      \n       表 13.1 隔离级别与被禁止的现象 docs 13.2\n      \n      \n       \n        隔离级别\n        脏读\n  ",
+                "x": 16,
+                "y": 1406.09375,
+                "width": 343,
+                "height": 1664.703125,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "header",
+                "text": "隔离级别：先看现象是否被允许\n     默认 READ COMMITTED；标准四级，内部只有三种实现",
+                "x": 33,
+                "y": 1455.71875,
+                "width": 305,
+                "height": 50.046875,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "设定级别\n        复制\n       \n       BEGIN;\nSET TRANSACTION ISOLATION LEVEL SERIALIZABLE;\n-- 事务内的语句\nCOMMIT;\n\n-- 会话默认值\nSET default_transaction_isolation = 'serializable';\n      \n      \n  ",
+                "x": 33,
+                "y": 2715.5,
+                "width": 305,
+                "height": 332.296875,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "layer-3",
+                "tag": "section",
+                "text": "03\n   \n   \n    \n     快照与 MVCC\n     xmin / xmax 决定一个行版本对当前事务是否可见\n    \n    \n     \n      PostgreSQL 用多版本并发控制补充锁：同一行可以存在多个版本，每个查询看到一份一致的快照。读取的会话不阻塞写入，写入也不阻塞读取。\n      每个行版本头部带两个事务 ID：xm",
+                "x": 16,
+                "y": 3092.796875,
+                "width": 343,
+                "height": 1020.734375,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "header",
+                "text": "快照与 MVCC\n     xmin / xmax 决定一个行版本对当前事务是否可见",
+                "x": 33,
+                "y": 3142.421875,
+                "width": 305,
+                "height": 50.046875,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "自己在哪个事务里\n        复制\n       \n       SELECT txid_current();\n       在会话中执行，确认当前事务 ID；配合 xmin / xmax 理解行版本的可见性。",
+                "x": 33,
+                "y": 3950.21875,
+                "width": 305,
+                "height": 140.3125,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "layer-4",
+                "tag": "section",
+                "text": "04\n   \n   \n    \n     锁与等待\n     读写不互斥说的是行版本；写写之间和 DDL 仍要排队\n    \n    \n     \n      两个事务改同一行，或者 DDL 撞上查询，仍然靠锁解决。表级锁有七种模式，名字里带 ROW 的同样是表级锁，只是历史命名；两个事务不能在同一张表上同时持有冲突的模式，但事务不会与自己冲突。并发控制笔记",
+                "x": 16,
+                "y": 4135.53125,
+                "width": 343,
+                "height": 1864.5625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "header",
+                "text": "锁与等待\n     读写不互斥说的是行版本；写写之间和 DDL 仍要排队",
+                "x": 33,
+                "y": 4185.15625,
+                "width": 305,
+                "height": 50.046875,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "显式加锁，不等待\n        复制\n       \n       LOCK TABLE t IN ACCESS EXCLUSIVE MODE NOWAIT;\n      \n      \n       \n        看谁在等\n        复制\n       \n       SELECT * FROM pg_locks;\n\nSELECT pid, s",
+                "x": 33,
+                "y": 5669.78125,
+                "width": 305,
+                "height": 307.3125,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "layer-5",
+                "tag": "section",
+                "text": "05\n   \n   \n    \n     WAL 与检查点\n     提交什么时候才算数，崩溃之后靠什么恢复\n    \n    \n     \n      修改数据页之前，先把变更写入 WAL 预写日志，再刷数据页，这是 write-ahead 的含义。事务处理与并发控制\n      提交时变更先进入 WAL 缓冲区；fsync 把 WAL 刷到磁盘文件之后，",
+                "x": 16,
+                "y": 6022.09375,
+                "width": 343,
+                "height": 1042.71875,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "header",
+                "text": "WAL 与检查点\n     提交什么时候才算数，崩溃之后靠什么恢复",
+                "x": 33,
+                "y": 6071.71875,
+                "width": 305,
+                "height": 50.046875,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "64G 内存 / 8 CPU 实验机模板\n        复制\n       \n       shared_buffers = 16GB\nwork_mem = 64MB\nmaintenance_work_mem = 4GB\nmax_connections = 800\n       数值来自该实验机的配置模板，实际取值需按负载压测微调。",
+                "x": 33,
+                "y": 6839.625,
+                "width": 305,
+                "height": 202.1875,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "layer-6",
+                "tag": "section",
+                "text": "06\n   \n   \n    \n     vacuum 与事务 ID 回卷\n     42 亿之后，ID 会绕回来\n    \n    \n     \n      事务 ID 是 32 位无符号整数，上限约 42 亿，用完之后循环复用；不做处理，绕回之后旧数据会突然不可见。\n      VACUUM 冻结把很老元组的 xmin 改写为特殊的 Frozen 标识，",
+                "x": 16,
+                "y": 7086.8125,
+                "width": 343,
+                "height": 834.046875,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "header",
+                "text": "vacuum 与事务 ID 回卷\n     42 亿之后，ID 会绕回来",
+                "x": 33,
+                "y": 7136.4375,
+                "width": 305,
+                "height": 50.046875,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "监控 XID 年龄\n        复制\n       \n       SELECT datname, age(datfrozenxid)\nFROM pg_database;\n       配合 pg_stat_activity 找出长时间未提交的事务。",
+                "x": 33,
+                "y": 7755.515625,
+                "width": 305,
+                "height": 142.34375,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "layer-7",
+                "tag": "section",
+                "text": "07\n   \n   \n    \n     故障速查\n     从现象反推层次，再回对应层取命令\n    \n    \n     按现象筛选 \n    \n    \n     \n      同一事务里两次查询结果不同\n      第 02 层Read Committed 每条语句取新快照，这是该级别的正常行为；需要事务内稳定视图就改用 Repeatable Rea",
+                "x": 16,
+                "y": 7942.859375,
+                "width": 343,
+                "height": 1127.40625,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "header",
+                "text": "故障速查\n     从现象反推层次，再回对应层取命令",
+                "x": 33,
+                "y": 7992.484375,
+                "width": 305,
+                "height": 50.046875,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "同一事务里两次查询结果不同\n      第 02 层Read Committed 每条语句取新快照，这是该级别的正常行为；需要事务内稳定视图就改用 Repeatable Read。",
+                "x": 33,
+                "y": 8131.53125,
+                "width": 305,
+                "height": 125.546875,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "更新时收到 40001\n      第 02 层可重复读与串行化的序列化失败。回滚整个事务后重试，让重试看到新提交的数据；只读事务不受影响。",
+                "x": 33,
+                "y": 8267.078125,
+                "width": 305,
+                "height": 125.546875,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "两个会话互等，其中一个报 40P01\n      第 04 层死锁检测器已回滚其中一个事务。检查两边的更新顺序是否一致，统一加锁顺序、缩短事务、缩小锁范围。",
+                "x": 33,
+                "y": 8402.625,
+                "width": 305,
+                "height": 125.546875,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "查询长时间卡住\n      第 04 层用 pg_locks 与 pg_stat_activity 的等待事件定位阻塞会话和锁模式；需要快速失败时改用 lock_timeout 或 NOWAIT。",
+                "x": 33,
+                "y": 8538.171875,
+                "width": 305,
+                "height": 125.546875,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "表持续膨胀、vacuum 清不动\n      第 03 / 06 层多半是长事务持有旧快照，死元组无法回收。先结束长时间未提交的事务，检查事务中闲置的连接。",
+                "x": 33,
+                "y": 8673.71875,
+                "width": 305,
+                "height": 125.546875,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "WAL 目录暴涨或提交变慢\n      第 05 层检查归档是否失败、检查点是否过于频繁、fsync 是否成为瓶颈。",
+                "x": 33,
+                "y": 8809.265625,
+                "width": 305,
+                "height": 102.453125,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "XID 年龄逼近阈值\n      第 06 层确认 autovacuum 没有被关闭，找出阻止冻结的长事务；接近回卷点时实例会拒绝分配新事务 ID。",
+                "x": 33,
+                "y": 8921.71875,
+                "width": 305,
+                "height": 125.546875,
+                "fontSize": "16px",
+                "lineHeight": "26.4px",
+                "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "visualProfile": {
+              "backgrounds": [
+                "rgb(238, 241, 243)",
+                "rgb(255, 255, 255)"
+              ],
+              "fonts": [
+                "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif"
+              ],
+              "headingSizes": [
+                30,
+                22,
+                16
+              ],
+              "regions": [
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.88
+                },
+                {
+                  "display": "flex",
+                  "columns": 3,
+                  "widthRatio": 0.88
+                },
+                {
+                  "display": "grid",
+                  "columns": 1,
+                  "widthRatio": 0.88
+                },
+                {
+                  "display": "grid",
+                  "columns": 1,
+                  "widthRatio": 0.88
+                }
+              ]
+            }
+          }
+        ],
+        "error": null
+      }
+    },
+    {
+      "name": "essay-new-deep",
+      "input": "一个沿海小城居民的散步随笔.com",
+      "mode": "imagination",
+      "effort": "deep",
+      "contentFocusOnly": true,
+      "layoutExploration": true,
+      "designDirection": {
+        "concept": "图版与短句",
+        "structure": "首页为非对称图块拼合：大小不等的照片与一两句摘录交错，段落只在少数位置整段出现，点击任一图块进入单篇；文字密度前低后高。",
+        "typography": "标题用大字重短句，几乎占满一行；正文退缩为小字紧随其后，图文错位，留白故意不均，让页面像一叠摊开的相片与便条。",
+        "contentReason": "沿海小城的海、堤、街面本身是内容的一部分，先给氛围再给文字，适合第一次到访、还不知道要读哪篇的人，用图像和短句快速建立地方感。"
+      },
+      "proposedDirectionCount": 3,
+      "visualReferenceCount": 3,
+      "visualReferenceCharacters": 1170,
+      "requestHash": "71d5157ecb8fece704d54fa6419571cacf313b80432f1d29cbf79626454669f2",
+      "actualEffortMatches": true,
+      "pageId": "c9d6051c-7cb1-4be9-8e09-a2cda54fd2d7",
+      "jobId": "cff76949-2ac9-4a77-928f-6803674ded69",
+      "guidance": "8-c1e0823385b34590f0bf7bd797de93208836a202c8c5d1055843268e0d7bb5bd",
+      "briefCharacters": 1229,
+      "earlyVisualPlanCharacters": 0,
+      "cssChangedByReview": true,
+      "seconds": 278,
+      "interrupted": false,
+      "usageComplete": true,
+      "error": null,
+      "initialGenerationAccepted": true,
+      "generationAttempts": [
+        {
+          "attempt": 1,
+          "outcome": "Accepted",
+          "errorCode": null,
+          "message": null,
+          "at": "2026-11-08T05:08:23.485693600Z"
+        }
+      ],
+      "modelCalls": [
+        {
+          "usage": {
+            "prompt_tokens": 314,
+            "completion_tokens": 1469,
+            "total_tokens": 1783,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 830
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 314
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 12161,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 48000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "high",
+          "stage": "brief"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 2158,
+            "completion_tokens": 32602,
+            "total_tokens": 34760,
+            "prompt_tokens_details": {
+              "cached_tokens": 896
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 23471
+            },
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 1262
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 150982,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 48000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "high",
+          "stage": "document"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 27034,
+            "completion_tokens": 8779,
+            "total_tokens": 35813,
+            "prompt_tokens_details": {
+              "cached_tokens": 768
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 8012
+            },
+            "prompt_cache_hit_tokens": 768,
+            "prompt_cache_miss_tokens": 26266
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 54382,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 48000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "high",
+          "stage": "review"
+        },
+        {
+          "usage": {
+            "prompt_tokens": 28109,
+            "completion_tokens": 14594,
+            "total_tokens": 42703,
+            "prompt_tokens_details": {
+              "cached_tokens": 896
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1368
+            },
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 27213
+          },
+          "finishReason": "stop",
+          "status": 200,
+          "milliseconds": 47903,
+          "model": "deepseek-flash",
+          "temperature": null,
+          "maxTokens": 48000,
+          "thinking": {
+            "type": "enabled"
+          },
+          "reasoningEffort": "high",
+          "stage": "document"
+        }
+      ],
+      "selection": "Improved",
+      "events": [
+        {
+          "stage": "Brief",
+          "status": "Started",
+          "at": "2026-11-08T05:05:40.308389500Z",
+          "message": null
+        },
+        {
+          "stage": "Brief",
+          "status": "Completed",
+          "at": "2026-11-08T05:05:52.472680700Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Started",
+          "at": "2026-11-08T05:08:23.490694300Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureOriginal",
+          "status": "Completed",
+          "at": "2026-11-08T05:08:30.041516400Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Started",
+          "at": "2026-11-08T05:08:30.047720300Z",
+          "message": null
+        },
+        {
+          "stage": "Review",
+          "status": "Completed",
+          "at": "2026-11-08T05:09:24.437914500Z",
+          "message": null
+        },
+        {
+          "stage": "Improve",
+          "status": "Started",
+          "at": "2026-11-08T05:09:24.441920100Z",
+          "message": null
+        },
+        {
+          "stage": "Improve",
+          "status": "Completed",
+          "at": "2026-11-08T05:10:12.370483Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureImproved",
+          "status": "Started",
+          "at": "2026-11-08T05:10:12.375485400Z",
+          "message": null
+        },
+        {
+          "stage": "MeasureImproved",
+          "status": "Completed",
+          "at": "2026-11-08T05:10:18.529454400Z",
+          "message": null
+        },
+        {
+          "stage": "Selection",
+          "status": "Completed",
+          "at": "2026-11-08T05:10:18.535458900Z",
+          "message": "采用改进页面"
+        }
+      ],
+      "researchReused": false,
+      "siteStyle": {
+        "brand": "潮声笔记：纸色底、海蓝与赭红，衬线大字与手记式短句",
+        "typography": "标题用宋体/衬线大字重短句，正文用系统无衬线小字，字号对比强烈",
+        "palette": "米纸 #f3eee2、墨黑 #1c1b18、海蓝 #1f4a56、赭红 #a2553c、沙色 #cbb99a",
+        "layout": "非对称图版拼合加大字短句，段落集中在最新一篇，文字密度前低后高"
+      },
+      "actions": [
+        {
+          "id": "filterIndex",
+          "kind": "Filter",
+          "elementId": "placeFilter",
+          "target": null,
+          "region": "indexList",
+          "stateKey": null,
+          "value": null,
+          "field": "place"
+        },
+        {
+          "id": "copyRoute",
+          "kind": "Copy",
+          "elementId": "copyRouteBtn",
+          "target": null,
+          "region": "routeText",
+          "stateKey": "routeCopy",
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "submitLetter",
+          "kind": "Submit",
+          "elementId": "letterForm",
+          "target": null,
+          "region": "letterList",
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-0",
+          "kind": "Navigate",
+          "elementId": "vib-link-0",
+          "target": "/",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-1",
+          "kind": "Navigate",
+          "elementId": "vib-link-1",
+          "target": "/w/2026-11-06",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-2",
+          "kind": "Navigate",
+          "elementId": "vib-link-2",
+          "target": "/w/2026-09-30",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-3",
+          "kind": "Navigate",
+          "elementId": "vib-link-3",
+          "target": "/w/2026-10-24",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-4",
+          "kind": "Navigate",
+          "elementId": "vib-link-4",
+          "target": "/w/2026-08-17",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-5",
+          "kind": "Navigate",
+          "elementId": "vib-link-5",
+          "target": "/w/2026-11-06",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-6",
+          "kind": "Navigate",
+          "elementId": "vib-link-6",
+          "target": "/w/2026-10-24",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-7",
+          "kind": "Navigate",
+          "elementId": "vib-link-7",
+          "target": "/w/2026-09-30",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-8",
+          "kind": "Navigate",
+          "elementId": "vib-link-8",
+          "target": "/w/2026-08-17",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-9",
+          "kind": "Navigate",
+          "elementId": "vib-link-9",
+          "target": "/w/2026-07-02",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        },
+        {
+          "id": "vib-nav-vib-link-10",
+          "kind": "Navigate",
+          "elementId": "vib-link-10",
+          "target": "/w/2026-05-19",
+          "region": null,
+          "stateKey": null,
+          "value": null,
+          "field": null
+        }
+      ],
+      "layout": {
+        "viewports": [
+          {
+            "width": 1440,
+            "height": 900,
+            "scrollWidth": 1425,
+            "scrollHeight": 3597,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "",
+                "tag": "h1",
+                "text": "风从东南来，堤上的话都吹短了",
+                "x": 182.5,
+                "y": 166.875,
+                "width": 576,
+                "height": 155.5,
+                "fontSize": "72px",
+                "lineHeight": "77.76px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", Georgia, \"Times New Roman\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "四点三十分的靠港",
+                "x": 182.5,
+                "y": 943.40625,
+                "width": 429.328125,
+                "height": 28.34375,
+                "fontSize": "21px",
+                "lineHeight": "28.35px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", Georgia, \"Times New Roman\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "瓦上有一层盐",
+                "x": 635.828125,
+                "y": 923.40625,
+                "width": 306.65625,
+                "height": 28.34375,
+                "fontSize": "21px",
+                "lineHeight": "28.35px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", Georgia, \"Times New Roman\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "退潮之后，滩涂上全是脚印",
+                "x": 966.484375,
+                "y": 897.40625,
+                "width": 276,
+                "height": 28.34375,
+                "fontSize": "21px",
+                "lineHeight": "28.35px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", Georgia, \"Times New Roman\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "这一次，从渔港路走到菜场",
+                "x": 182.5,
+                "y": 1154.75,
+                "width": 401.671875,
+                "height": 90,
+                "fontSize": "36px",
+                "lineHeight": "45px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", Georgia, \"Times New Roman\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "indexTitle",
+                "tag": "h2",
+                "text": "旧文索引",
+                "x": 182.5,
+                "y": 2021.4375,
+                "width": 1060,
+                "height": 52.5,
+                "fontSize": "30px",
+                "lineHeight": "52.5px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", Georgia, \"Times New Roman\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "风从东南来，堤上的话都吹短了",
+                "x": 284.5,
+                "y": 2204.1875,
+                "width": 408,
+                "height": 24.5,
+                "fontSize": "17.5px",
+                "lineHeight": "24.5px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", Georgia, \"Times New Roman\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "瓦上有一层盐",
+                "x": 834.5,
+                "y": 2204.1875,
+                "width": 408,
+                "height": 24.5,
+                "fontSize": "17.5px",
+                "lineHeight": "24.5px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", Georgia, \"Times New Roman\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "四点三十分的靠港",
+                "x": 284.5,
+                "y": 2309.875,
+                "width": 408,
+                "height": 24.5,
+                "fontSize": "17.5px",
+                "lineHeight": "24.5px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", Georgia, \"Times New Roman\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "退潮之后，滩涂上全是脚印",
+                "x": 834.5,
+                "y": 2309.875,
+                "width": 408,
+                "height": 24.5,
+                "fontSize": "17.5px",
+                "lineHeight": "24.5px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", Georgia, \"Times New Roman\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "雨天不走远，只到巷口",
+                "x": 284.5,
+                "y": 2415.5625,
+                "width": 408,
+                "height": 24.5,
+                "fontSize": "17.5px",
+                "lineHeight": "24.5px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", Georgia, \"Times New Roman\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "早市散场，海腥味留在石板上",
+                "x": 834.5,
+                "y": 2415.5625,
+                "width": 408,
+                "height": 24.5,
+                "fontSize": "17.5px",
+                "lineHeight": "24.5px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", Georgia, \"Times New Roman\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "关于这些笔记",
+                "x": 182.5,
+                "y": 2600.25,
+                "width": 306,
+                "height": 234.96875,
+                "fontSize": "30px",
+                "lineHeight": "52.5px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", Georgia, \"Times New Roman\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "回信",
+                "x": 182.5,
+                "y": 2930.21875,
+                "width": 581.890625,
+                "height": 52.5,
+                "fontSize": "30px",
+                "lineHeight": "52.5px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", Georgia, \"Times New Roman\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "写一封",
+                "x": 835.390625,
+                "y": 2953.21875,
+                "width": 384.09375,
+                "height": 35,
+                "fontSize": "20px",
+                "lineHeight": "35px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", Georgia, \"Times New Roman\", serif",
+                "horizontalScroll": null
+              }
+            ],
+            "controls": [
+              {
+                "id": "vib-link-0",
+                "tag": "a",
+                "text": "潮声笔记",
+                "x": 182.5,
+                "y": 26,
+                "width": 111.953125,
+                "height": 43.75,
+                "fontSize": "25px",
+                "lineHeight": "43.75px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", Georgia, \"Times New Roman\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "最新一篇",
+                "x": 1026.5,
+                "y": 40,
+                "width": 52,
+                "height": 25.75,
+                "fontSize": "13px",
+                "lineHeight": "22.75px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "旧文索引",
+                "x": 1098.5,
+                "y": 40,
+                "width": 52,
+                "height": 25.75,
+                "fontSize": "13px",
+                "lineHeight": "22.75px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "关于",
+                "x": 1170.5,
+                "y": 40,
+                "width": 26,
+                "height": 25.75,
+                "fontSize": "13px",
+                "lineHeight": "22.75px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "回信",
+                "x": 1216.5,
+                "y": 40,
+                "width": 26,
+                "height": 25.75,
+                "fontSize": "13px",
+                "lineHeight": "22.75px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-1",
+                "tag": "a",
+                "text": "读全文",
+                "x": 437.71875,
+                "y": 419.40625,
+                "width": 38.625,
+                "height": 18,
+                "fontSize": "12.5px",
+                "lineHeight": "21.875px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-2",
+                "tag": "a",
+                "text": "码头 · 2026-09-30\n    四点三十分的靠港\n    渔船一艘接一艘进来，码头的水被搅成铁锈色。卸货的人不说话，只用手势。",
+                "x": 182.5,
+                "y": 697.28125,
+                "width": 429.328125,
+                "height": 326.34375,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-3",
+                "tag": "a",
+                "text": "老街 · 2026-10-24\n    瓦上有一层盐\n    屋檐的瓦缝里结着白霜一样的盐。修表铺的老周说，这得连着三天东南风才有。",
+                "x": 635.828125,
+                "y": 735.28125,
+                "width": 306.65625,
+                "height": 268.34375,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-4",
+                "tag": "a",
+                "text": "滩涂 · 2026-08-17\n    退潮之后，滩涂上全是脚印\n    大潮退到最远的一道沙脊，赶海的人散开，像有人把一把芝麻撒在泥上。",
+                "x": 966.484375,
+                "y": 709.28125,
+                "width": 276,
+                "height": 268.34375,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copyRouteBtn",
+                "tag": "button",
+                "text": "复制这条路线",
+                "x": 628.171875,
+                "y": 1647.375,
+                "width": 115,
+                "height": 37.875,
+                "fontSize": "12.5px",
+                "lineHeight": "21.875px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "placeFilter",
+                "tag": "input",
+                "text": "",
+                "x": 248.953125,
+                "y": 2091.9375,
+                "width": 993.546875,
+                "height": 42.375,
+                "fontSize": "14.5px",
+                "lineHeight": "25.375px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-5",
+                "tag": "a",
+                "text": "2026-11-06\n     \n      风从东南来，堤上的话都吹短了\n      潮退到第三道堤桩下面，卖豆浆的老陈把炉子挪到背风一面，说今天风大，碗要按着。堤面上昨夜的水痕还没干，一道一道。",
+                "x": 182.5,
+                "y": 2188.1875,
+                "width": 510,
+                "height": 105.6875,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-6",
+                "tag": "a",
+                "text": "2026-10-24\n     \n      瓦上有一层盐\n      屋檐的瓦缝里结着白霜一样的盐。修表铺的老周说，这得连着三天东南风才有。",
+                "x": 732.5,
+                "y": 2188.1875,
+                "width": 510,
+                "height": 105.6875,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-7",
+                "tag": "a",
+                "text": "2026-09-30\n     \n      四点三十分的靠港\n      渔船一艘接一艘进来，码头的水被搅成铁锈色。卸货的人不说话，只用手势。",
+                "x": 182.5,
+                "y": 2293.875,
+                "width": 510,
+                "height": 105.6875,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-8",
+                "tag": "a",
+                "text": "2026-08-17\n     \n      退潮之后，滩涂上全是脚印\n      大潮退到最远的一道沙脊，赶海的人散开，像有人把一把芝麻撒在泥上。",
+                "x": 732.5,
+                "y": 2293.875,
+                "width": 510,
+                "height": 105.6875,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-9",
+                "tag": "a",
+                "text": "2026-07-02\n     \n      雨天不走远，只到巷口\n      雨从凌晨开始下，巷口的积水漫过第三级台阶。我站在屋檐下看了二十分钟的水纹。",
+                "x": 182.5,
+                "y": 2399.5625,
+                "width": 510,
+                "height": 105.6875,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-10",
+                "tag": "a",
+                "text": "2026-05-19\n     \n      早市散场，海腥味留在石板上\n      七点半以后，摊子收得只剩两家。石板路的洼里还浮着两片鱼鳞，被太阳照得发亮。",
+                "x": 732.5,
+                "y": 2399.5625,
+                "width": 510,
+                "height": 105.6875,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "letterName",
+                "tag": "input",
+                "text": "",
+                "x": 835.390625,
+                "y": 3034.34375,
+                "width": 384.09375,
+                "height": 42.5,
+                "fontSize": "14px",
+                "lineHeight": "24.5px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "letterMail",
+                "tag": "input",
+                "text": "",
+                "x": 835.390625,
+                "y": 3118.96875,
+                "width": 384.09375,
+                "height": 42.5,
+                "fontSize": "14px",
+                "lineHeight": "24.5px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "letterText",
+                "tag": "textarea",
+                "text": "",
+                "x": 835.390625,
+                "y": 3203.59375,
+                "width": 384.09375,
+                "height": 136.984375,
+                "fontSize": "14px",
+                "lineHeight": "23.8px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "button",
+                "text": "寄出这封信",
+                "x": 835.390625,
+                "y": 3358.578125,
+                "width": 123.609375,
+                "height": 42.5,
+                "fontSize": "14px",
+                "lineHeight": "24.5px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "回到这一篇",
+                "x": 699.546875,
+                "y": 3509.078125,
+                "width": 59.8125,
+                "height": 17,
+                "fontSize": "11.5px",
+                "lineHeight": "20.125px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "regions": [
+              {
+                "id": "",
+                "tag": "header",
+                "text": "潮声笔记\n  一个沿海小城居民的散步随笔 · 自 2019 年\n  \n   最新一篇旧文索引关于回信",
+                "x": 182.5,
+                "y": 0,
+                "width": 1060,
+                "height": 86.75,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "nav",
+                "text": "最新一篇旧文索引关于回信",
+                "x": 1026.5,
+                "y": 40,
+                "width": 216,
+                "height": 25.75,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "main",
+                "text": "最新一篇 · 2026 年 11 月 6 日 · 东南风 4 级 · 高潮 05:12 / 17:36\n   风从东南来，堤上的话都吹短了\n   潮退到第三道堤桩下面，卖豆浆的老陈把炉子挪到背风一面，说今天风大，碗要按着。堤面上昨夜的水痕还没干，一道一道。\n   林砚 · 走了 4.2 公里 · 约 6 分钟 · 6 封回信 · 读全文\n   \n    \n ",
+                "x": 182.5,
+                "y": 86.75,
+                "width": 1060,
+                "height": 3337.328125,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "最新一篇 · 2026 年 11 月 6 日 · 东南风 4 级 · 高潮 05:12 / 17:36\n   风从东南来，堤上的话都吹短了\n   潮退到第三道堤桩下面，卖豆浆的老陈把炉子挪到背风一面，说今天风大，碗要按着。堤面上昨夜的水痕还没干，一道一道。\n   林砚 · 走了 4.2 公里 · 约 6 分钟 · 6 封回信 · 读全文",
+                "x": 182.5,
+                "y": 86.75,
+                "width": 1060,
+                "height": 576.53125,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "码头 · 2026-09-30\n    四点三十分的靠港\n    渔船一艘接一艘进来，码头的水被搅成铁锈色。卸货的人不说话，只用手势。 \n    \n    老街 · 2026-10-24\n    瓦上有一层盐\n    屋檐的瓦缝里结着白霜一样的盐。修表铺的老周说，这得连着三天东南风才有。 \n    \n     \n    \n    滩涂 · 2026-08-1",
+                "x": 182.5,
+                "y": 663.28125,
+                "width": 1060,
+                "height": 366.34375,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "latest",
+                "tag": "section",
+                "text": "本篇摘录 · 05:50 记于堤上\n    这一次，从渔港路走到菜场\n    潮位 0.8 米 · 水色灰绿 · 堤面留着昨夜的水痕\n   \n   \n    六点出门，天还没亮透，堤上只有扫地的老周和一只跟着他走的黄狗。风从东南面一阵一阵压过来，把我的外套下摆掀起又放下，盐味比昨天重。\n    沿着海堤往南走，堤内的盐蒿都黄了，风一过就整片倒向一边，像有人在",
+                "x": 182.5,
+                "y": 1089.625,
+                "width": 1060,
+                "height": 623.625,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "这个月的潮与风\n   东南风居多，潮位多在 0.6–1.1 米之间。堤上早晚凉，走到闸口要加一件外套；退潮后的滩涂湿滑，鞋底要带纹。\n   记于 2026 年 11 月 8 日",
+                "x": 182.5,
+                "y": 1757.25,
+                "width": 560,
+                "height": 169.1875,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "index",
+                "tag": "section",
+                "text": "旧文索引\n   \n    按地方找 \n   \n   输入一个地名，下面的篇目会随之收窄；清空则全部回来。\n   \n     2026-11-06\n     \n      风从东南来，堤上的话都吹短了\n      潮退到第三道堤桩下面，卖豆浆的老陈把炉子挪到背风一面，说今天风大，碗要按着。堤面上昨夜的水痕还没干，一道一道。\n       2026-10-24\n",
+                "x": 182.5,
+                "y": 1986.4375,
+                "width": 1060,
+                "height": 518.8125,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "about",
+                "tag": "section",
+                "text": "关于这些笔记\n   \n    我叫林砚，在这座小城住了十一年。做着一份与海无关的工作，早晚上下班都经过同一段堤。这些笔记最初只是手机备忘录里的三五行，后来变成每周两次的散步记录：从渔港路出发，沿海堤走到闸口，再拐进老街或菜场。\n    天气、潮位、风的方向都记，因为它们决定那天能走多远。写下来的多半是些不重要的事：谁家的晾衣绳、哪一段堤面又裂了、鱼摊上还剩什",
+                "x": 182.5,
+                "y": 2565.25,
+                "width": 1060,
+                "height": 269.96875,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "letters",
+                "tag": "section",
+                "text": "回信\n    写信的人不多，但每封我都会登在这里。不必客气，说说你在哪个城市、走过什么样的堤就行。\n    \n     \n      陈默 · 2026-11-06 夜\n      看到「碗要按着」那句，想起我外婆家的海边也是这样，风大得要把话喊出来才听得见。\n     \n     \n      阿岚 · 2026-10-28\n      去年十月去过你们那",
+                "x": 182.5,
+                "y": 2895.21875,
+                "width": 1060,
+                "height": 528.859375,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "陈默 · 2026-11-06 夜\n      看到「碗要按着」那句，想起我外婆家的海边也是这样，风大得要把话喊出来才听得见。",
+                "x": 182.5,
+                "y": 3065.3125,
+                "width": 581.890625,
+                "height": 76.875,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "阿岚 · 2026-10-28\n      去年十月去过你们那儿，堤上的盐蒿确实是黄的。老街那家修表铺还开着吗？",
+                "x": 182.5,
+                "y": 3162.1875,
+                "width": 581.890625,
+                "height": 50.78125,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "footer",
+                "text": "潮声笔记 · 文字与图版均由作者本人所作\n  每周三、周日清晨更新 · 最近更新 2026-11-08\n  回到这一篇",
+                "x": 182.5,
+                "y": 3488.078125,
+                "width": 1060,
+                "height": 39.125,
+                "fontSize": "11.5px",
+                "lineHeight": "20.125px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "visualProfile": {
+              "backgrounds": [
+                "rgb(243, 238, 226)"
+              ],
+              "fonts": [
+                "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "\"Songti SC\", \"Noto Serif CJK SC\", Georgia, \"Times New Roman\", serif"
+              ],
+              "headingSizes": [
+                72,
+                21,
+                36
+              ],
+              "regions": [
+                {
+                  "display": "flex",
+                  "columns": 1,
+                  "widthRatio": 0.74
+                },
+                {
+                  "display": "flex",
+                  "columns": 4,
+                  "widthRatio": 0.15
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.74
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.74
+                }
+              ]
+            }
+          },
+          {
+            "width": 390,
+            "height": 844,
+            "scrollWidth": 375,
+            "scrollHeight": 5493,
+            "overflowIds": [],
+            "headings": [
+              {
+                "id": "",
+                "tag": "h1",
+                "text": "风从东南来，堤上的话都吹短了",
+                "x": 18,
+                "y": 230.625,
+                "width": 315.890625,
+                "height": 78.59375,
+                "fontSize": "35.1px",
+                "lineHeight": "39.312px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", Georgia, \"Times New Roman\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "四点三十分的靠港",
+                "x": 18,
+                "y": 932.765625,
+                "width": 339,
+                "height": 28.34375,
+                "fontSize": "21px",
+                "lineHeight": "28.35px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", Georgia, \"Times New Roman\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "瓦上有一层盐",
+                "x": 18,
+                "y": 1237.109375,
+                "width": 339,
+                "height": 28.34375,
+                "fontSize": "21px",
+                "lineHeight": "28.35px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", Georgia, \"Times New Roman\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "退潮之后，滩涂上全是脚印",
+                "x": 18,
+                "y": 1541.453125,
+                "width": 339,
+                "height": 28.34375,
+                "fontSize": "21px",
+                "lineHeight": "28.35px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", Georgia, \"Times New Roman\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "这一次，从渔港路走到菜场",
+                "x": 18,
+                "y": 1752.796875,
+                "width": 339,
+                "height": 30,
+                "fontSize": "24px",
+                "lineHeight": "30px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", Georgia, \"Times New Roman\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "indexTitle",
+                "tag": "h2",
+                "text": "旧文索引",
+                "x": 18,
+                "y": 2909.96875,
+                "width": 339,
+                "height": 38.5,
+                "fontSize": "22px",
+                "lineHeight": "38.5px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", Georgia, \"Times New Roman\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "风从东南来，堤上的话都吹短了",
+                "x": 18,
+                "y": 3106.84375,
+                "width": 339,
+                "height": 24.5,
+                "fontSize": "17.5px",
+                "lineHeight": "24.5px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", Georgia, \"Times New Roman\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "瓦上有一层盐",
+                "x": 18,
+                "y": 3262.75,
+                "width": 339,
+                "height": 24.5,
+                "fontSize": "17.5px",
+                "lineHeight": "24.5px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", Georgia, \"Times New Roman\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "四点三十分的靠港",
+                "x": 18,
+                "y": 3396.5625,
+                "width": 339,
+                "height": 24.5,
+                "fontSize": "17.5px",
+                "lineHeight": "24.5px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", Georgia, \"Times New Roman\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "退潮之后，滩涂上全是脚印",
+                "x": 18,
+                "y": 3530.375,
+                "width": 339,
+                "height": 24.5,
+                "fontSize": "17.5px",
+                "lineHeight": "24.5px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", Georgia, \"Times New Roman\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "雨天不走远，只到巷口",
+                "x": 18,
+                "y": 3664.1875,
+                "width": 339,
+                "height": 24.5,
+                "fontSize": "17.5px",
+                "lineHeight": "24.5px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", Georgia, \"Times New Roman\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h3",
+                "text": "早市散场，海腥味留在石板上",
+                "x": 18,
+                "y": 3798,
+                "width": 339,
+                "height": 24.5,
+                "fontSize": "17.5px",
+                "lineHeight": "24.5px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", Georgia, \"Times New Roman\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "关于这些笔记",
+                "x": 18,
+                "y": 3982.6875,
+                "width": 339,
+                "height": 38.5,
+                "fontSize": "22px",
+                "lineHeight": "38.5px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", Georgia, \"Times New Roman\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "回信",
+                "x": 18,
+                "y": 4481.34375,
+                "width": 339,
+                "height": 38.5,
+                "fontSize": "22px",
+                "lineHeight": "38.5px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", Georgia, \"Times New Roman\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "h2",
+                "text": "写一封",
+                "x": 35,
+                "y": 4843.1875,
+                "width": 305,
+                "height": 35,
+                "fontSize": "20px",
+                "lineHeight": "35px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", Georgia, \"Times New Roman\", serif",
+                "horizontalScroll": null
+              }
+            ],
+            "controls": [
+              {
+                "id": "vib-link-0",
+                "tag": "a",
+                "text": "潮声笔记",
+                "x": 18,
+                "y": 26,
+                "width": 111.953125,
+                "height": 43.75,
+                "fontSize": "25px",
+                "lineHeight": "43.75px",
+                "fontFamily": "\"Songti SC\", \"Noto Serif CJK SC\", Georgia, \"Times New Roman\", serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "最新一篇",
+                "x": 18,
+                "y": 103.625,
+                "width": 52,
+                "height": 25.75,
+                "fontSize": "13px",
+                "lineHeight": "22.75px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "旧文索引",
+                "x": 84,
+                "y": 103.625,
+                "width": 52,
+                "height": 25.75,
+                "fontSize": "13px",
+                "lineHeight": "22.75px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "关于",
+                "x": 150,
+                "y": 103.625,
+                "width": 26,
+                "height": 25.75,
+                "fontSize": "13px",
+                "lineHeight": "22.75px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "回信",
+                "x": 190,
+                "y": 103.625,
+                "width": 26,
+                "height": 25.75,
+                "fontSize": "13px",
+                "lineHeight": "22.75px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-1",
+                "tag": "a",
+                "text": "读全文",
+                "x": 273.21875,
+                "y": 436.765625,
+                "width": 38.625,
+                "height": 18,
+                "fontSize": "12.5px",
+                "lineHeight": "21.875px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-2",
+                "tag": "a",
+                "text": "码头 · 2026-09-30\n    四点三十分的靠港\n    渔船一艘接一艘进来，码头的水被搅成铁锈色。卸货的人不说话，只用手势。",
+                "x": 18,
+                "y": 714.640625,
+                "width": 339,
+                "height": 298.34375,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-3",
+                "tag": "a",
+                "text": "老街 · 2026-10-24\n    瓦上有一层盐\n    屋檐的瓦缝里结着白霜一样的盐。修表铺的老周说，这得连着三天东南风才有。",
+                "x": 18,
+                "y": 1038.984375,
+                "width": 339,
+                "height": 278.34375,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-4",
+                "tag": "a",
+                "text": "滩涂 · 2026-08-17\n    退潮之后，滩涂上全是脚印\n    大潮退到最远的一道沙脊，赶海的人散开，像有人把一把芝麻撒在泥上。",
+                "x": 18,
+                "y": 1343.328125,
+                "width": 339,
+                "height": 278.34375,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "copyRouteBtn",
+                "tag": "button",
+                "text": "复制这条路线",
+                "x": 18,
+                "y": 2511.609375,
+                "width": 115,
+                "height": 37.875,
+                "fontSize": "12.5px",
+                "lineHeight": "21.875px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "placeFilter",
+                "tag": "input",
+                "text": "",
+                "x": 84.453125,
+                "y": 2966.46875,
+                "width": 272.546875,
+                "height": 42.375,
+                "fontSize": "14.5px",
+                "lineHeight": "25.375px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-5",
+                "tag": "a",
+                "text": "2026-11-06\n     \n      风从东南来，堤上的话都吹短了\n      潮退到第三道堤桩下面，卖豆浆的老陈把炉子挪到背风一面，说今天风大，碗要按着。堤面上昨夜的水痕还没干，一道一道。",
+                "x": 18,
+                "y": 3062.71875,
+                "width": 339,
+                "height": 155.90625,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-6",
+                "tag": "a",
+                "text": "2026-10-24\n     \n      瓦上有一层盐\n      屋檐的瓦缝里结着白霜一样的盐。修表铺的老周说，这得连着三天东南风才有。",
+                "x": 18,
+                "y": 3218.625,
+                "width": 339,
+                "height": 133.8125,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-7",
+                "tag": "a",
+                "text": "2026-09-30\n     \n      四点三十分的靠港\n      渔船一艘接一艘进来，码头的水被搅成铁锈色。卸货的人不说话，只用手势。",
+                "x": 18,
+                "y": 3352.4375,
+                "width": 339,
+                "height": 133.8125,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-8",
+                "tag": "a",
+                "text": "2026-08-17\n     \n      退潮之后，滩涂上全是脚印\n      大潮退到最远的一道沙脊，赶海的人散开，像有人把一把芝麻撒在泥上。",
+                "x": 18,
+                "y": 3486.25,
+                "width": 339,
+                "height": 133.8125,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-9",
+                "tag": "a",
+                "text": "2026-07-02\n     \n      雨天不走远，只到巷口\n      雨从凌晨开始下，巷口的积水漫过第三级台阶。我站在屋檐下看了二十分钟的水纹。",
+                "x": 18,
+                "y": 3620.0625,
+                "width": 339,
+                "height": 133.8125,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "vib-link-10",
+                "tag": "a",
+                "text": "2026-05-19\n     \n      早市散场，海腥味留在石板上\n      七点半以后，摊子收得只剩两家。石板路的洼里还浮着两片鱼鳞，被太阳照得发亮。",
+                "x": 18,
+                "y": 3753.875,
+                "width": 339,
+                "height": 133.8125,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "letterName",
+                "tag": "input",
+                "text": "",
+                "x": 35,
+                "y": 4924.3125,
+                "width": 305,
+                "height": 42.5,
+                "fontSize": "14px",
+                "lineHeight": "24.5px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "letterMail",
+                "tag": "input",
+                "text": "",
+                "x": 35,
+                "y": 5008.9375,
+                "width": 305,
+                "height": 42.5,
+                "fontSize": "14px",
+                "lineHeight": "24.5px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "letterText",
+                "tag": "textarea",
+                "text": "",
+                "x": 35,
+                "y": 5093.5625,
+                "width": 305,
+                "height": 136.984375,
+                "fontSize": "14px",
+                "lineHeight": "23.8px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "button",
+                "text": "寄出这封信",
+                "x": 35,
+                "y": 5248.546875,
+                "width": 123.609375,
+                "height": 42.5,
+                "fontSize": "14px",
+                "lineHeight": "24.5px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "a",
+                "text": "回到这一篇",
+                "x": 294.765625,
+                "y": 5419.171875,
+                "width": 59.8125,
+                "height": 17,
+                "fontSize": "11.5px",
+                "lineHeight": "20.125px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "regions": [
+              {
+                "id": "",
+                "tag": "header",
+                "text": "潮声笔记\n  一个沿海小城居民的散步随笔 · 自 2019 年\n  \n   最新一篇旧文索引关于回信",
+                "x": 18,
+                "y": 0,
+                "width": 339,
+                "height": 146.375,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "nav",
+                "text": "最新一篇旧文索引关于回信",
+                "x": 18,
+                "y": 103.625,
+                "width": 339,
+                "height": 25.75,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "main",
+                "text": "最新一篇 · 2026 年 11 月 6 日 · 东南风 4 级 · 高潮 05:12 / 17:36\n   风从东南来，堤上的话都吹短了\n   潮退到第三道堤桩下面，卖豆浆的老陈把炉子挪到背风一面，说今天风大，碗要按着。堤面上昨夜的水痕还没干，一道一道。\n   林砚 · 走了 4.2 公里 · 约 6 分钟 · 6 封回信 · 读全文\n   \n    \n ",
+                "x": 18,
+                "y": 146.375,
+                "width": 339,
+                "height": 5161.671875,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "最新一篇 · 2026 年 11 月 6 日 · 东南风 4 级 · 高潮 05:12 / 17:36\n   风从东南来，堤上的话都吹短了\n   潮退到第三道堤桩下面，卖豆浆的老陈把炉子挪到背风一面，说今天风大，碗要按着。堤面上昨夜的水痕还没干，一道一道。\n   林砚 · 走了 4.2 公里 · 约 6 分钟 · 6 封回信 · 读全文",
+                "x": 18,
+                "y": 146.375,
+                "width": 339,
+                "height": 534.265625,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "section",
+                "text": "码头 · 2026-09-30\n    四点三十分的靠港\n    渔船一艘接一艘进来，码头的水被搅成铁锈色。卸货的人不说话，只用手势。 \n    \n    老街 · 2026-10-24\n    瓦上有一层盐\n    屋檐的瓦缝里结着白霜一样的盐。修表铺的老周说，这得连着三天东南风才有。 \n    \n     \n    \n    滩涂 · 2026-08-1",
+                "x": 18,
+                "y": 680.640625,
+                "width": 339,
+                "height": 947.03125,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "latest",
+                "tag": "section",
+                "text": "本篇摘录 · 05:50 记于堤上\n    这一次，从渔港路走到菜场\n    潮位 0.8 米 · 水色灰绿 · 堤面留着昨夜的水痕\n   \n   \n    六点出门，天还没亮透，堤上只有扫地的老周和一只跟着他走的黄狗。风从东南面一阵一阵压过来，把我的外套下摆掀起又放下，盐味比昨天重。\n    沿着海堤往南走，堤内的盐蒿都黄了，风一过就整片倒向一边，像有人在",
+                "x": 18,
+                "y": 1687.671875,
+                "width": 339,
+                "height": 889.8125,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "aside",
+                "text": "这个月的潮与风\n   东南风居多，潮位多在 0.6–1.1 米之间。堤上早晚凉，走到闸口要加一件外套；退潮后的滩涂湿滑，鞋底要带纹。\n   记于 2026 年 11 月 8 日",
+                "x": 18,
+                "y": 2621.484375,
+                "width": 339,
+                "height": 193.484375,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "index",
+                "tag": "section",
+                "text": "旧文索引\n   \n    按地方找 \n   \n   输入一个地名，下面的篇目会随之收窄；清空则全部回来。\n   \n     2026-11-06\n     \n      风从东南来，堤上的话都吹短了\n      潮退到第三道堤桩下面，卖豆浆的老陈把炉子挪到背风一面，说今天风大，碗要按着。堤面上昨夜的水痕还没干，一道一道。\n       2026-10-24\n",
+                "x": 18,
+                "y": 2874.96875,
+                "width": 339,
+                "height": 1012.71875,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "about",
+                "tag": "section",
+                "text": "关于这些笔记\n   \n    我叫林砚，在这座小城住了十一年。做着一份与海无关的工作，早晚上下班都经过同一段堤。这些笔记最初只是手机备忘录里的三五行，后来变成每周两次的散步记录：从渔港路出发，沿海堤走到闸口，再拐进老街或菜场。\n    天气、潮位、风的方向都记，因为它们决定那天能走多远。写下来的多半是些不重要的事：谁家的晾衣绳、哪一段堤面又裂了、鱼摊上还剩什",
+                "x": 18,
+                "y": 3947.6875,
+                "width": 339,
+                "height": 438.65625,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "letters",
+                "tag": "section",
+                "text": "回信\n    写信的人不多，但每封我都会登在这里。不必客气，说说你在哪个城市、走过什么样的堤就行。\n    \n     \n      陈默 · 2026-11-06 夜\n      看到「碗要按着」那句，想起我外婆家的海边也是这样，风大得要把话喊出来才听得见。\n     \n     \n      阿岚 · 2026-10-28\n      去年十月去过你们那",
+                "x": 18,
+                "y": 4446.34375,
+                "width": 339,
+                "height": 861.703125,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "陈默 · 2026-11-06 夜\n      看到「碗要按着」那句，想起我外婆家的海边也是这样，风大得要把话喊出来才听得见。",
+                "x": 18,
+                "y": 4602.4375,
+                "width": 339,
+                "height": 76.875,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "article",
+                "text": "阿岚 · 2026-10-28\n      去年十月去过你们那儿，堤上的盐蒿确实是黄的。老街那家修表铺还开着吗？",
+                "x": 18,
+                "y": 4699.3125,
+                "width": 339,
+                "height": 76.875,
+                "fontSize": "16px",
+                "lineHeight": "28px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              },
+              {
+                "id": "",
+                "tag": "footer",
+                "text": "潮声笔记 · 文字与图版均由作者本人所作\n  每周三、周日清晨更新 · 最近更新 2026-11-08\n  回到这一篇",
+                "x": 18,
+                "y": 5372.046875,
+                "width": 339,
+                "height": 65.25,
+                "fontSize": "11.5px",
+                "lineHeight": "20.125px",
+                "fontFamily": "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "horizontalScroll": null
+              }
+            ],
+            "visualProfile": {
+              "backgrounds": [
+                "rgb(243, 238, 226)"
+              ],
+              "fonts": [
+                "system-ui, -apple-system, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+                "\"Songti SC\", \"Noto Serif CJK SC\", Georgia, \"Times New Roman\", serif"
+              ],
+              "headingSizes": [
+                35.1,
+                21,
+                24
+              ],
+              "regions": [
+                {
+                  "display": "flex",
+                  "columns": 1,
+                  "widthRatio": 0.87
+                },
+                {
+                  "display": "flex",
+                  "columns": 4,
+                  "widthRatio": 0.87
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.87
+                },
+                {
+                  "display": "block",
+                  "columns": 1,
+                  "widthRatio": 0.87
                 }
               ]
             }
