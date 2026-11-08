@@ -214,3 +214,41 @@ test("AI opt-out discards delayed reply and mock API roundtrip works", async ({
   await page.waitForTimeout(1500);
   await expect(page.getByText("关闭后不能显示")).toHaveCount(0);
 });
+
+test("larger cat drags without clicking and stays reachable after resize", async ({
+  page,
+}) => {
+  await setup(page);
+  await page.goto("/");
+  const cat = page.getByTestId("companion-cat");
+  const before = (await cat.boundingBox())!;
+  expect(before.width).toBe(104);
+  await page.mouse.move(before.x + 50, before.y + 50);
+  await page.mouse.down();
+  await page.mouse.move(before.x - 250, before.y - 150, { steps: 8 });
+  await page.mouse.up();
+  const after = (await cat.boundingBox())!;
+  expect(after.x).toBeLessThan(before.x - 200);
+  expect(after.y).toBeLessThan(before.y - 100);
+  await expect(page.getByRole("button", { name: "关闭小猫气泡" })).toHaveCount(
+    0,
+  );
+  await cat.click();
+  await expect(
+    page.getByRole("button", { name: "关闭小猫气泡" }),
+  ).toBeVisible();
+  await page.setViewportSize({ width: 390, height: 600 });
+  await expect.poll(async () => (await cat.boundingBox())!.width).toBe(72);
+  const dock = page.getByTestId("companion-dock");
+  await expect
+    .poll(async () => {
+      const box = (await dock.boundingBox())!;
+      return (
+        box.x >= 0 &&
+        box.y >= 100 &&
+        box.x + box.width <= 390 &&
+        box.y + box.height <= 600
+      );
+    })
+    .toBe(true);
+});

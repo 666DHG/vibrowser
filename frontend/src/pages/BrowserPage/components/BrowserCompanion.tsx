@@ -5,6 +5,7 @@ import {
   useCompanionPreferences,
   listenCompanionPreferences,
 } from "../stores/companionStore";
+import { useCompanionDrag } from "../hooks/useCompanionDrag";
 import { useCompanion } from "../hooks/useCompanion";
 import { companionProgress } from "../functions/companionRules";
 import { NavigationProgress } from "./NavigationProgress";
@@ -26,6 +27,8 @@ export function BrowserCompanion({
   onSelectCandidate: (id: string) => void;
 }) {
   const preferences = useCompanionPreferences();
+  const { dock, position, dragging, suppressClick, ...dragEvents } =
+    useCompanionDrag(preferences.visible || !!tab.pending);
   const { speech, speak, dismiss } = useCompanion(
     tab,
     preferences,
@@ -48,6 +51,8 @@ export function BrowserCompanion({
   if (!preferences.visible && !pending) return null;
   return (
     <aside
+      ref={dock}
+      style={preferences.visible ? position : undefined}
       aria-label="小猫与浏览进度"
       data-testid="companion-dock"
       className={
@@ -85,8 +90,19 @@ export function BrowserCompanion({
         <button
           aria-label={pending ? "小猫：展开或折叠进度" : "摸摸小猫"}
           aria-expanded={pending ? open : undefined}
-          onClick={() => (pending ? setExpanded((v) => !v) : speak("click"))}
-          className="pointer-events-auto shrink-0 cursor-pointer rounded-xl focus-visible:outline-2 focus-visible:outline-[#b8d69a]"
+          {...dragEvents}
+          title="拖动小猫移动位置，点击互动"
+          onClick={(event) => {
+            if (event.detail !== 0 && suppressClick.current) {
+              suppressClick.current = false;
+              return;
+            }
+            pending ? setExpanded((v) => !v) : speak("click");
+          }}
+          className={
+            "pointer-events-auto shrink-0 touch-none select-none rounded-xl focus-visible:outline-2 focus-visible:outline-[#b8d69a] " +
+            (dragging ? "cursor-grabbing" : "cursor-grab")
+          }
           data-testid="companion-cat"
           data-expression={expression}
         >

@@ -77,8 +77,8 @@
 /* Browser companion: sprite frames and motion remain local to this region. */
 .cat-sprite {
   display: block;
-  width: 72px;
-  height: 72px;
+  width: 104px;
+  height: 104px;
   background-image: url("/companion/cat.png");
   background-size: 300% 200%;
   image-rendering: pixelated;
@@ -115,7 +115,7 @@
   content: "";
   position: absolute;
   bottom: -7px;
-  right: 27px;
+  right: 45px;
   width: 12px;
   height: 12px;
   background: #252c21;
@@ -158,11 +158,11 @@
 }
 @media (max-width: 639px) {
   .cat-sprite {
-    width: 48px;
-    height: 48px;
+    width: 72px;
+    height: 72px;
   }
   .cat-bubble::after {
-    right: 17px;
+    right: 29px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
