@@ -1,0 +1,18 @@
+{
+  "source" : "effort-sampling-v1/copy-new-standard.json",
+  "pageId" : "d92e164a-1938-42a3-8e7c-b1e7c7965c6a",
+  "jobId" : "48aa0fc0-05d7-4e46-9e2c-734e724ae440",
+  "originalFailureRetained" : true,
+  "extraModelCalls" : 0,
+  "normalizedKeys" : [
+    "copied01",
+    "copied02",
+    "copied03",
+    "copied04",
+    "copied05",
+    "copied06"
+  ],
+  "htmlUnchangedByDecoder" : true,
+  "validated" : false,
+  "remainingError" : "action requires region: act-submit"
+}

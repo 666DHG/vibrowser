@@ -1,10 +1,67 @@
 package services.generation
-import munit.FunSuite
+import munit.CatsEffectSuite
 import java.nio.file.{Files, Paths}
 import io.circe.parser.parse
 import io.circe.syntax.*
 import services.generation.utils.WebDocumentDecoder
-class WebDocumentDecoderSuite extends FunSuite:
+import services.browser.objects.*
+import services.browser.api.ValidateWebDocumentMessage
+class WebDocumentDecoderSuite extends CatsEffectSuite:
+  test("missing copy feedback initializes transient state without altering page content") {
+    val base = io.circe.parser
+      .decode[WebDocument](Files.readString(Paths.get("../contracts/web-documents/docs.json")))
+      .toOption
+      .get
+    val action = WebAction(
+      "copy-test",
+      WebActionKind.Copy,
+      "copy-test",
+      region = Some("copy-content"),
+      stateKey = Some("feedback")
+    )
+    val original = base.copy(
+      html =
+        base.html + "<p id='copy-content'>完整原文</p><button id='copy-test'>复制</button><output data-state='feedback'></output>",
+      actions = base.actions :+ action
+    )
+    val result = WebDocumentDecoder.decode(original.asJson.noSpaces).toOption.get
+    assertEquals(result.initialState, original.initialState + ("feedback" -> ""))
+    assertEquals(result.copy(initialState = original.initialState), original)
+    assertEquals(WebDocumentDecoder.decode(result.asJson.noSpaces), Right(result))
+    ValidateWebDocumentMessage(result, "https://sample.example/")
+      .plan(null)
+      .map(valid => assertEquals(valid.initialState("feedback"), ""))
+  }
+  test("copy feedback normalization does not invent business state or persistent values") {
+    val base = io.circe.parser
+      .decode[WebDocument](Files.readString(Paths.get("../contracts/web-documents/docs.json")))
+      .toOption
+      .get
+    val copy = WebAction(
+      "copy",
+      WebActionKind.Copy,
+      "copy",
+      region = Some("text"),
+      stateKey = Some("shared")
+    )
+    val increment =
+      WebAction("add", WebActionKind.Increment, "add", stateKey = Some("shared"), value = Some("1"))
+    for doc <- List(
+        base.copy(actions = List(copy, increment)),
+        base.copy(actions =
+          List(copy, WebAction("shared", WebActionKind.Toggle, "toggle", region = Some("panel")))
+        ),
+        base.copy(actions = List(copy), persistentKeys = List("shared")),
+        base.copy(actions = List(copy.copy(stateKey = None)))
+      )
+    do
+      assertEquals(
+        WebDocumentDecoder.decode(doc.asJson.noSpaces).toOption.get.initialState,
+        base.initialState
+      )
+    val existing = base.copy(actions = List(copy), initialState = Map("shared" -> "已有反馈"))
+    assertEquals(WebDocumentDecoder.decode(existing.asJson.noSpaces), Right(existing))
+  }
   test("provider scalar shorthand is normalized without accepting objects") {
     val json =
       parse(Files.readString(Paths.get("../contracts/web-documents/shop.json"))).toOption.get

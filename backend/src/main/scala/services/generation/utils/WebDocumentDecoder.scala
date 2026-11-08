@@ -55,5 +55,19 @@ private[generation] object WebDocumentDecoder:
         )
       })
       .flatMap(_.as[WebDocument])
+      .map { doc =>
+        val missingFeedback = doc.actions
+          .filter(_.kind == WebActionKind.Copy)
+          .flatMap(_.stateKey)
+          .filter(key =>
+            key.nonEmpty && !doc.initialState.contains(key) &&
+              !doc.persistentKeys.contains(key) && !doc.actions.exists(a =>
+                a.kind != WebActionKind.Copy && a.stateKey.getOrElse(a.id) == key
+              )
+          )
+          .map(_ -> "")
+          .toMap
+        doc.copy(initialState = doc.initialState ++ missingFeedback)
+      }
       .left
       .map(e => AppError("invalid_content", e.getMessage.take(2000), 502))
