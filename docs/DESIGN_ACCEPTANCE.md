@@ -1,5 +1,9 @@
 # 设计评审与两挡思考验收
 
+产品批次第三题（2026-11-08）：日期页 194 秒成功，前两份分别因 typography／palette 对象类型被拒，第三份通过；可选评审在 60 秒超时后保留原稿，未回传该次 usage。前述通用元数据兼容无需继续修改，原第一份已离线通过完整校验与 Copy、Toggle、Filter、锚点、搜索／导航提交回放，零模型请求。[日期原响应](acceptance/style-metadata-replay-calendar.json)、[交互](acceptance/style-metadata-calendar-interactions.json)。原批次仍记录三次生成，不替换成离线成功。
+
+当前产品批次仅完成 3/6，最终成功 3、首轮成功 1，14 次调用、550 秒；已记录 token 不是完整费用总数。三份最终页面的浏览器回放通过，后续器具对比、技术文档和随笔仍待结果。所有改进与失败保留，尚未宣布设计默认启用。
+
 产品批次第二题与兼容修复（2026-11-08）：文案页 194 秒、5 次请求后成功；第一份响应仅因 `siteStyle.palette` 是对象而非字符串被拒，第二份通过，随后采用一次评审改进。新解码器仅将 typography／palette／layout 的对象或数组无损序列化为描述字符串；品牌身份、业务状态、HTML/CSS 和动作仍按原类型校验。没有新增 prompt，不根据配色名称或单个样本定规则。
 
 37 项解码／文档／设计流程测试通过；原第一份响应离线解码、规范化、完整校验通过，HTML／CSS 未变、配色 JSON 可完整恢复；复制、锚点及搜索／导航提交浏览器回放通过，零模型请求。[离线记录](acceptance/style-metadata-replay.json)、[交互](acceptance/style-metadata-interactions.json)。原批次仍使用启动时构建，文案首轮失败保留，不改写为首轮成功。

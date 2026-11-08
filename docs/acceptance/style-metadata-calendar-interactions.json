@@ -1,0 +1,19 @@
+[
+  {
+    "file": "calendar-new-standard.json",
+    "localActions": [
+      "act-toggle-more"
+    ],
+    "searchSubmitted": true,
+    "navigationSubmitted": true,
+    "anchorVerified": false,
+    "copyVerified": true,
+    "copyContentPreserved": true,
+    "copyRawSource": "generation",
+    "filterVerified": true,
+    "sortVerified": false,
+    "sortLocale": null,
+    "limitations": [],
+    "extraModelCalls": 0
+  }
+]

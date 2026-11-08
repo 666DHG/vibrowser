@@ -1,0 +1,11 @@
+{
+  "source" : "effort-guidance-v8-product/calendar-new-standard.json",
+  "sourceAttempt" : 1,
+  "originalFailureRetained" : true,
+  "extraModelCalls" : 0,
+  "validated" : true,
+  "remainingError" : null,
+  "htmlUnchangedByDecoder" : true,
+  "cssUnchangedByDecoder" : true,
+  "palettePreserved" : true
+}

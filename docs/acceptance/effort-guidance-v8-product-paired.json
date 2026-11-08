@@ -1,7 +1,7 @@
 {
   "complete": false,
   "plannedPairs": 6,
-  "recordedPairs": 2,
+  "recordedPairs": 3,
   "scope": "Same fixed input, date, retrieval sources and guidance. Effort applies to the entire pipeline, including generated briefs and subsequent visual-reference history; this is not a generation-only causal experiment. No visual quality conclusion is inferred from success counts.",
   "additionalChanges": "Uses the subsequent host CSS math compatibility fix. Separate normalization repairs from design differences; this is not an otherwise-identical binary comparison.",
   "pairs": [
@@ -102,7 +102,7 @@
     {
       "topic": "calendar",
       "requestHash": "2c2ef68b6d3f4f7d79d7dee51964c589125d9ab94e99ebc4d103649ba22cae40",
-      "paired": false,
+      "paired": true,
       "standard": {
         "pageId": "ea752eef-7c54-4d56-8435-7c86b30c9e8f",
         "jobId": "6979aa3e-d822-4c62-ad81-d885d904805a",
@@ -124,7 +124,27 @@
         "htmlUnchangedByReview": true,
         "cssUnchangedByReview": true
       },
-      "product": null
+      "product": {
+        "pageId": "fec4e073-c3a4-49ba-8a6f-6e4ece73ec37",
+        "jobId": "14d25cdd-17cc-4899-9917-c36d856e90ee",
+        "ready": true,
+        "error": null,
+        "firstGenerationAccepted": false,
+        "seconds": 194,
+        "calls": 5,
+        "usageComplete": false,
+        "totalTokens": null,
+        "recordedReasoningTokens": 13719,
+        "selection": "Original",
+        "selectedDirection": {
+          "concept": "编辑式双栏纪事",
+          "structure": "采用非对称双栏，左侧以大号日期和特殊日子名称作封面式锚点，右侧按阅读节奏分组解释、相关条目和来源；日期切换弱化为顶部工具。",
+          "typography": "标题用衬线或高对比展示字体表达日历纪事感，正文用无衬线保证可读，注释与来源用小号字体，形成标题引导阅读的节奏。",
+          "contentReason": "特殊日子的名称和解释具有阅读性，双栏让访客先看到答案，再由标题引导读说明和相关内容，适合需要理解而不只是扫描的场景。"
+        },
+        "htmlUnchangedByReview": true,
+        "cssUnchangedByReview": true
+      }
     },
     {
       "topic": "comparison",

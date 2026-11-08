@@ -9,10 +9,17 @@ import services.generation.utils.WebDocumentDecoder
 
 /** Validate the original first response; never changes the paid experiment. */
 object StyleMetadataReplay extends IOApp.Simple:
+  private val topic = sys.env.getOrElse("VIBROWSER_STYLE_REPLAY_TOPIC", "copy")
+  private val suffix = if topic == "copy" then "" else "-" + topic
   def run: IO[Unit] = for
+    _ <- IO.raiseUnless(Set("copy", "calendar")(topic))(
+      new IllegalArgumentException("Recorded sample required")
+    )
     record <- IO.blocking(
       parse(
-        Files.readString(Paths.get("../.cache/effort-guidance-v8-product/copy-new-standard.json"))
+        Files.readString(
+          Paths.get(s"../.cache/effort-guidance-v8-product/$topic-new-standard.json")
+        )
       ).toOption.get
     )
     attempt = record.hcursor.get[List[Json]]("attempts").toOption.get.head
@@ -27,11 +34,11 @@ object StyleMetadataReplay extends IOApp.Simple:
       .flatMap(doc => ValidateWebDocumentMessage(doc, address).plan(null))
       .attempt
     _ <- IO.blocking {
-      val directory = Paths.get("../.cache/style-metadata-replay")
+      val directory = Paths.get("../.cache/style-metadata-replay" + suffix)
       Files.createDirectories(directory)
       result.foreach(doc =>
         Files.writeString(
-          directory.resolve("copy-new-standard.json"),
+          directory.resolve(topic + "-new-standard.json"),
           record
             .deepMerge(
               Json.obj(
@@ -47,10 +54,10 @@ object StyleMetadataReplay extends IOApp.Simple:
         )
       )
       Files.writeString(
-        Paths.get("../docs/acceptance/style-metadata-replay.json"),
+        Paths.get("../docs/acceptance/style-metadata-replay" + suffix + ".json"),
         Json
           .obj(
-            "source" -> "effort-guidance-v8-product/copy-new-standard.json".asJson,
+            "source" -> s"effort-guidance-v8-product/$topic-new-standard.json".asJson,
             "sourceAttempt" -> 1.asJson,
             "originalFailureRetained" -> true.asJson,
             "extraModelCalls" -> 0.asJson,
