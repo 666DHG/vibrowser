@@ -89,3 +89,9 @@ v4 将内容规划与视觉设计分离。固定六题均有终态，6/6 ready�
 证据：[v4 用量](acceptance/effort-guidance-v4.json)、[视觉判断](acceptance/effort-guidance-v4-visual.json)、[运行时回放](acceptance/effort-guidance-v4-interactions.json)、[单次正文修复](acceptance/summary-binding-repair.json)、[修复后交互](acceptance/summary-binding-interactions.json)。Scala 当前 104 项通过，前端格式检查通过；整体风格目标仍未完成，不用增加个别样本规则掩盖。
 
 当前 Summary 保护构建的 v3 Mock 浏览器回归再次通过 11/11，覆盖书签、模式、检索、三类运行时、连续搜索与局部任务；无真实模型请求。已恢复 LIVE，设计实验默认关闭。
+
+### 动作契约去重（2026-11-08）
+
+检查实际请求发现，设计流程的生成与改进阶段同时在 system 和 user 消息中附带整段动作契约。现仅在 system 提供一次完整协议及已有能力限制；user 消息保留当前需求、上下文、简报或待修正页面。评审仍独立收到动作契约，默认非实验生成不改变。没有新增交互细则、风格约束或模板。
+
+新增 PostgreSQL 流程测试实际截获生成、格式修复、评审后改进的请求，验证 Copy 契约只出现一次、能力限制与来源上下文仍保留，调用次数不增加。DesignWorkflowSuite 12 项、DesignPreservationSuite 5 项通过，Scala 编译及格式完成。此项只证明去除重复提示且协议未丢失，未发起新付费样本，不宣称风格门槛通过。运行中的 LIVE 默认未开启实验流程。

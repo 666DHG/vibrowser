@@ -148,10 +148,18 @@ private[generation] final class DesignWorkflowGeneration(
         )
       }
       fullPrompt =
-        prompt + "\n设计指导：\n" + guidance.design + "\n交互能力：\n" + WebDocumentPrompt.actionContract + "\n设计说明：" + planned.brief.asJson.noSpaces
+        prompt + "\n设计指导：\n" + guidance.design + "\n设计说明：" + planned.brief.asJson.noSpaces
       candidate <- planned.candidate match
         case Some(doc) => generator.validate(page, doc.asJson.noSpaces, snapshot, research)
-        case None      => generator.generate(config, page, fullPrompt, snapshot, research)
+        case None =>
+          generator.generate(
+            config,
+            page,
+            fullPrompt,
+            snapshot,
+            research,
+            WebDocumentPrompt.designSystem
+          )
       saved <-
         if planned.candidate.nonEmpty then IO.pure(planned)
         else save(page, planned.copy(candidate = Some(candidate)))
@@ -188,7 +196,7 @@ private[generation] final class DesignWorkflowGeneration(
             response <- client
               .complete(
                 config,
-                WebDocumentPrompt.system,
+                WebDocumentPrompt.designSystem,
                 DesignPrompts.improveRequest(prompt, reviewed, candidate),
                 false
               )

@@ -24,11 +24,14 @@ HTML/CSS 合计最多120000字符，2000节点，24层，64动作，128实体。
 """
   val system = legacySystem.linesIterator.filterNot(_.startsWith("按用途提供可操作功能：")).mkString("\n") +
     "\n按当前内容与访问者任务决定交互，不按网站类型凑固定控件。主体 subjectEntityId 必须引用 entities 中实际存在的 ID；同页不同实体可以用不同 #fragment 标识，保持引用一致。"
+  val actionLimitations =
+    "Filter 只做字符串包含匹配，每次覆盖该区域的显示结果，不支持多条件叠加或数值范围比较。Set 只更新字符串和 data-state 显示，不会驱动筛选或业务计算。radio/checkbox 只改变自身选中状态，可作为表单输入，不会自动执行筛选；页面不得把它们描述为已经实现的即时筛选。"
+  val designSystem = system + "\n" + actionLimitations
   val actionContract = system.linesIterator
     .dropWhile(!_.startsWith("每个动作"))
     .takeWhile(!_.startsWith("entities "))
     .mkString("\n") +
-    "\nFilter 只做字符串包含匹配，每次覆盖该区域的显示结果，不支持多条件叠加或数值范围比较。Set 只更新字符串和 data-state 显示，不会驱动筛选或业务计算。radio/checkbox 只改变自身选中状态，可作为表单输入，不会自动执行筛选；页面不得把它们描述为已经实现的即时筛选。"
+    "\n" + actionLimitations
   def request(page: PageRecord): String = Json
     .obj(
       "target" -> GenerationTargets.describe(page).asJson,

@@ -66,4 +66,4 @@ private[generation] object DesignPrompts:
         "document" -> doc.asJson
       )
       .noSpaces +
-      "\n仅落实有证据的问题，返回完整 WebDocument JSON。保持原正文、实体事实、实体ID、动作ID/定义、初始状态与持久化声明；优先重排内容和修改CSS，不删除功能。评审 target 明确指定动作ID或原元素ID且原触发元素类型错误时，可只修正该动作的 elementId，Search/Submit 绑定 form，Toggle/Switch 绑定 button，其他定义不变。\n" + WebDocumentPrompt.actionContract
+      "\n仅落实有证据的问题，返回完整 WebDocument JSON。保持原正文、实体事实、实体ID、动作ID/定义、初始状态与持久化声明；优先重排内容和修改CSS，不删除功能。评审 target 明确指定动作ID或原元素ID且原触发元素类型错误时，可只修正该动作的 elementId，Search/Submit 绑定 form，Toggle/Switch 绑定 button，其他定义不变。\n"

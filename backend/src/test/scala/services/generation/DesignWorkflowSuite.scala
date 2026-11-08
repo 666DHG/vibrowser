@@ -145,6 +145,52 @@ class DesignWorkflowSuite extends CatsEffectSuite:
       yield ()
     }
   }
+  test(
+    "generation, repair and refinement send one complete action contract without user duplication"
+  ) {
+    isolated { db =>
+      for
+        calls <- Ref.of[IO, Int](0)
+        nav <- db.transaction(NavigateMessage("single-contract.example", None).plan)
+        _ <- db.transaction(ClaimGenerationJobMessage().plan)
+        page <- db.transaction(c => PageTable.findById(c, nav.pageId)).map(_.get)
+        client = new TextGenerationClient:
+          def complete(
+              c: ProviderConnection,
+              system: String,
+              prompt: String,
+              test: Boolean
+          ): IO[String] =
+            calls.getAndUpdate(_ + 1).map { index =>
+              if Set(1, 2, 4)(index) then
+                assert(system.contains(WebDocumentPrompt.system))
+                assert(system.contains(WebDocumentPrompt.actionLimitations))
+                assertEquals(
+                  (system + prompt).sliding("Copy: 绑定 button".length).count(_ == "Copy: 绑定 button"),
+                  1
+                )
+                assert(!prompt.contains(WebDocumentPrompt.actionContract))
+                assert(prompt.contains("source-context-marker"))
+              index match
+                case 0 => brief.asJson.noSpaces
+                case 1 => "{}"
+                case 2 => fixture.asJson.noSpaces
+                case 3 => review.asJson.noSpaces
+                case 4 => fixture.asJson.noSpaces
+                case _ => fail("unexpected model request")
+            }
+        result <- new DesignWorkflowGeneration(db, client, meter()).generate(
+          config,
+          page,
+          "source-context-marker",
+          None,
+          None
+        )
+        _ = assertEquals(result.title, fixture.title)
+        _ <- calls.get.map(n => assertEquals(n, 5))
+      yield ()
+    }
+  }
   test("worker supplies the persisted page effort to generation") {
     isolated { db =>
       val client = new TextGenerationClient:
