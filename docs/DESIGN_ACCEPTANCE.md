@@ -14,7 +14,7 @@
 | 深入请求容量及等待预算 | 标准 24,000／深入 48,000 输出上限；单次生成 180／600 秒；前端等待 30／90 分钟，按提交快照决定。31／91 分钟时间跳转回归通过。两例原截断输入在新容量下单次正常结束。 |
 | 不泄漏思考或凭据 | 客户端只取 content；报告记录请求参数、usage 和失败信息，不保存 reasoning_content 或密钥。 |
 
-当前代码 Scala 格式与 101 项测试通过；前端格式、42 项单测、类型／生产构建通过。最新运行时与档位浏览器定向 8 项通过。完整 Mock 分模式回归仍待完成，不能据定向检查宣称最终全绿。
+当前代码 Scala 格式与 101 项测试通过；前端格式、42 项单测、类型／生产构建通过。最新运行时与档位浏览器定向 8 项通过。最终旧格式 Mock 回归 36 项通过、2 个 v3 专用用例跳过；随后 v3 Mock 11 项全通过，包含跳过的用例及 v3 书签。两批合起来覆盖当前 39 个浏览器用例，重复执行的用例不计作独立覆盖。详见[浏览器结果](acceptance/effort-browser-regression.json)。
 
 ## 固定真实对照
 
@@ -49,7 +49,25 @@ v2 与 v3 均只有三组明确的任务相关结构／排版改善，未达到�
 
 下一日品牌描述扩写导致字符串不相等，但页面站名未变化，人工检查单独记录；大号日期有换行不足，记录而不增加场景规则。两页的复制、展开、搜索／导航提交运行时回放通过。真实生成与隔离回放分开记录：[任务及用量](acceptance/effort-continuity.json)、[视觉核对](acceptance/effort-continuity-visual.json)、[运行时](acceptance/effort-continuity-interactions.json)。
 
-## 尚待收尾
+## 当前运行与完成审计
 
-- 旧格式 Mock 完整回归，v3 Mock 集成回归。
-- 最终 LIVE 恢复、roadmap 同步和当前状态审计。
+服务已恢复 `http://127.0.0.1:5173/`，健康检查 `mock:false`；新会话默认 imagination／standard，正常临时页面清理策略恢复，设计实验开关关闭。[LIVE 首页截图](screenshots/effort-live.png)。
+
+交互修复、评审误判修复、两挡持久化与隔离、容量复测、前后日真实连续浏览、自动化回归和运行恢复均有当前证据。设计指导已精简并完成固定对照，但“四组实质结构／排版改善”只观察到三组，目标二验收尚未通过；因此本轮整体目标仍保持进行中，不以功能测试全绿代替风格结果。
+
+复验命令（真实样本回放不发模型请求）：
+
+```powershell
+.\scripts\check.ps1
+cd frontend
+node tools/review-effort.mjs --complete
+node tools/review-effort.mjs --guidance-v3 --complete
+node tools/review-continuity.mjs
+# 旧格式 Mock 服务下；书签用例使用 v3 样例，在下一批运行
+npx playwright test --grep-invert 'bookmarks persist'
+# 默认 v3 Mock 服务下
+$env:VIBROWSER_V3_MOCK_SMOKE='true'
+npx playwright test tests/e2e/bookmarks.spec.ts tests/e2e/modes.spec.ts tests/e2e/research.spec.ts tests/e2e/research-ui.spec.ts tests/e2e/web-runtime.spec.ts tests/e2e/web-worker.spec.ts
+```
+
+固定真实运行器已有启动／结果标识，不能直接重跑覆写原样本。重新实验须有明确的新变更与独立结果位置；不为追求漂亮结果重复抽样。
