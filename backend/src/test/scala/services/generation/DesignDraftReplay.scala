@@ -10,11 +10,14 @@ import services.generation.utils.{DesignPreservation, WebDocumentDecoder}
 
 /** Check saved assembly attempts without rerolling or changing the original experiment. */
 object DesignDraftReplay extends IOApp.Simple:
+  private val topic = sys.env.getOrElse("VIBROWSER_DRAFT_REPLAY_TOPIC", "copy")
+  require(Set("copy", "comparison")(topic), "Replay only a recorded fixed sample")
+  private val suffix = if topic == "copy" then "" else "-" + topic
   def run: IO[Unit] =
     for
       record <- IO.blocking(
         parse(
-          Files.readString(Paths.get("../.cache/effort-guidance-v9/copy-new-standard.json"))
+          Files.readString(Paths.get(s"../.cache/effort-guidance-v9/$topic-new-standard.json"))
         ).toOption.get
       )
       request = record.hcursor.get[String]("request").toOption.get
@@ -41,23 +44,23 @@ object DesignDraftReplay extends IOApp.Simple:
         yield validated).attempt.map(result => (attempt, result))
       }
       _ <- IO.blocking {
-        val directory = Paths.get("../.cache/design-draft-replay")
+        val directory = Paths.get(s"../.cache/design-draft-replay$suffix")
         Files.createDirectories(directory)
         attempts
           .collectFirst { case (_, Right(document)) => document }
           .foreach(document =>
             Files.writeString(
-              directory.resolve("copy-new-standard.json"),
+              directory.resolve(s"$topic-new-standard.json"),
               record
                 .deepMerge(Json.obj("document" -> document.asJson, "error" -> Json.Null))
                 .spaces2
             )
           )
         Files.writeString(
-          Paths.get("../docs/acceptance/design-draft-replay.json"),
+          Paths.get(s"../docs/acceptance/design-draft-replay$suffix.json"),
           Json
             .obj(
-              "source" -> "effort-guidance-v9/copy-new-standard.json".asJson,
+              "source" -> s"effort-guidance-v9/$topic-new-standard.json".asJson,
               "originalFailureRetained" -> true.asJson,
               "extraModelCalls" -> 0.asJson,
               "attempts" -> attempts.map { case (attempt, result) =>

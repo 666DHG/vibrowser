@@ -1,0 +1,76 @@
+[
+  {
+    "file": "academic-new-standard.json",
+    "localActions": [],
+    "searchSubmitted": false,
+    "navigationSubmitted": true,
+    "anchorVerified": true,
+    "copyVerified": false,
+    "copyContentPreserved": null,
+    "copyRawSource": "generation",
+    "filterVerified": true,
+    "sortVerified": true,
+    "limitations": [],
+    "extraModelCalls": 0
+  },
+  {
+    "file": "calendar-new-standard.json",
+    "localActions": [],
+    "searchSubmitted": true,
+    "navigationSubmitted": false,
+    "anchorVerified": true,
+    "copyVerified": true,
+    "copyContentPreserved": true,
+    "copyRawSource": "generation",
+    "filterVerified": true,
+    "sortVerified": true,
+    "limitations": [],
+    "extraModelCalls": 0
+  },
+  {
+    "file": "comparison-new-standard.json",
+    "localActions": [],
+    "searchSubmitted": true,
+    "navigationSubmitted": false,
+    "anchorVerified": true,
+    "copyVerified": false,
+    "copyContentPreserved": true,
+    "copyRawSource": "generation",
+    "filterVerified": true,
+    "sortVerified": true,
+    "limitations": [
+      "Copy target is empty; runtime dispatch matched but useful copying was not verified."
+    ],
+    "extraModelCalls": 0
+  },
+  {
+    "file": "docs-new-standard.json",
+    "localActions": [],
+    "searchSubmitted": true,
+    "navigationSubmitted": false,
+    "anchorVerified": true,
+    "copyVerified": true,
+    "copyContentPreserved": true,
+    "copyRawSource": "improvement",
+    "filterVerified": true,
+    "sortVerified": true,
+    "limitations": [],
+    "extraModelCalls": 0
+  },
+  {
+    "file": "essay-new-standard.json",
+    "localActions": [
+      "act-toggle-keelung"
+    ],
+    "searchSubmitted": true,
+    "navigationSubmitted": false,
+    "anchorVerified": true,
+    "copyVerified": true,
+    "copyContentPreserved": true,
+    "copyRawSource": "generation",
+    "filterVerified": true,
+    "sortVerified": true,
+    "limitations": [],
+    "extraModelCalls": 0
+  }
+]

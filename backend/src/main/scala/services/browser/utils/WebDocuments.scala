@@ -313,8 +313,9 @@ private[browser] object WebDocuments:
         doc.persistentKeys.forall(doc.initialState.contains),
         "persistent state key missing"
       )
-      requireThat(CSSReader.isValidCSS(doc.css, ECSSVersion.CSS30), "CSS syntax invalid")
-      val css = Option(CSSReader.readFromString(doc.css, ECSSVersion.CSS30)).getOrElse(
+      val compatibleCss = CssMathCompatibility.prepare(doc.css)
+      requireThat(CSSReader.isValidCSS(compatibleCss, ECSSVersion.CSS30), "CSS syntax invalid")
+      val css = Option(CSSReader.readFromString(compatibleCss, ECSSVersion.CSS30)).getOrElse(
         throw AppError("invalid_content", "CSS parse failed", 502)
       )
       val rendered = new CSSWriter(ECSSVersion.CSS30, false).getCSSAsString(css)

@@ -13,6 +13,36 @@ class WebDocumentSuite extends FunSuite:
       assert(WebDocuments.prepare(fixture(name), "https://sample.example/").isRight)
     }
   }
+  test("CSS math retains responsive container declarations") {
+    val doc = fixture("docs").copy(
+      css = ".wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}"
+    )
+    val css = WebDocuments.prepare(doc, "https://sample.example/").toOption.get.css
+    assert(css.contains("1120px"), css)
+    assert(css.contains("2.5rem"), css)
+    assert(css.contains("margin-inline:auto"), css)
+  }
+  test("CSS math compatibility respects nested functions, comments and strings") {
+    val source = "/* min(1px,2px - 1px) */\r\n\tp::before{content:'max(1,2 - 1)'}\r\n" +
+      "p{width:clamp(10px,min(80vw,100% - 2rem) + 1px,1200px);height:min(var(--range),10px)}"
+    val prepared = services.browser.utils.CssMathCompatibility.prepare(source)
+    assert(prepared.contains("/* min(1px,2px - 1px) */"), prepared)
+    assert(prepared.contains("content:'max(1,2 - 1)'"), prepared)
+    assert(prepared.contains("min(var(--range),10px)"), prepared)
+    val result = WebDocuments.prepare(fixture("docs").copy(css = source), "https://sample.example/")
+    assert(result.isRight, result.toString)
+    val css = result.toOption.get.css
+    assert(css.contains("1200px") && css.contains("2rem") && css.contains("1px"), css)
+    assert(
+      WebDocuments
+        .prepare(
+          fixture("docs")
+            .copy(css = "p{width:min(100%,20px + 1px);background:url(https://example.com/x)}"),
+          "https://sample.example/"
+        )
+        .isLeft
+    )
+  }
   test("text figures retain captions and CSS layout without allowing external media") {
     val base = fixture("docs")
     val figure =
