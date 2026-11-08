@@ -32,6 +32,8 @@ private[browser] object WebDocuments:
     "nav",
     "section",
     "article",
+    "figure",
+    "figcaption",
     "aside",
     "div",
     "span",
@@ -87,6 +89,7 @@ private[browser] object WebDocuments:
     "progress"
   )
   private val attributes = Set(
+    "cite",
     "id",
     "class",
     "title",

@@ -4,7 +4,7 @@ import io.circe.Json
 import io.circe.parser.parse
 import io.circe.syntax.*
 import java.nio.file.{Files, Paths}
-import services.browser.api.ValidateWebDocumentMessage
+import services.browser.api.{ValidateWebDocumentMessage, NormalizeWebDocumentMessage}
 import services.generation.utils.WebDocumentDecoder
 
 /** Replay the preserved failed response without another model request. */
@@ -32,7 +32,10 @@ object CopyFeedbackReplay extends IOApp.Simple:
         .get[String]("address")
         .toOption
         .get
-      validated <- ValidateWebDocumentMessage(decoded, address).plan(null).attempt
+      validated <- NormalizeWebDocumentMessage(decoded, address)
+        .plan(null)
+        .flatMap(normalized => ValidateWebDocumentMessage(normalized, address).plan(null))
+        .attempt
       _ <- IO.blocking {
         val directory = Paths.get("../.cache/copy-feedback-replay")
         Files.createDirectories(directory)

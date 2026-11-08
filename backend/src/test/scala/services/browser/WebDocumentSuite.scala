@@ -13,6 +13,39 @@ class WebDocumentSuite extends FunSuite:
       assert(WebDocuments.prepare(fixture(name), "https://sample.example/").isRight)
     }
   }
+  test("text figures retain captions and CSS layout without allowing external media") {
+    val base = fixture("docs")
+    val figure =
+      "<figure id='diagram'><blockquote cite='https://sample.example/walk'>海岸 ── 街巷</blockquote><figcaption>晚间散步路线</figcaption></figure>"
+    val doc = base.copy(
+      html = base.html + figure,
+      css =
+        base.css + "figure{display:grid;grid-template-columns:1fr 1fr}figcaption{font-style:italic}"
+    )
+    val result = WebDocuments.prepare(doc, "https://sample.example/").toOption.get
+    assert(result.html.contains("<figure id=\"diagram\">"))
+    assertEquals(
+      org.jsoup.Jsoup
+        .parseBodyFragment(result.html)
+        .selectFirst("figure#diagram > figcaption")
+        .text(),
+      "晚间散步路线"
+    )
+    for content <- List(
+        "<img src='https://example.com/a.png'>",
+        "<script>alert(1)</script>",
+        "<iframe src='https://example.com'></iframe>"
+      )
+    do
+      assert(
+        WebDocuments
+          .prepare(
+            base.copy(html = "<figure>" + content + "<figcaption>说明</figcaption></figure>"),
+            "https://sample.example/"
+          )
+          .isLeft
+      )
+  }
   test(
     "Copy requires a real text region and transient feedback; Set cannot promise clipboard success"
   ) {
